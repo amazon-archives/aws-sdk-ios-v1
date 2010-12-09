@@ -1,0 +1,138 @@
+/*
+ * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License").
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the "license" file accompanying this file. This file is distributed
+ * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+
+#import "S3PutObjectRequest.h"
+
+@implementation S3PutObjectRequest
+
+@synthesize cacheControl;
+@synthesize contentDisposition;
+@synthesize contentEncoding;
+@synthesize contentMD5;
+@synthesize data;
+@synthesize stream;
+@synthesize expect;
+
+-(id)init
+{
+	if(self = [super init])
+	{
+		expiresSet = NO;
+	}
+	return self;
+}
+
+-(void)setExpires:(int)exp
+{
+	expires    = exp;
+	expiresSet = YES;
+}
+
+-(int)expires
+{
+	return expires;
+}
+
+-(NSMutableURLRequest *)configureURLRequest
+{
+	[super configureURLRequest];
+	
+	[urlRequest setHTTPMethod:kHttpMethodPut];
+	
+	if (nil != self.expect)             [self.urlRequest setValue:self.expect             forHTTPHeaderField:kHttpHdrExpect];
+	if (nil != self.contentMD5)         [self.urlRequest setValue:self.contentMD5         forHTTPHeaderField:kHttpHdrContentMD5];
+	if (nil != self.contentEncoding)    [self.urlRequest setValue:self.contentEncoding    forHTTPHeaderField:kHttpHdrContentEncoding];
+	if (nil != self.contentDisposition) [self.urlRequest setValue:self.contentDisposition forHTTPHeaderField:kHttpHdrContentDisposition];
+	if (nil != self.cacheControl)       [self.urlRequest setValue:self.cacheControl       forHTTPHeaderField:kHttpHdrCacheControl];
+	
+	if (expiresSet) [self.urlRequest setValue:[NSString stringWithFormat:@"%d", self.expires] forHTTPHeaderField:kHttpHdrExpires];
+	
+	if (self.stream != nil) {
+		[self.urlRequest setHTTPBodyStream:self.stream];
+	}
+	else {
+		[self.urlRequest setHTTPBody:data];
+		if (self.contentLength < 1) {
+			[self.urlRequest setValue:[NSString stringWithFormat:@"%d", [data length]] forHTTPHeaderField:kHttpHdrContentLength];
+		}
+	}
+	
+	return urlRequest;
+}
+
+-(id)initWithKey:(NSString *)aKey inBucket:(NSString *)aBucket
+{
+	[self init];
+	self.key    = aKey;
+	self.bucket = aBucket;
+	
+	return self;
+}
+
+-(void)setFilename:(NSString *)theFilename
+{
+	if (filename != nil) {
+		[filename release];
+		filename = nil;
+	}
+	
+	filename = [theFilename retain];
+	
+	if (![[NSFileManager defaultManager] isReadableFileAtPath:self.filename]) {
+		@throw [AmazonClientException exceptionWithMessage:@"The specified file cannot be read."];
+	}
+	
+	self.contentLength = [[[[NSFileManager defaultManager] attributesOfItemAtPath:self.filename error:nil] valueForKey:NSFileSize] intValue];
+	self.contentType = [AmazonSDKUtil MIMETypeForExtension:[self.filename pathExtension]];
+	
+	@try {
+		if (stream != nil) {
+			[stream release];
+			stream = nil;
+		}
+		stream = [[[NSInputStream alloc] initWithFileAtPath:filename] retain];
+	}
+	@catch (NSException * e) {
+		@throw [AmazonClientException exceptionWithMessage:[NSString stringWithFormat:@"Could not open file for streaming: ", e.reason]];
+	}
+}
+
+-(NSString *)filename
+{
+	return filename;
+}
+
+#ifdef DEBUG
+- (void)connection:(NSURLConnection *)connection didSendBodyData:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
+{
+	AMZLog( @"Wrote %d bytes to the connection", bytesWritten );
+}
+#endif
+
+-(void)dealloc
+{
+	[expect             release];
+	[contentMD5         release];
+	[cacheControl       release];
+	[contentEncoding    release];
+	[contentDisposition release];
+	[filename			release];
+	[stream				release];
+	[data               release];
+	
+	[super dealloc];
+}
+
+@end

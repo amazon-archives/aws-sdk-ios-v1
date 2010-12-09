@@ -1,0 +1,83 @@
+/*
+ * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License").
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the "license" file accompanying this file. This file is distributed
+ * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+
+#import "S3GetObjectRequest.h"
+
+@implementation S3GetObjectRequest
+
+@synthesize ifModifiedSince;
+@synthesize ifUnmodifiedSince;
+@synthesize ifMatch;
+@synthesize ifNoneMatch;
+@synthesize outputStream;
+@synthesize rangeStart;
+@synthesize rangeEnd;
+
+-(id)initWithKey:(NSString *)aKey withBucket:(NSString *)aBucket
+{
+	if(self = [self init]) { 
+		self.bucket = aBucket;
+		self.key    = aKey;
+	}
+	   
+	return self;
+}
+
+-(NSMutableURLRequest *)configureURLRequest
+{
+	[super configureURLRequest];
+	
+	[urlRequest setHTTPMethod:kHttpMethodGet]; 
+	
+	if (nil != self.ifModifiedSince)   [urlRequest setValue:[self.ifModifiedSince   requestFormat] forHTTPHeaderField:kHttpHdrIfModified];
+	if (nil != self.ifUnmodifiedSince) [urlRequest setValue:[self.ifUnmodifiedSince requestFormat] forHTTPHeaderField:kHttpHdrIfUnmodified];
+	if (nil != self.ifMatch)           [urlRequest setValue:self.ifMatch                           forHTTPHeaderField:kHttpHdrIfMatch];
+	if (nil != self.ifNoneMatch)       [urlRequest setValue:self.ifNoneMatch                       forHTTPHeaderField:kHttpHdrIfNoneMatch];
+	
+	if(rangeSet) [urlRequest setValue:[self getRange] forHTTPHeaderField:kHttpHdrRange];
+	
+	return urlRequest;
+}
+
+-(NSString *)getRange
+{
+	if (rangeSet)
+		return [NSString stringWithFormat:@"bytes=%d-%d", rangeStart, rangeEnd];
+	
+	return nil;
+}
+
+-(void)setRangeStart:(int)start rangeEnd:(int)end
+{
+	if (end <= start) {
+		@throw [AmazonClientException exceptionWithName:@"Invalid range" reason:@"rangeEnd must be larger than rangeStart" userInfo:nil];
+	}
+	
+	rangeStart = start;
+	rangeEnd = end;
+	rangeSet = YES;
+}
+	
+-(void) dealloc
+{
+	[ifModifiedSince release];
+	[ifUnmodifiedSince release];
+	[ifMatch release];
+	[ifNoneMatch release];
+	
+	[super dealloc];
+}
+
+@end
