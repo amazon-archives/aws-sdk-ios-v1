@@ -19,6 +19,14 @@
 @implementation S3ListObjectsResult
 
 @synthesize objectSummaries;
+@synthesize bucketName;
+@synthesize prefix;
+@synthesize marker;
+@synthesize delimiter;
+@synthesize maxKeys;
+@synthesize isTruncated;
+@synthesize commonPrefixes;
+
 
 -(void)setObjectSummaries:(NSMutableArray *)theSummaries
 {
@@ -33,9 +41,28 @@
 	return objectSummaries;
 }
 
+-(void)setCommonPrefixes:(NSMutableArray *)prefixes
+{
+	commonPrefixes = prefixes;
+}
+
+-(NSMutableArray *)commonPrefixes
+{
+	if (nil==commonPrefixes) {
+		commonPrefixes = [[NSMutableArray alloc] init];
+	}
+	return commonPrefixes;
+}
+
+
 -(void)dealloc
 {
 	[objectSummaries release];
+	[bucketName release];
+	[prefix release];
+	[marker release];
+	[delimiter release];
+	[commonPrefixes release];
 	
 	[super dealloc];
 }

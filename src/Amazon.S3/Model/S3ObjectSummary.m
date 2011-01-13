@@ -20,6 +20,10 @@
 
 @synthesize key;
 @synthesize etag;
+@synthesize size;
+@synthesize lastModified;
+@synthesize storageClass;
+@synthesize owner;
 
 
 -(NSString*)description
@@ -31,6 +35,9 @@
 {
 	[key release];
 	[etag release];
+	[lastModified release];
+	[storageClass release];
+	[owner release];
 	
 	[super dealloc];
 }

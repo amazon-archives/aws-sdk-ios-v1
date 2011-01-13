@@ -25,6 +25,34 @@
 
 -(NSMutableURLRequest *)configureURLRequest
 {
+	NSMutableString *queryString = [NSMutableString stringWithCapacity:512];
+	if (nil != self.prefix) {
+		[queryString appendFormat:@"%@=%@", kS3QueryParamPrefix, self.prefix];	
+	}
+	
+	if (nil != self.marker) {
+		if ( [queryString length] > 0 ) {
+			[queryString appendFormat:@"&"];
+		}
+		[queryString appendFormat:@"%@=%@", kS3QueryParamMarker, self.marker];	
+	}
+	
+	if (nil != self.delimiter) {
+		if ( [queryString length] > 0 ) {
+			[queryString appendFormat:@"&"];
+		}
+		[queryString appendFormat:@"%@=%@", kS3QueryParamDelimiter, self.delimiter];	
+	}
+	
+	if (self.maxKeys > 0) {
+		if ( [queryString length] > 0 ) {
+			[queryString appendFormat:@"&"];
+		}
+		[queryString appendFormat:@"%@=%d", kS3QueryParamMaxKeys, self.maxKeys];	
+	}
+	
+	[self setSubResource:queryString];	
+	
     [super configureURLRequest];
 	[self.urlRequest setHTTPMethod:kHttpMethodGet];
 	

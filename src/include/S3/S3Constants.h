@@ -69,6 +69,9 @@
 #define kS3QueryParamExpires     @"Expires"
 #define kS3QueryParamSignature   @"Signature"
 #define kS3QueryParamMaxKeys	 @"max-keys"
+#define kS3QueryParamPrefix		 @"prefix"
+#define kS3QueryParamMarker		 @"marker"
+#define kS3QueryParamDelimiter	 @"delimiter"
 
 #define kS3ServiceEndpoint @"http://s3.amazonaws.com"
 

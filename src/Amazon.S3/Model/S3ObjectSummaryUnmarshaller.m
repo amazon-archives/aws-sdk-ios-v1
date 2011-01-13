@@ -21,6 +21,19 @@
 #pragma mark NSXMLParserDelegate implementation
 
 - (void) parser:(NSXMLParser *)parser 
+didStartElement:(NSString *)elementName 
+   namespaceURI:(NSString *)namespaceURI 
+  qualifiedName:(NSString *)qualifiedName
+     attributes:(NSDictionary *)attributeDict
+{
+	[super parser:parser didStartElement:elementName namespaceURI:namespaceURI qualifiedName:qualifiedName attributes:attributeDict];
+	
+	if ([elementName isEqualToString:@"Owner"]) {
+		[parser setDelegate:[[[S3OwnerUnmarshaller alloc] initWithCaller:self withParentObject:self.summary withSetter:@selector(setOwner:)] autorelease]];
+	}	
+}
+
+- (void) parser:(NSXMLParser *)parser 
   didEndElement:(NSString *)elementName 
    namespaceURI:(NSString *)namespaceURI 
   qualifiedName:(NSString *)qName
@@ -36,6 +49,21 @@
 		self.summary.etag = self.currentText;
 		return;
 	}	
+
+	if ([elementName isEqualToString:@"Size"]) {
+		self.summary.size = [self.currentText intValue];
+		return;
+	}	
+
+	if ([elementName isEqualToString:@"LastModified"]) {
+		self.summary.lastModified = self.currentText;
+		return;
+	}	
+
+	if ([elementName isEqualToString:@"StorageClass"]) {
+		self.summary.storageClass = self.currentText;
+		return;
+	}			
 	
 	if ([elementName isEqualToString:@"Contents"]) {
 		if (caller != nil) {

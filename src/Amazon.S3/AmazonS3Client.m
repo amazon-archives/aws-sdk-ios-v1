@@ -290,7 +290,9 @@
 	}
 	
 	if (query != nil && [query length] > 0) {
-		canonicalizedResource = [canonicalizedResource stringByAppendingFormat:@"?%@", query];
+		if ( [query rangeOfString:@"="].location == NSNotFound ) {
+			canonicalizedResource = [canonicalizedResource stringByAppendingFormat:@"?%@", query];
+		}
 	}
 
 	NSString* stringToSign = [NSString stringWithFormat:@"%@\n%@\n%@\n%@\n%@%@", [request HTTPMethod], contentMd5, contentType, timestamp, canonicalizedAmzHeaders, canonicalizedResource]; 		

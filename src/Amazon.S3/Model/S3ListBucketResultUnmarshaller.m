@@ -16,6 +16,7 @@
 #import "S3ListBucketResultUnmarshaller.h"
 #import "S3ObjectSummaryUnmarshaller.h"
 #import "S3ListObjectsResult.h"
+#import "S3CommonPrefixesUnmarshaller.h"
 
 @implementation S3ListBucketResultUnmarshaller
 
@@ -32,6 +33,12 @@ didStartElement:(NSString *)elementName
 	if ([elementName isEqualToString:@"Contents"]) {
 		[parser setDelegate:[[[S3ObjectSummaryUnmarshaller alloc] initWithCaller:self withParentObject:self.objectListing.objectSummaries withSetter:@selector(addObject:)] autorelease]];
 	}
+	
+	if ([elementName isEqualToString:@"CommonPrefixes"]) {
+		[parser setDelegate:[[[S3CommonPrefixesUnmarshaller alloc] initWithCaller:self withParentObject:self.objectListing.commonPrefixes withSetter:@selector(addObjectsFromArray:)] autorelease]];
+	}
+	
+	
 }
 
 - (void) parser:(NSXMLParser *)parser 
@@ -40,6 +47,41 @@ didStartElement:(NSString *)elementName
   qualifiedName:(NSString *)qName
 {
 	[super parser:parser didEndElement:elementName namespaceURI:namespaceURI qualifiedName:qName];
+	
+	if ([elementName isEqualToString:@"Name"]) {
+		self.objectListing.bucketName = self.currentText;
+		return;
+	}	
+	
+	if ([elementName isEqualToString:@"Prefix"]) {
+		self.objectListing.prefix = self.currentText;
+		return;
+	}	
+	
+	if ([elementName isEqualToString:@"Marker"]) {
+		self.objectListing.marker = self.currentText;
+		return;
+	}			
+	
+	if ([elementName isEqualToString:@"Delimiter"]) {
+		self.objectListing.delimiter = self.currentText;
+		return;
+	}			
+
+	if ([elementName isEqualToString:@"IsTruncated"]) {
+		if ( [self.currentText isEqualToString:@"false"] ) {
+			self.objectListing.isTruncated = NO;
+		}
+		else {
+			self.objectListing.isTruncated = YES;
+		}
+		return;
+	}			
+		
+	if ([elementName isEqualToString:@"MaxKeys"]) {
+		self.objectListing.maxKeys = [self.currentText intValue];
+		return;
+	}			
 	
 	if ([elementName isEqualToString:@"ListBucketResult"]) {
 		if (caller != nil) {

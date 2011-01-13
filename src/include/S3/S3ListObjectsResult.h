@@ -18,9 +18,42 @@
 
 @interface S3ListObjectsResult : NSObject {
 	NSMutableArray *objectSummaries;
+	NSString *bucketName;
+	NSString *prefix;
+	NSString *marker;
+	NSInteger maxKeys;
+	NSString *delimiter;
+	bool isTruncated;
+	NSMutableArray *commonPrefixes;
 }
 
 /** The list of buckets */
 @property (nonatomic, retain) NSMutableArray *objectSummaries;
+
+/** The bucket name */
+@property (nonatomic, retain) NSString *bucketName;
+
+/** The prefix parameter originally specified by the caller. */
+@property (nonatomic, retain) NSString *prefix;
+
+/** The marker parameter originally specified by the caller. */
+@property (nonatomic, retain) NSString *marker;
+
+/** The maxKeys parameter originally specified by the caller. */
+@property (nonatomic) NSInteger maxKeys;
+
+/** The delimiter parameter originally specified by the caller. */
+@property (nonatomic, retain) NSString *delimiter;
+
+/** Indicates if this is  a complete listing or if caller needs 
+ * to make additional requests. 
+ */
+@property (nonatomic) bool isTruncated;
+
+/** A list of common prefixes.  Will only be specified for requests
+ * that include a delimiter.
+ */
+@property (nonatomic, retain) NSMutableArray *commonPrefixes;
+
 
 @end
