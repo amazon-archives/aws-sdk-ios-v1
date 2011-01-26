@@ -53,7 +53,7 @@
 	
 	//NSLog( @"Setting response value [%@] from header [%@] with value [%@]", keyName, header, value );
 	
-	NSString *typeName = [S3Response getTypeOfPropertyNamed:keyName];
+	NSString *typeName = [self getTypeOfPropertyNamed:keyName];
 	
 	if ([typeName isEqualToString:@"T@\"NSString\""]) {
 		[self setValue:value forKey:keyName];
@@ -78,9 +78,9 @@
 }
 
 
-+(NSString *)getTypeOfPropertyNamed:(NSString *)propertyName
+-(NSString *)getTypeOfPropertyNamed:(NSString *)propertyName
 {
-	objc_property_t property = class_getProperty( self, [propertyName UTF8String] );
+	objc_property_t property = class_getProperty( [self class], [propertyName UTF8String] );
 	if (NULL == property) { return nil; }
 	
 	const char *propertyAttributes = property_getAttributes( property );

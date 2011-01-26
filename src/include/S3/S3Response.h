@@ -73,6 +73,6 @@
 -(NSDate *)parseDateHeader:(NSString *)dateString;
 
 /** Determines the type of a property in a response. */ 
-+(NSString *)getTypeOfPropertyNamed:(NSString *)propertyName;
+-(NSString *)getTypeOfPropertyNamed:(NSString *)propertyName;
 
 @end

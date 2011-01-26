@@ -18,9 +18,13 @@
 
 /** Contains the response from a getObject operation */
 @interface S3GetObjectResponse : S3Response {
+	NSString *contentType;
 	NSMutableDictionary *metadata;
 	NSOutputStream *outputStream;
 }
+
+/** The content type of the data in the response */
+@property(nonatomic, retain) NSString* contentType;
 
 /** Get the value for a user-defined metadata key.
  * @param aKey The key of the metadata.

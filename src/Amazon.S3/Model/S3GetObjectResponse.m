@@ -17,6 +17,8 @@
 
 @implementation S3GetObjectResponse
 
+@synthesize contentType;
+
 // This method overrides the S3Response version, processing x-aws-meta-
 // headers, passing all others to the superclass.
 -(void)setValue:(id)value forHTTPHeaderField:(NSString *)header
@@ -58,12 +60,12 @@
 	else {
 		[super connection:connection didReceiveData:data];
 	}
-
 }
 
 -(void)dealloc
 {
 	[metadata release];
+	[contentType release];
 	
 	[super dealloc];
 }
