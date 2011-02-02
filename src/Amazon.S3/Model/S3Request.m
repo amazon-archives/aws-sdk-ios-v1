@@ -52,6 +52,7 @@
 {
 	NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
 	[dateFormatter setDateFormat:kS3DateFormat];
+	[dateFormatter setLocale:[AmazonSDKUtil timestampLocale]];
 	
 	return [dateFormatter stringFromDate:[self date]];
 }
@@ -112,6 +113,7 @@
 {
 	NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
 	[dateFormatter setDateFormat:kS3DateFormat];
+	[dateFormatter setLocale:[AmazonSDKUtil timestampLocale]];
 	
 	return [dateFormatter stringFromDate:self];
 }

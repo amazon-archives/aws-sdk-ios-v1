@@ -17,7 +17,7 @@
 #import <UIKit/UIKit.h>
 #import "AmazonClientException.h"
 
-#define AWS_SDK_VERSION				@"0.1.0.2"
+#define AWS_SDK_VERSION				@"0.1.0.3"
 #define AWS_SDK_USER_AGENT_FORMAT	@"aws-sdk-iOS/%@ %@/%@ %@"
 #define kISO8061DateFormat			@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 
@@ -30,7 +30,7 @@
 +(NSString *)urlEncode:(NSString *)input;
 +(NSNumber*)convertStringToNumber:(NSString*)string;
 +(NSURL *)URLWithURL:(NSURL *)theURL andProtocol:(NSString *)theProtocol;
-
++(NSLocale *)timestampLocale;
 @end
 
 @interface NSDate (WithISO8061Format)

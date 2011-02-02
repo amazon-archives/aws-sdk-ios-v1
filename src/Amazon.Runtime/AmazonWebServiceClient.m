@@ -83,6 +83,9 @@
 		
 		response = [AmazonWebServiceClient constructResponseFromRequest:request];
 		[response setRequest:request];
+
+		// Setting this here and not the AmazonServiceRequest because S3 extends that class and sets its own Content-Type Header. 
+		[urlRequest addValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
 		
 		[NSURLConnection connectionWithRequest:urlRequest delegate:response];
 		

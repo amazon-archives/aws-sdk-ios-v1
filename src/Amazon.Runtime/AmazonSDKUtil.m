@@ -211,6 +211,7 @@
 {
 	NSNumberFormatter *formatter = [[[NSNumberFormatter alloc] init] autorelease];
 	[formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+	[formatter setLocale:[AmazonSDKUtil timestampLocale]];
 	
 	return [formatter numberFromString:string];
 }
@@ -240,6 +241,15 @@
 	return [NSURL URLWithString:[theURL absoluteString]];
 }
 
++(NSLocale *)timestampLocale
+{
+	static NSLocale *_tsLoc = nil;
+	if (nil == _tsLoc) {
+		_tsLoc = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+	}
+	return _tsLoc;
+}
+
 @end
 
 @implementation NSDate (WithISO8061Format)
@@ -249,6 +259,7 @@
 	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 	[dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
 	[dateFormatter setDateFormat:kISO8061DateFormat];  
+	[dateFormatter setLocale:[AmazonSDKUtil timestampLocale]];
 	
 	NSString *formatted = [dateFormatter stringFromDate:[NSDate date]];
 	
@@ -261,6 +272,7 @@
 {
 	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 	[dateFormatter setDateFormat:kISO8061DateFormat];  
+	[dateFormatter setLocale:[AmazonSDKUtil timestampLocale]];
 	
 	NSDate *parsed = [dateFormatter dateFromString:dateString];
 	
