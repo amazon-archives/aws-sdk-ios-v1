@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -23,31 +23,31 @@
 
 -(id)initWithGrantee:(S3Grantee *)theGrantee withPermission:(S3Permission *)thePermission
 {
-	self = [self init];
-	if (self) {
-		self.grantee    = theGrantee;
-		self.permission = thePermission;
-	}
-	return self;
+    self = [self init];
+    if (self) {
+        self.grantee    = theGrantee;
+        self.permission = thePermission;
+    }
+    return self;
 }
 
 +(id)grantWithGrantee:(S3Grantee *)theGrantee withPermission:(S3Permission *)thePermission
 {
-	return [[[S3Grant alloc] initWithGrantee:theGrantee withPermission:thePermission] autorelease];
+    return [[[S3Grant alloc] initWithGrantee:theGrantee withPermission:thePermission] autorelease];
 }
 
 -(NSString *)toXml
 {
-	return [NSString stringWithFormat:@"<Grant>%@<Permission>%@</Permission></Grant>", 
-			[self.grantee toXml], [self.permission description]];
+    return [NSString stringWithFormat:@"<Grant>%@<Permission>%@</Permission></Grant>",
+            [self.grantee toXml], [self.permission description]];
 }
 
 -(void)dealloc
 {
-	[grantee release];
-	[permission release];
-	
-	[super dealloc];
+    [grantee release];
+    [permission release];
+
+    [super dealloc];
 }
 
 @end

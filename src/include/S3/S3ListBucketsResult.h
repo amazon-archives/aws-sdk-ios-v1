@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -19,10 +19,13 @@
 @class S3Owner;
 @class S3Bucket;
 
-/** Contains the owner and list of buckets returned by a listBuckets request */
-@interface S3ListBucketsResult : NSObject {
-	S3Owner *owner;
-	NSMutableArray *buckets;
+/** Contains the owner and list of buckets returned by a listBuckets request
+ *
+ * \ingroup S3
+ */
+@interface S3ListBucketsResult:NSObject {
+    S3Owner        *owner;
+    NSMutableArray *buckets;
 }
 
 /** The owner of the buckets */

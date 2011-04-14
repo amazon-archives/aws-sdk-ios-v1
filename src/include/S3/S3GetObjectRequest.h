@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -19,16 +19,21 @@
 
 #import "S3Request.h"
 #import "S3Constants.h"
+#import "S3ResponseHeaderOverrides.h"
 
-/** contains the parameters used for the getObject operation. */
-@interface S3GetObjectRequest : S3Request {
-	int rangeStart, rangeEnd;
-	bool rangeSet;
-	NSDate   *ifModifiedSince;
-	NSDate	 *ifUnmodifiedSince;
-	NSString *ifMatch;
-	NSString *ifNoneMatch;
-	NSOutputStream *outputStream;
+/** contains the parameters used for the getObject operation.
+ *
+ * \ingroup S3
+ */
+@interface S3GetObjectRequest:S3Request {
+    int                       rangeStart, rangeEnd;
+    bool                      rangeSet;
+    NSDate                    *ifModifiedSince;
+    NSDate                    *ifUnmodifiedSince;
+    NSString                  *ifMatch;
+    NSString                  *ifNoneMatch;
+    NSOutputStream            *outputStream;
+    S3ResponseHeaderOverrides *responseHeaderOverrides;
 }
 
 /** Specifies the starting index of the byte range to download */
@@ -38,16 +43,16 @@
 @property (nonatomic, readonly) int rangeEnd;
 
 /** Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified). */
-@property (nonatomic, retain) NSDate* ifModifiedSince;
+@property (nonatomic, retain) NSDate *ifModifiedSince;
 
 /** Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed). */
-@property (nonatomic, retain) NSDate* ifUnmodifiedSince;
+@property (nonatomic, retain) NSDate *ifUnmodifiedSince;
 
 /** Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed). */
-@property (nonatomic, retain) NSString* ifMatch;
+@property (nonatomic, retain) NSString *ifMatch;
 
 /** Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified). */
-@property (nonatomic, retain) NSString* ifNoneMatch;
+@property (nonatomic, retain) NSString *ifNoneMatch;
 
 /** Gets and Sets the output stream for the response data.
  * <p>
@@ -58,7 +63,10 @@
  * The stream must be opened and scheduled in the desired runloop.
  * The SDK will not close the stream.
  */
-@property (nonatomic, assign) NSOutputStream* outputStream;
+@property (nonatomic, assign) NSOutputStream *outputStream;
+
+/** Specify one or more overrides to headers in the response to this request */
+@property (nonatomic, retain) S3ResponseHeaderOverrides *responseHeaderOverrides;
 
 /** Initialize the request setting the key and bucketName properties. */
 -(S3GetObjectRequest *)initWithKey:(NSString *)key withBucket:(NSString *)bucket;

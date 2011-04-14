@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -16,15 +16,30 @@
 #import <Foundation/Foundation.h>
 #import "S3Response.h"
 
-/** Contains the response from a getObject operation */
-@interface S3GetObjectResponse : S3Response {
-	NSString *contentType;
-	NSMutableDictionary *metadata;
-	NSOutputStream *outputStream;
+/** Contains the response from a getObject operation.
+ *
+ * \ingroup S3
+ */
+@interface S3GetObjectResponse:S3Response {
+    NSMutableDictionary *metadata;
+    NSOutputStream      *outputStream;
+    NSDate              *lastModified;
+    NSString            *contentType;
 }
 
-/** The content type of the data in the response */
-@property(nonatomic, retain) NSString* contentType;
+/**
+ * The value of the Last-Modified header, indicating the
+ * date and time at which Amazon S3 last recorded a
+ * modification to the associated object.
+ */
+@property (nonatomic, retain) NSDate *lastModified;
+
+/**
+ * The Content-Type HTTP header, which indicates the type
+ * of content stored in the associated object. The value
+ * of this header is a standard MIME type.
+ */
+@property (nonatomic, retain) NSString *contentType;
 
 /** Get the value for a user-defined metadata key.
  * @param aKey The key of the metadata.
@@ -39,5 +54,8 @@
  * the data property.
  */
 -(void)setOutputStream:(NSOutputStream *)stream;
+
+
+
 
 @end

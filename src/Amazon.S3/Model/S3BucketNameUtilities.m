@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -18,42 +18,77 @@
 
 @implementation S3BucketNameUtilities
 
-+(void)validateBucketName:(NSString *)theBucketName; 
++(void)validateBucketName:(NSString *)theBucketName;
 {
-	if ( theBucketName == nil ) {
-		@throw [AmazonClientException exceptionWithMessage:@"Bucket name should not be nil."];
-	}
-	
-	if ( [theBucketName length] < 3 || [theBucketName length] > 63 ) {
-		@throw [AmazonClientException exceptionWithMessage:@"Bucket name should be between 3 and 63 characters in length."];
-	}
+    if (theBucketName == nil) {
+        @throw [AmazonClientException exceptionWithMessage : @"Bucket name should not be nil."];
+    }
 
-	if ( [theBucketName hasSuffix:@"-"] ) {
-		@throw [AmazonClientException exceptionWithMessage:@"Bucket name should not end with a '-'."];
-	}
+    if ( [theBucketName length] < 3 || [theBucketName length] > 63) {
+        @throw [AmazonClientException exceptionWithMessage : @"Bucket name should be between 3 and 63 characters in length."];
+    }
 
-	if ( [S3BucketNameUtilities contains:theBucketName searchString:@".."] ) {
-		@throw [AmazonClientException exceptionWithMessage:@"Bucket name should not contain two adjacent periods."];
-	}
-	
-	if ( [S3BucketNameUtilities contains:theBucketName searchString:@"_"] ) {
-		@throw [AmazonClientException exceptionWithMessage:@"Bucket name should not contain '_'."];
-	}
+    if ( [theBucketName hasSuffix:@"-"]) {
+        @throw [AmazonClientException exceptionWithMessage : @"Bucket name should not end with a '-'."];
+    }
 
-	if ( [S3BucketNameUtilities contains:theBucketName searchString:@"-."] ||
-		 [S3BucketNameUtilities contains:theBucketName searchString:@".-"] ) {
-		@throw [AmazonClientException exceptionWithMessage:@"Bucket name should not contain dashes next to periods."];
-	}
+    if ( [S3BucketNameUtilities contains:theBucketName searchString:@".."]) {
+        @throw [AmazonClientException exceptionWithMessage : @"Bucket name should not contain two adjacent periods."];
+    }
 
-	if ( [[theBucketName lowercaseString] isEqualToString:theBucketName] == NO ) {
-		@throw [AmazonClientException exceptionWithMessage:@"Bucket name should not contain upper case characters."];
-	}	 
+    if ( [S3BucketNameUtilities contains:theBucketName searchString:@"_"]) {
+        @throw [AmazonClientException exceptionWithMessage : @"Bucket name should not contain '_'."];
+    }
+
+    if ( [S3BucketNameUtilities contains:theBucketName searchString:@"-."] ||
+         [S3BucketNameUtilities contains:theBucketName searchString:@".-"]) {
+        @throw [AmazonClientException exceptionWithMessage : @"Bucket name should not contain dashes next to periods."];
+    }
+
+    if ( [[theBucketName lowercaseString] isEqualToString:theBucketName] == NO) {
+        @throw [AmazonClientException exceptionWithMessage : @"Bucket name should not contain upper case characters."];
+    }
 }
 
-+(bool)contains:(NSString*)sourceString searchString:(NSString*)searchString
++(bool)isDNSBucketName:(NSString *)theBucketName;
 {
-	NSRange range = [sourceString rangeOfString:searchString];
-	return (range.location != NSNotFound);
+    if (theBucketName == nil) {
+        return NO;
+    }
+
+    if ( [theBucketName length] < 3 || [theBucketName length] > 63) {
+        return NO;
+    }
+
+    if ( [theBucketName hasSuffix:@"-"]) {
+        return NO;
+    }
+
+    if ( [S3BucketNameUtilities contains:theBucketName searchString:@".."]) {
+        return NO;
+    }
+
+    if ( [S3BucketNameUtilities contains:theBucketName searchString:@"_"]) {
+        return NO;
+    }
+
+    if ( [S3BucketNameUtilities contains:theBucketName searchString:@"-."] ||
+         [S3BucketNameUtilities contains:theBucketName searchString:@".-"]) {
+        return NO;
+    }
+
+    if ( [[theBucketName lowercaseString] isEqualToString:theBucketName] == NO) {
+        return NO;
+    }
+
+    return YES;
+}
+
++(bool)contains:(NSString *)sourceString searchString:(NSString *)searchString
+{
+    NSRange range = [sourceString rangeOfString:searchString];
+
+    return (range.location != NSNotFound);
 }
 
 

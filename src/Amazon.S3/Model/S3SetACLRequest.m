@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -22,24 +22,24 @@
 
 -(NSURLRequest *)configureURLRequest
 {
-	// This needs to be done before the superclass's implementation so that 
-	// it gets put into the URL.
-	[self setSubResource:kS3SubResourceAcl];
-	
-	[super configureURLRequest];
-	
-	[urlRequest setHTTPMethod:kHttpMethodPut];
-	
-	[[self urlRequest] setHTTPBody:[[[self acl] toXml] dataUsingEncoding:NSUTF8StringEncoding]];
-	
-	return self.urlRequest;
+    // This needs to be done before the superclass's implementation so that
+    // it gets put into the URL.
+    [self setSubResource:kS3SubResourceAcl];
+
+    [super configureURLRequest];
+
+    [urlRequest setHTTPMethod:kHttpMethodPut];
+
+    [[self urlRequest] setHTTPBody:[[[self acl] toXml] dataUsingEncoding:NSUTF8StringEncoding]];
+
+    return self.urlRequest;
 }
 
 -(void)dealloc
 {
-	[acl release];
-	
-	[super dealloc];
+    [acl release];
+
+    [super dealloc];
 }
 
 @end

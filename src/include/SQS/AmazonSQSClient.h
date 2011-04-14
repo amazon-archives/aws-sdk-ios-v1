@@ -1,12 +1,12 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- * 
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
  * A copy of the License is located at
- * 
+ *
  *  http://aws.amazon.com/apache2.0
- * 
+ *
  * or in the "license" file accompanying this file. This file is distributed
  * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
  * express or implied. See the License for the specific language governing
@@ -59,35 +59,17 @@
 
 #import "../AmazonWebServiceClient.h"
 
+/** \defgroup SQS Amazon SQS */
 
 /** <summary>
  * Interface for accessing AmazonSQS.
- *  
- *  <p>
- * Amazon Simple Queue Service (Amazon SQS) offers a reliable, highly
- * scalable, hosted queue for storing messages as they travel between
- * computers. By using Amazon SQS, developers can simply move data
- * between distributed components of their applications that perform
- * different tasks, without losing messages or requiring each component
- * to be always available. Amazon SQS makes it easy to build an automated
- * workflow, working in close conjunction with the Amazon Elastic Compute
- * Cloud (Amazon EC2) and the other AWS infrastructure web services.
- * </p>
- * <p>
- * Amazon SQS works by exposing Amazon's web-scale messaging
- * infrastructure as a web service. Any computer on the Internet can add
- * or read messages without any installed software or special firewall
- * configurations. Components of applications using Amazon SQS can run
- * independently, and do not need to be on the same network, developed
- * with the same technologies, or running at the same time.
- * </p>
- * <p>
- * Visit <a href="http://aws.amazon.com/sqs/">
- * http://aws.amazon.com/sqs/ </a> for more information.
- * </p>
+ *
+ *  Amazon SQS
  * </summary>
+ *
+ * \ingroup SQS
  */
-@interface AmazonSQSClient : AmazonWebServiceClient
+@interface AmazonSQSClient:AmazonWebServiceClient
 {
 }
 
@@ -99,10 +81,10 @@
  *
  * @param listQueuesRequest Container for the necessary parameters to
  *           execute the ListQueues service method on AmazonSQS.
- * 
+ *
  * @return The response from the ListQueues service method, as returned
  *         by AmazonSQS.
- * 
+ *
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -112,7 +94,7 @@
  *             If an error response is returned by AmazonSQS indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SQSListQueuesResponse*)listQueues:(SQSListQueuesRequest*)listQueuesRequest; 
+-(SQSListQueuesResponse *)listQueues:(SQSListQueuesRequest *)listQueuesRequest;
 
 
 /**
@@ -124,8 +106,8 @@
  * @param setQueueAttributesRequest Container for the necessary
  *           parameters to execute the SetQueueAttributes service method on
  *           AmazonSQS.
- * 
- * @throws InvalidAttributeNameException
+ *
+ * @throws SQSInvalidAttributeNameException
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -135,7 +117,7 @@
  *             If an error response is returned by AmazonSQS indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SQSSetQueueAttributesResponse*)setQueueAttributes:(SQSSetQueueAttributesRequest*)setQueueAttributesRequest; 
+-(SQSSetQueueAttributesResponse *)setQueueAttributes:(SQSSetQueueAttributesRequest *)setQueueAttributesRequest;
 
 
 /**
@@ -175,7 +157,7 @@
  * @param changeMessageVisibilityRequest Container for the necessary
  *           parameters to execute the ChangeMessageVisibility service method on
  *           AmazonSQS.
- * 
+ *
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -185,7 +167,7 @@
  *             If an error response is returned by AmazonSQS indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SQSChangeMessageVisibilityResponse*)changeMessageVisibility:(SQSChangeMessageVisibilityRequest*)changeMessageVisibilityRequest; 
+-(SQSChangeMessageVisibilityResponse *)changeMessageVisibility:(SQSChangeMessageVisibilityRequest *)changeMessageVisibilityRequest;
 
 
 /**
@@ -206,12 +188,12 @@
  *
  * @param createQueueRequest Container for the necessary parameters to
  *           execute the CreateQueue service method on AmazonSQS.
- * 
+ *
  * @return The response from the CreateQueue service method, as returned
  *         by AmazonSQS.
- * 
- * @throws QueueNameExistsException
- * @throws QueueDeletedRecentlyException
+ *
+ * @throws SQSQueueNameExistsException
+ * @throws SQSQueueDeletedRecentlyException
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -221,7 +203,7 @@
  *             If an error response is returned by AmazonSQS indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SQSCreateQueueResponse*)createQueue:(SQSCreateQueueRequest*)createQueueRequest; 
+-(SQSCreateQueueResponse *)createQueue:(SQSCreateQueueRequest *)createQueueRequest;
 
 
 /**
@@ -233,7 +215,7 @@
  *
  * @param removePermissionRequest Container for the necessary parameters
  *           to execute the RemovePermission service method on AmazonSQS.
- * 
+ *
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -243,7 +225,7 @@
  *             If an error response is returned by AmazonSQS indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SQSRemovePermissionResponse*)removePermission:(SQSRemovePermissionRequest*)removePermissionRequest; 
+-(SQSRemovePermissionResponse *)removePermission:(SQSRemovePermissionRequest *)removePermissionRequest;
 
 
 /**
@@ -251,17 +233,17 @@
  * Gets one or all attributes of a queue. Queues currently have two
  * attributes you can get: <code>ApproximateNumberOfMessages</code> and
  * <code>VisibilityTimeout</code> .
- * 
+ *
  * </p>
  *
  * @param getQueueAttributesRequest Container for the necessary
  *           parameters to execute the GetQueueAttributes service method on
  *           AmazonSQS.
- * 
+ *
  * @return The response from the GetQueueAttributes service method, as
  *         returned by AmazonSQS.
- * 
- * @throws InvalidAttributeNameException
+ *
+ * @throws SQSInvalidAttributeNameException
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -271,7 +253,7 @@
  *             If an error response is returned by AmazonSQS indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SQSGetQueueAttributesResponse*)getQueueAttributes:(SQSGetQueueAttributesRequest*)getQueueAttributesRequest; 
+-(SQSGetQueueAttributesResponse *)getQueueAttributes:(SQSGetQueueAttributesRequest *)getQueueAttributesRequest;
 
 
 /**
@@ -288,7 +270,7 @@
  *
  * @param addPermissionRequest Container for the necessary parameters to
  *           execute the AddPermission service method on AmazonSQS.
- * 
+ *
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -298,7 +280,7 @@
  *             If an error response is returned by AmazonSQS indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SQSAddPermissionResponse*)addPermission:(SQSAddPermissionRequest*)addPermissionRequest; 
+-(SQSAddPermissionResponse *)addPermission:(SQSAddPermissionRequest *)addPermissionRequest;
 
 
 /**
@@ -310,7 +292,7 @@
  *
  * @param deleteQueueRequest Container for the necessary parameters to
  *           execute the DeleteQueue service method on AmazonSQS.
- * 
+ *
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -320,7 +302,7 @@
  *             If an error response is returned by AmazonSQS indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SQSDeleteQueueResponse*)deleteQueue:(SQSDeleteQueueRequest*)deleteQueueRequest; 
+-(SQSDeleteQueueResponse *)deleteQueue:(SQSDeleteQueueRequest *)deleteQueueRequest;
 
 
 /**
@@ -333,8 +315,8 @@
  *
  * @param deleteMessageRequest Container for the necessary parameters to
  *           execute the DeleteMessage service method on AmazonSQS.
- * 
- * @throws ReceiptHandleIsInvalidException
+ *
+ * @throws SQSReceiptHandleIsInvalidException
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -344,7 +326,7 @@
  *             If an error response is returned by AmazonSQS indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SQSDeleteMessageResponse*)deleteMessage:(SQSDeleteMessageRequest*)deleteMessageRequest; 
+-(SQSDeleteMessageResponse *)deleteMessage:(SQSDeleteMessageRequest *)deleteMessageRequest;
 
 
 /**
@@ -355,11 +337,11 @@
  *
  * @param sendMessageRequest Container for the necessary parameters to
  *           execute the SendMessage service method on AmazonSQS.
- * 
+ *
  * @return The response from the SendMessage service method, as returned
  *         by AmazonSQS.
- * 
- * @throws InvalidMessageContentsException
+ *
+ * @throws SQSInvalidMessageContentsException
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -369,7 +351,7 @@
  *             If an error response is returned by AmazonSQS indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SQSSendMessageResponse*)sendMessage:(SQSSendMessageRequest*)sendMessageRequest; 
+-(SQSSendMessageResponse *)sendMessage:(SQSSendMessageRequest *)sendMessageRequest;
 
 
 /**
@@ -386,10 +368,10 @@
  *
  * @param receiveMessageRequest Container for the necessary parameters to
  *           execute the ReceiveMessage service method on AmazonSQS.
- * 
+ *
  * @return The response from the ReceiveMessage service method, as
  *         returned by AmazonSQS.
- * 
+ *
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -399,13 +381,9 @@
  *             If an error response is returned by AmazonSQS indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SQSReceiveMessageResponse*)receiveMessage:(SQSReceiveMessageRequest*)receiveMessageRequest; 
+-(SQSReceiveMessageResponse *)receiveMessage:(SQSReceiveMessageRequest *)receiveMessageRequest;
 
 
-
-/** Ensure that all respsonse objects have been loaded by the runtime. */
-+(void)initializeResponseObjects;
 
 @end
-	
-		
+

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -18,81 +18,85 @@
 
 @implementation S3Region
 
-#define kS3RegionUSWest1 @"us-west-1"
-#define kS3RegionEU      @"EU"
-#define kS3APSoutheast1  @"ap-southeast-1"
+#define kS3RegionUSWest1    @"us-west-1"
+#define kS3RegionEU         @"EU"
+#define kS3APSoutheast1     @"ap-southeast-1"
 
 -(id)initWithStringValue:(NSString *)value
 {
-	self = [super init];
-	if (self) {
-		stringValue = [value retain];
-	}
-	return self;
+    self = [super init];
+    if (self) {
+        stringValue = [value retain];
+    }
+    return self;
 }
 
 +(S3Region *)USStandard
 {
-	static S3Region *std = nil;
-	if (std == nil) {
-		std = [[S3Region alloc] initWithStringValue:@""];
-	}
-	return std;
+    static S3Region *std = nil;
+
+    if (std == nil) {
+        std = [[S3Region alloc] initWithStringValue:@""];
+    }
+    return std;
 }
 
 +(S3Region *)USWest
 {
-	static S3Region *west = nil;
-	if (west == nil) {
-		west = [[S3Region alloc] initWithStringValue:kS3RegionUSWest1];
-	}
-	return west;
+    static S3Region *west = nil;
+
+    if (west == nil) {
+        west = [[S3Region alloc] initWithStringValue:kS3RegionUSWest1];
+    }
+    return west;
 }
 
 +(S3Region *)EUIreland
 {
-	static S3Region *eu = nil;
-	if (eu == nil) {
-		eu = [[S3Region alloc] initWithStringValue:kS3RegionEU];
-	}
-	return eu;
+    static S3Region *eu = nil;
+
+    if (eu == nil) {
+        eu = [[S3Region alloc] initWithStringValue:kS3RegionEU];
+    }
+    return eu;
 }
 
 +(S3Region *)APSingapore
 {
-	static S3Region *ap = nil;
-	if (ap == nil) {
-		ap = [[S3Region alloc] initWithStringValue:kS3RegionAPSoutheast1];
-	}
-	return ap;
+    static S3Region *ap = nil;
+
+    if (ap == nil) {
+        ap = [[S3Region alloc] initWithStringValue:kS3RegionAPSoutheast1];
+    }
+    return ap;
 }
 
 +(S3Region *)regionWithString:(NSString *)regionName
 {
-	if ([regionName isEqual:@""]) {
-		return [S3Region USStandard];
-	}
-	if ([regionName isEqual:kS3RegionUSWest1]) {
-		return [S3Region USWest];
-	}
-	if ([regionName isEqual:kS3RegionEU]) {
-		return [S3Region EUIreland];
-	}
-	if ([regionName isEqual:kS3RegionAPSoutheast1]) {
-		return [S3Region APSingapore];
-	}
-	
-	@throw [AmazonClientException exceptionWithMessage:@"Invalid S3 region string."];
+    if ([regionName isEqual:@""]) {
+        return [S3Region USStandard];
+    }
+    if ([regionName isEqual:kS3RegionUSWest1]) {
+        return [S3Region USWest];
+    }
+    if ([regionName isEqual:kS3RegionEU]) {
+        return [S3Region EUIreland];
+    }
+    if ([regionName isEqual:kS3RegionAPSoutheast1]) {
+        return [S3Region APSingapore];
+    }
+
+    @throw [AmazonClientException exceptionWithMessage : @"Invalid S3 region string."];
 }
 
 -(NSString *)description
 {
-	return stringValue;
+    return stringValue;
 }
 
 -(void)dealloc
 {
-	[stringValue release];
-	[super dealloc];
+    [stringValue release];
+    [super dealloc];
 }
 @end

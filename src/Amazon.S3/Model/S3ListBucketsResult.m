@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -22,18 +22,18 @@
 
 -(NSMutableArray *)buckets
 {
-	if (nil==buckets) {
-		buckets = [[NSMutableArray alloc] init];
-	}
-	return buckets;
+    if (nil == buckets) {
+        buckets = [[NSMutableArray alloc] init];
+    }
+    return buckets;
 }
 
 -(void)dealloc
 {
-	[owner release];
-	[buckets release];
-	
-	[super dealloc];
+    [owner release];
+    [buckets release];
+
+    [super dealloc];
 }
 
 

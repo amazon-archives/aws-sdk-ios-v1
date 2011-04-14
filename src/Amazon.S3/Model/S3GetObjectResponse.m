@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -17,57 +17,75 @@
 
 @implementation S3GetObjectResponse
 
+
+@synthesize lastModified;
 @synthesize contentType;
+
 
 // This method overrides the S3Response version, processing x-aws-meta-
 // headers, passing all others to the superclass.
 -(void)setValue:(id)value forHTTPHeaderField:(NSString *)header
 {
-	NSString *tmp = [header lowercaseString];
-	if ([tmp hasPrefix:@"x-amz-meta-"]) {
-		NSString *keyName = [tmp stringByReplacingOccurrencesOfString:@"x-amz-meta-" withString:@""];
-		if (nil == metadata) {
-			metadata = [[NSMutableDictionary alloc] init];
-		}
-		[metadata setValue:value forKey:keyName];
-		//NSLog( @"Setting metadata value [%@] for key [%@] from header [%@]", [value description], keyName, header );
-	}
-	else {
-		[super setValue:value forHTTPHeaderField:header];
-	}
+    NSString *tmp = [header lowercaseString];
+
+    if ([tmp hasPrefix:@"x-amz-meta-"]) {
+        NSString *keyName = [tmp stringByReplacingOccurrencesOfString:@"x-amz-meta-" withString:@""];
+        if (nil == metadata) {
+            metadata = [[NSMutableDictionary alloc] init];
+        }
+        [metadata setValue:value forKey:keyName];
+        //NSLog( @"Setting metadata value [%@] for key [%@] from header [%@]", [value description], keyName, header );
+    }
+    else {
+        [super setValue:value forHTTPHeaderField:header];
+    }
 }
 
 -(NSString *)getMetadataForKey:(NSString *)aKey
 {
-	if (nil == metadata)
-		return nil;
-	
-	return [[metadata objectForKey:aKey] description];
+    if (nil == metadata) {
+        return nil;
+    }
+
+    return [[metadata objectForKey:aKey] description];
 }
 
 -(void)setOutputStream:(NSOutputStream *)stream
 {
-	outputStream = stream;
+    outputStream = stream;
+}
+
+-(NSString *)description
+{
+    NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
+
+    [buffer appendString:@"{"];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Metadata: %@,", metadata] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Last-Modified: %@,", lastModified] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Content-Type: %@,", contentType] autorelease]];
+    [buffer appendString:[super description]];
+    [buffer appendString:@"}"];
+
+    return [buffer autorelease];
 }
 
 #pragma mark NSURLConnection delegate methods
 
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-	if(outputStream) {
-		[outputStream write:(uint8_t *)[data bytes] maxLength:[data length]];
-	}
-	else {
-		[super connection:connection didReceiveData:data];
-	}
+    if (outputStream) {
+        [outputStream write:(uint8_t *)[data bytes] maxLength:[data length]];
+    }
+    else {
+        [super connection:connection didReceiveData:data];
+    }
 }
 
 -(void)dealloc
 {
-	[metadata release];
-	[contentType release];
-	
-	[super dealloc];
+    [metadata release];
+
+    [super dealloc];
 }
 
 @end

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -22,25 +22,25 @@
 
 -(id)initWithID:(NSString *)theID withDisplayName:(NSString *)theDisplayName
 {
-	self = [super init];
-	if (self) {
-		self.ID = theID;
-		self.displayName = theDisplayName;
-	}
-	return self;
+    self = [super init];
+    if (self) {
+        self.ID          = theID;
+        self.displayName = theDisplayName;
+    }
+    return self;
 }
 
 +(id)ownerWithID:(NSString *)theID withDisplayName:(NSString *)theDisplayName
 {
-	return [[[S3Owner alloc] initWithID:theID withDisplayName:theDisplayName] autorelease];
+    return [[[S3Owner alloc] initWithID:theID withDisplayName:theDisplayName] autorelease];
 }
 
 -(void)dealloc
 {
-	[ID          release];
-	[displayName release];
-	
-	[super dealloc];
+    [ID release];
+    [displayName release];
+
+    [super dealloc];
 }
 
 @end

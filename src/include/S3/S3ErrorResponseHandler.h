@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -19,14 +19,16 @@
 
 /** Parse an error response from Amazon S3 and construct the corresponding
  * AWSServiceException object.
+ *
+ * \ingroup S3
  */
-@interface S3ErrorResponseHandler : AmazonUnmarshallerXMLParserDelegate {
-	AmazonServiceException *exception;
-	NSInteger httpStatusCode;
+@interface S3ErrorResponseHandler:AmazonUnmarshallerXMLParserDelegate {
+    AmazonServiceException *exception;
+    NSInteger              httpStatusCode;
 }
 
 /** The exception represented by the XML */
-@property (nonatomic, readonly) AmazonServiceException* exception;
+@property (nonatomic, readonly) AmazonServiceException *exception;
 
 /** Initialize the object with the an HTTP status code */
 -(id)initWithStatusCode:(NSInteger)statusCode;

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -24,12 +24,14 @@
  * if you want to set the ACL for an object instead of a bucket.
  * <br />Required Parameters: bucket, acl
  * <br />Optional Parameters: key
+ *
+ * \ingroup S3
  */
-@interface S3SetACLRequest : S3Request {
-	S3AccessControlList *acl;
+@interface S3SetACLRequest:S3Request {
+    S3AccessControlList *acl;
 }
 
 /** Gets and sets the access control list (ACL) to set on the bucket or object */
-@property(nonatomic, retain)S3AccessControlList* acl;
+@property (nonatomic, retain) S3AccessControlList *acl;
 
 @end

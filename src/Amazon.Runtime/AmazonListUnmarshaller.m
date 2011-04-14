@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -19,27 +19,27 @@
 
 @synthesize list, delegateClass, entryElementName, endListElementName;
 
--(void)parser:(NSXMLParser*)parser didStartElement:(NSString*)elementName  namespaceURI:(NSString*)namespaceURI qualifiedName:(NSString*)qName attributes:(NSDictionary*)attributeDict 
+-(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
 {
     [super parser:parser didStartElement:elementName namespaceURI:namespaceURI qualifiedName:qName attributes:attributeDict];
 
-    if ([elementName isEqualToString:entryElementName]) {    
-		id delegate = [[[delegateClass alloc] initWithCaller:self withParentObject:self.list withSetter:@selector(addObject:)] autorelease];
-		[delegate setEndElementTagName:entryElementName];		
-		
-		[parser setDelegate:delegate];		
+    if ([elementName isEqualToString:entryElementName]) {
+        id delegate = [[[delegateClass alloc] initWithCaller:self withParentObject:self.list withSetter:@selector(addObject:)] autorelease];
+        [delegate setEndElementTagName:entryElementName];
+
+        [parser setDelegate:delegate];
     }
 }
 
--(void)parser:(NSXMLParser*)parser didEndElement:(NSString*)elementName namespaceURI:(NSString*)namespaceURI qualifiedName:(NSString*)qName
+-(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
     [super parser:parser didEndElement:elementName namespaceURI:namespaceURI qualifiedName:qName];
-	
+
     if ([elementName isEqualToString:endListElementName]) {
         if (caller != nil) {
             [parser setDelegate:caller];
         }
-		
+
         if (parentObject != nil && [parentObject respondsToSelector:parentSetter]) {
             [parentObject performSelector:parentSetter withObject:self.list];
         }
@@ -48,21 +48,21 @@
     }
 }
 
--(NSMutableArray*)list 
+-(NSMutableArray *)list
 {
-	if (nil == list) {
-		list = [[NSMutableArray alloc] init];
-	}
-	return list;
+    if (nil == list) {
+        list = [[NSMutableArray alloc] init];
+    }
+    return list;
 }
 
--(void)dealloc 
+-(void)dealloc
 {
-	[list				release];
-	[entryElementName	release];
-	[endListElementName release];
-	[delegateClass  	release];
-	[super dealloc];
+    [list release];
+    [entryElementName release];
+    [endListElementName release];
+    [delegateClass release];
+    [super dealloc];
 }
 
-@end 
+@end

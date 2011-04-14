@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -19,42 +19,41 @@
 
 #pragma mark NSXMLParserDelegate implementation
 
-- (void) parser:(NSXMLParser *)parser 
-didStartElement:(NSString *)elementName 
-   namespaceURI:(NSString *)namespaceURI 
-  qualifiedName:(NSString *)qualifiedName
-     attributes:(NSDictionary *)attributeDict
+-(void) parser:(NSXMLParser *)parser
+didStartElement:(NSString *)elementName
+namespaceURI:(NSString *)namespaceURI
+qualifiedName:(NSString *)qualifiedName
+attributes:(NSDictionary *)attributeDict
 {
-	[super parser:parser didStartElement:elementName namespaceURI:namespaceURI qualifiedName:qualifiedName attributes:attributeDict];
-	
-	if ([elementName isEqualToString:@"Owner"]) {
-		[parser setDelegate:[[[S3OwnerUnmarshaller alloc] initWithCaller:self withParentObject:self.listBucketsResult withSetter:@selector(setOwner:)] autorelease]];
-	}
-	
-	if ([elementName isEqualToString:@"Bucket"]) {
-		[parser setDelegate:[[[S3BucketUnmarshaller alloc] initWithCaller:self withParentObject:self.listBucketsResult.buckets withSetter:@selector(addObject:)] autorelease]];
-	}
+    [super parser:parser didStartElement:elementName namespaceURI:namespaceURI qualifiedName:qualifiedName attributes:attributeDict];
+
+    if ([elementName isEqualToString:@"Owner"]) {
+        [parser setDelegate:[[[S3OwnerUnmarshaller alloc] initWithCaller:self withParentObject:self.listBucketsResult withSetter:@selector(setOwner:)] autorelease]];
+    }
+
+    if ([elementName isEqualToString:@"Bucket"]) {
+        [parser setDelegate:[[[S3BucketUnmarshaller alloc] initWithCaller:self withParentObject:self.listBucketsResult.buckets withSetter:@selector(addObject:)] autorelease]];
+    }
 }
 
-- (void) parser:(NSXMLParser *)parser 
-  didEndElement:(NSString *)elementName 
-   namespaceURI:(NSString *)namespaceURI 
-  qualifiedName:(NSString *)qName
+-(void) parser:(NSXMLParser *)parser
+didEndElement:(NSString *)elementName
+namespaceURI:(NSString *)namespaceURI
+qualifiedName:(NSString *)qName
 {
-	[super parser:parser didEndElement:elementName namespaceURI:namespaceURI qualifiedName:qName];
-	
-	if ([elementName isEqualToString:@"ListAllMyBucketsResult"]) {
-		
-		if (caller != nil) {
-			[parser setDelegate:caller];
-		}
-		
-		if (parentObject != nil && [parentObject respondsToSelector:parentSetter]) {
-			[parentObject performSelector:parentSetter withObject:self.listBucketsResult];
-		}
-		
-		return;
-	}
+    [super parser:parser didEndElement:elementName namespaceURI:namespaceURI qualifiedName:qName];
+
+    if ([elementName isEqualToString:@"ListAllMyBucketsResult"]) {
+        if (caller != nil) {
+            [parser setDelegate:caller];
+        }
+
+        if (parentObject != nil && [parentObject respondsToSelector:parentSetter]) {
+            [parentObject performSelector:parentSetter withObject:self.listBucketsResult];
+        }
+
+        return;
+    }
 }
 
 
@@ -62,18 +61,17 @@ didStartElement:(NSString *)elementName
 
 -(S3ListBucketsResult *)listBucketsResult
 {
-	if (nil == listBucketsResult)
-	{
-		listBucketsResult = [[S3ListBucketsResult alloc] init];
-	}
-	return listBucketsResult;
+    if (nil == listBucketsResult)
+    {
+        listBucketsResult = [[S3ListBucketsResult alloc] init];
+    }
+    return listBucketsResult;
 }
 
 -(void)dealloc
 {
-	[listBucketsResult release];
-	[super dealloc];
-
+    [listBucketsResult release];
+    [super dealloc];
 }
 
 @end

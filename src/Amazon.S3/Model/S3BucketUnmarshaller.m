@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -19,35 +19,34 @@
 
 #pragma mark NSXMLParserDelegate implementation
 
-- (void) parser:(NSXMLParser *)parser 
-  didEndElement:(NSString *)elementName 
-   namespaceURI:(NSString *)namespaceURI 
-  qualifiedName:(NSString *)qName
+-(void) parser:(NSXMLParser *)parser
+didEndElement:(NSString *)elementName
+namespaceURI:(NSString *)namespaceURI
+qualifiedName:(NSString *)qName
 {
-	[super parser:parser didEndElement:elementName namespaceURI:namespaceURI qualifiedName:qName];
-	
-	if ([elementName isEqualToString:@"Name"]) {
-		self.bucket.name = self.currentText;
-		return;
-	}
-	
-	if ([elementName isEqualToString:@"CreationDate"]) {
-		self.bucket.creationDate = self.currentText;
-		return;
-	}
-	
-	if ([elementName isEqualToString:@"Bucket"]) {
-		
-		if (caller != nil) {
-			[parser setDelegate:caller];
-		}
-		
-		if (parentObject != nil && [parentObject respondsToSelector:parentSetter]) {
-			[parentObject performSelector:parentSetter withObject:self.bucket];
-		}
-		
-		return;
-	}
+    [super parser:parser didEndElement:elementName namespaceURI:namespaceURI qualifiedName:qName];
+
+    if ([elementName isEqualToString:@"Name"]) {
+        self.bucket.name = self.currentText;
+        return;
+    }
+
+    if ([elementName isEqualToString:@"CreationDate"]) {
+        self.bucket.creationDate = self.currentText;
+        return;
+    }
+
+    if ([elementName isEqualToString:@"Bucket"]) {
+        if (caller != nil) {
+            [parser setDelegate:caller];
+        }
+
+        if (parentObject != nil && [parentObject respondsToSelector:parentSetter]) {
+            [parentObject performSelector:parentSetter withObject:self.bucket];
+        }
+
+        return;
+    }
 }
 
 
@@ -55,17 +54,17 @@
 
 -(S3Bucket *)bucket
 {
-	if (nil == bucket)
-	{
-		bucket = [[S3Bucket alloc] init];
-	}
-	return bucket;
+    if (nil == bucket)
+    {
+        bucket = [[S3Bucket alloc] init];
+    }
+    return bucket;
 }
 
 -(void)dealloc
 {
-	[bucket release];
-	[super dealloc];
+    [bucket release];
+    [super dealloc];
 }
 
 @end

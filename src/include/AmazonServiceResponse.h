@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -19,36 +19,42 @@
 #import "AmazonServiceException.h"
 #import "AmazonServiceExceptionUnmarshaller.h"
 
-@interface AmazonServiceResponse : NSObject {
-	NSInteger	     httpStatusCode;
-	NSString        *requestId;
-	NSMutableData   *body;
-	NSException     *exception;
-	bool             isFinishedLoading;
-	
-	AmazonServiceRequest *request;
+@interface AmazonServiceResponse:NSObject {
+    NSInteger            httpStatusCode;
+    NSString             *requestId;
+    NSMutableData        *body;
+    NSException          *exception;
+    bool                 isFinishedLoading;
+    bool                 didTimeout;
+
+    AmazonServiceRequest *request;
 }
 
 /** The body of the html response. */
-@property(nonatomic, retain) NSData* body;
+@property (nonatomic, retain) NSData *body;
 
 /** The HTTP status code of the response from the service. */
-@property(nonatomic) NSInteger httpStatusCode;
+@property (nonatomic) NSInteger httpStatusCode;
 
 /** Whether the response is finished loading. */
-@property(nonatomic, readonly) bool isFinishedLoading;
+@property (nonatomic, readonly) bool isFinishedLoading;
+
+/** Whether the original request was timed out. */
+@property (nonatomic, readonly) bool didTimeout;
 
 /** If an exception was thrown, this will return the exception. */
-@property(nonatomic, readonly) NSException* exception;
+@property (nonatomic, readonly) NSException *exception;
 
 /** The request for which this is the response */
-@property(nonatomic, retain)AmazonServiceRequest* request;
+@property (nonatomic, retain) AmazonServiceRequest *request;
 
 /** The requestId assigned by the service */
-@property(nonatomic, retain)NSString* requestId;
+@property (nonatomic, retain) NSString *requestId;
 
 /** Once the body has been received, perform additional processing, such as parse as XML. */
 -(void)processBody;
+-(void)postProcess;
+
 
 #pragma mark NSURLConnection delegate methods
 

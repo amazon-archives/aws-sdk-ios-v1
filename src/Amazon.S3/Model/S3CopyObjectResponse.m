@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -21,22 +21,23 @@
 
 -(void)processBody
 {
-	NSXMLParser *parser = [[NSXMLParser alloc] initWithData:self.body];
-	S3CopyObjectResultUnmarshaller *unmarshaller = [[S3CopyObjectResultUnmarshaller alloc] init];
-	[parser setDelegate:unmarshaller];
-	[parser parse];
-	
-	self.etag = unmarshaller.copyObjectResult.etag;
-	self.lastModified = [NSDate dateWithISO8061Format:unmarshaller.copyObjectResult.lastModified];
-	
-	[unmarshaller release];
-	[parser release];
+    NSXMLParser                    *parser       = [[NSXMLParser alloc] initWithData:self.body];
+    S3CopyObjectResultUnmarshaller *unmarshaller = [[S3CopyObjectResultUnmarshaller alloc] init];
+
+    [parser setDelegate:unmarshaller];
+    [parser parse];
+
+    self.etag         = unmarshaller.copyObjectResult.etag;
+    self.lastModified = [NSDate dateWithISO8061Format:unmarshaller.copyObjectResult.lastModified];
+
+    [unmarshaller release];
+    [parser release];
 }
 
 -(void)dealloc
 {
-	[lastModified release];
-	[super dealloc];
+    [lastModified release];
+    [super dealloc];
 }
 
 @end

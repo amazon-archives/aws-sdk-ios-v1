@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -24,60 +24,77 @@
 @synthesize outputStream;
 @synthesize rangeStart;
 @synthesize rangeEnd;
+@synthesize responseHeaderOverrides;
 
 -(id)initWithKey:(NSString *)aKey withBucket:(NSString *)aBucket
 {
-	if(self = [self init]) { 
-		self.bucket = aBucket;
-		self.key    = aKey;
-	}
-	   
-	return self;
+    if (self = [self init]) {
+        self.bucket = aBucket;
+        self.key    = aKey;
+    }
+
+    return self;
 }
 
 -(NSMutableURLRequest *)configureURLRequest
 {
-	[super configureURLRequest];
-	
-	[urlRequest setHTTPMethod:kHttpMethodGet]; 
-	
-	if (nil != self.ifModifiedSince)   [urlRequest setValue:[self.ifModifiedSince   requestFormat] forHTTPHeaderField:kHttpHdrIfModified];
-	if (nil != self.ifUnmodifiedSince) [urlRequest setValue:[self.ifUnmodifiedSince requestFormat] forHTTPHeaderField:kHttpHdrIfUnmodified];
-	if (nil != self.ifMatch)           [urlRequest setValue:self.ifMatch                           forHTTPHeaderField:kHttpHdrIfMatch];
-	if (nil != self.ifNoneMatch)       [urlRequest setValue:self.ifNoneMatch                       forHTTPHeaderField:kHttpHdrIfNoneMatch];
-	
-	if(rangeSet) [urlRequest setValue:[self getRange] forHTTPHeaderField:kHttpHdrRange];
-	
-	return urlRequest;
+    if (self.responseHeaderOverrides != nil) {
+        self.subResource = self.responseHeaderOverrides.queryString;
+    }
+
+    [super configureURLRequest];
+
+    [urlRequest setHTTPMethod:kHttpMethodGet];
+
+    if (nil != self.ifModifiedSince) {
+        [urlRequest setValue:[self.ifModifiedSince requestFormat] forHTTPHeaderField:kHttpHdrIfModified];
+    }
+    if (nil != self.ifUnmodifiedSince) {
+        [urlRequest setValue:[self.ifUnmodifiedSince requestFormat] forHTTPHeaderField:kHttpHdrIfUnmodified];
+    }
+    if (nil != self.ifMatch) {
+        [urlRequest setValue:self.ifMatch forHTTPHeaderField:kHttpHdrIfMatch];
+    }
+    if (nil != self.ifNoneMatch) {
+        [urlRequest setValue:self.ifNoneMatch forHTTPHeaderField:kHttpHdrIfNoneMatch];
+    }
+
+    if (rangeSet) {
+        [urlRequest setValue:[self getRange] forHTTPHeaderField:kHttpHdrRange];
+    }
+
+    return urlRequest;
 }
 
 -(NSString *)getRange
 {
-	if (rangeSet)
-		return [NSString stringWithFormat:@"bytes=%d-%d", rangeStart, rangeEnd];
-	
-	return nil;
+    if (rangeSet) {
+        return [NSString stringWithFormat:@"bytes=%d-%d", rangeStart, rangeEnd];
+    }
+
+    return nil;
 }
 
 -(void)setRangeStart:(int)start rangeEnd:(int)end
 {
-	if (end <= start) {
-		@throw [AmazonClientException exceptionWithName:@"Invalid range" reason:@"rangeEnd must be larger than rangeStart" userInfo:nil];
-	}
-	
-	rangeStart = start;
-	rangeEnd = end;
-	rangeSet = YES;
+    if (end <= start) {
+        @throw [AmazonClientException exceptionWithName : @"Invalid range" reason : @"rangeEnd must be larger than rangeStart" userInfo : nil];
+    }
+
+    rangeStart = start;
+    rangeEnd   = end;
+    rangeSet   = YES;
 }
-	
+
 -(void) dealloc
 {
-	[ifModifiedSince release];
-	[ifUnmodifiedSince release];
-	[ifMatch release];
-	[ifNoneMatch release];
-	
-	[super dealloc];
+    [ifModifiedSince release];
+    [ifUnmodifiedSince release];
+    [ifMatch release];
+    [ifNoneMatch release];
+    [responseHeaderOverrides release];
+
+    [super dealloc];
 }
 
 @end

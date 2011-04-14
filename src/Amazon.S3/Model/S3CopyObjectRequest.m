@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -27,57 +27,71 @@
 
 -(NSMutableURLRequest *)configureURLRequest
 {
-	[super configureURLRequest];
-	
-	// Assume that the destination bucket is the same as the source if not explicitly set
-	if (nil == self.bucket) self.bucket = self.sourceBucket;
-	
-	//Assume that the destination key is the same as the source if not explicitly set
-	if (nil == self.key) self.key = self.sourceKey;
-	
-	// If both the above are true, this is an invalid request
-	if ([self.key isEqualToString:self.sourceKey] && [self.bucket isEqualToString:self.sourceBucket]) {
-		[AmazonClientException raise:@"InvalidCopyRequest" format:@"Source and destination objects cannot be the same.", nil];
-	}
-	
-	[self.urlRequest setHTTPMethod:kHttpMethodPut];
-	
-	[self.urlRequest setValue:[NSString stringWithFormat:@"%@/%@", self.sourceBucket, self.sourceKey, nil] forHTTPHeaderField:kHttpHdrAmzCopySource];
-	
-	if (nil != self.metadataDirective) [self.urlRequest setValue:self.metadataDirective forHTTPHeaderField:kHttpHdrAmzMetaDirective];
-	if (nil != self.ifMatch)           [self.urlRequest setValue:self.ifMatch           forHTTPHeaderField:kHttpHdrAmzCopySourceIfMatch];
-	if (nil != self.ifNoneMatch)       [self.urlRequest setValue:self.ifNoneMatch       forHTTPHeaderField:kHttpHdrAmzCopySourceIfNoneMatch];
-	
-	if (nil != self.ifModifiedSince)   [self.urlRequest setValue:[self.ifModifiedSince   requestFormat] forHTTPHeaderField:kHttpHdrAmzCopySourceIfModified];
-	if (nil != self.ifUnmodifiedSince) [self.urlRequest setValue:[self.ifUnmodifiedSince requestFormat] forHTTPHeaderField:kHttpHdrAmzCopySourceIfUnmodified];
-	
-	return urlRequest;
+    [super configureURLRequest];
+
+    // Assume that the destination bucket is the same as the source if not explicitly set
+    if (nil == self.bucket) {
+        self.bucket = self.sourceBucket;
+    }
+
+    //Assume that the destination key is the same as the source if not explicitly set
+    if (nil == self.key) {
+        self.key = self.sourceKey;
+    }
+
+    // If both the above are true, this is an invalid request
+    if ([self.key isEqualToString:self.sourceKey] && [self.bucket isEqualToString:self.sourceBucket]) {
+        [AmazonClientException raise:@"InvalidCopyRequest" format:@"Source and destination objects cannot be the same.", nil];
+    }
+
+    [self.urlRequest setHTTPMethod:kHttpMethodPut];
+
+    [self.urlRequest setValue:[NSString stringWithFormat:@"%@/%@", self.sourceBucket, self.sourceKey, nil] forHTTPHeaderField:kHttpHdrAmzCopySource];
+
+    if (nil != self.metadataDirective) {
+        [self.urlRequest setValue:self.metadataDirective forHTTPHeaderField:kHttpHdrAmzMetaDirective];
+    }
+    if (nil != self.ifMatch) {
+        [self.urlRequest setValue:self.ifMatch forHTTPHeaderField:kHttpHdrAmzCopySourceIfMatch];
+    }
+    if (nil != self.ifNoneMatch) {
+        [self.urlRequest setValue:self.ifNoneMatch forHTTPHeaderField:kHttpHdrAmzCopySourceIfNoneMatch];
+    }
+
+    if (nil != self.ifModifiedSince) {
+        [self.urlRequest setValue:[self.ifModifiedSince requestFormat] forHTTPHeaderField:kHttpHdrAmzCopySourceIfModified];
+    }
+    if (nil != self.ifUnmodifiedSince) {
+        [self.urlRequest setValue:[self.ifUnmodifiedSince requestFormat] forHTTPHeaderField:kHttpHdrAmzCopySourceIfUnmodified];
+    }
+
+    return urlRequest;
 }
 
 -(id)initWithSourceKey:(NSString *)srcKey sourceBucket:(NSString *)srcBucket destinationKey:(NSString *)dstKey destinationBucket:(NSString *)dstBucket
 {
-	if (self = [super init])
-	{
-		self.sourceKey    = srcKey;
-		self.sourceBucket = srcBucket;
-		self.key          = dstKey;
-		self.bucket       = dstBucket;
-	}
-	
-	return self;
+    if (self = [super init])
+    {
+        self.sourceKey    = srcKey;
+        self.sourceBucket = srcBucket;
+        self.key          = dstKey;
+        self.bucket       = dstBucket;
+    }
+
+    return self;
 }
 
 -(void)dealloc
 {
-	[sourceKey         release];
-	[sourceBucket      release];
-	[metadataDirective release];
-	[ifMatch           release];
-	[ifNoneMatch       release];
-	[ifModifiedSince   release];
-	[ifUnmodifiedSince release];
-	
-	[super dealloc];
+    [sourceKey release];
+    [sourceBucket release];
+    [metadataDirective release];
+    [ifMatch release];
+    [ifNoneMatch release];
+    [ifModifiedSince release];
+    [ifUnmodifiedSince release];
+
+    [super dealloc];
 }
 
 @end

@@ -1,42 +1,52 @@
+/*
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License").
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the "license" file accompanying this file. This file is distributed
+ * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
 
 #import "ObjectViewController.h"
-
+#import "Constants.h"
 
 @implementation ObjectViewController
 
 
-@synthesize objectName, objectData;
+@synthesize objectNameLabel, objectDataLabel, objectName, bucket;
 
--(id)initWithNibName:(NSString *)nibNameOrNil withObjectName:(NSString*)theObjectName withObjectData:(NSString*)theObjectData {
-	if ((self = [super initWithNibName:nibNameOrNil bundle:nil])) {
-		on = theObjectName;
-		od = theObjectData;		
-	}	
-	
-	return self;
+-(id)init
+{
+    return [super initWithNibName:@"ObjectViewController" bundle:nil];
 }
 
--(IBAction)done:(id)sender {
-	[self.view removeFromSuperview];
+-(IBAction)done:(id)sender
+{
+    [self dismissModalViewControllerAnimated:YES];
 }
 
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
-    [super viewDidLoad];
-	
-	self.objectName.text = on;
-	self.objectData.text = od;
+-(void)viewWillAppear:(BOOL)animated
+{
+    @try {
+        S3GetObjectRequest  *getObjectRequest  = [[[S3GetObjectRequest alloc] initWithKey:self.objectName withBucket:self.bucket] autorelease];
+        S3GetObjectResponse *getObjectResponse = [[Constants s3] getObject:getObjectRequest];
+
+        self.objectNameLabel.text = self.objectName;
+        self.objectDataLabel.text = [[NSString alloc] initWithData:getObjectResponse.body encoding:NSUTF8StringEncoding];
+    }
+    @catch (AmazonServiceException *exception) {
+        NSLog(@"Exception = %@", exception);
+    }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
-}
-
-- (void)dealloc {
+-(void)dealloc
+{
     [super dealloc];
 }
 

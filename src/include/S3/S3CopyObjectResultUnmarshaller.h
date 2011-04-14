@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -18,10 +18,10 @@
 #import "../AmazonUnmarshallerXMLParserDelegate.h"
 #import "S3CopyObjectResult.h"
 
-@interface S3CopyObjectResultUnmarshaller : AmazonUnmarshallerXMLParserDelegate {
-	S3CopyObjectResult *copyObjectResult;
+@interface S3CopyObjectResultUnmarshaller:AmazonUnmarshallerXMLParserDelegate {
+    S3CopyObjectResult *copyObjectResult;
 }
 
-@property (nonatomic, readonly) S3CopyObjectResult* copyObjectResult;
+@property (nonatomic, readonly) S3CopyObjectResult *copyObjectResult;
 
 @end

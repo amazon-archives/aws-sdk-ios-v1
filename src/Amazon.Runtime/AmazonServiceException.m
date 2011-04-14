@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -23,69 +23,72 @@
 
 +(AmazonServiceException *)exceptionWithMessage:(NSString *)theMessage
 {
-	AmazonServiceException *e = (AmazonServiceException *)[AmazonServiceException exceptionWithName:@"AmazonServiceException" reason:theMessage userInfo:nil];
-	e.message = theMessage;
-	return e;
+    AmazonServiceException *e = (AmazonServiceException *)[AmazonServiceException exceptionWithName:@"AmazonServiceException" reason:theMessage userInfo:nil];
+
+    e.message = theMessage;
+    return e;
 }
 
 +(AmazonServiceException *)exceptionWithStatusCode:(NSInteger)theStatusCode
 {
-	AmazonServiceException *e = (AmazonServiceException *)[AmazonServiceException exceptionWithName:@"AmazonServiceException" reason:nil userInfo:nil];
-	e.statusCode = theStatusCode;
-	return e;
+    AmazonServiceException *e = (AmazonServiceException *)[AmazonServiceException exceptionWithName:@"AmazonServiceException" reason:nil userInfo:nil];
+
+    e.statusCode = theStatusCode;
+    return e;
 }
 
-+(AmazonServiceException *)exceptionWithMessage:(NSString *)theMessage 
-								  withErrorCode:(NSString *)theErrorCode 
-								 withStatusCode:(NSInteger)theStatusCode
-								  withRequestId:(NSString *)theRequestId
++(AmazonServiceException *)exceptionWithMessage:(NSString *)theMessage
+withErrorCode:(NSString *)theErrorCode
+withStatusCode:(NSInteger)theStatusCode
+withRequestId:(NSString *)theRequestId
 {
-	AmazonServiceException *e = (AmazonServiceException *)[AmazonServiceException exceptionWithName:@"AmazonServiceException" reason:theMessage userInfo:nil];
-	e.errorCode  = theErrorCode;
-	e.statusCode = theStatusCode;
-	e.requestId  = theRequestId;
-	return e;
+    AmazonServiceException *e = (AmazonServiceException *)[AmazonServiceException exceptionWithName:@"AmazonServiceException" reason:theMessage userInfo:nil];
+
+    e.errorCode  = theErrorCode;
+    e.statusCode = theStatusCode;
+    e.requestId  = theRequestId;
+    return e;
 }
 
 -(void)setPropertiesWithException:(AmazonServiceException *)theException
 {
-	self.errorCode   = theException.errorCode;
-	self.message     = theException.message;
-	self.requestId   = theException.requestId;
-	self.statusCode  = theException.statusCode;
-	self.serviceName = theException.serviceName;
+    self.errorCode   = theException.errorCode;
+    self.message     = theException.message;
+    self.requestId   = theException.requestId;
+    self.statusCode  = theException.statusCode;
+    self.serviceName = theException.serviceName;
 }
 
--(id)initWithMessage:(NSString *)theMessage 
+-(id)initWithMessage:(NSString *)theMessage
 {
-	self = [super initWithMessage:theMessage];
-	if ( self != nil ) {
-	}
-	
-	return self;
+    self = [super initWithMessage:theMessage];
+    if (self != nil) {
+    }
+
+    return self;
 }
 
--(NSString*)description 
+-(NSString *)description
 {
-	return [[[NSString alloc] initWithFormat:@"%@ { RequestId:%@, ErrorCode:%@, Message:%@ }", NSStringFromClass([self class]), requestId, errorCode, message] autorelease];		
+    return [[[NSString alloc] initWithFormat:@"%@ { RequestId:%@, ErrorCode:%@, Message:%@ }", NSStringFromClass([self class]), requestId, errorCode, message] autorelease];
 }
 
 -(NSMutableDictionary *)additionalFields
 {
-	if (nil == additionalFields) {
-		additionalFields = [[NSMutableDictionary alloc] initWithCapacity:1];
-	}
-	return additionalFields;
+    if (nil == additionalFields) {
+        additionalFields = [[NSMutableDictionary alloc] initWithCapacity:1];
+    }
+    return additionalFields;
 }
 
--(void)dealloc 
+-(void)dealloc
 {
-	[requestId        release];
-	[errorCode        release];
-	[serviceName      release];
-	[additionalFields release];
-	
-	[super dealloc];
+    [requestId release];
+    [errorCode release];
+    [serviceName release];
+    [additionalFields release];
+
+    [super dealloc];
 }
 
 

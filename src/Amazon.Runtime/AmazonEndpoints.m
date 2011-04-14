@@ -1,0 +1,219 @@
+/*
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License").
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the "license" file accompanying this file. This file is distributed
+ * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+
+#import "AmazonEndpoints.h"
+
+@implementation AmazonEndpoints {
+}
+
+
++(NSString *)s3Endpoint:(AmazonRegion)region secure:(bool)useSSL
+{
+    if (useSSL) {
+        switch (region) {
+        case US_EAST_1: return AMAZON_S3_US_EAST_1_ENDPOINT_SECURE;
+
+        case US_WEST_1: return AMAZON_S3_US_WEST_1_ENDPOINT_SECURE;
+
+        case EU_WEST_1: return AMAZON_S3_EU_WEST_1_ENDPOINT_SECURE;
+
+        case AP_SOUTHEAST_1: return AMAZON_S3_AP_SOUTHEAST_1_ENDPOINT_SECURE;
+
+        case AP_NORTHEAST_1: return AMAZON_S3_AP_NORTHEAST_1_ENDPOINT_SECURE;
+        };
+    }
+    else {
+        switch (region) {
+        case US_EAST_1: return AMAZON_S3_US_EAST_1_ENDPOINT;
+
+        case US_WEST_1: return AMAZON_S3_US_WEST_1_ENDPOINT;
+
+        case EU_WEST_1: return AMAZON_S3_EU_WEST_1_ENDPOINT;
+
+        case AP_SOUTHEAST_1: return AMAZON_S3_AP_SOUTHEAST_1_ENDPOINT;
+
+        case AP_NORTHEAST_1: return AMAZON_S3_AP_NORTHEAST_1_ENDPOINT;
+        };
+    }
+
+    return AMAZON_S3_US_EAST_1_ENDPOINT;
+}
+
++(NSString *)sdbEndpoint:(AmazonRegion)region secure:(bool)useSSL
+{
+    if (useSSL) {
+        switch (region) {
+        case US_EAST_1: return AMAZON_SDB_US_EAST_1_ENDPOINT_SECURE;
+
+        case US_WEST_1: return AMAZON_SDB_US_WEST_1_ENDPOINT_SECURE;
+
+        case EU_WEST_1: return AMAZON_SDB_EU_WEST_1_ENDPOINT_SECURE;
+
+        case AP_SOUTHEAST_1: return AMAZON_SDB_AP_SOUTHEAST_1_ENDPOINT_SECURE;
+
+        case AP_NORTHEAST_1: return AMAZON_SDB_AP_NORTHEAST_1_ENDPOINT_SECURE;
+        };
+    }
+    else {
+        switch (region) {
+        case US_EAST_1: return AMAZON_SDB_US_EAST_1_ENDPOINT;
+
+        case US_WEST_1: return AMAZON_SDB_US_WEST_1_ENDPOINT;
+
+        case EU_WEST_1: return AMAZON_SDB_EU_WEST_1_ENDPOINT;
+
+        case AP_SOUTHEAST_1: return AMAZON_SDB_AP_SOUTHEAST_1_ENDPOINT;
+
+        case AP_NORTHEAST_1: return AMAZON_SDB_AP_NORTHEAST_1_ENDPOINT;
+        };
+    }
+
+    return AMAZON_SDB_US_EAST_1_ENDPOINT;
+}
+
++(NSString *)snsEndpoint:(AmazonRegion)region secure:(bool)useSSL
+{
+    if (useSSL) {
+        switch (region) {
+        case US_EAST_1: return AMAZON_SNS_US_EAST_1_ENDPOINT_SECURE;
+
+        case US_WEST_1: return AMAZON_SNS_US_WEST_1_ENDPOINT_SECURE;
+
+        case EU_WEST_1: return AMAZON_SNS_EU_WEST_1_ENDPOINT_SECURE;
+
+        case AP_SOUTHEAST_1: return AMAZON_SNS_AP_SOUTHEAST_1_ENDPOINT_SECURE;
+
+        case AP_NORTHEAST_1: return AMAZON_SNS_AP_NORTHEAST_1_ENDPOINT_SECURE;
+        };
+    }
+    else {
+        switch (region) {
+        case US_EAST_1: return AMAZON_SNS_US_EAST_1_ENDPOINT;
+
+        case US_WEST_1: return AMAZON_SNS_US_WEST_1_ENDPOINT;
+
+        case EU_WEST_1: return AMAZON_SNS_EU_WEST_1_ENDPOINT;
+
+        case AP_SOUTHEAST_1: return AMAZON_SNS_AP_SOUTHEAST_1_ENDPOINT;
+
+        case AP_NORTHEAST_1: return AMAZON_SNS_AP_NORTHEAST_1_ENDPOINT;
+        };
+    }
+
+    return AMAZON_SNS_US_EAST_1_ENDPOINT;
+}
+
++(NSString *)sqsEndpoint:(AmazonRegion)region secure:(bool)useSSL
+{
+    if (useSSL) {
+        switch (region) {
+        case US_EAST_1: return AMAZON_SQS_US_EAST_1_ENDPOINT_SECURE;
+
+        case US_WEST_1: return AMAZON_SQS_US_WEST_1_ENDPOINT_SECURE;
+
+        case EU_WEST_1: return AMAZON_SQS_EU_WEST_1_ENDPOINT_SECURE;
+
+        case AP_SOUTHEAST_1: return AMAZON_SQS_AP_SOUTHEAST_1_ENDPOINT_SECURE;
+
+        case AP_NORTHEAST_1: return AMAZON_SQS_AP_NORTHEAST_1_ENDPOINT_SECURE;
+        };
+    }
+    else {
+        switch (region) {
+        case US_EAST_1: return AMAZON_SQS_US_EAST_1_ENDPOINT;
+
+        case US_WEST_1: return AMAZON_SQS_US_WEST_1_ENDPOINT;
+
+        case EU_WEST_1: return AMAZON_SQS_EU_WEST_1_ENDPOINT;
+
+        case AP_SOUTHEAST_1: return AMAZON_SQS_AP_SOUTHEAST_1_ENDPOINT;
+
+        case AP_NORTHEAST_1: return AMAZON_SQS_AP_NORTHEAST_1_ENDPOINT;
+        };
+    }
+
+    return AMAZON_SQS_US_EAST_1_ENDPOINT;
+}
+
++(NSString *)sesEndpoint:(AmazonRegion)region secure:(bool)useSSL
+{
+    return AMAZON_SES_US_EAST_1_ENDPOINT_SECURE;
+}
+
++(NSString *)ec2Endpoint:(AmazonRegion)region secure:(bool)useSSL
+{
+    if (useSSL) {
+        switch (region) {
+        case US_EAST_1: return AMAZON_EC2_US_EAST_1_ENDPOINT_SECURE;
+
+        case US_WEST_1: return AMAZON_EC2_US_WEST_1_ENDPOINT_SECURE;
+
+        case EU_WEST_1: return AMAZON_EC2_EU_WEST_1_ENDPOINT_SECURE;
+
+        case AP_SOUTHEAST_1: return AMAZON_EC2_AP_SOUTHEAST_1_ENDPOINT_SECURE;
+
+        case AP_NORTHEAST_1: return AMAZON_EC2_AP_NORTHEAST_1_ENDPOINT_SECURE;
+        };
+    }
+    else {
+        switch (region) {
+        case US_EAST_1: return AMAZON_EC2_US_EAST_1_ENDPOINT;
+
+        case US_WEST_1: return AMAZON_EC2_US_WEST_1_ENDPOINT;
+
+        case EU_WEST_1: return AMAZON_EC2_EU_WEST_1_ENDPOINT;
+
+        case AP_SOUTHEAST_1: return AMAZON_EC2_AP_SOUTHEAST_1_ENDPOINT;
+
+        case AP_NORTHEAST_1: return AMAZON_EC2_AP_NORTHEAST_1_ENDPOINT;
+        };
+    }
+
+    return AMAZON_EC2_US_EAST_1_ENDPOINT;
+}
+
++(NSString *)cwEndpoint:(AmazonRegion)region secure:(bool)useSSL
+{
+    if (useSSL) {
+        switch (region) {
+        case US_EAST_1: return AMAZON_CW_US_EAST_1_ENDPOINT_SECURE;
+
+        case US_WEST_1: return AMAZON_CW_US_WEST_1_ENDPOINT_SECURE;
+
+        case EU_WEST_1: return AMAZON_CW_EU_WEST_1_ENDPOINT_SECURE;
+
+        case AP_SOUTHEAST_1: return AMAZON_CW_AP_SOUTHEAST_1_ENDPOINT_SECURE;
+
+        case AP_NORTHEAST_1: return AMAZON_CW_AP_NORTHEAST_1_ENDPOINT_SECURE;
+        };
+    }
+    else {
+        switch (region) {
+        case US_EAST_1: return AMAZON_CW_US_EAST_1_ENDPOINT;
+
+        case US_WEST_1: return AMAZON_CW_US_WEST_1_ENDPOINT;
+
+        case EU_WEST_1: return AMAZON_CW_EU_WEST_1_ENDPOINT;
+
+        case AP_SOUTHEAST_1: return AMAZON_CW_AP_SOUTHEAST_1_ENDPOINT;
+
+        case AP_NORTHEAST_1: return AMAZON_CW_AP_NORTHEAST_1_ENDPOINT;
+        };
+    }
+
+    return AMAZON_CW_US_EAST_1_ENDPOINT;
+}
+
+@end

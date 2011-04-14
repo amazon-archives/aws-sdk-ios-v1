@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -23,38 +23,52 @@
 #import "AmazonServiceRequest.h"
 #import "AmazonServiceResponse.h"
 #import "AmazonServiceResponseUnmarshaller.h"
+#import "AmazonURLRequest.h"
+#import "AmazonCredentials.h"
 
-@interface AmazonWebServiceClient : NSObject 
+@interface AmazonWebServiceClient:NSObject
 {
-	NSString* accessKey;
-	NSString* secretKey;
-	NSString* endpoint;
-	int maxRetries;
+    AmazonCredentials *credentials;
+    NSString          *endpoint;
+    int               maxRetries;
+    NSTimeInterval    timeout;
+    NSString          *userAgent;
 }
 
-@property(nonatomic, retain) NSString* endpoint;
-@property(nonatomic) int maxRetries;
+/** The service endpoint to which requests should be sent. */
+@property (nonatomic, retain) NSString *endpoint;
 
-/** Inits the client with the access key and the secret key. 
+/** The maximum number of retry attempts for failed retryable requests
+ * (ex: 5xx error responses from a service).
+ *
+ * Default is 5.
+ */
+@property (nonatomic) int maxRetries;
+
+/** The amount of time to wait (in milliseconds) for data to be transfered over
+ * an established, open connection before the connection times out and is closed.
+ *
+ * Default is 240 seconds.
+ */
+@property (nonatomic) NSTimeInterval timeout;
+
+/** The HTTP user agent header to send with all requests. */
+@property (nonatomic, retain) NSString *userAgent;
+
+/** Inits the client with the access key and the secret key.
  *
  * @param accessKey The AWS Access Key
  * @param secretKey The AWS Secret Key
  */
--(id)initWithAccessKey:(NSString*)accessKey withSecretKey:(NSString*)secretKey;
+-(id)initWithAccessKey:(NSString *)accessKey withSecretKey:(NSString *)secretKey;
 
-/** Sign a URL request using the credentials of the client object.
- *
- * @param request a mutable URL request
- * @return the signed request
- */
--(NSURLRequest *)signURLRequest:(NSMutableURLRequest *)request;
-
--(void)signRequest:(AmazonServiceRequest *)serviceRequest;
+/** Inits the client the given credentials. */
+-(id)initWithCredentials:(AmazonCredentials *)theCredentials;
 
 /** Constructs an empty response object of the appropriate type to match the given request
  * object.
  * @param request An instance of a subclass of AmazonServiceRequest.
- * @return An instance of the appropriate subclass of AmazonServiceResponse, or 
+ * @return An instance of the appropriate subclass of AmazonServiceResponse, or
  *         an instance of AmazonServiceResponse if there is no response class to
  *         match the instance passed in.
  */
@@ -62,15 +76,13 @@
 
 /** Utility method that sends the raw S3 Request to be processed.
  *
- * @param request An AmazonServiceRequest describing the parameters of a request. 
+ * @param request An AmazonServiceRequest describing the parameters of a request.
  * @return The response from the service.
  */
 -(AmazonServiceResponse *)invoke:(AmazonServiceRequest *)request;
 
--(NSString*)getV2StringToSign:(NSURL*)theEndpoint request:(AmazonServiceRequest *)serviceRequest;
-
--(AmazonServiceResponse *)parseResponseBody:(NSData *)body withDelegateType:(Class)delegateType;
--(void)pauseExponentially:(int)tryCount; 
+-(AmazonServiceResponse *)parseResponse:(AmazonServiceResponse *)aResponse withDelegateType:(Class)delegateType;
+-(void)pauseExponentially:(int)tryCount;
 -(bool)shouldRetry:(AmazonServiceResponse *)response;
 
 @end

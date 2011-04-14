@@ -1,12 +1,12 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- * 
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
  * A copy of the License is located at
- * 
+ *
  *  http://aws.amazon.com/apache2.0
- * 
+ *
  * or in the "license" file accompanying this file. This file is distributed
  * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
  * express or implied. See the License for the specific language governing
@@ -55,11 +55,12 @@
 
 #import "../AmazonWebServiceClient.h"
 
+/** \defgroup SimpleDB Amazon SimpleDB */
 
 /** <summary>
  * Interface for accessing AmazonSimpleDB.
- *  
- *  <p>
+ *
+ *  Amazon SimpleDB <p>
  * Amazon SimpleDB is a web service providing the core database
  * functions of data indexing and querying in the cloud. By offloading
  * the time and effort associated with building and operating a web-scale
@@ -82,8 +83,10 @@
  * http://aws.amazon.com/simpledb/ </a> for more information.
  * </p>
  * </summary>
+ *
+ * \ingroup SimpleDB
  */
-@interface AmazonSimpleDBClient : AmazonWebServiceClient
+@interface AmazonSimpleDBClient:AmazonWebServiceClient
 {
 }
 
@@ -109,19 +112,19 @@
  *
  * @param selectRequest Container for the necessary parameters to execute
  *           the Select service method on AmazonSimpleDB.
- * 
+ *
  * @return The response from the Select service method, as returned by
  *         AmazonSimpleDB.
- * 
- * @throws InvalidParameterValueException
- * @throws InvalidQueryExpressionException
- * @throws RequestTimeoutException
- * @throws InvalidNumberPredicatesException
- * @throws NoSuchDomainException
- * @throws InvalidNextTokenException
- * @throws TooManyRequestedAttributesException
- * @throws MissingParameterException
- * @throws InvalidNumberValueTestsException
+ *
+ * @throws SimpleDBInvalidParameterValueException
+ * @throws SimpleDBInvalidQueryExpressionException
+ * @throws SimpleDBRequestTimeoutException
+ * @throws SimpleDBInvalidNumberPredicatesException
+ * @throws SimpleDBNoSuchDomainException
+ * @throws SimpleDBInvalidNextTokenException
+ * @throws SimpleDBTooManyRequestedAttributesException
+ * @throws SimpleDBMissingParameterException
+ * @throws SimpleDBInvalidNumberValueTestsException
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -131,7 +134,7 @@
  *             If an error response is returned by AmazonSimpleDB indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SimpleDBSelectResponse*)select:(SimpleDBSelectRequest*)selectRequest; 
+-(SimpleDBSelectResponse *)select:(SimpleDBSelectRequest *)selectRequest;
 
 
 /**
@@ -158,7 +161,7 @@
  * <code>true</code> causes the new attribute value to replace the
  * existing attribute value(s). For example, if an item has the
  * attributes <code>{ 'a', '1' }</code> ,
- * 
+ *
  * <code>{ 'b', '2'}</code> and <code>{ 'b', '3'
  * }</code> and the requestor calls <code>PutAttributes</code> using the
  * attributes <code>{ 'b', '4' }</code> with the <code>Replace</code>
@@ -185,21 +188,21 @@
  * <li>256 total attribute name-value pairs per item</li>
  * <li>One billion attributes per domain</li>
  * <li>10 GB of total user data storage per domain</li>
- * 
+ *
  * </ul>
- * 
+ *
  * </p>
  *
  * @param putAttributesRequest Container for the necessary parameters to
  *           execute the PutAttributes service method on AmazonSimpleDB.
- * 
- * @throws InvalidParameterValueException
- * @throws NumberDomainBytesExceededException
- * @throws NumberDomainAttributesExceededException
- * @throws NoSuchDomainException
- * @throws NumberItemAttributesExceededException
- * @throws AttributeDoesNotExistException
- * @throws MissingParameterException
+ *
+ * @throws SimpleDBInvalidParameterValueException
+ * @throws SimpleDBNumberDomainBytesExceededException
+ * @throws SimpleDBNumberDomainAttributesExceededException
+ * @throws SimpleDBNoSuchDomainException
+ * @throws SimpleDBNumberItemAttributesExceededException
+ * @throws SimpleDBAttributeDoesNotExistException
+ * @throws SimpleDBMissingParameterException
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -209,19 +212,44 @@
  *             If an error response is returned by AmazonSimpleDB indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SimpleDBPutAttributesResponse*)putAttributes:(SimpleDBPutAttributesRequest*)putAttributesRequest; 
+-(SimpleDBPutAttributesResponse *)putAttributes:(SimpleDBPutAttributesRequest *)putAttributesRequest;
 
 
 /**
  * <p>
- * Deletes one or more attributes associated with one or more items. If
- * all attributes of an item are deleted, the item is deleted.
+ * Performs multiple DeleteAttributes operations in a single call, which
+ * reduces round trips and latencies. This enables Amazon SimpleDB to
+ * optimize requests, which generally yields better throughput.
+ * </p>
+ * <p>
+ * <b>NOTE:</b> If you specify BatchDeleteAttributes without attributes
+ * or values, all the attributes for the item are deleted.
+ * BatchDeleteAttributes is an idempotent operation; running it multiple
+ * times on the same item or attribute doesn't result in an error. The
+ * BatchDeleteAttributes operation succeeds or fails in its entirety.
+ * There are no partial deletes. You can execute multiple
+ * BatchDeleteAttributes operations and other operations in parallel.
+ * However, large numbers of concurrent BatchDeleteAttributes calls can
+ * result in Service Unavailable (503) responses. This operation is
+ * vulnerable to exceeding the maximum URL size when making a REST
+ * request using the HTTP GET method. This operation does not support
+ * conditions using Expected.X.Name, Expected.X.Value, or
+ * Expected.X.Exists.
+ * </p>
+ * <p>
+ * The following limitations are enforced for this operation:
+ * <ul>
+ * <li>1 MB request size</li>
+ * <li>25 item limit per BatchDeleteAttributes operation</li>
+ *
+ * </ul>
+ *
  * </p>
  *
  * @param batchDeleteAttributesRequest Container for the necessary
  *           parameters to execute the BatchDeleteAttributes service method on
  *           AmazonSimpleDB.
- * 
+ *
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -231,7 +259,7 @@
  *             If an error response is returned by AmazonSimpleDB indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SimpleDBBatchDeleteAttributesResponse*)batchDeleteAttributes:(SimpleDBBatchDeleteAttributesRequest*)batchDeleteAttributesRequest; 
+-(SimpleDBBatchDeleteAttributesResponse *)batchDeleteAttributes:(SimpleDBBatchDeleteAttributesRequest *)batchDeleteAttributesRequest;
 
 
 /**
@@ -249,8 +277,8 @@
  *
  * @param deleteDomainRequest Container for the necessary parameters to
  *           execute the DeleteDomain service method on AmazonSimpleDB.
- * 
- * @throws MissingParameterException
+ *
+ * @throws SimpleDBMissingParameterException
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -260,7 +288,7 @@
  *             If an error response is returned by AmazonSimpleDB indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SimpleDBDeleteDomainResponse*)deleteDomain:(SimpleDBDeleteDomainRequest*)deleteDomainRequest; 
+-(SimpleDBDeleteDomainResponse *)deleteDomain:(SimpleDBDeleteDomainRequest *)deleteDomainRequest;
 
 
 /**
@@ -286,10 +314,10 @@
  *
  * @param createDomainRequest Container for the necessary parameters to
  *           execute the CreateDomain service method on AmazonSimpleDB.
- * 
- * @throws InvalidParameterValueException
- * @throws NumberDomainsExceededException
- * @throws MissingParameterException
+ *
+ * @throws SimpleDBInvalidParameterValueException
+ * @throws SimpleDBNumberDomainsExceededException
+ * @throws SimpleDBMissingParameterException
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -299,7 +327,7 @@
  *             If an error response is returned by AmazonSimpleDB indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SimpleDBCreateDomainResponse*)createDomain:(SimpleDBCreateDomainRequest*)createDomainRequest; 
+-(SimpleDBCreateDomainResponse *)createDomain:(SimpleDBCreateDomainRequest *)createDomainRequest;
 
 
 /**
@@ -327,11 +355,11 @@
  *
  * @param deleteAttributesRequest Container for the necessary parameters
  *           to execute the DeleteAttributes service method on AmazonSimpleDB.
- * 
- * @throws InvalidParameterValueException
- * @throws NoSuchDomainException
- * @throws AttributeDoesNotExistException
- * @throws MissingParameterException
+ *
+ * @throws SimpleDBInvalidParameterValueException
+ * @throws SimpleDBNoSuchDomainException
+ * @throws SimpleDBAttributeDoesNotExistException
+ * @throws SimpleDBMissingParameterException
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -341,7 +369,7 @@
  *             If an error response is returned by AmazonSimpleDB indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SimpleDBDeleteAttributesResponse*)deleteAttributes:(SimpleDBDeleteAttributesRequest*)deleteAttributesRequest; 
+-(SimpleDBDeleteAttributesResponse *)deleteAttributes:(SimpleDBDeleteAttributesRequest *)deleteAttributesRequest;
 
 
 /**
@@ -358,12 +386,12 @@
  *
  * @param listDomainsRequest Container for the necessary parameters to
  *           execute the ListDomains service method on AmazonSimpleDB.
- * 
+ *
  * @return The response from the ListDomains service method, as returned
  *         by AmazonSimpleDB.
- * 
- * @throws InvalidParameterValueException
- * @throws InvalidNextTokenException
+ *
+ * @throws SimpleDBInvalidParameterValueException
+ * @throws SimpleDBInvalidNextTokenException
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -373,7 +401,7 @@
  *             If an error response is returned by AmazonSimpleDB indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SimpleDBListDomainsResponse*)listDomains:(SimpleDBListDomainsRequest*)listDomainsRequest; 
+-(SimpleDBListDomainsResponse *)listDomains:(SimpleDBListDomainsRequest *)listDomainsRequest;
 
 
 /**
@@ -395,13 +423,13 @@
  *
  * @param getAttributesRequest Container for the necessary parameters to
  *           execute the GetAttributes service method on AmazonSimpleDB.
- * 
+ *
  * @return The response from the GetAttributes service method, as
  *         returned by AmazonSimpleDB.
- * 
- * @throws InvalidParameterValueException
- * @throws NoSuchDomainException
- * @throws MissingParameterException
+ *
+ * @throws SimpleDBInvalidParameterValueException
+ * @throws SimpleDBNoSuchDomainException
+ * @throws SimpleDBMissingParameterException
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -411,7 +439,7 @@
  *             If an error response is returned by AmazonSimpleDB indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SimpleDBGetAttributesResponse*)getAttributes:(SimpleDBGetAttributesRequest*)getAttributesRequest; 
+-(SimpleDBGetAttributesResponse *)getAttributes:(SimpleDBGetAttributesRequest *)getAttributesRequest;
 
 
 /**
@@ -484,24 +512,24 @@
  * <li>1 billion attributes per domain</li>
  * <li>10 GB of total user data storage per domain</li>
  * <li>25 item limit per <code>BatchPutAttributes</code> operation</li>
- * 
+ *
  * </ul>
- * 
+ *
  * </p>
  *
  * @param batchPutAttributesRequest Container for the necessary
  *           parameters to execute the BatchPutAttributes service method on
  *           AmazonSimpleDB.
- * 
- * @throws DuplicateItemNameException
- * @throws InvalidParameterValueException
- * @throws NumberDomainBytesExceededException
- * @throws NumberSubmittedItemsExceededException
- * @throws NumberSubmittedAttributesExceededException
- * @throws NumberDomainAttributesExceededException
- * @throws NoSuchDomainException
- * @throws NumberItemAttributesExceededException
- * @throws MissingParameterException
+ *
+ * @throws SimpleDBDuplicateItemNameException
+ * @throws SimpleDBInvalidParameterValueException
+ * @throws SimpleDBNumberDomainBytesExceededException
+ * @throws SimpleDBNumberSubmittedItemsExceededException
+ * @throws SimpleDBNumberSubmittedAttributesExceededException
+ * @throws SimpleDBNumberDomainAttributesExceededException
+ * @throws SimpleDBNoSuchDomainException
+ * @throws SimpleDBNumberItemAttributesExceededException
+ * @throws SimpleDBMissingParameterException
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -511,7 +539,7 @@
  *             If an error response is returned by AmazonSimpleDB indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SimpleDBBatchPutAttributesResponse*)batchPutAttributes:(SimpleDBBatchPutAttributesRequest*)batchPutAttributesRequest; 
+-(SimpleDBBatchPutAttributesResponse *)batchPutAttributes:(SimpleDBBatchPutAttributesRequest *)batchPutAttributesRequest;
 
 
 /**
@@ -523,12 +551,12 @@
  *
  * @param domainMetadataRequest Container for the necessary parameters to
  *           execute the DomainMetadata service method on AmazonSimpleDB.
- * 
+ *
  * @return The response from the DomainMetadata service method, as
  *         returned by AmazonSimpleDB.
- * 
- * @throws NoSuchDomainException
- * @throws MissingParameterException
+ *
+ * @throws SimpleDBNoSuchDomainException
+ * @throws SimpleDBMissingParameterException
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -538,13 +566,9 @@
  *             If an error response is returned by AmazonSimpleDB indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SimpleDBDomainMetadataResponse*)domainMetadata:(SimpleDBDomainMetadataRequest*)domainMetadataRequest; 
+-(SimpleDBDomainMetadataResponse *)domainMetadata:(SimpleDBDomainMetadataRequest *)domainMetadataRequest;
 
 
-
-/** Ensure that all respsonse objects have been loaded by the runtime. */
-+(void)initializeResponseObjects;
 
 @end
-	
-		
+

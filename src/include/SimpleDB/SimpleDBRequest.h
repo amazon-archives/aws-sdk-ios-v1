@@ -2,8 +2,7 @@
 #import <Foundation/Foundation.h>
 #import "../AmazonServiceRequest.h"
 
-@interface SimpleDBRequest : AmazonServiceRequest {
-	
+@interface SimpleDBRequest:AmazonServiceRequest {
 }
 
 @end

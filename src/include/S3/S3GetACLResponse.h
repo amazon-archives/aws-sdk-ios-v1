@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -15,12 +15,15 @@
 
 #import <Foundation/Foundation.h>
 #import "S3Response.h"
-#import "S3AccessControlList.h"	
+#import "S3AccessControlList.h"
 #import "S3AccessControlListUnmarshaller.h"
 
-/** Contains all the information about the getACL operation. */
-@interface S3GetACLResponse : S3Response {
-	S3AccessControlList *acl;
+/** Contains all the information about the getACL operation.
+ *
+ * \ingroup S3
+ */
+@interface S3GetACLResponse:S3Response {
+    S3AccessControlList *acl;
 }
 
 /** Gets the access control list */

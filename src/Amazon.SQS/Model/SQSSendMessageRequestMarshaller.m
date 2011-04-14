@@ -1,12 +1,12 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- * 
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
  * A copy of the License is located at
- * 
+ *
  *  http://aws.amazon.com/apache2.0
- * 
+ *
  * or in the "license" file accompanying this file. This file is distributed
  * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
  * express or implied. See the License for the specific language governing
@@ -14,30 +14,32 @@
  */
 
 #import "SQSSendMessageRequestMarshaller.h"
-#import "SQSRequest.h"
 
-       
+@implementation SQSSendMessageRequestMarshaller
 
++(AmazonServiceRequest *)createRequest:(SQSSendMessageRequest *)sendMessageRequest
+{
+    AmazonServiceRequest *request = [[SQSRequest alloc] init];
 
-@implementation SQSSendMessageRequestMarshaller 
-
-+(AmazonServiceRequest*)createRequest:(SQSSendMessageRequest*)sendMessageRequest {
-    AmazonServiceRequest* request = [[SQSRequest alloc] init];
     [request setParameterValue:@"SendMessage"           forKey:@"Action"];
     [request setParameterValue:@"2009-02-01"   forKey:@"Version"];
-    
-        if (sendMessageRequest != nil) {
-            if (sendMessageRequest.queueUrl != nil) {
-            [request setParameterValue:[NSString stringWithFormat:@"%@", sendMessageRequest.queueUrl] forKey:[NSString stringWithFormat:@"%@",@"QueueUrl"]];
-        }
-            }
-    if (sendMessageRequest != nil) {
-            if (sendMessageRequest.messageBody != nil) {
-            [request setParameterValue:[NSString stringWithFormat:@"%@", sendMessageRequest.messageBody] forKey:[NSString stringWithFormat:@"%@",@"MessageBody"]];
-        }
-            }
 
-    
+    [request setDelegate:[sendMessageRequest delegate]];
+    [request setCredentials:[sendMessageRequest credentials]];
+    [request setEndpoint:[sendMessageRequest requestEndpoint]];
+
+    if (sendMessageRequest != nil) {
+        if (sendMessageRequest.queueUrl != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", sendMessageRequest.queueUrl] forKey:[NSString stringWithFormat:@"%@", @"QueueUrl"]];
+        }
+    }
+    if (sendMessageRequest != nil) {
+        if (sendMessageRequest.messageBody != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", sendMessageRequest.messageBody] forKey:[NSString stringWithFormat:@"%@", @"MessageBody"]];
+        }
+    }
+
+
     return [request autorelease];
 }
 

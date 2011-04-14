@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -19,23 +19,39 @@
 
 @synthesize listObjectsResult;
 
--(void)processBody 
+-(void)processBody
 {
-	NSXMLParser *parser = [[NSXMLParser alloc] initWithData:self.body];
-	S3ListBucketResultUnmarshaller *unmarshaller = [[S3ListBucketResultUnmarshaller alloc] init];
-	[parser setDelegate:unmarshaller];
-	[parser parse];
-	
-	self.listObjectsResult = unmarshaller.objectListing;
-	
-	[parser release];
-	[unmarshaller release];
+    NSString *errDescription = nil;
+
+    NSString *xmlString = [[NSString alloc] initWithData:self.body encoding:NSUTF8StringEncoding];
+    NSData   *xmlData   = [[xmlString stringByReplacingOccurrencesOfString:@"&#x13;" withString:@""]
+                           dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+
+    [xmlString release];
+
+    NSXMLParser                    *parser       = [[NSXMLParser alloc] initWithData:xmlData];
+    S3ListBucketResultUnmarshaller *unmarshaller = [[S3ListBucketResultUnmarshaller alloc] init];
+    [parser setDelegate:unmarshaller];
+    [parser parse];
+
+    if (parser.parserError != nil) {
+        errDescription = [parser.parserError description];
+    }
+
+    self.listObjectsResult = unmarshaller.objectListing;
+
+    [parser release];
+    [unmarshaller release];
+
+    if (errDescription != nil) {
+        @throw [AmazonClientException exceptionWithMessage :[NSString stringWithFormat:@"Error parsing XML response: %@", errDescription]];
+    }
 }
 
 -(void)dealloc
 {
-	[listObjectsResult release];
-	[super dealloc];
+    [listObjectsResult release];
+    [super dealloc];
 }
 
 @end

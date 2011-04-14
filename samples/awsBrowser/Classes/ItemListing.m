@@ -1,3 +1,17 @@
+/*
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License").
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the "license" file accompanying this file. This file is distributed
+ * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
 
 #import <AWSiOSSDK/SimpleDB/AmazonSimpleDBClient.h>
 #import "ItemListing.h"
@@ -6,93 +20,90 @@
 
 @implementation ItemListing
 
-@synthesize domain, items;
+@synthesize domain;
 
--(id)init {
-	return [super initWithNibName:@"ItemListing" bundle:nil];
+-(id)init
+{
+    return [super initWithNibName:@"ItemListing" bundle:nil];
 }
 
--(void)addItem:(NSString*)itemName {
-	NSArray *insertPaths = [NSArray arrayWithObjects:[NSIndexPath indexPathForRow:[items count] inSection:0], nil];
-	
-	[items addObject:itemName];
-	
-	[itemsTableView beginUpdates];
-	[itemsTableView insertRowsAtIndexPaths:insertPaths withRowAnimation:UITableViewRowAnimationFade];
-	[itemsTableView endUpdates];				
+-(void)viewWillAppear:(BOOL)animated
+{
+    NSString *selectExpression = [NSString stringWithFormat:@"select itemName() from `%@`", self.domain];
+
+    @try {
+        SimpleDBSelectRequest  *selectRequest  = [[[SimpleDBSelectRequest alloc] initWithSelectExpression:selectExpression] autorelease];
+        SimpleDBSelectResponse *selectResponse = [[Constants sdb] select:selectRequest];
+
+        if (items == nil) {
+            items = [[NSMutableArray alloc] initWithCapacity:[selectResponse.items count]];
+        }
+        else {
+            [items removeAllObjects];
+        }
+        for (SimpleDBItem *item in selectResponse.items) {
+            [items addObject:item.name];
+        }
+        [items sortUsingSelector:@selector(compare:)];
+    }
+    @catch (AmazonServiceException *exception) {
+        NSLog(@"Exception = %@", exception);
+    }
+
+    [itemsTableView reloadData];
 }
 
-- (IBAction)done:(id)sender {
-	[self.view removeFromSuperview];
+-(IBAction)done:(id)sender
+{
+    [self dismissModalViewControllerAnimated:YES];
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil andObjects:(NSMutableArray*)theItems domain:(NSString*)domainName {
-	if ((self = [super initWithNibName:nibNameOrNil bundle:nil])) {
-		items = theItems;
-		domain = domainName;
-	}	
-	
-	return self;
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return [items count];
 }
 
-// Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     static NSString *CellIdentifier = @"Cell";
-    
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-    
-    // Configure the cell...
-	cell.textLabel.text = [items objectAtIndex:indexPath.row];
-    
+
+    cell.textLabel.text                      = [items objectAtIndex:indexPath.row];
+    cell.textLabel.adjustsFontSizeToFitWidth = YES;
+
     return cell;
 }
 
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
     return YES;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	SimpleDBGetAttributesRequest* gar = [[SimpleDBGetAttributesRequest alloc] initWithDomainName:domain andItemName:[items objectAtIndex:indexPath.row]];
-	SimpleDBGetAttributesResponse* response = [[Constants sdb] getAttributes:gar];
-	
-	NSMutableArray* data = [[NSMutableArray alloc] initWithCapacity:1];												
-	for ( SimpleDBAttribute* attr in response.attributes ) {
-		[data addObject:[NSString stringWithFormat:@"%@ => %@", attr.name, attr.value]];
-	}
-	
-	[UIView beginAnimations:@"load" context:nil];    
-	[UIView setAnimationDuration:1];	
-	[UIView setAnimationTransition:UIViewAnimationTransitionNone forView:self.view cache:YES];
-	
-	ItemViewController* itemView = [[ItemViewController alloc] initWithNibName:@"ItemViewController" 
-																	   andData:data
-																	  itemName:[items objectAtIndex:indexPath.row]];
-	
-	[self.view addSubview:itemView.view];
-	[UIView commitAnimations];	 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ItemViewController *itemView = [[ItemViewController alloc] init];
+
+    itemView.domain               = self.domain;
+    itemView.itemName             = [items objectAtIndex:indexPath.row];
+    itemView.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentModalViewController:itemView animated:YES];
+    [itemView release];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-- (void)dealloc {
+-(void)dealloc
+{
+    [items release];
+    [domain release];
     [super dealloc];
 }
 

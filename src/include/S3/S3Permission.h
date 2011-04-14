@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -15,17 +15,19 @@
 
 #import <Foundation/Foundation.h>
 
-#define kS3AclPermissionFullControl @"FULL_CONTROL"
-#define kS3AclPermissionWrite	    @"WRITE"
-#define kS3AclPermissionWriteAcp    @"WRITE_ACP"
-#define kS3AclPermissionRead		@"READ"
-#define kS3AclPermissionReadAcp		@"READ_ACP"
+#define kS3AclPermissionFullControl    @"FULL_CONTROL"
+#define kS3AclPermissionWrite          @"WRITE"
+#define kS3AclPermissionWriteAcp       @"WRITE_ACP"
+#define kS3AclPermissionRead           @"READ"
+#define kS3AclPermissionReadAcp        @"READ_ACP"
 
 /** An enumeration of all ACL permissions. For more information, refer:
  * @see http://docs.amazonwebservices.com/AmazonS3/latest/S3_ACLs.html#S3_ACLs_Permissions
+ *
+ * \ingroup S3
  */
-@interface S3Permission : NSObject {
-	NSString *xmlValue;
+@interface S3Permission:NSObject {
+    NSString *xmlValue;
 }
 
 -(id)initWithXmlCode:(NSString *)code;

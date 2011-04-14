@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -15,19 +15,21 @@
 
 #import <Foundation/Foundation.h>
 
-#define kS3CannedAclPrivate                @"private"
-#define kS3CannedAclPublicRead             @"public-read"
-#define kS3CannedAclPublicReadWrite        @"public-read-write"
-#define kS3CannedAclAuthRead               @"authenticated-read"
-#define kS3CannedAclBucketOwnerRead        @"bucket-owner-read"
-#define kS3CannedAclBucketOwnerFullControl @"bucket-owner-full-control"
+#define kS3CannedAclPrivate                   @"private"
+#define kS3CannedAclPublicRead                @"public-read"
+#define kS3CannedAclPublicReadWrite           @"public-read-write"
+#define kS3CannedAclAuthRead                  @"authenticated-read"
+#define kS3CannedAclBucketOwnerRead           @"bucket-owner-read"
+#define kS3CannedAclBucketOwnerFullControl    @"bucket-owner-full-control"
 
 /** An Enumeration of all possible CannedACLs that can be used
- * for S3 Buckets or S3 Objects. 
+ * for S3 Buckets or S3 Objects.
  * @see http://docs.amazonwebservices.com/AmazonS3/latest/RESTAccessPolicy.html#RESTCannedAccessPolicies
+ *
+ * \ingroup S3
  */
-@interface S3CannedACL : NSObject {
-	NSString *stringValue;
+@interface S3CannedACL:NSObject {
+    NSString *stringValue;
 }
 
 -(id)initWithStringValue:(NSString *)value;
@@ -53,15 +55,15 @@
 +(S3CannedACL *)authenticatedRead;
 
 /** Object Owner gets FULL_CONTROL, Bucket Owner gets READ.
- * This ACL applies only to objects and is equivalent to private when used with PUT Bucket. 
- * You use this ACL to let someone other than the bucket owner write content (get full control) 
+ * This ACL applies only to objects and is equivalent to private when used with PUT Bucket.
+ * You use this ACL to let someone other than the bucket owner write content (get full control)
  * in the bucket but still grant the bucket owner read access to the objects.
  */
 +(S3CannedACL *)bucketOwnerRead;
 
 /** Object Owner gets FULL_CONTROL, Bucket Owner gets FULL_CONTROL.
- * This ACL applies only to objects and is equivalent to private when used with PUT Bucket. 
- * You use this ACL to let someone other than the bucket owner write content (get full control) 
+ * This ACL applies only to objects and is equivalent to private when used with PUT Bucket.
+ * You use this ACL to let someone other than the bucket owner write content (get full control)
  * in the bucket but still grant the bucket owner full rights over the objects.
  */
 +(S3CannedACL *)bucketOwnerFullControl;

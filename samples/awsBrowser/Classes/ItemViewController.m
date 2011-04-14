@@ -1,3 +1,17 @@
+/*
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License").
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the "license" file accompanying this file. This file is distributed
+ * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
 
 #import <AWSiOSSDK/SimpleDB/AmazonSimpleDBClient.h>
 #import "ItemViewController.h"
@@ -5,62 +19,73 @@
 
 @implementation ItemViewController
 
-@synthesize data, itemName;
+@synthesize domain, itemName;
 
--(id)init {
-	return [super initWithNibName:@"ItemViewController" bundle:nil];
+-(id)init
+{
+    return [super initWithNibName:@"ItemViewController" bundle:nil];
 }
 
-- (IBAction)done:(id)sender {
-	[self.view removeFromSuperview];
+-(IBAction)done:(id)sender
+{
+    [self dismissModalViewControllerAnimated:YES];
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil andData:(NSMutableArray*)theData itemName:(NSString*)theItemName {
-	if ((self = [super initWithNibName:nibNameOrNil bundle:nil])) {
-		data = theData;
-		itemName = theItemName;
-	}	
-	
-	return self;
+-(void)viewWillAppear:(BOOL)animated
+{
+    @try {
+        SimpleDBGetAttributesRequest  *gar      = [[[SimpleDBGetAttributesRequest alloc] initWithDomainName:self.domain andItemName:self.itemName] autorelease];
+        SimpleDBGetAttributesResponse *response = [[Constants sdb] getAttributes:gar];
+
+        if (data == nil) {
+            data = [[NSMutableArray alloc] initWithCapacity:[response.attributes count]];
+        }
+        else {
+            [data removeAllObjects];
+        }
+        for (SimpleDBAttribute *attr in response.attributes) {
+            [data addObject:[NSString stringWithFormat:@"%@ => %@", attr.name, attr.value]];
+        }
+        [data sortUsingSelector:@selector(compare:)];
+    }
+    @catch (AmazonServiceException *exception) {
+        NSLog(@"Exception = %@", exception);
+    }
+
+    [dataTableView reloadData];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return [data count];
 }
 
-// Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     static NSString *CellIdentifier = @"Cell";
-    
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-    
-    // Configure the cell...
-	cell.textLabel.text = [data objectAtIndex:indexPath.row];
-    
+
+    cell.textLabel.text                      = [data objectAtIndex:indexPath.row];
+    cell.textLabel.adjustsFontSizeToFitWidth = YES;
+
     return cell;
 }
 
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-- (void)dealloc {
+-(void)dealloc
+{
+    [data release];
+    [itemName release];
+    [domain release];
     [super dealloc];
 }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -30,41 +30,59 @@
 
 -(void)setObjectSummaries:(NSMutableArray *)theSummaries
 {
-	objectSummaries = theSummaries;
+    objectSummaries = theSummaries;
 }
 
 -(NSMutableArray *)objectSummaries
 {
-	if (nil==objectSummaries) {
-		objectSummaries = [[NSMutableArray alloc] init];
-	}
-	return objectSummaries;
+    if (nil == objectSummaries) {
+        objectSummaries = [[NSMutableArray alloc] init];
+    }
+    return objectSummaries;
 }
 
 -(void)setCommonPrefixes:(NSMutableArray *)prefixes
 {
-	commonPrefixes = prefixes;
+    commonPrefixes = prefixes;
 }
 
 -(NSMutableArray *)commonPrefixes
 {
-	if (nil==commonPrefixes) {
-		commonPrefixes = [[NSMutableArray alloc] init];
-	}
-	return commonPrefixes;
+    if (nil == commonPrefixes) {
+        commonPrefixes = [[NSMutableArray alloc] init];
+    }
+    return commonPrefixes;
 }
 
+-(NSString *)description
+{
+    NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
+
+    [buffer appendString:@"{"];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Summaries: %@,", objectSummaries] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Common Prefixes: %@,", commonPrefixes] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Name: %@,", bucketName] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Prefix: %@,", prefix] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Marker: %@,", marker] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Delimiter: %@,", delimiter] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Max Keys: %d,", maxKeys] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Is Truncated: %d,", isTruncated] autorelease]];
+    [buffer appendString:[super description]];
+    [buffer appendString:@"}"];
+
+    return [buffer autorelease];
+}
 
 -(void)dealloc
 {
-	[objectSummaries release];
-	[bucketName release];
-	[prefix release];
-	[marker release];
-	[delimiter release];
-	[commonPrefixes release];
-	
-	[super dealloc];
+    [objectSummaries release];
+    [bucketName release];
+    [prefix release];
+    [marker release];
+    [delimiter release];
+    [commonPrefixes release];
+
+    [super dealloc];
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -19,24 +19,32 @@
 
 @synthesize listBucketsResult;
 
+
+-(id)init
+{
+    self = [super init];
+    return self;
+}
+
 -(void)processBody
 {
-	NSXMLParser *parser = [[NSXMLParser alloc] initWithData:self.body];
-	S3ListBucketsResultUnmarshaller *unmarshaller = [[S3ListBucketsResultUnmarshaller alloc] init];
-	[parser setDelegate:unmarshaller];
-	[parser parse];
-	
-	self.listBucketsResult = unmarshaller.listBucketsResult;
-	
-	[unmarshaller release];
-	[parser release];
+    NSXMLParser                     *parser       = [[NSXMLParser alloc] initWithData:self.body];
+    S3ListBucketsResultUnmarshaller *unmarshaller = [[S3ListBucketsResultUnmarshaller alloc] init];
+
+    [parser setDelegate:unmarshaller];
+    [parser parse];
+
+    self.listBucketsResult = unmarshaller.listBucketsResult;
+
+    [unmarshaller release];
+    [parser release];
 }
 
 -(void)dealloc
 {
-	[listBucketsResult release];
-	
-	[super dealloc];
+    [listBucketsResult release];
+
+    [super dealloc];
 }
 
 @end

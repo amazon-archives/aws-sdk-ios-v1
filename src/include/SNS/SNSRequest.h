@@ -2,8 +2,7 @@
 #import <Foundation/Foundation.h>
 #import "../AmazonServiceRequest.h"
 
-@interface SNSRequest : AmazonServiceRequest {
-	
+@interface SNSRequest:AmazonServiceRequest {
 }
 
 @end

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -18,30 +18,30 @@
 #import "AmazonSDKUtil.h"
 
 /** Represents an AWS Service Exception. */
-@interface AmazonServiceException : AmazonClientException {
-	NSString *requestId;
-	NSString *errorCode;
-	NSString *serviceName;
-	NSInteger statusCode;
-	NSMutableDictionary *additionalFields;
+@interface AmazonServiceException:AmazonClientException {
+    NSString            *requestId;
+    NSString            *errorCode;
+    NSString            *serviceName;
+    NSInteger           statusCode;
+    NSMutableDictionary *additionalFields;
 }
 
 #pragma mark Properties
 
 /** The requestId as assigned by the service. */
-@property(nonatomic,retain) NSString* requestId;
+@property (nonatomic, retain) NSString *requestId;
 
 /** The error code returned by the service */
-@property(nonatomic,retain) NSString* errorCode;
+@property (nonatomic, retain) NSString *errorCode;
 
 /**  */
-@property(nonatomic,retain) NSString* serviceName;
+@property (nonatomic, retain) NSString *serviceName;
 
 /** The HTTP status code returned by the service */
-@property(nonatomic) NSInteger statusCode;
+@property (nonatomic) NSInteger statusCode;
 
 /** Other fields in the error response from the service */
-@property(nonatomic, readonly)NSMutableDictionary* additionalFields; 
+@property (nonatomic, readonly) NSMutableDictionary *additionalFields;
 
 /** Initialize the exeption with a message.
  * @param message The message.
@@ -51,13 +51,13 @@
 
 /** Return an exception with the given message
  *
- * @param theMessage The user-friendly message 
+ * @param theMessage The user-friendly message
  */
 +(AmazonServiceException *)exceptionWithMessage:(NSString *)theMessage;
 
 /** Return an exception with the given HTTP status code
  *
- * @param theStatusCode The HTTP status code. 
+ * @param theStatusCode The HTTP status code.
  */
 +(AmazonServiceException *)exceptionWithStatusCode:(int)theStatusCode;
 
@@ -69,12 +69,12 @@
  * @param theRequestId The request ID assigned by the service.
  * @return The exception.
  */
-+(AmazonServiceException *)exceptionWithMessage:(NSString *)theMessage 
-								  withErrorCode:(NSString *)theErrorCode 
-								 withStatusCode:(NSInteger)theStatusCode
-								  withRequestId:(NSString *)theRequestId;
++(AmazonServiceException *)exceptionWithMessage:(NSString *)theMessage
+withErrorCode:(NSString *)theErrorCode
+withStatusCode:(NSInteger)theStatusCode
+withRequestId:(NSString *)theRequestId;
 -(void)setPropertiesWithException:(AmazonServiceException *)theException;
--(NSString*)description;
+-(NSString *)description;
 
 
 

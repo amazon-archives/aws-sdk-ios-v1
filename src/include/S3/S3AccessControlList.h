@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -37,22 +37,24 @@
  * This also applies if you grant anonymous write access to a bucket. Only the user "anonymous"
  * will be able to access objects the user created unless permission is explicitly granted to
  * the bucket owner.
+ *
+ * \ingroup S3
  */
-@interface S3AccessControlList : NSObject {
-	S3Owner     *owner;
-	NSMutableArray *grantList;
+@interface S3AccessControlList:NSObject {
+    S3Owner        *owner;
+    NSMutableArray *grantList;
 }
 
 /** Gets and sets the owner */
-@property(nonatomic, retain) S3Owner* owner;
+@property (nonatomic, retain) S3Owner *owner;
 
 /** Returns the current grant list */
-@property(nonatomic, readonly) NSArray* grantList;
+@property (nonatomic, readonly) NSArray *grantList;
 
 /** Initialize the object with an owner */
 -(id)initWithOwner:(S3Owner *)theOwner;
 
-/** Adds the grant to the grant list 
+/** Adds the grant to the grant list
  * @param aGrant A Grant to add to the list.
  */
 -(void)addGrant:(S3Grant *)aGrant;

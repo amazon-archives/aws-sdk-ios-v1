@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -17,29 +17,29 @@
 #import "AmazonServiceResponseUnmarshaller.h"
 
 
-@interface AmazonDictionaryUnmarshaller : AmazonServiceResponseUnmarshaller {
-	NSString* keyXpathElement;
-	NSString* valueXpathElement;
-	NSString* entryEndElement;
-	
-	NSString* key;
-	NSString* value;
-	
-	NSMutableDictionary* dictionary;
+@interface AmazonDictionaryUnmarshaller:AmazonServiceResponseUnmarshaller {
+    NSString            *keyXpathElement;
+    NSString            *valueXpathElement;
+    NSString            *entryEndElement;
+
+    NSString            *key;
+    NSString            *value;
+
+    NSMutableDictionary *dictionary;
 }
 
-@property (nonatomic, retain) NSString* key;
-@property (nonatomic, retain) NSString* value;
+@property (nonatomic, retain) NSString            *key;
+@property (nonatomic, retain) NSString            *value;
 
-@property (nonatomic, retain) NSMutableDictionary* dictionary;
+@property (nonatomic, retain) NSMutableDictionary *dictionary;
 
-@property (nonatomic, retain) NSString* keyXpathElement;
-@property (nonatomic, retain) NSString* valueXpathElement;
-@property (nonatomic, retain) NSString* entryEndElement;
+@property (nonatomic, retain) NSString            *keyXpathElement;
+@property (nonatomic, retain) NSString            *valueXpathElement;
+@property (nonatomic, retain) NSString            *entryEndElement;
 
 
--(void)parser:(NSXMLParser*)parser didStartElement:(NSString*)elementName  namespaceURI:(NSString*)namespaceURI qualifiedName:(NSString*)qName attributes:(NSDictionary*)attributeDict;
--(void)parser:(NSXMLParser*)parser didEndElement:(NSString*)elementName  namespaceURI:(NSString*)namespaceURI qualifiedName:(NSString*)qName;
+-(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict;
+-(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName;
 
 
 

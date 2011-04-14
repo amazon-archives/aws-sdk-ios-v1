@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -18,11 +18,14 @@
 #import "S3CopyObjectResultUnmarshaller.h"
 #import "../AmazonSDKUtil.h"
 
-/** Contains the response from a putObject operation. */
-@interface S3CopyObjectResponse : S3Response {
-	NSDate *lastModified;
+/** Contains the response from a putObject operation.
+ *
+ * \ingroup S3
+ */
+@interface S3CopyObjectResponse:S3Response {
+    NSDate *lastModified;
 }
 
-@property (nonatomic, retain) NSDate* lastModified;
+@property (nonatomic, retain) NSDate *lastModified;
 
 @end

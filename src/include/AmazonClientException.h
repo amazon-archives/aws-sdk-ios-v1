@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -15,28 +15,40 @@
 
 #import <Foundation/Foundation.h>
 
-/** Generic excpetion type for AWS client errors 
+/** Generic excpetion type for AWS client errors
  * Client exceptions are thrown for conditions which occur in the client and its
- * configuration. These are conditions which need to be corrected in 
+ * configuration. These are conditions which need to be corrected in
  * the client. Service exceptions are indicated by throwing AWSServiceException.
  */
-@interface AmazonClientException : NSException {
-	NSString* message;
+@interface AmazonClientException:NSException {
+    NSString *message;
+    NSError  *error;
 }
 
 /** Description of the exception */
-@property(nonatomic,retain) NSString* message;
+@property (nonatomic, retain) NSString *message;
+
+/** The error that caused the exception. */
+@property (nonatomic, retain) NSError *error;
 
 /** Initialize the exception with a message.
  *
  * @param message The message.
  */
--(id)initWithMessage:(NSString*)message;
+-(id)initWithMessage:(NSString *)message;
 
 /** Return an exception with the given message
  *
- * @param theMessage The user-friendly message 
+ * @param theMessage The user-friendly message
  */
 +(AmazonClientException *)exceptionWithMessage:(NSString *)theMessage;
+
+/** Return an exception with the given message and error.
+ *
+ * @param theMessage The user-friendly message
+ * @param theError The error
+ */
++(AmazonClientException *)exceptionWithMessage:(NSString *)theMessage andError:(NSError *)theError;
+
 
 @end

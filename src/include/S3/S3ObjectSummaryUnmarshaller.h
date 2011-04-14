@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -20,12 +20,10 @@
 
 @class S3Bucket;
 
-/** Creates an S3ObjectSummary from an XML service repsonse */
-@interface S3ObjectSummaryUnmarshaller : AmazonUnmarshallerXMLParserDelegate {
-	S3ObjectSummary *summary;
+@interface S3ObjectSummaryUnmarshaller:AmazonUnmarshallerXMLParserDelegate {
+    S3ObjectSummary *summary;
 }
 
-/** The S3Bucket represented by the XML */
-@property (nonatomic, readonly) S3ObjectSummary* summary;
+@property (nonatomic, readonly) S3ObjectSummary *summary;
 
 @end

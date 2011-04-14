@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -16,35 +16,34 @@
 #import <Foundation/Foundation.h>
 #import "GTMLogger.h"
 #import "GTMDefines.h"
-
+#import "GTMLogger+ASL.h"
 
 #ifdef DEBUG
-	#undef NSLog
-	#define NSLog GTMLoggerDebug
+#undef NSLog
+#define NSLog    GTMLoggerDebug
 #endif
 
 
 #ifdef RELEASE
-	#undef NSLog
-	#define NSLog GTMLoggerInfo
+#undef NSLog
+#define NSLog    GTMLoggerInfo
 #endif
 
-#define AMZLog(...) [[GTMLogger sharedLogger] logInfo:__VA_ARGS__] 
-#define AMZLogDebug(...) [[GTMLogger sharedLogger] logDebug:__VA_ARGS__]
+#define AMZLog(...)         [[GTMLogger sharedLogger] logInfo : __VA_ARGS__]
+#define AMZLogDebug(...)    [[GTMLogger sharedLogger] logDebug : __VA_ARGS__]
 
 
-@interface AmazonLogger : NSObject {
-
+@interface AmazonLogger:NSObject {
 }
 
 +(void)verboseLogging;
 +(void)consoleLogger;
 +(void)aslLogger;
-+(void)fileLogger:(NSFileHandle*)file;
++(void)fileLogger:(NSFileHandle *)file;
 +(void)consoleAslLogger;
-+(void)consoleFileLogger:(NSFileHandle*)file;
-+(void)consoleAslFileLogger:(NSFileHandle*)file;
++(void)consoleFileLogger:(NSFileHandle *)file;
++(void)consoleAslFileLogger:(NSFileHandle *)file;
 
-+(NSFileHandle*)getFileHandle:(NSString*)filename forPath:(NSString*)path;
++(NSFileHandle *)getFileHandle:(NSString *)filename forPath:(NSString *)path;
 
 @end

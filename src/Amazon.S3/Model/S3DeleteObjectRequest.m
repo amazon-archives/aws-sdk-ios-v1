@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -21,18 +21,20 @@
 
 -(NSMutableURLRequest *)configureURLRequest
 {
-	[super configureURLRequest];
-	[self.urlRequest setHTTPMethod:kHttpMethodDelete];	
-	
-	if (nil != self.mfaAuth) [urlRequest setValue:self.mfaAuth forHTTPHeaderField:kHttpHdrAmzMfa];	
-	
-	return urlRequest;
+    [super configureURLRequest];
+    [self.urlRequest setHTTPMethod:kHttpMethodDelete];
+
+    if (nil != self.mfaAuth) {
+        [urlRequest setValue:self.mfaAuth forHTTPHeaderField:kHttpHdrAmzMfa];
+    }
+
+    return urlRequest;
 }
 
 -(void)dealloc
 {
-	[mfaAuth release];
-	[super dealloc];
+    [mfaAuth release];
+    [super dealloc];
 }
 
 @end

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -15,16 +15,16 @@
 
 #import <Foundation/Foundation.h>
 
-
-@interface S3ListObjectsResult : NSObject {
-	NSMutableArray *objectSummaries;
-	NSString *bucketName;
-	NSString *prefix;
-	NSString *marker;
-	NSInteger maxKeys;
-	NSString *delimiter;
-	bool isTruncated;
-	NSMutableArray *commonPrefixes;
+/** \ingroup S3 */
+@interface S3ListObjectsResult:NSObject {
+    NSMutableArray *objectSummaries;
+    NSString       *bucketName;
+    NSString       *prefix;
+    NSString       *marker;
+    NSInteger      maxKeys;
+    NSString       *delimiter;
+    bool           isTruncated;
+    NSMutableArray *commonPrefixes;
 }
 
 /** The list of buckets */
@@ -45,8 +45,8 @@
 /** The delimiter parameter originally specified by the caller. */
 @property (nonatomic, retain) NSString *delimiter;
 
-/** Indicates if this is  a complete listing or if caller needs 
- * to make additional requests. 
+/** Indicates if this is  a complete listing or if caller needs
+ * to make additional requests.
  */
 @property (nonatomic) bool isTruncated;
 
@@ -54,6 +54,5 @@
  * that include a delimiter.
  */
 @property (nonatomic, retain) NSMutableArray *commonPrefixes;
-
 
 @end

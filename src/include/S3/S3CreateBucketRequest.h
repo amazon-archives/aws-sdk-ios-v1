@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -23,32 +23,35 @@
 #import "S3CannedACL.h"
 #import "S3Region.h"
 
-/** Contains the parameters used for the createBucket operation. */
-@interface S3CreateBucketRequest : S3Request {
-	S3Region    *region;
-	S3CannedACL *cannedACL;
+/** Contains the parameters used for the createBucket operation.
+ *
+ * \ingroup S3
+ */
+@interface S3CreateBucketRequest:S3Request {
+    S3Region    *region;
+    S3CannedACL *cannedACL;
 }
 
 /** Region where the bucket should be created. */
-@property (nonatomic, retain) S3Region* region;
+@property (nonatomic, retain) S3Region *region;
 
 /** The body of the request if there is a region specified */
-@property (nonatomic, readonly) NSData* createBucketConfiguration;
+@property (nonatomic, readonly) NSData *createBucketConfiguration;
 
 /** The canned access control list to apply to the bucket */
-@property (nonatomic, retain) S3CannedACL* cannedACL;
+@property (nonatomic, retain) S3CannedACL *cannedACL;
 
 /** Initializes the request with a bucket name.
  *
  * @param theBucketName The name of the bucket
  */
--(id)initWithName:(NSString*)theBucketName;
+-(id)initWithName:(NSString *)theBucketName;
 
 /** Initializes the request with a bucket name and region.
  *
  * @param theBucketName The name of the bucket
  * @param theRegion	The region where the bucket should be created.
  */
--(id)initWithName:(NSString*)theBucketName andRegion:(S3Region *)theRegion;
+-(id)initWithName:(NSString *)theBucketName andRegion:(S3Region *)theRegion;
 
 @end

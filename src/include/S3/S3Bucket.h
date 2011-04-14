@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -15,21 +15,23 @@
 
 #import <Foundation/Foundation.h>
 
-/** Represents an S3 Bucket. 
- * Contains a Bucket Name which is the name of the S3 Bucket. 
+/** Represents an S3 Bucket.
+ * Contains a Bucket Name which is the name of the S3 Bucket.
  * And a Creation Date which is the date that the S3 Bucket was created.
+ *
+ * \ingroup S3
  */
-@interface S3Bucket : NSObject {
-	NSString *name;
-	NSString *creationDate;
+@interface S3Bucket:NSObject {
+    NSString *name;
+    NSString *creationDate;
 }
 
 /** Gets and sets the BucketName property. */
-@property (nonatomic, retain) NSString* name;
+@property (nonatomic, retain) NSString *name;
 
 /** Gets and sets the CreationDate property.
  * The date conforms to the ISO8601 date format.
  */
-@property (nonatomic, retain) NSString* creationDate;
+@property (nonatomic, retain) NSString *creationDate;
 
 @end

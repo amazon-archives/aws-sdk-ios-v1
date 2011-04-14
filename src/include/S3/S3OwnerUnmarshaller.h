@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -20,11 +20,11 @@
 @class S3Owner;
 
 /** Creates an S3Owner from the an XML service response */
-@interface S3OwnerUnmarshaller : AmazonUnmarshallerXMLParserDelegate {
-	S3Owner *owner;
+@interface S3OwnerUnmarshaller:AmazonUnmarshallerXMLParserDelegate {
+    S3Owner *owner;
 }
 
 /** The S3Owner represented by the XML */
-@property (nonatomic, readonly) S3Owner* owner;
+@property (nonatomic, readonly) S3Owner *owner;
 
 @end

@@ -1,12 +1,12 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- * 
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
  * A copy of the License is located at
- * 
+ *
  *  http://aws.amazon.com/apache2.0
- * 
+ *
  * or in the "license" file accompanying this file. This file is distributed
  * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
  * express or implied. See the License for the specific language governing
@@ -67,14 +67,17 @@
 
 #import "../AmazonWebServiceClient.h"
 
+/** \defgroup SNS Amazon SNS */
 
 /** <summary>
  * Interface for accessing AmazonSNS.
- *  
- *  Amazon Simple Notification Service
+ *
+ *  Amazon SNS
  * </summary>
+ *
+ * \ingroup SNS
  */
-@interface AmazonSNSClient : AmazonWebServiceClient
+@interface AmazonSNSClient:AmazonWebServiceClient
 {
 }
 
@@ -92,15 +95,15 @@
  * @param confirmSubscriptionRequest Container for the necessary
  *           parameters to execute the ConfirmSubscription service method on
  *           AmazonSNS.
- * 
+ *
  * @return The response from the ConfirmSubscription service method, as
  *         returned by AmazonSNS.
- * 
- * @throws NotFoundException
- * @throws AuthorizationErrorException
- * @throws InternalErrorException
- * @throws SubscriptionLimitExceededException
- * @throws InvalidParameterException
+ *
+ * @throws SNSNotFoundException
+ * @throws SNSAuthorizationErrorException
+ * @throws SNSInternalErrorException
+ * @throws SNSSubscriptionLimitExceededException
+ * @throws SNSInvalidParameterException
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -110,7 +113,7 @@
  *             If an error response is returned by AmazonSNS indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SNSConfirmSubscriptionResponse*)confirmSubscription:(SNSConfirmSubscriptionRequest*)confirmSubscriptionRequest; 
+-(SNSConfirmSubscriptionResponse *)confirmSubscription:(SNSConfirmSubscriptionRequest *)confirmSubscriptionRequest;
 
 
 /**
@@ -123,14 +126,14 @@
  * @param getTopicAttributesRequest Container for the necessary
  *           parameters to execute the GetTopicAttributes service method on
  *           AmazonSNS.
- * 
+ *
  * @return The response from the GetTopicAttributes service method, as
  *         returned by AmazonSNS.
- * 
- * @throws NotFoundException
- * @throws AuthorizationErrorException
- * @throws InternalErrorException
- * @throws InvalidParameterException
+ *
+ * @throws SNSNotFoundException
+ * @throws SNSAuthorizationErrorException
+ * @throws SNSInternalErrorException
+ * @throws SNSInvalidParameterException
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -140,7 +143,7 @@
  *             If an error response is returned by AmazonSNS indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SNSGetTopicAttributesResponse*)getTopicAttributes:(SNSGetTopicAttributesRequest*)getTopicAttributesRequest; 
+-(SNSGetTopicAttributesResponse *)getTopicAttributes:(SNSGetTopicAttributesRequest *)getTopicAttributesRequest;
 
 
 /**
@@ -154,15 +157,15 @@
  *
  * @param subscribeRequest Container for the necessary parameters to
  *           execute the Subscribe service method on AmazonSNS.
- * 
+ *
  * @return The response from the Subscribe service method, as returned by
  *         AmazonSNS.
- * 
- * @throws NotFoundException
- * @throws AuthorizationErrorException
- * @throws InternalErrorException
- * @throws SubscriptionLimitExceededException
- * @throws InvalidParameterException
+ *
+ * @throws SNSNotFoundException
+ * @throws SNSAuthorizationErrorException
+ * @throws SNSInternalErrorException
+ * @throws SNSSubscriptionLimitExceededException
+ * @throws SNSInvalidParameterException
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -172,7 +175,7 @@
  *             If an error response is returned by AmazonSNS indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SNSSubscribeResponse*)subscribe:(SNSSubscribeRequest*)subscribeRequest; 
+-(SNSSubscribeResponse *)subscribe:(SNSSubscribeRequest *)subscribeRequest;
 
 
 /**
@@ -184,11 +187,11 @@
  * @param setTopicAttributesRequest Container for the necessary
  *           parameters to execute the SetTopicAttributes service method on
  *           AmazonSNS.
- * 
- * @throws NotFoundException
- * @throws AuthorizationErrorException
- * @throws InternalErrorException
- * @throws InvalidParameterException
+ *
+ * @throws SNSNotFoundException
+ * @throws SNSAuthorizationErrorException
+ * @throws SNSInternalErrorException
+ * @throws SNSInvalidParameterException
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -198,7 +201,7 @@
  *             If an error response is returned by AmazonSNS indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SNSSetTopicAttributesResponse*)setTopicAttributes:(SNSSetTopicAttributesRequest*)setTopicAttributesRequest; 
+-(SNSSetTopicAttributesResponse *)setTopicAttributes:(SNSSetTopicAttributesRequest *)setTopicAttributesRequest;
 
 
 /**
@@ -211,11 +214,11 @@
  *
  * @param deleteTopicRequest Container for the necessary parameters to
  *           execute the DeleteTopic service method on AmazonSNS.
- * 
- * @throws NotFoundException
- * @throws AuthorizationErrorException
- * @throws InternalErrorException
- * @throws InvalidParameterException
+ *
+ * @throws SNSNotFoundException
+ * @throws SNSAuthorizationErrorException
+ * @throws SNSInternalErrorException
+ * @throws SNSInvalidParameterException
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -225,7 +228,7 @@
  *             If an error response is returned by AmazonSNS indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SNSDeleteTopicResponse*)deleteTopic:(SNSDeleteTopicRequest*)deleteTopicRequest; 
+-(SNSDeleteTopicResponse *)deleteTopic:(SNSDeleteTopicRequest *)deleteTopicRequest;
 
 
 /**
@@ -236,11 +239,11 @@
  *
  * @param removePermissionRequest Container for the necessary parameters
  *           to execute the RemovePermission service method on AmazonSNS.
- * 
- * @throws NotFoundException
- * @throws AuthorizationErrorException
- * @throws InternalErrorException
- * @throws InvalidParameterException
+ *
+ * @throws SNSNotFoundException
+ * @throws SNSAuthorizationErrorException
+ * @throws SNSInternalErrorException
+ * @throws SNSInvalidParameterException
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -250,7 +253,7 @@
  *             If an error response is returned by AmazonSNS indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SNSRemovePermissionResponse*)removePermission:(SNSRemovePermissionRequest*)removePermissionRequest; 
+-(SNSRemovePermissionResponse *)removePermission:(SNSRemovePermissionRequest *)removePermissionRequest;
 
 
 /**
@@ -264,13 +267,13 @@
  *
  * @param listSubscriptionsRequest Container for the necessary parameters
  *           to execute the ListSubscriptions service method on AmazonSNS.
- * 
+ *
  * @return The response from the ListSubscriptions service method, as
  *         returned by AmazonSNS.
- * 
- * @throws AuthorizationErrorException
- * @throws InternalErrorException
- * @throws InvalidParameterException
+ *
+ * @throws SNSAuthorizationErrorException
+ * @throws SNSInternalErrorException
+ * @throws SNSInvalidParameterException
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -280,7 +283,7 @@
  *             If an error response is returned by AmazonSNS indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SNSListSubscriptionsResponse*)listSubscriptions:(SNSListSubscriptionsRequest*)listSubscriptionsRequest; 
+-(SNSListSubscriptionsResponse *)listSubscriptions:(SNSListSubscriptionsRequest *)listSubscriptionsRequest;
 
 
 /**
@@ -292,11 +295,11 @@
  *
  * @param addPermissionRequest Container for the necessary parameters to
  *           execute the AddPermission service method on AmazonSNS.
- * 
- * @throws NotFoundException
- * @throws AuthorizationErrorException
- * @throws InternalErrorException
- * @throws InvalidParameterException
+ *
+ * @throws SNSNotFoundException
+ * @throws SNSAuthorizationErrorException
+ * @throws SNSInternalErrorException
+ * @throws SNSInvalidParameterException
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -306,7 +309,7 @@
  *             If an error response is returned by AmazonSNS indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SNSAddPermissionResponse*)addPermission:(SNSAddPermissionRequest*)addPermissionRequest; 
+-(SNSAddPermissionResponse *)addPermission:(SNSAddPermissionRequest *)addPermissionRequest;
 
 
 /**
@@ -320,14 +323,14 @@
  *
  * @param createTopicRequest Container for the necessary parameters to
  *           execute the CreateTopic service method on AmazonSNS.
- * 
+ *
  * @return The response from the CreateTopic service method, as returned
  *         by AmazonSNS.
- * 
- * @throws AuthorizationErrorException
- * @throws InternalErrorException
- * @throws InvalidParameterException
- * @throws TopicLimitExceededException
+ *
+ * @throws SNSAuthorizationErrorException
+ * @throws SNSInternalErrorException
+ * @throws SNSInvalidParameterException
+ * @throws SNSTopicLimitExceededException
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -337,7 +340,7 @@
  *             If an error response is returned by AmazonSNS indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SNSCreateTopicResponse*)createTopic:(SNSCreateTopicRequest*)createTopicRequest; 
+-(SNSCreateTopicResponse *)createTopic:(SNSCreateTopicRequest *)createTopicRequest;
 
 
 /**
@@ -350,13 +353,13 @@
  *
  * @param listTopicsRequest Container for the necessary parameters to
  *           execute the ListTopics service method on AmazonSNS.
- * 
+ *
  * @return The response from the ListTopics service method, as returned
  *         by AmazonSNS.
- * 
- * @throws AuthorizationErrorException
- * @throws InternalErrorException
- * @throws InvalidParameterException
+ *
+ * @throws SNSAuthorizationErrorException
+ * @throws SNSInternalErrorException
+ * @throws SNSInvalidParameterException
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -366,7 +369,7 @@
  *             If an error response is returned by AmazonSNS indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SNSListTopicsResponse*)listTopics:(SNSListTopicsRequest*)listTopicsRequest; 
+-(SNSListTopicsResponse *)listTopics:(SNSListTopicsRequest *)listTopicsRequest;
 
 
 /**
@@ -383,11 +386,11 @@
  *
  * @param unsubscribeRequest Container for the necessary parameters to
  *           execute the Unsubscribe service method on AmazonSNS.
- * 
- * @throws NotFoundException
- * @throws AuthorizationErrorException
- * @throws InternalErrorException
- * @throws InvalidParameterException
+ *
+ * @throws SNSNotFoundException
+ * @throws SNSAuthorizationErrorException
+ * @throws SNSInternalErrorException
+ * @throws SNSInvalidParameterException
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -397,7 +400,7 @@
  *             If an error response is returned by AmazonSNS indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SNSUnsubscribeResponse*)unsubscribe:(SNSUnsubscribeRequest*)unsubscribeRequest; 
+-(SNSUnsubscribeResponse *)unsubscribe:(SNSUnsubscribeRequest *)unsubscribeRequest;
 
 
 /**
@@ -412,14 +415,14 @@
  * @param listSubscriptionsByTopicRequest Container for the necessary
  *           parameters to execute the ListSubscriptionsByTopic service method on
  *           AmazonSNS.
- * 
+ *
  * @return The response from the ListSubscriptionsByTopic service method,
  *         as returned by AmazonSNS.
- * 
- * @throws NotFoundException
- * @throws AuthorizationErrorException
- * @throws InternalErrorException
- * @throws InvalidParameterException
+ *
+ * @throws SNSNotFoundException
+ * @throws SNSAuthorizationErrorException
+ * @throws SNSInternalErrorException
+ * @throws SNSInvalidParameterException
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -429,7 +432,7 @@
  *             If an error response is returned by AmazonSNS indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SNSListSubscriptionsByTopicResponse*)listSubscriptionsByTopic:(SNSListSubscriptionsByTopicRequest*)listSubscriptionsByTopicRequest; 
+-(SNSListSubscriptionsByTopicResponse *)listSubscriptionsByTopic:(SNSListSubscriptionsByTopicRequest *)listSubscriptionsByTopicRequest;
 
 
 /**
@@ -443,14 +446,14 @@
  *
  * @param publishRequest Container for the necessary parameters to
  *           execute the Publish service method on AmazonSNS.
- * 
+ *
  * @return The response from the Publish service method, as returned by
  *         AmazonSNS.
- * 
- * @throws NotFoundException
- * @throws AuthorizationErrorException
- * @throws InternalErrorException
- * @throws InvalidParameterException
+ *
+ * @throws SNSNotFoundException
+ * @throws SNSAuthorizationErrorException
+ * @throws SNSInternalErrorException
+ * @throws SNSInvalidParameterException
  *
  * @throws AmazonClientException
  *             If any internal errors are encountered inside the client while
@@ -460,13 +463,9 @@
  *             If an error response is returned by AmazonSNS indicating
  *             either a problem with the data in the request, or a server side issue.
  */
--(SNSPublishResponse*)publish:(SNSPublishRequest*)publishRequest; 
+-(SNSPublishResponse *)publish:(SNSPublishRequest *)publishRequest;
 
 
-
-/** Ensure that all respsonse objects have been loaded by the runtime. */
-+(void)initializeResponseObjects;
 
 @end
-	
-		
+

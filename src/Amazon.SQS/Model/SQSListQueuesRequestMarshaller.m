@@ -1,12 +1,12 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- * 
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
  * A copy of the License is located at
- * 
+ *
  *  http://aws.amazon.com/apache2.0
- * 
+ *
  * or in the "license" file accompanying this file. This file is distributed
  * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
  * express or implied. See the License for the specific language governing
@@ -14,25 +14,27 @@
  */
 
 #import "SQSListQueuesRequestMarshaller.h"
-#import "SQSRequest.h"
 
-       
+@implementation SQSListQueuesRequestMarshaller
 
++(AmazonServiceRequest *)createRequest:(SQSListQueuesRequest *)listQueuesRequest
+{
+    AmazonServiceRequest *request = [[SQSRequest alloc] init];
 
-@implementation SQSListQueuesRequestMarshaller 
-
-+(AmazonServiceRequest*)createRequest:(SQSListQueuesRequest*)listQueuesRequest {
-    AmazonServiceRequest* request = [[SQSRequest alloc] init];
     [request setParameterValue:@"ListQueues"           forKey:@"Action"];
     [request setParameterValue:@"2009-02-01"   forKey:@"Version"];
-    
-        if (listQueuesRequest != nil) {
-            if (listQueuesRequest.queueNamePrefix != nil) {
-            [request setParameterValue:[NSString stringWithFormat:@"%@", listQueuesRequest.queueNamePrefix] forKey:[NSString stringWithFormat:@"%@",@"QueueNamePrefix"]];
-        }
-            }
 
-    
+    [request setDelegate:[listQueuesRequest delegate]];
+    [request setCredentials:[listQueuesRequest credentials]];
+    [request setEndpoint:[listQueuesRequest requestEndpoint]];
+
+    if (listQueuesRequest != nil) {
+        if (listQueuesRequest.queueNamePrefix != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", listQueuesRequest.queueNamePrefix] forKey:[NSString stringWithFormat:@"%@", @"QueueNamePrefix"]];
+        }
+    }
+
+
     return [request autorelease];
 }
 

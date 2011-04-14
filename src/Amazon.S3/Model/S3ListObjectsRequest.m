@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -25,57 +25,60 @@
 
 -(NSMutableURLRequest *)configureURLRequest
 {
-	NSMutableString *queryString = [NSMutableString stringWithCapacity:512];
-	if (nil != self.prefix) {
-		[queryString appendFormat:@"%@=%@", kS3QueryParamPrefix, self.prefix];	
-	}
-	
-	if (nil != self.marker) {
-		if ( [queryString length] > 0 ) {
-			[queryString appendFormat:@"&"];
-		}
-		[queryString appendFormat:@"%@=%@", kS3QueryParamMarker, self.marker];	
-	}
-	
-	if (nil != self.delimiter) {
-		if ( [queryString length] > 0 ) {
-			[queryString appendFormat:@"&"];
-		}
-		[queryString appendFormat:@"%@=%@", kS3QueryParamDelimiter, self.delimiter];	
-	}
-	
-	if (self.maxKeys > 0) {
-		if ( [queryString length] > 0 ) {
-			[queryString appendFormat:@"&"];
-		}
-		[queryString appendFormat:@"%@=%d", kS3QueryParamMaxKeys, self.maxKeys];	
-	}
-	
-	[self setSubResource:queryString];	
-	
+    NSMutableString *queryString = [NSMutableString stringWithCapacity:512];
+
+    if (nil != self.prefix) {
+        [queryString appendFormat:@"%@=%@", kS3QueryParamPrefix, self.prefix];
+    }
+
+    if (nil != self.marker) {
+        if ( [queryString length] > 0) {
+            [queryString appendFormat:@"&"];
+        }
+        [queryString appendFormat:@"%@=%@", kS3QueryParamMarker, self.marker];
+    }
+
+    if (nil != self.delimiter) {
+        if ( [queryString length] > 0) {
+            [queryString appendFormat:@"&"];
+        }
+        [queryString appendFormat:@"%@=%@", kS3QueryParamDelimiter, self.delimiter];
+    }
+
+    if (self.maxKeys > 0) {
+        if ( [queryString length] > 0) {
+            [queryString appendFormat:@"&"];
+        }
+        [queryString appendFormat:@"%@=%d", kS3QueryParamMaxKeys, self.maxKeys];
+    }
+
+    if ([queryString length] > 0) {
+        [self setSubResource:queryString];
+    }
+
     [super configureURLRequest];
-	[self.urlRequest setHTTPMethod:kHttpMethodGet];
-	
-	return self.urlRequest;
+    [self.urlRequest setHTTPMethod:kHttpMethodGet];
+
+    return self.urlRequest;
 }
 
--(id)initWithName:(NSString*)theBucketName 
+-(id)initWithName:(NSString *)theBucketName
 {
-	self = [self init];
-	if ( self != nil ) {
-		self.bucket = theBucketName;
-	}
-	
-	return self;
+    self = [self init];
+    if (self != nil) {
+        self.bucket = theBucketName;
+    }
+
+    return self;
 }
 
--(void)dealloc 
+-(void)dealloc
 {
-	[prefix    release];
-	[marker    release];
-	[delimiter release];
-	
-	[super dealloc];
+    [prefix release];
+    [marker release];
+    [delimiter release];
+
+    [super dealloc];
 }
 
 @end

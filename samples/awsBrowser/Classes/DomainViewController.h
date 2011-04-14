@@ -9,8 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface DomainViewController : UIViewController {
-
+@interface DomainViewController:UIViewController {
 }
 
 @end

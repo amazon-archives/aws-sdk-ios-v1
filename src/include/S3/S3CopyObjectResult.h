@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -15,16 +15,19 @@
 
 #import <Foundation/Foundation.h>
 
-/** Represents the response body from a copyObject response */
-@interface S3CopyObjectResult : NSObject {
-	NSString *lastModified;
-	NSString *etag;
+/** Represents the response body from a copyObject response
+ *
+ * \ingroup S3
+ */
+@interface S3CopyObjectResult:NSObject {
+    NSString *lastModified;
+    NSString *etag;
 }
 
 /** Gets and sets the lastModified property */
-@property (nonatomic, retain) NSString* lastModified;
+@property (nonatomic, retain) NSString *lastModified;
 
 /** Gets and sets the etag property */
-@property (nonatomic, retain) NSString* etag;
+@property (nonatomic, retain) NSString *etag;
 
 @end

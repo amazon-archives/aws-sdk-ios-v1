@@ -21,46 +21,46 @@
 #pragma mark NSXMLParserDelegate implementation
 
 
-- (void) parser:(NSXMLParser *)parser 
-  didEndElement:(NSString *)elementName 
-   namespaceURI:(NSString *)namespaceURI 
-  qualifiedName:(NSString *)qName
+-(void) parser:(NSXMLParser *)parser
+didEndElement:(NSString *)elementName
+namespaceURI:(NSString *)namespaceURI
+qualifiedName:(NSString *)qName
 {
-	[super parser:parser didEndElement:elementName namespaceURI:namespaceURI qualifiedName:qName];
-	
-	if ([elementName isEqualToString:@"Prefix"]) {
-		[self.commonPrefixes addObject:self.currentText];               
-	}        
-		
-	if ([elementName isEqualToString:@"CommonPrefixes"]) {
-		if (caller != nil) {
-			[parser setDelegate:caller];
-		}
-		
-		if (parentObject != nil && [parentObject respondsToSelector:parentSetter]) {
-			[parentObject performSelector:parentSetter withObject:self.commonPrefixes];
-		}
-		
-		return;
-	}	
+    [super parser:parser didEndElement:elementName namespaceURI:namespaceURI qualifiedName:qName];
+
+    if ([elementName isEqualToString:@"Prefix"]) {
+        [self.commonPrefixes addObject:self.currentText];
+    }
+
+    if ([elementName isEqualToString:@"CommonPrefixes"]) {
+        if (caller != nil) {
+            [parser setDelegate:caller];
+        }
+
+        if (parentObject != nil && [parentObject respondsToSelector:parentSetter]) {
+            [parentObject performSelector:parentSetter withObject:self.commonPrefixes];
+        }
+
+        return;
+    }
 }
 
 
 #pragma mark Unmarshalled object property
 
--(NSMutableArray*)commonPrefixes
+-(NSMutableArray *)commonPrefixes
 {
-	if (nil == commonPrefixes)
-	{
-		commonPrefixes = [[NSMutableArray alloc] initWithCapacity:1];
-	}
-	return commonPrefixes;
+    if (nil == commonPrefixes)
+    {
+        commonPrefixes = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+    return commonPrefixes;
 }
 
 -(void)dealloc
 {
-	[commonPrefixes release];
-	[super dealloc];
+    [commonPrefixes release];
+    [super dealloc];
 }
 
 @end

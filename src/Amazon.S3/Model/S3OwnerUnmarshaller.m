@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -19,53 +19,51 @@
 
 #pragma mark NSXMLParserDelegate implementation
 
-- (void) parser:(NSXMLParser *)parser 
-  didEndElement:(NSString *)elementName 
-   namespaceURI:(NSString *)namespaceURI 
-  qualifiedName:(NSString *)qName
+-(void) parser:(NSXMLParser *)parser
+didEndElement:(NSString *)elementName
+namespaceURI:(NSString *)namespaceURI
+qualifiedName:(NSString *)qName
 {
-	[super parser:parser didEndElement:elementName namespaceURI:namespaceURI qualifiedName:qName];
-	
-	if ([elementName isEqualToString:@"ID"]) {
-		self.owner.ID = self.currentText;
-		return;
-	}
-	
-	if ([elementName isEqualToString:@"DisplayName"]) {
-		self.owner.displayName = self.currentText;
-		return;
-	}
-	
-	if ([elementName isEqualToString:@"Owner"]) {
-		
-		if (caller != nil) {
-			[parser setDelegate:caller];
-		}
-		
-		if (parentObject != nil && [parentObject respondsToSelector:parentSetter]) {
-			[parentObject performSelector:parentSetter withObject:self.owner];
-		}
-		
-		return;
-	}
+    [super parser:parser didEndElement:elementName namespaceURI:namespaceURI qualifiedName:qName];
+
+    if ([elementName isEqualToString:@"ID"]) {
+        self.owner.ID = self.currentText;
+        return;
+    }
+
+    if ([elementName isEqualToString:@"DisplayName"]) {
+        self.owner.displayName = self.currentText;
+        return;
+    }
+
+    if ([elementName isEqualToString:@"Owner"] || (self.endElementTagName != nil && [elementName isEqualToString:self.endElementTagName])) {
+        if (caller != nil) {
+            [parser setDelegate:caller];
+        }
+
+        if (parentObject != nil && [parentObject respondsToSelector:parentSetter]) {
+            [parentObject performSelector:parentSetter withObject:self.owner];
+        }
+
+        return;
+    }
 }
 
 #pragma mark Unmarshalled object property
 
 -(S3Owner *)owner
 {
-	if (nil == owner)
-	{
-		owner = [[S3Owner alloc] init];
-	}
-	return owner;
+    if (nil == owner)
+    {
+        owner = [[S3Owner alloc] init];
+    }
+    return owner;
 }
 
 -(void)dealloc
 {
-	[owner release];
-	[super dealloc];
-
+    [owner release];
+    [super dealloc];
 }
 
 @end

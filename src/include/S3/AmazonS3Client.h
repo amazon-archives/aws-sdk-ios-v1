@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -17,6 +17,7 @@
 #import <CommonCrypto/CommonHMAC.h>
 
 #import "../AmazonWebServiceClient.h"
+#import "../AmazonSDKUtil.h"
 
 #import "S3Constants.h"
 #import "S3AbstractPutRequest.h"
@@ -25,6 +26,20 @@
 #import "S3Bucket.h"
 #import "S3BucketNameUtilities.h"
 #import "S3BucketUnmarshaller.h"
+#import "S3GetBucketPolicyRequest.h"
+#import "S3GetBucketPolicyResponse.h"
+#import "S3SetBucketPolicyRequest.h"
+#import "S3SetBucketPolicyResponse.h"
+#import "S3DeleteVersionRequest.h"
+#import "S3DeleteVersionResponse.h"
+#import "S3ListVersionsRequest.h"
+#import "S3ListVersionsResponse.h"
+#import "S3GetBucketVersioningConfigurationRequest.h"
+#import "S3GetBucketVersioningConfigurationResponse.h"
+#import "S3SetBucketVersioningConfigurationRequest.h"
+#import "S3SetBucketVersioningConfigurationResponse.h"
+#import "S3DeleteBucketPolicyRequest.h"
+#import "S3DeleteBucketPolicyResponse.h"
 #import "S3CannedACL.h"
 #import "S3CopyObjectRequest.h"
 #import "S3CopyObjectResponse.h"
@@ -68,9 +83,24 @@
 #import "S3ServiceTransform.h"
 #import "S3SetACLRequest.h"
 #import "S3SetACLResponse.h"
+#import "S3InitiateMultipartUploadRequest.h"
+#import "S3InitiateMultipartUploadResponse.h"
+#import "S3MultipartUpload.h"
+#import "S3AbortMultipartUploadRequest.h"
+#import "S3AbortMultipartUploadResponse.h"
+#import "S3ListMultipartUploadsRequest.h"
+#import "S3ListMultipartUploadsResponse.h"
+#import "S3UploadPartRequest.h"
+#import "S3UploadPartResponse.h"
+#import "S3ListPartsRequest.h"
+#import "S3ListPartsResponse.h"
+#import "S3CompleteMultipartUploadRequest.h"
+#import "S3CompleteMultipartUploadResponse.h"
 
 
-/** AmazonS3Client is an implementation of AmazonS3. 
+/** \defgroup S3 Amazon S3 */
+
+/** AmazonS3Client is an implementation of AmazonS3.
  *
  * The client allows you to manage your AmazonS3 buckets and keys/objects.
  *
@@ -79,8 +109,10 @@
  * at any time, from anywhere on the web. It gives any developer access to the same highly scalable, reliable,
  * fast, inexpensive data storage infrastructure that Amazon uses to run its own global network of web sites.
  * The service aims to maximize benefits of scale and to pass those benefits on to developers.
+ *
+ * \ingroup S3
  */
-@interface AmazonS3Client : AmazonWebServiceClient {}
+@interface AmazonS3Client:AmazonWebServiceClient {}
 
 /** Returns a list of all Amazon S3 buckets that the authenticated sender of the request owns.
  *
@@ -91,7 +123,7 @@
 /** Returns a list of all Amazon S3 buckets that the authenticated sender of the request owns.
  *
  * @param listBucketsRequest An S3ListBucketsRequest object that defines the parameters of the request.
- * @return An S3ListBucketsResponse from S3. The <code>buckets</code> property of the 
+ * @return An S3ListBucketsResponse from S3. The <code>buckets</code> property of the
  * S3ListBucketsResult has the list of buckets.
  */
 -(S3ListBucketsResponse *)listBuckets:(S3ListBucketsRequest *)listBucketsRequest;
@@ -103,15 +135,30 @@
  */
 -(S3CreateBucketResponse *)createBucket:(S3CreateBucketRequest *)createBucketRequest;
 
+/** Creates a bucket using the the specified bucket name.
+ *
+ * @param bucketName The name for the bucket to be created.
+ * @return An S3CreateBucketResponse from S3
+ */
+-(S3CreateBucketResponse *)createBucketWithName:(NSString *)bucketName;
+
 /** Deletes a bucket with the specified name. All objects in the bucket must be deleted before the
  * bucket itself can be deleted.
  *
  * @param deleteBucketRequest An S3DeleteBucketRequest that defines the parameters of the request.
  * @return An S3DeleteBucketResponse from S3
  */
--(S3DeleteBucketResponse *)deleteBucket:(S3DeleteBucketRequest*)deleteBucketRequest;
+-(S3DeleteBucketResponse *)deleteBucket:(S3DeleteBucketRequest *)deleteBucketRequest;
 
-/** Takes in a bucket's name and lists the location of the bucket. 
+/** Deletes a bucket with the specified name. All objects in the bucket must be deleted before the
+ * bucket itself can be deleted.
+ *
+ * @param bucketName The name of the bucket to be deleted.
+ * @return An S3DeleteBucketResponse from S3
+ */
+-(S3DeleteBucketResponse *)deleteBucketWithName:(NSString *)bucketName;
+
+/** Takes in a bucket's name and lists the location of the bucket.
  * This information can be used to determine the bucket's geographical location.
  * To determine the location of a bucket, you must be the bucket owner
  * @param bucketName The name of the bucket.
@@ -144,13 +191,22 @@
  */
 -(S3GetObjectResponse *)getObject:(S3GetObjectRequest *)getObjectRequest;
 
-/** Removes the specified object from Amazon S3. 
+/** Removes the specified object from Amazon S3.
  * Once deleted, there is no method to restore or undelete an object.
  *
  * @param deleteObjectRequest The S3DeleteObjectRequest that defines the parameters of the operation.
  * @return An S3DeleteObjectResponse from S3.
  */
 -(S3DeleteObjectResponse *)deleteObject:(S3DeleteObjectRequest *)deleteObjectRequest;
+
+/** Removes the specified object from Amazon S3.
+ * Once deleted, there is no method to restore or undelete an object.
+ *
+ * @param theKey The key of the object to be deleted.
+ * @param theBucket The bucket containing the object to be deleted.
+ * @return An S3DeleteObjectResponse from S3.
+ */
+-(S3DeleteObjectResponse *)deleteObjectWithKey:(NSString *)theKey withBucket:(NSString *)theBucket;
 
 /** List the objects in a bucket.
  *
@@ -190,6 +246,230 @@
  */
 -(S3SetACLResponse *)setACL:(S3SetACLRequest *)setACLRequest;
 
+/** Gets the policy for the specified bucket. Only the owner of the
+ * bucket can retrieve the policy. If no policy has been set for the bucket,
+ * then an empty result object with a <code>null</code> policy text field will be
+ * returned.
+ *
+ * Bucket policies provide access control management at the bucket level for
+ * both the bucket resource and contained object resources. Only one policy
+ * can be specified per-bucket.
+ */
+-(S3GetBucketPolicyResponse *)getBucketPolicy:(S3GetBucketPolicyRequest *)getPolicyRequest;
+
+/** Sets the policy associated with the specified bucket. Only the owner of
+ * the bucket can set a bucket policy. If a policy already exists for the
+ * specified bucket, the new policy replaces the existing policy.
+ *
+ * Bucket policies provide access control management at the bucket level for
+ * both the bucket resource and contained object resources. Only one policy
+ * can be specified per-bucket.
+ */
+-(S3SetBucketPolicyResponse *)setBucketPolicy:(S3SetBucketPolicyRequest *)setPolicyRequest;
+
+/** Deletes the policy associated with the specified bucket. Only the owner
+ * of the bucket can delete the bucket policy.
+ *
+ * Bucket policies provide access control management at the bucket level for
+ * both the bucket resource and contained object resources. Only one policy
+ * can be specified per-bucket.
+ */
+-(S3DeleteBucketPolicyResponse *)deleteBucketPolicy:(S3DeleteBucketPolicyRequest *)deletePolicyRequest;
+
+/** Returns the versioning configuration for the specified bucket.
+ * A bucket's versioning configuration can be in one of three possible
+ * states: Off, Enabled, or Suspended
+ *
+ * By default, new buckets are in the Off state. Once versioning is
+ * enabled for a bucket the status can never be reverted to Off.
+ *
+ * The versioning configuration of a bucket has different implications for
+ * each operation performed on that bucket or for objects within that
+ * bucket. For example, when versioning is enabled a <code>PutObject</code>
+ * operation creates a unique object version-id for the object being uploaded. The
+ * The <code>PutObject</code> API guarantees that, if versioning is enabled for a bucket at
+ * the time of the request, the new object can only be permanently deleted
+ * using a <code>DeleteVersion</code> operation. It can never be overwritten.
+ * Additionally, the <code>PutObject</code> API guarantees that,
+ * if versioning is enabled for a bucket the request,
+ * no other object will be overwritten by that request.
+ * Refer to the documentation sections for each API for information on how
+ * versioning status affects the semantics of that particular API.
+ */
+-(S3GetBucketVersioningConfigurationResponse *)getBucketVersioningConfiguration:(S3GetBucketVersioningConfigurationRequest *)getBucketVersioningConfigurationRequest;
+
+/** Sets the versioning configuration for the specified bucket.
+ * A bucket's versioning configuration can be in one of three possible
+ * states: Off, Enabled, or Suspended
+ *
+ * By default, new buckets are in the Off state. Once versioning is
+ * enabled for a bucket the status can never be reverted to Off.
+ *
+ * Objects created before versioning was enabled or when versioning is
+ * suspended will be given the default <code>null</code> version ID. Note
+ * that the <code>null</code> version ID is a valid version ID and is not
+ * the same as not having a version ID.
+ *
+ * The versioning configuration of a bucket has different implications for
+ * each operation performed on that bucket or for objects within that
+ * bucket. For example, when versioning is enabled a <code>PutObject</code>
+ * operation creates a unique object version-id for the object being uploaded. The
+ * The <code>PutObject</code> API guarantees that, if versioning is enabled for a bucket at
+ * the time of the request, the new object can only be permanently deleted
+ * using a <code>DeleteVersion</code> operation. It can never be overwritten.
+ * Additionally, the <code>PutObject</code> API guarantees that,
+ * if versioning is enabled for a bucket the request,
+ * no other object will be overwritten by that request.
+ * Refer to the documentation sections for each API for information on how
+ * versioning status affects the semantics of that particular API.
+ */
+-(S3SetBucketVersioningConfigurationResponse *)setBucketVersioningConfiguration:(S3SetBucketVersioningConfigurationRequest *)setBucketVersioningConfigurationRequest;
+
+
+/** Deletes a specific version of an object in the specified bucket. Once
+ * deleted, there is no method to restore or undelete an object version.
+ * This is the only way to permanently delete object versions that are
+ * protected by versioning.
+ *
+ * Deleting an object version is permanent and irreversible.
+ * It is a privileged operation that only the owner of the bucket containing the
+ * version can perform.
+ */
+-(S3DeleteVersionResponse *)deleteVersion:(S3DeleteVersionRequest *)deleteVersionRequest;
+
+/** Returns a list of summary information about the versions in the specified bucket.
+ *
+ * The returned version summaries are ordered first by key and then by
+ * version. Keys are sorted lexicographically (alphabetically)
+ * while versions are sorted from most recent to least recent.
+ * Both versions with data and delete markers are included in the results.
+ */
+-(S3ListVersionsResponse *)listVersions:(S3ListVersionsRequest *)lisVersionsRequest;
+
+/** Initiates a multipart upload and returns an InitiateMultipartUploadResponse.
+ *
+ * @param initiateMultipartUploadRequest The S3InitiateMultipartUploadRequest that defines the paramaters of the operation.
+ */
+-(S3InitiateMultipartUploadResponse *)initiateMultipartUpload:(S3InitiateMultipartUploadRequest *)initiateMultipartUploadRequest;
+
+/** Initiates a multipart upload and returns an MultipartUpload instance
+ * which contains an upload ID. This upload ID associates all the
+ * parts in the specific upload. You specify this upload ID in each of
+ * your subsequent Upload Part requests. You also include
+ * this upload ID in the final request to either complete, or abort
+ * the multipart upload request.
+ *
+ * @param theKey The key the the completed object will have
+ * @param theBucket The bucket where the completed object will reside.
+ * @return An S3MultipartUpload object which contains the uploadId for the upload.
+ */
+-(S3MultipartUpload *)initiateMultipartUploadWithKey:(NSString *)theKey withBucket:(NSString *)theBucket;
+
+/** Aborts a multipart upload.
+ * After a multipart upload is aborted, no additional parts can be uploaded using that upload ID.
+ * The storage consumed by any previously uploaded parts will be freed.
+ * However, if any part uploads are currently in progress, those part uploads might or might not succeed.
+ * As a result, it might be necessary to abort a given multipart upload multiple times in order to completely
+ * free all storage consumed by all parts.
+ *
+ * @param abortMultipartUploadRequest The S3AbortMultipartUploadRequest which defines the parameters of the operation.
+ * @returns An S3AbortMultipartUploadResponse from S3.
+ */
+-(S3AbortMultipartUploadResponse *)abortMultipartUpload:(S3AbortMultipartUploadRequest *)abortMultipartUploadRequest;
+
+/** Aborts a multipart upload for a given uploadId.
+ * After a multipart upload is aborted, no additional parts can be uploaded using that upload ID.
+ * The storage consumed by any previously uploaded parts will be freed.
+ * However, if any part uploads are currently in progress, those part uploads might or might not succeed.
+ * As a result, it might be necessary to abort a given multipart upload multiple times in order to completely
+ * free all storage consumed by all parts.
+ *
+ * @param theUploadId The id of the upload to abort.
+ */
+-(void)abortMultipartUploadWithUploadId:(NSString *)theUploadId;
+
+
+/** This operation lists in-progress multipart uploads.
+ * An in-progress
+ * multipart upload is a multipart upload that has been initiated,
+ * using the InitiateMultipartUpload request, but has not yet been
+ * completed or aborted.
+ *
+ * This operation returns at most 1,000 multipart uploads in the
+ * response by default. The number of multipart uploads can be further
+ * limited using the MaxUploads property on the request parameter. If there are
+ * additional multipart uploads that satisfy the list criteria, the
+ * response will contain an IsTruncated property with the value set to true.
+ * To list the additional multipart uploads use the KeyMarker and
+ * UploadIdMarker properties on the request parameters.
+ *
+ * @param listMultipartUploadsRequest The ListMultipartUploadsRequest that defines the parameters of the operation.
+ * @return Returns a ListMultipartUploadsResponse from S3.</returns>
+ */
+-(S3ListMultipartUploadsResponse *)listMultipartUploads:(S3ListMultipartUploadsRequest *)listMultipartUploadsRequest;
+
+/** Uploads a part in a multipart upload.
+ * You must initiate a multipart upload before you can upload any part.
+ *
+ * Your uploadPart request must include an upload ID and a part number.
+ * The upload ID is the ID returned by Amazon S3 in response to your
+ * Initiate Multipart Upload request. Part number can be any number between 1 and
+ * 10,000, inclusive. A part number uniquely identifies a part and also
+ * defines its position within the object being uploaded. If you
+ * upload a new part using the same part number that was specified in uploading a
+ * previous part, the previously uploaded part is overwritten.
+ *
+ * When you upload a part, the S3UploadPartResponse response contains an etag property.
+ * You should record this etag property value and the part
+ * number. After uploading all parts, you must send a completeMultipartUpload
+ * request. At that time Amazon S3 constructs a complete object by
+ * concatenating all the parts you uploaded, in ascending order based on
+ * the part numbers. The completeMultipartUpload request requires you to
+ * send all the part numbers and the corresponding etag values.
+ *
+ * @param uploadPartRequest The S3UploadPartRequest that defines the parameters of the operation.
+ * @return An S3UploadPartResponse from S3.
+ */
+
+-(S3UploadPartResponse *)uploadPart:(S3UploadPartRequest *)uploadPartRequest;
+
+/** Lists the parts that have been uploaded for a particular multipart upload.
+ *
+ * This method must include the upload ID, returned by
+ * the initiateMultipartUpload request. This request
+ * returns a maximum of 1000 uploaded parts by default. You can
+ * restrict the number of parts returned by specifying the
+ * maxParts property on the listPartsRequest. If your multipart
+ * upload consists of more parts than allowed in the
+ * listParts response, the response returns a isTruncated
+ * field with value true, and a nextPartNumberMarker property.
+ * In subsequent listParts request you can include the
+ * partNumberMarker property and set its value to the
+ * nextPartNumberMarker property value from the previous response.
+ *
+ * @param listPartsRequest The S3ListPartsRequest that defines the parameters of the operation.
+ *
+ * @return An S3ListPartsResponse from S3.
+ */
+-(S3ListPartsResponse *)listParts:(S3ListPartsRequest *)listPartsRequest;
+
+/** Completes a multipart upload by assembling previously uploaded parts.
+ * You first upload all parts using the uploadPart method.
+ * After successfully uploading all relevant parts of an upload,
+ * you call this operation to complete the upload. Upon receiving
+ * this request, Amazon S3 concatenates all the parts in ascending
+ * order by part number to create a new object. In the
+ * completeMultipartUpload request, you must provide the
+ * parts list. For each part in the list, you provide the
+ * part number and the ETag header value, returned after that
+ * part was uploaded.
+ * Processing of a completeMultipartUpload request may take
+ * several minutes to complete.
+ * @param completeMultipartUploadRequest The CompleteMultipartUploadRequest that defines the parameters of the operation.
+ * @return An S3CompleteMultipartUploadResponse from S3.
+ */
+-(S3CompleteMultipartUploadResponse *)completeMultipartUpload:(S3CompleteMultipartUploadRequest *)completeMultipartUploadRequest;
+
 /** Creates a signed http request.
  * Query string authentication is useful for giving HTTP or browser
  * access to resources that would normally require authentication.
@@ -205,34 +485,28 @@
  */
 -(NSURL *)getPreSignedURL:(S3GetPreSignedURLRequest *)preSignedURLRequest;
 
-///** Sign a URL request. 
-// *
-// * @see http://docs.amazonwebservices.com/AmazonS3/2006-03-01/dev/index.html?RESTAccessPolicy.html
-// *
-// * @param request a mutable URL request
-// * @return the signed request
-// */
-//-(NSURLRequest *)signURLRequest:(NSMutableURLRequest *)request;
-
 /** Constructs an empty response object of the appropriate type to match the given request
  * object.
  * @param request An instance of a subclass of S3Request.
- * @return An instance of the appropriate subclass of S3Response, or 
+ * @return An instance of the appropriate subclass of S3Response, or
  *         an instance of S3Response if there is no response class to
  *         match the instance passed in.
  */
 +(S3Response *)constructResponseFromRequest:(S3Request *)request;
 
-/** Ensure that all response classes have been loaded by the runtime. */
-+(void)initializeResponseObjects;
-
 /** Utility method that sends the raw S3 Request to be processed.
  *
- * @param request A request describing the parameters of an S3 request. 
+ * @param request A request describing the parameters of an S3 request.
  * @return The response from S3.
  */
 -(S3Response *)invoke:(S3Request *)request;
 
 /** Return the version of the S3 API */
 +(NSString *)apiVersion;
+
+-(NSURLRequest *)signS3Request:(S3Request *)request;
+
+/** Ensure that all response classes have been loaded by the runtime. */
++(void)initializeResponseObjects;
+
 @end

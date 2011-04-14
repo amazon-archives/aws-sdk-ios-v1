@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -19,28 +19,28 @@
 @implementation S3ListBucketsRequest
 
 
--(id)init 
+-(id)init
 {
-	self = [super init];	
-	if ( self != nil ) {
-		self.httpMethod = kHttpMethodGet;
-	}
-	
-	return self;
+    self = [super init];
+    if (self != nil) {
+        self.httpMethod = kHttpMethodGet;
+    }
+
+    return self;
 }
 
 -(NSMutableURLRequest *)configureURLRequest
 {
     [super configureURLRequest];
-	
-	[self.urlRequest setURL:self.url];	
-	
-	return self.urlRequest;
+
+    [self.urlRequest setURL:self.url];
+
+    return self.urlRequest;
 }
 
--(void)dealloc 
+-(void)dealloc
 {
-	[super dealloc];
+    [super dealloc];
 }
 
 @end

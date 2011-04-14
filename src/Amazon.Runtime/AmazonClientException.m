@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -18,30 +18,42 @@
 @implementation AmazonClientException
 
 @synthesize message;
+@synthesize error;
 
 +(AmazonClientException *)exceptionWithMessage:(NSString *)theMessage
 {
-	AmazonClientException *e = (AmazonClientException *)[AmazonClientException exceptionWithName:@"AmazonClientException" reason:theMessage userInfo:nil];
-	e.message = theMessage;
-	return e;
+    AmazonClientException *e = (AmazonClientException *)[AmazonClientException exceptionWithName:@"AmazonClientException" reason:theMessage userInfo:nil];
+
+    e.message = theMessage;
+    return e;
 }
 
--(id)initWithMessage:(NSString *)theMessage 
++(AmazonClientException *)exceptionWithMessage:(NSString *)theMessage andError:(NSError *)theError
 {
-	self = [super initWithName:@"AmazonClientException" reason:theMessage userInfo:nil];
-	if ( self != nil ) {
-		self.message = theMessage;
-	}
-	
-	return self;
+    AmazonClientException *e = (AmazonClientException *)[AmazonClientException exceptionWithName:@"AmazonClientException" reason:theMessage userInfo:nil];
+
+    e.error   = theError;
+    e.message = theMessage;
+    return e;
+}
+
+-(id)initWithMessage:(NSString *)theMessage
+{
+    self = [super initWithName:@"AmazonClientException" reason:theMessage userInfo:nil];
+    if (self != nil) {
+        self.message = theMessage;
+    }
+
+    return self;
 }
 
 
--(void)dealloc 
+-(void)dealloc
 {
-	[message release];
+    [message release];
+    [error release];
 
-	[super dealloc];
+    [super dealloc];
 }
 
 

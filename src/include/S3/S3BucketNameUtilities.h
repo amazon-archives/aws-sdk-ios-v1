@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -16,8 +16,7 @@
 #import <Foundation/Foundation.h>
 
 /** Utilities for validating bucket names */
-@interface S3BucketNameUtilities : NSObject {
-
+@interface S3BucketNameUtilities:NSObject {
 }
 
 /** Validate that the supplied bucket name conforms to Amazon S3 bucket name
@@ -26,8 +25,8 @@
  * @throws AWSClientException If the bucket name violates the bucket name constraints.
  */
 +(void)validateBucketName:(NSString *)theBucketName;
++(bool)isDNSBucketName:(NSString *)theBucketName;
 
-
-+(bool)contains:(NSString*)sourceString searchString:(NSString*)searchString;
++(bool)contains:(NSString *)sourceString searchString:(NSString *)searchString;
 
 @end

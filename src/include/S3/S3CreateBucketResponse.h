@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -17,8 +17,7 @@
 #import "S3Response.h"
 
 /** Contains the response from a createBucket operation. */
-@interface S3CreateBucketResponse : S3Response {
-
+@interface S3CreateBucketResponse:S3Response {
 }
 
 @end

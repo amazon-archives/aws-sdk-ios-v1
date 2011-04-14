@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -18,16 +18,19 @@
 
 @class S3Request;
 
-//** Request object for DeleteObject */
-@interface S3DeleteObjectRequest : S3Request {
-	NSString *mfaAuth;
+/** Request object for DeleteObject.
+ *
+ * \ingroup S3
+ */
+@interface S3DeleteObjectRequest:S3Request {
+    NSString *mfaAuth;
 }
 
-/** The concatenation of the multi-factor authentication device's serial number, 
+/** The concatenation of the multi-factor authentication device's serial number,
  *  a space, and the value displayed on your authentication device.
  *
  * Required to permanently delete a versioned object if versioning is configured with MFA Delete enabled.
  */
-@property (nonatomic, retain) NSString* mfaAuth;
+@property (nonatomic, retain) NSString *mfaAuth;
 
 @end

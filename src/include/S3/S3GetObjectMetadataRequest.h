@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -17,7 +17,10 @@
 #import "S3GetObjectRequest.h"
 #import "S3Constants.h"
 
-/** Request parameters for GetObjectMetadata request. */
-@interface S3GetObjectMetadataRequest : S3GetObjectRequest {}
+/** Request parameters for GetObjectMetadata request.
+ *
+ * \ingroup S3
+ */
+@interface S3GetObjectMetadataRequest:S3GetObjectRequest {}
 
 @end

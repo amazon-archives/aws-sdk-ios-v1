@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -17,31 +17,32 @@
 
 @implementation S3DeleteBucketRequest
 
--(id)initWithName:(NSString*)theBucketName 
+-(id)initWithName:(NSString *)theBucketName
 {
-	self = [self init];
-	if ( self != nil ) {
-		self.bucket	= theBucketName;
-	}
-	
-	return self;
+    self = [self init];
+    if (self != nil) {
+        self.bucket = theBucketName;
+    }
+
+    return self;
 }
 
 -(NSMutableURLRequest *)configureURLRequest
 {
-	if (nil == self.bucket) {
-		@throw [AmazonClientException exceptionWithMessage:@"Bucket Name should not be nil."];
-	}
-	
-	[super configureURLRequest];
-	
-	[self.urlRequest setHTTPMethod:kHttpMethodDelete];
-	
-	return self.urlRequest;
+    if (nil == self.bucket) {
+        @throw [AmazonClientException exceptionWithMessage : @"Bucket Name should not be nil."];
+    }
+
+    [super configureURLRequest];
+
+    [self.urlRequest setHTTPMethod:kHttpMethodDelete];
+
+    return self.urlRequest;
 }
 
--(void)dealloc {
-	[super dealloc];
+-(void)dealloc
+{
+    [super dealloc];
 }
 
 @end

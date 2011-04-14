@@ -57,7 +57,7 @@
 <ul>
   <li> <strong>Documentation:</strong>  Contains the DocSet for the AWS iOS SDK framework. </li>
   <li> <strong>AWSiOSSDK.framework:</strong> A framework to include in an iOS application to access AWS APIs. </li>
-  <li> <strong>samples:</strong> Contains code built using the AWSiOSSDK.framework to create a simple browser for Amazon S3 and SimpleDB. </li>
+  <li> <strong>samples:</strong> Contains code built using the AWSiOSSDK.framework to create a simple browser for Amazon S3, SimpleDB, SQS and SNS. </li>
   <li> <strong>src:</strong> Contains the original implementation and header files for the SDK, including third-party code. </li>
 </ul>
 <h2>Run the Sample</h2>
@@ -65,24 +65,6 @@
 <h3>To run the browser sample</h3>
 <ol>
   <li>Open the <code>AWSiOSSDK/samples/awsBrowser/AWSiosDEMO.xcodeproj</code> project file in Xcode. </li>
-  <li>If you're using iOS 4.2, update the project build target as follows.</p>
-    <ol>
-      <li>Control-click <strong>AWSiosDEMO</strong> in the project tree, then select <strong>Get Info</strong>.</li>
-      <li>On the <strong>Build</strong> tab of the info dialog, change <strong>Architectures/Base SDK</strong> from <strong>iOS 4.1</strong> to <strong>Latest iOS</strong>.</li>
-      <li>In the <strong>Frameworks</strong> group, remove <code>UIKit.framework</code>, <code>Foundation.framework</code>, and <code>CoreGraphics.framework</code>. </li>
-      <li>Re-add each framework back to the project by right-clicking on the Frameworks tab, selecting <strong>Add</strong>-&gt;<strong>Existing Frameworks…</strong>, selecting each        framework by name, then clicking the <strong>Add</strong> button.</li>
-    </ol>
-  </li>
-  <li>Add the AWSiOSSDK Framework.
-    <ol>
-      <li>Expand the project.</li>
-      <li>Control-click  the <strong>Framework Group</strong> in the <strong>Group &amp; Files</strong> section.</li>
-      <li>Select <strong>Add -&gt; Existing Frameworks...</strong>.</li>
-      <li>Click the <strong>Add Other...</strong> button.</li>
-      <li>Navigate to the folder <code>AWSiOSSDK.Framework</code> which was unpacked as part of the AWS SDK for iOS .zip file.</li>
-      <li>Select the <strong>AWSiOSSDK.Framework</strong> folder and press the <strong>Add</strong> button.</li>
-    </ol>
-  </li>
   <li>Configure the sample with your AWS security credentials:
     <ol>
       <li>Open the <code>Constants.h</code> file. </li>

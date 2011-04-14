@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -19,11 +19,11 @@
 #import "S3ListObjectsResult.h"
 
 
-@interface S3ListBucketResultUnmarshaller : AmazonUnmarshallerXMLParserDelegate {
-	S3ListObjectsResult *objectListing;
+@interface S3ListBucketResultUnmarshaller:AmazonUnmarshallerXMLParserDelegate {
+    S3ListObjectsResult *objectListing;
 }
 
 /** The result object represented by the XML */
-@property (nonatomic, readonly) S3ListObjectsResult* objectListing;
+@property (nonatomic, readonly) S3ListObjectsResult *objectListing;
 
 @end

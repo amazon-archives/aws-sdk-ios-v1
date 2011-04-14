@@ -1,0 +1,118 @@
+/*
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License").
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the "license" file accompanying this file. This file is distributed
+ * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+
+#import "EC2InstanceBlockDeviceMappingSpecification.h"
+
+#import "../AmazonServiceRequestConfig.h"
+
+
+
+/**
+ * Modify Instance Attribute Request
+ *
+ * \ingroup EC2
+ */
+
+@interface EC2ModifyInstanceAttributeRequest:AmazonServiceRequestConfig
+
+{
+    NSString       *instanceId;
+    NSString       *attribute;
+    NSString       *value;
+    NSMutableArray *blockDeviceMappings;
+    bool           sourceDestCheck;
+    bool           sourceDestCheckIsSet;
+    NSMutableArray *groups;
+}
+
+
+/**
+ * The ID of the instance whose attribute is being modified.
+ */
+@property (nonatomic, retain) NSString *instanceId;
+
+/**
+ * The name of the attribute being modified. <p> Available attribute
+ * names: <code>instanceType</code>, <code>kernel</code>,
+ * <code>ramdisk</code>, <code>userData</code>,
+ * <code>disableApiTermination</code>,
+ * <code>instanceInitiatedShutdownBehavior</code>,
+ * <code>rootDevice</code>, <code>blockDeviceMapping</code>
+ */
+@property (nonatomic, retain) NSString *attribute;
+
+/**
+ * The new value of the instance attribute being modified. <p> Only valid
+ * when <code>kernel</code>, <code>ramdisk</code>, <code>userData</code>,
+ * <code>disableApiTermination</code> or
+ * <code>instanceInitiateShutdownBehavior</code> is specified as the
+ * attribute being modified.
+ */
+@property (nonatomic, retain) NSString *value;
+
+/**
+ * The new block device mappings for the instance whose attributes are
+ * being modified. <p> Only valid when blockDeviceMapping is specified as
+ * the attribute being modified.
+ */
+@property (nonatomic, retain) NSMutableArray *blockDeviceMappings;
+
+/**
+ * Boolean value
+ */
+@property (nonatomic) bool                   sourceDestCheck;
+
+@property (nonatomic, readonly) bool         sourceDestCheckIsSet;
+
+@property (nonatomic, retain) NSMutableArray *groups;
+
+
+/**
+ * Default constructor for a new ModifyInstanceAttributeRequest object.  Callers should use the
+ * property methods to initialize this object after creating it.
+ */
+-(id)init;
+
+/**
+ * Constructs a new ModifyInstanceAttributeRequest object.
+ * Callers should use properties to initialize any additional object members.
+ *
+ * @param theInstanceId The ID of the instance whose attribute is being
+ * modified.
+ * @param theAttribute The name of the attribute being modified. <p>
+ * Available attribute names: <code>instanceType</code>,
+ * <code>kernel</code>, <code>ramdisk</code>, <code>userData</code>,
+ * <code>disableApiTermination</code>,
+ * <code>instanceInitiatedShutdownBehavior</code>,
+ * <code>rootDevice</code>, <code>blockDeviceMapping</code>
+ */
+-(id)initWithInstanceId:(NSString *)theInstanceId andAttribute:(NSString *)theAttribute;
+
+/**
+ * Adds a single object to blockDeviceMappings.
+ * This function will alloc and init blockDeviceMappings if not already done.
+ */
+-(void)addBlockDeviceMapping:(EC2InstanceBlockDeviceMappingSpecification *)blockDeviceMapping;
+
+/**
+ * Returns a string representation of this object; useful for testing and
+ * debugging.
+ *
+ * @return A string representation of this object.
+ */
+-(NSString *)description;
+
+
+@end

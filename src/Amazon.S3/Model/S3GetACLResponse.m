@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -20,35 +20,32 @@
 
 -(void)processBody
 {
-//	NSString *tmp = [[NSString alloc] initWithData:self.body encoding:NSUTF8StringEncoding];
-//	AMZLog(body);
-//	[tmp release];
-	
-	NSXMLParser *parser = [[NSXMLParser alloc] initWithData:self.body];
-	S3AccessControlListUnmarshaller *unmarshaller = [[S3AccessControlListUnmarshaller alloc] init];
-	[parser setDelegate:unmarshaller];
-	[parser parse];
-	
-	if (nil != acl) {
-		[acl release];
-		acl = nil;
-	}
-	
-	acl = [unmarshaller.accessControlList retain];
-	
-	[unmarshaller release];
-	[parser release];
+    NSXMLParser                     *parser       = [[NSXMLParser alloc] initWithData:self.body];
+    S3AccessControlListUnmarshaller *unmarshaller = [[S3AccessControlListUnmarshaller alloc] init];
+
+    [parser setDelegate:unmarshaller];
+    [parser parse];
+
+    if (nil != acl) {
+        [acl release];
+        acl = nil;
+    }
+
+    acl = [unmarshaller.accessControlList retain];
+
+    [unmarshaller release];
+    [parser release];
 }
 
 -(S3AccessControlList *)acl
 {
-	return acl;
+    return acl;
 }
 
 -(void) dealloc
 {
-	[acl release];
-	[super dealloc];
+    [acl release];
+    [super dealloc];
 }
 
 @end

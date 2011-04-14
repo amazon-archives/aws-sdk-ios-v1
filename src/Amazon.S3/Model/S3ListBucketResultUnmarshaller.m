@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -22,78 +22,76 @@
 
 #pragma mark NSXMLParserDelegate implementation
 
-- (void) parser:(NSXMLParser *)parser 
-didStartElement:(NSString *)elementName 
-   namespaceURI:(NSString *)namespaceURI 
-  qualifiedName:(NSString *)qualifiedName
-     attributes:(NSDictionary *)attributeDict
+-(void) parser:(NSXMLParser *)parser
+didStartElement:(NSString *)elementName
+namespaceURI:(NSString *)namespaceURI
+qualifiedName:(NSString *)qualifiedName
+attributes:(NSDictionary *)attributeDict
 {
-	[super parser:parser didStartElement:elementName namespaceURI:namespaceURI qualifiedName:qualifiedName attributes:attributeDict];
-	
-	if ([elementName isEqualToString:@"Contents"]) {
-		[parser setDelegate:[[[S3ObjectSummaryUnmarshaller alloc] initWithCaller:self withParentObject:self.objectListing.objectSummaries withSetter:@selector(addObject:)] autorelease]];
-	}
-	
-	if ([elementName isEqualToString:@"CommonPrefixes"]) {
-		[parser setDelegate:[[[S3CommonPrefixesUnmarshaller alloc] initWithCaller:self withParentObject:self.objectListing.commonPrefixes withSetter:@selector(addObjectsFromArray:)] autorelease]];
-	}
-	
-	
+    [super parser:parser didStartElement:elementName namespaceURI:namespaceURI qualifiedName:qualifiedName attributes:attributeDict];
+
+    if ([elementName isEqualToString:@"Contents"]) {
+        [parser setDelegate:[[[S3ObjectSummaryUnmarshaller alloc] initWithCaller:self withParentObject:self.objectListing.objectSummaries withSetter:@selector(addObject:)] autorelease]];
+    }
+
+    if ([elementName isEqualToString:@"CommonPrefixes"]) {
+        [parser setDelegate:[[[S3CommonPrefixesUnmarshaller alloc] initWithCaller:self withParentObject:self.objectListing.commonPrefixes withSetter:@selector(addObjectsFromArray:)] autorelease]];
+    }
 }
 
-- (void) parser:(NSXMLParser *)parser 
-  didEndElement:(NSString *)elementName 
-   namespaceURI:(NSString *)namespaceURI 
-  qualifiedName:(NSString *)qName
+-(void) parser:(NSXMLParser *)parser
+didEndElement:(NSString *)elementName
+namespaceURI:(NSString *)namespaceURI
+qualifiedName:(NSString *)qName
 {
-	[super parser:parser didEndElement:elementName namespaceURI:namespaceURI qualifiedName:qName];
-	
-	if ([elementName isEqualToString:@"Name"]) {
-		self.objectListing.bucketName = self.currentText;
-		return;
-	}	
-	
-	if ([elementName isEqualToString:@"Prefix"]) {
-		self.objectListing.prefix = self.currentText;
-		return;
-	}	
-	
-	if ([elementName isEqualToString:@"Marker"]) {
-		self.objectListing.marker = self.currentText;
-		return;
-	}			
-	
-	if ([elementName isEqualToString:@"Delimiter"]) {
-		self.objectListing.delimiter = self.currentText;
-		return;
-	}			
+    [super parser:parser didEndElement:elementName namespaceURI:namespaceURI qualifiedName:qName];
 
-	if ([elementName isEqualToString:@"IsTruncated"]) {
-		if ( [self.currentText isEqualToString:@"false"] ) {
-			self.objectListing.isTruncated = NO;
-		}
-		else {
-			self.objectListing.isTruncated = YES;
-		}
-		return;
-	}			
-		
-	if ([elementName isEqualToString:@"MaxKeys"]) {
-		self.objectListing.maxKeys = [self.currentText intValue];
-		return;
-	}			
-	
-	if ([elementName isEqualToString:@"ListBucketResult"]) {
-		if (caller != nil) {
-			[parser setDelegate:caller];
-		}
-		
-		if (parentObject != nil && [parentObject respondsToSelector:parentSetter]) {
-			[parentObject performSelector:parentSetter withObject:self.objectListing];
-		}
-		
-		return;
-	}
+    if ([elementName isEqualToString:@"Name"]) {
+        self.objectListing.bucketName = self.currentText;
+        return;
+    }
+
+    if ([elementName isEqualToString:@"Prefix"]) {
+        self.objectListing.prefix = self.currentText;
+        return;
+    }
+
+    if ([elementName isEqualToString:@"Marker"]) {
+        self.objectListing.marker = self.currentText;
+        return;
+    }
+
+    if ([elementName isEqualToString:@"Delimiter"]) {
+        self.objectListing.delimiter = self.currentText;
+        return;
+    }
+
+    if ([elementName isEqualToString:@"IsTruncated"]) {
+        if ( [self.currentText isEqualToString:@"false"]) {
+            self.objectListing.isTruncated = NO;
+        }
+        else {
+            self.objectListing.isTruncated = YES;
+        }
+        return;
+    }
+
+    if ([elementName isEqualToString:@"MaxKeys"]) {
+        self.objectListing.maxKeys = [self.currentText intValue];
+        return;
+    }
+
+    if ([elementName isEqualToString:@"ListBucketResult"]) {
+        if (caller != nil) {
+            [parser setDelegate:caller];
+        }
+
+        if (parentObject != nil && [parentObject respondsToSelector:parentSetter]) {
+            [parentObject performSelector:parentSetter withObject:self.objectListing];
+        }
+
+        return;
+    }
 }
 
 
@@ -101,17 +99,17 @@ didStartElement:(NSString *)elementName
 
 -(S3ListObjectsResult *)objectListing
 {
-	if (nil == objectListing)
-	{
-		objectListing = [[S3ListObjectsResult alloc] init];
-	}
-	return objectListing;
+    if (nil == objectListing)
+    {
+        objectListing = [[S3ListObjectsResult alloc] init];
+    }
+    return objectListing;
 }
 
 -(void)dealloc
 {
-	[objectListing release];
-	[super dealloc];
+    [objectListing release];
+    [super dealloc];
 }
 
 @end

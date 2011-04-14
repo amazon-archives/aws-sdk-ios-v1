@@ -1,3 +1,17 @@
+/*
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License").
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the "license" file accompanying this file. This file is distributed
+ * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
 
 #import "BucketList.h"
 #import <AWSiOSSDK/S3/AmazonS3Client.h>
@@ -7,133 +21,114 @@
 
 @implementation BucketList
 
-static BucketList* _instance = nil;
-
-@synthesize buckets;
-
-+(BucketList*)instance
+-(id)init
 {
-	@synchronized([BucketList class]) {
-		if (!_instance) {
-			[[self alloc] init];
-		}
-		
-		return _instance;
-	}
-	
-	return nil;
+    return [super initWithNibName:@"BucketList" bundle:nil];
 }
 
-+(id)alloc
+-(void)viewWillAppear:(BOOL)animated
 {
-	@synchronized([BucketList class]) {
-		NSAssert(_instance == nil, @"Attempted to allocate a second instance of a singleton.");
-		_instance = [super alloc];
-		return _instance;
-	}
-	
-	return nil;
+    @try {
+        NSArray *bucketNames = [[Constants s3] listBuckets];
+        if (buckets == nil) {
+            buckets = [[NSMutableArray alloc] initWithCapacity:[bucketNames count]];
+        }
+        else {
+            [buckets removeAllObjects];
+        }
+
+        if (bucketNames != nil) {
+            for (S3Bucket *bucket in bucketNames) {
+                [buckets addObject:[bucket name]];
+            }
+        }
+
+        [buckets sortUsingSelector:@selector(compare:)];
+    }
+    @catch (AmazonServiceException *exception) {
+        NSLog(@"Exception = %@", exception);
+    }
+
+    [bucketTableView reloadData];
 }
 
--(id)init {
-	return [super initWithNibName:@"BucketList" bundle:nil];
+-(IBAction)done:(id)sender
+{
+    [self dismissModalViewControllerAnimated:YES];
 }
 
--(void)addBucket:(NSString*)bucketName {
-	NSArray *insertPaths = [NSArray arrayWithObjects:[NSIndexPath indexPathForRow:0 inSection:0], nil];
-	
-	[buckets insertObject:bucketName atIndex:0];
-				
-	[bucketTableView beginUpdates];
-	[bucketTableView insertRowsAtIndexPaths:insertPaths withRowAnimation:UITableViewRowAnimationFade];
-	[bucketTableView endUpdates];				
+-(IBAction)add:(id)sender
+{
+    AddBucketViewController *addBucketViewController = [[AddBucketViewController alloc] init];
+
+    addBucketViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+
+    [self presentModalViewController:addBucketViewController animated:YES];
+    [addBucketViewController release];
 }
 
-- (IBAction)done:(id)sender {
-	[self.view removeFromSuperview];
-}
-
-- (IBAction)add:(id)sender {
-	[UIView beginAnimations:@"Add Bucket" context:nil];    
-	[UIView setAnimationDuration:1];	
-	[UIView setAnimationTransition:UIViewAnimationTransitionNone forView:self.view cache:YES];
-	
-	AddBucketViewController* addBucket = [[AddBucketViewController alloc] initWithNibName:@"AddBucketViewController" bundle:nil];
-	
-	[self.view addSubview:addBucket.view];
-	[UIView commitAnimations];	
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return [buckets count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     static NSString *CellIdentifier = @"Cell";
-    
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-    
+
     // Configure the cell...
-	cell.textLabel.text = [buckets objectAtIndex:indexPath.row];
-    
+    cell.textLabel.text                      = [buckets objectAtIndex:indexPath.row];
+    cell.textLabel.adjustsFontSizeToFitWidth = YES;
+
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {    
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-		[[Constants s3] deleteBucket:[[S3DeleteBucketRequest alloc] initWithName: [buckets objectAtIndex:indexPath.row]]];
-		[buckets removeObjectAtIndex:indexPath.row];		
-		
-		NSArray* indexPaths = [NSArray arrayWithObjects:indexPath, nil];
-		
-		[tableView beginUpdates];
-		[tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
-		[tableView endUpdates];			
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-    }   
+        @try {
+            S3DeleteBucketRequest *deleteBucketRequest = [[[S3DeleteBucketRequest alloc] initWithName:[buckets objectAtIndex:indexPath.row]] autorelease];
+            [[Constants s3] deleteBucket:deleteBucketRequest];
+
+            [buckets removeObjectAtIndex:indexPath.row];
+
+            NSArray *indexPaths = [NSArray arrayWithObjects:indexPath, nil];
+
+            [tableView beginUpdates];
+            [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
+            [tableView endUpdates];
+        }
+        @catch (AmazonServiceException *exception) {
+            NSLog(@"Exception = %@", exception);
+        }
+    }
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	S3ListObjectsRequest* listObjectRequest = [[S3ListObjectsRequest alloc] initWithName:[buckets objectAtIndex:indexPath.row]];
-	
-	S3ListObjectsResponse* listObjectResponse = [[Constants s3] listObjects:listObjectRequest];
-	S3ListObjectsResult* listObjectsResults = listObjectResponse.listObjectsResult;
-	
-	NSMutableArray* objectSummaries = listObjectsResults.objectSummaries;
-	NSMutableArray* objectNames = [[NSMutableArray alloc] initWithCapacity:1];
-	for ( S3ObjectSummary* objectSummary in objectSummaries ) {
-		[objectNames addObject:[objectSummary key]];
-	}
-	
-	[UIView beginAnimations:@"load" context:nil];    
-	[UIView setAnimationDuration:1];	
-	[UIView setAnimationTransition:UIViewAnimationTransitionNone forView:self.view cache:YES];
-	
-	ObjectListing* objectList = [[ObjectListing alloc] init];
-	objectList.bucket = [buckets objectAtIndex:indexPath.row];
-	objectList.objects = objectNames;
-	
-	[self.view addSubview:objectList.view];
-	[UIView commitAnimations];		
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ObjectListing *objectList = [[ObjectListing alloc] init];
+
+    objectList.bucket               = [buckets objectAtIndex:indexPath.row];
+    objectList.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+
+    [self presentModalViewController:objectList animated:YES];
+    [objectList release];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-- (void)dealloc {
+-(void)dealloc
+{
+    [buckets release];
     [super dealloc];
 }
 

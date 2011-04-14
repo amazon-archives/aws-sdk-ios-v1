@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -17,8 +17,11 @@
 #import "S3Request.h"
 
 
-/** Contains the parameters used for the listBuckets operation. */
-@interface S3ListBucketsRequest : S3Request {
+/** Contains the parameters used for the listBuckets operation.
+ *
+ * \ingroup S3
+ */
+@interface S3ListBucketsRequest:S3Request {
 }
 
 -(id)init;

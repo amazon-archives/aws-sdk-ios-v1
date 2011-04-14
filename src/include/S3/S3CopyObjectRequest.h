@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -20,42 +20,45 @@
 #import "S3AbstractPutRequest.h"
 #import "S3Constants.h"
 
-/** Contains the parameters used for the CopyObject operation. */
-@interface S3CopyObjectRequest : S3AbstractPutRequest {
-	NSString *sourceKey;
-	NSString *sourceBucket;
-	
-	NSString *metadataDirective;
-	NSDate   *ifModifiedSince;
-	NSDate	 *ifUnmodifiedSince;
-	NSString *ifMatch;
-	NSString *ifNoneMatch;
+/** Contains the parameters used for the CopyObject operation.
+ *
+ * \ingroup S3
+ */
+@interface S3CopyObjectRequest:S3AbstractPutRequest {
+    NSString *sourceKey;
+    NSString *sourceBucket;
+
+    NSString *metadataDirective;
+    NSDate   *ifModifiedSince;
+    NSDate   *ifUnmodifiedSince;
+    NSString *ifMatch;
+    NSString *ifNoneMatch;
 }
 
 /** The name of the source object. */
-@property (nonatomic, retain) NSString* sourceKey;
+@property (nonatomic, retain) NSString *sourceKey;
 
 /** The bucket of the source object */
-@property (nonatomic, retain) NSString* sourceBucket;
+@property (nonatomic, retain) NSString *sourceBucket;
 
 /** Whether to copy or replace the metadata.
  * Valid values: COPY | REPLACE
  */
-@property (nonatomic, retain) NSString* metadataDirective;
+@property (nonatomic, retain) NSString *metadataDirective;
 
 /** Copies the object if its entity tag (ETag) matches the specified tag */
-@property (nonatomic, retain) NSString* ifMatch;
+@property (nonatomic, retain) NSString *ifMatch;
 
 /** Copies the object if its entity tag (ETag) is different than the specified ETag */
-@property (nonatomic, retain) NSString* ifNoneMatch;
+@property (nonatomic, retain) NSString *ifNoneMatch;
 
 /** Copies the object if it has been modified since the specified time */
-@property (nonatomic, retain) NSDate*   ifModifiedSince;
+@property (nonatomic, retain) NSDate *ifModifiedSince;
 
 /** Copies the object if it hasn't been modified since the specified time */
-@property (nonatomic, retain) NSDate*   ifUnmodifiedSince;
+@property (nonatomic, retain) NSDate *ifUnmodifiedSince;
 
-/** intializes the request with source and destination. 
+/** intializes the request with source and destination.
  *
  * @param srcKey The name of the source object.
  * @param srcBucket The name of the souce bucket.

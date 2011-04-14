@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -19,12 +19,15 @@
 
 @class S3ListBucketsResult;
 
-/** Contains the response from a listBuckets operation. */
-@interface S3ListBucketsResponse : S3Response {
-	S3ListBucketsResult *listBucketsResult;
+/** Contains the response from a listBuckets operation.
+ *
+ * \ingroup S3
+ */
+@interface S3ListBucketsResponse:S3Response {
+    S3ListBucketsResult *listBucketsResult;
 }
 
 /** The result of the listBuckets operations. Contains the list of buckets. */
-@property(nonatomic, retain) S3ListBucketsResult* listBucketsResult;
+@property (nonatomic, retain) S3ListBucketsResult *listBucketsResult;
 
 @end

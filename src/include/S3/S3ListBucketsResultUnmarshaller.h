@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -20,11 +20,11 @@
 @class S3ListBucketsResult;
 
 /** Creates an S3ListAllMyBucketsResult from an XML service response */
-@interface S3ListBucketsResultUnmarshaller : AmazonUnmarshallerXMLParserDelegate {
-	S3ListBucketsResult *listBucketsResult;
+@interface S3ListBucketsResultUnmarshaller:AmazonUnmarshallerXMLParserDelegate {
+    S3ListBucketsResult *listBucketsResult;
 }
 
 /** The result object represented by the XML */
-@property (nonatomic, readonly) S3ListBucketsResult* listBucketsResult;
+@property (nonatomic, readonly) S3ListBucketsResult *listBucketsResult;
 
 @end

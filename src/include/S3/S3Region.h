@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -17,9 +17,9 @@
 
 #import "../AmazonClientException.h"
 
-#define kS3RegionUSWest1 @"us-west-1"
-#define kS3RegionEU      @"EU"
-#define kS3RegionAPSoutheast1  @"ap-southeast-1"
+#define kS3RegionUSWest1         @"us-west-1"
+#define kS3RegionEU              @"EU"
+#define kS3RegionAPSoutheast1    @"ap-southeast-1"
 
 /**
  * Specifies constants that define Amazon S3 Regions.
@@ -32,9 +32,11 @@
  * Objects stored in a Amazon S3 Region never leave that region unless explicitly
  * transfered to another region.
  * </p>
+ *
+ * \ingroup S3
  */
-@interface S3Region : NSObject {
-	NSString *stringValue;
+@interface S3Region:NSObject {
+    NSString *stringValue;
 }
 
 /** Returns an S3Region initialized with the supplied string value. */

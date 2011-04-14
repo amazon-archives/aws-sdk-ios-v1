@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -26,20 +26,20 @@
 @synthesize owner;
 
 
--(NSString*)description
+-(NSString *)description
 {
-	return self.key;
+    return self.key;
 }
 
 -(void)dealloc
 {
-	[key release];
-	[etag release];
-	[lastModified release];
-	[storageClass release];
-	[owner release];
-	
-	[super dealloc];
+    [key release];
+    [etag release];
+    [lastModified release];
+    [storageClass release];
+    [owner release];
+
+    [super dealloc];
 }
 
 @end

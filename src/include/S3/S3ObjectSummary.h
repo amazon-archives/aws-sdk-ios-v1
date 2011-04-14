@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -16,41 +16,43 @@
 #import <Foundation/Foundation.h>
 #import "S3Owner.h"
 
-/** Represents an S3 Object Summary. 
+/** Represents an S3 Object Summary.
+ *
+ * \ingroup S3
  */
-@interface S3ObjectSummary : NSObject {
-	NSString *key;
-	NSString *etag;
-	NSInteger size;
-	NSString *lastModified;
-	NSString *storageClass;
-	
-	S3Owner *owner;
+@interface S3ObjectSummary:NSObject {
+    NSString  *key;
+    NSString  *etag;
+    NSInteger size;
+    NSString  *storageClass;
+    NSString  *lastModified;
+
+    S3Owner   *owner;
 }
 
 
 /** The key of the Amazon S3 object. */
-@property (nonatomic, retain) NSString* key;
+@property (nonatomic, retain) NSString *key;
 
 /** The ETag of the Amazon S3 object. */
-@property (nonatomic, retain) NSString* etag;
+@property (nonatomic, retain) NSString *etag;
 
 /** The size of the Amazon S3 object, in bytes. */
 @property (nonatomic) NSInteger size;
 
 /** The date this object was last modified. */
-@property (nonatomic, retain) NSString* lastModified;
+@property (nonatomic, retain) NSString *lastModified;
 
 /** The class of storage used by this object. */
-@property (nonatomic, retain) NSString* storageClass;
+@property (nonatomic, retain) NSString *storageClass;
 
-/** The owner of this object. Can be nil if the requester 
- * doesn't have permission to view ownership. 
+/** The owner of this object. Can be nil if the requester
+ * doesn't have permission to view ownership.
  */
-@property (nonatomic, retain) S3Owner* owner;
+@property (nonatomic, retain) S3Owner *owner;
 
 /** The string representation of the S3ObjectSummary */
--(NSString*)description;
+-(NSString *)description;
 
 
 @end

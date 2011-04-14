@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -16,13 +16,13 @@
 #import <Foundation/Foundation.h>
 #import "S3Owner.h"
 
-#define kXsiNamespaceSpec             @"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:type=\"%@\""
-#define kXsiTypeCanonicalUser         @"CanonicalUser"
-#define kXsiTypeAmazonCustomerByEmail @"AmazonCustomerByEmail"
-#define kXsiTypeGroup                 @"Group"
+#define kXsiNamespaceSpec                @"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:type=\"%@\""
+#define kXsiTypeCanonicalUser            @"CanonicalUser"
+#define kXsiTypeAmazonCustomerByEmail    @"AmazonCustomerByEmail"
+#define kXsiTypeGroup                    @"Group"
 
-#define kS3GroupURIAllUsers  @"http://acs.amazonaws.com/groups/global/AllUsers"
-#define kS3GroupURIAuthUsers @"http://acs.amazonaws.com/groups/global/AuthenticatedUsers"
+#define kS3GroupURIAllUsers              @"http://acs.amazonaws.com/groups/global/AllUsers"
+#define kS3GroupURIAuthUsers             @"http://acs.amazonaws.com/groups/global/AuthenticatedUsers"
 
 
 /** Represents an Owner/User/Group that can be given permissions
@@ -31,17 +31,19 @@
  * Use Either ID and displayName (for CanonicalUsers), URI (for Groups), or emailAddress (for Amazon customer email addresses).
  * @see http://docs.amazonwebservices.com/AmazonS3/latest/index.html?RESTAuthentication.html
  * </p>
+ *
+ * \ingroup S3
  */
-@interface S3Grantee : S3Owner {
-	NSString *URI;
-	NSString *emailAddress;
+@interface S3Grantee:S3Owner {
+    NSString *URI;
+    NSString *emailAddress;
 }
 
 /** Gets and sets the URI property for group grantees */
-@property(nonatomic, retain)NSString* URI;
+@property (nonatomic, retain) NSString *URI;
 
 /** Gets and sets the emailAddress property for user grantees */
-@property(nonatomic, retain)NSString* emailAddress;
+@property (nonatomic, retain) NSString *emailAddress;
 
 /** Returns an initialized S3Grantee object representing a CanonicalUser with the specified ID and displayName.
  * @param theID The ID of the user.
@@ -51,9 +53,9 @@
  */
 +(id)granteeWithID:(NSString *)theID withDisplayName:(NSString *)theDisplayName;
 
-/** Returns an initialized S3Grantee representing a group with the specified URI. 
+/** Returns an initialized S3Grantee representing a group with the specified URI.
  * @param theURI The URI for the group.
- * 
+ *
  * @return An initialized S3Grantee representing a group with the specified URI.
  **/
 +(id)granteeWithURI:(NSString *)theURI;
