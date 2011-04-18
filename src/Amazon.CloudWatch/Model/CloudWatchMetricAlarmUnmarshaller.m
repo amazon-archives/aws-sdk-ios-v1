@@ -23,6 +23,33 @@
     [super parser:parser didStartElement:elementName namespaceURI:namespaceURI qualifiedName:qName attributes:attributeDict];
 
 
+    if ([elementName isEqualToString:@"OKActions"]) {
+        AmazonListUnmarshaller *listUnmarshaller = [[[AmazonListUnmarshaller alloc] initWithCaller:self withParentObject:self.response.oKActions withSetter:@selector(addObjectsFromArray:)] autorelease];
+        listUnmarshaller.endListElementName = @"OKActions";
+        listUnmarshaller.entryElementName   = @"member";
+        listUnmarshaller.delegateClass      = [AmazonValueUnmarshaller class];
+
+        [parser setDelegate:listUnmarshaller];
+    }
+
+    if ([elementName isEqualToString:@"AlarmActions"]) {
+        AmazonListUnmarshaller *listUnmarshaller = [[[AmazonListUnmarshaller alloc] initWithCaller:self withParentObject:self.response.alarmActions withSetter:@selector(addObjectsFromArray:)] autorelease];
+        listUnmarshaller.endListElementName = @"AlarmActions";
+        listUnmarshaller.entryElementName   = @"member";
+        listUnmarshaller.delegateClass      = [AmazonValueUnmarshaller class];
+
+        [parser setDelegate:listUnmarshaller];
+    }
+
+    if ([elementName isEqualToString:@"InsufficientDataActions"]) {
+        AmazonListUnmarshaller *listUnmarshaller = [[[AmazonListUnmarshaller alloc] initWithCaller:self withParentObject:self.response.insufficientDataActions withSetter:@selector(addObjectsFromArray:)] autorelease];
+        listUnmarshaller.endListElementName = @"InsufficientDataActions";
+        listUnmarshaller.entryElementName   = @"member";
+        listUnmarshaller.delegateClass      = [AmazonValueUnmarshaller class];
+
+        [parser setDelegate:listUnmarshaller];
+    }
+
     if ([elementName isEqualToString:@"Dimensions"]) {
         AmazonListUnmarshaller *listUnmarshaller = [[[AmazonListUnmarshaller alloc] initWithCaller:self withParentObject:self.response.dimensions withSetter:@selector(addObjectsFromArray:)] autorelease];
         listUnmarshaller.endListElementName = @"Dimensions";
@@ -69,17 +96,20 @@
         return;
     }
 
-    if ([elementName isEqualToString:@"member"]) {
+    if ([elementName isEqualToString:@"OKActions/member"]) {
         [self.response.oKActions addObject:self.currentText];
     }
 
-    if ([elementName isEqualToString:@"member"]) {
+
+    if ([elementName isEqualToString:@"AlarmActions/member"]) {
         [self.response.alarmActions addObject:self.currentText];
     }
 
-    if ([elementName isEqualToString:@"member"]) {
+
+    if ([elementName isEqualToString:@"InsufficientDataActions/member"]) {
         [self.response.insufficientDataActions addObject:self.currentText];
     }
+
 
     if ([elementName isEqualToString:@"StateValue"]) {
         self.response.stateValue = self.currentText;

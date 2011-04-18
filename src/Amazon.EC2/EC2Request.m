@@ -14,7 +14,6 @@
  */
 
 #import "EC2Request.h"
-#import "AmazonAuthUtils.h"
 
 @implementation EC2Request
 

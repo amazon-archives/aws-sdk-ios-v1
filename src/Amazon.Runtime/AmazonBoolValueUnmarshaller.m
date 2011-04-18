@@ -28,8 +28,6 @@
 
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
-    [super parser:parser didEndElement:elementName namespaceURI:namespaceURI qualifiedName:qName];
-
     if ([elementName isEqualToString:internalElementName]) {
         self.value = [self.currentText boolValue];
 

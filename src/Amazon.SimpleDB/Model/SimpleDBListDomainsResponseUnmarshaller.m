@@ -39,6 +39,7 @@
         [self.response.domainNames addObject:self.currentText];
     }
 
+
     if ([elementName isEqualToString:@"NextToken"]) {
         self.response.nextToken = self.currentText;
         return;

@@ -23,6 +23,15 @@
     [super parser:parser didStartElement:elementName namespaceURI:namespaceURI qualifiedName:qName attributes:attributeDict];
 
 
+    if ([elementName isEqualToString:@"groupSet"]) {
+        AmazonListUnmarshaller *listUnmarshaller = [[[AmazonListUnmarshaller alloc] initWithCaller:self withParentObject:self.response.securityGroups withSetter:@selector(addObjectsFromArray:)] autorelease];
+        listUnmarshaller.endListElementName = @"groupSet";
+        listUnmarshaller.entryElementName   = @"groupName";
+        listUnmarshaller.delegateClass      = [AmazonValueUnmarshaller class];
+
+        [parser setDelegate:listUnmarshaller];
+    }
+
     if ([elementName isEqualToString:@"monitoring"]) {
         AmazonBoolValueUnmarshaller *unmarshaller = [[[AmazonBoolValueUnmarshaller alloc] initWithCaller:self withParentObject:self.response withSetter:@selector(setMonitoringEnabled:)] autorelease];
         unmarshaller.endElementTagName   = @"monitoring";
@@ -82,9 +91,10 @@
         return;
     }
 
-    if ([elementName isEqualToString:@"groupName"]) {
+    if ([elementName isEqualToString:@"groupSet/item/groupName"]) {
         [self.response.securityGroups addObject:self.currentText];
     }
+
 
     if ([elementName isEqualToString:@"userData"]) {
         self.response.userData = self.currentText;

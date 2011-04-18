@@ -24,6 +24,15 @@
 
 
     if ([elementName isEqualToString:@"groupSet"]) {
+        AmazonListUnmarshaller *listUnmarshaller = [[[AmazonListUnmarshaller alloc] initWithCaller:self withParentObject:self.response.groupNames withSetter:@selector(addObjectsFromArray:)] autorelease];
+        listUnmarshaller.endListElementName = @"groupSet";
+        listUnmarshaller.entryElementName   = @"groupName";
+        listUnmarshaller.delegateClass      = [AmazonValueUnmarshaller class];
+
+        [parser setDelegate:listUnmarshaller];
+    }
+
+    if ([elementName isEqualToString:@"groupSet"]) {
         AmazonListUnmarshaller *listUnmarshaller = [[[AmazonListUnmarshaller alloc] initWithCaller:self withParentObject:self.response.groups withSetter:@selector(addObjectsFromArray:)] autorelease];
         listUnmarshaller.endListElementName = @"groupSet";
         listUnmarshaller.entryElementName   = @"item";
@@ -74,9 +83,10 @@
         return;
     }
 
-    if ([elementName isEqualToString:@"groupName"]) {
+    if ([elementName isEqualToString:@"groupSet/item/groupName"]) {
         [self.response.groupNames addObject:self.currentText];
     }
+
 
     if ([elementName isEqualToString:@"reservation"]) {
         if (caller != nil) {

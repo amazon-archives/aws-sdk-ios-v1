@@ -23,6 +23,15 @@
     [super parser:parser didStartElement:elementName namespaceURI:namespaceURI qualifiedName:qName attributes:attributeDict];
 
 
+    if ([elementName isEqualToString:@"VerifiedEmailAddresses"]) {
+        AmazonListUnmarshaller *listUnmarshaller = [[[AmazonListUnmarshaller alloc] initWithCaller:self withParentObject:self.response.verifiedEmailAddresses withSetter:@selector(addObjectsFromArray:)] autorelease];
+        listUnmarshaller.endListElementName = @"VerifiedEmailAddresses";
+        listUnmarshaller.entryElementName   = @"member";
+        listUnmarshaller.delegateClass      = [AmazonValueUnmarshaller class];
+
+        [parser setDelegate:listUnmarshaller];
+    }
+
 
 
     if ([elementName isEqualToString:@"Error"]) {
@@ -35,9 +44,10 @@
     [super parser:parser didEndElement:elementName namespaceURI:namespaceURI qualifiedName:qName];
 
 
-    if ([elementName isEqualToString:@"member"]) {
+    if ([elementName isEqualToString:@"VerifiedEmailAddresses/member"]) {
         [self.response.verifiedEmailAddresses addObject:self.currentText];
     }
+
 
     if ([elementName isEqualToString:@"ListVerifiedEmailAddressesResult"]) {
         if (caller != nil) {

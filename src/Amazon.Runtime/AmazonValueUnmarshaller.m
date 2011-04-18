@@ -28,9 +28,7 @@
 
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
-    [super parser:parser didEndElement:elementName namespaceURI:namespaceURI qualifiedName:qName];
-
-    if ([elementName isEqualToString:internalElementName]) {
+    if ([elementName isEqualToString:internalElementName] || [elementName isEqualToString:endElementTagName]) {
         self.value = self.currentText;
 
         if (caller != nil) {

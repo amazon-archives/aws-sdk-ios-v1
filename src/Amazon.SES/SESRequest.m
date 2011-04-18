@@ -1,6 +1,5 @@
 
 #import "SESRequest.h"
-#import "AmazonAuthUtils.h"
 
 @implementation SESRequest
 

@@ -23,6 +23,15 @@
     [super parser:parser didStartElement:elementName namespaceURI:namespaceURI qualifiedName:qName attributes:attributeDict];
 
 
+    if ([elementName isEqualToString:@"ipRanges"]) {
+        AmazonListUnmarshaller *listUnmarshaller = [[[AmazonListUnmarshaller alloc] initWithCaller:self withParentObject:self.response.ipRanges withSetter:@selector(addObjectsFromArray:)] autorelease];
+        listUnmarshaller.endListElementName = @"ipRanges";
+        listUnmarshaller.entryElementName   = @"cidrIp";
+        listUnmarshaller.delegateClass      = [AmazonValueUnmarshaller class];
+
+        [parser setDelegate:listUnmarshaller];
+    }
+
     if ([elementName isEqualToString:@"groups"]) {
         AmazonListUnmarshaller *listUnmarshaller = [[[AmazonListUnmarshaller alloc] initWithCaller:self withParentObject:self.response.userIdGroupPairs withSetter:@selector(addObjectsFromArray:)] autorelease];
         listUnmarshaller.endListElementName = @"groups";
@@ -65,9 +74,10 @@
         return;
     }
 
-    if ([elementName isEqualToString:@"cidrIp"]) {
+    if ([elementName isEqualToString:@"ipRanges/item/cidrIp"]) {
         [self.response.ipRanges addObject:self.currentText];
     }
+
 
     if ([elementName isEqualToString:@"ipPermission"]) {
         if (caller != nil) {
