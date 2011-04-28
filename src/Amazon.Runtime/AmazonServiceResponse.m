@@ -15,6 +15,7 @@
 
 
 #import "AmazonServiceResponse.h"
+#import "AmazonServiceResponseUnmarshaller.h"
 
 @implementation AmazonServiceResponse
 
@@ -23,6 +24,7 @@
 @synthesize request;
 @synthesize requestId;
 @synthesize didTimeout;
+@synthesize unmarshallerDelegate;
 
 -(id)init
 {
@@ -67,6 +69,10 @@
     if (!isFinishedLoading && !exception) {
         didTimeout = YES;
         exception  = [[AmazonClientException exceptionWithMessage:@"Request timed out."] retain];
+
+        if ([(NSObject *)request.delegate respondsToSelector:@selector(request:didFailWithServiceException:)]) {
+            [request.delegate request:request didFailWithServiceException:exception];
+        }
     }
 }
 
@@ -106,6 +112,41 @@
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     isFinishedLoading = YES;
+
+    NSString *tmpStr = [[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding];
+
+    AMZLogDebug(@"Response Body:\n%@", tmpStr);
+    [tmpStr release];
+    NSXMLParser                       *parser         = [[NSXMLParser alloc] initWithData:body];
+    AmazonServiceResponseUnmarshaller *parserDelegate = [[unmarshallerDelegate alloc] init];
+    [parser setDelegate:parserDelegate];
+    [parser parse];
+
+    AmazonServiceResponse *tmpReq   = [parserDelegate response];
+    AmazonServiceResponse *response = [tmpReq retain];
+
+    [parser release];
+    [parserDelegate release];
+
+    if (response.exception) {
+        NSException *exceptionFound = [[response.exception copy] autorelease];
+        [response release];
+        if ([(NSObject *)request.delegate respondsToSelector:@selector(request:didFailWithServiceException:)]) {
+            [request.delegate request:request didFailWithServiceException:(AmazonServiceException *)exceptionFound];
+            return;
+        }
+        else {
+            @throw exceptionFound;
+        }
+    }
+
+    [response postProcess];
+
+    if ([(NSObject *)request.delegate respondsToSelector:@selector(request:didCompleteWithResponse:)]) {
+        [request.delegate request:request didCompleteWithResponse:response];
+    }
+
+    [response release];
 }
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
@@ -113,10 +154,10 @@
     NSDictionary *info = [error userInfo];
     for (id key in info)
     {
-        NSLog(@"UserInfo.%@ = %@", [key description], [[info valueForKey:key] description]);
+        AMZLogDebug(@"UserInfo.%@ = %@", [key description], [[info valueForKey:key] description]);
     }
     exception = [[AmazonClientException exceptionWithMessage:[error description] andError:error] retain];
-    NSLog(@"An error occured in the request: %@", [error description]);
+    AMZLogDebug(@"An error occured in the request: %@", [error description]);
 
     if ([(NSObject *)self.request.delegate respondsToSelector:@selector(request:didFailWithError:)]) {
         [self.request.delegate request:self.request didFailWithError:error];

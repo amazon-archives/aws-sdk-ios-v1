@@ -69,6 +69,18 @@ typedef enum
 //#define AMAZON_SES_AP_SOUTHEAST_1_ENDPOINT		@"http://"
 //#define AMAZON_SES_AP_NORTHEAST_1_ENDPOINT		@"http://"
 
+#define AMAZON_AS_US_EAST_1_ENDPOINT                 @"http://autoscaling.us-east-1.amazonaws.com"
+#define AMAZON_AS_US_WEST_1_ENDPOINT                 @"http://autoscaling.us-west-1.amazonaws.com"
+#define AMAZON_AS_EU_WEST_1_ENDPOINT                 @"http://autoscaling.eu-west-1.amazonaws.com"
+#define AMAZON_AS_AP_SOUTHEAST_1_ENDPOINT            @"http://autoscaling.ap-southeast-1.amazonaws.com"
+#define AMAZON_AS_AP_NORTHEAST_1_ENDPOINT            @"http://autoscaling.ap-northeast-1.amazonaws.com"
+
+#define AMAZON_ELB_US_EAST_1_ENDPOINT                @"http://elasticloadbalancing.us-east-1.amazonaws.com"
+#define AMAZON_ELB_US_WEST_1_ENDPOINT                @"http://elasticloadbalancing.us-west-1.amazonaws.com"
+#define AMAZON_ELB_EU_WEST_1_ENDPOINT                @"http://elasticloadbalancing.eu-west-1.amazonaws.com"
+#define AMAZON_ELB_AP_SOUTHEAST_1_ENDPOINT           @"http://elasticloadbalancing.ap-southeast-1.amazonaws.com"
+#define AMAZON_ELB_AP_NORTHEAST_1_ENDPOINT           @"http://elasticloadbalancing.ap-northeast-1.amazonaws.com"
+
 
 // Port 443
 #define AMAZON_S3_US_EAST_1_ENDPOINT_SECURE          @"https://s3.amazonaws.com"
@@ -113,6 +125,19 @@ typedef enum
 //#define AMAZON_SES_AP_SOUTHEAST_1_ENDPOINT_SECURE	 @"https://"
 //#define AMAZON_SES_AP_NORTHEAST_1_ENDPOINT_SECURE	 @"https://"
 
+#define AMAZON_AS_US_EAST_1_ENDPOINT_SECURE          @"https://autoscaling.us-east-1.amazonaws.com"
+#define AMAZON_AS_US_WEST_1_ENDPOINT_SECURE          @"https://autoscaling.us-west-1.amazonaws.com"
+#define AMAZON_AS_EU_WEST_1_ENDPOINT_SECURE          @"https://autoscaling.eu-west-1.amazonaws.com"
+#define AMAZON_AS_AP_SOUTHEAST_1_ENDPOINT_SECURE     @"https://autoscaling.ap-southeast-1.amazonaws.com"
+#define AMAZON_AS_AP_NORTHEAST_1_ENDPOINT_SECURE     @"https://autoscaling.ap-northeast-1.amazonaws.com"
+
+#define AMAZON_ELB_US_EAST_1_ENDPOINT_SECURE         @"https://elasticloadbalancing.us-east-1.amazonaws.com"
+#define AMAZON_ELB_US_WEST_1_ENDPOINT_SECURE         @"https://elasticloadbalancing.us-west-1.amazonaws.com"
+#define AMAZON_ELB_EU_WEST_1_ENDPOINT_SECURE         @"https://elasticloadbalancing.eu-west-1.amazonaws.com"
+#define AMAZON_ELB_AP_SOUTHEAST_1_ENDPOINT_SECURE    @"https://elasticloadbalancing.ap-southeast-1.amazonaws.com"
+#define AMAZON_ELB_AP_NORTHEAST_1_ENDPOINT_SECURE    @"https://elasticloadbalancing.ap-northeast-1.amazonaws.com"
+
+
 
 @interface AmazonEndpoints:NSObject {
 }
@@ -124,5 +149,8 @@ typedef enum
 +(NSString *)cwEndpoint:(AmazonRegion)region secure:(bool)useSSL;
 +(NSString *)ec2Endpoint:(AmazonRegion)region secure:(bool)useSSL;
 +(NSString *)sesEndpoint:(AmazonRegion)region secure:(bool)useSSL;
++(NSString *)elbEndpoint:(AmazonRegion)region secure:(bool)useSSL;
++(NSString *)autoscalingEndpoint:(AmazonRegion)region secure:(bool)useSSL;
+
 
 @end

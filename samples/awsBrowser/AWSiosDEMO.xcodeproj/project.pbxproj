@@ -22,12 +22,19 @@
 		D00E181512CD5C8F00FA8ED7 /* AddQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = D00E181312CD5C8F00FA8ED7 /* AddQueue.m */; };
 		D00E181612CD5C8F00FA8ED7 /* AddQueue.xib in Resources */ = {isa = PBXBuildFile; fileRef = D00E181412CD5C8F00FA8ED7 /* AddQueue.xib */; };
 		D0103DB31340F3FF00D4D4DF /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0103DB21340F3FF00D4D4DF /* AWSiOSSDK.framework */; };
+		D0167E8813673F0B00FA6780 /* SdbAsyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0167E8413673F0B00FA6780 /* SdbAsyncViewController.m */; };
+		D0167E8913673F0B00FA6780 /* SdbAsyncViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0167E8513673F0B00FA6780 /* SdbAsyncViewController.xib */; };
+		D0167E8A13673F0B00FA6780 /* SdbRequestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0167E8713673F0B00FA6780 /* SdbRequestDelegate.m */; };
 		D020A4A812CC086200332CDD /* QueueList.m in Sources */ = {isa = PBXBuildFile; fileRef = D020A4A612CC086200332CDD /* QueueList.m */; };
 		D020A4A912CC086200332CDD /* QueueList.xib in Resources */ = {isa = PBXBuildFile; fileRef = D020A4A712CC086200332CDD /* QueueList.xib */; };
 		D020A4B012CC096E00332CDD /* TopicList.m in Sources */ = {isa = PBXBuildFile; fileRef = D020A4AE12CC096E00332CDD /* TopicList.m */; };
 		D020A4B112CC096E00332CDD /* TopicList.xib in Resources */ = {isa = PBXBuildFile; fileRef = D020A4AF12CC096E00332CDD /* TopicList.xib */; };
 		D020A4EC12CC0D6F00332CDD /* MessageList.m in Sources */ = {isa = PBXBuildFile; fileRef = D020A4EA12CC0D6F00332CDD /* MessageList.m */; };
 		D020A4ED12CC0D6F00332CDD /* MessageList.xib in Resources */ = {isa = PBXBuildFile; fileRef = D020A4EB12CC0D6F00332CDD /* MessageList.xib */; };
+		D0211C1B1365D5B500CC5635 /* S3AsyncViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0211C1A1365D5B500CC5635 /* S3AsyncViewController.xib */; };
+		D0211C1E1365D5D000CC5635 /* S3AsyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0211C1D1365D5D000CC5635 /* S3AsyncViewController.m */; };
+		D0211C651365E05800CC5635 /* S3RequestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0211C641365E05800CC5635 /* S3RequestDelegate.m */; };
+		D0211C9C1365E5EA00CC5635 /* temp.txt in Resources */ = {isa = PBXBuildFile; fileRef = D0211C9B1365E5EA00CC5635 /* temp.txt */; };
 		D099929D128CA0E100CF9F64 /* AddBucketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D099928D128CA0E100CF9F64 /* AddBucketViewController.m */; };
 		D099929E128CA0E100CF9F64 /* AddBucketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D099928E128CA0E100CF9F64 /* AddBucketViewController.xib */; };
 		D099929F128CA0E100CF9F64 /* AddObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0999290128CA0E100CF9F64 /* AddObjectViewController.m */; };
@@ -71,6 +78,11 @@
 		D00E181312CD5C8F00FA8ED7 /* AddQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddQueue.m; sourceTree = "<group>"; };
 		D00E181412CD5C8F00FA8ED7 /* AddQueue.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddQueue.xib; sourceTree = "<group>"; };
 		D0103DB21340F3FF00D4D4DF /* AWSiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSiOSSDK.framework; path = /Volumes/Data/gdierkes/Desktop/mainline/AWSiOSSDK.framework; sourceTree = "<absolute>"; };
+		D0167E8313673F0B00FA6780 /* SdbAsyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SdbAsyncViewController.h; sourceTree = "<group>"; };
+		D0167E8413673F0B00FA6780 /* SdbAsyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SdbAsyncViewController.m; sourceTree = "<group>"; };
+		D0167E8513673F0B00FA6780 /* SdbAsyncViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SdbAsyncViewController.xib; sourceTree = "<group>"; };
+		D0167E8613673F0B00FA6780 /* SdbRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SdbRequestDelegate.h; sourceTree = "<group>"; };
+		D0167E8713673F0B00FA6780 /* SdbRequestDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SdbRequestDelegate.m; sourceTree = "<group>"; };
 		D020A4A512CC086200332CDD /* QueueList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QueueList.h; path = SQS/QueueList.h; sourceTree = "<group>"; };
 		D020A4A612CC086200332CDD /* QueueList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QueueList.m; path = SQS/QueueList.m; sourceTree = "<group>"; };
 		D020A4A712CC086200332CDD /* QueueList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = QueueList.xib; path = SQS/QueueList.xib; sourceTree = "<group>"; };
@@ -80,6 +92,12 @@
 		D020A4E912CC0D6F00332CDD /* MessageList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageList.h; sourceTree = "<group>"; };
 		D020A4EA12CC0D6F00332CDD /* MessageList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageList.m; sourceTree = "<group>"; };
 		D020A4EB12CC0D6F00332CDD /* MessageList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageList.xib; sourceTree = "<group>"; };
+		D0211C1A1365D5B500CC5635 /* S3AsyncViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = S3AsyncViewController.xib; sourceTree = "<group>"; };
+		D0211C1C1365D5D000CC5635 /* S3AsyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3AsyncViewController.h; sourceTree = "<group>"; };
+		D0211C1D1365D5D000CC5635 /* S3AsyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3AsyncViewController.m; sourceTree = "<group>"; };
+		D0211C631365E05800CC5635 /* S3RequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3RequestDelegate.h; path = ../S3RequestDelegate.h; sourceTree = "<group>"; };
+		D0211C641365E05800CC5635 /* S3RequestDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = S3RequestDelegate.m; path = ../S3RequestDelegate.m; sourceTree = "<group>"; };
+		D0211C9B1365E5EA00CC5635 /* temp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = temp.txt; path = Classes/temp.txt; sourceTree = SOURCE_ROOT; };
 		D099928C128CA0E100CF9F64 /* AddBucketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBucketViewController.h; sourceTree = "<group>"; };
 		D099928D128CA0E100CF9F64 /* AddBucketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBucketViewController.m; sourceTree = "<group>"; };
 		D099928E128CA0E100CF9F64 /* AddBucketViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddBucketViewController.xib; sourceTree = "<group>"; };
@@ -225,6 +243,9 @@
 		D099928B128CA0E100CF9F64 /* S3 */ = {
 			isa = PBXGroup;
 			children = (
+				D0211C9B1365E5EA00CC5635 /* temp.txt */,
+				D0211C631365E05800CC5635 /* S3RequestDelegate.h */,
+				D0211C641365E05800CC5635 /* S3RequestDelegate.m */,
 				D099928C128CA0E100CF9F64 /* AddBucketViewController.h */,
 				D099928D128CA0E100CF9F64 /* AddBucketViewController.m */,
 				D099928E128CA0E100CF9F64 /* AddBucketViewController.xib */,
@@ -240,6 +261,9 @@
 				D099929A128CA0E100CF9F64 /* ObjectViewController.h */,
 				D099929B128CA0E100CF9F64 /* ObjectViewController.m */,
 				D099929C128CA0E100CF9F64 /* ObjectViewController.xib */,
+				D0211C1A1365D5B500CC5635 /* S3AsyncViewController.xib */,
+				D0211C1C1365D5D000CC5635 /* S3AsyncViewController.h */,
+				D0211C1D1365D5D000CC5635 /* S3AsyncViewController.m */,
 			);
 			path = S3;
 			sourceTree = "<group>";
@@ -247,6 +271,11 @@
 		D099945A128CAA4B00CF9F64 /* SimpleDB */ = {
 			isa = PBXGroup;
 			children = (
+				D0167E8313673F0B00FA6780 /* SdbAsyncViewController.h */,
+				D0167E8413673F0B00FA6780 /* SdbAsyncViewController.m */,
+				D0167E8513673F0B00FA6780 /* SdbAsyncViewController.xib */,
+				D0167E8613673F0B00FA6780 /* SdbRequestDelegate.h */,
+				D0167E8713673F0B00FA6780 /* SdbRequestDelegate.m */,
 				D099945B128CAAE000CF9F64 /* DomainList.h */,
 				D099945C128CAAE000CF9F64 /* DomainList.m */,
 				D099945D128CAAE000CF9F64 /* DomainList.xib */,
@@ -325,6 +354,9 @@
 				D00E162912CD3BDC00FA8ED7 /* SendMessage.xib in Resources */,
 				D00E17E012CD58ED00FA8ED7 /* Message.xib in Resources */,
 				D00E181612CD5C8F00FA8ED7 /* AddQueue.xib in Resources */,
+				D0211C1B1365D5B500CC5635 /* S3AsyncViewController.xib in Resources */,
+				D0211C9C1365E5EA00CC5635 /* temp.txt in Resources */,
+				D0167E8913673F0B00FA6780 /* SdbAsyncViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +385,10 @@
 				D00E162812CD3BDC00FA8ED7 /* SendMessage.m in Sources */,
 				D00E17DF12CD58ED00FA8ED7 /* Message.m in Sources */,
 				D00E181512CD5C8F00FA8ED7 /* AddQueue.m in Sources */,
+				D0211C1E1365D5D000CC5635 /* S3AsyncViewController.m in Sources */,
+				D0211C651365E05800CC5635 /* S3RequestDelegate.m in Sources */,
+				D0167E8813673F0B00FA6780 /* SdbAsyncViewController.m in Sources */,
+				D0167E8A13673F0B00FA6780 /* SdbRequestDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,7 +405,7 @@
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../..\"",
 					"\"$(SRCROOT)/../../src/build/Framework\"",
-					"\"$(SRCROOT)/../../../aws-ios-sdk-0.2.0\"",
+					"\"$(SRCROOT)/../../../aws-ios-sdk-0.2.2\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -391,7 +427,7 @@
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../..\"",
 					"\"$(SRCROOT)/../../src/build/Framework\"",
-					"\"$(SRCROOT)/../../../aws-ios-sdk-0.2.0\"",
+					"\"$(SRCROOT)/../../../aws-ios-sdk-0.2.2\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AWSiosDEMO_Prefix.pch;

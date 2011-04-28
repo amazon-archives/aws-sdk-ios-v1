@@ -39,7 +39,7 @@
         path = @"/";
     }
     NSString *sts = [NSString stringWithFormat:@"POST\n%@\n%@\n%@", host, path, [serviceRequest queryString]];
-    AMZLog(@"String To Sign:\n%@", sts);
+    AMZLogDebug(@"String To Sign:\n%@", sts);
     return sts;
 }
 

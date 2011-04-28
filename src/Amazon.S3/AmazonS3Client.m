@@ -363,7 +363,7 @@
             }
         }
         else {
-            break;
+            return nil;
         }
     }
 

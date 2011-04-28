@@ -56,7 +56,7 @@
     return [response autorelease];
 }
 
--(AmazonServiceResponse *)invoke:(AmazonServiceRequest *)request
+-(AmazonServiceResponse *)invoke:(AmazonServiceRequest *)request unmarshallerDelegate:(Class)unmarshallerDelegate
 {
     if (nil == request) {
         @throw [AmazonClientException exceptionWithMessage : @"Request cannot be nil."];
@@ -88,6 +88,7 @@
 
         response = [AmazonWebServiceClient constructResponseFromRequest:request];
         [response setRequest:request];
+        response.unmarshallerDelegate = unmarshallerDelegate;
 
         [urlRequest setTimeoutInterval:self.timeout];
 
@@ -97,75 +98,51 @@
         NSURLConnection *urlConnection = [NSURLConnection connectionWithRequest:urlRequest delegate:response];
         NSTimer         *timeoutTimer  = [NSTimer scheduledTimerWithTimeInterval:self.timeout target:response selector:@selector(timeout) userInfo:nil repeats:NO];
 
-        while (!response.isFinishedLoading && !response.exception && !response.didTimeout) {
-            [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
-        }
+        if ([request delegate] == nil) {
+            request.delegate = [[[AmazonRequestDelegate alloc] init] autorelease];
 
-        if (response.didTimeout) {
-            [urlConnection cancel];
+            while (![(AmazonRequestDelegate *)(request.delegate)isFinishedOrFailed]) {
+                [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+            }
+
+            if (response.didTimeout) {
+                [urlConnection cancel];
+            }
+            else {
+                [timeoutTimer invalidate];     //  invalidate also releases the object.
+            }
+
+            AMZLogDebug(@"Response Status Code : %d", response.httpStatusCode);
+            if ( [self shouldRetry:response]) {
+                AMZLog(@"Retring Request: %d", retries);
+                request.delegate = nil;
+
+                [self pauseExponentially:retries];
+                retries++;
+            }
+            else {
+                break;
+            }
         }
         else {
-            [timeoutTimer invalidate];     //  invalidate also releases the object.
-        }
-
-
-        AMZLogDebug(@"Response Status Code : %d", response.httpStatusCode);
-        if ( [self shouldRetry:response]) {
-            AMZLog(@"Retring Request: %d", retries);
-
-            [self pauseExponentially:retries];
-            retries++;
-        }
-        else {
-            break;
-        }
-    }
-
-
-    if (response.exception) {
-        @throw response.exception;
-    }
-
-
-    return response;
-}
-
--(AmazonServiceResponse *)parseResponse:(AmazonServiceResponse *)aResponse withDelegateType:(Class)delegateType
-{
-    NSString *tmpStr = [[NSString alloc] initWithData:[aResponse body] encoding:NSUTF8StringEncoding];
-
-    AMZLogDebug(@"Response Body:\n%@", tmpStr);
-    [tmpStr release];
-    NSXMLParser                       *parser         = [[NSXMLParser alloc] initWithData:[aResponse body]];
-    AmazonServiceResponseUnmarshaller *parserDelegate = [[delegateType alloc] init];
-    [parser setDelegate:parserDelegate];
-    [parser parse];
-
-    AmazonServiceResponse *tmpReq   = [parserDelegate response];
-    AmazonServiceResponse *response = [tmpReq retain];
-
-    [parser release];
-    [parserDelegate release];
-
-    if (response.exception) {
-        NSException *exception = [[response.exception copy] autorelease];
-        [response release];
-        if ([(NSObject *)[[aResponse request] delegate] respondsToSelector:@selector(request:didFailWithServiceException:)]) {
-            [[[aResponse request] delegate] request:[aResponse request] didFailWithServiceException:(AmazonServiceException *)exception];
             return nil;
         }
+    }
+
+    if (response.exception != nil) {
+        @throw response.exception;
+    }
+    else {
+        if (((AmazonRequestDelegate *)request.delegate).exception != nil) {
+            @throw((AmazonRequestDelegate *)request.delegate).exception;
+        }
+        else if (((AmazonRequestDelegate *)request.delegate).response != nil) {
+            return ((AmazonRequestDelegate *)request.delegate).response;
+        }
         else {
-            @throw exception;
+            return nil; //TODO: Throw an exception here AmazonClientException
         }
     }
-
-    if ([(NSObject *)[[aResponse request] delegate] respondsToSelector:@selector(request:didCompleteWithResponse:)]) {
-        [[[aResponse request] delegate] request:[aResponse request] didCompleteWithResponse:response];
-    }
-
-    [response postProcess];
-
-    return [response autorelease];
 }
 
 -(bool)shouldRetry:(AmazonServiceResponse *)response

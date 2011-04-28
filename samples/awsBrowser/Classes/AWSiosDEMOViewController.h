@@ -22,6 +22,8 @@
 -(IBAction)listDomains:(id)sender;
 -(IBAction)listQueues:(id)sender;
 -(IBAction)listTopics:(id)sender;
+-(IBAction)s3AsyncDemo:(id)sender;
+-(IBAction)sdbAsyncDemo:(id)sender;
 
 @end
 

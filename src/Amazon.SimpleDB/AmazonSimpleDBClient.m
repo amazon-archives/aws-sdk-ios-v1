@@ -31,70 +31,70 @@
 {
     AmazonServiceRequest *request = [SimpleDBSelectRequestMarshaller createRequest:selectRequest];
 
-    return (SimpleDBSelectResponse *)[self parseResponse:[self invoke:request] withDelegateType:[SimpleDBSelectResponseUnmarshaller class]];
+    return (SimpleDBSelectResponse *)[self invoke:request unmarshallerDelegate:[SimpleDBSelectResponseUnmarshaller class]];
 }
 
 -(SimpleDBPutAttributesResponse *)putAttributes:(SimpleDBPutAttributesRequest *)putAttributesRequest
 {
     AmazonServiceRequest *request = [SimpleDBPutAttributesRequestMarshaller createRequest:putAttributesRequest];
 
-    return (SimpleDBPutAttributesResponse *)[self parseResponse:[self invoke:request] withDelegateType:[SimpleDBPutAttributesResponseUnmarshaller class]];
+    return (SimpleDBPutAttributesResponse *)[self invoke:request unmarshallerDelegate:[SimpleDBPutAttributesResponseUnmarshaller class]];
 }
 
 -(SimpleDBBatchDeleteAttributesResponse *)batchDeleteAttributes:(SimpleDBBatchDeleteAttributesRequest *)batchDeleteAttributesRequest
 {
     AmazonServiceRequest *request = [SimpleDBBatchDeleteAttributesRequestMarshaller createRequest:batchDeleteAttributesRequest];
 
-    return (SimpleDBBatchDeleteAttributesResponse *)[self parseResponse:[self invoke:request] withDelegateType:[SimpleDBBatchDeleteAttributesResponseUnmarshaller class]];
+    return (SimpleDBBatchDeleteAttributesResponse *)[self invoke:request unmarshallerDelegate:[SimpleDBBatchDeleteAttributesResponseUnmarshaller class]];
 }
 
 -(SimpleDBDeleteDomainResponse *)deleteDomain:(SimpleDBDeleteDomainRequest *)deleteDomainRequest
 {
     AmazonServiceRequest *request = [SimpleDBDeleteDomainRequestMarshaller createRequest:deleteDomainRequest];
 
-    return (SimpleDBDeleteDomainResponse *)[self parseResponse:[self invoke:request] withDelegateType:[SimpleDBDeleteDomainResponseUnmarshaller class]];
+    return (SimpleDBDeleteDomainResponse *)[self invoke:request unmarshallerDelegate:[SimpleDBDeleteDomainResponseUnmarshaller class]];
 }
 
 -(SimpleDBCreateDomainResponse *)createDomain:(SimpleDBCreateDomainRequest *)createDomainRequest
 {
     AmazonServiceRequest *request = [SimpleDBCreateDomainRequestMarshaller createRequest:createDomainRequest];
 
-    return (SimpleDBCreateDomainResponse *)[self parseResponse:[self invoke:request] withDelegateType:[SimpleDBCreateDomainResponseUnmarshaller class]];
+    return (SimpleDBCreateDomainResponse *)[self invoke:request unmarshallerDelegate:[SimpleDBCreateDomainResponseUnmarshaller class]];
 }
 
 -(SimpleDBDeleteAttributesResponse *)deleteAttributes:(SimpleDBDeleteAttributesRequest *)deleteAttributesRequest
 {
     AmazonServiceRequest *request = [SimpleDBDeleteAttributesRequestMarshaller createRequest:deleteAttributesRequest];
 
-    return (SimpleDBDeleteAttributesResponse *)[self parseResponse:[self invoke:request] withDelegateType:[SimpleDBDeleteAttributesResponseUnmarshaller class]];
+    return (SimpleDBDeleteAttributesResponse *)[self invoke:request unmarshallerDelegate:[SimpleDBDeleteAttributesResponseUnmarshaller class]];
 }
 
 -(SimpleDBListDomainsResponse *)listDomains:(SimpleDBListDomainsRequest *)listDomainsRequest
 {
     AmazonServiceRequest *request = [SimpleDBListDomainsRequestMarshaller createRequest:listDomainsRequest];
 
-    return (SimpleDBListDomainsResponse *)[self parseResponse:[self invoke:request] withDelegateType:[SimpleDBListDomainsResponseUnmarshaller class]];
+    return (SimpleDBListDomainsResponse *)[self invoke:request unmarshallerDelegate:[SimpleDBListDomainsResponseUnmarshaller class]];
 }
 
 -(SimpleDBGetAttributesResponse *)getAttributes:(SimpleDBGetAttributesRequest *)getAttributesRequest
 {
     AmazonServiceRequest *request = [SimpleDBGetAttributesRequestMarshaller createRequest:getAttributesRequest];
 
-    return (SimpleDBGetAttributesResponse *)[self parseResponse:[self invoke:request] withDelegateType:[SimpleDBGetAttributesResponseUnmarshaller class]];
+    return (SimpleDBGetAttributesResponse *)[self invoke:request unmarshallerDelegate:[SimpleDBGetAttributesResponseUnmarshaller class]];
 }
 
 -(SimpleDBBatchPutAttributesResponse *)batchPutAttributes:(SimpleDBBatchPutAttributesRequest *)batchPutAttributesRequest
 {
     AmazonServiceRequest *request = [SimpleDBBatchPutAttributesRequestMarshaller createRequest:batchPutAttributesRequest];
 
-    return (SimpleDBBatchPutAttributesResponse *)[self parseResponse:[self invoke:request] withDelegateType:[SimpleDBBatchPutAttributesResponseUnmarshaller class]];
+    return (SimpleDBBatchPutAttributesResponse *)[self invoke:request unmarshallerDelegate:[SimpleDBBatchPutAttributesResponseUnmarshaller class]];
 }
 
 -(SimpleDBDomainMetadataResponse *)domainMetadata:(SimpleDBDomainMetadataRequest *)domainMetadataRequest
 {
     AmazonServiceRequest *request = [SimpleDBDomainMetadataRequestMarshaller createRequest:domainMetadataRequest];
 
-    return (SimpleDBDomainMetadataResponse *)[self parseResponse:[self invoke:request] withDelegateType:[SimpleDBDomainMetadataResponseUnmarshaller class]];
+    return (SimpleDBDomainMetadataResponse *)[self invoke:request unmarshallerDelegate:[SimpleDBDomainMetadataResponseUnmarshaller class]];
 }
 
 

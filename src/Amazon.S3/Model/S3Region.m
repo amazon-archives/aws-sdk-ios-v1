@@ -18,9 +18,6 @@
 
 @implementation S3Region
 
-#define kS3RegionUSWest1    @"us-west-1"
-#define kS3RegionEU         @"EU"
-#define kS3APSoutheast1     @"ap-southeast-1"
 
 -(id)initWithStringValue:(NSString *)value
 {
@@ -71,6 +68,16 @@
     return ap;
 }
 
++(S3Region *)APJapan
+{
+    static S3Region *ap = nil;
+
+    if (ap == nil) {
+        ap = [[S3Region alloc] initWithStringValue:kS3RegionAPNortheast1];
+    }
+    return ap;
+}
+
 +(S3Region *)regionWithString:(NSString *)regionName
 {
     if ([regionName isEqual:@""]) {
@@ -85,6 +92,10 @@
     if ([regionName isEqual:kS3RegionAPSoutheast1]) {
         return [S3Region APSingapore];
     }
+    if ([regionName isEqual:kS3RegionAPNortheast1]) {
+        return [S3Region APJapan];
+    }
+
 
     @throw [AmazonClientException exceptionWithMessage : @"Invalid S3 region string."];
 }

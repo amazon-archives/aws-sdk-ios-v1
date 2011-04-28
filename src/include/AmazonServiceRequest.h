@@ -150,9 +150,9 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite;
  * response:didCompleteWithResponse.
  *
  * @param request   The AmazonServiceRequest sending the message.
- * @param exception The AmazonServiceException that would have been thrown in the absence of a delegate.
+ * @param exception The AmazonClientException that would have been thrown in the absence of a delegate.
  */
--(void)request:(AmazonServiceRequest *)request didFailWithServiceException:(AmazonServiceException *)exception;
+-(void)request:(AmazonServiceRequest *)request didFailWithServiceException:(NSException *)exception;
 
 @end
 

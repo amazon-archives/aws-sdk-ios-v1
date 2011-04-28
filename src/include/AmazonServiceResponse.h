@@ -26,6 +26,7 @@
     NSException          *exception;
     bool                 isFinishedLoading;
     bool                 didTimeout;
+    Class                unmarshallerDelegate;
 
     AmazonServiceRequest *request;
 }
@@ -50,6 +51,8 @@
 
 /** The requestId assigned by the service */
 @property (nonatomic, retain) NSString *requestId;
+
+@property (nonatomic) Class            unmarshallerDelegate;
 
 /** Once the body has been received, perform additional processing, such as parse as XML. */
 -(void)processBody;

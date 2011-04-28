@@ -19,6 +19,8 @@
 #import "DomainList.h"
 #import "QueueList.h"
 #import "TopicList.h"
+#import "S3AsyncViewController.h"
+#import "SdbAsyncViewController.h"
 
 @implementation AWSiosDEMOViewController
 
@@ -76,6 +78,34 @@
 
         [self presentModalViewController:topicList animated:YES];
         [topicList release];
+    }
+}
+
+-(IBAction)s3AsyncDemo:(id)sender
+{
+    if ( [ACCESS_KEY isEqualToString:@"CHANGE ME"] || [SECRET_KEY isEqualToString:@"CHANGE ME"]) {
+        [[Constants credentialsAlert] show];
+    }
+    else {
+        S3AsyncViewController *s3Async = [[S3AsyncViewController alloc] init];
+        s3Async.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+
+        [self presentModalViewController:s3Async animated:YES];
+        [s3Async release];
+    }
+}
+
+-(IBAction)sdbAsyncDemo:(id)sender
+{
+    if ( [ACCESS_KEY isEqualToString:@"CHANGE ME"] || [SECRET_KEY isEqualToString:@"CHANGE ME"]) {
+        [[Constants credentialsAlert] show];
+    }
+    else {
+        SdbAsyncViewController *sdbAsync = [[SdbAsyncViewController alloc] init];
+        sdbAsync.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+
+        [self presentModalViewController:sdbAsync animated:YES];
+        [sdbAsync release];
     }
 }
 

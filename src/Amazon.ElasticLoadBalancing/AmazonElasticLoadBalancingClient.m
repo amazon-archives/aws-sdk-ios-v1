@@ -31,112 +31,112 @@
 {
     AmazonServiceRequest *request = [ElasticLoadBalancingCreateLoadBalancerListenersRequestMarshaller createRequest:createLoadBalancerListenersRequest];
 
-    return (ElasticLoadBalancingCreateLoadBalancerListenersResponse *)[self parseResponse:[self invoke:request] withDelegateType:[ElasticLoadBalancingCreateLoadBalancerListenersResponseUnmarshaller class]];
+    return (ElasticLoadBalancingCreateLoadBalancerListenersResponse *)[self invoke:request unmarshallerDelegate:[ElasticLoadBalancingCreateLoadBalancerListenersResponseUnmarshaller class]];
 }
 
 -(ElasticLoadBalancingDeleteLoadBalancerListenersResponse *)deleteLoadBalancerListeners:(ElasticLoadBalancingDeleteLoadBalancerListenersRequest *)deleteLoadBalancerListenersRequest
 {
     AmazonServiceRequest *request = [ElasticLoadBalancingDeleteLoadBalancerListenersRequestMarshaller createRequest:deleteLoadBalancerListenersRequest];
 
-    return (ElasticLoadBalancingDeleteLoadBalancerListenersResponse *)[self parseResponse:[self invoke:request] withDelegateType:[ElasticLoadBalancingDeleteLoadBalancerListenersResponseUnmarshaller class]];
+    return (ElasticLoadBalancingDeleteLoadBalancerListenersResponse *)[self invoke:request unmarshallerDelegate:[ElasticLoadBalancingDeleteLoadBalancerListenersResponseUnmarshaller class]];
 }
 
 -(ElasticLoadBalancingConfigureHealthCheckResponse *)configureHealthCheck:(ElasticLoadBalancingConfigureHealthCheckRequest *)configureHealthCheckRequest
 {
     AmazonServiceRequest *request = [ElasticLoadBalancingConfigureHealthCheckRequestMarshaller createRequest:configureHealthCheckRequest];
 
-    return (ElasticLoadBalancingConfigureHealthCheckResponse *)[self parseResponse:[self invoke:request] withDelegateType:[ElasticLoadBalancingConfigureHealthCheckResponseUnmarshaller class]];
+    return (ElasticLoadBalancingConfigureHealthCheckResponse *)[self invoke:request unmarshallerDelegate:[ElasticLoadBalancingConfigureHealthCheckResponseUnmarshaller class]];
 }
 
 -(ElasticLoadBalancingDescribeLoadBalancersResponse *)describeLoadBalancers:(ElasticLoadBalancingDescribeLoadBalancersRequest *)describeLoadBalancersRequest
 {
     AmazonServiceRequest *request = [ElasticLoadBalancingDescribeLoadBalancersRequestMarshaller createRequest:describeLoadBalancersRequest];
 
-    return (ElasticLoadBalancingDescribeLoadBalancersResponse *)[self parseResponse:[self invoke:request] withDelegateType:[ElasticLoadBalancingDescribeLoadBalancersResponseUnmarshaller class]];
+    return (ElasticLoadBalancingDescribeLoadBalancersResponse *)[self invoke:request unmarshallerDelegate:[ElasticLoadBalancingDescribeLoadBalancersResponseUnmarshaller class]];
 }
 
 -(ElasticLoadBalancingCreateLBCookieStickinessPolicyResponse *)createLBCookieStickinessPolicy:(ElasticLoadBalancingCreateLBCookieStickinessPolicyRequest *)createLBCookieStickinessPolicyRequest
 {
     AmazonServiceRequest *request = [ElasticLoadBalancingCreateLBCookieStickinessPolicyRequestMarshaller createRequest:createLBCookieStickinessPolicyRequest];
 
-    return (ElasticLoadBalancingCreateLBCookieStickinessPolicyResponse *)[self parseResponse:[self invoke:request] withDelegateType:[ElasticLoadBalancingCreateLBCookieStickinessPolicyResponseUnmarshaller class]];
+    return (ElasticLoadBalancingCreateLBCookieStickinessPolicyResponse *)[self invoke:request unmarshallerDelegate:[ElasticLoadBalancingCreateLBCookieStickinessPolicyResponseUnmarshaller class]];
 }
 
 -(ElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerResponse *)enableAvailabilityZonesForLoadBalancer:(ElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerRequest *)enableAvailabilityZonesForLoadBalancerRequest
 {
     AmazonServiceRequest *request = [ElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerRequestMarshaller createRequest:enableAvailabilityZonesForLoadBalancerRequest];
 
-    return (ElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerResponse *)[self parseResponse:[self invoke:request] withDelegateType:[ElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerResponseUnmarshaller class]];
+    return (ElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerResponse *)[self invoke:request unmarshallerDelegate:[ElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerResponseUnmarshaller class]];
 }
 
 -(ElasticLoadBalancingDescribeInstanceHealthResponse *)describeInstanceHealth:(ElasticLoadBalancingDescribeInstanceHealthRequest *)describeInstanceHealthRequest
 {
     AmazonServiceRequest *request = [ElasticLoadBalancingDescribeInstanceHealthRequestMarshaller createRequest:describeInstanceHealthRequest];
 
-    return (ElasticLoadBalancingDescribeInstanceHealthResponse *)[self parseResponse:[self invoke:request] withDelegateType:[ElasticLoadBalancingDescribeInstanceHealthResponseUnmarshaller class]];
+    return (ElasticLoadBalancingDescribeInstanceHealthResponse *)[self invoke:request unmarshallerDelegate:[ElasticLoadBalancingDescribeInstanceHealthResponseUnmarshaller class]];
 }
 
 -(ElasticLoadBalancingSetLoadBalancerListenerSSLCertificateResponse *)setLoadBalancerListenerSSLCertificate:(ElasticLoadBalancingSetLoadBalancerListenerSSLCertificateRequest *)setLoadBalancerListenerSSLCertificateRequest
 {
     AmazonServiceRequest *request = [ElasticLoadBalancingSetLoadBalancerListenerSSLCertificateRequestMarshaller createRequest:setLoadBalancerListenerSSLCertificateRequest];
 
-    return (ElasticLoadBalancingSetLoadBalancerListenerSSLCertificateResponse *)[self parseResponse:[self invoke:request] withDelegateType:[ElasticLoadBalancingSetLoadBalancerListenerSSLCertificateResponseUnmarshaller class]];
+    return (ElasticLoadBalancingSetLoadBalancerListenerSSLCertificateResponse *)[self invoke:request unmarshallerDelegate:[ElasticLoadBalancingSetLoadBalancerListenerSSLCertificateResponseUnmarshaller class]];
 }
 
 -(ElasticLoadBalancingSetLoadBalancerPoliciesOfListenerResponse *)setLoadBalancerPoliciesOfListener:(ElasticLoadBalancingSetLoadBalancerPoliciesOfListenerRequest *)setLoadBalancerPoliciesOfListenerRequest
 {
     AmazonServiceRequest *request = [ElasticLoadBalancingSetLoadBalancerPoliciesOfListenerRequestMarshaller createRequest:setLoadBalancerPoliciesOfListenerRequest];
 
-    return (ElasticLoadBalancingSetLoadBalancerPoliciesOfListenerResponse *)[self parseResponse:[self invoke:request] withDelegateType:[ElasticLoadBalancingSetLoadBalancerPoliciesOfListenerResponseUnmarshaller class]];
+    return (ElasticLoadBalancingSetLoadBalancerPoliciesOfListenerResponse *)[self invoke:request unmarshallerDelegate:[ElasticLoadBalancingSetLoadBalancerPoliciesOfListenerResponseUnmarshaller class]];
 }
 
 -(ElasticLoadBalancingCreateLoadBalancerResponse *)createLoadBalancer:(ElasticLoadBalancingCreateLoadBalancerRequest *)createLoadBalancerRequest
 {
     AmazonServiceRequest *request = [ElasticLoadBalancingCreateLoadBalancerRequestMarshaller createRequest:createLoadBalancerRequest];
 
-    return (ElasticLoadBalancingCreateLoadBalancerResponse *)[self parseResponse:[self invoke:request] withDelegateType:[ElasticLoadBalancingCreateLoadBalancerResponseUnmarshaller class]];
+    return (ElasticLoadBalancingCreateLoadBalancerResponse *)[self invoke:request unmarshallerDelegate:[ElasticLoadBalancingCreateLoadBalancerResponseUnmarshaller class]];
 }
 
 -(ElasticLoadBalancingRegisterInstancesWithLoadBalancerResponse *)registerInstancesWithLoadBalancer:(ElasticLoadBalancingRegisterInstancesWithLoadBalancerRequest *)registerInstancesWithLoadBalancerRequest
 {
     AmazonServiceRequest *request = [ElasticLoadBalancingRegisterInstancesWithLoadBalancerRequestMarshaller createRequest:registerInstancesWithLoadBalancerRequest];
 
-    return (ElasticLoadBalancingRegisterInstancesWithLoadBalancerResponse *)[self parseResponse:[self invoke:request] withDelegateType:[ElasticLoadBalancingRegisterInstancesWithLoadBalancerResponseUnmarshaller class]];
+    return (ElasticLoadBalancingRegisterInstancesWithLoadBalancerResponse *)[self invoke:request unmarshallerDelegate:[ElasticLoadBalancingRegisterInstancesWithLoadBalancerResponseUnmarshaller class]];
 }
 
 -(ElasticLoadBalancingCreateAppCookieStickinessPolicyResponse *)createAppCookieStickinessPolicy:(ElasticLoadBalancingCreateAppCookieStickinessPolicyRequest *)createAppCookieStickinessPolicyRequest
 {
     AmazonServiceRequest *request = [ElasticLoadBalancingCreateAppCookieStickinessPolicyRequestMarshaller createRequest:createAppCookieStickinessPolicyRequest];
 
-    return (ElasticLoadBalancingCreateAppCookieStickinessPolicyResponse *)[self parseResponse:[self invoke:request] withDelegateType:[ElasticLoadBalancingCreateAppCookieStickinessPolicyResponseUnmarshaller class]];
+    return (ElasticLoadBalancingCreateAppCookieStickinessPolicyResponse *)[self invoke:request unmarshallerDelegate:[ElasticLoadBalancingCreateAppCookieStickinessPolicyResponseUnmarshaller class]];
 }
 
 -(ElasticLoadBalancingDeleteLoadBalancerResponse *)deleteLoadBalancer:(ElasticLoadBalancingDeleteLoadBalancerRequest *)deleteLoadBalancerRequest
 {
     AmazonServiceRequest *request = [ElasticLoadBalancingDeleteLoadBalancerRequestMarshaller createRequest:deleteLoadBalancerRequest];
 
-    return (ElasticLoadBalancingDeleteLoadBalancerResponse *)[self parseResponse:[self invoke:request] withDelegateType:[ElasticLoadBalancingDeleteLoadBalancerResponseUnmarshaller class]];
+    return (ElasticLoadBalancingDeleteLoadBalancerResponse *)[self invoke:request unmarshallerDelegate:[ElasticLoadBalancingDeleteLoadBalancerResponseUnmarshaller class]];
 }
 
 -(ElasticLoadBalancingDisableAvailabilityZonesForLoadBalancerResponse *)disableAvailabilityZonesForLoadBalancer:(ElasticLoadBalancingDisableAvailabilityZonesForLoadBalancerRequest *)disableAvailabilityZonesForLoadBalancerRequest
 {
     AmazonServiceRequest *request = [ElasticLoadBalancingDisableAvailabilityZonesForLoadBalancerRequestMarshaller createRequest:disableAvailabilityZonesForLoadBalancerRequest];
 
-    return (ElasticLoadBalancingDisableAvailabilityZonesForLoadBalancerResponse *)[self parseResponse:[self invoke:request] withDelegateType:[ElasticLoadBalancingDisableAvailabilityZonesForLoadBalancerResponseUnmarshaller class]];
+    return (ElasticLoadBalancingDisableAvailabilityZonesForLoadBalancerResponse *)[self invoke:request unmarshallerDelegate:[ElasticLoadBalancingDisableAvailabilityZonesForLoadBalancerResponseUnmarshaller class]];
 }
 
 -(ElasticLoadBalancingDeleteLoadBalancerPolicyResponse *)deleteLoadBalancerPolicy:(ElasticLoadBalancingDeleteLoadBalancerPolicyRequest *)deleteLoadBalancerPolicyRequest
 {
     AmazonServiceRequest *request = [ElasticLoadBalancingDeleteLoadBalancerPolicyRequestMarshaller createRequest:deleteLoadBalancerPolicyRequest];
 
-    return (ElasticLoadBalancingDeleteLoadBalancerPolicyResponse *)[self parseResponse:[self invoke:request] withDelegateType:[ElasticLoadBalancingDeleteLoadBalancerPolicyResponseUnmarshaller class]];
+    return (ElasticLoadBalancingDeleteLoadBalancerPolicyResponse *)[self invoke:request unmarshallerDelegate:[ElasticLoadBalancingDeleteLoadBalancerPolicyResponseUnmarshaller class]];
 }
 
 -(ElasticLoadBalancingDeregisterInstancesFromLoadBalancerResponse *)deregisterInstancesFromLoadBalancer:(ElasticLoadBalancingDeregisterInstancesFromLoadBalancerRequest *)deregisterInstancesFromLoadBalancerRequest
 {
     AmazonServiceRequest *request = [ElasticLoadBalancingDeregisterInstancesFromLoadBalancerRequestMarshaller createRequest:deregisterInstancesFromLoadBalancerRequest];
 
-    return (ElasticLoadBalancingDeregisterInstancesFromLoadBalancerResponse *)[self parseResponse:[self invoke:request] withDelegateType:[ElasticLoadBalancingDeregisterInstancesFromLoadBalancerResponseUnmarshaller class]];
+    return (ElasticLoadBalancingDeregisterInstancesFromLoadBalancerResponse *)[self invoke:request unmarshallerDelegate:[ElasticLoadBalancingDeregisterInstancesFromLoadBalancerResponseUnmarshaller class]];
 }
 
 

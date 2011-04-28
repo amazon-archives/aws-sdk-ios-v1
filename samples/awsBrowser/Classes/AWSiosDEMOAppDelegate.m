@@ -15,8 +15,7 @@
 
 #import "AWSiosDEMOAppDelegate.h"
 #import "AWSiosDEMOViewController.h"
-//#import "AmazonLogger.h"
-
+#import <AWSiOSSDK/AmazonLogger.h>
 
 @implementation AWSiosDEMOAppDelegate
 
@@ -28,8 +27,8 @@
     [window addSubview:viewController.view];
     [window makeKeyAndVisible];
 
-    char *envValue = "GTMVerboseLogging=1\0";
-    putenv(envValue);
+// Uncomment the line below to see more logging.
+//    [AmazonLogger verboseLogging];
 
     return YES;
 }

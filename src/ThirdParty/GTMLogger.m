@@ -407,7 +407,7 @@ static BOOL IsVerboseLoggingEnabled(void) {
 	
 	switch (level) {
 		case kGTMLoggerLevelDebug:
-			allow = YES;
+			allow = (IsVerboseLoggingEnabled() == YES);
 			break;
 		case kGTMLoggerLevelInfo:
 			allow = (IsVerboseLoggingEnabled() == YES);

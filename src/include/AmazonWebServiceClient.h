@@ -25,6 +25,7 @@
 #import "AmazonServiceResponseUnmarshaller.h"
 #import "AmazonURLRequest.h"
 #import "AmazonCredentials.h"
+#import "AmazonRequestDelegate.h"
 
 @interface AmazonWebServiceClient:NSObject
 {
@@ -79,9 +80,8 @@
  * @param request An AmazonServiceRequest describing the parameters of a request.
  * @return The response from the service.
  */
--(AmazonServiceResponse *)invoke:(AmazonServiceRequest *)request;
+-(AmazonServiceResponse *)invoke:(AmazonServiceRequest *)request unmarshallerDelegate:(Class)unmarshallerDelegate;
 
--(AmazonServiceResponse *)parseResponse:(AmazonServiceResponse *)aResponse withDelegateType:(Class)delegateType;
 -(void)pauseExponentially:(int)tryCount;
 -(bool)shouldRetry:(AmazonServiceResponse *)response;
 

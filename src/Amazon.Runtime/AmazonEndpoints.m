@@ -216,4 +216,68 @@
     return AMAZON_CW_US_EAST_1_ENDPOINT;
 }
 
++(NSString *)autoscalingEndpoint:(AmazonRegion)region secure:(bool)useSSL;
+{
+    if (useSSL) {
+        switch (region) {
+        case US_EAST_1: return AMAZON_AS_US_EAST_1_ENDPOINT_SECURE;
+
+        case US_WEST_1: return AMAZON_AS_US_WEST_1_ENDPOINT_SECURE;
+
+        case EU_WEST_1: return AMAZON_AS_EU_WEST_1_ENDPOINT_SECURE;
+
+        case AP_SOUTHEAST_1: return AMAZON_AS_AP_SOUTHEAST_1_ENDPOINT_SECURE;
+
+        case AP_NORTHEAST_1: return AMAZON_AS_AP_NORTHEAST_1_ENDPOINT_SECURE;
+        };
+    }
+    else {
+        switch (region) {
+        case US_EAST_1: return AMAZON_AS_US_EAST_1_ENDPOINT;
+
+        case US_WEST_1: return AMAZON_AS_US_WEST_1_ENDPOINT;
+
+        case EU_WEST_1: return AMAZON_AS_EU_WEST_1_ENDPOINT;
+
+        case AP_SOUTHEAST_1: return AMAZON_AS_AP_SOUTHEAST_1_ENDPOINT;
+
+        case AP_NORTHEAST_1: return AMAZON_AS_AP_NORTHEAST_1_ENDPOINT;
+        };
+    }
+
+    return AMAZON_CW_US_EAST_1_ENDPOINT;
+}
+
++(NSString *)elbEndpoint:(AmazonRegion)region secure:(bool)useSSL
+{
+    if (useSSL) {
+        switch (region) {
+        case US_EAST_1: return AMAZON_ELB_US_EAST_1_ENDPOINT_SECURE;
+
+        case US_WEST_1: return AMAZON_ELB_US_WEST_1_ENDPOINT_SECURE;
+
+        case EU_WEST_1: return AMAZON_ELB_EU_WEST_1_ENDPOINT_SECURE;
+
+        case AP_SOUTHEAST_1: return AMAZON_ELB_AP_SOUTHEAST_1_ENDPOINT_SECURE;
+
+        case AP_NORTHEAST_1: return AMAZON_ELB_AP_NORTHEAST_1_ENDPOINT_SECURE;
+        };
+    }
+    else {
+        switch (region) {
+        case US_EAST_1: return AMAZON_ELB_US_EAST_1_ENDPOINT;
+
+        case US_WEST_1: return AMAZON_ELB_US_WEST_1_ENDPOINT;
+
+        case EU_WEST_1: return AMAZON_ELB_EU_WEST_1_ENDPOINT;
+
+        case AP_SOUTHEAST_1: return AMAZON_ELB_AP_SOUTHEAST_1_ENDPOINT;
+
+        case AP_NORTHEAST_1: return AMAZON_ELB_AP_NORTHEAST_1_ENDPOINT;
+        };
+    }
+
+    return AMAZON_CW_US_EAST_1_ENDPOINT;
+}
+
 @end
