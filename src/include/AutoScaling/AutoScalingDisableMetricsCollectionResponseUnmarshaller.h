@@ -14,9 +14,9 @@
  */
 
 #import "AutoScalingDisableMetricsCollectionResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "AutoScalingResponseUnmarshaller.h"
 
-@interface AutoScalingDisableMetricsCollectionResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface AutoScalingDisableMetricsCollectionResponseUnmarshaller:AutoScalingResponseUnmarshaller
 {
     AutoScalingDisableMetricsCollectionResponse *response;
 }

@@ -14,9 +14,9 @@
  */
 
 #import "EC2CreatePlacementGroupResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 
-@interface EC2CreatePlacementGroupResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface EC2CreatePlacementGroupResponseUnmarshaller:EC2ResponseUnmarshaller
 {
     EC2CreatePlacementGroupResponse *response;
 }

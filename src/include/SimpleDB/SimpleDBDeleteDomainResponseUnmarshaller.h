@@ -14,9 +14,9 @@
  */
 
 #import "SimpleDBDeleteDomainResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SimpleDBResponseUnmarshaller.h"
 
-@interface SimpleDBDeleteDomainResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface SimpleDBDeleteDomainResponseUnmarshaller:SimpleDBResponseUnmarshaller
 {
     SimpleDBDeleteDomainResponse *response;
 }

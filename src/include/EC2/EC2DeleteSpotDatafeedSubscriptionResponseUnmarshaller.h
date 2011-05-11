@@ -14,9 +14,9 @@
  */
 
 #import "EC2DeleteSpotDatafeedSubscriptionResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 
-@interface EC2DeleteSpotDatafeedSubscriptionResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface EC2DeleteSpotDatafeedSubscriptionResponseUnmarshaller:EC2ResponseUnmarshaller
 {
     EC2DeleteSpotDatafeedSubscriptionResponse *response;
 }

@@ -14,9 +14,9 @@
  */
 
 #import "SimpleDBCreateDomainResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SimpleDBResponseUnmarshaller.h"
 
-@interface SimpleDBCreateDomainResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface SimpleDBCreateDomainResponseUnmarshaller:SimpleDBResponseUnmarshaller
 {
     SimpleDBCreateDomainResponse *response;
 }

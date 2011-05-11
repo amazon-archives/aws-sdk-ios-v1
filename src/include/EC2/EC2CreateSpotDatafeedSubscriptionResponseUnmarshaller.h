@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2CreateSpotDatafeedSubscriptionResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "EC2SpotDatafeedSubscriptionUnmarshaller.h"
@@ -24,7 +24,7 @@
 /**
  * Create Spot Datafeed Subscription Response Unmarshaller
  */
-@interface EC2CreateSpotDatafeedSubscriptionResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2CreateSpotDatafeedSubscriptionResponseUnmarshaller:EC2ResponseUnmarshaller {
     EC2CreateSpotDatafeedSubscriptionResponse *response;
 }
 

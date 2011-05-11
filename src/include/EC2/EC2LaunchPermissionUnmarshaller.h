@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2LaunchPermission.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Launch Permission Unmarshaller
  */
-@interface EC2LaunchPermissionUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2LaunchPermissionUnmarshaller:EC2ResponseUnmarshaller {
     EC2LaunchPermission *response;
 }
 

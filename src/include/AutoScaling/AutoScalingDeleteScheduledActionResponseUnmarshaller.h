@@ -14,9 +14,9 @@
  */
 
 #import "AutoScalingDeleteScheduledActionResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "AutoScalingResponseUnmarshaller.h"
 
-@interface AutoScalingDeleteScheduledActionResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface AutoScalingDeleteScheduledActionResponseUnmarshaller:AutoScalingResponseUnmarshaller
 {
     AutoScalingDeleteScheduledActionResponse *response;
 }

@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ElasticLoadBalancingAppCookieStickinessPolicy.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "ElasticLoadBalancingResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * App Cookie Stickiness Policy Unmarshaller
  */
-@interface ElasticLoadBalancingAppCookieStickinessPolicyUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface ElasticLoadBalancingAppCookieStickinessPolicyUnmarshaller:ElasticLoadBalancingResponseUnmarshaller {
     ElasticLoadBalancingAppCookieStickinessPolicy *response;
 }
 

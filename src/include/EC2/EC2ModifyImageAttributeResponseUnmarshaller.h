@@ -14,9 +14,9 @@
  */
 
 #import "EC2ModifyImageAttributeResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 
-@interface EC2ModifyImageAttributeResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface EC2ModifyImageAttributeResponseUnmarshaller:EC2ResponseUnmarshaller
 {
     EC2ModifyImageAttributeResponse *response;
 }

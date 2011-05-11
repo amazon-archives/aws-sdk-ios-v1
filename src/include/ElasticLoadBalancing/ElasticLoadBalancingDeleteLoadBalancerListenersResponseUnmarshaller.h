@@ -14,9 +14,9 @@
  */
 
 #import "ElasticLoadBalancingDeleteLoadBalancerListenersResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "ElasticLoadBalancingResponseUnmarshaller.h"
 
-@interface ElasticLoadBalancingDeleteLoadBalancerListenersResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface ElasticLoadBalancingDeleteLoadBalancerListenersResponseUnmarshaller:ElasticLoadBalancingResponseUnmarshaller
 {
     ElasticLoadBalancingDeleteLoadBalancerListenersResponse *response;
 }

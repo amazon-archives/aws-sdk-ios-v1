@@ -14,9 +14,9 @@
  */
 
 #import "EC2DeregisterImageResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 
-@interface EC2DeregisterImageResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface EC2DeregisterImageResponseUnmarshaller:EC2ResponseUnmarshaller
 {
     EC2DeregisterImageResponse *response;
 }

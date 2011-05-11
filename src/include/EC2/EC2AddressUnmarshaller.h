@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2Address.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Address Unmarshaller
  */
-@interface EC2AddressUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2AddressUnmarshaller:EC2ResponseUnmarshaller {
     EC2Address *response;
 }
 

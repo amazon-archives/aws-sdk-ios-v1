@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2DescribeVolumesResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
@@ -25,7 +25,7 @@
 /**
  * Describe Volumes Response Unmarshaller
  */
-@interface EC2DescribeVolumesResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2DescribeVolumesResponseUnmarshaller:EC2ResponseUnmarshaller {
     EC2DescribeVolumesResponse *response;
 }
 

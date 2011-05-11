@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ElasticLoadBalancingSetLoadBalancerPoliciesOfListenerResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "ElasticLoadBalancingResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Set Load Balancer Policies Of Listener Result Unmarshaller
  */
-@interface ElasticLoadBalancingSetLoadBalancerPoliciesOfListenerResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface ElasticLoadBalancingSetLoadBalancerPoliciesOfListenerResponseUnmarshaller:ElasticLoadBalancingResponseUnmarshaller {
     ElasticLoadBalancingSetLoadBalancerPoliciesOfListenerResponse *response;
 }
 

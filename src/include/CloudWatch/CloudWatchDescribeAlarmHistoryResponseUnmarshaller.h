@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "CloudWatchDescribeAlarmHistoryResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "CloudWatchResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
@@ -25,7 +25,7 @@
 /**
  * Describe Alarm History Result Unmarshaller
  */
-@interface CloudWatchDescribeAlarmHistoryResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface CloudWatchDescribeAlarmHistoryResponseUnmarshaller:CloudWatchResponseUnmarshaller {
     CloudWatchDescribeAlarmHistoryResponse *response;
 }
 

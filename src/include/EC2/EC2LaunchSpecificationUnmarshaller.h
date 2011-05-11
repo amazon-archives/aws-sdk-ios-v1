@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2LaunchSpecification.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
@@ -29,7 +29,7 @@
 /**
  * Launch Specification Unmarshaller
  */
-@interface EC2LaunchSpecificationUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2LaunchSpecificationUnmarshaller:EC2ResponseUnmarshaller {
     EC2LaunchSpecification *response;
 }
 

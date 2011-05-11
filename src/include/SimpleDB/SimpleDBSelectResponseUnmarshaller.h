@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SimpleDBSelectResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SimpleDBResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
@@ -25,7 +25,7 @@
 /**
  * Select Result Unmarshaller
  */
-@interface SimpleDBSelectResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface SimpleDBSelectResponseUnmarshaller:SimpleDBResponseUnmarshaller {
     SimpleDBSelectResponse *response;
 }
 

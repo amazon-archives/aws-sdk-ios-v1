@@ -14,9 +14,9 @@
  */
 
 #import "AutoScalingSetDesiredCapacityResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "AutoScalingResponseUnmarshaller.h"
 
-@interface AutoScalingSetDesiredCapacityResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface AutoScalingSetDesiredCapacityResponseUnmarshaller:AutoScalingResponseUnmarshaller
 {
     AutoScalingSetDesiredCapacityResponse *response;
 }

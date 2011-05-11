@@ -14,9 +14,9 @@
  */
 
 #import "EC2DeleteVolumeResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 
-@interface EC2DeleteVolumeResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface EC2DeleteVolumeResponseUnmarshaller:EC2ResponseUnmarshaller
 {
     EC2DeleteVolumeResponse *response;
 }

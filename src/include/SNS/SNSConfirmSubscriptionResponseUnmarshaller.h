@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SNSConfirmSubscriptionResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SNSResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Confirm Subscription Result Unmarshaller
  */
-@interface SNSConfirmSubscriptionResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface SNSConfirmSubscriptionResponseUnmarshaller:SNSResponseUnmarshaller {
     SNSConfirmSubscriptionResponse *response;
 }
 

@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2DescribeAvailabilityZonesResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
@@ -25,7 +25,7 @@
 /**
  * Describe Availability Zones Response Unmarshaller
  */
-@interface EC2DescribeAvailabilityZonesResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2DescribeAvailabilityZonesResponseUnmarshaller:EC2ResponseUnmarshaller {
     EC2DescribeAvailabilityZonesResponse *response;
 }
 

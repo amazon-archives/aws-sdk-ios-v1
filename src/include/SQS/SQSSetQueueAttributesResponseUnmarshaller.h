@@ -14,9 +14,9 @@
  */
 
 #import "SQSSetQueueAttributesResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SQSResponseUnmarshaller.h"
 
-@interface SQSSetQueueAttributesResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface SQSSetQueueAttributesResponseUnmarshaller:SQSResponseUnmarshaller
 {
     SQSSetQueueAttributesResponse *response;
 }

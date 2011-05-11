@@ -23,8 +23,8 @@
 -(id)initWithAccessKey:(NSString *)theAccessKey withSecretKey:(NSString *)theSecretKey
 {
     if (self = [self init]) {
-        accessKey = theAccessKey;
-        secretKey = theSecretKey;
+        self.accessKey = theAccessKey;
+        self.secretKey = theSecretKey;
     }
     return self;
 }

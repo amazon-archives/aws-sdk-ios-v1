@@ -14,9 +14,9 @@
  */
 
 #import "SimpleDBPutAttributesResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SimpleDBResponseUnmarshaller.h"
 
-@interface SimpleDBPutAttributesResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface SimpleDBPutAttributesResponseUnmarshaller:SimpleDBResponseUnmarshaller
 {
     SimpleDBPutAttributesResponse *response;
 }

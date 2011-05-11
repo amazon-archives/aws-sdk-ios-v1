@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ElasticLoadBalancingHealthCheck.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "ElasticLoadBalancingResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonSDKUtil.h"
@@ -24,7 +24,7 @@
 /**
  * Health Check Unmarshaller
  */
-@interface ElasticLoadBalancingHealthCheckUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface ElasticLoadBalancingHealthCheckUnmarshaller:ElasticLoadBalancingResponseUnmarshaller {
     ElasticLoadBalancingHealthCheck *response;
 }
 

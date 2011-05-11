@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ElasticLoadBalancingInstance.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "ElasticLoadBalancingResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Instance Unmarshaller
  */
-@interface ElasticLoadBalancingInstanceUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface ElasticLoadBalancingInstanceUnmarshaller:ElasticLoadBalancingResponseUnmarshaller {
     ElasticLoadBalancingInstance *response;
 }
 

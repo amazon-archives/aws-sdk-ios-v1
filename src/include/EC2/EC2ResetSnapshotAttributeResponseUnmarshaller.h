@@ -14,9 +14,9 @@
  */
 
 #import "EC2ResetSnapshotAttributeResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 
-@interface EC2ResetSnapshotAttributeResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface EC2ResetSnapshotAttributeResponseUnmarshaller:EC2ResponseUnmarshaller
 {
     EC2ResetSnapshotAttributeResponse *response;
 }

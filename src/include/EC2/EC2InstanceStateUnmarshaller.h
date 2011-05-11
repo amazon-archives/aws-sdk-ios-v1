@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2InstanceState.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Instance State Unmarshaller
  */
-@interface EC2InstanceStateUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2InstanceStateUnmarshaller:EC2ResponseUnmarshaller {
     EC2InstanceState *response;
 }
 

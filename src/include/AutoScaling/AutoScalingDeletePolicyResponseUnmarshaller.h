@@ -14,9 +14,9 @@
  */
 
 #import "AutoScalingDeletePolicyResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "AutoScalingResponseUnmarshaller.h"
 
-@interface AutoScalingDeletePolicyResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface AutoScalingDeletePolicyResponseUnmarshaller:AutoScalingResponseUnmarshaller
 {
     AutoScalingDeletePolicyResponse *response;
 }

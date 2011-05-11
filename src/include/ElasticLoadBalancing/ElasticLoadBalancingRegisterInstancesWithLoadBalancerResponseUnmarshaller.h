@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ElasticLoadBalancingRegisterInstancesWithLoadBalancerResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "ElasticLoadBalancingResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
@@ -25,7 +25,7 @@
 /**
  * Register Instances With Load Balancer Result Unmarshaller
  */
-@interface ElasticLoadBalancingRegisterInstancesWithLoadBalancerResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface ElasticLoadBalancingRegisterInstancesWithLoadBalancerResponseUnmarshaller:ElasticLoadBalancingResponseUnmarshaller {
     ElasticLoadBalancingRegisterInstancesWithLoadBalancerResponse *response;
 }
 

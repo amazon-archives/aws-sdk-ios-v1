@@ -14,9 +14,9 @@
  */
 
 #import "SNSDeleteTopicResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SNSResponseUnmarshaller.h"
 
-@interface SNSDeleteTopicResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface SNSDeleteTopicResponseUnmarshaller:SNSResponseUnmarshaller
 {
     SNSDeleteTopicResponse *response;
 }

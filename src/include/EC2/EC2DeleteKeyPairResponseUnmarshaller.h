@@ -14,9 +14,9 @@
  */
 
 #import "EC2DeleteKeyPairResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 
-@interface EC2DeleteKeyPairResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface EC2DeleteKeyPairResponseUnmarshaller:EC2ResponseUnmarshaller
 {
     EC2DeleteKeyPairResponse *response;
 }

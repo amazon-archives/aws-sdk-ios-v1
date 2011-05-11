@@ -14,9 +14,9 @@
  */
 
 #import "EC2DeletePlacementGroupResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 
-@interface EC2DeletePlacementGroupResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface EC2DeletePlacementGroupResponseUnmarshaller:EC2ResponseUnmarshaller
 {
     EC2DeletePlacementGroupResponse *response;
 }

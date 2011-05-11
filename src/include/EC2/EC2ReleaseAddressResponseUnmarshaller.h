@@ -14,9 +14,9 @@
  */
 
 #import "EC2ReleaseAddressResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 
-@interface EC2ReleaseAddressResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface EC2ReleaseAddressResponseUnmarshaller:EC2ResponseUnmarshaller
 {
     EC2ReleaseAddressResponse *response;
 }

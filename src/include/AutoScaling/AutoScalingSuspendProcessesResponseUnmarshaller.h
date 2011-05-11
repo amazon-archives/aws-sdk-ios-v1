@@ -14,9 +14,9 @@
  */
 
 #import "AutoScalingSuspendProcessesResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "AutoScalingResponseUnmarshaller.h"
 
-@interface AutoScalingSuspendProcessesResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface AutoScalingSuspendProcessesResponseUnmarshaller:AutoScalingResponseUnmarshaller
 {
     AutoScalingSuspendProcessesResponse *response;
 }

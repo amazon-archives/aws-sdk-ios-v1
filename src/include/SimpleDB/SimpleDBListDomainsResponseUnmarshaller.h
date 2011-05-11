@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SimpleDBListDomainsResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SimpleDBResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
@@ -24,7 +24,7 @@
 /**
  * List Domains Result Unmarshaller
  */
-@interface SimpleDBListDomainsResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface SimpleDBListDomainsResponseUnmarshaller:SimpleDBResponseUnmarshaller {
     SimpleDBListDomainsResponse *response;
 }
 

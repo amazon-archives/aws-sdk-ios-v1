@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AutoScalingSuspendedProcess.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "AutoScalingResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Suspended Process Unmarshaller
  */
-@interface AutoScalingSuspendedProcessUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface AutoScalingSuspendedProcessUnmarshaller:AutoScalingResponseUnmarshaller {
     AutoScalingSuspendedProcess *response;
 }
 

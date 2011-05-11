@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2ProductCode.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Product Code Unmarshaller
  */
-@interface EC2ProductCodeUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2ProductCodeUnmarshaller:EC2ResponseUnmarshaller {
     EC2ProductCode *response;
 }
 

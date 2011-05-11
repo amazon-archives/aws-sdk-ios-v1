@@ -14,9 +14,9 @@
  */
 
 #import "EC2ResetImageAttributeResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 
-@interface EC2ResetImageAttributeResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface EC2ResetImageAttributeResponseUnmarshaller:EC2ResponseUnmarshaller
 {
     EC2ResetImageAttributeResponse *response;
 }

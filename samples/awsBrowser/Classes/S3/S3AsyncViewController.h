@@ -16,17 +16,22 @@
 
 #import <UIKit/UIKit.h>
 #import "S3RequestDelegate.h"
+#import "Constants.h"
 
 @interface S3AsyncViewController:UIViewController {
-    IBOutlet UILabel  *bytesIn;
-    IBOutlet UILabel  *bytesOut;
-    S3RequestDelegate *s3Delegate;
+    IBOutlet UILabel   *bytesIn;
+    IBOutlet UILabel   *bytesOut;
+    S3RequestDelegate  *s3Delegate;
+
+    S3PutObjectRequest *putObjectRequest;
+    S3GetObjectRequest *getObjectRequest;
 }
 
 @property (nonatomic, retain) UILabel *bytesIn;
 @property (nonatomic, retain) UILabel *bytesOut;
 
 -(IBAction)start:(id)sender;
+-(IBAction)stop:(id)sender;
 -(IBAction)exit:(id)sender;
 
 -(void)putObject;

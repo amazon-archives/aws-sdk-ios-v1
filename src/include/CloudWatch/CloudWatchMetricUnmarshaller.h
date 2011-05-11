@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "CloudWatchMetric.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "CloudWatchResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
@@ -25,7 +25,7 @@
 /**
  * Metric Unmarshaller
  */
-@interface CloudWatchMetricUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface CloudWatchMetricUnmarshaller:CloudWatchResponseUnmarshaller {
     CloudWatchMetric *response;
 }
 

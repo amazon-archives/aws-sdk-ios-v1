@@ -34,7 +34,7 @@
 -(id)initWithCredentials:(AmazonCredentials *)theCredentials
 {
     if (self = [self init]) {
-        credentials = theCredentials;
+        credentials = [theCredentials retain];
         maxRetries  = 5;
         timeout     = 240;
         userAgent   = [[AmazonSDKUtil userAgentString] retain];
@@ -56,24 +56,24 @@
     return [response autorelease];
 }
 
--(AmazonServiceResponse *)invoke:(AmazonServiceRequest *)request unmarshallerDelegate:(Class)unmarshallerDelegate
+-(AmazonServiceResponse *)invoke:(AmazonServiceRequest *)generatedRequest rawRequest:(AmazonServiceRequestConfig *)originalRequest unmarshallerDelegate:(Class)unmarshallerDelegate
 {
-    if (nil == request) {
+    if (nil == generatedRequest) {
         @throw [AmazonClientException exceptionWithMessage : @"Request cannot be nil."];
     }
 
-    [request setUserAgent:self.userAgent];
+    [generatedRequest setUserAgent:self.userAgent];
 
-    if (nil == request.endpoint) {
-        request.endpoint = [self endpoint];
+    if (nil == generatedRequest.endpoint) {
+        generatedRequest.endpoint = [self endpoint];
     }
-    if (nil == request.credentials) {
-        [request setCredentials:credentials];
+    if (nil == generatedRequest.credentials) {
+        [generatedRequest setCredentials:credentials];
     }
 
-    NSMutableURLRequest *urlRequest = [request configureURLRequest];
-    [request sign];
-    [urlRequest setHTTPBody:[[request queryString] dataUsingEncoding:NSUTF8StringEncoding]];
+    NSMutableURLRequest *urlRequest = [generatedRequest configureURLRequest];
+    [generatedRequest sign];
+    [urlRequest setHTTPBody:[[generatedRequest queryString] dataUsingEncoding:NSUTF8StringEncoding]];
 
     AMZLogDebug(@"%@ %@", [urlRequest HTTPMethod], [urlRequest URL]);
     AMZLogDebug(@"Request body: ");
@@ -84,10 +84,10 @@
     AmazonServiceResponse *response = nil;
     int                   retries   = 0;
     while (retries < self.maxRetries) {
-        AMZLogDebug(@"Begin Request: %@:%d", NSStringFromClass([request class]), retries);
+        AMZLogDebug(@"Begin Request: %@:%d", NSStringFromClass([generatedRequest class]), retries);
 
-        response = [AmazonWebServiceClient constructResponseFromRequest:request];
-        [response setRequest:request];
+        response = [AmazonWebServiceClient constructResponseFromRequest:generatedRequest];
+        [response setRequest:generatedRequest];
         response.unmarshallerDelegate = unmarshallerDelegate;
 
         [urlRequest setTimeoutInterval:self.timeout];
@@ -98,10 +98,12 @@
         NSURLConnection *urlConnection = [NSURLConnection connectionWithRequest:urlRequest delegate:response];
         NSTimer         *timeoutTimer  = [NSTimer scheduledTimerWithTimeInterval:self.timeout target:response selector:@selector(timeout) userInfo:nil repeats:NO];
 
-        if ([request delegate] == nil) {
-            request.delegate = [[[AmazonRequestDelegate alloc] init] autorelease];
+        originalRequest.urlConnection = urlConnection;
 
-            while (![(AmazonRequestDelegate *)(request.delegate)isFinishedOrFailed]) {
+        if ([generatedRequest delegate] == nil) {
+            generatedRequest.delegate = [[[AmazonRequestDelegate alloc] init] autorelease];
+
+            while (![(AmazonRequestDelegate *)(generatedRequest.delegate)isFinishedOrFailed]) {
                 [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
             }
 
@@ -115,7 +117,7 @@
             AMZLogDebug(@"Response Status Code : %d", response.httpStatusCode);
             if ( [self shouldRetry:response]) {
                 AMZLog(@"Retring Request: %d", retries);
-                request.delegate = nil;
+                generatedRequest.delegate = nil;
 
                 [self pauseExponentially:retries];
                 retries++;
@@ -133,11 +135,11 @@
         @throw response.exception;
     }
     else {
-        if (((AmazonRequestDelegate *)request.delegate).exception != nil) {
-            @throw((AmazonRequestDelegate *)request.delegate).exception;
+        if (((AmazonRequestDelegate *)generatedRequest.delegate).exception != nil) {
+            @throw((AmazonRequestDelegate *)generatedRequest.delegate).exception;
         }
-        else if (((AmazonRequestDelegate *)request.delegate).response != nil) {
-            return ((AmazonRequestDelegate *)request.delegate).response;
+        else if (((AmazonRequestDelegate *)generatedRequest.delegate).response != nil) {
+            return ((AmazonRequestDelegate *)generatedRequest.delegate).response;
         }
         else {
             return nil; //TODO: Throw an exception here AmazonClientException

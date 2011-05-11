@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2BlockDeviceMapping.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "EC2EbsBlockDeviceUnmarshaller.h"
@@ -24,7 +24,7 @@
 /**
  * Block Device Mapping Unmarshaller
  */
-@interface EC2BlockDeviceMappingUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2BlockDeviceMappingUnmarshaller:EC2ResponseUnmarshaller {
     EC2BlockDeviceMapping *response;
 }
 

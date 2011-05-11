@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SESListVerifiedEmailAddressesResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SESResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
@@ -24,7 +24,7 @@
 /**
  * List Verified Email Addresses Result Unmarshaller
  */
-@interface SESListVerifiedEmailAddressesResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface SESListVerifiedEmailAddressesResponseUnmarshaller:SESResponseUnmarshaller {
     SESListVerifiedEmailAddressesResponse *response;
 }
 

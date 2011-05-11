@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2DescribeLicensesResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
@@ -25,7 +25,7 @@
 /**
  * Describe Licenses Response Unmarshaller
  */
-@interface EC2DescribeLicensesResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2DescribeLicensesResponseUnmarshaller:EC2ResponseUnmarshaller {
     EC2DescribeLicensesResponse *response;
 }
 

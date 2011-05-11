@@ -16,21 +16,26 @@
 
 #import <UIKit/UIKit.h>
 #import "SdbRequestDelegate.h"
+#import "Constants.h"
 
 @interface SdbAsyncViewController:UIViewController {
-    IBOutlet UILabel   *bytesIn;
-    IBOutlet UILabel   *bytesOut;
+    IBOutlet UILabel             *bytesIn;
+    IBOutlet UILabel             *bytesOut;
 
-    SdbRequestDelegate *sdbDelegate;
-    NSTimer            *timer;
-    int                counter;
-    NSString           *domainName;
+    SdbRequestDelegate           *sdbDelegate;
+    NSTimer                      *timer;
+    int                          counter;
+    NSString                     *domainName;
+
+    SimpleDBSelectRequest        *selectRequest;
+    SimpleDBPutAttributesRequest *putAttributesRequest;
 }
 
 @property (nonatomic, retain) UILabel *bytesIn;
 @property (nonatomic, retain) UILabel *bytesOut;
 
 -(IBAction)start:(id)sender;
+-(IBAction)stop:(id)sender;
 -(IBAction)exit:(id)sender;
 
 -(void)perform;

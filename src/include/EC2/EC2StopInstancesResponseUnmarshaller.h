@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2StopInstancesResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
@@ -25,7 +25,7 @@
 /**
  * Stop Instances Response Unmarshaller
  */
-@interface EC2StopInstancesResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2StopInstancesResponseUnmarshaller:EC2ResponseUnmarshaller {
     EC2StopInstancesResponse *response;
 }
 

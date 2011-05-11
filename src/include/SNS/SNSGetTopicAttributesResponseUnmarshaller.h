@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SNSGetTopicAttributesResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SNSResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonDictionaryUnmarshaller.h"
@@ -24,7 +24,7 @@
 /**
  * Get Topic Attributes Result Unmarshaller
  */
-@interface SNSGetTopicAttributesResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface SNSGetTopicAttributesResponseUnmarshaller:SNSResponseUnmarshaller {
     SNSGetTopicAttributesResponse *response;
 }
 

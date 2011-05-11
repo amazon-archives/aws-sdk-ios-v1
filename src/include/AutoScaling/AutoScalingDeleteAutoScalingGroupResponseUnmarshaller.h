@@ -14,9 +14,9 @@
  */
 
 #import "AutoScalingDeleteAutoScalingGroupResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "AutoScalingResponseUnmarshaller.h"
 
-@interface AutoScalingDeleteAutoScalingGroupResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface AutoScalingDeleteAutoScalingGroupResponseUnmarshaller:AutoScalingResponseUnmarshaller
 {
     AutoScalingDeleteAutoScalingGroupResponse *response;
 }

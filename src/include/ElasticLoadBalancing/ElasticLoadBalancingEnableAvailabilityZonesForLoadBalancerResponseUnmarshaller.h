@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "ElasticLoadBalancingResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
@@ -24,7 +24,7 @@
 /**
  * Enable Availability Zones For Load Balancer Result Unmarshaller
  */
-@interface ElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface ElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerResponseUnmarshaller:ElasticLoadBalancingResponseUnmarshaller {
     ElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerResponse *response;
 }
 

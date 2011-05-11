@@ -14,9 +14,9 @@
  */
 
 #import "AutoScalingSetInstanceHealthResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "AutoScalingResponseUnmarshaller.h"
 
-@interface AutoScalingSetInstanceHealthResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface AutoScalingSetInstanceHealthResponseUnmarshaller:AutoScalingResponseUnmarshaller
 {
     AutoScalingSetInstanceHealthResponse *response;
 }

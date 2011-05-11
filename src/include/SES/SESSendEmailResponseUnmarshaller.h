@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SESSendEmailResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SESResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Send Email Result Unmarshaller
  */
-@interface SESSendEmailResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface SESSendEmailResponseUnmarshaller:SESResponseUnmarshaller {
     SESSendEmailResponse *response;
 }
 

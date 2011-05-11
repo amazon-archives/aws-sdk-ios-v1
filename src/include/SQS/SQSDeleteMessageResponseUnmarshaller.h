@@ -14,9 +14,9 @@
  */
 
 #import "SQSDeleteMessageResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SQSResponseUnmarshaller.h"
 
-@interface SQSDeleteMessageResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface SQSDeleteMessageResponseUnmarshaller:SQSResponseUnmarshaller
 {
     SQSDeleteMessageResponse *response;
 }

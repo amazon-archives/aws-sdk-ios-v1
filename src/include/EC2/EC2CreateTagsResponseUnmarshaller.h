@@ -14,9 +14,9 @@
  */
 
 #import "EC2CreateTagsResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 
-@interface EC2CreateTagsResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface EC2CreateTagsResponseUnmarshaller:EC2ResponseUnmarshaller
 {
     EC2CreateTagsResponse *response;
 }

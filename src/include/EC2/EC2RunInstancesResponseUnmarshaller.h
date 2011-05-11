@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2RunInstancesResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "EC2ReservationUnmarshaller.h"
@@ -24,7 +24,7 @@
 /**
  * Run Instances Response Unmarshaller
  */
-@interface EC2RunInstancesResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2RunInstancesResponseUnmarshaller:EC2ResponseUnmarshaller {
     EC2RunInstancesResponse *response;
 }
 

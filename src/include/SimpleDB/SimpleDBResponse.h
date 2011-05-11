@@ -17,6 +17,9 @@
 #import "../AmazonServiceResponse.h"
 
 @interface SimpleDBResponse:AmazonServiceResponse {
+    double boxUsage;
 }
+
+@property (nonatomic) double boxUsage;
 
 @end

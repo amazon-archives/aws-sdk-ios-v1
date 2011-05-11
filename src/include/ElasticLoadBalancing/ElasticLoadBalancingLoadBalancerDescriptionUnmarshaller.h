@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ElasticLoadBalancingLoadBalancerDescription.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "ElasticLoadBalancingResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
@@ -30,7 +30,7 @@
 /**
  * Load Balancer Description Unmarshaller
  */
-@interface ElasticLoadBalancingLoadBalancerDescriptionUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface ElasticLoadBalancingLoadBalancerDescriptionUnmarshaller:ElasticLoadBalancingResponseUnmarshaller {
     ElasticLoadBalancingLoadBalancerDescription *response;
 }
 

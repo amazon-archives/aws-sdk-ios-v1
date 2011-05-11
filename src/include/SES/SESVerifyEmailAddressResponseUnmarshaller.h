@@ -14,9 +14,9 @@
  */
 
 #import "SESVerifyEmailAddressResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SESResponseUnmarshaller.h"
 
-@interface SESVerifyEmailAddressResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface SESVerifyEmailAddressResponseUnmarshaller:SESResponseUnmarshaller
 {
     SESVerifyEmailAddressResponse *response;
 }

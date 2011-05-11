@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SQSCreateQueueResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SQSResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Create Queue Result Unmarshaller
  */
-@interface SQSCreateQueueResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface SQSCreateQueueResponseUnmarshaller:SQSResponseUnmarshaller {
     SQSCreateQueueResponse *response;
 }
 

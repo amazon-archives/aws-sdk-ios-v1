@@ -14,9 +14,9 @@
  */
 
 #import "AutoScalingPutScheduledUpdateGroupActionResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "AutoScalingResponseUnmarshaller.h"
 
-@interface AutoScalingPutScheduledUpdateGroupActionResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface AutoScalingPutScheduledUpdateGroupActionResponseUnmarshaller:AutoScalingResponseUnmarshaller
 {
     AutoScalingPutScheduledUpdateGroupActionResponse *response;
 }

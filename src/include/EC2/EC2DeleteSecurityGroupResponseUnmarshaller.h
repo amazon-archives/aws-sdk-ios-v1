@@ -14,9 +14,9 @@
  */
 
 #import "EC2DeleteSecurityGroupResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 
-@interface EC2DeleteSecurityGroupResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface EC2DeleteSecurityGroupResponseUnmarshaller:EC2ResponseUnmarshaller
 {
     EC2DeleteSecurityGroupResponse *response;
 }

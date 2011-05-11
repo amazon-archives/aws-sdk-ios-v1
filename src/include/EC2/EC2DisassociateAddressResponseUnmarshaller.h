@@ -14,9 +14,9 @@
  */
 
 #import "EC2DisassociateAddressResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 
-@interface EC2DisassociateAddressResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface EC2DisassociateAddressResponseUnmarshaller:EC2ResponseUnmarshaller
 {
     EC2DisassociateAddressResponse *response;
 }

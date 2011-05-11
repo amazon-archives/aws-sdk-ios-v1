@@ -14,9 +14,9 @@
  */
 
 #import "SNSUnsubscribeResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SNSResponseUnmarshaller.h"
 
-@interface SNSUnsubscribeResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface SNSUnsubscribeResponseUnmarshaller:SNSResponseUnmarshaller
 {
     SNSUnsubscribeResponse *response;
 }

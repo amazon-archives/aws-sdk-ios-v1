@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2BundleTaskError.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Bundle Task Error Unmarshaller
  */
-@interface EC2BundleTaskErrorUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2BundleTaskErrorUnmarshaller:EC2ResponseUnmarshaller {
     EC2BundleTaskError *response;
 }
 

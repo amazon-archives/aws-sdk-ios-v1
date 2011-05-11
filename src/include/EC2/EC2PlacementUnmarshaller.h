@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2Placement.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Placement Unmarshaller
  */
-@interface EC2PlacementUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2PlacementUnmarshaller:EC2ResponseUnmarshaller {
     EC2Placement *response;
 }
 

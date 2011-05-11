@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2DescribeImageAttributeResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "EC2ImageAttributeUnmarshaller.h"
@@ -24,7 +24,7 @@
 /**
  * Describe Image Attribute Response Unmarshaller
  */
-@interface EC2DescribeImageAttributeResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2DescribeImageAttributeResponseUnmarshaller:EC2ResponseUnmarshaller {
     EC2DescribeImageAttributeResponse *response;
 }
 

@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2ConfirmProductInstanceResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Confirm Product Instance Response Unmarshaller
  */
-@interface EC2ConfirmProductInstanceResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2ConfirmProductInstanceResponseUnmarshaller:EC2ResponseUnmarshaller {
     EC2ConfirmProductInstanceResponse *response;
 }
 

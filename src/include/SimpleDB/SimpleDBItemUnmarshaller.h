@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SimpleDBItem.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SimpleDBResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
@@ -25,7 +25,7 @@
 /**
  * Item Unmarshaller
  */
-@interface SimpleDBItemUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface SimpleDBItemUnmarshaller:SimpleDBResponseUnmarshaller {
     SimpleDBItem *response;
 }
 

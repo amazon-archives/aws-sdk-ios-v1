@@ -14,9 +14,9 @@
  */
 
 #import "EC2RebootInstancesResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 
-@interface EC2RebootInstancesResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface EC2RebootInstancesResponseUnmarshaller:EC2ResponseUnmarshaller
 {
     EC2RebootInstancesResponse *response;
 }

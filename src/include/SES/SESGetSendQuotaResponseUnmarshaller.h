@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SESGetSendQuotaResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SESResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonSDKUtil.h"
@@ -24,7 +24,7 @@
 /**
  * Get Send Quota Result Unmarshaller
  */
-@interface SESGetSendQuotaResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface SESGetSendQuotaResponseUnmarshaller:SESResponseUnmarshaller {
     SESGetSendQuotaResponse *response;
 }
 

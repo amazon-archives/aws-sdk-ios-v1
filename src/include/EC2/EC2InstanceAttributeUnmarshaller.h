@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2InstanceAttribute.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
@@ -25,7 +25,7 @@
 /**
  * Instance Attribute Unmarshaller
  */
-@interface EC2InstanceAttributeUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2InstanceAttributeUnmarshaller:EC2ResponseUnmarshaller {
     EC2InstanceAttribute *response;
 }
 

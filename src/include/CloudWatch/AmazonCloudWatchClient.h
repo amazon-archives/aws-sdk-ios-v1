@@ -16,6 +16,10 @@
 #import "CloudWatchPutMetricAlarmResponseUnmarshaller.h"
 #import "CloudWatchPutMetricAlarmRequest.h"
 #import "CloudWatchPutMetricAlarmRequestMarshaller.h"
+#import "CloudWatchPutMetricDataResponse.h"
+#import "CloudWatchPutMetricDataResponseUnmarshaller.h"
+#import "CloudWatchPutMetricDataRequest.h"
+#import "CloudWatchPutMetricDataRequestMarshaller.h"
 #import "CloudWatchListMetricsResponse.h"
 #import "CloudWatchListMetricsResponseUnmarshaller.h"
 #import "CloudWatchListMetricsRequest.h"
@@ -130,6 +134,48 @@
  *             either a problem with the data in the request, or a server side issue.
  */
 -(CloudWatchPutMetricAlarmResponse *)putMetricAlarm:(CloudWatchPutMetricAlarmRequest *)putMetricAlarmRequest;
+
+
+/**
+ * <p>
+ * Publishes metric data points to Amazon CloudWatch. Amazon Cloudwatch
+ * associates the data points with the specified metric. If the specified
+ * metric does not exist, Amazon CloudWatch creates the metric.
+ * </p>
+ * <p>
+ * <b>NOTE:</b> If you create a metric with the PutMetricData action,
+ * allow up to fifteen minutes for the metric to appear in calls to the
+ * ListMetrics action.
+ * </p>
+ * <p>
+ * The size of a PutMetricData request is limited to 8 KB for HTTP GET
+ * requests and 40 KB for HTTP POST requests.
+ * </p>
+ * <p>
+ * <b>IMPORTANT:</b> Although the Value parameter accepts numbers of type
+ * Double, Amazon CloudWatch truncates values with very large exponents.
+ * Values with base-10 exponents greater than 126 (1 x 10^126) are
+ * truncated. Likewise, values with base-10 exponents less than -130 (1 x
+ * 10^-130) are also truncated.
+ * </p>
+ *
+ * @param putMetricDataRequest Container for the necessary parameters to
+ *           execute the PutMetricData service method on AmazonCloudWatch.
+ *
+ * @throws CloudWatchInvalidParameterValueException
+ * @throws CloudWatchInternalServiceException
+ * @throws CloudWatchInvalidParameterCombinationException
+ * @throws CloudWatchMissingRequiredParameterException
+ *
+ * @throws AmazonClientException
+ *             If any internal errors are encountered inside the client while
+ *             attempting to make the request or handle the response.  For example
+ *             if a network connection is not available.
+ * @throws AmazonServiceException
+ *             If an error response is returned by AmazonCloudWatch indicating
+ *             either a problem with the data in the request, or a server side issue.
+ */
+-(CloudWatchPutMetricDataResponse *)putMetricData:(CloudWatchPutMetricDataRequest *)putMetricDataRequest;
 
 
 /**

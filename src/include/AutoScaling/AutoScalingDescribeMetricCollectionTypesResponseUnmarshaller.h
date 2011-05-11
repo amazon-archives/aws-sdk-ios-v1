@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AutoScalingDescribeMetricCollectionTypesResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "AutoScalingResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
@@ -27,7 +27,7 @@
 /**
  * Describe Metric Collection Types Result Unmarshaller
  */
-@interface AutoScalingDescribeMetricCollectionTypesResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface AutoScalingDescribeMetricCollectionTypesResponseUnmarshaller:AutoScalingResponseUnmarshaller {
     AutoScalingDescribeMetricCollectionTypesResponse *response;
 }
 

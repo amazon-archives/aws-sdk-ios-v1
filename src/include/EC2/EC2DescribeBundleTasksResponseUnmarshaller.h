@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2DescribeBundleTasksResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
@@ -25,7 +25,7 @@
 /**
  * Describe Bundle Tasks Response Unmarshaller
  */
-@interface EC2DescribeBundleTasksResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2DescribeBundleTasksResponseUnmarshaller:EC2ResponseUnmarshaller {
     EC2DescribeBundleTasksResponse *response;
 }
 

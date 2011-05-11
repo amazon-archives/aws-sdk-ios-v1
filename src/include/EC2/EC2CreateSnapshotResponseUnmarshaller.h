@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2CreateSnapshotResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "EC2SnapshotUnmarshaller.h"
@@ -24,7 +24,7 @@
 /**
  * Create Snapshot Response Unmarshaller
  */
-@interface EC2CreateSnapshotResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2CreateSnapshotResponseUnmarshaller:EC2ResponseUnmarshaller {
     EC2CreateSnapshotResponse *response;
 }
 

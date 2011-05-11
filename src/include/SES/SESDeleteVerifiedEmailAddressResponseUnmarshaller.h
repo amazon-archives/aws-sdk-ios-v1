@@ -14,9 +14,9 @@
  */
 
 #import "SESDeleteVerifiedEmailAddressResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SESResponseUnmarshaller.h"
 
-@interface SESDeleteVerifiedEmailAddressResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface SESDeleteVerifiedEmailAddressResponseUnmarshaller:SESResponseUnmarshaller
 {
     SESDeleteVerifiedEmailAddressResponse *response;
 }

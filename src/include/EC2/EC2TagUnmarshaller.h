@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2Tag.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Tag Unmarshaller
  */
-@interface EC2TagUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2TagUnmarshaller:EC2ResponseUnmarshaller {
     EC2Tag *response;
 }
 

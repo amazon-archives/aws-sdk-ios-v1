@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2RegisterImageResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Register Image Response Unmarshaller
  */
-@interface EC2RegisterImageResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2RegisterImageResponseUnmarshaller:EC2ResponseUnmarshaller {
     EC2RegisterImageResponse *response;
 }
 

@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2TerminateInstancesResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
@@ -25,7 +25,7 @@
 /**
  * Terminate Instances Response Unmarshaller
  */
-@interface EC2TerminateInstancesResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2TerminateInstancesResponseUnmarshaller:EC2ResponseUnmarshaller {
     EC2TerminateInstancesResponse *response;
 }
 

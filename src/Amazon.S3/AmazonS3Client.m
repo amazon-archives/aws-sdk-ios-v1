@@ -330,6 +330,8 @@
         NSURLConnection *urlConnection = [NSURLConnection connectionWithRequest:urlRequest delegate:response];
         NSTimer         *timeoutTimer  = [NSTimer scheduledTimerWithTimeInterval:self.timeout target:response selector:@selector(timeout) userInfo:nil repeats:NO];
 
+        request.urlConnection = urlConnection;
+
         if ([request delegate] == nil) {
             while (!response.isFinishedLoading && !response.exception && !response.didTimeout) {
                 [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];

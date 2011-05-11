@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SimpleDBDomainMetadataResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SimpleDBResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonSDKUtil.h"
@@ -24,7 +24,7 @@
 /**
  * Domain Metadata Result Unmarshaller
  */
-@interface SimpleDBDomainMetadataResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface SimpleDBDomainMetadataResponseUnmarshaller:SimpleDBResponseUnmarshaller {
     SimpleDBDomainMetadataResponse *response;
 }
 

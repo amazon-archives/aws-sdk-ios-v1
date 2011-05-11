@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2Region.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Region Unmarshaller
  */
-@interface EC2RegionUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2RegionUnmarshaller:EC2ResponseUnmarshaller {
     EC2Region *response;
 }
 

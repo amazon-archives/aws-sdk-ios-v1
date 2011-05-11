@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SNSPublishResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SNSResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Publish Result Unmarshaller
  */
-@interface SNSPublishResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface SNSPublishResponseUnmarshaller:SNSResponseUnmarshaller {
     SNSPublishResponse *response;
 }
 

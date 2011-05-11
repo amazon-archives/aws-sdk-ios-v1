@@ -14,9 +14,9 @@
  */
 
 #import "EC2AuthorizeSecurityGroupIngressResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 
-@interface EC2AuthorizeSecurityGroupIngressResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface EC2AuthorizeSecurityGroupIngressResponseUnmarshaller:EC2ResponseUnmarshaller
 {
     EC2AuthorizeSecurityGroupIngressResponse *response;
 }

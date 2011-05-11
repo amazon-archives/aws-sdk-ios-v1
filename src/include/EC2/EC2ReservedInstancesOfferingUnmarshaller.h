@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2ReservedInstancesOffering.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonSDKUtil.h"
@@ -24,7 +24,7 @@
 /**
  * Reserved Instances Offering Unmarshaller
  */
-@interface EC2ReservedInstancesOfferingUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2ReservedInstancesOfferingUnmarshaller:EC2ResponseUnmarshaller {
     EC2ReservedInstancesOffering *response;
 }
 

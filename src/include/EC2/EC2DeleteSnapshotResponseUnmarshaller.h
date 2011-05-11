@@ -14,9 +14,9 @@
  */
 
 #import "EC2DeleteSnapshotResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 
-@interface EC2DeleteSnapshotResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface EC2DeleteSnapshotResponseUnmarshaller:EC2ResponseUnmarshaller
 {
     EC2DeleteSnapshotResponse *response;
 }

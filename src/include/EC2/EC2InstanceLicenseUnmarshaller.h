@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2InstanceLicense.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Instance License Unmarshaller
  */
-@interface EC2InstanceLicenseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2InstanceLicenseUnmarshaller:EC2ResponseUnmarshaller {
     EC2InstanceLicense *response;
 }
 

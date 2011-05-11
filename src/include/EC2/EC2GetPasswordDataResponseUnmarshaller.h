@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2GetPasswordDataResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Get Password Data Response Unmarshaller
  */
-@interface EC2GetPasswordDataResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2GetPasswordDataResponseUnmarshaller:EC2ResponseUnmarshaller {
     EC2GetPasswordDataResponse *response;
 }
 

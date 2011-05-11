@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2GetConsoleOutputResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Get Console Output Response Unmarshaller
  */
-@interface EC2GetConsoleOutputResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2GetConsoleOutputResponseUnmarshaller:EC2ResponseUnmarshaller {
     EC2GetConsoleOutputResponse *response;
 }
 

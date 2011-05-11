@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SESSendDataPoint.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SESResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonSDKUtil.h"
@@ -24,7 +24,7 @@
 /**
  * Send Data Point Unmarshaller
  */
-@interface SESSendDataPointUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface SESSendDataPointUnmarshaller:SESResponseUnmarshaller {
     SESSendDataPoint *response;
 }
 

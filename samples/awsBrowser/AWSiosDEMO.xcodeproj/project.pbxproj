@@ -21,7 +21,6 @@
 		D00E17E012CD58ED00FA8ED7 /* Message.xib in Resources */ = {isa = PBXBuildFile; fileRef = D00E17DE12CD58ED00FA8ED7 /* Message.xib */; };
 		D00E181512CD5C8F00FA8ED7 /* AddQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = D00E181312CD5C8F00FA8ED7 /* AddQueue.m */; };
 		D00E181612CD5C8F00FA8ED7 /* AddQueue.xib in Resources */ = {isa = PBXBuildFile; fileRef = D00E181412CD5C8F00FA8ED7 /* AddQueue.xib */; };
-		D0103DB31340F3FF00D4D4DF /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0103DB21340F3FF00D4D4DF /* AWSiOSSDK.framework */; };
 		D0167E8813673F0B00FA6780 /* SdbAsyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0167E8413673F0B00FA6780 /* SdbAsyncViewController.m */; };
 		D0167E8913673F0B00FA6780 /* SdbAsyncViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0167E8513673F0B00FA6780 /* SdbAsyncViewController.xib */; };
 		D0167E8A13673F0B00FA6780 /* SdbRequestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0167E8713673F0B00FA6780 /* SdbRequestDelegate.m */; };
@@ -35,6 +34,7 @@
 		D0211C1E1365D5D000CC5635 /* S3AsyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0211C1D1365D5D000CC5635 /* S3AsyncViewController.m */; };
 		D0211C651365E05800CC5635 /* S3RequestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0211C641365E05800CC5635 /* S3RequestDelegate.m */; };
 		D0211C9C1365E5EA00CC5635 /* temp.txt in Resources */ = {isa = PBXBuildFile; fileRef = D0211C9B1365E5EA00CC5635 /* temp.txt */; };
+		D03F1B3F137796C200891BD9 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D03F1B3E137796C200891BD9 /* AWSiOSSDK.framework */; };
 		D099929D128CA0E100CF9F64 /* AddBucketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D099928D128CA0E100CF9F64 /* AddBucketViewController.m */; };
 		D099929E128CA0E100CF9F64 /* AddBucketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D099928E128CA0E100CF9F64 /* AddBucketViewController.xib */; };
 		D099929F128CA0E100CF9F64 /* AddObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0999290128CA0E100CF9F64 /* AddObjectViewController.m */; };
@@ -77,7 +77,6 @@
 		D00E181212CD5C8F00FA8ED7 /* AddQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddQueue.h; sourceTree = "<group>"; };
 		D00E181312CD5C8F00FA8ED7 /* AddQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddQueue.m; sourceTree = "<group>"; };
 		D00E181412CD5C8F00FA8ED7 /* AddQueue.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddQueue.xib; sourceTree = "<group>"; };
-		D0103DB21340F3FF00D4D4DF /* AWSiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSiOSSDK.framework; path = /Volumes/Data/gdierkes/Desktop/mainline/AWSiOSSDK.framework; sourceTree = "<absolute>"; };
 		D0167E8313673F0B00FA6780 /* SdbAsyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SdbAsyncViewController.h; sourceTree = "<group>"; };
 		D0167E8413673F0B00FA6780 /* SdbAsyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SdbAsyncViewController.m; sourceTree = "<group>"; };
 		D0167E8513673F0B00FA6780 /* SdbAsyncViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SdbAsyncViewController.xib; sourceTree = "<group>"; };
@@ -98,6 +97,7 @@
 		D0211C631365E05800CC5635 /* S3RequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3RequestDelegate.h; path = ../S3RequestDelegate.h; sourceTree = "<group>"; };
 		D0211C641365E05800CC5635 /* S3RequestDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = S3RequestDelegate.m; path = ../S3RequestDelegate.m; sourceTree = "<group>"; };
 		D0211C9B1365E5EA00CC5635 /* temp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = temp.txt; path = Classes/temp.txt; sourceTree = SOURCE_ROOT; };
+		D03F1B3E137796C200891BD9 /* AWSiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSiOSSDK.framework; path = ../../AWSiOSSDK.framework; sourceTree = "<group>"; };
 		D099928C128CA0E100CF9F64 /* AddBucketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBucketViewController.h; sourceTree = "<group>"; };
 		D099928D128CA0E100CF9F64 /* AddBucketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBucketViewController.m; sourceTree = "<group>"; };
 		D099928E128CA0E100CF9F64 /* AddBucketViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddBucketViewController.xib; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
-				D0103DB31340F3FF00D4D4DF /* AWSiOSSDK.framework in Frameworks */,
+				D03F1B3F137796C200891BD9 /* AWSiOSSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,10 +200,10 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D03F1B3E137796C200891BD9 /* AWSiOSSDK.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
-				D0103DB21340F3FF00D4D4DF /* AWSiOSSDK.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

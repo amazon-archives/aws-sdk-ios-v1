@@ -14,9 +14,9 @@
  */
 
 #import "SNSAddPermissionResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SNSResponseUnmarshaller.h"
 
-@interface SNSAddPermissionResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface SNSAddPermissionResponseUnmarshaller:SNSResponseUnmarshaller
 {
     SNSAddPermissionResponse *response;
 }

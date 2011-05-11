@@ -14,9 +14,9 @@
  */
 
 #import "EC2DeleteTagsResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 
-@interface EC2DeleteTagsResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface EC2DeleteTagsResponseUnmarshaller:EC2ResponseUnmarshaller
 {
     EC2DeleteTagsResponse *response;
 }

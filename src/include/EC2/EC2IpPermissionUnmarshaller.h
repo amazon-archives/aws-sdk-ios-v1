@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2IpPermission.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
@@ -27,7 +27,7 @@
 /**
  * Ip Permission Unmarshaller
  */
-@interface EC2IpPermissionUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2IpPermissionUnmarshaller:EC2ResponseUnmarshaller {
     EC2IpPermission *response;
 }
 

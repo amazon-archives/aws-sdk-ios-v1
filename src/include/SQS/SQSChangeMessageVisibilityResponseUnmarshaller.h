@@ -14,9 +14,9 @@
  */
 
 #import "SQSChangeMessageVisibilityResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SQSResponseUnmarshaller.h"
 
-@interface SQSChangeMessageVisibilityResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface SQSChangeMessageVisibilityResponseUnmarshaller:SQSResponseUnmarshaller
 {
     SQSChangeMessageVisibilityResponse *response;
 }

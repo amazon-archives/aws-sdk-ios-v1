@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2UserIdGroupPair.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * User Id Group Pair Unmarshaller
  */
-@interface EC2UserIdGroupPairUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2UserIdGroupPairUnmarshaller:EC2ResponseUnmarshaller {
     EC2UserIdGroupPair *response;
 }
 

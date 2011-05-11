@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2Monitoring.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Monitoring Unmarshaller
  */
-@interface EC2MonitoringUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2MonitoringUnmarshaller:EC2ResponseUnmarshaller {
     EC2Monitoring *response;
 }
 

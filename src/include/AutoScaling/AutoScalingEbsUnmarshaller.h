@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AutoScalingEbs.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "AutoScalingResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Ebs Unmarshaller
  */
-@interface AutoScalingEbsUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface AutoScalingEbsUnmarshaller:AutoScalingResponseUnmarshaller {
     AutoScalingEbs *response;
 }
 

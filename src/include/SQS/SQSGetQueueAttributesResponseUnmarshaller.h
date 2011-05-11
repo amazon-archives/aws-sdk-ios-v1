@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SQSGetQueueAttributesResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SQSResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonDictionaryUnmarshaller.h"
@@ -24,7 +24,7 @@
 /**
  * Get Queue Attributes Result Unmarshaller
  */
-@interface SQSGetQueueAttributesResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface SQSGetQueueAttributesResponseUnmarshaller:SQSResponseUnmarshaller {
     SQSGetQueueAttributesResponse *response;
 }
 

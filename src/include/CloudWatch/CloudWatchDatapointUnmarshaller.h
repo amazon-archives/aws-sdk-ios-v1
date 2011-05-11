@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "CloudWatchDatapoint.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "CloudWatchResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonSDKUtil.h"
@@ -24,7 +24,7 @@
 /**
  * Datapoint Unmarshaller
  */
-@interface CloudWatchDatapointUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface CloudWatchDatapointUnmarshaller:CloudWatchResponseUnmarshaller {
     CloudWatchDatapoint *response;
 }
 

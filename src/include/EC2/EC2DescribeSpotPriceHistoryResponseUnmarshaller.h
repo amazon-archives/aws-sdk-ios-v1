@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2DescribeSpotPriceHistoryResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
@@ -25,7 +25,7 @@
 /**
  * Describe Spot Price History Response Unmarshaller
  */
-@interface EC2DescribeSpotPriceHistoryResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2DescribeSpotPriceHistoryResponseUnmarshaller:EC2ResponseUnmarshaller {
     EC2DescribeSpotPriceHistoryResponse *response;
 }
 

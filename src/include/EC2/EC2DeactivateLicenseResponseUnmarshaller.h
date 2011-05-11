@@ -14,9 +14,9 @@
  */
 
 #import "EC2DeactivateLicenseResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 
-@interface EC2DeactivateLicenseResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface EC2DeactivateLicenseResponseUnmarshaller:EC2ResponseUnmarshaller
 {
     EC2DeactivateLicenseResponse *response;
 }

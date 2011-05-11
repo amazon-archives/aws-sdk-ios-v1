@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AutoScalingTerminateInstanceInAutoScalingGroupResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "AutoScalingResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "AutoScalingActivityUnmarshaller.h"
@@ -24,7 +24,7 @@
 /**
  * Terminate Instance In Auto Scaling Group Result Unmarshaller
  */
-@interface AutoScalingTerminateInstanceInAutoScalingGroupResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface AutoScalingTerminateInstanceInAutoScalingGroupResponseUnmarshaller:AutoScalingResponseUnmarshaller {
     AutoScalingTerminateInstanceInAutoScalingGroupResponse *response;
 }
 

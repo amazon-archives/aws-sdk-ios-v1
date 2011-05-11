@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2CreateKeyPairResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "EC2KeyPairUnmarshaller.h"
@@ -24,7 +24,7 @@
 /**
  * Create Key Pair Response Unmarshaller
  */
-@interface EC2CreateKeyPairResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2CreateKeyPairResponseUnmarshaller:EC2ResponseUnmarshaller {
     EC2CreateKeyPairResponse *response;
 }
 

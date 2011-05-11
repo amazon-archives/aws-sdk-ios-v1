@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AutoScalingDescribeScheduledActionsResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "AutoScalingResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
@@ -25,7 +25,7 @@
 /**
  * Describe Scheduled Actions Result Unmarshaller
  */
-@interface AutoScalingDescribeScheduledActionsResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface AutoScalingDescribeScheduledActionsResponseUnmarshaller:AutoScalingResponseUnmarshaller {
     AutoScalingDescribeScheduledActionsResponse *response;
 }
 

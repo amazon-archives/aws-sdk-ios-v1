@@ -14,9 +14,9 @@
  */
 
 #import "SNSSetTopicAttributesResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SNSResponseUnmarshaller.h"
 
-@interface SNSSetTopicAttributesResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface SNSSetTopicAttributesResponseUnmarshaller:SNSResponseUnmarshaller
 {
     SNSSetTopicAttributesResponse *response;
 }

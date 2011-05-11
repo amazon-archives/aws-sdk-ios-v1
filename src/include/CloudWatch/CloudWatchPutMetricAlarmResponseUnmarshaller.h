@@ -14,9 +14,9 @@
  */
 
 #import "CloudWatchPutMetricAlarmResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "CloudWatchResponseUnmarshaller.h"
 
-@interface CloudWatchPutMetricAlarmResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface CloudWatchPutMetricAlarmResponseUnmarshaller:CloudWatchResponseUnmarshaller
 {
     CloudWatchPutMetricAlarmResponse *response;
 }

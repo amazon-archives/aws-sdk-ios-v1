@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AutoScalingActivity.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "AutoScalingResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonSDKUtil.h"
@@ -24,7 +24,7 @@
 /**
  * Activity Unmarshaller
  */
-@interface AutoScalingActivityUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface AutoScalingActivityUnmarshaller:AutoScalingResponseUnmarshaller {
     AutoScalingActivity *response;
 }
 

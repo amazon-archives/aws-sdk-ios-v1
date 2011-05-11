@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AutoScalingScheduledUpdateGroupAction.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "AutoScalingResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonSDKUtil.h"
@@ -24,7 +24,7 @@
 /**
  * Scheduled Update Group Action Unmarshaller
  */
-@interface AutoScalingScheduledUpdateGroupActionUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface AutoScalingScheduledUpdateGroupActionUnmarshaller:AutoScalingResponseUnmarshaller {
     AutoScalingScheduledUpdateGroupAction *response;
 }
 

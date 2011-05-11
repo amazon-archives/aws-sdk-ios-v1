@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2DescribeSecurityGroupsResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
@@ -25,7 +25,7 @@
 /**
  * Describe Security Groups Response Unmarshaller
  */
-@interface EC2DescribeSecurityGroupsResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2DescribeSecurityGroupsResponseUnmarshaller:EC2ResponseUnmarshaller {
     EC2DescribeSecurityGroupsResponse *response;
 }
 

@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AutoScalingBlockDeviceMapping.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "AutoScalingResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "AutoScalingEbsUnmarshaller.h"
@@ -24,7 +24,7 @@
 /**
  * Block Device Mapping Unmarshaller
  */
-@interface AutoScalingBlockDeviceMappingUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface AutoScalingBlockDeviceMappingUnmarshaller:AutoScalingResponseUnmarshaller {
     AutoScalingBlockDeviceMapping *response;
 }
 

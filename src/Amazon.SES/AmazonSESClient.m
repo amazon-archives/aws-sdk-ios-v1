@@ -31,49 +31,49 @@
 {
     AmazonServiceRequest *request = [SESGetSendQuotaRequestMarshaller createRequest:getSendQuotaRequest];
 
-    return (SESGetSendQuotaResponse *)[self invoke:request unmarshallerDelegate:[SESGetSendQuotaResponseUnmarshaller class]];
+    return (SESGetSendQuotaResponse *)[self invoke:request rawRequest:getSendQuotaRequest unmarshallerDelegate:[SESGetSendQuotaResponseUnmarshaller class]];
 }
 
 -(SESListVerifiedEmailAddressesResponse *)listVerifiedEmailAddresses:(SESListVerifiedEmailAddressesRequest *)listVerifiedEmailAddressesRequest
 {
     AmazonServiceRequest *request = [SESListVerifiedEmailAddressesRequestMarshaller createRequest:listVerifiedEmailAddressesRequest];
 
-    return (SESListVerifiedEmailAddressesResponse *)[self invoke:request unmarshallerDelegate:[SESListVerifiedEmailAddressesResponseUnmarshaller class]];
+    return (SESListVerifiedEmailAddressesResponse *)[self invoke:request rawRequest:listVerifiedEmailAddressesRequest unmarshallerDelegate:[SESListVerifiedEmailAddressesResponseUnmarshaller class]];
 }
 
 -(SESGetSendStatisticsResponse *)getSendStatistics:(SESGetSendStatisticsRequest *)getSendStatisticsRequest
 {
     AmazonServiceRequest *request = [SESGetSendStatisticsRequestMarshaller createRequest:getSendStatisticsRequest];
 
-    return (SESGetSendStatisticsResponse *)[self invoke:request unmarshallerDelegate:[SESGetSendStatisticsResponseUnmarshaller class]];
+    return (SESGetSendStatisticsResponse *)[self invoke:request rawRequest:getSendStatisticsRequest unmarshallerDelegate:[SESGetSendStatisticsResponseUnmarshaller class]];
 }
 
 -(SESSendEmailResponse *)sendEmail:(SESSendEmailRequest *)sendEmailRequest
 {
     AmazonServiceRequest *request = [SESSendEmailRequestMarshaller createRequest:sendEmailRequest];
 
-    return (SESSendEmailResponse *)[self invoke:request unmarshallerDelegate:[SESSendEmailResponseUnmarshaller class]];
+    return (SESSendEmailResponse *)[self invoke:request rawRequest:sendEmailRequest unmarshallerDelegate:[SESSendEmailResponseUnmarshaller class]];
 }
 
 -(SESDeleteVerifiedEmailAddressResponse *)deleteVerifiedEmailAddress:(SESDeleteVerifiedEmailAddressRequest *)deleteVerifiedEmailAddressRequest
 {
     AmazonServiceRequest *request = [SESDeleteVerifiedEmailAddressRequestMarshaller createRequest:deleteVerifiedEmailAddressRequest];
 
-    return (SESDeleteVerifiedEmailAddressResponse *)[self invoke:request unmarshallerDelegate:[SESDeleteVerifiedEmailAddressResponseUnmarshaller class]];
+    return (SESDeleteVerifiedEmailAddressResponse *)[self invoke:request rawRequest:deleteVerifiedEmailAddressRequest unmarshallerDelegate:[SESDeleteVerifiedEmailAddressResponseUnmarshaller class]];
 }
 
 -(SESVerifyEmailAddressResponse *)verifyEmailAddress:(SESVerifyEmailAddressRequest *)verifyEmailAddressRequest
 {
     AmazonServiceRequest *request = [SESVerifyEmailAddressRequestMarshaller createRequest:verifyEmailAddressRequest];
 
-    return (SESVerifyEmailAddressResponse *)[self invoke:request unmarshallerDelegate:[SESVerifyEmailAddressResponseUnmarshaller class]];
+    return (SESVerifyEmailAddressResponse *)[self invoke:request rawRequest:verifyEmailAddressRequest unmarshallerDelegate:[SESVerifyEmailAddressResponseUnmarshaller class]];
 }
 
 -(SESSendRawEmailResponse *)sendRawEmail:(SESSendRawEmailRequest *)sendRawEmailRequest
 {
     AmazonServiceRequest *request = [SESSendRawEmailRequestMarshaller createRequest:sendRawEmailRequest];
 
-    return (SESSendRawEmailResponse *)[self invoke:request unmarshallerDelegate:[SESSendRawEmailResponseUnmarshaller class]];
+    return (SESSendRawEmailResponse *)[self invoke:request rawRequest:sendRawEmailRequest unmarshallerDelegate:[SESSendRawEmailResponseUnmarshaller class]];
 }
 
 

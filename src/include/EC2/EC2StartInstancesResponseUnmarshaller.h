@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2StartInstancesResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
@@ -25,7 +25,7 @@
 /**
  * Start Instances Response Unmarshaller
  */
-@interface EC2StartInstancesResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2StartInstancesResponseUnmarshaller:EC2ResponseUnmarshaller {
     EC2StartInstancesResponse *response;
 }
 

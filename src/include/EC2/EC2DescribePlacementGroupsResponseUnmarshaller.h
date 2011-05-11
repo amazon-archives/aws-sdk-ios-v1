@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2DescribePlacementGroupsResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
@@ -25,7 +25,7 @@
 /**
  * Describe Placement Groups Response Unmarshaller
  */
-@interface EC2DescribePlacementGroupsResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2DescribePlacementGroupsResponseUnmarshaller:EC2ResponseUnmarshaller {
     EC2DescribePlacementGroupsResponse *response;
 }
 

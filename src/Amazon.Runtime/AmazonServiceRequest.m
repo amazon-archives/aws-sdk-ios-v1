@@ -24,6 +24,7 @@
 @synthesize endpoint;
 @synthesize userAgent;
 @synthesize credentials;
+@synthesize urlConnection;
 
 -(void)sign
 {
@@ -122,6 +123,7 @@
     [urlRequest release];
     [parameters release];
     [userAgent release];
+    [urlConnection release];
 
     [super dealloc];
 }

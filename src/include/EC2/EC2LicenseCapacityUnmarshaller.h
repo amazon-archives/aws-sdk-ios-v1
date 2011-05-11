@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2LicenseCapacity.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonSDKUtil.h"
@@ -24,7 +24,7 @@
 /**
  * License Capacity Unmarshaller
  */
-@interface EC2LicenseCapacityUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2LicenseCapacityUnmarshaller:EC2ResponseUnmarshaller {
     EC2LicenseCapacity *response;
 }
 

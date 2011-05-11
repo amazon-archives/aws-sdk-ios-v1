@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2GroupIdentifier.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Group Identifier Unmarshaller
  */
-@interface EC2GroupIdentifierUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2GroupIdentifierUnmarshaller:EC2ResponseUnmarshaller {
     EC2GroupIdentifier *response;
 }
 

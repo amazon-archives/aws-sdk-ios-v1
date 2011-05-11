@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AutoScalingMetricGranularityType.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "AutoScalingResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Metric Granularity Type Unmarshaller
  */
-@interface AutoScalingMetricGranularityTypeUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface AutoScalingMetricGranularityTypeUnmarshaller:AutoScalingResponseUnmarshaller {
     AutoScalingMetricGranularityType *response;
 }
 

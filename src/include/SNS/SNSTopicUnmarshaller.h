@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SNSTopic.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SNSResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Topic Unmarshaller
  */
-@interface SNSTopicUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface SNSTopicUnmarshaller:SNSResponseUnmarshaller {
     SNSTopic *response;
 }
 

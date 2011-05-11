@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SESGetSendStatisticsResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SESResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
@@ -25,7 +25,7 @@
 /**
  * Get Send Statistics Result Unmarshaller
  */
-@interface SESGetSendStatisticsResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface SESGetSendStatisticsResponseUnmarshaller:SESResponseUnmarshaller {
     SESGetSendStatisticsResponse *response;
 }
 

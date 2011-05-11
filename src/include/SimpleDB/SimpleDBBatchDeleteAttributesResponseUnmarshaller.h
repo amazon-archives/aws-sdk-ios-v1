@@ -14,9 +14,9 @@
  */
 
 #import "SimpleDBBatchDeleteAttributesResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SimpleDBResponseUnmarshaller.h"
 
-@interface SimpleDBBatchDeleteAttributesResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface SimpleDBBatchDeleteAttributesResponseUnmarshaller:SimpleDBResponseUnmarshaller
 {
     SimpleDBBatchDeleteAttributesResponse *response;
 }

@@ -14,9 +14,9 @@
  */
 
 #import "AutoScalingDeleteLaunchConfigurationResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "AutoScalingResponseUnmarshaller.h"
 
-@interface AutoScalingDeleteLaunchConfigurationResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface AutoScalingDeleteLaunchConfigurationResponseUnmarshaller:AutoScalingResponseUnmarshaller
 {
     AutoScalingDeleteLaunchConfigurationResponse *response;
 }

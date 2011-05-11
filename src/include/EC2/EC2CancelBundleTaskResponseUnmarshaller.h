@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2CancelBundleTaskResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "EC2BundleTaskUnmarshaller.h"
@@ -24,7 +24,7 @@
 /**
  * Cancel Bundle Task Response Unmarshaller
  */
-@interface EC2CancelBundleTaskResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2CancelBundleTaskResponseUnmarshaller:EC2ResponseUnmarshaller {
     EC2CancelBundleTaskResponse *response;
 }
 

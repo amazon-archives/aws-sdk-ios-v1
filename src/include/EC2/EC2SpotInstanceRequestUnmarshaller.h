@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2SpotInstanceRequest.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "EC2SpotInstanceStateFaultUnmarshaller.h"
@@ -28,7 +28,7 @@
 /**
  * Spot Instance Request Unmarshaller
  */
-@interface EC2SpotInstanceRequestUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2SpotInstanceRequestUnmarshaller:EC2ResponseUnmarshaller {
     EC2SpotInstanceRequest *response;
 }
 

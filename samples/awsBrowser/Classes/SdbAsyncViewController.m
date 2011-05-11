@@ -15,7 +15,6 @@
 
 
 #import "SdbAsyncViewController.h"
-#import "Constants.h"
 
 
 @implementation SdbAsyncViewController
@@ -27,10 +26,12 @@
 -(id)init
 {
     // Create the SDB Request Delegate
-    sdbDelegate = [[SdbRequestDelegate alloc] init];
-    timer       = nil;
-    counter     = 0;
-    domainName  = @"testing-async-with-sdb";
+    sdbDelegate          = [[SdbRequestDelegate alloc] init];
+    timer                = nil;
+    counter              = 0;
+    domainName           = @"testing-async-with-sdb";
+    selectRequest        = nil;
+    putAttributesRequest = nil;
 
     return [super initWithNibName:@"SdbAsyncViewController" bundle:nil];
 }
@@ -43,7 +44,10 @@
 
 -(IBAction)start:(id)sender
 {
-    if (timer != nil) {
+    bytesIn.text  = @"0";
+    bytesOut.text = @"0";
+
+    if (timer != nil && [timer isValid]) {
         [timer invalidate];
         timer = nil;
     }
@@ -52,14 +56,31 @@
     counter = 0;
 }
 
--(IBAction)exit:(id)sender
+-(IBAction)stop:(id)sender
 {
-    if (timer != nil) {
+    if (timer != nil && [timer isValid]) {
         [timer invalidate];
         timer = nil;
     }
 
-    timer   = nil;
+    counter = 0;
+
+    if (selectRequest != nil) {
+        [selectRequest.urlConnection cancel];
+    }
+
+    if (putAttributesRequest != nil) {
+        [putAttributesRequest.urlConnection cancel];
+    }
+}
+
+-(IBAction)exit:(id)sender
+{
+    if (timer != nil && [timer isValid]) {
+        [timer invalidate];
+        timer = nil;
+    }
+
     counter = 0;
     [self dismissModalViewControllerAnimated:YES];
 }
@@ -98,20 +119,17 @@
 -(void)putAttributes
 {
     @try {
-        SimpleDBReplaceableAttribute *replacableAttribute1 = [[[SimpleDBReplaceableAttribute alloc] initWithName:@"Attribute1" andValue:@"Value1" andReplace:YES] autorelease];
-        SimpleDBReplaceableAttribute *replacableAttribute2 = [[[SimpleDBReplaceableAttribute alloc] initWithName:@"Attribute2" andValue:@"Value2" andReplace:YES] autorelease];
-        SimpleDBReplaceableAttribute *replacableAttribute3 = [[[SimpleDBReplaceableAttribute alloc] initWithName:@"Attribute3" andValue:@"Value3" andReplace:YES] autorelease];
-        SimpleDBReplaceableAttribute *replacableAttribute4 = [[[SimpleDBReplaceableAttribute alloc] initWithName:@"Attribute4" andValue:@"Value4" andReplace:YES] autorelease];
-
-        NSMutableArray               *attributes = [[[NSMutableArray alloc] initWithCapacity:4] autorelease];
-        [attributes addObject:replacableAttribute1];
-        [attributes addObject:replacableAttribute2];
-        [attributes addObject:replacableAttribute3];
-        [attributes addObject:replacableAttribute4];
+        NSMutableArray *attributes = [[[NSMutableArray alloc] initWithCapacity:200] autorelease];
+        for (int i = 0; i < 200; i++) {
+            NSString                     *att                 = [NSString stringWithFormat:@"attribute-%d", i];
+            NSString                     *val                 = [NSString stringWithFormat:@"value-%d", i];
+            SimpleDBReplaceableAttribute *replacableAttribute = [[[SimpleDBReplaceableAttribute alloc] initWithName:att andValue:val andReplace:YES] autorelease];
+            [attributes addObject:replacableAttribute];
+        }
         for (int i = 0; i < 10; i++) {
-            NSString                     *itemName = [NSString stringWithFormat:@"Item-%d", i];
+            NSString *itemName = [NSString stringWithFormat:@"Item-%d", i];
 
-            SimpleDBPutAttributesRequest *putAttributesRequest = [[SimpleDBPutAttributesRequest alloc] initWithDomainName:domainName andItemName:itemName andAttributes:attributes];
+            putAttributesRequest = [[SimpleDBPutAttributesRequest alloc] initWithDomainName:domainName andItemName:itemName andAttributes:attributes];
             [putAttributesRequest setDelegate:sdbDelegate];
 
             [[Constants sdb] putAttributes:putAttributesRequest];
@@ -125,9 +143,8 @@
 -(void)selectAttributes
 {
     @try {
-        NSString              *selectExpression = [NSString stringWithFormat:@"select * from `%@`", domainName];
-
-        SimpleDBSelectRequest *selectRequest = [[[SimpleDBSelectRequest alloc] initWithSelectExpression:selectExpression] autorelease];
+        NSString *selectExpression = [NSString stringWithFormat:@"select * from `%@`", domainName];
+        selectRequest = [[SimpleDBSelectRequest alloc] initWithSelectExpression:selectExpression];
         [selectRequest setDelegate:sdbDelegate];
         selectRequest.consistentRead = YES;
 
@@ -142,6 +159,8 @@
 {
     [sdbDelegate dealloc];
     [domainName release];
+    [putAttributesRequest release];
+    [selectRequest release];
     [super dealloc];
 }
 

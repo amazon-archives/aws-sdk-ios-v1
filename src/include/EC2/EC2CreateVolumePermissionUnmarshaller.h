@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2CreateVolumePermission.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Create Volume Permission Unmarshaller
  */
-@interface EC2CreateVolumePermissionUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2CreateVolumePermissionUnmarshaller:EC2ResponseUnmarshaller {
     EC2CreateVolumePermission *response;
 }
 

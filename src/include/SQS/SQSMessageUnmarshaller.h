@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SQSMessage.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SQSResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonDictionaryUnmarshaller.h"
@@ -24,7 +24,7 @@
 /**
  * Message Unmarshaller
  */
-@interface SQSMessageUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface SQSMessageUnmarshaller:SQSResponseUnmarshaller {
     SQSMessage *response;
 }
 

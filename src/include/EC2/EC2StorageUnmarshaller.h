@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2Storage.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "EC2S3StorageUnmarshaller.h"
@@ -24,7 +24,7 @@
 /**
  * Storage Unmarshaller
  */
-@interface EC2StorageUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2StorageUnmarshaller:EC2ResponseUnmarshaller {
     EC2Storage *response;
 }
 

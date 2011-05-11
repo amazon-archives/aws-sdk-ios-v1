@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AutoScalingProcessType.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "AutoScalingResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Process Type Unmarshaller
  */
-@interface AutoScalingProcessTypeUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface AutoScalingProcessTypeUnmarshaller:AutoScalingResponseUnmarshaller {
     AutoScalingProcessType *response;
 }
 

@@ -21,6 +21,7 @@
 #import "AmazonSignatureException.h"
 #import "AmazonUnmarshallerXMLParserDelegate.h"
 #import "AmazonServiceRequest.h"
+#import "AmazonServiceRequestConfig.h"
 #import "AmazonServiceResponse.h"
 #import "AmazonServiceResponseUnmarshaller.h"
 #import "AmazonURLRequest.h"
@@ -80,7 +81,7 @@
  * @param request An AmazonServiceRequest describing the parameters of a request.
  * @return The response from the service.
  */
--(AmazonServiceResponse *)invoke:(AmazonServiceRequest *)request unmarshallerDelegate:(Class)unmarshallerDelegate;
+-(AmazonServiceResponse *)invoke:(AmazonServiceRequest *)generatedRequest rawRequest:(AmazonServiceRequestConfig *)originalRequest unmarshallerDelegate:(Class)unmarshallerDelegate;
 
 -(void)pauseExponentially:(int)tryCount;
 -(bool)shouldRetry:(AmazonServiceResponse *)response;

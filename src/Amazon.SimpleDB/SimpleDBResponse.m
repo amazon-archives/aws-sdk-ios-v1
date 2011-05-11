@@ -15,6 +15,27 @@
 
 #import "SimpleDBResponse.h"
 
+
 @implementation SimpleDBResponse
+
+@synthesize boxUsage;
+
+
+-(NSString *)description
+{
+    NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
+
+    [buffer appendString:@"{"];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"BoxUsage: %f,", boxUsage] autorelease]];
+    [buffer appendString:[super description]];
+    [buffer appendString:@"}"];
+
+    return [buffer autorelease];
+}
+
+-(void)dealloc
+{
+    [super dealloc];
+}
 
 @end

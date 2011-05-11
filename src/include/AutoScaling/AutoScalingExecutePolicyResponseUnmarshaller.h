@@ -14,9 +14,9 @@
  */
 
 #import "AutoScalingExecutePolicyResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "AutoScalingResponseUnmarshaller.h"
 
-@interface AutoScalingExecutePolicyResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface AutoScalingExecutePolicyResponseUnmarshaller:AutoScalingResponseUnmarshaller
 {
     AutoScalingExecutePolicyResponse *response;
 }

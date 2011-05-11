@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2VolumeAttachment.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Volume Attachment Unmarshaller
  */
-@interface EC2VolumeAttachmentUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2VolumeAttachmentUnmarshaller:EC2ResponseUnmarshaller {
     EC2VolumeAttachment *response;
 }
 

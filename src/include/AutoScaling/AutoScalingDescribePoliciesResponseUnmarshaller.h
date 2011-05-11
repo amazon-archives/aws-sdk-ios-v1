@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AutoScalingDescribePoliciesResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "AutoScalingResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
@@ -25,7 +25,7 @@
 /**
  * Describe Policies Result Unmarshaller
  */
-@interface AutoScalingDescribePoliciesResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface AutoScalingDescribePoliciesResponseUnmarshaller:AutoScalingResponseUnmarshaller {
     AutoScalingDescribePoliciesResponse *response;
 }
 

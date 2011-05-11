@@ -14,9 +14,9 @@
  */
 
 #import "CloudWatchEnableAlarmActionsResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "CloudWatchResponseUnmarshaller.h"
 
-@interface CloudWatchEnableAlarmActionsResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface CloudWatchEnableAlarmActionsResponseUnmarshaller:CloudWatchResponseUnmarshaller
 {
     CloudWatchEnableAlarmActionsResponse *response;
 }

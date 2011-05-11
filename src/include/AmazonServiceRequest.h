@@ -31,6 +31,7 @@
     NSString                         *endpoint;
     NSString                         *userAgent;
     AmazonCredentials                *credentials;
+    NSURLConnection                  *urlConnection;
 }
 
 /** Request specific credentials. */
@@ -40,6 +41,10 @@
  * Use configureURLRequest to make sure all fields have
  */
 @property (nonatomic, retain) AmazonURLRequest *urlRequest;
+
+/** The connection object used to make the request.
+ */
+@property (nonatomic, retain) NSURLConnection *urlConnection;
 
 /** The HTTP Method (GET, PUT, POST, DELETE) used for the request. */
 @property (nonatomic, retain) NSString *httpMethod;

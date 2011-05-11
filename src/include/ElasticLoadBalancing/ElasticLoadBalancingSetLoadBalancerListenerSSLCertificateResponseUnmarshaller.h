@@ -14,9 +14,9 @@
  */
 
 #import "ElasticLoadBalancingSetLoadBalancerListenerSSLCertificateResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "ElasticLoadBalancingResponseUnmarshaller.h"
 
-@interface ElasticLoadBalancingSetLoadBalancerListenerSSLCertificateResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface ElasticLoadBalancingSetLoadBalancerListenerSSLCertificateResponseUnmarshaller:ElasticLoadBalancingResponseUnmarshaller
 {
     ElasticLoadBalancingSetLoadBalancerListenerSSLCertificateResponse *response;
 }

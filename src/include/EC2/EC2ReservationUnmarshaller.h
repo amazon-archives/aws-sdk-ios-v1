@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2Reservation.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
@@ -28,7 +28,7 @@
 /**
  * Reservation Unmarshaller
  */
-@interface EC2ReservationUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2ReservationUnmarshaller:EC2ResponseUnmarshaller {
     EC2Reservation *response;
 }
 

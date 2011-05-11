@@ -14,9 +14,9 @@
  */
 
 #import "AutoScalingCreateLaunchConfigurationResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "AutoScalingResponseUnmarshaller.h"
 
-@interface AutoScalingCreateLaunchConfigurationResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface AutoScalingCreateLaunchConfigurationResponseUnmarshaller:AutoScalingResponseUnmarshaller
 {
     AutoScalingCreateLaunchConfigurationResponse *response;
 }

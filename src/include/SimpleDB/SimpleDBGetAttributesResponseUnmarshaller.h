@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SimpleDBGetAttributesResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SimpleDBResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
@@ -25,7 +25,7 @@
 /**
  * Get Attributes Result Unmarshaller
  */
-@interface SimpleDBGetAttributesResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface SimpleDBGetAttributesResponseUnmarshaller:SimpleDBResponseUnmarshaller {
     SimpleDBGetAttributesResponse *response;
 }
 

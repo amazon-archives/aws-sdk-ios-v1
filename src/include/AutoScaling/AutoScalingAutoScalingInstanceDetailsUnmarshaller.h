@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AutoScalingAutoScalingInstanceDetails.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "AutoScalingResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Auto Scaling Instance Details Unmarshaller
  */
-@interface AutoScalingAutoScalingInstanceDetailsUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface AutoScalingAutoScalingInstanceDetailsUnmarshaller:AutoScalingResponseUnmarshaller {
     AutoScalingAutoScalingInstanceDetails *response;
 }
 

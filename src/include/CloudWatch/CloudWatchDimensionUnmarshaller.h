@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "CloudWatchDimension.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "CloudWatchResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Dimension Unmarshaller
  */
-@interface CloudWatchDimensionUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface CloudWatchDimensionUnmarshaller:CloudWatchResponseUnmarshaller {
     CloudWatchDimension *response;
 }
 

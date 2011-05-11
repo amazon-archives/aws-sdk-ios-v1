@@ -14,9 +14,9 @@
  */
 
 #import "EC2ActivateLicenseResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 
-@interface EC2ActivateLicenseResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface EC2ActivateLicenseResponseUnmarshaller:EC2ResponseUnmarshaller
 {
     EC2ActivateLicenseResponse *response;
 }

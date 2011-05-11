@@ -23,6 +23,7 @@
     id<AmazonServiceRequestDelegate> delegate;
     AmazonCredentials                *credentials;
     NSString                         *requestEndpoint;
+    NSURLConnection                  *urlConnection;
 }
 
 /** Request specific credentials. */
@@ -35,6 +36,11 @@
  *  see the default endpoint.
  */
 @property (nonatomic, retain) NSString *requestEndpoint;
+
+/**
+ * The connection object used to make the request.
+ */
+@property (nonatomic, retain) NSURLConnection *urlConnection;
 
 
 -(void)setDelegate:(id<AmazonServiceRequestDelegate> )delegate;

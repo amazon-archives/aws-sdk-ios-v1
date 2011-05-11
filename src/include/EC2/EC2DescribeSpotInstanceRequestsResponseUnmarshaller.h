@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2DescribeSpotInstanceRequestsResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
@@ -25,7 +25,7 @@
 /**
  * Describe Spot Instance Requests Response Unmarshaller
  */
-@interface EC2DescribeSpotInstanceRequestsResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2DescribeSpotInstanceRequestsResponseUnmarshaller:EC2ResponseUnmarshaller {
     EC2DescribeSpotInstanceRequestsResponse *response;
 }
 

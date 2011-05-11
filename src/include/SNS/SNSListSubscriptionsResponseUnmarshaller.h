@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SNSListSubscriptionsResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SNSResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
@@ -25,7 +25,7 @@
 /**
  * List Subscriptions Result Unmarshaller
  */
-@interface SNSListSubscriptionsResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface SNSListSubscriptionsResponseUnmarshaller:SNSResponseUnmarshaller {
     SNSListSubscriptionsResponse *response;
 }
 

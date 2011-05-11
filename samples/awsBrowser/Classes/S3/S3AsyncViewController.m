@@ -15,7 +15,6 @@
 
 
 #import "S3AsyncViewController.h"
-#import "Constants.h"
 
 
 @implementation S3AsyncViewController
@@ -27,7 +26,9 @@
 -(id)init
 {
     // Create the S3 Request Delegate
-    s3Delegate = [[S3RequestDelegate alloc] init];
+    s3Delegate       = [[S3RequestDelegate alloc] init];
+    putObjectRequest = nil;
+    getObjectRequest = nil;
 
     return [super initWithNibName:@"S3AsyncViewController" bundle:nil];
 }
@@ -40,8 +41,22 @@
 
 -(IBAction)start:(id)sender
 {
+    bytesIn.text  = @"0";
+    bytesOut.text = @"0";
+
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(putObject) userInfo:nil repeats:NO];
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(getObject) userInfo:nil repeats:NO];
+}
+
+-(IBAction)stop:(id)sender
+{
+    if (putObjectRequest != nil) {
+        [putObjectRequest.urlConnection cancel];
+    }
+
+    if (getObjectRequest != nil) {
+        [getObjectRequest.urlConnection cancel];
+    }
 }
 
 -(IBAction)exit:(id)sender
@@ -65,7 +80,7 @@
     }
 
     // Put the file as an object in the bucket.
-    S3PutObjectRequest *putObjectRequest = [[S3PutObjectRequest alloc] initWithKey:keyName inBucket:bucketName];
+    putObjectRequest          = [[S3PutObjectRequest alloc] initWithKey:keyName inBucket:bucketName];
     putObjectRequest.filename = filename;
     [putObjectRequest setDelegate:s3Delegate];
 
@@ -79,8 +94,7 @@
     NSString *keyName    = @"asyncTestFile";
 
     // Get the object from the bucket.
-    S3GetObjectRequest *getObjectRequest = [[S3GetObjectRequest alloc] initWithKey:keyName withBucket:bucketName];
-
+    getObjectRequest = [[S3GetObjectRequest alloc] initWithKey:keyName withBucket:bucketName];
     [getObjectRequest setDelegate:s3Delegate];
 
     // When using delegates the return is nil.
@@ -90,6 +104,8 @@
 -(void)dealloc
 {
     [s3Delegate dealloc];
+    [putObjectRequest release];
+    [getObjectRequest release];
     [super dealloc];
 }
 

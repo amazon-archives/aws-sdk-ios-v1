@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2CancelledSpotInstanceRequest.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Cancelled Spot Instance Request Unmarshaller
  */
-@interface EC2CancelledSpotInstanceRequestUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2CancelledSpotInstanceRequestUnmarshaller:EC2ResponseUnmarshaller {
     EC2CancelledSpotInstanceRequest *response;
 }
 

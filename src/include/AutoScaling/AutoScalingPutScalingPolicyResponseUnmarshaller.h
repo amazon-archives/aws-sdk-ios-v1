@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AutoScalingPutScalingPolicyResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "AutoScalingResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Put Scaling Policy Result Unmarshaller
  */
-@interface AutoScalingPutScalingPolicyResponseUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface AutoScalingPutScalingPolicyResponseUnmarshaller:AutoScalingResponseUnmarshaller {
     AutoScalingPutScalingPolicyResponse *response;
 }
 

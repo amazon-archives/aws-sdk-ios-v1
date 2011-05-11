@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EC2SpotPrice.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 
@@ -23,7 +23,7 @@
 /**
  * Spot Price Unmarshaller
  */
-@interface EC2SpotPriceUnmarshaller:AmazonServiceResponseUnmarshaller {
+@interface EC2SpotPriceUnmarshaller:EC2ResponseUnmarshaller {
     EC2SpotPrice *response;
 }
 

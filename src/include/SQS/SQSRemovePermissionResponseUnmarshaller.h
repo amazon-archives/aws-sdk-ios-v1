@@ -14,9 +14,9 @@
  */
 
 #import "SQSRemovePermissionResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
+#import "SQSResponseUnmarshaller.h"
 
-@interface SQSRemovePermissionResponseUnmarshaller:AmazonServiceResponseUnmarshaller
+@interface SQSRemovePermissionResponseUnmarshaller:SQSResponseUnmarshaller
 {
     SQSRemovePermissionResponse *response;
 }
