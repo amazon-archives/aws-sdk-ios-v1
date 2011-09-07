@@ -27,6 +27,7 @@
     [request setDelegate:[describeAutoScalingInstancesRequest delegate]];
     [request setCredentials:[describeAutoScalingInstancesRequest credentials]];
     [request setEndpoint:[describeAutoScalingInstancesRequest requestEndpoint]];
+    [request setRequestTag:[describeAutoScalingInstancesRequest requestTag]];
 
     if (describeAutoScalingInstancesRequest != nil) {
         int instanceIdsListIndex = 1;

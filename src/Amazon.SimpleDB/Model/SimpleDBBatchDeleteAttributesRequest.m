@@ -43,13 +43,13 @@
 }
 
 
--(void)addItem:(SimpleDBDeletableItem *)item
+-(void)addItem:(SimpleDBDeletableItem *)itemObject
 {
     if (items == nil) {
         items = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [items addObject:item];
+    [items addObject:itemObject];
 }
 
 

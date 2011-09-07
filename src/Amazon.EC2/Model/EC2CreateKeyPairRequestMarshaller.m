@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"CreateKeyPair"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[createKeyPairRequest delegate]];
     [request setCredentials:[createKeyPairRequest credentials]];
     [request setEndpoint:[createKeyPairRequest requestEndpoint]];
+    [request setRequestTag:[createKeyPairRequest requestTag]];
 
     if (createKeyPairRequest != nil) {
         if (createKeyPairRequest.keyName != nil) {

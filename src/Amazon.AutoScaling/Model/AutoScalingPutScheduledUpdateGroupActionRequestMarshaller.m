@@ -27,6 +27,7 @@
     [request setDelegate:[putScheduledUpdateGroupActionRequest delegate]];
     [request setCredentials:[putScheduledUpdateGroupActionRequest credentials]];
     [request setEndpoint:[putScheduledUpdateGroupActionRequest requestEndpoint]];
+    [request setRequestTag:[putScheduledUpdateGroupActionRequest requestTag]];
 
     if (putScheduledUpdateGroupActionRequest != nil) {
         if (putScheduledUpdateGroupActionRequest.autoScalingGroupName != nil) {

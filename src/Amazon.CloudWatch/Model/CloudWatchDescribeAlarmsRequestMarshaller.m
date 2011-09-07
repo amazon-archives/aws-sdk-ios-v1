@@ -27,6 +27,7 @@
     [request setDelegate:[describeAlarmsRequest delegate]];
     [request setCredentials:[describeAlarmsRequest credentials]];
     [request setEndpoint:[describeAlarmsRequest requestEndpoint]];
+    [request setRequestTag:[describeAlarmsRequest requestTag]];
 
     if (describeAlarmsRequest != nil) {
         int alarmNamesListIndex = 1;

@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"CancelSpotInstanceRequests"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[cancelSpotInstanceRequestsRequest delegate]];
     [request setCredentials:[cancelSpotInstanceRequestsRequest credentials]];
     [request setEndpoint:[cancelSpotInstanceRequestsRequest requestEndpoint]];
+    [request setRequestTag:[cancelSpotInstanceRequestsRequest requestTag]];
 
     if (cancelSpotInstanceRequestsRequest != nil) {
         int spotInstanceRequestIdsListIndex = 1;

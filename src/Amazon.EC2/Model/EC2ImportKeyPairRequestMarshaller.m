@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"ImportKeyPair"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[importKeyPairRequest delegate]];
     [request setCredentials:[importKeyPairRequest credentials]];
     [request setEndpoint:[importKeyPairRequest requestEndpoint]];
+    [request setRequestTag:[importKeyPairRequest requestTag]];
 
     if (importKeyPairRequest != nil) {
         if (importKeyPairRequest.keyName != nil) {

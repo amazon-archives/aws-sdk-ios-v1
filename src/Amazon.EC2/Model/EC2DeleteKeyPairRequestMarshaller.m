@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DeleteKeyPair"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[deleteKeyPairRequest delegate]];
     [request setCredentials:[deleteKeyPairRequest credentials]];
     [request setEndpoint:[deleteKeyPairRequest requestEndpoint]];
+    [request setRequestTag:[deleteKeyPairRequest requestTag]];
 
     if (deleteKeyPairRequest != nil) {
         if (deleteKeyPairRequest.keyName != nil) {

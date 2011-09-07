@@ -18,13 +18,13 @@
 #import "GTMDefines.h"
 #import "GTMLogger+ASL.h"
 
-#ifdef DEBUG
+#ifdef AMAZON_LOGGER_DEBUG
 #undef NSLog
 #define NSLog    GTMLoggerDebug
 #endif
 
 
-#ifdef RELEASE
+#ifdef AMAZON_LOGGER_RELEASE
 #undef NSLog
 #define NSLog    GTMLoggerInfo
 #endif

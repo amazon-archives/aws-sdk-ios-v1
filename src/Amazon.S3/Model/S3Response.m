@@ -14,6 +14,7 @@
  */
 
 #import "S3Response.h"
+#import "AmazonLogger.h"
 
 @implementation S3Response
 
@@ -79,6 +80,7 @@
 {
     if (nil == dateFormatter) {
         dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setLocale:[AmazonSDKUtil timestampLocale]];
         [dateFormatter setDateFormat:kS3DateFormat];
     }
 

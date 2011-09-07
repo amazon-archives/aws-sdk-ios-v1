@@ -51,6 +51,11 @@
         return;
     }
 
+    if ([elementName isEqualToString:@"tenancy"]) {
+        self.response.tenancy = self.currentText;
+        return;
+    }
+
     if ([elementName isEqualToString:@"placement"]) {
         if (caller != nil) {
             [parser setDelegate:caller];

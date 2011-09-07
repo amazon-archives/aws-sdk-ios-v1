@@ -27,6 +27,7 @@
     [request setDelegate:[listQueuesRequest delegate]];
     [request setCredentials:[listQueuesRequest credentials]];
     [request setEndpoint:[listQueuesRequest requestEndpoint]];
+    [request setRequestTag:[listQueuesRequest requestTag]];
 
     if (listQueuesRequest != nil) {
         if (listQueuesRequest.queueNamePrefix != nil) {

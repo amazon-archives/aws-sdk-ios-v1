@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"ResetImageAttribute"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[resetImageAttributeRequest delegate]];
     [request setCredentials:[resetImageAttributeRequest credentials]];
     [request setEndpoint:[resetImageAttributeRequest requestEndpoint]];
+    [request setRequestTag:[resetImageAttributeRequest requestTag]];
 
     if (resetImageAttributeRequest != nil) {
         if (resetImageAttributeRequest.imageId != nil) {

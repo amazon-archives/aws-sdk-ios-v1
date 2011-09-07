@@ -27,6 +27,7 @@
     [request setDelegate:[deleteScheduledActionRequest delegate]];
     [request setCredentials:[deleteScheduledActionRequest credentials]];
     [request setEndpoint:[deleteScheduledActionRequest requestEndpoint]];
+    [request setRequestTag:[deleteScheduledActionRequest requestTag]];
 
     if (deleteScheduledActionRequest != nil) {
         if (deleteScheduledActionRequest.autoScalingGroupName != nil) {

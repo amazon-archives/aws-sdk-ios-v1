@@ -33,13 +33,13 @@
 }
 
 
--(void)addMetricData:(CloudWatchMetricDatum *)metricData
+-(void)addMetricData:(CloudWatchMetricDatum *)metricDataObject
 {
     if (metricDatas == nil) {
         metricDatas = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [metricDatas addObject:metricData];
+    [metricDatas addObject:metricDataObject];
 }
 
 

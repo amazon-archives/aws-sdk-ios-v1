@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribeReservedInstancesOfferings"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[describeReservedInstancesOfferingsRequest delegate]];
     [request setCredentials:[describeReservedInstancesOfferingsRequest credentials]];
     [request setEndpoint:[describeReservedInstancesOfferingsRequest requestEndpoint]];
+    [request setRequestTag:[describeReservedInstancesOfferingsRequest requestTag]];
 
     if (describeReservedInstancesOfferingsRequest != nil) {
         int reservedInstancesOfferingIdsListIndex = 1;
@@ -72,6 +73,11 @@
             }
 
             filtersListIndex++;
+        }
+    }
+    if (describeReservedInstancesOfferingsRequest != nil) {
+        if (describeReservedInstancesOfferingsRequest.instanceTenancy != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", describeReservedInstancesOfferingsRequest.instanceTenancy] forKey:[NSString stringWithFormat:@"%@", @"InstanceTenancy"]];
         }
     }
 

@@ -42,9 +42,6 @@
  */
 -(id)init;
 
-/**
- *
- */
 @property (nonatomic, retain) NSMutableArray *spotInstanceRequests;
 
 /**

@@ -25,7 +25,7 @@
  * <code>LoadBalancerName</code> and <code>LoadBalancerPort</code> ,
  * but with a different <code>InstancePort</code> ,
  * <code>Protocol</code> ,
- * or <code>SSLCertificateID</code> .
+ * or <code>SSLCertificateId</code> .
  *
  * </p>
  *

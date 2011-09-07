@@ -37,6 +37,8 @@
     NSString       *productDescription;
     NSString       *state;
     NSMutableArray *tags;
+    NSString       *instanceTenancy;
+    NSString       *currencyCode;
 }
 
 
@@ -107,10 +109,21 @@
 @property (nonatomic, retain) NSMutableArray *tags;
 
 /**
+ * The tenancy of the reserved instance (ex: default or dedicated).
+ */
+@property (nonatomic, retain) NSString *instanceTenancy;
+
+/**
+ * The currency of the reserved instance. Specified using ISO 4217
+ * standard (e.g., USD, JPY).
+ */
+@property (nonatomic, retain) NSString *currencyCode;
+
+/**
  * Adds a single object to tags.
  * This function will alloc and init tags if not already done.
  */
--(void)addTag:(EC2Tag *)tag;
+-(void)addTag:(EC2Tag *)tagObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

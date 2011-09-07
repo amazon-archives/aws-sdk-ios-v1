@@ -39,13 +39,13 @@
 }
 
 
--(void)addUserIdGroupPair:(EC2UserIdGroupPair *)userIdGroupPair
+-(void)addUserIdGroupPair:(EC2UserIdGroupPair *)userIdGroupPairObject
 {
     if (userIdGroupPairs == nil) {
         userIdGroupPairs = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [userIdGroupPairs addObject:userIdGroupPair];
+    [userIdGroupPairs addObject:userIdGroupPairObject];
 }
 
 

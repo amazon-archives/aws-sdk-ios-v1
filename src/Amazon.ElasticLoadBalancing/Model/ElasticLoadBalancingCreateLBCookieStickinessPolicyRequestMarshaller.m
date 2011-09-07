@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[ElasticLoadBalancingRequest alloc] init];
 
     [request setParameterValue:@"CreateLBCookieStickinessPolicy"           forKey:@"Action"];
-    [request setParameterValue:@"2010-07-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-08-15"   forKey:@"Version"];
 
     [request setDelegate:[createLBCookieStickinessPolicyRequest delegate]];
     [request setCredentials:[createLBCookieStickinessPolicyRequest credentials]];
     [request setEndpoint:[createLBCookieStickinessPolicyRequest requestEndpoint]];
+    [request setRequestTag:[createLBCookieStickinessPolicyRequest requestTag]];
 
     if (createLBCookieStickinessPolicyRequest != nil) {
         if (createLBCookieStickinessPolicyRequest.loadBalancerName != nil) {

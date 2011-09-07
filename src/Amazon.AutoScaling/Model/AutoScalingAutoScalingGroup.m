@@ -63,31 +63,31 @@
 }
 
 
--(void)addInstance:(AutoScalingInstance *)instance
+-(void)addInstance:(AutoScalingInstance *)instanceObject
 {
     if (instances == nil) {
         instances = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [instances addObject:instance];
+    [instances addObject:instanceObject];
 }
 
--(void)addSuspendedProcesse:(AutoScalingSuspendedProcess *)suspendedProcesse
+-(void)addSuspendedProcesse:(AutoScalingSuspendedProcess *)suspendedProcesseObject
 {
     if (suspendedProcesses == nil) {
         suspendedProcesses = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [suspendedProcesses addObject:suspendedProcesse];
+    [suspendedProcesses addObject:suspendedProcesseObject];
 }
 
--(void)addEnabledMetric:(AutoScalingEnabledMetric *)enabledMetric
+-(void)addEnabledMetric:(AutoScalingEnabledMetric *)enabledMetricObject
 {
     if (enabledMetrics == nil) {
         enabledMetrics = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [enabledMetrics addObject:enabledMetric];
+    [enabledMetrics addObject:enabledMetricObject];
 }
 
 

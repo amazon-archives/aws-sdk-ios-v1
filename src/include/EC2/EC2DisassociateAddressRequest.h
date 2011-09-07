@@ -28,7 +28,7 @@
 
 {
     NSString *publicIp;
-    NSString *assocationId;
+    NSString *associationId;
 }
 
 
@@ -41,7 +41,7 @@
  * Association ID corresponding to the VPC elastic IP address you want to
  * disassociate.
  */
-@property (nonatomic, retain) NSString *assocationId;
+@property (nonatomic, retain) NSString *associationId;
 
 
 /**

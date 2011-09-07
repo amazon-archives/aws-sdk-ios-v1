@@ -27,6 +27,7 @@
     [request setDelegate:[describeLaunchConfigurationsRequest delegate]];
     [request setCredentials:[describeLaunchConfigurationsRequest credentials]];
     [request setEndpoint:[describeLaunchConfigurationsRequest requestEndpoint]];
+    [request setRequestTag:[describeLaunchConfigurationsRequest requestTag]];
 
     if (describeLaunchConfigurationsRequest != nil) {
         int launchConfigurationNamesListIndex = 1;

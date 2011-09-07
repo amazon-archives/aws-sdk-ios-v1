@@ -27,6 +27,7 @@
     [request setDelegate:[putMetricAlarmRequest delegate]];
     [request setCredentials:[putMetricAlarmRequest credentials]];
     [request setEndpoint:[putMetricAlarmRequest requestEndpoint]];
+    [request setRequestTag:[putMetricAlarmRequest requestTag]];
 
     if (putMetricAlarmRequest != nil) {
         if (putMetricAlarmRequest.alarmName != nil) {
@@ -40,7 +41,7 @@
     }
     if (putMetricAlarmRequest != nil) {
         if (putMetricAlarmRequest.actionsEnabledIsSet) {
-            [request setParameterValue:(putMetricAlarmRequest.actionsEnabled ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@", @"ActionsEnabled"]];
+            [request setParameterValue:(putMetricAlarmRequest.actionsEnabled ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"ActionsEnabled"]];
         }
     }
     if (putMetricAlarmRequest != nil) {

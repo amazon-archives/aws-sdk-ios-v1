@@ -49,7 +49,7 @@
     }
 
     if ([elementName isEqualToString:@"placement"]) {
-        EC2PlacementUnmarshaller *unmarshaller = [[[EC2PlacementUnmarshaller alloc] initWithCaller:self withParentObject:self.response withSetter:@selector(setPlacement:)] autorelease];
+        EC2SpotPlacementUnmarshaller *unmarshaller = [[[EC2SpotPlacementUnmarshaller alloc] initWithCaller:self withParentObject:self.response withSetter:@selector(setPlacement:)] autorelease];
         unmarshaller.endElementTagName = @"placement";
         [parser setDelegate:unmarshaller];
     }

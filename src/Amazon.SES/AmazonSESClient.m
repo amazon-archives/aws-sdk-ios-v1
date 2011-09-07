@@ -27,6 +27,14 @@
     return self;
 }
 
+-(id)initWithCredentials:(AmazonCredentials *)theCredentials
+{
+    if (self = [super initWithCredentials:theCredentials]) {
+        self.endpoint = @"https://email.us-east-1.amazonaws.com";
+    }
+    return self;
+}
+
 -(SESGetSendQuotaResponse *)getSendQuota:(SESGetSendQuotaRequest *)getSendQuotaRequest
 {
     AmazonServiceRequest *request = [SESGetSendQuotaRequestMarshaller createRequest:getSendQuotaRequest];

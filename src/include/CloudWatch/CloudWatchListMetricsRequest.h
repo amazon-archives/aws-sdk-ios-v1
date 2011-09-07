@@ -77,7 +77,7 @@
  * Adds a single object to dimensions.
  * This function will alloc and init dimensions if not already done.
  */
--(void)addDimension:(CloudWatchDimensionFilter *)dimension;
+-(void)addDimension:(CloudWatchDimensionFilter *)dimensionObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

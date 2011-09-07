@@ -27,6 +27,14 @@
     return self;
 }
 
+-(id)initWithCredentials:(AmazonCredentials *)theCredentials
+{
+    if (self = [super initWithCredentials:theCredentials]) {
+        self.endpoint = @"https://queue.amazonaws.com";
+    }
+    return self;
+}
+
 -(SQSListQueuesResponse *)listQueues:(SQSListQueuesRequest *)listQueuesRequest
 {
     AmazonServiceRequest *request = [SQSListQueuesRequestMarshaller createRequest:listQueuesRequest];

@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribeSnapshots"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[describeSnapshotsRequest delegate]];
     [request setCredentials:[describeSnapshotsRequest credentials]];
     [request setEndpoint:[describeSnapshotsRequest requestEndpoint]];
+    [request setRequestTag:[describeSnapshotsRequest requestTag]];
 
     if (describeSnapshotsRequest != nil) {
         int snapshotIdsListIndex = 1;

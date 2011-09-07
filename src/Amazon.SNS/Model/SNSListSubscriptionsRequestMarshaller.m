@@ -27,6 +27,7 @@
     [request setDelegate:[listSubscriptionsRequest delegate]];
     [request setCredentials:[listSubscriptionsRequest credentials]];
     [request setEndpoint:[listSubscriptionsRequest requestEndpoint]];
+    [request setRequestTag:[listSubscriptionsRequest requestTag]];
 
     if (listSubscriptionsRequest != nil) {
         if (listSubscriptionsRequest.nextToken != nil) {

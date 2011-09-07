@@ -27,6 +27,7 @@
     [request setDelegate:[changeMessageVisibilityRequest delegate]];
     [request setCredentials:[changeMessageVisibilityRequest credentials]];
     [request setEndpoint:[changeMessageVisibilityRequest requestEndpoint]];
+    [request setRequestTag:[changeMessageVisibilityRequest requestTag]];
 
     if (changeMessageVisibilityRequest != nil) {
         if (changeMessageVisibilityRequest.queueUrl != nil) {

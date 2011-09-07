@@ -41,7 +41,7 @@
 -(id)init;
 
 /**
- *
+ * The SpotDatafeedSubscriptionType data type.
  */
 @property (nonatomic, retain) EC2SpotDatafeedSubscription *spotDatafeedSubscription;
 

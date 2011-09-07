@@ -17,7 +17,7 @@
 #import <UIKit/UIKit.h>
 #import "AmazonClientException.h"
 
-#define AWS_SDK_VERSION              @"0.2.3"
+#define AWS_SDK_VERSION              @"1.0.0"
 #define AWS_SDK_USER_AGENT_FORMAT    @"aws-sdk-iOS/%@ %@/%@ %@"
 #define kISO8061DateFormat           @"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 #define kISO8601DateFormat           @"yyyy-MM-dd'T'HH:mm:ss'Z'"
@@ -53,7 +53,6 @@
 
 @end
 
-
 /*! \category NSData(WithBase64)
  *  \abstract Adds Base64 encoding to the NSData class.
  */
@@ -66,4 +65,10 @@
  */
 -(NSString *) base64EncodedString;
 
+/**
+ * Decode a base-64 encoded string into a new NSData object.
+ *
+ * @return NSData with the data represented by the encoded string.
+ */
++(NSData *) dataWithBase64EncodedString:(NSString *)encodedString;
 @end

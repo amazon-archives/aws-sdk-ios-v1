@@ -27,6 +27,7 @@
     [request setDelegate:[deleteAttributesRequest delegate]];
     [request setCredentials:[deleteAttributesRequest credentials]];
     [request setEndpoint:[deleteAttributesRequest requestEndpoint]];
+    [request setRequestTag:[deleteAttributesRequest requestTag]];
 
     if (deleteAttributesRequest != nil) {
         if (deleteAttributesRequest.domainName != nil) {
@@ -80,7 +81,7 @@
         }
         if (expected != nil) {
             if (expected.existsIsSet) {
-                [request setParameterValue:(expected.exists ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@.%@", @"Expected", @"Exists"]];
+                [request setParameterValue:(expected.exists ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@.%@", @"Expected", @"Exists"]];
             }
         }
     }

@@ -27,6 +27,7 @@
     [request setDelegate:[listMetricsRequest delegate]];
     [request setCredentials:[listMetricsRequest credentials]];
     [request setEndpoint:[listMetricsRequest requestEndpoint]];
+    [request setRequestTag:[listMetricsRequest requestTag]];
 
     if (listMetricsRequest != nil) {
         if (listMetricsRequest.namespace != nil) {

@@ -27,6 +27,14 @@
     return self;
 }
 
+-(id)initWithCredentials:(AmazonCredentials *)theCredentials
+{
+    if (self = [super initWithCredentials:theCredentials]) {
+        self.endpoint = @"https://sns.us-east-1.amazonaws.com";
+    }
+    return self;
+}
+
 -(SNSConfirmSubscriptionResponse *)confirmSubscription:(SNSConfirmSubscriptionRequest *)confirmSubscriptionRequest
 {
     AmazonServiceRequest *request = [SNSConfirmSubscriptionRequestMarshaller createRequest:confirmSubscriptionRequest];

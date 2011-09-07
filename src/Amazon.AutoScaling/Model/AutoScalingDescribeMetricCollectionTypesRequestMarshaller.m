@@ -27,6 +27,7 @@
     [request setDelegate:[describeMetricCollectionTypesRequest delegate]];
     [request setCredentials:[describeMetricCollectionTypesRequest credentials]];
     [request setEndpoint:[describeMetricCollectionTypesRequest requestEndpoint]];
+    [request setRequestTag:[describeMetricCollectionTypesRequest requestTag]];
 
 
 

@@ -22,9 +22,12 @@
 #import "ElasticLoadBalancingListenerDescriptionUnmarshaller.h"
 #import "ElasticLoadBalancingPoliciesUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
+#import "ElasticLoadBalancingBackendServerDescriptionUnmarshaller.h"
+#import "../AmazonListUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
 #import "ElasticLoadBalancingInstanceUnmarshaller.h"
 #import "ElasticLoadBalancingHealthCheckUnmarshaller.h"
+#import "ElasticLoadBalancingSourceSecurityGroupUnmarshaller.h"
 
 
 /**

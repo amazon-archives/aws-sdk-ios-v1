@@ -27,6 +27,7 @@
     [request setDelegate:[publishRequest delegate]];
     [request setCredentials:[publishRequest credentials]];
     [request setEndpoint:[publishRequest requestEndpoint]];
+    [request setRequestTag:[publishRequest requestTag]];
 
     if (publishRequest != nil) {
         if (publishRequest.topicArn != nil) {

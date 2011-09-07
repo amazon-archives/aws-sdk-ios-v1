@@ -19,14 +19,14 @@
 @implementation EC2DisassociateAddressRequest
 
 @synthesize publicIp;
-@synthesize assocationId;
+@synthesize associationId;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        publicIp     = nil;
-        assocationId = nil;
+        publicIp      = nil;
+        associationId = nil;
     }
 
     return self;
@@ -49,7 +49,7 @@
 
     [buffer appendString:@"{"];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"PublicIp: %@,", publicIp] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"AssocationId: %@,", assocationId] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"AssociationId: %@,", associationId] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -61,7 +61,7 @@
 -(void)dealloc
 {
     [publicIp release];
-    [assocationId release];
+    [associationId release];
 
     [super dealloc];
 }

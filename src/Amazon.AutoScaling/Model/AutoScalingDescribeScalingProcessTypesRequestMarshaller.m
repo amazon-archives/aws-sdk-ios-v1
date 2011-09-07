@@ -27,6 +27,7 @@
     [request setDelegate:[describeScalingProcessTypesRequest delegate]];
     [request setCredentials:[describeScalingProcessTypesRequest credentials]];
     [request setEndpoint:[describeScalingProcessTypesRequest requestEndpoint]];
+    [request setRequestTag:[describeScalingProcessTypesRequest requestTag]];
 
 
 

@@ -44,6 +44,7 @@
     NSDate                    *createTime;
     NSString                  *productDescription;
     NSMutableArray            *tags;
+    NSString                  *launchedAvailabilityZone;
 }
 
 
@@ -54,73 +55,34 @@
  */
 -(id)init;
 
-/**
- *
- */
-@property (nonatomic, retain) NSString *spotInstanceRequestId;
+@property (nonatomic, retain) NSString                  *spotInstanceRequestId;
 
-/**
- *
- */
-@property (nonatomic, retain) NSString *spotPrice;
+@property (nonatomic, retain) NSString                  *spotPrice;
 
-/**
- *
- * <p>
- * <b>Constraints:</b><br/>
- * <b>Allowed Values: </b>one-time, persistent
- */
-@property (nonatomic, retain) NSString *type;
+@property (nonatomic, retain) NSString                  *type;
 
-/**
- *
- */
-@property (nonatomic, retain) NSString *state;
+@property (nonatomic, retain) NSString                  *state;
 
-/**
- *
- */
 @property (nonatomic, retain) EC2SpotInstanceStateFault *fault;
 
-/**
- *
- */
-@property (nonatomic, retain) NSDate *validFrom;
+@property (nonatomic, retain) NSDate                    *validFrom;
+
+@property (nonatomic, retain) NSDate                    *validUntil;
+
+@property (nonatomic, retain) NSString                  *launchGroup;
+
+@property (nonatomic, retain) NSString                  *availabilityZoneGroup;
 
 /**
- *
- */
-@property (nonatomic, retain) NSDate *validUntil;
-
-/**
- *
- */
-@property (nonatomic, retain) NSString *launchGroup;
-
-/**
- *
- */
-@property (nonatomic, retain) NSString *availabilityZoneGroup;
-
-/**
- *
+ * The LaunchSpecificationType data type.
  */
 @property (nonatomic, retain) EC2LaunchSpecification *launchSpecification;
 
-/**
- *
- */
-@property (nonatomic, retain) NSString *instanceId;
+@property (nonatomic, retain) NSString               *instanceId;
 
-/**
- *
- */
-@property (nonatomic, retain) NSDate *createTime;
+@property (nonatomic, retain) NSDate                 *createTime;
 
-/**
- *
- */
-@property (nonatomic, retain) NSString *productDescription;
+@property (nonatomic, retain) NSString               *productDescription;
 
 /**
  * A list of tags for this spot instance request.
@@ -128,10 +90,15 @@
 @property (nonatomic, retain) NSMutableArray *tags;
 
 /**
+ * The Availability Zone in which the bid is launched.
+ */
+@property (nonatomic, retain) NSString *launchedAvailabilityZone;
+
+/**
  * Adds a single object to tags.
  * This function will alloc and init tags if not already done.
  */
--(void)addTag:(EC2Tag *)tag;
+-(void)addTag:(EC2Tag *)tagObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

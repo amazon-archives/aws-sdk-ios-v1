@@ -76,6 +76,16 @@
         return;
     }
 
+    if ([elementName isEqualToString:@"instanceTenancy"]) {
+        self.response.instanceTenancy = self.currentText;
+        return;
+    }
+
+    if ([elementName isEqualToString:@"currencyCode"]) {
+        self.response.currencyCode = self.currentText;
+        return;
+    }
+
     if ([elementName isEqualToString:@"reservedInstancesOffering"]) {
         if (caller != nil) {
             [parser setDelegate:caller];

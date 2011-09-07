@@ -27,6 +27,7 @@
     [request setDelegate:[suspendProcessesRequest delegate]];
     [request setCredentials:[suspendProcessesRequest credentials]];
     [request setEndpoint:[suspendProcessesRequest requestEndpoint]];
+    [request setRequestTag:[suspendProcessesRequest requestTag]];
 
     if (suspendProcessesRequest != nil) {
         if (suspendProcessesRequest.autoScalingGroupName != nil) {

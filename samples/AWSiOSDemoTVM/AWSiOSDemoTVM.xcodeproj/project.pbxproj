@@ -1,0 +1,616 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D00F7D3813E737B900C72263 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00F7D3713E737B900C72263 /* UIKit.framework */; };
+		D00F7D3A13E737B900C72263 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00F7D3913E737B900C72263 /* Foundation.framework */; };
+		D00F7D3C13E737B900C72263 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00F7D3B13E737B900C72263 /* CoreGraphics.framework */; };
+		D00F7D4213E737B900C72263 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D00F7D4013E737B900C72263 /* InfoPlist.strings */; };
+		D00F7D4513E737B900C72263 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D00F7D4413E737B900C72263 /* main.m */; };
+		D00F7D4813E737B900C72263 /* AWSiOSDemoTVMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D00F7D4713E737B900C72263 /* AWSiOSDemoTVMAppDelegate.m */; };
+		D00F7D4B13E737B900C72263 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D00F7D4913E737B900C72263 /* MainWindow.xib */; };
+		D00F7D4E13E737B900C72263 /* AWSiOSDemoTVMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D00F7D4D13E737B900C72263 /* AWSiOSDemoTVMViewController.m */; };
+		D00F7D5113E737B900C72263 /* AWSiOSDemoTVMViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D00F7D4F13E737B900C72263 /* AWSiOSDemoTVMViewController.xib */; };
+		D02A9FB213E762850007810F /* AmazonKeyChainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A9F9B13E762850007810F /* AmazonKeyChainWrapper.m */; };
+		D02A9FB313E762850007810F /* AmazonTVMClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A9F9D13E762850007810F /* AmazonTVMClient.m */; };
+		D02A9FB413E762850007810F /* Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A9F9F13E762850007810F /* Crypto.m */; };
+		D02A9FB513E762850007810F /* GetTokenRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A9FA113E762850007810F /* GetTokenRequest.m */; };
+		D02A9FB613E762850007810F /* GetTokenResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A9FA313E762850007810F /* GetTokenResponse.m */; };
+		D02A9FB713E762850007810F /* GetTokenResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A9FA513E762850007810F /* GetTokenResponseHandler.m */; };
+		D02A9FB813E762850007810F /* JSONUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A9FA713E762850007810F /* JSONUtilities.m */; };
+		D02A9FB913E762850007810F /* RegisterDeviceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A9FA913E762850007810F /* RegisterDeviceRequest.m */; };
+		D02A9FBA13E762850007810F /* Request.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A9FAB13E762850007810F /* Request.m */; };
+		D02A9FBB13E762850007810F /* RequestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A9FAD13E762850007810F /* RequestDelegate.m */; };
+		D02A9FBC13E762850007810F /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A9FAF13E762850007810F /* Response.m */; };
+		D02A9FBD13E762850007810F /* ResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A9FB113E762850007810F /* ResponseHandler.m */; };
+		D06CCDC813E8763100BF4E49 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06CCDC713E8763100BF4E49 /* AWSiOSSDK.framework */; };
+		D0B715F413E73AC3006220BB /* AmazonClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B715B813E73AC2006220BB /* AmazonClientManager.m */; };
+		D0B715F513E73AC3006220BB /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B715BA13E73AC2006220BB /* Constants.m */; };
+		D0B715F613E73AC3006220BB /* AddBucketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B715BD13E73AC3006220BB /* AddBucketViewController.m */; };
+		D0B715F713E73AC3006220BB /* AddBucketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0B715BE13E73AC3006220BB /* AddBucketViewController.xib */; };
+		D0B715F813E73AC3006220BB /* AddObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B715C013E73AC3006220BB /* AddObjectViewController.m */; };
+		D0B715F913E73AC3006220BB /* AddObjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0B715C113E73AC3006220BB /* AddObjectViewController.xib */; };
+		D0B715FA13E73AC3006220BB /* BucketList.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B715C313E73AC3006220BB /* BucketList.m */; };
+		D0B715FB13E73AC3006220BB /* BucketList.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0B715C413E73AC3006220BB /* BucketList.xib */; };
+		D0B715FC13E73AC3006220BB /* ObjectListing.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B715C613E73AC3006220BB /* ObjectListing.m */; };
+		D0B715FD13E73AC3006220BB /* ObjectListing.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0B715C713E73AC3006220BB /* ObjectListing.xib */; };
+		D0B715FE13E73AC3006220BB /* ObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B715C913E73AC3006220BB /* ObjectViewController.m */; };
+		D0B715FF13E73AC3006220BB /* ObjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0B715CA13E73AC3006220BB /* ObjectViewController.xib */; };
+		D0B7160013E73AC3006220BB /* S3AsyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B715CC13E73AC3006220BB /* S3AsyncViewController.m */; };
+		D0B7160113E73AC3006220BB /* S3AsyncViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0B715CD13E73AC3006220BB /* S3AsyncViewController.xib */; };
+		D0B7160213E73AC3006220BB /* S3RequestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B715CF13E73AC3006220BB /* S3RequestDelegate.m */; };
+		D0B7160313E73AC3006220BB /* DomainList.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B715D213E73AC3006220BB /* DomainList.m */; };
+		D0B7160413E73AC3006220BB /* DomainList.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0B715D313E73AC3006220BB /* DomainList.xib */; };
+		D0B7160513E73AC3006220BB /* ItemListing.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B715D513E73AC3006220BB /* ItemListing.m */; };
+		D0B7160613E73AC3006220BB /* ItemListing.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0B715D613E73AC3006220BB /* ItemListing.xib */; };
+		D0B7160713E73AC3006220BB /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B715D813E73AC3006220BB /* ItemViewController.m */; };
+		D0B7160813E73AC3006220BB /* ItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0B715D913E73AC3006220BB /* ItemViewController.xib */; };
+		D0B7160913E73AC3006220BB /* SdbAsyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B715DB13E73AC3006220BB /* SdbAsyncViewController.m */; };
+		D0B7160A13E73AC3006220BB /* SdbAsyncViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0B715DC13E73AC3006220BB /* SdbAsyncViewController.xib */; };
+		D0B7160B13E73AC3006220BB /* SdbRequestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B715DE13E73AC3006220BB /* SdbRequestDelegate.m */; };
+		D0B7160C13E73AC3006220BB /* TopicList.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B715E113E73AC3006220BB /* TopicList.m */; };
+		D0B7160D13E73AC3006220BB /* TopicList.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0B715E213E73AC3006220BB /* TopicList.xib */; };
+		D0B7160E13E73AC3006220BB /* AddQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B715E513E73AC3006220BB /* AddQueue.m */; };
+		D0B7160F13E73AC3006220BB /* AddQueue.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0B715E613E73AC3006220BB /* AddQueue.xib */; };
+		D0B7161013E73AC3006220BB /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B715E813E73AC3006220BB /* Message.m */; };
+		D0B7161113E73AC3006220BB /* Message.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0B715E913E73AC3006220BB /* Message.xib */; };
+		D0B7161213E73AC3006220BB /* MessageList.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B715EB13E73AC3006220BB /* MessageList.m */; };
+		D0B7161313E73AC3006220BB /* MessageList.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0B715EC13E73AC3006220BB /* MessageList.xib */; };
+		D0B7161413E73AC3006220BB /* QueueList.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B715EE13E73AC3006220BB /* QueueList.m */; };
+		D0B7161513E73AC3006220BB /* QueueList.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0B715EF13E73AC3006220BB /* QueueList.xib */; };
+		D0B7161613E73AC3006220BB /* SendMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B715F113E73AC3006220BB /* SendMessage.m */; };
+		D0B7161713E73AC3006220BB /* SendMessage.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0B715F213E73AC3006220BB /* SendMessage.xib */; };
+		D0B7161813E73AC3006220BB /* temp.txt in Resources */ = {isa = PBXBuildFile; fileRef = D0B715F313E73AC3006220BB /* temp.txt */; };
+		D0B7163713E7445B006220BB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B7163613E7445B006220BB /* Security.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D00F7D3313E737B900C72263 /* AWSiOSDemoTVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AWSiOSDemoTVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D00F7D3713E737B900C72263 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D00F7D3913E737B900C72263 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D00F7D3B13E737B900C72263 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D00F7D3F13E737B900C72263 /* AWSiOSDemoTVM-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AWSiOSDemoTVM-Info.plist"; sourceTree = "<group>"; };
+		D00F7D4113E737B900C72263 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D00F7D4313E737B900C72263 /* AWSiOSDemoTVM-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSiOSDemoTVM-Prefix.pch"; sourceTree = "<group>"; };
+		D00F7D4413E737B900C72263 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D00F7D4613E737B900C72263 /* AWSiOSDemoTVMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSiOSDemoTVMAppDelegate.h; sourceTree = "<group>"; };
+		D00F7D4713E737B900C72263 /* AWSiOSDemoTVMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSiOSDemoTVMAppDelegate.m; sourceTree = "<group>"; };
+		D00F7D4A13E737B900C72263 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		D00F7D4C13E737B900C72263 /* AWSiOSDemoTVMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSiOSDemoTVMViewController.h; sourceTree = "<group>"; };
+		D00F7D4D13E737B900C72263 /* AWSiOSDemoTVMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSiOSDemoTVMViewController.m; sourceTree = "<group>"; };
+		D00F7D5013E737B900C72263 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AWSiOSDemoTVMViewController.xib; sourceTree = "<group>"; };
+		D02A9F9A13E762850007810F /* AmazonKeyChainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonKeyChainWrapper.h; sourceTree = "<group>"; };
+		D02A9F9B13E762850007810F /* AmazonKeyChainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonKeyChainWrapper.m; sourceTree = "<group>"; };
+		D02A9F9C13E762850007810F /* AmazonTVMClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonTVMClient.h; sourceTree = "<group>"; };
+		D02A9F9D13E762850007810F /* AmazonTVMClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonTVMClient.m; sourceTree = "<group>"; };
+		D02A9F9E13E762850007810F /* Crypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crypto.h; sourceTree = "<group>"; };
+		D02A9F9F13E762850007810F /* Crypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Crypto.m; sourceTree = "<group>"; };
+		D02A9FA013E762850007810F /* GetTokenRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetTokenRequest.h; sourceTree = "<group>"; };
+		D02A9FA113E762850007810F /* GetTokenRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetTokenRequest.m; sourceTree = "<group>"; };
+		D02A9FA213E762850007810F /* GetTokenResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetTokenResponse.h; sourceTree = "<group>"; };
+		D02A9FA313E762850007810F /* GetTokenResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetTokenResponse.m; sourceTree = "<group>"; };
+		D02A9FA413E762850007810F /* GetTokenResponseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetTokenResponseHandler.h; sourceTree = "<group>"; };
+		D02A9FA513E762850007810F /* GetTokenResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetTokenResponseHandler.m; sourceTree = "<group>"; };
+		D02A9FA613E762850007810F /* JSONUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONUtilities.h; sourceTree = "<group>"; };
+		D02A9FA713E762850007810F /* JSONUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONUtilities.m; sourceTree = "<group>"; };
+		D02A9FA813E762850007810F /* RegisterDeviceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterDeviceRequest.h; sourceTree = "<group>"; };
+		D02A9FA913E762850007810F /* RegisterDeviceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterDeviceRequest.m; sourceTree = "<group>"; };
+		D02A9FAA13E762850007810F /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
+		D02A9FAB13E762850007810F /* Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Request.m; sourceTree = "<group>"; };
+		D02A9FAC13E762850007810F /* RequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestDelegate.h; sourceTree = "<group>"; };
+		D02A9FAD13E762850007810F /* RequestDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestDelegate.m; sourceTree = "<group>"; };
+		D02A9FAE13E762850007810F /* Response.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Response.h; sourceTree = "<group>"; };
+		D02A9FAF13E762850007810F /* Response.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Response.m; sourceTree = "<group>"; };
+		D02A9FB013E762850007810F /* ResponseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseHandler.h; sourceTree = "<group>"; };
+		D02A9FB113E762850007810F /* ResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseHandler.m; sourceTree = "<group>"; };
+		D06CCDC713E8763100BF4E49 /* AWSiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSiOSSDK.framework; path = ../../AWSiOSSDK.framework; sourceTree = "<group>"; };
+		D0B715B713E73AC2006220BB /* AmazonClientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonClientManager.h; sourceTree = "<group>"; };
+		D0B715B813E73AC2006220BB /* AmazonClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonClientManager.m; sourceTree = "<group>"; };
+		D0B715B913E73AC2006220BB /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		D0B715BA13E73AC2006220BB /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		D0B715BC13E73AC3006220BB /* AddBucketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBucketViewController.h; sourceTree = "<group>"; };
+		D0B715BD13E73AC3006220BB /* AddBucketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBucketViewController.m; sourceTree = "<group>"; };
+		D0B715BE13E73AC3006220BB /* AddBucketViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddBucketViewController.xib; sourceTree = "<group>"; };
+		D0B715BF13E73AC3006220BB /* AddObjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddObjectViewController.h; sourceTree = "<group>"; };
+		D0B715C013E73AC3006220BB /* AddObjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddObjectViewController.m; sourceTree = "<group>"; };
+		D0B715C113E73AC3006220BB /* AddObjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddObjectViewController.xib; sourceTree = "<group>"; };
+		D0B715C213E73AC3006220BB /* BucketList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BucketList.h; sourceTree = "<group>"; };
+		D0B715C313E73AC3006220BB /* BucketList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BucketList.m; sourceTree = "<group>"; };
+		D0B715C413E73AC3006220BB /* BucketList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BucketList.xib; sourceTree = "<group>"; };
+		D0B715C513E73AC3006220BB /* ObjectListing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectListing.h; sourceTree = "<group>"; };
+		D0B715C613E73AC3006220BB /* ObjectListing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectListing.m; sourceTree = "<group>"; };
+		D0B715C713E73AC3006220BB /* ObjectListing.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ObjectListing.xib; sourceTree = "<group>"; };
+		D0B715C813E73AC3006220BB /* ObjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectViewController.h; sourceTree = "<group>"; };
+		D0B715C913E73AC3006220BB /* ObjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectViewController.m; sourceTree = "<group>"; };
+		D0B715CA13E73AC3006220BB /* ObjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ObjectViewController.xib; sourceTree = "<group>"; };
+		D0B715CB13E73AC3006220BB /* S3AsyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3AsyncViewController.h; sourceTree = "<group>"; };
+		D0B715CC13E73AC3006220BB /* S3AsyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3AsyncViewController.m; sourceTree = "<group>"; };
+		D0B715CD13E73AC3006220BB /* S3AsyncViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = S3AsyncViewController.xib; sourceTree = "<group>"; };
+		D0B715CE13E73AC3006220BB /* S3RequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3RequestDelegate.h; sourceTree = "<group>"; };
+		D0B715CF13E73AC3006220BB /* S3RequestDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3RequestDelegate.m; sourceTree = "<group>"; };
+		D0B715D113E73AC3006220BB /* DomainList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DomainList.h; sourceTree = "<group>"; };
+		D0B715D213E73AC3006220BB /* DomainList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DomainList.m; sourceTree = "<group>"; };
+		D0B715D313E73AC3006220BB /* DomainList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DomainList.xib; sourceTree = "<group>"; };
+		D0B715D413E73AC3006220BB /* ItemListing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemListing.h; sourceTree = "<group>"; };
+		D0B715D513E73AC3006220BB /* ItemListing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemListing.m; sourceTree = "<group>"; };
+		D0B715D613E73AC3006220BB /* ItemListing.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemListing.xib; sourceTree = "<group>"; };
+		D0B715D713E73AC3006220BB /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
+		D0B715D813E73AC3006220BB /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
+		D0B715D913E73AC3006220BB /* ItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemViewController.xib; sourceTree = "<group>"; };
+		D0B715DA13E73AC3006220BB /* SdbAsyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SdbAsyncViewController.h; sourceTree = "<group>"; };
+		D0B715DB13E73AC3006220BB /* SdbAsyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SdbAsyncViewController.m; sourceTree = "<group>"; };
+		D0B715DC13E73AC3006220BB /* SdbAsyncViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SdbAsyncViewController.xib; sourceTree = "<group>"; };
+		D0B715DD13E73AC3006220BB /* SdbRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SdbRequestDelegate.h; sourceTree = "<group>"; };
+		D0B715DE13E73AC3006220BB /* SdbRequestDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SdbRequestDelegate.m; sourceTree = "<group>"; };
+		D0B715E013E73AC3006220BB /* TopicList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicList.h; sourceTree = "<group>"; };
+		D0B715E113E73AC3006220BB /* TopicList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicList.m; sourceTree = "<group>"; };
+		D0B715E213E73AC3006220BB /* TopicList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopicList.xib; sourceTree = "<group>"; };
+		D0B715E413E73AC3006220BB /* AddQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddQueue.h; sourceTree = "<group>"; };
+		D0B715E513E73AC3006220BB /* AddQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddQueue.m; sourceTree = "<group>"; };
+		D0B715E613E73AC3006220BB /* AddQueue.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddQueue.xib; sourceTree = "<group>"; };
+		D0B715E713E73AC3006220BB /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		D0B715E813E73AC3006220BB /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		D0B715E913E73AC3006220BB /* Message.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Message.xib; sourceTree = "<group>"; };
+		D0B715EA13E73AC3006220BB /* MessageList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageList.h; sourceTree = "<group>"; };
+		D0B715EB13E73AC3006220BB /* MessageList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageList.m; sourceTree = "<group>"; };
+		D0B715EC13E73AC3006220BB /* MessageList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageList.xib; sourceTree = "<group>"; };
+		D0B715ED13E73AC3006220BB /* QueueList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueueList.h; sourceTree = "<group>"; };
+		D0B715EE13E73AC3006220BB /* QueueList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueueList.m; sourceTree = "<group>"; };
+		D0B715EF13E73AC3006220BB /* QueueList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QueueList.xib; sourceTree = "<group>"; };
+		D0B715F013E73AC3006220BB /* SendMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendMessage.h; sourceTree = "<group>"; };
+		D0B715F113E73AC3006220BB /* SendMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendMessage.m; sourceTree = "<group>"; };
+		D0B715F213E73AC3006220BB /* SendMessage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendMessage.xib; sourceTree = "<group>"; };
+		D0B715F313E73AC3006220BB /* temp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = temp.txt; sourceTree = "<group>"; };
+		D0B7163613E7445B006220BB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D00F7D3013E737B900C72263 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0B7163713E7445B006220BB /* Security.framework in Frameworks */,
+				D00F7D3813E737B900C72263 /* UIKit.framework in Frameworks */,
+				D00F7D3A13E737B900C72263 /* Foundation.framework in Frameworks */,
+				D00F7D3C13E737B900C72263 /* CoreGraphics.framework in Frameworks */,
+				D06CCDC813E8763100BF4E49 /* AWSiOSSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D00F7D2813E737B900C72263 = {
+			isa = PBXGroup;
+			children = (
+				D00F7D3D13E737B900C72263 /* AWSiOSDemoTVM */,
+				D00F7D3613E737B900C72263 /* Frameworks */,
+				D00F7D3413E737B900C72263 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D00F7D3413E737B900C72263 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D00F7D3313E737B900C72263 /* AWSiOSDemoTVM.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D00F7D3613E737B900C72263 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D06CCDC713E8763100BF4E49 /* AWSiOSSDK.framework */,
+				D0B7163613E7445B006220BB /* Security.framework */,
+				D00F7D3713E737B900C72263 /* UIKit.framework */,
+				D00F7D3913E737B900C72263 /* Foundation.framework */,
+				D00F7D3B13E737B900C72263 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D00F7D3D13E737B900C72263 /* AWSiOSDemoTVM */ = {
+			isa = PBXGroup;
+			children = (
+				D0B715B613E73AC2006220BB /* Classes */,
+				D00F7D4613E737B900C72263 /* AWSiOSDemoTVMAppDelegate.h */,
+				D00F7D4713E737B900C72263 /* AWSiOSDemoTVMAppDelegate.m */,
+				D00F7D4913E737B900C72263 /* MainWindow.xib */,
+				D00F7D4C13E737B900C72263 /* AWSiOSDemoTVMViewController.h */,
+				D00F7D4D13E737B900C72263 /* AWSiOSDemoTVMViewController.m */,
+				D00F7D4F13E737B900C72263 /* AWSiOSDemoTVMViewController.xib */,
+				D00F7D3E13E737B900C72263 /* Supporting Files */,
+			);
+			path = AWSiOSDemoTVM;
+			sourceTree = "<group>";
+		};
+		D00F7D3E13E737B900C72263 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D00F7D3F13E737B900C72263 /* AWSiOSDemoTVM-Info.plist */,
+				D00F7D4013E737B900C72263 /* InfoPlist.strings */,
+				D00F7D4313E737B900C72263 /* AWSiOSDemoTVM-Prefix.pch */,
+				D00F7D4413E737B900C72263 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D02A9F9913E762850007810F /* TVMClient */ = {
+			isa = PBXGroup;
+			children = (
+				D02A9F9A13E762850007810F /* AmazonKeyChainWrapper.h */,
+				D02A9F9B13E762850007810F /* AmazonKeyChainWrapper.m */,
+				D02A9F9C13E762850007810F /* AmazonTVMClient.h */,
+				D02A9F9D13E762850007810F /* AmazonTVMClient.m */,
+				D02A9F9E13E762850007810F /* Crypto.h */,
+				D02A9F9F13E762850007810F /* Crypto.m */,
+				D02A9FA013E762850007810F /* GetTokenRequest.h */,
+				D02A9FA113E762850007810F /* GetTokenRequest.m */,
+				D02A9FA213E762850007810F /* GetTokenResponse.h */,
+				D02A9FA313E762850007810F /* GetTokenResponse.m */,
+				D02A9FA413E762850007810F /* GetTokenResponseHandler.h */,
+				D02A9FA513E762850007810F /* GetTokenResponseHandler.m */,
+				D02A9FA613E762850007810F /* JSONUtilities.h */,
+				D02A9FA713E762850007810F /* JSONUtilities.m */,
+				D02A9FA813E762850007810F /* RegisterDeviceRequest.h */,
+				D02A9FA913E762850007810F /* RegisterDeviceRequest.m */,
+				D02A9FAA13E762850007810F /* Request.h */,
+				D02A9FAB13E762850007810F /* Request.m */,
+				D02A9FAC13E762850007810F /* RequestDelegate.h */,
+				D02A9FAD13E762850007810F /* RequestDelegate.m */,
+				D02A9FAE13E762850007810F /* Response.h */,
+				D02A9FAF13E762850007810F /* Response.m */,
+				D02A9FB013E762850007810F /* ResponseHandler.h */,
+				D02A9FB113E762850007810F /* ResponseHandler.m */,
+			);
+			path = TVMClient;
+			sourceTree = "<group>";
+		};
+		D0B715B613E73AC2006220BB /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D0B715B713E73AC2006220BB /* AmazonClientManager.h */,
+				D0B715B813E73AC2006220BB /* AmazonClientManager.m */,
+				D0B715B913E73AC2006220BB /* Constants.h */,
+				D0B715BA13E73AC2006220BB /* Constants.m */,
+				D0B715BB13E73AC2006220BB /* S3 */,
+				D0B715D013E73AC3006220BB /* SDB */,
+				D0B715DF13E73AC3006220BB /* SNS */,
+				D0B715E313E73AC3006220BB /* SQS */,
+				D02A9F9913E762850007810F /* TVMClient */,
+				D0B715F313E73AC3006220BB /* temp.txt */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		D0B715BB13E73AC2006220BB /* S3 */ = {
+			isa = PBXGroup;
+			children = (
+				D0B715BC13E73AC3006220BB /* AddBucketViewController.h */,
+				D0B715BD13E73AC3006220BB /* AddBucketViewController.m */,
+				D0B715BE13E73AC3006220BB /* AddBucketViewController.xib */,
+				D0B715BF13E73AC3006220BB /* AddObjectViewController.h */,
+				D0B715C013E73AC3006220BB /* AddObjectViewController.m */,
+				D0B715C113E73AC3006220BB /* AddObjectViewController.xib */,
+				D0B715C213E73AC3006220BB /* BucketList.h */,
+				D0B715C313E73AC3006220BB /* BucketList.m */,
+				D0B715C413E73AC3006220BB /* BucketList.xib */,
+				D0B715C513E73AC3006220BB /* ObjectListing.h */,
+				D0B715C613E73AC3006220BB /* ObjectListing.m */,
+				D0B715C713E73AC3006220BB /* ObjectListing.xib */,
+				D0B715C813E73AC3006220BB /* ObjectViewController.h */,
+				D0B715C913E73AC3006220BB /* ObjectViewController.m */,
+				D0B715CA13E73AC3006220BB /* ObjectViewController.xib */,
+				D0B715CB13E73AC3006220BB /* S3AsyncViewController.h */,
+				D0B715CC13E73AC3006220BB /* S3AsyncViewController.m */,
+				D0B715CD13E73AC3006220BB /* S3AsyncViewController.xib */,
+				D0B715CE13E73AC3006220BB /* S3RequestDelegate.h */,
+				D0B715CF13E73AC3006220BB /* S3RequestDelegate.m */,
+			);
+			path = S3;
+			sourceTree = "<group>";
+		};
+		D0B715D013E73AC3006220BB /* SDB */ = {
+			isa = PBXGroup;
+			children = (
+				D0B715D113E73AC3006220BB /* DomainList.h */,
+				D0B715D213E73AC3006220BB /* DomainList.m */,
+				D0B715D313E73AC3006220BB /* DomainList.xib */,
+				D0B715D413E73AC3006220BB /* ItemListing.h */,
+				D0B715D513E73AC3006220BB /* ItemListing.m */,
+				D0B715D613E73AC3006220BB /* ItemListing.xib */,
+				D0B715D713E73AC3006220BB /* ItemViewController.h */,
+				D0B715D813E73AC3006220BB /* ItemViewController.m */,
+				D0B715D913E73AC3006220BB /* ItemViewController.xib */,
+				D0B715DA13E73AC3006220BB /* SdbAsyncViewController.h */,
+				D0B715DB13E73AC3006220BB /* SdbAsyncViewController.m */,
+				D0B715DC13E73AC3006220BB /* SdbAsyncViewController.xib */,
+				D0B715DD13E73AC3006220BB /* SdbRequestDelegate.h */,
+				D0B715DE13E73AC3006220BB /* SdbRequestDelegate.m */,
+			);
+			path = SDB;
+			sourceTree = "<group>";
+		};
+		D0B715DF13E73AC3006220BB /* SNS */ = {
+			isa = PBXGroup;
+			children = (
+				D0B715E013E73AC3006220BB /* TopicList.h */,
+				D0B715E113E73AC3006220BB /* TopicList.m */,
+				D0B715E213E73AC3006220BB /* TopicList.xib */,
+			);
+			path = SNS;
+			sourceTree = "<group>";
+		};
+		D0B715E313E73AC3006220BB /* SQS */ = {
+			isa = PBXGroup;
+			children = (
+				D0B715E413E73AC3006220BB /* AddQueue.h */,
+				D0B715E513E73AC3006220BB /* AddQueue.m */,
+				D0B715E613E73AC3006220BB /* AddQueue.xib */,
+				D0B715E713E73AC3006220BB /* Message.h */,
+				D0B715E813E73AC3006220BB /* Message.m */,
+				D0B715E913E73AC3006220BB /* Message.xib */,
+				D0B715EA13E73AC3006220BB /* MessageList.h */,
+				D0B715EB13E73AC3006220BB /* MessageList.m */,
+				D0B715EC13E73AC3006220BB /* MessageList.xib */,
+				D0B715ED13E73AC3006220BB /* QueueList.h */,
+				D0B715EE13E73AC3006220BB /* QueueList.m */,
+				D0B715EF13E73AC3006220BB /* QueueList.xib */,
+				D0B715F013E73AC3006220BB /* SendMessage.h */,
+				D0B715F113E73AC3006220BB /* SendMessage.m */,
+				D0B715F213E73AC3006220BB /* SendMessage.xib */,
+			);
+			path = SQS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D00F7D3213E737B900C72263 /* AWSiOSDemoTVM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D00F7D5413E737B900C72263 /* Build configuration list for PBXNativeTarget "AWSiOSDemoTVM" */;
+			buildPhases = (
+				D00F7D2F13E737B900C72263 /* Sources */,
+				D00F7D3013E737B900C72263 /* Frameworks */,
+				D00F7D3113E737B900C72263 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AWSiOSDemoTVM;
+			productName = AWSiOSDemoTVM;
+			productReference = D00F7D3313E737B900C72263 /* AWSiOSDemoTVM.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D00F7D2A13E737B900C72263 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = D00F7D2D13E737B900C72263 /* Build configuration list for PBXProject "AWSiOSDemoTVM" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D00F7D2813E737B900C72263;
+			productRefGroup = D00F7D3413E737B900C72263 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D00F7D3213E737B900C72263 /* AWSiOSDemoTVM */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D00F7D3113E737B900C72263 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D00F7D4213E737B900C72263 /* InfoPlist.strings in Resources */,
+				D00F7D4B13E737B900C72263 /* MainWindow.xib in Resources */,
+				D00F7D5113E737B900C72263 /* AWSiOSDemoTVMViewController.xib in Resources */,
+				D0B715F713E73AC3006220BB /* AddBucketViewController.xib in Resources */,
+				D0B715F913E73AC3006220BB /* AddObjectViewController.xib in Resources */,
+				D0B715FB13E73AC3006220BB /* BucketList.xib in Resources */,
+				D0B715FD13E73AC3006220BB /* ObjectListing.xib in Resources */,
+				D0B715FF13E73AC3006220BB /* ObjectViewController.xib in Resources */,
+				D0B7160113E73AC3006220BB /* S3AsyncViewController.xib in Resources */,
+				D0B7160413E73AC3006220BB /* DomainList.xib in Resources */,
+				D0B7160613E73AC3006220BB /* ItemListing.xib in Resources */,
+				D0B7160813E73AC3006220BB /* ItemViewController.xib in Resources */,
+				D0B7160A13E73AC3006220BB /* SdbAsyncViewController.xib in Resources */,
+				D0B7160D13E73AC3006220BB /* TopicList.xib in Resources */,
+				D0B7160F13E73AC3006220BB /* AddQueue.xib in Resources */,
+				D0B7161113E73AC3006220BB /* Message.xib in Resources */,
+				D0B7161313E73AC3006220BB /* MessageList.xib in Resources */,
+				D0B7161513E73AC3006220BB /* QueueList.xib in Resources */,
+				D0B7161713E73AC3006220BB /* SendMessage.xib in Resources */,
+				D0B7161813E73AC3006220BB /* temp.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D00F7D2F13E737B900C72263 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D00F7D4513E737B900C72263 /* main.m in Sources */,
+				D00F7D4813E737B900C72263 /* AWSiOSDemoTVMAppDelegate.m in Sources */,
+				D00F7D4E13E737B900C72263 /* AWSiOSDemoTVMViewController.m in Sources */,
+				D0B715F413E73AC3006220BB /* AmazonClientManager.m in Sources */,
+				D0B715F513E73AC3006220BB /* Constants.m in Sources */,
+				D0B715F613E73AC3006220BB /* AddBucketViewController.m in Sources */,
+				D0B715F813E73AC3006220BB /* AddObjectViewController.m in Sources */,
+				D0B715FA13E73AC3006220BB /* BucketList.m in Sources */,
+				D0B715FC13E73AC3006220BB /* ObjectListing.m in Sources */,
+				D0B715FE13E73AC3006220BB /* ObjectViewController.m in Sources */,
+				D0B7160013E73AC3006220BB /* S3AsyncViewController.m in Sources */,
+				D0B7160213E73AC3006220BB /* S3RequestDelegate.m in Sources */,
+				D0B7160313E73AC3006220BB /* DomainList.m in Sources */,
+				D0B7160513E73AC3006220BB /* ItemListing.m in Sources */,
+				D0B7160713E73AC3006220BB /* ItemViewController.m in Sources */,
+				D0B7160913E73AC3006220BB /* SdbAsyncViewController.m in Sources */,
+				D0B7160B13E73AC3006220BB /* SdbRequestDelegate.m in Sources */,
+				D0B7160C13E73AC3006220BB /* TopicList.m in Sources */,
+				D0B7160E13E73AC3006220BB /* AddQueue.m in Sources */,
+				D0B7161013E73AC3006220BB /* Message.m in Sources */,
+				D0B7161213E73AC3006220BB /* MessageList.m in Sources */,
+				D0B7161413E73AC3006220BB /* QueueList.m in Sources */,
+				D0B7161613E73AC3006220BB /* SendMessage.m in Sources */,
+				D02A9FB213E762850007810F /* AmazonKeyChainWrapper.m in Sources */,
+				D02A9FB313E762850007810F /* AmazonTVMClient.m in Sources */,
+				D02A9FB413E762850007810F /* Crypto.m in Sources */,
+				D02A9FB513E762850007810F /* GetTokenRequest.m in Sources */,
+				D02A9FB613E762850007810F /* GetTokenResponse.m in Sources */,
+				D02A9FB713E762850007810F /* GetTokenResponseHandler.m in Sources */,
+				D02A9FB813E762850007810F /* JSONUtilities.m in Sources */,
+				D02A9FB913E762850007810F /* RegisterDeviceRequest.m in Sources */,
+				D02A9FBA13E762850007810F /* Request.m in Sources */,
+				D02A9FBB13E762850007810F /* RequestDelegate.m in Sources */,
+				D02A9FBC13E762850007810F /* Response.m in Sources */,
+				D02A9FBD13E762850007810F /* ResponseHandler.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D00F7D4013E737B900C72263 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D00F7D4113E737B900C72263 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D00F7D4913E737B900C72263 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D00F7D4A13E737B900C72263 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		D00F7D4F13E737B900C72263 /* AWSiOSDemoTVMViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D00F7D5013E737B900C72263 /* en */,
+			);
+			name = AWSiOSDemoTVMViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D00F7D5213E737B900C72263 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D00F7D5313E737B900C72263 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		D00F7D5513E737B900C72263 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../..\"",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../AWSiOSTVMClient\"",
+					"\"$(SRCROOT)/../..\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AWSiOSDemoTVM/AWSiOSDemoTVM-Prefix.pch";
+				INFOPLIST_FILE = "AWSiOSDemoTVM/AWSiOSDemoTVM-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D00F7D5613E737B900C72263 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../..\"",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../AWSiOSTVMClient\"",
+					"\"$(SRCROOT)/../..\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AWSiOSDemoTVM/AWSiOSDemoTVM-Prefix.pch";
+				INFOPLIST_FILE = "AWSiOSDemoTVM/AWSiOSDemoTVM-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D00F7D2D13E737B900C72263 /* Build configuration list for PBXProject "AWSiOSDemoTVM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D00F7D5213E737B900C72263 /* Debug */,
+				D00F7D5313E737B900C72263 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D00F7D5413E737B900C72263 /* Build configuration list for PBXNativeTarget "AWSiOSDemoTVM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D00F7D5513E737B900C72263 /* Debug */,
+				D00F7D5613E737B900C72263 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D00F7D2A13E737B900C72263 /* Project object */;
+}

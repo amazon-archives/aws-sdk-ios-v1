@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"CreateSecurityGroup"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[createSecurityGroupRequest delegate]];
     [request setCredentials:[createSecurityGroupRequest credentials]];
     [request setEndpoint:[createSecurityGroupRequest requestEndpoint]];
+    [request setRequestTag:[createSecurityGroupRequest requestTag]];
 
     if (createSecurityGroupRequest != nil) {
         if (createSecurityGroupRequest.groupName != nil) {

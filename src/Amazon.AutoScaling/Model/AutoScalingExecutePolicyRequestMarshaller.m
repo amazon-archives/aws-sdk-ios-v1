@@ -27,6 +27,7 @@
     [request setDelegate:[executePolicyRequest delegate]];
     [request setCredentials:[executePolicyRequest credentials]];
     [request setEndpoint:[executePolicyRequest requestEndpoint]];
+    [request setRequestTag:[executePolicyRequest requestTag]];
 
     if (executePolicyRequest != nil) {
         if (executePolicyRequest.autoScalingGroupName != nil) {
@@ -40,7 +41,7 @@
     }
     if (executePolicyRequest != nil) {
         if (executePolicyRequest.honorCooldownIsSet) {
-            [request setParameterValue:(executePolicyRequest.honorCooldown ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@", @"HonorCooldown"]];
+            [request setParameterValue:(executePolicyRequest.honorCooldown ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"HonorCooldown"]];
         }
     }
 

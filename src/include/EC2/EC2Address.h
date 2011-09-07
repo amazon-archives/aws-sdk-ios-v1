@@ -27,6 +27,8 @@
 {
     NSString *instanceId;
     NSString *publicIp;
+    NSString *allocationId;
+    NSString *domain;
 }
 
 
@@ -46,6 +48,10 @@
  *
  */
 @property (nonatomic, retain) NSString *publicIp;
+
+@property (nonatomic, retain) NSString *allocationId;
+
+@property (nonatomic, retain) NSString *domain;
 
 /**
  * Returns a string representation of this object; useful for testing and

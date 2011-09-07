@@ -27,6 +27,7 @@
     [request setDelegate:[terminateInstanceInAutoScalingGroupRequest delegate]];
     [request setCredentials:[terminateInstanceInAutoScalingGroupRequest credentials]];
     [request setEndpoint:[terminateInstanceInAutoScalingGroupRequest requestEndpoint]];
+    [request setRequestTag:[terminateInstanceInAutoScalingGroupRequest requestTag]];
 
     if (terminateInstanceInAutoScalingGroupRequest != nil) {
         if (terminateInstanceInAutoScalingGroupRequest.instanceId != nil) {
@@ -35,7 +36,7 @@
     }
     if (terminateInstanceInAutoScalingGroupRequest != nil) {
         if (terminateInstanceInAutoScalingGroupRequest.shouldDecrementDesiredCapacityIsSet) {
-            [request setParameterValue:(terminateInstanceInAutoScalingGroupRequest.shouldDecrementDesiredCapacity ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@", @"ShouldDecrementDesiredCapacity"]];
+            [request setParameterValue:(terminateInstanceInAutoScalingGroupRequest.shouldDecrementDesiredCapacity ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"ShouldDecrementDesiredCapacity"]];
         }
     }
 

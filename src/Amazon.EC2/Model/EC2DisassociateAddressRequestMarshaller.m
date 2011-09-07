@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DisassociateAddress"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[disassociateAddressRequest delegate]];
     [request setCredentials:[disassociateAddressRequest credentials]];
     [request setEndpoint:[disassociateAddressRequest requestEndpoint]];
+    [request setRequestTag:[disassociateAddressRequest requestTag]];
 
     if (disassociateAddressRequest != nil) {
         if (disassociateAddressRequest.publicIp != nil) {
@@ -34,8 +35,8 @@
         }
     }
     if (disassociateAddressRequest != nil) {
-        if (disassociateAddressRequest.assocationId != nil) {
-            [request setParameterValue:[NSString stringWithFormat:@"%@", disassociateAddressRequest.assocationId] forKey:[NSString stringWithFormat:@"%@", @"AssocationId"]];
+        if (disassociateAddressRequest.associationId != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", disassociateAddressRequest.associationId] forKey:[NSString stringWithFormat:@"%@", @"AssociationId"]];
         }
     }
 

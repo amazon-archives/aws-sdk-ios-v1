@@ -27,6 +27,7 @@
     [request setDelegate:[addPermissionRequest delegate]];
     [request setCredentials:[addPermissionRequest credentials]];
     [request setEndpoint:[addPermissionRequest requestEndpoint]];
+    [request setRequestTag:[addPermissionRequest requestTag]];
 
     if (addPermissionRequest != nil) {
         if (addPermissionRequest.topicArn != nil) {

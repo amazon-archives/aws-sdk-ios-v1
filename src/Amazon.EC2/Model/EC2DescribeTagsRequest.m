@@ -40,13 +40,13 @@
 }
 
 
--(void)addFilter:(EC2Filter *)filter
+-(void)addFilter:(EC2Filter *)filterObject
 {
     if (filters == nil) {
         filters = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [filters addObject:filter];
+    [filters addObject:filterObject];
 }
 
 

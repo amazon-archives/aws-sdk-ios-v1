@@ -40,8 +40,8 @@
 @property (nonatomic, retain) NSString *loadBalancerName;
 
 /**
- * The external port of the LoadBalancer with which this policy has to be
- * associated.
+ * The external port of the LoadBalancer with which this policy applies
+ * to.
  */
 @property (nonatomic, retain) NSNumber *loadBalancerPort;
 
@@ -66,7 +66,7 @@
  * @param theLoadBalancerName The name associated with the LoadBalancer.
  * The name must be unique within the client AWS account.
  * @param theLoadBalancerPort The external port of the LoadBalancer with
- * which this policy has to be associated.
+ * which this policy applies to.
  * @param thePolicyNames List of policies to be associated with the
  * listener. Currently this list can have at most one policy. If the list
  * is empty, the current policy is removed from the listener.

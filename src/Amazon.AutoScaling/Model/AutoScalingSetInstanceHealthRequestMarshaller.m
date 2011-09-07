@@ -27,6 +27,7 @@
     [request setDelegate:[setInstanceHealthRequest delegate]];
     [request setCredentials:[setInstanceHealthRequest credentials]];
     [request setEndpoint:[setInstanceHealthRequest requestEndpoint]];
+    [request setRequestTag:[setInstanceHealthRequest requestTag]];
 
     if (setInstanceHealthRequest != nil) {
         if (setInstanceHealthRequest.instanceId != nil) {
@@ -40,7 +41,7 @@
     }
     if (setInstanceHealthRequest != nil) {
         if (setInstanceHealthRequest.shouldRespectGracePeriodIsSet) {
-            [request setParameterValue:(setInstanceHealthRequest.shouldRespectGracePeriod ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@", @"ShouldRespectGracePeriod"]];
+            [request setParameterValue:(setInstanceHealthRequest.shouldRespectGracePeriod ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"ShouldRespectGracePeriod"]];
         }
     }
 

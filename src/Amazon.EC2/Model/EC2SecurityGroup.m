@@ -45,31 +45,31 @@
 }
 
 
--(void)addIpPermission:(EC2IpPermission *)ipPermission
+-(void)addIpPermission:(EC2IpPermission *)ipPermissionObject
 {
     if (ipPermissions == nil) {
         ipPermissions = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [ipPermissions addObject:ipPermission];
+    [ipPermissions addObject:ipPermissionObject];
 }
 
--(void)addIpPermissionsEgres:(EC2IpPermission *)ipPermissionsEgres
+-(void)addIpPermissionsEgres:(EC2IpPermission *)ipPermissionsEgresObject
 {
     if (ipPermissionsEgress == nil) {
         ipPermissionsEgress = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [ipPermissionsEgress addObject:ipPermissionsEgres];
+    [ipPermissionsEgress addObject:ipPermissionsEgresObject];
 }
 
--(void)addTag:(EC2Tag *)tag
+-(void)addTag:(EC2Tag *)tagObject
 {
     if (tags == nil) {
         tags = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [tags addObject:tag];
+    [tags addObject:tagObject];
 }
 
 

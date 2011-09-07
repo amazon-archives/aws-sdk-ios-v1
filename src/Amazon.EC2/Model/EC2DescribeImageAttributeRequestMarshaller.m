@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribeImageAttribute"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[describeImageAttributeRequest delegate]];
     [request setCredentials:[describeImageAttributeRequest credentials]];
     [request setEndpoint:[describeImageAttributeRequest requestEndpoint]];
+    [request setRequestTag:[describeImageAttributeRequest requestTag]];
 
     if (describeImageAttributeRequest != nil) {
         if (describeImageAttributeRequest.imageId != nil) {

@@ -152,7 +152,7 @@
  * The name of the cluster placement group, if applicable. For more
  * information, go to <a
  * webservices.com/AWSEC2/latest/UserGuide/using_cluster_computing.html">
- * Using Cluster Instances</a> in the Amazon EC2 User Guide.
+ * Using Cluster Instances</a> in the <i>Amazon EC2 User Guide</i>.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 255<br/>
@@ -178,19 +178,19 @@
  * Adds a single object to instances.
  * This function will alloc and init instances if not already done.
  */
--(void)addInstance:(AutoScalingInstance *)instance;
+-(void)addInstance:(AutoScalingInstance *)instanceObject;
 
 /**
  * Adds a single object to suspendedProcesses.
  * This function will alloc and init suspendedProcesses if not already done.
  */
--(void)addSuspendedProcesse:(AutoScalingSuspendedProcess *)suspendedProcesse;
+-(void)addSuspendedProcesse:(AutoScalingSuspendedProcess *)suspendedProcesseObject;
 
 /**
  * Adds a single object to enabledMetrics.
  * This function will alloc and init enabledMetrics if not already done.
  */
--(void)addEnabledMetric:(AutoScalingEnabledMetric *)enabledMetric;
+-(void)addEnabledMetric:(AutoScalingEnabledMetric *)enabledMetricObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

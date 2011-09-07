@@ -27,6 +27,7 @@
     [request setDelegate:[describeAlarmHistoryRequest delegate]];
     [request setCredentials:[describeAlarmHistoryRequest credentials]];
     [request setEndpoint:[describeAlarmHistoryRequest requestEndpoint]];
+    [request setRequestTag:[describeAlarmHistoryRequest requestTag]];
 
     if (describeAlarmHistoryRequest != nil) {
         if (describeAlarmHistoryRequest.alarmName != nil) {

@@ -52,13 +52,13 @@
 }
 
 
--(void)addAttribute:(SimpleDBReplaceableAttribute *)attribute
+-(void)addAttribute:(SimpleDBReplaceableAttribute *)attributeObject
 {
     if (attributes == nil) {
         attributes = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [attributes addObject:attribute];
+    [attributes addObject:attributeObject];
 }
 
 

@@ -27,6 +27,7 @@
     [request setDelegate:[describeAdjustmentTypesRequest delegate]];
     [request setCredentials:[describeAdjustmentTypesRequest credentials]];
     [request setEndpoint:[describeAdjustmentTypesRequest requestEndpoint]];
+    [request setRequestTag:[describeAdjustmentTypesRequest requestTag]];
 
 
 

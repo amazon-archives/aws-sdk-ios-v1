@@ -27,6 +27,7 @@
     [request setDelegate:[listVerifiedEmailAddressesRequest delegate]];
     [request setCredentials:[listVerifiedEmailAddressesRequest credentials]];
     [request setEndpoint:[listVerifiedEmailAddressesRequest requestEndpoint]];
+    [request setRequestTag:[listVerifiedEmailAddressesRequest requestTag]];
 
 
 

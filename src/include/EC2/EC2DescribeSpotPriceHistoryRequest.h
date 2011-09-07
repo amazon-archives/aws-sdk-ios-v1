@@ -33,6 +33,9 @@
     NSMutableArray *instanceTypes;
     NSMutableArray *productDescriptions;
     NSMutableArray *filters;
+    NSString       *availabilityZone;
+    NSNumber       *maxResults;
+    NSString       *nextToken;
 }
 
 
@@ -73,10 +76,25 @@
 @property (nonatomic, retain) NSMutableArray *filters;
 
 /**
+ * Filters the results by availability zone (ex: 'us-east-1a').
+ */
+@property (nonatomic, retain) NSString *availabilityZone;
+
+/**
+ * Specifies the number of rows to return.
+ */
+@property (nonatomic, retain) NSNumber *maxResults;
+
+/**
+ * Specifies the next set of rows to return.
+ */
+@property (nonatomic, retain) NSString *nextToken;
+
+/**
  * Adds a single object to filters.
  * This function will alloc and init filters if not already done.
  */
--(void)addFilter:(EC2Filter *)filter;
+-(void)addFilter:(EC2Filter *)filterObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

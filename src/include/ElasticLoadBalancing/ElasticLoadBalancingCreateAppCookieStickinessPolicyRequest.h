@@ -41,7 +41,7 @@
 
 /**
  * The name of the policy being created. The name must be unique within
- * the set of policies for this Load Balancer.
+ * the set of policies for this LoadBalancer.
  */
 @property (nonatomic, retain) NSString *policyName;
 
@@ -64,7 +64,7 @@
  * @param theLoadBalancerName The name associated with the LoadBalancer.
  * The name must be unique within the client AWS account.
  * @param thePolicyName The name of the policy being created. The name
- * must be unique within the set of policies for this Load Balancer.
+ * must be unique within the set of policies for this LoadBalancer.
  * @param theCookieName Name of the application cookie used for
  * stickiness.
  */

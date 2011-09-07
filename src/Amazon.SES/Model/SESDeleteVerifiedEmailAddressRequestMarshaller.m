@@ -27,6 +27,7 @@
     [request setDelegate:[deleteVerifiedEmailAddressRequest delegate]];
     [request setCredentials:[deleteVerifiedEmailAddressRequest credentials]];
     [request setEndpoint:[deleteVerifiedEmailAddressRequest requestEndpoint]];
+    [request setRequestTag:[deleteVerifiedEmailAddressRequest requestTag]];
 
     if (deleteVerifiedEmailAddressRequest != nil) {
         if (deleteVerifiedEmailAddressRequest.emailAddress != nil) {

@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[ElasticLoadBalancingRequest alloc] init];
 
     [request setParameterValue:@"DeleteLoadBalancerListeners"           forKey:@"Action"];
-    [request setParameterValue:@"2010-07-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-08-15"   forKey:@"Version"];
 
     [request setDelegate:[deleteLoadBalancerListenersRequest delegate]];
     [request setCredentials:[deleteLoadBalancerListenersRequest credentials]];
     [request setEndpoint:[deleteLoadBalancerListenersRequest requestEndpoint]];
+    [request setRequestTag:[deleteLoadBalancerListenersRequest requestTag]];
 
     if (deleteLoadBalancerListenersRequest != nil) {
         if (deleteLoadBalancerListenersRequest.loadBalancerName != nil) {

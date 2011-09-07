@@ -27,6 +27,7 @@
     [request setDelegate:[setAlarmStateRequest delegate]];
     [request setCredentials:[setAlarmStateRequest credentials]];
     [request setEndpoint:[setAlarmStateRequest requestEndpoint]];
+    [request setRequestTag:[setAlarmStateRequest requestTag]];
 
     if (setAlarmStateRequest != nil) {
         if (setAlarmStateRequest.alarmName != nil) {

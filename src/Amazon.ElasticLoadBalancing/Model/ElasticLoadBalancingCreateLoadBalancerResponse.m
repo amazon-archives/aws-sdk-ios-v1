@@ -35,20 +35,20 @@
 {
     AmazonServiceException *newException = nil;
 
-    if ([[theException errorCode] isEqualToString:@"DuplicateLoadBalancerName"]) {
-        newException = [[ElasticLoadBalancingDuplicateLoadBalancerNameException alloc] initWithMessage:@""];
-    }
-
     if ([[theException errorCode] isEqualToString:@"TooManyLoadBalancers"]) {
         newException = [[ElasticLoadBalancingTooManyLoadBalancersException alloc] initWithMessage:@""];
     }
 
-    if ([[theException errorCode] isEqualToString:@"InvalidConfigurationRequest"]) {
-        newException = [[ElasticLoadBalancingInvalidConfigurationRequestException alloc] initWithMessage:@""];
+    if ([[theException errorCode] isEqualToString:@"DuplicateLoadBalancerName"]) {
+        newException = [[ElasticLoadBalancingDuplicateLoadBalancerNameException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"CertificateNotFound"]) {
         newException = [[ElasticLoadBalancingCertificateNotFoundException alloc] initWithMessage:@""];
+    }
+
+    if ([[theException errorCode] isEqualToString:@"InvalidConfigurationRequest"]) {
+        newException = [[ElasticLoadBalancingInvalidConfigurationRequestException alloc] initWithMessage:@""];
     }
 
     if (newException != nil) {

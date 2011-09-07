@@ -49,13 +49,13 @@
 }
 
 
--(void)addBlockDeviceMapping:(EC2InstanceBlockDeviceMapping *)blockDeviceMapping
+-(void)addBlockDeviceMapping:(EC2InstanceBlockDeviceMapping *)blockDeviceMappingObject
 {
     if (blockDeviceMappings == nil) {
         blockDeviceMappings = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [blockDeviceMappings addObject:blockDeviceMapping];
+    [blockDeviceMappings addObject:blockDeviceMappingObject];
 }
 
 

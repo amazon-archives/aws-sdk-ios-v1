@@ -27,6 +27,7 @@
     [request setDelegate:[describeScalingActivitiesRequest delegate]];
     [request setCredentials:[describeScalingActivitiesRequest credentials]];
     [request setEndpoint:[describeScalingActivitiesRequest requestEndpoint]];
+    [request setRequestTag:[describeScalingActivitiesRequest requestTag]];
 
     if (describeScalingActivitiesRequest != nil) {
         int activityIdsListIndex = 1;

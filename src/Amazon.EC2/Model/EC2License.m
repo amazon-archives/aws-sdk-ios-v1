@@ -39,22 +39,22 @@
 }
 
 
--(void)addCapacity:(EC2LicenseCapacity *)capacity
+-(void)addCapacity:(EC2LicenseCapacity *)capacityObject
 {
     if (capacities == nil) {
         capacities = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [capacities addObject:capacity];
+    [capacities addObject:capacityObject];
 }
 
--(void)addTag:(EC2Tag *)tag
+-(void)addTag:(EC2Tag *)tagObject
 {
     if (tags == nil) {
         tags = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [tags addObject:tag];
+    [tags addObject:tagObject];
 }
 
 

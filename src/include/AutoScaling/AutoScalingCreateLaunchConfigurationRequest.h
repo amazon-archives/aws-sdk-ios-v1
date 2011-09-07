@@ -61,8 +61,9 @@
 /**
  * Unique ID of the <i>Amazon Machine Image</i> (AMI) which was assigned
  * during registration. For more information about Amazon EC2 images,
- * please see <a href="http://aws.amazon.com/ec2/"> Amazon EC2 product
- * documentation</a>
+ * please go to <a
+ * ://docs.amazonwebservices.com/AWSEC2/latest/UserGuide/AMIs.html">Using
+ * AMIs</a> in the <i>Amazon EC2 User Guide</i>
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 255<br/>
@@ -82,16 +83,17 @@
 /**
  * The names of the security groups with which to associate EC2
  * instances. For more information about Amazon EC2 security groups, go
- * to the <a href="http://aws.amazon.com/ec2/"> Amazon EC2 product
- * documentation.</a>
+ * to <a
+ * nwebservices.com/AWSEC2/latest/UserGuide/using-network-security.html">
+ * Using Security Groups</a> in the <i>Amazon EC2 User Guide</i>.
  */
 @property (nonatomic, retain) NSMutableArray *securityGroups;
 
 /**
  * The user data available to the launched EC2 instances. For more
- * information about Amazon EC2 user data, please see <a
- * href="http://aws.amazon.com/ec2/"> Amazon EC2 product
- * documentation</a>.
+ * information about Amazon EC2 user data, please go to <a
+ * ://docs.amazonwebservices.com/AWSEC2/latest/UserGuide/Instances.html">
+ * Using Instances</a> in the <i>Amazon EC2 User Guide</i>.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>0 - 21847<br/>
@@ -101,9 +103,9 @@
 
 /**
  * The instance type of the EC2 instance. For more information about
- * Amazon EC2 instance types, please see <a
- * href="http://aws.amazon.com/ec2/"> Amazon EC2 product
- * documentation</a>
+ * Amazon EC2 instance types, please go to <a
+ * ://docs.amazonwebservices.com/AWSEC2/latest/UserGuide/Instances.html">
+ * Using Instances</a> in the <i>Amazon EC2 User Guide</i>.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 255<br/>
@@ -135,8 +137,8 @@
  * <i>DeviceName</i>, and an <i>ebs</i> data structure that contains
  * information about the associated Elastic Block Storage volume. For
  * more information about Amazon EC2 BlockDeviceMappings, please go to <a
- * WSEC2/latest/UserGuide/index.html?block-device-mapping-concepts.html">
- * Block Device Mapping</a> in the Amazon EC2 product documentation.
+ * vices.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">
+ * Block Device Mapping</a> in the <i>Amazon EC2 User Guide</i>.
  */
 @property (nonatomic, retain) NSMutableArray *blockDeviceMappings;
 
@@ -149,7 +151,7 @@
  * Adds a single object to blockDeviceMappings.
  * This function will alloc and init blockDeviceMappings if not already done.
  */
--(void)addBlockDeviceMapping:(AutoScalingBlockDeviceMapping *)blockDeviceMapping;
+-(void)addBlockDeviceMapping:(AutoScalingBlockDeviceMapping *)blockDeviceMappingObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

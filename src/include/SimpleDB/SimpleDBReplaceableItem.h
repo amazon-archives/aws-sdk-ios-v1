@@ -69,7 +69,7 @@
  * Adds a single object to attributes.
  * This function will alloc and init attributes if not already done.
  */
--(void)addAttribute:(SimpleDBReplaceableAttribute *)attribute;
+-(void)addAttribute:(SimpleDBReplaceableAttribute *)attributeObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

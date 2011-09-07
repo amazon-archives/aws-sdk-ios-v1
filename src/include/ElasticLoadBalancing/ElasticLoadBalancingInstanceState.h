@@ -45,7 +45,7 @@
 /**
  * Provides information about the cause of <i>OutOfService</i> instances.
  * Specifically, it indicates whether the cause is Elastic Load Balancing
- * or the instance behind the Load Balancer.
+ * or the instance behind the LoadBalancer.
  */
 @property (nonatomic, retain) NSString *reasonCode;
 

@@ -27,6 +27,7 @@
     [request setDelegate:[selectRequest delegate]];
     [request setCredentials:[selectRequest credentials]];
     [request setEndpoint:[selectRequest requestEndpoint]];
+    [request setRequestTag:[selectRequest requestTag]];
 
     if (selectRequest != nil) {
         if (selectRequest.selectExpression != nil) {
@@ -40,7 +41,7 @@
     }
     if (selectRequest != nil) {
         if (selectRequest.consistentReadIsSet) {
-            [request setParameterValue:(selectRequest.consistentRead ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@", @"ConsistentRead"]];
+            [request setParameterValue:(selectRequest.consistentRead ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"ConsistentRead"]];
         }
     }
 

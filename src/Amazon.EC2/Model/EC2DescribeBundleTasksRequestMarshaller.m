@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribeBundleTasks"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[describeBundleTasksRequest delegate]];
     [request setCredentials:[describeBundleTasksRequest credentials]];
     [request setEndpoint:[describeBundleTasksRequest requestEndpoint]];
+    [request setRequestTag:[describeBundleTasksRequest requestTag]];
 
     if (describeBundleTasksRequest != nil) {
         int bundleIdsListIndex = 1;

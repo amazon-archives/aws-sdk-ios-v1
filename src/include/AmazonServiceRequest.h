@@ -32,6 +32,8 @@
     NSString                         *userAgent;
     AmazonCredentials                *credentials;
     NSURLConnection                  *urlConnection;
+    
+    NSString                         *requestTag;
 }
 
 /** Request specific credentials. */
@@ -57,6 +59,12 @@
 @property (nonatomic, retain) NSMutableDictionary *parameters;
 @property (nonatomic, retain) NSString            *endpoint;
 @property (nonatomic, retain) NSString            *userAgent;
+
+/**
+ * Open property that enables user to distinquish various requests.
+ */
+
+@property (nonatomic, retain) NSString            *requestTag;
 
 -(AmazonURLRequest *)configureURLRequest;
 

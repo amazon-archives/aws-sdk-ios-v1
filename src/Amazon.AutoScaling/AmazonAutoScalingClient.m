@@ -27,6 +27,14 @@
     return self;
 }
 
+-(id)initWithCredentials:(AmazonCredentials *)theCredentials
+{
+    if (self = [super initWithCredentials:theCredentials]) {
+        self.endpoint = @"https://autoscaling.amazonaws.com";
+    }
+    return self;
+}
+
 -(AutoScalingPutScheduledUpdateGroupActionResponse *)putScheduledUpdateGroupAction:(AutoScalingPutScheduledUpdateGroupActionRequest *)putScheduledUpdateGroupActionRequest
 {
     AmazonServiceRequest *request = [AutoScalingPutScheduledUpdateGroupActionRequestMarshaller createRequest:putScheduledUpdateGroupActionRequest];

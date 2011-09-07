@@ -27,6 +27,7 @@
     [request setDelegate:[disableMetricsCollectionRequest delegate]];
     [request setCredentials:[disableMetricsCollectionRequest credentials]];
     [request setEndpoint:[disableMetricsCollectionRequest requestEndpoint]];
+    [request setRequestTag:[disableMetricsCollectionRequest requestTag]];
 
     if (disableMetricsCollectionRequest != nil) {
         if (disableMetricsCollectionRequest.autoScalingGroupName != nil) {

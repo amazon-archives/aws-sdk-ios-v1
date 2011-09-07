@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"ConfirmProductInstance"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[confirmProductInstanceRequest delegate]];
     [request setCredentials:[confirmProductInstanceRequest credentials]];
     [request setEndpoint:[confirmProductInstanceRequest requestEndpoint]];
+    [request setRequestTag:[confirmProductInstanceRequest requestTag]];
 
     if (confirmProductInstanceRequest != nil) {
         if (confirmProductInstanceRequest.productCode != nil) {

@@ -40,8 +40,8 @@
 @property (nonatomic, retain) NSString *loadBalancerName;
 
 /**
- * A list of LoadBalancerPort, <code>InstancePort</code>,
- * <code>Protocol</code>, and <code>SSLCertificateID</code> items.
+ * A list of <code>LoadBalancerPort</code>, <code>InstancePort</code>,
+ * <code>Protocol</code>, and <code>SSLCertificateId</code> items.
  */
 @property (nonatomic, retain) NSMutableArray *listeners;
 
@@ -58,9 +58,9 @@
  *
  * @param theLoadBalancerName The name of the new LoadBalancer. The name
  * must be unique within your AWS account.
- * @param theListeners A list of LoadBalancerPort,
+ * @param theListeners A list of <code>LoadBalancerPort</code>,
  * <code>InstancePort</code>, <code>Protocol</code>, and
- * <code>SSLCertificateID</code> items.
+ * <code>SSLCertificateId</code> items.
  */
 -(id)initWithLoadBalancerName:(NSString *)theLoadBalancerName andListeners:(NSMutableArray *)theListeners;
 
@@ -68,7 +68,7 @@
  * Adds a single object to listeners.
  * This function will alloc and init listeners if not already done.
  */
--(void)addListener:(ElasticLoadBalancingListener *)listener;
+-(void)addListener:(ElasticLoadBalancingListener *)listenerObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

@@ -27,6 +27,7 @@
     [request setDelegate:[getSendQuotaRequest delegate]];
     [request setCredentials:[getSendQuotaRequest credentials]];
     [request setEndpoint:[getSendQuotaRequest requestEndpoint]];
+    [request setRequestTag:[getSendQuotaRequest requestTag]];
 
 
 

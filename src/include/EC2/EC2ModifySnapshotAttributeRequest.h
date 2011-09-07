@@ -13,6 +13,7 @@
  * permissions and limitations under the License.
  */
 
+#import "EC2CreateVolumePermissionModifications.h"
 
 #import "../AmazonServiceRequestConfig.h"
 
@@ -27,11 +28,12 @@
 @interface EC2ModifySnapshotAttributeRequest:AmazonServiceRequestConfig
 
 {
-    NSString       *snapshotId;
-    NSString       *attribute;
-    NSString       *operationType;
-    NSMutableArray *userIds;
-    NSMutableArray *groupNames;
+    NSString                               *snapshotId;
+    NSString                               *attribute;
+    NSString                               *operationType;
+    NSMutableArray                         *userIds;
+    NSMutableArray                         *groupNames;
+    EC2CreateVolumePermissionModifications *createVolumePermission;
 }
 
 
@@ -68,7 +70,9 @@
  * <code>createVolumePermission</code> attribute is being modified.
  * </note>
  */
-@property (nonatomic, retain) NSMutableArray *groupNames;
+@property (nonatomic, retain) NSMutableArray                         *groupNames;
+
+@property (nonatomic, retain) EC2CreateVolumePermissionModifications *createVolumePermission;
 
 
 /**

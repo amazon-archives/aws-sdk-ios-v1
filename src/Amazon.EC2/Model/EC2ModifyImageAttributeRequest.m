@@ -25,18 +25,22 @@
 @synthesize userGroups;
 @synthesize productCodes;
 @synthesize value;
+@synthesize launchPermission;
+@synthesize descriptionValue;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        imageId       = nil;
-        attribute     = nil;
-        operationType = nil;
-        userIds       = [[NSMutableArray alloc] initWithCapacity:1];
-        userGroups    = [[NSMutableArray alloc] initWithCapacity:1];
-        productCodes  = [[NSMutableArray alloc] initWithCapacity:1];
-        value         = nil;
+        imageId          = nil;
+        attribute        = nil;
+        operationType    = nil;
+        userIds          = [[NSMutableArray alloc] initWithCapacity:1];
+        userGroups       = [[NSMutableArray alloc] initWithCapacity:1];
+        productCodes     = [[NSMutableArray alloc] initWithCapacity:1];
+        value            = nil;
+        launchPermission = nil;
+        descriptionValue = nil;
     }
 
     return self;
@@ -66,6 +70,8 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"UserGroups: %@,", userGroups] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ProductCodes: %@,", productCodes] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Value: %@,", value] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"LaunchPermission: %@,", launchPermission] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Description: %@,", descriptionValue] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -83,6 +89,8 @@
     [userGroups release];
     [productCodes release];
     [value release];
+    [launchPermission release];
+    [descriptionValue release];
 
     [super dealloc];
 }

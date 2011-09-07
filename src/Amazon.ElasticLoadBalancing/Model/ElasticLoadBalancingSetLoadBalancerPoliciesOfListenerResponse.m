@@ -37,16 +37,16 @@
         newException = [[ElasticLoadBalancingPolicyNotFoundException alloc] initWithMessage:@""];
     }
 
+    if ([[theException errorCode] isEqualToString:@"ListenerNotFound"]) {
+        newException = [[ElasticLoadBalancingListenerNotFoundException alloc] initWithMessage:@""];
+    }
+
     if ([[theException errorCode] isEqualToString:@"LoadBalancerNotFound"]) {
         newException = [[ElasticLoadBalancingLoadBalancerNotFoundException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"InvalidConfigurationRequest"]) {
         newException = [[ElasticLoadBalancingInvalidConfigurationRequestException alloc] initWithMessage:@""];
-    }
-
-    if ([[theException errorCode] isEqualToString:@"ListenerNotFound"]) {
-        newException = [[ElasticLoadBalancingListenerNotFoundException alloc] initWithMessage:@""];
     }
 
     if (newException != nil) {

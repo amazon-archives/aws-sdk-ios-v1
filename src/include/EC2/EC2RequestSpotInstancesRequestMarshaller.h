@@ -21,7 +21,7 @@
 #import "EC2LaunchSpecification.h"
 #import "EC2GroupIdentifier.h"
 #import "EC2EbsBlockDevice.h"
-#import "EC2Placement.h"
+#import "EC2SpotPlacement.h"
 #import "EC2EbsBlockDevice.h"
 #import "EC2BlockDeviceMapping.h"
 #import "EC2EbsBlockDevice.h"

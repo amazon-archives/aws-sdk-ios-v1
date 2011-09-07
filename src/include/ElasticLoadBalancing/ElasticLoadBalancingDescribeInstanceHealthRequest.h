@@ -64,7 +64,7 @@
  * Adds a single object to instances.
  * This function will alloc and init instances if not already done.
  */
--(void)addInstance:(ElasticLoadBalancingInstance *)instance;
+-(void)addInstance:(ElasticLoadBalancingInstance *)instanceObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

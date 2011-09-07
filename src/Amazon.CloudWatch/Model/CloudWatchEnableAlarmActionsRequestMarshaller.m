@@ -27,6 +27,7 @@
     [request setDelegate:[enableAlarmActionsRequest delegate]];
     [request setCredentials:[enableAlarmActionsRequest credentials]];
     [request setEndpoint:[enableAlarmActionsRequest requestEndpoint]];
+    [request setRequestTag:[enableAlarmActionsRequest requestTag]];
 
     if (enableAlarmActionsRequest != nil) {
         int alarmNamesListIndex = 1;

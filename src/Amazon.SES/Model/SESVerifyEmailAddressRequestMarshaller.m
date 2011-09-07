@@ -27,6 +27,7 @@
     [request setDelegate:[verifyEmailAddressRequest delegate]];
     [request setCredentials:[verifyEmailAddressRequest credentials]];
     [request setEndpoint:[verifyEmailAddressRequest requestEndpoint]];
+    [request setRequestTag:[verifyEmailAddressRequest requestTag]];
 
     if (verifyEmailAddressRequest != nil) {
         if (verifyEmailAddressRequest.emailAddress != nil) {

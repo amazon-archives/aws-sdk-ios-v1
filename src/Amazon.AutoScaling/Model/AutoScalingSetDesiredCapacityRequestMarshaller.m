@@ -27,6 +27,7 @@
     [request setDelegate:[setDesiredCapacityRequest delegate]];
     [request setCredentials:[setDesiredCapacityRequest credentials]];
     [request setEndpoint:[setDesiredCapacityRequest requestEndpoint]];
+    [request setRequestTag:[setDesiredCapacityRequest requestTag]];
 
     if (setDesiredCapacityRequest != nil) {
         if (setDesiredCapacityRequest.autoScalingGroupName != nil) {
@@ -40,7 +41,7 @@
     }
     if (setDesiredCapacityRequest != nil) {
         if (setDesiredCapacityRequest.honorCooldownIsSet) {
-            [request setParameterValue:(setDesiredCapacityRequest.honorCooldown ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@", @"HonorCooldown"]];
+            [request setParameterValue:(setDesiredCapacityRequest.honorCooldown ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"HonorCooldown"]];
         }
     }
 

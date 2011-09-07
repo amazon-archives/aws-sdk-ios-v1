@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"ModifyInstanceAttribute"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[modifyInstanceAttributeRequest delegate]];
     [request setCredentials:[modifyInstanceAttributeRequest credentials]];
     [request setEndpoint:[modifyInstanceAttributeRequest requestEndpoint]];
+    [request setRequestTag:[modifyInstanceAttributeRequest requestTag]];
 
     if (modifyInstanceAttributeRequest != nil) {
         if (modifyInstanceAttributeRequest.instanceId != nil) {
@@ -61,7 +62,7 @@
                 }
                 if (ebs != nil) {
                     if (ebs.deleteOnTerminationIsSet) {
-                        [request setParameterValue:(ebs.deleteOnTermination ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@.%d.%@.%@", @"BlockDeviceMapping", blockDeviceMappingsListIndex, @"Ebs", @"DeleteOnTermination"]];
+                        [request setParameterValue:(ebs.deleteOnTermination ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@.%d.%@.%@", @"BlockDeviceMapping", blockDeviceMappingsListIndex, @"Ebs", @"DeleteOnTermination"]];
                     }
                 }
             }
@@ -81,7 +82,37 @@
     }
     if (modifyInstanceAttributeRequest != nil) {
         if (modifyInstanceAttributeRequest.sourceDestCheckIsSet) {
-            [request setParameterValue:(modifyInstanceAttributeRequest.sourceDestCheck ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@", @"SourceDestCheck"]];
+            [request setParameterValue:(modifyInstanceAttributeRequest.sourceDestCheck ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"SourceDestCheck"]];
+        }
+    }
+    if (modifyInstanceAttributeRequest != nil) {
+        if (modifyInstanceAttributeRequest.disableApiTerminationIsSet) {
+            [request setParameterValue:(modifyInstanceAttributeRequest.disableApiTermination ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DisableApiTermination"]];
+        }
+    }
+    if (modifyInstanceAttributeRequest != nil) {
+        if (modifyInstanceAttributeRequest.instanceType != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", modifyInstanceAttributeRequest.instanceType] forKey:[NSString stringWithFormat:@"%@", @"InstanceType"]];
+        }
+    }
+    if (modifyInstanceAttributeRequest != nil) {
+        if (modifyInstanceAttributeRequest.kernel != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", modifyInstanceAttributeRequest.kernel] forKey:[NSString stringWithFormat:@"%@", @"Kernel"]];
+        }
+    }
+    if (modifyInstanceAttributeRequest != nil) {
+        if (modifyInstanceAttributeRequest.ramdisk != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", modifyInstanceAttributeRequest.ramdisk] forKey:[NSString stringWithFormat:@"%@", @"Ramdisk"]];
+        }
+    }
+    if (modifyInstanceAttributeRequest != nil) {
+        if (modifyInstanceAttributeRequest.userData != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", modifyInstanceAttributeRequest.userData] forKey:[NSString stringWithFormat:@"%@", @"UserData"]];
+        }
+    }
+    if (modifyInstanceAttributeRequest != nil) {
+        if (modifyInstanceAttributeRequest.instanceInitiatedShutdownBehavior != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", modifyInstanceAttributeRequest.instanceInitiatedShutdownBehavior] forKey:[NSString stringWithFormat:@"%@", @"InstanceInitiatedShutdownBehavior"]];
         }
     }
     if (modifyInstanceAttributeRequest != nil) {

@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"TerminateInstances"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[terminateInstancesRequest delegate]];
     [request setCredentials:[terminateInstancesRequest credentials]];
     [request setEndpoint:[terminateInstancesRequest requestEndpoint]];
+    [request setRequestTag:[terminateInstancesRequest requestTag]];
 
     if (terminateInstancesRequest != nil) {
         int instanceIdsListIndex = 1;

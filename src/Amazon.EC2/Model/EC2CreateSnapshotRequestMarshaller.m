@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"CreateSnapshot"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[createSnapshotRequest delegate]];
     [request setCredentials:[createSnapshotRequest credentials]];
     [request setEndpoint:[createSnapshotRequest requestEndpoint]];
+    [request setRequestTag:[createSnapshotRequest requestTag]];
 
     if (createSnapshotRequest != nil) {
         if (createSnapshotRequest.volumeId != nil) {

@@ -20,7 +20,7 @@
 
 /**
  * <p>
- * The quota for the number of load balancers has already been reached.
+ * The quota for the number of LoadBalancers has already been reached.
  * </p>
  *
  * \ingroup ElasticLoadBalancing

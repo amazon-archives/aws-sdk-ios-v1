@@ -25,6 +25,8 @@
 @synthesize usagePrice;
 @synthesize fixedPrice;
 @synthesize productDescription;
+@synthesize instanceTenancy;
+@synthesize currencyCode;
 
 
 -(id)init
@@ -37,6 +39,8 @@
         usagePrice                  = nil;
         fixedPrice                  = nil;
         productDescription          = nil;
+        instanceTenancy             = nil;
+        currencyCode                = nil;
     }
 
     return self;
@@ -56,6 +60,8 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"UsagePrice: %@,", usagePrice] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"FixedPrice: %@,", fixedPrice] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ProductDescription: %@,", productDescription] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"InstanceTenancy: %@,", instanceTenancy] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"CurrencyCode: %@,", currencyCode] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -73,6 +79,8 @@
     [usagePrice release];
     [fixedPrice release];
     [productDescription release];
+    [instanceTenancy release];
+    [currencyCode release];
 
     [super dealloc];
 }

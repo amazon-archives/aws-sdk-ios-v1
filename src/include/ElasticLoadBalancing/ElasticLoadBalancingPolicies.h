@@ -29,6 +29,7 @@
 {
     NSMutableArray *appCookieStickinessPolicies;
     NSMutableArray *lBCookieStickinessPolicies;
+    NSMutableArray *otherPolicies;
 }
 
 
@@ -39,10 +40,15 @@
 @property (nonatomic, retain) NSMutableArray *appCookieStickinessPolicies;
 
 /**
- * A list of the <a>LBCookieStickinessPolicy</a> objects created with
+ * A list of <a>LBCookieStickinessPolicy</a> objects created with
  * <a>CreateAppCookieStickinessPolicy</a>.
  */
 @property (nonatomic, retain) NSMutableArray *lBCookieStickinessPolicies;
+
+/**
+ * A list of policy names other than the stickiness policies.
+ */
+@property (nonatomic, retain) NSMutableArray *otherPolicies;
 
 
 /**
@@ -55,13 +61,13 @@
  * Adds a single object to appCookieStickinessPolicies.
  * This function will alloc and init appCookieStickinessPolicies if not already done.
  */
--(void)addAppCookieStickinessPolicy:(ElasticLoadBalancingAppCookieStickinessPolicy *)appCookieStickinessPolicy;
+-(void)addAppCookieStickinessPolicy:(ElasticLoadBalancingAppCookieStickinessPolicy *)appCookieStickinessPolicyObject;
 
 /**
  * Adds a single object to lBCookieStickinessPolicies.
  * This function will alloc and init lBCookieStickinessPolicies if not already done.
  */
--(void)addLBCookieStickinessPolicy:(ElasticLoadBalancingLBCookieStickinessPolicy *)lBCookieStickinessPolicy;
+-(void)addLBCookieStickinessPolicy:(ElasticLoadBalancingLBCookieStickinessPolicy *)lBCookieStickinessPolicyObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

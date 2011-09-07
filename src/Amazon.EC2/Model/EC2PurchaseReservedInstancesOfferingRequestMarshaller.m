@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"PurchaseReservedInstancesOffering"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[purchaseReservedInstancesOfferingRequest delegate]];
     [request setCredentials:[purchaseReservedInstancesOfferingRequest credentials]];
     [request setEndpoint:[purchaseReservedInstancesOfferingRequest requestEndpoint]];
+    [request setRequestTag:[purchaseReservedInstancesOfferingRequest requestTag]];
 
     if (purchaseReservedInstancesOfferingRequest != nil) {
         if (purchaseReservedInstancesOfferingRequest.reservedInstancesOfferingId != nil) {

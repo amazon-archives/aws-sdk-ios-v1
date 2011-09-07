@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[ElasticLoadBalancingRequest alloc] init];
 
     [request setParameterValue:@"DescribeLoadBalancers"           forKey:@"Action"];
-    [request setParameterValue:@"2010-07-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-08-15"   forKey:@"Version"];
 
     [request setDelegate:[describeLoadBalancersRequest delegate]];
     [request setCredentials:[describeLoadBalancersRequest credentials]];
     [request setEndpoint:[describeLoadBalancersRequest requestEndpoint]];
+    [request setRequestTag:[describeLoadBalancersRequest requestTag]];
 
     if (describeLoadBalancersRequest != nil) {
         int loadBalancerNamesListIndex = 1;

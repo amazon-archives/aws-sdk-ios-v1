@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"AllocateAddress"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[allocateAddressRequest delegate]];
     [request setCredentials:[allocateAddressRequest credentials]];
     [request setEndpoint:[allocateAddressRequest requestEndpoint]];
+    [request setRequestTag:[allocateAddressRequest requestTag]];
 
     if (allocateAddressRequest != nil) {
         if (allocateAddressRequest.domain != nil) {

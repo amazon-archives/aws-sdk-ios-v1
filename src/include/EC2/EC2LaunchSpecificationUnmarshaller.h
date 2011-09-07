@@ -21,7 +21,7 @@
 #import "../AmazonListUnmarshaller.h"
 #import "EC2GroupIdentifierUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
-#import "EC2PlacementUnmarshaller.h"
+#import "EC2SpotPlacementUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
 #import "EC2BlockDeviceMappingUnmarshaller.h"
 

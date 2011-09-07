@@ -96,6 +96,9 @@
 #import "S3ListPartsResponse.h"
 #import "S3CompleteMultipartUploadRequest.h"
 #import "S3CompleteMultipartUploadResponse.h"
+#import "S3CopyPartRequest.h"
+#import "S3CopyPartResponse.h"
+#import "S3CopyObjectResponse.h"
 
 
 /** \defgroup S3 Amazon S3 */
@@ -452,6 +455,10 @@
  * @return An S3ListPartsResponse from S3.
  */
 -(S3ListPartsResponse *)listParts:(S3ListPartsRequest *)listPartsRequest;
+
+
+-(S3CopyPartResponse *)copyPart:(S3CopyPartRequest *)copyPartRequest;
+
 
 /** Completes a multipart upload by assembling previously uploaded parts.
  * You first upload all parts using the uploadPart method.

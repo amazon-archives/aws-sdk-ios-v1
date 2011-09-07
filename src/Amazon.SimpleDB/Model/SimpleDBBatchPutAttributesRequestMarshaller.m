@@ -27,6 +27,7 @@
     [request setDelegate:[batchPutAttributesRequest delegate]];
     [request setCredentials:[batchPutAttributesRequest credentials]];
     [request setEndpoint:[batchPutAttributesRequest requestEndpoint]];
+    [request setRequestTag:[batchPutAttributesRequest requestTag]];
 
     if (batchPutAttributesRequest != nil) {
         if (batchPutAttributesRequest.domainName != nil) {
@@ -58,7 +59,7 @@
                     }
                     if (attributesListValue != nil) {
                         if (attributesListValue.replaceIsSet) {
-                            [request setParameterValue:(attributesListValue.replace ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@.%d.%@.%d.%@", @"Item", itemsListIndex, @"Attribute", attributesListIndex, @"Replace"]];
+                            [request setParameterValue:(attributesListValue.replace ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@.%d.%@.%d.%@", @"Item", itemsListIndex, @"Attribute", attributesListIndex, @"Replace"]];
                         }
                     }
 

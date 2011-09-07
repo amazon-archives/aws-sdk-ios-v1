@@ -27,6 +27,7 @@
     [request setDelegate:[listTopicsRequest delegate]];
     [request setCredentials:[listTopicsRequest credentials]];
     [request setEndpoint:[listTopicsRequest requestEndpoint]];
+    [request setRequestTag:[listTopicsRequest requestTag]];
 
     if (listTopicsRequest != nil) {
         if (listTopicsRequest.nextToken != nil) {

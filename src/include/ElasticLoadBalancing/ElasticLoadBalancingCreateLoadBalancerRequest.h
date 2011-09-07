@@ -36,10 +36,7 @@
 
 /**
  * The name associated with the LoadBalancer. The name must be unique
- * within your set of LoadBalancers requests on the specified protocol
- * and received by Elastic Load Balancing on the LoadBalancerPort are
- * load balanced across the registered instances and sent to port
- * InstancePort.
+ * within your set of LoadBalancers.
  */
 @property (nonatomic, retain) NSString *loadBalancerName;
 
@@ -70,10 +67,7 @@
  * Callers should use properties to initialize any additional object members.
  *
  * @param theLoadBalancerName The name associated with the LoadBalancer.
- * The name must be unique within your set of LoadBalancers requests on
- * the specified protocol and received by Elastic Load Balancing on the
- * LoadBalancerPort are load balanced across the registered instances and
- * sent to port InstancePort.
+ * The name must be unique within your set of LoadBalancers.
  */
 -(id)initWithLoadBalancerName:(NSString *)theLoadBalancerName;
 
@@ -82,10 +76,7 @@
  * Callers should use properties to initialize any additional object members.
  *
  * @param theLoadBalancerName The name associated with the LoadBalancer.
- * The name must be unique within your set of LoadBalancers requests on
- * the specified protocol and received by Elastic Load Balancing on the
- * LoadBalancerPort are load balanced across the registered instances and
- * sent to port InstancePort.
+ * The name must be unique within your set of LoadBalancers.
  * @param theListeners A list of the following tuples: LoadBalancerPort,
  * InstancePort, and Protocol.
  * @param theAvailabilityZones A list of Availability Zones. <p> At least
@@ -100,7 +91,7 @@
  * Adds a single object to listeners.
  * This function will alloc and init listeners if not already done.
  */
--(void)addListener:(ElasticLoadBalancingListener *)listener;
+-(void)addListener:(ElasticLoadBalancingListener *)listenerObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

@@ -27,6 +27,7 @@
     [request setDelegate:[deleteMessageRequest delegate]];
     [request setCredentials:[deleteMessageRequest credentials]];
     [request setEndpoint:[deleteMessageRequest requestEndpoint]];
+    [request setRequestTag:[deleteMessageRequest requestTag]];
 
     if (deleteMessageRequest != nil) {
         if (deleteMessageRequest.queueUrl != nil) {

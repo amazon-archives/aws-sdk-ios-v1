@@ -79,7 +79,8 @@
 @property (nonatomic, retain) NSNumber *maxSize;
 
 /**
- * The number of EC2 instances that should be running in the group.
+ * The number of EC2 instances that should be running in the group. For
+ * more information, see <a>SetDesiredCapacity</a>.
  */
 @property (nonatomic, retain) NSNumber *desiredCapacity;
 
@@ -104,7 +105,7 @@
 
 /**
  * The service you want the health status from, Amazon EC2 or Elastic
- * Load Balancer.
+ * Load Balancer. Valid values are "EC2" or "ELB."
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 32<br/>

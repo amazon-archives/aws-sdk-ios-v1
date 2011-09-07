@@ -23,6 +23,7 @@
 @synthesize availabilityZone;
 @synthesize productDescription;
 @synthesize filters;
+@synthesize instanceTenancy;
 
 
 -(id)init
@@ -33,19 +34,20 @@
         availabilityZone             = nil;
         productDescription           = nil;
         filters                      = [[NSMutableArray alloc] initWithCapacity:1];
+        instanceTenancy              = nil;
     }
 
     return self;
 }
 
 
--(void)addFilter:(EC2Filter *)filter
+-(void)addFilter:(EC2Filter *)filterObject
 {
     if (filters == nil) {
         filters = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [filters addObject:filter];
+    [filters addObject:filterObject];
 }
 
 
@@ -59,6 +61,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"AvailabilityZone: %@,", availabilityZone] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ProductDescription: %@,", productDescription] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Filters: %@,", filters] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"InstanceTenancy: %@,", instanceTenancy] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -74,6 +77,7 @@
     [availabilityZone release];
     [productDescription release];
     [filters release];
+    [instanceTenancy release];
 
     [super dealloc];
 }

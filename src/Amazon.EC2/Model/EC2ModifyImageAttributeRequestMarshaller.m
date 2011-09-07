@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"ModifyImageAttribute"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[modifyImageAttributeRequest delegate]];
     [request setCredentials:[modifyImageAttributeRequest credentials]];
     [request setEndpoint:[modifyImageAttributeRequest requestEndpoint]];
+    [request setRequestTag:[modifyImageAttributeRequest requestTag]];
 
     if (modifyImageAttributeRequest != nil) {
         if (modifyImageAttributeRequest.imageId != nil) {
@@ -73,6 +74,50 @@
     if (modifyImageAttributeRequest != nil) {
         if (modifyImageAttributeRequest.value != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", modifyImageAttributeRequest.value] forKey:[NSString stringWithFormat:@"%@", @"Value"]];
+        }
+    }
+    if (modifyImageAttributeRequest != nil) {
+        EC2LaunchPermissionModifications *launchPermission = modifyImageAttributeRequest.launchPermission;
+
+        if (launchPermission != nil) {
+            int addListIndex = 1;
+            for (EC2LaunchPermission *addListValue in launchPermission.add) {
+                if (addListValue != nil) {
+                    if (addListValue.userId != nil) {
+                        [request setParameterValue:[NSString stringWithFormat:@"%@", addListValue.userId] forKey:[NSString stringWithFormat:@"%@.%@.%d.%@", @"LaunchPermission", @"Add", addListIndex, @"UserId"]];
+                    }
+                }
+                if (addListValue != nil) {
+                    if (addListValue.group != nil) {
+                        [request setParameterValue:[NSString stringWithFormat:@"%@", addListValue.group] forKey:[NSString stringWithFormat:@"%@.%@.%d.%@", @"LaunchPermission", @"Add", addListIndex, @"Group"]];
+                    }
+                }
+
+                addListIndex++;
+            }
+        }
+
+        if (launchPermission != nil) {
+            int removeListIndex = 1;
+            for (EC2LaunchPermission *removeListValue in launchPermission.remove) {
+                if (removeListValue != nil) {
+                    if (removeListValue.userId != nil) {
+                        [request setParameterValue:[NSString stringWithFormat:@"%@", removeListValue.userId] forKey:[NSString stringWithFormat:@"%@.%@.%d.%@", @"LaunchPermission", @"Remove", removeListIndex, @"UserId"]];
+                    }
+                }
+                if (removeListValue != nil) {
+                    if (removeListValue.group != nil) {
+                        [request setParameterValue:[NSString stringWithFormat:@"%@", removeListValue.group] forKey:[NSString stringWithFormat:@"%@.%@.%d.%@", @"LaunchPermission", @"Remove", removeListIndex, @"Group"]];
+                    }
+                }
+
+                removeListIndex++;
+            }
+        }
+    }
+    if (modifyImageAttributeRequest != nil) {
+        if (modifyImageAttributeRequest.descriptionValue != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", modifyImageAttributeRequest.descriptionValue] forKey:[NSString stringWithFormat:@"%@", @"Description"]];
         }
     }
 

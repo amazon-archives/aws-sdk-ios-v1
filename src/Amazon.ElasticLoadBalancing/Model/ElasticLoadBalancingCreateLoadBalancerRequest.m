@@ -55,13 +55,13 @@
 }
 
 
--(void)addListener:(ElasticLoadBalancingListener *)listener
+-(void)addListener:(ElasticLoadBalancingListener *)listenerObject
 {
     if (listeners == nil) {
         listeners = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [listeners addObject:listener];
+    [listeners addObject:listenerObject];
 }
 
 

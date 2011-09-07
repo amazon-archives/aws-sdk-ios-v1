@@ -27,6 +27,7 @@
     [request setDelegate:[getQueueAttributesRequest delegate]];
     [request setCredentials:[getQueueAttributesRequest credentials]];
     [request setEndpoint:[getQueueAttributesRequest requestEndpoint]];
+    [request setRequestTag:[getQueueAttributesRequest requestTag]];
 
     if (getQueueAttributesRequest != nil) {
         if (getQueueAttributesRequest.queueUrl != nil) {

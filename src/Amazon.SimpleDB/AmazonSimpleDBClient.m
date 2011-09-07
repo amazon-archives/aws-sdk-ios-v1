@@ -27,6 +27,14 @@
     return self;
 }
 
+-(id)initWithCredentials:(AmazonCredentials *)theCredentials
+{
+    if (self = [super initWithCredentials:theCredentials]) {
+        self.endpoint = @"https://sdb.amazonaws.com";
+    }
+    return self;
+}
+
 -(SimpleDBSelectResponse *)select:(SimpleDBSelectRequest *)selectRequest
 {
     AmazonServiceRequest *request = [SimpleDBSelectRequestMarshaller createRequest:selectRequest];

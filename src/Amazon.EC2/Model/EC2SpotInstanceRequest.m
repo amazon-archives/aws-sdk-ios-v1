@@ -32,38 +32,40 @@
 @synthesize createTime;
 @synthesize productDescription;
 @synthesize tags;
+@synthesize launchedAvailabilityZone;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        spotInstanceRequestId = nil;
-        spotPrice             = nil;
-        type                  = nil;
-        state                 = nil;
-        fault                 = nil;
-        validFrom             = nil;
-        validUntil            = nil;
-        launchGroup           = nil;
-        availabilityZoneGroup = nil;
-        launchSpecification   = nil;
-        instanceId            = nil;
-        createTime            = nil;
-        productDescription    = nil;
-        tags                  = [[NSMutableArray alloc] initWithCapacity:1];
+        spotInstanceRequestId    = nil;
+        spotPrice                = nil;
+        type                     = nil;
+        state                    = nil;
+        fault                    = nil;
+        validFrom                = nil;
+        validUntil               = nil;
+        launchGroup              = nil;
+        availabilityZoneGroup    = nil;
+        launchSpecification      = nil;
+        instanceId               = nil;
+        createTime               = nil;
+        productDescription       = nil;
+        tags                     = [[NSMutableArray alloc] initWithCapacity:1];
+        launchedAvailabilityZone = nil;
     }
 
     return self;
 }
 
 
--(void)addTag:(EC2Tag *)tag
+-(void)addTag:(EC2Tag *)tagObject
 {
     if (tags == nil) {
         tags = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [tags addObject:tag];
+    [tags addObject:tagObject];
 }
 
 
@@ -86,6 +88,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"CreateTime: %@,", createTime] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ProductDescription: %@,", productDescription] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Tags: %@,", tags] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"LaunchedAvailabilityZone: %@,", launchedAvailabilityZone] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -110,6 +113,7 @@
     [createTime release];
     [productDescription release];
     [tags release];
+    [launchedAvailabilityZone release];
 
     [super dealloc];
 }

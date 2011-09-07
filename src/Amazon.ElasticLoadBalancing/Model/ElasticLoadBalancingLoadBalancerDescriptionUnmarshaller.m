@@ -47,6 +47,15 @@
         [parser setDelegate:unmarshaller];
     }
 
+    if ([elementName isEqualToString:@"BackendServerDescriptions"]) {
+        AmazonListUnmarshaller *listUnmarshaller = [[[AmazonListUnmarshaller alloc] initWithCaller:self withParentObject:self.response.backendServerDescriptions withSetter:@selector(addObjectsFromArray:)] autorelease];
+        listUnmarshaller.endListElementName = @"BackendServerDescriptions";
+        listUnmarshaller.entryElementName   = @"member";
+        listUnmarshaller.delegateClass      = [ElasticLoadBalancingBackendServerDescriptionUnmarshaller class];
+
+        [parser setDelegate:listUnmarshaller];
+    }
+
     if ([elementName isEqualToString:@"Instances"]) {
         AmazonListUnmarshaller *listUnmarshaller = [[[AmazonListUnmarshaller alloc] initWithCaller:self withParentObject:self.response.instances withSetter:@selector(addObjectsFromArray:)] autorelease];
         listUnmarshaller.endListElementName = @"Instances";
@@ -59,6 +68,12 @@
     if ([elementName isEqualToString:@"HealthCheck"]) {
         ElasticLoadBalancingHealthCheckUnmarshaller *unmarshaller = [[[ElasticLoadBalancingHealthCheckUnmarshaller alloc] initWithCaller:self withParentObject:self.response withSetter:@selector(setHealthCheck:)] autorelease];
         unmarshaller.endElementTagName = @"HealthCheck";
+        [parser setDelegate:unmarshaller];
+    }
+
+    if ([elementName isEqualToString:@"SourceSecurityGroup"]) {
+        ElasticLoadBalancingSourceSecurityGroupUnmarshaller *unmarshaller = [[[ElasticLoadBalancingSourceSecurityGroupUnmarshaller alloc] initWithCaller:self withParentObject:self.response withSetter:@selector(setSourceSecurityGroup:)] autorelease];
+        unmarshaller.endElementTagName = @"SourceSecurityGroup";
         [parser setDelegate:unmarshaller];
     }
 
@@ -81,6 +96,16 @@
 
     if ([elementName isEqualToString:@"DNSName"]) {
         self.response.dNSName = self.currentText;
+        return;
+    }
+
+    if ([elementName isEqualToString:@"CanonicalHostedZoneName"]) {
+        self.response.canonicalHostedZoneName = self.currentText;
+        return;
+    }
+
+    if ([elementName isEqualToString:@"CanonicalHostedZoneNameID"]) {
+        self.response.canonicalHostedZoneNameID = self.currentText;
         return;
     }
 

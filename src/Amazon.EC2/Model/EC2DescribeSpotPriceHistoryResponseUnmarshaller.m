@@ -50,6 +50,11 @@
         }
     }
 
+    if ([elementName isEqualToString:@"nextToken"]) {
+        self.response.nextToken = self.currentText;
+        return;
+    }
+
     if ([elementName isEqualToString:@"DescribeSpotPriceHistoryResponse"]) {
         if (caller != nil) {
             [parser setDelegate:caller];

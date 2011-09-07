@@ -75,7 +75,7 @@
  * Adds a single object to userIdGroupPairs.
  * This function will alloc and init userIdGroupPairs if not already done.
  */
--(void)addUserIdGroupPair:(EC2UserIdGroupPair *)userIdGroupPair;
+-(void)addUserIdGroupPair:(EC2UserIdGroupPair *)userIdGroupPairObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

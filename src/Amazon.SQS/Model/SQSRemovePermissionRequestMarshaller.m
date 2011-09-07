@@ -27,6 +27,7 @@
     [request setDelegate:[removePermissionRequest delegate]];
     [request setCredentials:[removePermissionRequest credentials]];
     [request setEndpoint:[removePermissionRequest requestEndpoint]];
+    [request setRequestTag:[removePermissionRequest requestTag]];
 
     if (removePermissionRequest != nil) {
         if (removePermissionRequest.queueUrl != nil) {

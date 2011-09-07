@@ -61,6 +61,11 @@
         return;
     }
 
+    if ([elementName isEqualToString:@"availabilityZone"]) {
+        self.response.availabilityZone = self.currentText;
+        return;
+    }
+
     if ([elementName isEqualToString:@"spotPrice"]) {
         if (caller != nil) {
             [parser setDelegate:caller];

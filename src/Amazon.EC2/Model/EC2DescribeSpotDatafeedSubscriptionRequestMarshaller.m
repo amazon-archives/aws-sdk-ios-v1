@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribeSpotDatafeedSubscription"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[describeSpotDatafeedSubscriptionRequest delegate]];
     [request setCredentials:[describeSpotDatafeedSubscriptionRequest credentials]];
     [request setEndpoint:[describeSpotDatafeedSubscriptionRequest requestEndpoint]];
+    [request setRequestTag:[describeSpotDatafeedSubscriptionRequest requestTag]];
 
 
 

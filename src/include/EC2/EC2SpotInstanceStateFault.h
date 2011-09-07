@@ -37,14 +37,8 @@
  */
 -(id)init;
 
-/**
- *
- */
 @property (nonatomic, retain) NSString *code;
 
-/**
- *
- */
 @property (nonatomic, retain) NSString *message;
 
 /**

@@ -58,7 +58,7 @@
  * Adds a single object to metricDatas.
  * This function will alloc and init metricDatas if not already done.
  */
--(void)addMetricData:(CloudWatchMetricDatum *)metricData;
+-(void)addMetricData:(CloudWatchMetricDatum *)metricDataObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

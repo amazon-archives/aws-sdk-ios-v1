@@ -27,6 +27,7 @@
     [request setDelegate:[unsubscribeRequest delegate]];
     [request setCredentials:[unsubscribeRequest credentials]];
     [request setEndpoint:[unsubscribeRequest requestEndpoint]];
+    [request setRequestTag:[unsubscribeRequest requestTag]];
 
     if (unsubscribeRequest != nil) {
         if (unsubscribeRequest.subscriptionArn != nil) {

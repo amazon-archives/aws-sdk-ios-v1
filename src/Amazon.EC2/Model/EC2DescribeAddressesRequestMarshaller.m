@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribeAddresses"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[describeAddressesRequest delegate]];
     [request setCredentials:[describeAddressesRequest credentials]];
     [request setEndpoint:[describeAddressesRequest requestEndpoint]];
+    [request setRequestTag:[describeAddressesRequest requestTag]];
 
     if (describeAddressesRequest != nil) {
         int publicIpsListIndex = 1;

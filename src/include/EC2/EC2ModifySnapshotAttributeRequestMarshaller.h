@@ -17,6 +17,9 @@
 
 #import "EC2Request.h"
 #import "EC2ModifySnapshotAttributeRequest.h"
+#import "EC2CreateVolumePermissionModifications.h"
+#import "EC2CreateVolumePermission.h"
+#import "EC2CreateVolumePermission.h"
 
 
 /**

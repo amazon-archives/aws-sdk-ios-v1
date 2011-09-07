@@ -64,7 +64,7 @@
  * Adds a single object to items.
  * This function will alloc and init items if not already done.
  */
--(void)addItem:(SimpleDBReplaceableItem *)item;
+-(void)addItem:(SimpleDBReplaceableItem *)itemObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DeleteVolume"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[deleteVolumeRequest delegate]];
     [request setCredentials:[deleteVolumeRequest credentials]];
     [request setEndpoint:[deleteVolumeRequest requestEndpoint]];
+    [request setRequestTag:[deleteVolumeRequest requestTag]];
 
     if (deleteVolumeRequest != nil) {
         if (deleteVolumeRequest.volumeId != nil) {

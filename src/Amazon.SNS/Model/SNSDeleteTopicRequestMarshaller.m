@@ -27,6 +27,7 @@
     [request setDelegate:[deleteTopicRequest delegate]];
     [request setCredentials:[deleteTopicRequest credentials]];
     [request setEndpoint:[deleteTopicRequest requestEndpoint]];
+    [request setRequestTag:[deleteTopicRequest requestTag]];
 
     if (deleteTopicRequest != nil) {
         if (deleteTopicRequest.topicArn != nil) {

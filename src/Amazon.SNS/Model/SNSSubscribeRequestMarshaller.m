@@ -27,6 +27,7 @@
     [request setDelegate:[subscribeRequest delegate]];
     [request setCredentials:[subscribeRequest credentials]];
     [request setEndpoint:[subscribeRequest requestEndpoint]];
+    [request setRequestTag:[subscribeRequest requestTag]];
 
     if (subscribeRequest != nil) {
         if (subscribeRequest.topicArn != nil) {

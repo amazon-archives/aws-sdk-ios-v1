@@ -19,12 +19,14 @@
 @implementation EC2DescribeSpotPriceHistoryResponse
 
 @synthesize spotPriceHistory;
+@synthesize nextToken;
 
 
 -(id)init
 {
     if (self = [super init]) {
         spotPriceHistory = [[NSMutableArray alloc] initWithCapacity:1];
+        nextToken        = nil;
     }
 
     return self;
@@ -54,6 +56,7 @@
 
     [buffer appendString:@"{"];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"SpotPriceHistory: %@,", spotPriceHistory] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"NextToken: %@,", nextToken] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -65,6 +68,7 @@
 -(void)dealloc
 {
     [spotPriceHistory release];
+    [nextToken release];
 
     [super dealloc];
 }

@@ -27,6 +27,7 @@
     [request setDelegate:[deleteAutoScalingGroupRequest delegate]];
     [request setCredentials:[deleteAutoScalingGroupRequest credentials]];
     [request setEndpoint:[deleteAutoScalingGroupRequest requestEndpoint]];
+    [request setRequestTag:[deleteAutoScalingGroupRequest requestTag]];
 
     if (deleteAutoScalingGroupRequest != nil) {
         if (deleteAutoScalingGroupRequest.autoScalingGroupName != nil) {

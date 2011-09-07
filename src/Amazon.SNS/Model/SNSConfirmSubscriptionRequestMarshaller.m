@@ -27,6 +27,7 @@
     [request setDelegate:[confirmSubscriptionRequest delegate]];
     [request setCredentials:[confirmSubscriptionRequest credentials]];
     [request setEndpoint:[confirmSubscriptionRequest requestEndpoint]];
+    [request setRequestTag:[confirmSubscriptionRequest requestTag]];
 
     if (confirmSubscriptionRequest != nil) {
         if (confirmSubscriptionRequest.topicArn != nil) {

@@ -19,6 +19,7 @@
 
 @synthesize accessKey;
 @synthesize secretKey;
+@synthesize securityToken;
 
 -(id)initWithAccessKey:(NSString *)theAccessKey withSecretKey:(NSString *)theSecretKey
 {
@@ -33,6 +34,7 @@
 {
     [accessKey release];
     [secretKey release];
+    [securityToken release];
     [super dealloc];
 }
 

@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"RevokeSecurityGroupIngress"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[revokeSecurityGroupIngressRequest delegate]];
     [request setCredentials:[revokeSecurityGroupIngressRequest credentials]];
     [request setEndpoint:[revokeSecurityGroupIngressRequest requestEndpoint]];
+    [request setRequestTag:[revokeSecurityGroupIngressRequest requestTag]];
 
     if (revokeSecurityGroupIngressRequest != nil) {
         if (revokeSecurityGroupIngressRequest.groupName != nil) {

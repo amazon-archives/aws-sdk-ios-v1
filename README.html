@@ -2,89 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>AWS SDK for iOS (Beta) Readme</title>
+<title>AWS SDK for iOS Readme</title>
 <link rel="stylesheet" type="text/css" href="http://developer.amazonwebservices.com/connect/css/aws-dev-content.css">
 </head>
 
 <body>
-<h1>AWS SDK for iOS (Beta) Readme</h1>
-<p>The  AWS SDK for iOS provides a library, code samples, and documentation for  developers to build connected mobile applications using AWS. This guide walks through the steps for setting up the SDK and running one of the samples. </p>
-<h2>About the SDK</h2>
-<p>The AWS SDK for iOS includes: </p>
-<ul>
-  <li><strong>AWS iOS Library</strong>—Build mobile applications for the iOS on top       of APIs that take the complexity out of coding directly against a web       service interface. The library provides APIs that hide much of the       lower-level plumbing, including authentication, request retries, and error       handling.</li>
-  <li><strong>Code Samples</strong>—Practical examples for how to use the library to       build applications.</li>
-  <li><strong>Documentation</strong>—Reference documentation demonstrating how to use       the SDK.</li>
-</ul>
-<h2>Get Set Up</h2>
-<p>To get set up, you must sign up for Amazon Web Services, get  your AWS credentials, and set up your environment.</p>
-<h3>Sign Up for AWS Products</h3>
-<p>Before you can begin, you must sign up for each AWS product you want  to use. The sample we'll cover in this guide uses both Amazon S3 and Amazon SimpleDB, so you'll need to sign up for both products.</p>
-<strong>To sign up for a product</strong>
-<ol start="1" type="1">
-  <li>Go to       the home page for the product, for example <a href="http://aws.amazon.com/s3/">aws.amazon.com/s3/</a>. <br />
-      <br />
-      <strong>Tip:</strong> Go to <a href="http://aws.amazon.com/products">aws.amazon.com/products</a> for a list of links to all our products.<br />
-      <br />
-  </li>
-  <li>Click the       sign-up button on the top right corner of the page. </li>
-  <li>Follow  the on-screen instructions. If you don't already have an AWS account,  you are prompted to create one as part of the sign-up process.</li>
-</ol>
-<p>AWS sends you a confirmation email after the sign-up process is  complete. You can view your current account activity or manage your  account at any time, by going to <a href="http://aws.amazon.com">aws.amazon.com</a> and clicking the <strong>Account</strong> tab.</p>
-<h3>Get Your Credentials</h3>
-<p>In order to use the AWS SDK for iOS, you need your AWS  Access Key ID and Secret Access Key.</p>
-<strong>To get your AWS Access Key ID and Secret Access Key </strong>
-<ol start="1" type="1">
-  <li>Go to <a href="http://aws.amazon.com/">http://aws.amazon.com/</a>.</li>
-  <li>Click <strong>Account</strong> and then click <strong>Security Credentials</strong>.<br />
-    The Security Credentials page displays (you might be prompted to log in).</li>
-  <li>Scroll       down to Access Credentials and make sure the <strong>Access Keys</strong> tab is selected.<br />
-    The AWS Access Key ID appears in the Access Key column.</li>
-  <li>To view       the Secret Access Key, click <strong>Show</strong>.</li>
-</ol>
-<blockquote>
-  <p><strong>Important!</strong> Your Secret Access Key  is a secret, which only you and AWS should know. It is important to  keep it confidential to protect your account. Store it securely in a  safe place. Never include it in your requests to AWS, and never email  it to anyone. Do not share it outside your organization, even if an  inquiry appears to come from AWS or Amazon.com. No one who legitimately  represents Amazon will ever ask you for your Secret Access Key.</p>
-</blockquote>
-<h3>Get the iOS SDK</h3>
-<p>Downlod the SDK from <a href="http://aws.amazon.com/sdkforios">http://aws.amazon.com/sdkforios</a>.</p>
-<p>Minimum requirements for using the AWS SDK for iOS are:</p>
-<ul>
-  <li> Requires Xcode v3.2.3 or higher. </li>
-  <li>Requires iOS v4.1 or higher. </li>
-</ul>
-<h3>Package Contents</h3>
-<p>After unzipping the AWS SDK for iOS package, you'll find the following contents:</p>
-<ul>
-  <li> <strong>Documentation:</strong>  Contains the DocSet for the AWS iOS SDK framework. </li>
-  <li> <strong>AWSiOSSDK.framework:</strong> A framework to include in an iOS application to access AWS APIs. </li>
-  <li> <strong>samples:</strong> Contains code built using the AWSiOSSDK.framework to create a simple browser for Amazon S3, SimpleDB, SQS and SNS. </li>
-  <li> <strong>src:</strong> Contains the original implementation and header files for the SDK, including third-party code. </li>
-</ul>
-<h2>Run the Sample</h2>
-<p>The <code>/samples</code> directory in the SDK contains a browser application that demonstrates how to make requests to AWS using the  SDK.</p>
-<h3>To run the browser sample</h3>
-<ol>
-  <li>Open the <code>AWSiOSSDK/samples/awsBrowser/AWSiosDEMO.xcodeproj</code> project file in Xcode. </li>
-  <li>Configure the sample with your AWS security credentials:
-    <ol>
-      <li>Open the <code>Constants.h</code> file. </li>
-      <li>Modify the <code>ACCESS_KEY</code> and <code>SECRET_KEY</code> definitions with your AWS Credentials. </li>
-    </ol>
-  </li>
-  <li>Run the project by selecting <strong>Build and Run</strong> from the <strong>Build</strong> menu.</li>
-</ol>
-<h2>Where Do I Go from Here?</h2>
-<p>For  more information about the AWS SDK for iOS, including a complete list of  supported AWS products, go to <a href="http://aws.amazon.com/sdkforios">aws.amazon.com/sdkforios</a>.</p>
-<h3>View the Reference Documentation Online</h3>
-<p>The SDK reference documentation includes the ability to browse and  search across all code included with the SDK. It provides thorough  documentation, usage examples, and even the ability to browse method  source. You can find it at<a href="http://docs.amazonwebservices.com/AWSiOSSDK/latest/"> http://docs.amazonwebservices.com/AWSSDKforiOS/latest</a>.</p>
-<h3>Install the Reference Documentation in XCode</h3>
-<p>The AWS SDK for iOS includes DocSet documentation, which can be used to view the documentation from within Xcode.  To install the DocSet:</p>
-<ol>
-  <li>Create a directory called <code>/Users/$USER/Library/Developer/Shared/Documentaion/DocSets</code>.</li>
-  <li>Copy <code>Documentation/com.amazon.aws.ios.docset</code> from the SDK into the directory you created above. </li>
-  <li>Restart Xcode. </li>
-</ol>
-<h3>Learn More about iOS Development</h3>
+<h1>AWS SDK for iOS Readme</h1>
+<p>The <a href="http://aws.amazon.com/sdkforios">AWS SDK for iOS</a> provides a library, code samples, and documentation for developers to build connected mobile applications using AWS.</p>
+<p>For more information about using the SDK, please reference the online documentation here: <a href="http://aws.amazon.com/documentation/sdkforios">aws.amazon.com/documentation/sdkforios</a>
+<br/>
+<br/>
+<br/>
+<h3>To learn more about iOS Development</h3>
 <p>For more information on iOS development, see the Apple Developer Connection web site at: <a href="http://developer.apple.com/devcenter/ios/index.action" title="http://developer.apple.com/devcenter/ios/index.action" rel="nofollow">http://developer.apple.com/devcenter/ios/index.action</a>.</p>
 </body>
 </html>

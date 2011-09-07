@@ -27,6 +27,7 @@
     [request setDelegate:[getTopicAttributesRequest delegate]];
     [request setCredentials:[getTopicAttributesRequest credentials]];
     [request setEndpoint:[getTopicAttributesRequest requestEndpoint]];
+    [request setRequestTag:[getTopicAttributesRequest requestTag]];
 
     if (getTopicAttributesRequest != nil) {
         if (getTopicAttributesRequest.topicArn != nil) {

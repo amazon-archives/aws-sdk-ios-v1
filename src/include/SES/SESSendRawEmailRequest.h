@@ -42,7 +42,11 @@
 -(id)init;
 
 /**
- * The sender's email address.
+ * The sender's email address. <note>If you specify the
+ * <code>Source</code> parameter, then bounce notifications and
+ * complaints will be sent to this email address. This takes precedence
+ * over any <i>Return-Path</i> header that you might include in the raw
+ * text of the message. </note>
  */
 @property (nonatomic, retain) NSString *source;
 

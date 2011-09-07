@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"CreateTags"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[createTagsRequest delegate]];
     [request setCredentials:[createTagsRequest credentials]];
     [request setEndpoint:[createTagsRequest requestEndpoint]];
+    [request setRequestTag:[createTagsRequest requestTag]];
 
     if (createTagsRequest != nil) {
         int resourcesListIndex = 1;

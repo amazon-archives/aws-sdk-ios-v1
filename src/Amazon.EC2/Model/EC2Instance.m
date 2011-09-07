@@ -52,6 +52,7 @@
 @synthesize securityGroups;
 @synthesize sourceDestCheck;
 @synthesize sourceDestCheckIsSet;
+@synthesize hypervisor;
 
 
 -(id)init
@@ -91,46 +92,47 @@
         securityGroups        = [[NSMutableArray alloc] initWithCapacity:1];
         sourceDestCheck       = NO;
         sourceDestCheckIsSet  = NO;
+        hypervisor            = nil;
     }
 
     return self;
 }
 
 
--(void)addProductCode:(EC2ProductCode *)productCode
+-(void)addProductCode:(EC2ProductCode *)productCodeObject
 {
     if (productCodes == nil) {
         productCodes = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [productCodes addObject:productCode];
+    [productCodes addObject:productCodeObject];
 }
 
--(void)addBlockDeviceMapping:(EC2InstanceBlockDeviceMapping *)blockDeviceMapping
+-(void)addBlockDeviceMapping:(EC2InstanceBlockDeviceMapping *)blockDeviceMappingObject
 {
     if (blockDeviceMappings == nil) {
         blockDeviceMappings = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [blockDeviceMappings addObject:blockDeviceMapping];
+    [blockDeviceMappings addObject:blockDeviceMappingObject];
 }
 
--(void)addTag:(EC2Tag *)tag
+-(void)addTag:(EC2Tag *)tagObject
 {
     if (tags == nil) {
         tags = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [tags addObject:tag];
+    [tags addObject:tagObject];
 }
 
--(void)addSecurityGroup:(EC2GroupIdentifier *)securityGroup
+-(void)addSecurityGroup:(EC2GroupIdentifier *)securityGroupObject
 {
     if (securityGroups == nil) {
         securityGroups = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [securityGroups addObject:securityGroup];
+    [securityGroups addObject:securityGroupObject];
 }
 
 
@@ -172,6 +174,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Tags: %@,", tags] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"SecurityGroups: %@,", securityGroups] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"SourceDestCheck: %d,", sourceDestCheck] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Hypervisor: %@,", hypervisor] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -220,6 +223,7 @@
     [clientToken release];
     [tags release];
     [securityGroups release];
+    [hypervisor release];
 
     [super dealloc];
 }

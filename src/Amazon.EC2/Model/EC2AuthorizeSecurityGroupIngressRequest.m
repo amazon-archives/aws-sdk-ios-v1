@@ -57,13 +57,13 @@
 }
 
 
--(void)addIpPermission:(EC2IpPermission *)ipPermission
+-(void)addIpPermission:(EC2IpPermission *)ipPermissionObject
 {
     if (ipPermissions == nil) {
         ipPermissions = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [ipPermissions addObject:ipPermission];
+    [ipPermissions addObject:ipPermissionObject];
 }
 
 

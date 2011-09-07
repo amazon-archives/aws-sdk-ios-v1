@@ -18,6 +18,7 @@
 @interface AmazonCredentials:NSObject {
     NSString *accessKey;
     NSString *secretKey;
+    NSString *securityToken;
 }
 
 /** Inits the credential with the access key and the secret key.
@@ -33,6 +34,9 @@
 
 /** The AWS Secret Key */
 @property (nonatomic, retain) NSString *secretKey;
+
+/** The AWS Security Token, used inconjunction with Session Based Credentials. */
+@property (nonatomic, retain) NSString *securityToken;
 
 @end
 

@@ -32,7 +32,7 @@
 
 
 /**
- * The name of the <code>PlacementGroup</code>.
+ * The name of this <code>PlacementGroup</code>.
  */
 @property (nonatomic, retain) NSString *groupName;
 
@@ -64,7 +64,7 @@
  * Constructs a new PlacementGroup object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theGroupName The name of the <code>PlacementGroup</code>.
+ * @param theGroupName The name of this <code>PlacementGroup</code>.
  */
 -(id)initWithGroupName:(NSString *)theGroupName;
 

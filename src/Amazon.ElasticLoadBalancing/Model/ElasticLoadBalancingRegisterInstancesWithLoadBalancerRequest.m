@@ -43,13 +43,13 @@
 }
 
 
--(void)addInstance:(ElasticLoadBalancingInstance *)instance
+-(void)addInstance:(ElasticLoadBalancingInstance *)instanceObject
 {
     if (instances == nil) {
         instances = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [instances addObject:instance];
+    [instances addObject:instanceObject];
 }
 
 

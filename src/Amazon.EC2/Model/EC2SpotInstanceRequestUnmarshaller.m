@@ -117,6 +117,11 @@
         return;
     }
 
+    if ([elementName isEqualToString:@"launchedAvailabilityZone"]) {
+        self.response.launchedAvailabilityZone = self.currentText;
+        return;
+    }
+
     if ([elementName isEqualToString:@"spotInstanceRequest"]) {
         if (caller != nil) {
             [parser setDelegate:caller];

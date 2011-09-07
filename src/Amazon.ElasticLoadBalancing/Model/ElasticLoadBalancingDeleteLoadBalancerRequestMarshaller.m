@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[ElasticLoadBalancingRequest alloc] init];
 
     [request setParameterValue:@"DeleteLoadBalancer"           forKey:@"Action"];
-    [request setParameterValue:@"2010-07-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-08-15"   forKey:@"Version"];
 
     [request setDelegate:[deleteLoadBalancerRequest delegate]];
     [request setCredentials:[deleteLoadBalancerRequest credentials]];
     [request setEndpoint:[deleteLoadBalancerRequest requestEndpoint]];
+    [request setRequestTag:[deleteLoadBalancerRequest requestTag]];
 
     if (deleteLoadBalancerRequest != nil) {
         if (deleteLoadBalancerRequest.loadBalancerName != nil) {

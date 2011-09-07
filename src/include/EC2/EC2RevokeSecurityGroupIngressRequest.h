@@ -119,7 +119,7 @@
  * Adds a single object to ipPermissions.
  * This function will alloc and init ipPermissions if not already done.
  */
--(void)addIpPermission:(EC2IpPermission *)ipPermission;
+-(void)addIpPermission:(EC2IpPermission *)ipPermissionObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

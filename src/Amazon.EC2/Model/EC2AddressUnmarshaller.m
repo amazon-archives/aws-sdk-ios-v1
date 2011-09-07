@@ -51,6 +51,16 @@
         return;
     }
 
+    if ([elementName isEqualToString:@"allocationId"]) {
+        self.response.allocationId = self.currentText;
+        return;
+    }
+
+    if ([elementName isEqualToString:@"domain"]) {
+        self.response.domain = self.currentText;
+        return;
+    }
+
     if ([elementName isEqualToString:@"address"]) {
         if (caller != nil) {
             [parser setDelegate:caller];

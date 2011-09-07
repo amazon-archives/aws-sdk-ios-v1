@@ -39,14 +39,8 @@
  */
 -(id)init;
 
-/**
- *
- */
 @property (nonatomic, retain) NSString *spotInstanceRequestId;
 
-/**
- *
- */
 @property (nonatomic, retain) NSString *state;
 
 /**

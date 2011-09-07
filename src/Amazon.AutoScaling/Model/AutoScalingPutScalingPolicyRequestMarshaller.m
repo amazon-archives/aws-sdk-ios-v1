@@ -27,6 +27,7 @@
     [request setDelegate:[putScalingPolicyRequest delegate]];
     [request setCredentials:[putScalingPolicyRequest credentials]];
     [request setEndpoint:[putScalingPolicyRequest requestEndpoint]];
+    [request setRequestTag:[putScalingPolicyRequest requestTag]];
 
     if (putScalingPolicyRequest != nil) {
         if (putScalingPolicyRequest.autoScalingGroupName != nil) {

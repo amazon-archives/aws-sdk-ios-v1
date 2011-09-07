@@ -27,6 +27,7 @@
     [request setDelegate:[deleteAlarmsRequest delegate]];
     [request setCredentials:[deleteAlarmsRequest credentials]];
     [request setEndpoint:[deleteAlarmsRequest requestEndpoint]];
+    [request setRequestTag:[deleteAlarmsRequest requestTag]];
 
     if (deleteAlarmsRequest != nil) {
         int alarmNamesListIndex = 1;

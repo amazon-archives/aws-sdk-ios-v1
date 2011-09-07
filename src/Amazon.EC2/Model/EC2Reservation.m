@@ -41,22 +41,22 @@
 }
 
 
--(void)addGroup:(EC2GroupIdentifier *)group
+-(void)addGroup:(EC2GroupIdentifier *)groupObject
 {
     if (groups == nil) {
         groups = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [groups addObject:group];
+    [groups addObject:groupObject];
 }
 
--(void)addInstance:(EC2Instance *)instance
+-(void)addInstance:(EC2Instance *)instanceObject
 {
     if (instances == nil) {
         instances = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [instances addObject:instance];
+    [instances addObject:instanceObject];
 }
 
 

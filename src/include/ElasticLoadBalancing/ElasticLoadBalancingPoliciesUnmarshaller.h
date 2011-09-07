@@ -22,6 +22,7 @@
 #import "ElasticLoadBalancingAppCookieStickinessPolicyUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
 #import "ElasticLoadBalancingLBCookieStickinessPolicyUnmarshaller.h"
+#import "../AmazonListUnmarshaller.h"
 
 
 /**

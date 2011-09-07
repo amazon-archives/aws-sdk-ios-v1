@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"RebootInstances"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[rebootInstancesRequest delegate]];
     [request setCredentials:[rebootInstancesRequest credentials]];
     [request setEndpoint:[rebootInstancesRequest requestEndpoint]];
+    [request setRequestTag:[rebootInstancesRequest requestTag]];
 
     if (rebootInstancesRequest != nil) {
         int instanceIdsListIndex = 1;

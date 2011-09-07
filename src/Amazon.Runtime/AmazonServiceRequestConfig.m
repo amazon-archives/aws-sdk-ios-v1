@@ -21,6 +21,7 @@
 @synthesize credentials;
 @synthesize requestEndpoint;
 @synthesize urlConnection;
+@synthesize requestTag;
 
 -(void)setDelegate:(id<AmazonServiceRequestDelegate> )aDelegate;
 {
@@ -34,9 +35,11 @@
 
 -(void)dealloc
 {
+    delegate = nil;
     [credentials release];
     [requestEndpoint release];
     [urlConnection release];
+    [requestTag release];
     [super dealloc];
 }
 

@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"UnmonitorInstances"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[unmonitorInstancesRequest delegate]];
     [request setCredentials:[unmonitorInstancesRequest credentials]];
     [request setEndpoint:[unmonitorInstancesRequest requestEndpoint]];
+    [request setRequestTag:[unmonitorInstancesRequest requestTag]];
 
     if (unmonitorInstancesRequest != nil) {
         int instanceIdsListIndex = 1;

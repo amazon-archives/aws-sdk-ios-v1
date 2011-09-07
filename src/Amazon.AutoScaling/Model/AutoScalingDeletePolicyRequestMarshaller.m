@@ -27,6 +27,7 @@
     [request setDelegate:[deletePolicyRequest delegate]];
     [request setCredentials:[deletePolicyRequest credentials]];
     [request setEndpoint:[deletePolicyRequest requestEndpoint]];
+    [request setRequestTag:[deletePolicyRequest requestTag]];
 
     if (deletePolicyRequest != nil) {
         if (deletePolicyRequest.autoScalingGroupName != nil) {

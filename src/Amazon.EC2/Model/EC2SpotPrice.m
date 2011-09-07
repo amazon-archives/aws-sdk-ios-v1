@@ -22,6 +22,7 @@
 @synthesize productDescription;
 @synthesize spotPrice;
 @synthesize timestamp;
+@synthesize availabilityZone;
 
 
 -(id)init
@@ -31,6 +32,7 @@
         productDescription = nil;
         spotPrice          = nil;
         timestamp          = nil;
+        availabilityZone   = nil;
     }
 
     return self;
@@ -47,6 +49,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ProductDescription: %@,", productDescription] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"SpotPrice: %@,", spotPrice] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Timestamp: %@,", timestamp] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"AvailabilityZone: %@,", availabilityZone] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -61,6 +64,7 @@
     [productDescription release];
     [spotPrice release];
     [timestamp release];
+    [availabilityZone release];
 
     [super dealloc];
 }

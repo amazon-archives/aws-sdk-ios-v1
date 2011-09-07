@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"ResetInstanceAttribute"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[resetInstanceAttributeRequest delegate]];
     [request setCredentials:[resetInstanceAttributeRequest credentials]];
     [request setEndpoint:[resetInstanceAttributeRequest requestEndpoint]];
+    [request setRequestTag:[resetInstanceAttributeRequest requestTag]];
 
     if (resetInstanceAttributeRequest != nil) {
         if (resetInstanceAttributeRequest.instanceId != nil) {

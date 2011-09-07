@@ -29,6 +29,8 @@
 @synthesize productDescription;
 @synthesize state;
 @synthesize tags;
+@synthesize instanceTenancy;
+@synthesize currencyCode;
 
 
 -(id)init
@@ -45,19 +47,21 @@
         productDescription  = nil;
         state               = nil;
         tags                = [[NSMutableArray alloc] initWithCapacity:1];
+        instanceTenancy     = nil;
+        currencyCode        = nil;
     }
 
     return self;
 }
 
 
--(void)addTag:(EC2Tag *)tag
+-(void)addTag:(EC2Tag *)tagObject
 {
     if (tags == nil) {
         tags = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [tags addObject:tag];
+    [tags addObject:tagObject];
 }
 
 
@@ -77,6 +81,8 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ProductDescription: %@,", productDescription] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"State: %@,", state] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Tags: %@,", tags] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"InstanceTenancy: %@,", instanceTenancy] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"CurrencyCode: %@,", currencyCode] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -98,6 +104,8 @@
     [productDescription release];
     [state release];
     [tags release];
+    [instanceTenancy release];
+    [currencyCode release];
 
     [super dealloc];
 }

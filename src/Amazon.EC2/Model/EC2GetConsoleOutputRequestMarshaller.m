@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"GetConsoleOutput"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[getConsoleOutputRequest delegate]];
     [request setCredentials:[getConsoleOutputRequest credentials]];
     [request setEndpoint:[getConsoleOutputRequest requestEndpoint]];
+    [request setRequestTag:[getConsoleOutputRequest requestTag]];
 
     if (getConsoleOutputRequest != nil) {
         if (getConsoleOutputRequest.instanceId != nil) {

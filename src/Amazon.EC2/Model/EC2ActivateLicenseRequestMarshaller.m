@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"ActivateLicense"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[activateLicenseRequest delegate]];
     [request setCredentials:[activateLicenseRequest credentials]];
     [request setEndpoint:[activateLicenseRequest requestEndpoint]];
+    [request setRequestTag:[activateLicenseRequest requestTag]];
 
     if (activateLicenseRequest != nil) {
         if (activateLicenseRequest.licenseId != nil) {

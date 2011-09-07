@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"RunInstances"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[runInstancesRequest delegate]];
     [request setCredentials:[runInstancesRequest credentials]];
     [request setEndpoint:[runInstancesRequest requestEndpoint]];
+    [request setRequestTag:[runInstancesRequest requestTag]];
 
     if (runInstancesRequest != nil) {
         if (runInstancesRequest.imageId != nil) {
@@ -88,6 +89,11 @@
                 [request setParameterValue:[NSString stringWithFormat:@"%@", placement.groupName] forKey:[NSString stringWithFormat:@"%@.%@", @"Placement", @"GroupName"]];
             }
         }
+        if (placement != nil) {
+            if (placement.tenancy != nil) {
+                [request setParameterValue:[NSString stringWithFormat:@"%@", placement.tenancy] forKey:[NSString stringWithFormat:@"%@.%@", @"Placement", @"Tenancy"]];
+            }
+        }
     }
     if (runInstancesRequest != nil) {
         if (runInstancesRequest.kernelId != nil) {
@@ -127,7 +133,7 @@
                 }
                 if (ebs != nil) {
                     if (ebs.deleteOnTerminationIsSet) {
-                        [request setParameterValue:(ebs.deleteOnTermination ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@.%d.%@.%@", @"BlockDeviceMapping", blockDeviceMappingsListIndex, @"Ebs", @"DeleteOnTermination"]];
+                        [request setParameterValue:(ebs.deleteOnTermination ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@.%d.%@.%@", @"BlockDeviceMapping", blockDeviceMappingsListIndex, @"Ebs", @"DeleteOnTermination"]];
                     }
                 }
             }
@@ -142,7 +148,7 @@
     }
     if (runInstancesRequest != nil) {
         if (runInstancesRequest.monitoringIsSet) {
-            [request setParameterValue:(runInstancesRequest.monitoring ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@", @"Monitoring.Enabled"]];
+            [request setParameterValue:(runInstancesRequest.monitoring ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"Monitoring.Enabled"]];
         }
     }
     if (runInstancesRequest != nil) {
@@ -152,7 +158,7 @@
     }
     if (runInstancesRequest != nil) {
         if (runInstancesRequest.disableApiTerminationIsSet) {
-            [request setParameterValue:(runInstancesRequest.disableApiTermination ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@", @"DisableApiTermination"]];
+            [request setParameterValue:(runInstancesRequest.disableApiTermination ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DisableApiTermination"]];
         }
     }
     if (runInstancesRequest != nil) {

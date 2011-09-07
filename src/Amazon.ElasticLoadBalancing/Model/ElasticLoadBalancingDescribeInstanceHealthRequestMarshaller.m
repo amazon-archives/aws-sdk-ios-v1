@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[ElasticLoadBalancingRequest alloc] init];
 
     [request setParameterValue:@"DescribeInstanceHealth"           forKey:@"Action"];
-    [request setParameterValue:@"2010-07-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-08-15"   forKey:@"Version"];
 
     [request setDelegate:[describeInstanceHealthRequest delegate]];
     [request setCredentials:[describeInstanceHealthRequest credentials]];
     [request setEndpoint:[describeInstanceHealthRequest requestEndpoint]];
+    [request setRequestTag:[describeInstanceHealthRequest requestTag]];
 
     if (describeInstanceHealthRequest != nil) {
         if (describeInstanceHealthRequest.loadBalancerName != nil) {

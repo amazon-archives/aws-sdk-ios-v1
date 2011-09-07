@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"ReleaseAddress"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[releaseAddressRequest delegate]];
     [request setCredentials:[releaseAddressRequest credentials]];
     [request setEndpoint:[releaseAddressRequest requestEndpoint]];
+    [request setRequestTag:[releaseAddressRequest requestTag]];
 
     if (releaseAddressRequest != nil) {
         if (releaseAddressRequest.publicIp != nil) {

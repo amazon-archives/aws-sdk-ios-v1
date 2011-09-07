@@ -33,6 +33,7 @@
     NSString       *availabilityZone;
     NSString       *productDescription;
     NSMutableArray *filters;
+    NSString       *instanceTenancy;
 }
 
 
@@ -77,10 +78,17 @@
 @property (nonatomic, retain) NSMutableArray *filters;
 
 /**
+ * The tenancy of the Reserved Instance offering. A Reserved Instance
+ * with tenancy of dedicated will run on single-tenant hardware and can
+ * only be launched within a VPC.
+ */
+@property (nonatomic, retain) NSString *instanceTenancy;
+
+/**
  * Adds a single object to filters.
  * This function will alloc and init filters if not already done.
  */
--(void)addFilter:(EC2Filter *)filter;
+-(void)addFilter:(EC2Filter *)filterObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

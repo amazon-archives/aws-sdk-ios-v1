@@ -13,6 +13,7 @@
  * permissions and limitations under the License.
  */
 
+#import "EC2LaunchPermissionModifications.h"
 
 #import "../AmazonServiceRequestConfig.h"
 
@@ -27,13 +28,15 @@
 @interface EC2ModifyImageAttributeRequest:AmazonServiceRequestConfig
 
 {
-    NSString       *imageId;
-    NSString       *attribute;
-    NSString       *operationType;
-    NSMutableArray *userIds;
-    NSMutableArray *userGroups;
-    NSMutableArray *productCodes;
-    NSString       *value;
+    NSString                         *imageId;
+    NSString                         *attribute;
+    NSString                         *operationType;
+    NSMutableArray                   *userIds;
+    NSMutableArray                   *userGroups;
+    NSMutableArray                   *productCodes;
+    NSString                         *value;
+    EC2LaunchPermissionModifications *launchPermission;
+    NSString                         *descriptionValue;
 }
 
 
@@ -79,7 +82,14 @@
  * The value of the attribute being modified. Only valid when the
  * description attribute is being modified.
  */
-@property (nonatomic, retain) NSString *value;
+@property (nonatomic, retain) NSString                         *value;
+
+@property (nonatomic, retain) EC2LaunchPermissionModifications *launchPermission;
+
+/**
+ * String value
+ */
+@property (nonatomic, retain) NSString *descriptionValue;
 
 
 /**

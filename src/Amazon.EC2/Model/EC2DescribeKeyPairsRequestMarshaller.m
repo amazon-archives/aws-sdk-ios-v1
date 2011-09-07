@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribeKeyPairs"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[describeKeyPairsRequest delegate]];
     [request setCredentials:[describeKeyPairsRequest credentials]];
     [request setEndpoint:[describeKeyPairsRequest requestEndpoint]];
+    [request setRequestTag:[describeKeyPairsRequest requestTag]];
 
     if (describeKeyPairsRequest != nil) {
         int keyNamesListIndex = 1;

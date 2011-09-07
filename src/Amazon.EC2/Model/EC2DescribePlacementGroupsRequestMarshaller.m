@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribePlacementGroups"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[describePlacementGroupsRequest delegate]];
     [request setCredentials:[describePlacementGroupsRequest credentials]];
     [request setEndpoint:[describePlacementGroupsRequest requestEndpoint]];
+    [request setRequestTag:[describePlacementGroupsRequest requestTag]];
 
     if (describePlacementGroupsRequest != nil) {
         int groupNamesListIndex = 1;

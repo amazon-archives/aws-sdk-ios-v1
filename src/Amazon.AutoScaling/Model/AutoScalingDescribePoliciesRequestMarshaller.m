@@ -27,6 +27,7 @@
     [request setDelegate:[describePoliciesRequest delegate]];
     [request setCredentials:[describePoliciesRequest credentials]];
     [request setEndpoint:[describePoliciesRequest requestEndpoint]];
+    [request setRequestTag:[describePoliciesRequest requestTag]];
 
     if (describePoliciesRequest != nil) {
         if (describePoliciesRequest.autoScalingGroupName != nil) {

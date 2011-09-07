@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribeSpotPriceHistory"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[describeSpotPriceHistoryRequest delegate]];
     [request setCredentials:[describeSpotPriceHistoryRequest credentials]];
     [request setEndpoint:[describeSpotPriceHistoryRequest requestEndpoint]];
+    [request setRequestTag:[describeSpotPriceHistoryRequest requestTag]];
 
     if (describeSpotPriceHistoryRequest != nil) {
         if (describeSpotPriceHistoryRequest.startTime != nil) {
@@ -76,6 +77,21 @@
             }
 
             filtersListIndex++;
+        }
+    }
+    if (describeSpotPriceHistoryRequest != nil) {
+        if (describeSpotPriceHistoryRequest.availabilityZone != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", describeSpotPriceHistoryRequest.availabilityZone] forKey:[NSString stringWithFormat:@"%@", @"AvailabilityZone"]];
+        }
+    }
+    if (describeSpotPriceHistoryRequest != nil) {
+        if (describeSpotPriceHistoryRequest.maxResults != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", describeSpotPriceHistoryRequest.maxResults] forKey:[NSString stringWithFormat:@"%@", @"MaxResults"]];
+        }
+    }
+    if (describeSpotPriceHistoryRequest != nil) {
+        if (describeSpotPriceHistoryRequest.nextToken != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", describeSpotPriceHistoryRequest.nextToken] forKey:[NSString stringWithFormat:@"%@", @"NextToken"]];
         }
     }
 

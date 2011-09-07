@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DeleteSnapshot"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[deleteSnapshotRequest delegate]];
     [request setCredentials:[deleteSnapshotRequest credentials]];
     [request setEndpoint:[deleteSnapshotRequest requestEndpoint]];
+    [request setRequestTag:[deleteSnapshotRequest requestTag]];
 
     if (deleteSnapshotRequest != nil) {
         if (deleteSnapshotRequest.snapshotId != nil) {

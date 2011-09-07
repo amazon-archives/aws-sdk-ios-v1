@@ -105,7 +105,7 @@
  * Adds a single object to alarms.
  * This function will alloc and init alarms if not already done.
  */
--(void)addAlarm:(AutoScalingAlarm *)alarm;
+-(void)addAlarm:(AutoScalingAlarm *)alarmObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

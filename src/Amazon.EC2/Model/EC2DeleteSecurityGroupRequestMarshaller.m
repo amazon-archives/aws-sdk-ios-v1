@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DeleteSecurityGroup"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[deleteSecurityGroupRequest delegate]];
     [request setCredentials:[deleteSecurityGroupRequest credentials]];
     [request setEndpoint:[deleteSecurityGroupRequest requestEndpoint]];
+    [request setRequestTag:[deleteSecurityGroupRequest requestTag]];
 
     if (deleteSecurityGroupRequest != nil) {
         if (deleteSecurityGroupRequest.groupName != nil) {

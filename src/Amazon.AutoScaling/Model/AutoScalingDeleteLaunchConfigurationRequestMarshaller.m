@@ -27,6 +27,7 @@
     [request setDelegate:[deleteLaunchConfigurationRequest delegate]];
     [request setCredentials:[deleteLaunchConfigurationRequest credentials]];
     [request setEndpoint:[deleteLaunchConfigurationRequest requestEndpoint]];
+    [request setRequestTag:[deleteLaunchConfigurationRequest requestTag]];
 
     if (deleteLaunchConfigurationRequest != nil) {
         if (deleteLaunchConfigurationRequest.launchConfigurationName != nil) {

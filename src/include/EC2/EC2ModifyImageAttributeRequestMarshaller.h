@@ -17,6 +17,9 @@
 
 #import "EC2Request.h"
 #import "EC2ModifyImageAttributeRequest.h"
+#import "EC2LaunchPermissionModifications.h"
+#import "EC2LaunchPermission.h"
+#import "EC2LaunchPermission.h"
 
 
 /**

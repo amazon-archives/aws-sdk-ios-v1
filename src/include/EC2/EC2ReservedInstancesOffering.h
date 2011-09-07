@@ -32,6 +32,8 @@
     NSNumber *usagePrice;
     NSNumber *fixedPrice;
     NSString *productDescription;
+    NSString *instanceTenancy;
+    NSString *currencyCode;
 }
 
 
@@ -79,6 +81,17 @@
  * The Reserved Instances description (ex: Windows or Unix/Linux).
  */
 @property (nonatomic, retain) NSString *productDescription;
+
+/**
+ * The tenancy of the reserved instance (ex: default or dedicated).
+ */
+@property (nonatomic, retain) NSString *instanceTenancy;
+
+/**
+ * The currency of the reserved instance. Specified using ISO 4217
+ * standard (e.g., USD, JPY).
+ */
+@property (nonatomic, retain) NSString *currencyCode;
 
 /**
  * Returns a string representation of this object; useful for testing and

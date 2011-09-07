@@ -27,6 +27,7 @@
     [request setDelegate:[resumeProcessesRequest delegate]];
     [request setCredentials:[resumeProcessesRequest credentials]];
     [request setEndpoint:[resumeProcessesRequest requestEndpoint]];
+    [request setRequestTag:[resumeProcessesRequest requestTag]];
 
     if (resumeProcessesRequest != nil) {
         if (resumeProcessesRequest.autoScalingGroupName != nil) {

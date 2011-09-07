@@ -27,6 +27,7 @@
     [request setDelegate:[describeAlarmsForMetricRequest delegate]];
     [request setCredentials:[describeAlarmsForMetricRequest credentials]];
     [request setEndpoint:[describeAlarmsForMetricRequest requestEndpoint]];
+    [request setRequestTag:[describeAlarmsForMetricRequest requestTag]];
 
     if (describeAlarmsForMetricRequest != nil) {
         if (describeAlarmsForMetricRequest.metricName != nil) {

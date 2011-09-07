@@ -251,6 +251,11 @@
     return (S3InitiateMultipartUploadResponse *)[self invoke:initiateMultipartUploadRequest];
 }
 
+-(S3CopyPartResponse *)copyPart:(S3CopyPartRequest *)copyPartRequest
+{
+    return (S3CopyPartResponse *)[self invoke:copyPartRequest];
+}
+
 -(S3MultipartUpload *)initiateMultipartUploadWithKey:(NSString *)theKey withBucket:(NSString *)theBucket
 {
     S3InitiateMultipartUploadRequest *request = [[[S3InitiateMultipartUploadRequest alloc] init] autorelease];
@@ -309,21 +314,30 @@
     if (request.endpoint == nil) {
         [request setEndpoint:self.endpoint];
     }
+    
+    if (request.securityToken == nil && credentials != nil && credentials.securityToken != nil) {
+        request.securityToken = credentials.securityToken;
+    }
+    
 
     AMZLogDebug(@"Begin Request: %@", NSStringFromClass([request class]));
-
-    NSURLRequest *urlRequest = [self signS3Request:request];
-
-    AMZLogDebug(@"%@ %@", [urlRequest HTTPMethod], [urlRequest URL]);
-    AMZLogDebug(@"Request headers: ");
-    for (id hKey in [[urlRequest allHTTPHeaderFields] allKeys])
-    {
-        AMZLogDebug(@"  %@: %@", [hKey description], [[urlRequest allHTTPHeaderFields] valueForKey:hKey]);
-    }
 
     S3Response *response = nil;
     int        retries   = 0;
     while (retries < self.maxRetries) {
+        if ( retries > 0 ) {
+            request.date = [NSDate date];
+        }
+        
+        NSURLRequest *urlRequest = [self signS3Request:request];
+        
+        AMZLogDebug(@"%@ %@", [urlRequest HTTPMethod], [urlRequest URL]);
+        AMZLogDebug(@"Request headers: ");
+        for (id hKey in [[urlRequest allHTTPHeaderFields] allKeys])
+        {
+            AMZLogDebug(@"  %@: %@", [hKey description], [[urlRequest allHTTPHeaderFields] valueForKey:hKey]);
+        }
+        
         response = [AmazonS3Client constructResponseFromRequest:request];
         [response setRequest:request];
 
@@ -379,7 +393,8 @@
     }
 
     AMZLogDebug(@"Received response from server. RequestId: %@. HTTP: %d. Id2: %@.", response.requestId, response.httpStatusCode, response.id2);
-
+    AMZLogDebug(@"Response [%@]", response);
+    
     return response;
 }
 
@@ -499,23 +514,31 @@
 {
     // Since we will be creating instances of these classes using NSClassFromString,
     // make certain they have been loaded by the runtime.
-    [S3GetObjectResponse class];
-    [S3GetObjectMetadataResponse class];
-    [S3DeleteObjectResponse class];
-    [S3CopyObjectResponse class];
-    [S3ListObjectsResponse class];
-    [S3ListBucketsResponse class];
-    [S3DeleteBucketResponse class];
+    [S3AbortMultipartUploadResponse class];
     [S3CreateBucketResponse class];
-    [S3GetACLResponse class];
-    [S3SetACLResponse class];
-    [S3DeleteVersionResponse class];
-    [S3ListVersionsResponse class];
-    [S3GetBucketVersioningConfigurationResponse class];
-    [S3SetBucketVersioningConfigurationResponse class];
+    [S3CompleteMultipartUploadResponse class];
+    [S3CopyObjectResponse class];
+    [S3CopyPartResponse class];
     [S3DeleteBucketPolicyResponse class];
-    [S3GetBucketPolicyResponse class];
+    [S3DeleteBucketResponse class];
+    [S3DeleteObjectResponse class];
+    [S3DeleteVersionResponse class];
+    [S3GetACLResponse class];
+    [S3GetBucketPolicyResponse class];    
+    [S3GetBucketVersioningConfigurationResponse class];
+    [S3GetObjectMetadataResponse class];
+    [S3GetObjectResponse class];
+    [S3InitiateMultipartUploadResponse class];
+    [S3ListBucketsResponse class];
+    [S3ListMultipartUploadsResponse class];
+    [S3ListObjectsResponse class];
+    [S3ListPartsResponse class];
+    [S3ListVersionsResponse class];
+    [S3PutObjectResponse class];
+    [S3SetACLResponse class];
     [S3SetBucketPolicyResponse class];
+    [S3SetBucketVersioningConfigurationResponse class];    
+    [S3UploadPartResponse class];
 }
 
 

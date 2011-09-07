@@ -30,6 +30,7 @@
 
 {
     NSMutableArray *spotPriceHistory;
+    NSString       *nextToken;
 }
 
 
@@ -40,10 +41,13 @@
  */
 -(id)init;
 
-/**
- *
- */
 @property (nonatomic, retain) NSMutableArray *spotPriceHistory;
+
+/**
+ * The string marking the next set of results returned. Displays empty if
+ * there are no more results to be returned.
+ */
+@property (nonatomic, retain) NSString *nextToken;
 
 /**
  * Returns a string representation of this object; useful for testing and

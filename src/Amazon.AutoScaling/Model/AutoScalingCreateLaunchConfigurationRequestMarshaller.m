@@ -27,6 +27,7 @@
     [request setDelegate:[createLaunchConfigurationRequest delegate]];
     [request setCredentials:[createLaunchConfigurationRequest credentials]];
     [request setEndpoint:[createLaunchConfigurationRequest requestEndpoint]];
+    [request setRequestTag:[createLaunchConfigurationRequest requestTag]];
 
     if (createLaunchConfigurationRequest != nil) {
         if (createLaunchConfigurationRequest.launchConfigurationName != nil) {
@@ -107,7 +108,7 @@
         AutoScalingInstanceMonitoring *instanceMonitoring = createLaunchConfigurationRequest.instanceMonitoring;
         if (instanceMonitoring != nil) {
             if (instanceMonitoring.enabledIsSet) {
-                [request setParameterValue:(instanceMonitoring.enabled ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@.%@", @"InstanceMonitoring", @"Enabled"]];
+                [request setParameterValue:(instanceMonitoring.enabled ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@.%@", @"InstanceMonitoring", @"Enabled"]];
             }
         }
     }

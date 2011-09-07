@@ -57,22 +57,22 @@
 }
 
 
--(void)addAllSecurityGroup:(EC2GroupIdentifier *)allSecurityGroup
+-(void)addAllSecurityGroup:(EC2GroupIdentifier *)allSecurityGroupObject
 {
     if (allSecurityGroups == nil) {
         allSecurityGroups = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [allSecurityGroups addObject:allSecurityGroup];
+    [allSecurityGroups addObject:allSecurityGroupObject];
 }
 
--(void)addBlockDeviceMapping:(EC2BlockDeviceMapping *)blockDeviceMapping
+-(void)addBlockDeviceMapping:(EC2BlockDeviceMapping *)blockDeviceMappingObject
 {
     if (blockDeviceMappings == nil) {
         blockDeviceMappings = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [blockDeviceMappings addObject:blockDeviceMapping];
+    [blockDeviceMappings addObject:blockDeviceMappingObject];
 }
 
 

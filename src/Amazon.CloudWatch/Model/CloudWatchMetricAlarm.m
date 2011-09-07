@@ -73,13 +73,13 @@
 }
 
 
--(void)addDimension:(CloudWatchDimension *)dimension
+-(void)addDimension:(CloudWatchDimension *)dimensionObject
 {
     if (dimensions == nil) {
         dimensions = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [dimensions addObject:dimension];
+    [dimensions addObject:dimensionObject];
 }
 
 

@@ -134,6 +134,8 @@
 
 -(void)dealloc
 {
+    delegate = nil;
+
     [contentType release];
     [securityToken release];
     [httpMethod release];

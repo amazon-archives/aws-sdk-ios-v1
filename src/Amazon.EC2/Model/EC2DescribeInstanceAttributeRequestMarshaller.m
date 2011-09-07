@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribeInstanceAttribute"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[describeInstanceAttributeRequest delegate]];
     [request setCredentials:[describeInstanceAttributeRequest credentials]];
     [request setEndpoint:[describeInstanceAttributeRequest requestEndpoint]];
+    [request setRequestTag:[describeInstanceAttributeRequest requestTag]];
 
     if (describeInstanceAttributeRequest != nil) {
         if (describeInstanceAttributeRequest.instanceId != nil) {

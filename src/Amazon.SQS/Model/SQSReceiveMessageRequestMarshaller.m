@@ -27,6 +27,7 @@
     [request setDelegate:[receiveMessageRequest delegate]];
     [request setCredentials:[receiveMessageRequest credentials]];
     [request setEndpoint:[receiveMessageRequest requestEndpoint]];
+    [request setRequestTag:[receiveMessageRequest requestTag]];
 
     if (receiveMessageRequest != nil) {
         if (receiveMessageRequest.queueUrl != nil) {

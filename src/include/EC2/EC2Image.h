@@ -50,6 +50,7 @@
     NSMutableArray *blockDeviceMappings;
     NSString       *virtualizationType;
     NSMutableArray *tags;
+    NSString       *hypervisor;
 }
 
 
@@ -170,23 +171,25 @@
  */
 @property (nonatomic, retain) NSMutableArray *tags;
 
+@property (nonatomic, retain) NSString       *hypervisor;
+
 /**
  * Adds a single object to productCodes.
  * This function will alloc and init productCodes if not already done.
  */
--(void)addProductCode:(EC2ProductCode *)productCode;
+-(void)addProductCode:(EC2ProductCode *)productCodeObject;
 
 /**
  * Adds a single object to blockDeviceMappings.
  * This function will alloc and init blockDeviceMappings if not already done.
  */
--(void)addBlockDeviceMapping:(EC2BlockDeviceMapping *)blockDeviceMapping;
+-(void)addBlockDeviceMapping:(EC2BlockDeviceMapping *)blockDeviceMappingObject;
 
 /**
  * Adds a single object to tags.
  * This function will alloc and init tags if not already done.
  */
--(void)addTag:(EC2Tag *)tag;
+-(void)addTag:(EC2Tag *)tagObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

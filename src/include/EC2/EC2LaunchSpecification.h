@@ -14,7 +14,7 @@
  */
 
 #import "EC2GroupIdentifier.h"
-#import "EC2Placement.h"
+#import "EC2SpotPlacement.h"
 #import "EC2BlockDeviceMapping.h"
 
 
@@ -28,20 +28,20 @@
 @interface EC2LaunchSpecification:NSObject
 
 {
-    NSString       *imageId;
-    NSString       *keyName;
-    NSMutableArray *allSecurityGroups;
-    NSMutableArray *securityGroups;
-    NSString       *userData;
-    NSString       *addressingType;
-    NSString       *instanceType;
-    EC2Placement   *placement;
-    NSString       *kernelId;
-    NSString       *ramdiskId;
-    NSMutableArray *blockDeviceMappings;
-    bool           monitoringEnabled;
-    bool           monitoringEnabledIsSet;
-    NSString       *subnetId;
+    NSString         *imageId;
+    NSString         *keyName;
+    NSMutableArray   *allSecurityGroups;
+    NSMutableArray   *securityGroups;
+    NSString         *userData;
+    NSString         *addressingType;
+    NSString         *instanceType;
+    EC2SpotPlacement *placement;
+    NSString         *kernelId;
+    NSString         *ramdiskId;
+    NSMutableArray   *blockDeviceMappings;
+    bool             monitoringEnabled;
+    bool             monitoringEnabledIsSet;
+    NSString         *subnetId;
 }
 
 
@@ -60,16 +60,10 @@
 /**
  * The name of the key pair.
  */
-@property (nonatomic, retain) NSString *keyName;
+@property (nonatomic, retain) NSString       *keyName;
 
-/**
- *
- */
 @property (nonatomic, retain) NSMutableArray *allSecurityGroups;
 
-/**
- *
- */
 @property (nonatomic, retain) NSMutableArray *securityGroups;
 
 /**
@@ -96,7 +90,7 @@
 /**
  * Defines a placement item.
  */
-@property (nonatomic, retain) EC2Placement *placement;
+@property (nonatomic, retain) EC2SpotPlacement *placement;
 
 /**
  * Specifies the ID of the kernel to select.
@@ -134,13 +128,13 @@
  * Adds a single object to allSecurityGroups.
  * This function will alloc and init allSecurityGroups if not already done.
  */
--(void)addAllSecurityGroup:(EC2GroupIdentifier *)allSecurityGroup;
+-(void)addAllSecurityGroup:(EC2GroupIdentifier *)allSecurityGroupObject;
 
 /**
  * Adds a single object to blockDeviceMappings.
  * This function will alloc and init blockDeviceMappings if not already done.
  */
--(void)addBlockDeviceMapping:(EC2BlockDeviceMapping *)blockDeviceMapping;
+-(void)addBlockDeviceMapping:(EC2BlockDeviceMapping *)blockDeviceMappingObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

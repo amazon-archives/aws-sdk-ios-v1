@@ -227,6 +227,11 @@
         return;
     }
 
+    if ([elementName isEqualToString:@"hypervisor"]) {
+        self.response.hypervisor = self.currentText;
+        return;
+    }
+
     if ([elementName isEqualToString:@"instance"]) {
         if (caller != nil) {
             [parser setDelegate:caller];

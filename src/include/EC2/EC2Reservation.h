@@ -80,13 +80,13 @@
  * Adds a single object to groups.
  * This function will alloc and init groups if not already done.
  */
--(void)addGroup:(EC2GroupIdentifier *)group;
+-(void)addGroup:(EC2GroupIdentifier *)groupObject;
 
 /**
  * Adds a single object to instances.
  * This function will alloc and init instances if not already done.
  */
--(void)addInstance:(EC2Instance *)instance;
+-(void)addInstance:(EC2Instance *)instanceObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

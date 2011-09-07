@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[ElasticLoadBalancingRequest alloc] init];
 
     [request setParameterValue:@"DisableAvailabilityZonesForLoadBalancer"           forKey:@"Action"];
-    [request setParameterValue:@"2010-07-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-08-15"   forKey:@"Version"];
 
     [request setDelegate:[disableAvailabilityZonesForLoadBalancerRequest delegate]];
     [request setCredentials:[disableAvailabilityZonesForLoadBalancerRequest credentials]];
     [request setEndpoint:[disableAvailabilityZonesForLoadBalancerRequest requestEndpoint]];
+    [request setRequestTag:[disableAvailabilityZonesForLoadBalancerRequest requestTag]];
 
     if (disableAvailabilityZonesForLoadBalancerRequest != nil) {
         if (disableAvailabilityZonesForLoadBalancerRequest.loadBalancerName != nil) {

@@ -45,6 +45,11 @@
         return;
     }
 
+    if ([elementName isEqualToString:@"InstanceProtocol"]) {
+        self.response.instanceProtocol = self.currentText;
+        return;
+    }
+
     if ([elementName isEqualToString:@"InstancePort"]) {
         self.response.instancePort = [AmazonSDKUtil convertStringToNumber:self.currentText];
         return;

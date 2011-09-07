@@ -27,6 +27,7 @@
     [request setDelegate:[listSubscriptionsByTopicRequest delegate]];
     [request setCredentials:[listSubscriptionsByTopicRequest credentials]];
     [request setEndpoint:[listSubscriptionsByTopicRequest requestEndpoint]];
+    [request setRequestTag:[listSubscriptionsByTopicRequest requestTag]];
 
     if (listSubscriptionsByTopicRequest != nil) {
         if (listSubscriptionsByTopicRequest.topicArn != nil) {

@@ -27,6 +27,7 @@
     [request setDelegate:[describeAutoScalingGroupsRequest delegate]];
     [request setCredentials:[describeAutoScalingGroupsRequest credentials]];
     [request setEndpoint:[describeAutoScalingGroupsRequest requestEndpoint]];
+    [request setRequestTag:[describeAutoScalingGroupsRequest requestTag]];
 
     if (describeAutoScalingGroupsRequest != nil) {
         int autoScalingGroupNamesListIndex = 1;

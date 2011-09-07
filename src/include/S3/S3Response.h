@@ -16,7 +16,7 @@
 #import <Foundation/Foundation.h>
 #import <objc/runtime.h>
 #import "../AmazonServiceResponse.h"
-#import "S3ErrorResponseHandler.h";
+#import "S3ErrorResponseHandler.h"
 #import "S3Constants.h"
 #import "S3Request.h"
 

@@ -20,6 +20,7 @@
 
 @synthesize availabilityZone;
 @synthesize groupName;
+@synthesize tenancy;
 
 
 -(id)init
@@ -27,6 +28,7 @@
     if (self = [super init]) {
         availabilityZone = nil;
         groupName        = nil;
+        tenancy          = nil;
     }
 
     return self;
@@ -50,6 +52,7 @@
     [buffer appendString:@"{"];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"AvailabilityZone: %@,", availabilityZone] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"GroupName: %@,", groupName] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Tenancy: %@,", tenancy] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -62,6 +65,7 @@
 {
     [availabilityZone release];
     [groupName release];
+    [tenancy release];
 
     [super dealloc];
 }

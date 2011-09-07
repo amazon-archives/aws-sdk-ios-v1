@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[ElasticLoadBalancingRequest alloc] init];
 
     [request setParameterValue:@"DeregisterInstancesFromLoadBalancer"           forKey:@"Action"];
-    [request setParameterValue:@"2010-07-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-08-15"   forKey:@"Version"];
 
     [request setDelegate:[deregisterInstancesFromLoadBalancerRequest delegate]];
     [request setCredentials:[deregisterInstancesFromLoadBalancerRequest credentials]];
     [request setEndpoint:[deregisterInstancesFromLoadBalancerRequest requestEndpoint]];
+    [request setRequestTag:[deregisterInstancesFromLoadBalancerRequest requestTag]];
 
     if (deregisterInstancesFromLoadBalancerRequest != nil) {
         if (deregisterInstancesFromLoadBalancerRequest.loadBalancerName != nil) {

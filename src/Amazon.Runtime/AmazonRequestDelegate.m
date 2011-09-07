@@ -14,6 +14,7 @@
  */
 
 #import "AmazonRequestDelegate.h"
+#import "AmazonLogger.h"
 
 @implementation AmazonRequestDelegate
 
@@ -48,6 +49,7 @@
     AMZLogDebug(@"didCompleteWithResponse");
     [response release];
     response = [aResponse retain];
+    response.request = request;
 }
 
 -(void)request:(AmazonServiceRequest *)request didReceiveData:(NSData *)data

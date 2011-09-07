@@ -27,6 +27,7 @@
     [request setDelegate:[getMetricStatisticsRequest delegate]];
     [request setCredentials:[getMetricStatisticsRequest credentials]];
     [request setEndpoint:[getMetricStatisticsRequest requestEndpoint]];
+    [request setRequestTag:[getMetricStatisticsRequest requestTag]];
 
     if (getMetricStatisticsRequest != nil) {
         if (getMetricStatisticsRequest.namespace != nil) {

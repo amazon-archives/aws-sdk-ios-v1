@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[ElasticLoadBalancingRequest alloc] init];
 
     [request setParameterValue:@"SetLoadBalancerListenerSSLCertificate"           forKey:@"Action"];
-    [request setParameterValue:@"2010-07-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-08-15"   forKey:@"Version"];
 
     [request setDelegate:[setLoadBalancerListenerSSLCertificateRequest delegate]];
     [request setCredentials:[setLoadBalancerListenerSSLCertificateRequest credentials]];
     [request setEndpoint:[setLoadBalancerListenerSSLCertificateRequest requestEndpoint]];
+    [request setRequestTag:[setLoadBalancerListenerSSLCertificateRequest requestTag]];
 
     if (setLoadBalancerListenerSSLCertificateRequest != nil) {
         if (setLoadBalancerListenerSSLCertificateRequest.loadBalancerName != nil) {

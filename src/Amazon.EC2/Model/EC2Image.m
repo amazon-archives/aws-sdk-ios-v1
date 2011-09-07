@@ -39,6 +39,7 @@
 @synthesize blockDeviceMappings;
 @synthesize virtualizationType;
 @synthesize tags;
+@synthesize hypervisor;
 
 
 -(id)init
@@ -65,37 +66,38 @@
         blockDeviceMappings = [[NSMutableArray alloc] initWithCapacity:1];
         virtualizationType  = nil;
         tags                = [[NSMutableArray alloc] initWithCapacity:1];
+        hypervisor          = nil;
     }
 
     return self;
 }
 
 
--(void)addProductCode:(EC2ProductCode *)productCode
+-(void)addProductCode:(EC2ProductCode *)productCodeObject
 {
     if (productCodes == nil) {
         productCodes = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [productCodes addObject:productCode];
+    [productCodes addObject:productCodeObject];
 }
 
--(void)addBlockDeviceMapping:(EC2BlockDeviceMapping *)blockDeviceMapping
+-(void)addBlockDeviceMapping:(EC2BlockDeviceMapping *)blockDeviceMappingObject
 {
     if (blockDeviceMappings == nil) {
         blockDeviceMappings = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [blockDeviceMappings addObject:blockDeviceMapping];
+    [blockDeviceMappings addObject:blockDeviceMappingObject];
 }
 
--(void)addTag:(EC2Tag *)tag
+-(void)addTag:(EC2Tag *)tagObject
 {
     if (tags == nil) {
         tags = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [tags addObject:tag];
+    [tags addObject:tagObject];
 }
 
 
@@ -124,6 +126,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"BlockDeviceMappings: %@,", blockDeviceMappings] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"VirtualizationType: %@,", virtualizationType] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Tags: %@,", tags] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Hypervisor: %@,", hypervisor] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -159,6 +162,7 @@
     [blockDeviceMappings release];
     [virtualizationType release];
     [tags release];
+    [hypervisor release];
 
     [super dealloc];
 }

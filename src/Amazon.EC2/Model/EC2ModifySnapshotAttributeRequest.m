@@ -23,16 +23,18 @@
 @synthesize operationType;
 @synthesize userIds;
 @synthesize groupNames;
+@synthesize createVolumePermission;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        snapshotId    = nil;
-        attribute     = nil;
-        operationType = nil;
-        userIds       = [[NSMutableArray alloc] initWithCapacity:1];
-        groupNames    = [[NSMutableArray alloc] initWithCapacity:1];
+        snapshotId             = nil;
+        attribute              = nil;
+        operationType          = nil;
+        userIds                = [[NSMutableArray alloc] initWithCapacity:1];
+        groupNames             = [[NSMutableArray alloc] initWithCapacity:1];
+        createVolumePermission = nil;
     }
 
     return self;
@@ -61,6 +63,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"OperationType: %@,", operationType] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"UserIds: %@,", userIds] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"GroupNames: %@,", groupNames] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"CreateVolumePermission: %@,", createVolumePermission] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -76,6 +79,7 @@
     [operationType release];
     [userIds release];
     [groupNames release];
+    [createVolumePermission release];
 
     [super dealloc];
 }

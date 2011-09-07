@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribeLicenses"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[describeLicensesRequest delegate]];
     [request setCredentials:[describeLicensesRequest credentials]];
     [request setEndpoint:[describeLicensesRequest requestEndpoint]];
+    [request setRequestTag:[describeLicensesRequest requestTag]];
 
     if (describeLicensesRequest != nil) {
         int licenseIdsListIndex = 1;

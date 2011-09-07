@@ -27,6 +27,7 @@
     [request setDelegate:[sendRawEmailRequest delegate]];
     [request setCredentials:[sendRawEmailRequest credentials]];
     [request setEndpoint:[sendRawEmailRequest requestEndpoint]];
+    [request setRequestTag:[sendRawEmailRequest requestTag]];
 
     if (sendRawEmailRequest != nil) {
         if (sendRawEmailRequest.source != nil) {

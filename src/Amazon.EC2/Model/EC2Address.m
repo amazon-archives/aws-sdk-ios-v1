@@ -20,13 +20,17 @@
 
 @synthesize instanceId;
 @synthesize publicIp;
+@synthesize allocationId;
+@synthesize domain;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        instanceId = nil;
-        publicIp   = nil;
+        instanceId   = nil;
+        publicIp     = nil;
+        allocationId = nil;
+        domain       = nil;
     }
 
     return self;
@@ -41,6 +45,8 @@
     [buffer appendString:@"{"];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"InstanceId: %@,", instanceId] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"PublicIp: %@,", publicIp] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"AllocationId: %@,", allocationId] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Domain: %@,", domain] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -53,6 +59,8 @@
 {
     [instanceId release];
     [publicIp release];
+    [allocationId release];
+    [domain release];
 
     [super dealloc];
 }

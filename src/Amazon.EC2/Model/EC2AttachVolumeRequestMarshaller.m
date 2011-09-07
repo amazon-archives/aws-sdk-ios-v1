@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"AttachVolume"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[attachVolumeRequest delegate]];
     [request setCredentials:[attachVolumeRequest credentials]];
     [request setEndpoint:[attachVolumeRequest requestEndpoint]];
+    [request setRequestTag:[attachVolumeRequest requestTag]];
 
     if (attachVolumeRequest != nil) {
         if (attachVolumeRequest.volumeId != nil) {

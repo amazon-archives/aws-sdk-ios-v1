@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[ElasticLoadBalancingRequest alloc] init];
 
     [request setParameterValue:@"CreateLoadBalancerListeners"           forKey:@"Action"];
-    [request setParameterValue:@"2010-07-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-08-15"   forKey:@"Version"];
 
     [request setDelegate:[createLoadBalancerListenersRequest delegate]];
     [request setCredentials:[createLoadBalancerListenersRequest credentials]];
     [request setEndpoint:[createLoadBalancerListenersRequest requestEndpoint]];
+    [request setRequestTag:[createLoadBalancerListenersRequest requestTag]];
 
     if (createLoadBalancerListenersRequest != nil) {
         if (createLoadBalancerListenersRequest.loadBalancerName != nil) {
@@ -45,6 +46,11 @@
             if (listenersListValue != nil) {
                 if (listenersListValue.loadBalancerPort != nil) {
                     [request setParameterValue:[NSString stringWithFormat:@"%@", listenersListValue.loadBalancerPort] forKey:[NSString stringWithFormat:@"%@.member.%d.%@", @"Listeners", listenersListIndex, @"LoadBalancerPort"]];
+                }
+            }
+            if (listenersListValue != nil) {
+                if (listenersListValue.instanceProtocol != nil) {
+                    [request setParameterValue:[NSString stringWithFormat:@"%@", listenersListValue.instanceProtocol] forKey:[NSString stringWithFormat:@"%@.member.%d.%@", @"Listeners", listenersListIndex, @"InstanceProtocol"]];
                 }
             }
             if (listenersListValue != nil) {

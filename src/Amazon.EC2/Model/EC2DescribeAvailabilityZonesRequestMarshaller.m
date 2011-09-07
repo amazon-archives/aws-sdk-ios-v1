@@ -22,11 +22,12 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribeAvailabilityZones"           forKey:@"Action"];
-    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
 
     [request setDelegate:[describeAvailabilityZonesRequest delegate]];
     [request setCredentials:[describeAvailabilityZonesRequest credentials]];
     [request setEndpoint:[describeAvailabilityZonesRequest requestEndpoint]];
+    [request setRequestTag:[describeAvailabilityZonesRequest requestTag]];
 
     if (describeAvailabilityZonesRequest != nil) {
         int zoneNamesListIndex = 1;

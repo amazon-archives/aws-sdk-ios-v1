@@ -27,6 +27,14 @@
     return self;
 }
 
+-(id)initWithCredentials:(AmazonCredentials *)theCredentials
+{
+    if (self = [super initWithCredentials:theCredentials]) {
+        self.endpoint = @"https://ec2.amazonaws.com";
+    }
+    return self;
+}
+
 -(EC2RebootInstancesResponse *)rebootInstances:(EC2RebootInstancesRequest *)rebootInstancesRequest
 {
     AmazonServiceRequest *request = [EC2RebootInstancesRequestMarshaller createRequest:rebootInstancesRequest];

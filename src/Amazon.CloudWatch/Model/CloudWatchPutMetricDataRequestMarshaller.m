@@ -27,6 +27,7 @@
     [request setDelegate:[putMetricDataRequest delegate]];
     [request setCredentials:[putMetricDataRequest credentials]];
     [request setEndpoint:[putMetricDataRequest requestEndpoint]];
+    [request setRequestTag:[putMetricDataRequest requestTag]];
 
     if (putMetricDataRequest != nil) {
         if (putMetricDataRequest.namespace != nil) {

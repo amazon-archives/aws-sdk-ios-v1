@@ -20,47 +20,64 @@
 
 @synthesize loadBalancerName;
 @synthesize dNSName;
+@synthesize canonicalHostedZoneName;
+@synthesize canonicalHostedZoneNameID;
 @synthesize listenerDescriptions;
 @synthesize policies;
+@synthesize backendServerDescriptions;
 @synthesize availabilityZones;
 @synthesize instances;
 @synthesize healthCheck;
+@synthesize sourceSecurityGroup;
 @synthesize createdTime;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        loadBalancerName     = nil;
-        dNSName              = nil;
-        listenerDescriptions = [[NSMutableArray alloc] initWithCapacity:1];
-        policies             = nil;
-        availabilityZones    = [[NSMutableArray alloc] initWithCapacity:1];
-        instances            = [[NSMutableArray alloc] initWithCapacity:1];
-        healthCheck          = nil;
-        createdTime          = nil;
+        loadBalancerName          = nil;
+        dNSName                   = nil;
+        canonicalHostedZoneName   = nil;
+        canonicalHostedZoneNameID = nil;
+        listenerDescriptions      = [[NSMutableArray alloc] initWithCapacity:1];
+        policies                  = nil;
+        backendServerDescriptions = [[NSMutableArray alloc] initWithCapacity:1];
+        availabilityZones         = [[NSMutableArray alloc] initWithCapacity:1];
+        instances                 = [[NSMutableArray alloc] initWithCapacity:1];
+        healthCheck               = nil;
+        sourceSecurityGroup       = nil;
+        createdTime               = nil;
     }
 
     return self;
 }
 
 
--(void)addListenerDescription:(ElasticLoadBalancingListenerDescription *)listenerDescription
+-(void)addListenerDescription:(ElasticLoadBalancingListenerDescription *)listenerDescriptionObject
 {
     if (listenerDescriptions == nil) {
         listenerDescriptions = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [listenerDescriptions addObject:listenerDescription];
+    [listenerDescriptions addObject:listenerDescriptionObject];
 }
 
--(void)addInstance:(ElasticLoadBalancingInstance *)instance
+-(void)addBackendServerDescription:(ElasticLoadBalancingBackendServerDescription *)backendServerDescriptionObject
+{
+    if (backendServerDescriptions == nil) {
+        backendServerDescriptions = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [backendServerDescriptions addObject:backendServerDescriptionObject];
+}
+
+-(void)addInstance:(ElasticLoadBalancingInstance *)instanceObject
 {
     if (instances == nil) {
         instances = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [instances addObject:instance];
+    [instances addObject:instanceObject];
 }
 
 
@@ -71,11 +88,15 @@
     [buffer appendString:@"{"];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"LoadBalancerName: %@,", loadBalancerName] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"DNSName: %@,", dNSName] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"CanonicalHostedZoneName: %@,", canonicalHostedZoneName] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"CanonicalHostedZoneNameID: %@,", canonicalHostedZoneNameID] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ListenerDescriptions: %@,", listenerDescriptions] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Policies: %@,", policies] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"BackendServerDescriptions: %@,", backendServerDescriptions] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"AvailabilityZones: %@,", availabilityZones] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Instances: %@,", instances] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"HealthCheck: %@,", healthCheck] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"SourceSecurityGroup: %@,", sourceSecurityGroup] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"CreatedTime: %@,", createdTime] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
@@ -89,11 +110,15 @@
 {
     [loadBalancerName release];
     [dNSName release];
+    [canonicalHostedZoneName release];
+    [canonicalHostedZoneNameID release];
     [listenerDescriptions release];
     [policies release];
+    [backendServerDescriptions release];
     [availabilityZones release];
     [instances release];
     [healthCheck release];
+    [sourceSecurityGroup release];
     [createdTime release];
 
     [super dealloc];

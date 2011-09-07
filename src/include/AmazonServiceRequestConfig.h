@@ -24,6 +24,7 @@
     AmazonCredentials                *credentials;
     NSString                         *requestEndpoint;
     NSURLConnection                  *urlConnection;
+    NSString                         *requestTag;
 }
 
 /** Request specific credentials. */
@@ -40,7 +41,12 @@
 /**
  * The connection object used to make the request.
  */
-@property (nonatomic, retain) NSURLConnection *urlConnection;
+@property (nonatomic, retain) NSURLConnection   *urlConnection;
+
+/**
+ * Open property that enables user to distinquish various requests.
+ */
+@property (nonatomic, retain) NSString          *requestTag;
 
 
 -(void)setDelegate:(id<AmazonServiceRequestDelegate> )delegate;

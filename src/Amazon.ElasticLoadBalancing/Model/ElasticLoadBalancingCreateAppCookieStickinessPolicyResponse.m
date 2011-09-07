@@ -33,20 +33,20 @@
 {
     AmazonServiceException *newException = nil;
 
-    if ([[theException errorCode] isEqualToString:@"DuplicatePolicyName"]) {
-        newException = [[ElasticLoadBalancingDuplicatePolicyNameException alloc] initWithMessage:@""];
+    if ([[theException errorCode] isEqualToString:@"LoadBalancerNotFound"]) {
+        newException = [[ElasticLoadBalancingLoadBalancerNotFoundException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"TooManyPolicies"]) {
         newException = [[ElasticLoadBalancingTooManyPoliciesException alloc] initWithMessage:@""];
     }
 
-    if ([[theException errorCode] isEqualToString:@"LoadBalancerNotFound"]) {
-        newException = [[ElasticLoadBalancingLoadBalancerNotFoundException alloc] initWithMessage:@""];
-    }
-
     if ([[theException errorCode] isEqualToString:@"InvalidConfigurationRequest"]) {
         newException = [[ElasticLoadBalancingInvalidConfigurationRequestException alloc] initWithMessage:@""];
+    }
+
+    if ([[theException errorCode] isEqualToString:@"DuplicatePolicyName"]) {
+        newException = [[ElasticLoadBalancingDuplicatePolicyNameException alloc] initWithMessage:@""];
     }
 
     if (newException != nil) {

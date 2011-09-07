@@ -50,8 +50,7 @@
 @property (nonatomic, retain) NSString *source;
 
 /**
- * The destination for this email, composed of To:, From:, and CC:
- * fields.
+ * The destination for this email, composed of To:, CC:, and BCC: fields.
  */
 @property (nonatomic, retain) SESDestination *destination;
 

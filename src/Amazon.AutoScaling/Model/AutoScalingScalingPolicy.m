@@ -43,13 +43,13 @@
 }
 
 
--(void)addAlarm:(AutoScalingAlarm *)alarm
+-(void)addAlarm:(AutoScalingAlarm *)alarmObject
 {
     if (alarms == nil) {
         alarms = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [alarms addObject:alarm];
+    [alarms addObject:alarmObject];
 }
 
 

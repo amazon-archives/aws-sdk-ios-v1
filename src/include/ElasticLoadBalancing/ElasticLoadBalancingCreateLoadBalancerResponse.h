@@ -17,10 +17,10 @@
 #import "ElasticLoadBalancingResponse.h"
 #import "../AmazonServiceExceptionUnmarshaller.h"
 
-#import "ElasticLoadBalancingDuplicateLoadBalancerNameException.h"
 #import "ElasticLoadBalancingTooManyLoadBalancersException.h"
-#import "ElasticLoadBalancingInvalidConfigurationRequestException.h"
+#import "ElasticLoadBalancingDuplicateLoadBalancerNameException.h"
 #import "ElasticLoadBalancingCertificateNotFoundException.h"
+#import "ElasticLoadBalancingInvalidConfigurationRequestException.h"
 
 
 /**

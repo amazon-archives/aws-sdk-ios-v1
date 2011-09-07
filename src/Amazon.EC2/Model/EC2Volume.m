@@ -45,22 +45,22 @@
 }
 
 
--(void)addAttachment:(EC2VolumeAttachment *)attachment
+-(void)addAttachment:(EC2VolumeAttachment *)attachmentObject
 {
     if (attachments == nil) {
         attachments = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [attachments addObject:attachment];
+    [attachments addObject:attachmentObject];
 }
 
--(void)addTag:(EC2Tag *)tag
+-(void)addTag:(EC2Tag *)tagObject
 {
     if (tags == nil) {
         tags = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
-    [tags addObject:tag];
+    [tags addObject:tagObject];
 }
 
 
