@@ -44,11 +44,6 @@
     [super parser:parser didEndElement:elementName namespaceURI:namespaceURI qualifiedName:qName];
 
 
-    if ([elementName isEqualToString:@"AvailabilityZones/member"]) {
-        [self.response.availabilityZones addObject:self.currentText];
-    }
-
-
     if ([elementName isEqualToString:@"EnableAvailabilityZonesForLoadBalancerResult"]) {
         if (caller != nil) {
             [parser setDelegate:caller];

@@ -79,11 +79,6 @@
         return;
     }
 
-    if ([elementName isEqualToString:@"SecurityGroups/member"]) {
-        [self.response.securityGroups addObject:self.currentText];
-    }
-
-
     if ([elementName isEqualToString:@"UserData"]) {
         self.response.userData = self.currentText;
         return;

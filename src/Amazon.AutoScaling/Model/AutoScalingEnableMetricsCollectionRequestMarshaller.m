@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[AutoScalingRequest alloc] init];
 
     [request setParameterValue:@"EnableMetricsCollection"           forKey:@"Action"];
-    [request setParameterValue:@"2010-08-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
 
     [request setDelegate:[enableMetricsCollectionRequest delegate]];
     [request setCredentials:[enableMetricsCollectionRequest credentials]];
@@ -34,12 +34,14 @@
             [request setParameterValue:[NSString stringWithFormat:@"%@", enableMetricsCollectionRequest.autoScalingGroupName] forKey:[NSString stringWithFormat:@"%@", @"AutoScalingGroupName"]];
         }
     }
+
     if (enableMetricsCollectionRequest != nil) {
         int metricsListIndex = 1;
         for (NSString *metricsListValue in enableMetricsCollectionRequest.metrics) {
             if (metricsListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", metricsListValue] forKey:[NSString stringWithFormat:@"%@.member.%d", @"Metrics", metricsListIndex]];
             }
+
             metricsListIndex++;
         }
     }

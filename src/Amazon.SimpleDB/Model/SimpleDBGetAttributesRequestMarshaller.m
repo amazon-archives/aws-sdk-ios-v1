@@ -39,12 +39,14 @@
             [request setParameterValue:[NSString stringWithFormat:@"%@", getAttributesRequest.itemName] forKey:[NSString stringWithFormat:@"%@", @"ItemName"]];
         }
     }
+
     if (getAttributesRequest != nil) {
         int attributeNamesListIndex = 1;
         for (NSString *attributeNamesListValue in getAttributesRequest.attributeNames) {
             if (attributeNamesListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", attributeNamesListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"AttributeName", attributeNamesListIndex]];
             }
+
             attributeNamesListIndex++;
         }
     }

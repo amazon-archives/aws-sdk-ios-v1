@@ -34,12 +34,14 @@
             [request setParameterValue:[NSString stringWithFormat:@"%@", sendRawEmailRequest.source] forKey:[NSString stringWithFormat:@"%@", @"Source"]];
         }
     }
+
     if (sendRawEmailRequest != nil) {
         int destinationsListIndex = 1;
         for (NSString *destinationsListValue in sendRawEmailRequest.destinations) {
             if (destinationsListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", destinationsListValue] forKey:[NSString stringWithFormat:@"%@.member.%d", @"Destinations", destinationsListIndex]];
             }
+
             destinationsListIndex++;
         }
     }

@@ -29,12 +29,14 @@
     [request setEndpoint:[describeRegionsRequest requestEndpoint]];
     [request setRequestTag:[describeRegionsRequest requestTag]];
 
+
     if (describeRegionsRequest != nil) {
         int regionNamesListIndex = 1;
         for (NSString *regionNamesListValue in describeRegionsRequest.regionNames) {
             if (regionNamesListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", regionNamesListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"RegionName", regionNamesListIndex]];
             }
+
             regionNamesListIndex++;
         }
     }
@@ -47,12 +49,14 @@
                     [request setParameterValue:[NSString stringWithFormat:@"%@", filtersListValue.name] forKey:[NSString stringWithFormat:@"%@.%d.%@", @"Filter", filtersListIndex, @"Name"]];
                 }
             }
+
             if (filtersListValue != nil) {
                 int valuesListIndex = 1;
                 for (NSString *valuesListValue in filtersListValue.values) {
                     if (valuesListValue != nil) {
                         [request setParameterValue:[NSString stringWithFormat:@"%@", valuesListValue] forKey:[NSString stringWithFormat:@"%@.%d.%@.%d", @"Filter", filtersListIndex, @"Value", valuesListIndex]];
                     }
+
                     valuesListIndex++;
                 }
             }

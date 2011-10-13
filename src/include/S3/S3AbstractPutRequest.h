@@ -25,6 +25,7 @@
 @interface S3AbstractPutRequest:S3Request {
     S3CannedACL         *cannedACL;
     NSString            *storageClass;
+    NSString            *serverSideEncryption;
 
     NSMutableDictionary *metadata;
 }
@@ -39,6 +40,10 @@
  * Valid values are 'STANDARD', 'REDUCED_REDUNDANCY'
  */
 @property (nonatomic, retain) NSString *storageClass; // TODO: make an enum
+
+/** Optional server side encryption algorithm.
+ */
+@property (nonatomic, retain) NSString *serverSideEncryption;
 
 /** Add a key-value metadata pair to the request.
  *  These will be prefixed with x-amz-meta- and added to the request header.

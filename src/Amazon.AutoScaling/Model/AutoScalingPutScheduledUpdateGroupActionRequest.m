@@ -21,6 +21,9 @@
 @synthesize autoScalingGroupName;
 @synthesize scheduledActionName;
 @synthesize time;
+@synthesize startTime;
+@synthesize endTime;
+@synthesize recurrence;
 @synthesize minSize;
 @synthesize maxSize;
 @synthesize desiredCapacity;
@@ -32,6 +35,9 @@
         autoScalingGroupName = nil;
         scheduledActionName  = nil;
         time                 = nil;
+        startTime            = nil;
+        endTime              = nil;
+        recurrence           = nil;
         minSize              = nil;
         maxSize              = nil;
         desiredCapacity      = nil;
@@ -50,6 +56,9 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"AutoScalingGroupName: %@,", autoScalingGroupName] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ScheduledActionName: %@,", scheduledActionName] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Time: %@,", time] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"StartTime: %@,", startTime] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"EndTime: %@,", endTime] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Recurrence: %@,", recurrence] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"MinSize: %@,", minSize] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"MaxSize: %@,", maxSize] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"DesiredCapacity: %@,", desiredCapacity] autorelease]];
@@ -66,6 +75,9 @@
     [autoScalingGroupName release];
     [scheduledActionName release];
     [time release];
+    [startTime release];
+    [endTime release];
+    [recurrence release];
     [minSize release];
     [maxSize release];
     [desiredCapacity release];

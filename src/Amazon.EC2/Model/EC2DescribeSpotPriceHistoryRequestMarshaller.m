@@ -39,21 +39,25 @@
             [request setParameterValue:[describeSpotPriceHistoryRequest.endTime stringWithISO8061Format] forKey:[NSString stringWithFormat:@"%@", @"EndTime"]];
         }
     }
+
     if (describeSpotPriceHistoryRequest != nil) {
         int instanceTypesListIndex = 1;
         for (NSString *instanceTypesListValue in describeSpotPriceHistoryRequest.instanceTypes) {
             if (instanceTypesListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", instanceTypesListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"InstanceType", instanceTypesListIndex]];
             }
+
             instanceTypesListIndex++;
         }
     }
+
     if (describeSpotPriceHistoryRequest != nil) {
         int productDescriptionsListIndex = 1;
         for (NSString *productDescriptionsListValue in describeSpotPriceHistoryRequest.productDescriptions) {
             if (productDescriptionsListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", productDescriptionsListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"ProductDescription", productDescriptionsListIndex]];
             }
+
             productDescriptionsListIndex++;
         }
     }
@@ -66,12 +70,14 @@
                     [request setParameterValue:[NSString stringWithFormat:@"%@", filtersListValue.name] forKey:[NSString stringWithFormat:@"%@.%d.%@", @"Filter", filtersListIndex, @"Name"]];
                 }
             }
+
             if (filtersListValue != nil) {
                 int valuesListIndex = 1;
                 for (NSString *valuesListValue in filtersListValue.values) {
                     if (valuesListValue != nil) {
                         [request setParameterValue:[NSString stringWithFormat:@"%@", valuesListValue] forKey:[NSString stringWithFormat:@"%@.%d.%@.%d", @"Filter", filtersListIndex, @"Value", valuesListIndex]];
                     }
+
                     valuesListIndex++;
                 }
             }

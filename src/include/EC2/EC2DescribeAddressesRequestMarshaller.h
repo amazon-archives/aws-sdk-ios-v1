@@ -18,6 +18,8 @@
 #import "EC2Request.h"
 #import "EC2DescribeAddressesRequest.h"
 #import "EC2Filter.h"
+#import "EC2Filter.h"
+#import "EC2Filter.h"
 
 
 /**

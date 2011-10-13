@@ -116,7 +116,7 @@
  * The name of the cluster placement group, if applicable. For more
  * information, go to <a
  * webservices.com/AWSEC2/latest/UserGuide/using_cluster_computing.html">
- * Using Cluster Instances</a> in the <i>Amazon EC2 User Guide</i>.
+ * Using Cluster Instances</a> in the Amazon EC2 User Guide.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 255<br/>

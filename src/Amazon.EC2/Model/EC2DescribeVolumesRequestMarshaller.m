@@ -29,12 +29,14 @@
     [request setEndpoint:[describeVolumesRequest requestEndpoint]];
     [request setRequestTag:[describeVolumesRequest requestTag]];
 
+
     if (describeVolumesRequest != nil) {
         int volumeIdsListIndex = 1;
         for (NSString *volumeIdsListValue in describeVolumesRequest.volumeIds) {
             if (volumeIdsListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", volumeIdsListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"VolumeId", volumeIdsListIndex]];
             }
+
             volumeIdsListIndex++;
         }
     }
@@ -47,12 +49,14 @@
                     [request setParameterValue:[NSString stringWithFormat:@"%@", filtersListValue.name] forKey:[NSString stringWithFormat:@"%@.%d.%@", @"Filter", filtersListIndex, @"Name"]];
                 }
             }
+
             if (filtersListValue != nil) {
                 int valuesListIndex = 1;
                 for (NSString *valuesListValue in filtersListValue.values) {
                     if (valuesListValue != nil) {
                         [request setParameterValue:[NSString stringWithFormat:@"%@", valuesListValue] forKey:[NSString stringWithFormat:@"%@.%d.%@.%d", @"Filter", filtersListIndex, @"Value", valuesListIndex]];
                     }
+
                     valuesListIndex++;
                 }
             }

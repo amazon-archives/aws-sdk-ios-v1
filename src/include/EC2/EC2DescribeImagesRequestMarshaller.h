@@ -18,6 +18,9 @@
 #import "EC2Request.h"
 #import "EC2DescribeImagesRequest.h"
 #import "EC2Filter.h"
+#import "EC2Filter.h"
+#import "EC2Filter.h"
+#import "EC2Filter.h"
 
 
 /**

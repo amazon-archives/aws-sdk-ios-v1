@@ -79,8 +79,7 @@
 @property (nonatomic, retain) NSNumber *maxSize;
 
 /**
- * The number of EC2 instances that should be running in the group. For
- * more information, see <a>SetDesiredCapacity</a>.
+ * The number of EC2 instances that should be running in the group.
  */
 @property (nonatomic, retain) NSNumber *desiredCapacity;
 

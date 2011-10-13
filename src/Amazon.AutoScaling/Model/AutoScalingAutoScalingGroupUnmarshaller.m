@@ -115,16 +115,6 @@
         return;
     }
 
-    if ([elementName isEqualToString:@"AvailabilityZones/member"]) {
-        [self.response.availabilityZones addObject:self.currentText];
-    }
-
-
-    if ([elementName isEqualToString:@"LoadBalancerNames/member"]) {
-        [self.response.loadBalancerNames addObject:self.currentText];
-    }
-
-
     if ([elementName isEqualToString:@"HealthCheckType"]) {
         self.response.healthCheckType = self.currentText;
         return;
@@ -147,6 +137,11 @@
 
     if ([elementName isEqualToString:@"VPCZoneIdentifier"]) {
         self.response.vPCZoneIdentifier = self.currentText;
+        return;
+    }
+
+    if ([elementName isEqualToString:@"Status"]) {
+        self.response.status = self.currentText;
         return;
     }
 

@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[AutoScalingRequest alloc] init];
 
     [request setParameterValue:@"SetInstanceHealth"           forKey:@"Action"];
-    [request setParameterValue:@"2010-08-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
 
     [request setDelegate:[setInstanceHealthRequest delegate]];
     [request setCredentials:[setInstanceHealthRequest credentials]];

@@ -127,9 +127,9 @@
     return (S3GetObjectMetadataResponse *)[self invoke:getObjectMetadataRequest];
 }
 
--(S3Response *)putObject:(S3PutObjectRequest *)putObjectRequest
+-(S3PutObjectResponse *)putObject:(S3PutObjectRequest *)putObjectRequest
 {
-    return [self invoke:putObjectRequest];
+    return (S3PutObjectResponse*)[self invoke:putObjectRequest];
 }
 
 -(S3GetObjectResponse *)getObject:(S3GetObjectRequest *)getObjectRequest
@@ -273,15 +273,6 @@
     return (S3AbortMultipartUploadResponse *)[self invoke:abortMultipartUploadRequest];
 }
 
--(void)abortMultipartUploadWithUploadId:(NSString *)theUploadId
-{
-    S3AbortMultipartUploadRequest *request = [[[S3AbortMultipartUploadRequest alloc] init] autorelease];
-
-    request.uploadId = theUploadId;
-
-    [self abortMultipartUpload:request];
-}
-
 -(S3ListMultipartUploadsResponse *)listMultipartUploads:(S3ListMultipartUploadsRequest *)listMultipartUploadsRequest
 {
     return (S3ListMultipartUploadsResponse *)[self invoke:listMultipartUploadsRequest];
@@ -314,6 +305,10 @@
     if (request.endpoint == nil) {
         [request setEndpoint:self.endpoint];
     }
+    
+    
+ 
+    
     
     if (request.securityToken == nil && credentials != nil && credentials.securityToken != nil) {
         request.securityToken = credentials.securityToken;

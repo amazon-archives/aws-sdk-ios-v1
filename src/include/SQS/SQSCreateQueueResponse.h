@@ -42,7 +42,7 @@
 -(id)init;
 
 /**
- * The queue URL for the created queue.
+ * The URL for the created SQS queue.
  */
 @property (nonatomic, retain) NSString *queueUrl;
 

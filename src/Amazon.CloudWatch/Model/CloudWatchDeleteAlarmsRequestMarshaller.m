@@ -29,12 +29,14 @@
     [request setEndpoint:[deleteAlarmsRequest requestEndpoint]];
     [request setRequestTag:[deleteAlarmsRequest requestTag]];
 
+
     if (deleteAlarmsRequest != nil) {
         int alarmNamesListIndex = 1;
         for (NSString *alarmNamesListValue in deleteAlarmsRequest.alarmNames) {
             if (alarmNamesListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", alarmNamesListValue] forKey:[NSString stringWithFormat:@"%@.member.%d", @"AlarmNames", alarmNamesListIndex]];
             }
+
             alarmNamesListIndex++;
         }
     }

@@ -32,7 +32,7 @@
 
 
 /**
- *
+ * The URL of the SQS queue to take action on.
  */
 @property (nonatomic, retain) NSString *queueUrl;
 
@@ -47,7 +47,7 @@
  * Constructs a new DeleteQueueRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theQueueUrl
+ * @param theQueueUrl The URL of the SQS queue to take action on.
  */
 -(id)initWithQueueUrl:(NSString *)theQueueUrl;
 

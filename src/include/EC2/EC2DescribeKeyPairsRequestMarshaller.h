@@ -18,6 +18,7 @@
 #import "EC2Request.h"
 #import "EC2DescribeKeyPairsRequest.h"
 #import "EC2Filter.h"
+#import "EC2Filter.h"
 
 
 /**

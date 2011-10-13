@@ -29,6 +29,8 @@
     Class                unmarshallerDelegate;
 
     AmazonServiceRequest *request;
+    
+    NSTimeInterval       processingTime;    
 }
 
 /** The body of the html response. */
@@ -53,6 +55,8 @@
 @property (nonatomic, retain) NSString *requestId;
 
 @property (nonatomic) Class            unmarshallerDelegate;
+@property (nonatomic) NSTimeInterval processingTime;
+
 
 /** Once the body has been received, perform additional processing, such as parse as XML. */
 -(void)processBody;
@@ -69,3 +73,6 @@
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection;
 
 @end
+
+
+

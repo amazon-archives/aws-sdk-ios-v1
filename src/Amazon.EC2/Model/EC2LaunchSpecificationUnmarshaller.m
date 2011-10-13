@@ -40,6 +40,15 @@
     }
 
     if ([elementName isEqualToString:@"groupSet"]) {
+        AmazonListUnmarshaller *listUnmarshaller = [[[AmazonListUnmarshaller alloc] initWithCaller:self withParentObject:self.response.securityGroups withSetter:@selector(addObjectsFromArray:)] autorelease];
+        listUnmarshaller.endListElementName = @"groupSet";
+        listUnmarshaller.entryElementName   = @"groupName";
+        listUnmarshaller.delegateClass      = [AmazonValueUnmarshaller class];
+
+        [parser setDelegate:listUnmarshaller];
+    }
+
+    if ([elementName isEqualToString:@"groupSet"]) {
         AmazonListUnmarshaller *listUnmarshaller = [[[AmazonListUnmarshaller alloc] initWithCaller:self withParentObject:self.response.allSecurityGroups withSetter:@selector(addObjectsFromArray:)] autorelease];
         listUnmarshaller.endListElementName = @"groupSet";
         listUnmarshaller.entryElementName   = @"item";
@@ -94,7 +103,6 @@
     if ([elementName isEqualToString:@"groupSet/item/groupName"]) {
         [self.response.securityGroups addObject:self.currentText];
     }
-
 
     if ([elementName isEqualToString:@"userData"]) {
         self.response.userData = self.currentText;

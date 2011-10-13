@@ -33,7 +33,7 @@
 
 
 /**
- * The name to use for the created queue.
+ * The name for the queue to be created.
  */
 @property (nonatomic, retain) NSString *queueName;
 
@@ -53,19 +53,9 @@
  * Constructs a new CreateQueueRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theQueueName The name to use for the created queue.
+ * @param theQueueName The name for the queue to be created.
  */
 -(id)initWithQueueName:(NSString *)theQueueName;
-
-/**
- * Constructs a new CreateQueueRequest object.
- * Callers should use properties to initialize any additional object members.
- *
- * @param theQueueName The name to use for the created queue.
- * @param theDefaultVisibilityTimeout The visibility timeout (in seconds)
- * to use for the created queue.
- */
--(id)initWithQueueName:(NSString *)theQueueName andDefaultVisibilityTimeout:(NSNumber *)theDefaultVisibilityTimeout;
 
 /**
  * Returns a string representation of this object; useful for testing and

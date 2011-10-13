@@ -29,12 +29,14 @@
     [request setEndpoint:[describePlacementGroupsRequest requestEndpoint]];
     [request setRequestTag:[describePlacementGroupsRequest requestTag]];
 
+
     if (describePlacementGroupsRequest != nil) {
         int groupNamesListIndex = 1;
         for (NSString *groupNamesListValue in describePlacementGroupsRequest.groupNames) {
             if (groupNamesListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", groupNamesListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"GroupName", groupNamesListIndex]];
             }
+
             groupNamesListIndex++;
         }
     }
@@ -47,12 +49,14 @@
                     [request setParameterValue:[NSString stringWithFormat:@"%@", filtersListValue.name] forKey:[NSString stringWithFormat:@"%@.%d.%@", @"Filter", filtersListIndex, @"Name"]];
                 }
             }
+
             if (filtersListValue != nil) {
                 int valuesListIndex = 1;
                 for (NSString *valuesListValue in filtersListValue.values) {
                     if (valuesListValue != nil) {
                         [request setParameterValue:[NSString stringWithFormat:@"%@", valuesListValue] forKey:[NSString stringWithFormat:@"%@.%d.%@.%d", @"Filter", filtersListIndex, @"Value", valuesListIndex]];
                     }
+
                     valuesListIndex++;
                 }
             }

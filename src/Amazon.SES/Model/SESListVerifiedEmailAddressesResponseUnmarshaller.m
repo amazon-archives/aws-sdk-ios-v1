@@ -44,11 +44,6 @@
     [super parser:parser didEndElement:elementName namespaceURI:namespaceURI qualifiedName:qName];
 
 
-    if ([elementName isEqualToString:@"VerifiedEmailAddresses/member"]) {
-        [self.response.verifiedEmailAddresses addObject:self.currentText];
-    }
-
-
     if ([elementName isEqualToString:@"ListVerifiedEmailAddressesResult"]) {
         if (caller != nil) {
             [parser setDelegate:caller];

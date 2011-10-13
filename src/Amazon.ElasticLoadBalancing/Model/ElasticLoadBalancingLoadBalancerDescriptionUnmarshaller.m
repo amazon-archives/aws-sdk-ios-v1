@@ -109,11 +109,6 @@
         return;
     }
 
-    if ([elementName isEqualToString:@"AvailabilityZones/member"]) {
-        [self.response.availabilityZones addObject:self.currentText];
-    }
-
-
     if ([elementName isEqualToString:@"CreatedTime"]) {
         self.response.createdTime = [AmazonSDKUtil convertStringToDate:self.currentText];
         return;

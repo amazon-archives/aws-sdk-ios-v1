@@ -29,12 +29,14 @@
     [request setEndpoint:[deleteTagsRequest requestEndpoint]];
     [request setRequestTag:[deleteTagsRequest requestTag]];
 
+
     if (deleteTagsRequest != nil) {
         int resourcesListIndex = 1;
         for (NSString *resourcesListValue in deleteTagsRequest.resources) {
             if (resourcesListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", resourcesListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"ResourceId", resourcesListIndex]];
             }
+
             resourcesListIndex++;
         }
     }

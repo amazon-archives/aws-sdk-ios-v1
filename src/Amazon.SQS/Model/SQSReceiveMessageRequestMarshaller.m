@@ -34,12 +34,14 @@
             [request setParameterValue:[NSString stringWithFormat:@"%@", receiveMessageRequest.queueUrl] forKey:[NSString stringWithFormat:@"%@", @"QueueUrl"]];
         }
     }
+
     if (receiveMessageRequest != nil) {
         int attributeNamesListIndex = 1;
         for (NSString *attributeNamesListValue in receiveMessageRequest.attributeNames) {
             if (attributeNamesListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", attributeNamesListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"AttributeName", attributeNamesListIndex]];
             }
+
             attributeNamesListIndex++;
         }
     }

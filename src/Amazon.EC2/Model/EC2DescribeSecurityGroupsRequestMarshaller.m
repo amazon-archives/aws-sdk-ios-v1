@@ -29,21 +29,25 @@
     [request setEndpoint:[describeSecurityGroupsRequest requestEndpoint]];
     [request setRequestTag:[describeSecurityGroupsRequest requestTag]];
 
+
     if (describeSecurityGroupsRequest != nil) {
         int groupNamesListIndex = 1;
         for (NSString *groupNamesListValue in describeSecurityGroupsRequest.groupNames) {
             if (groupNamesListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", groupNamesListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"GroupName", groupNamesListIndex]];
             }
+
             groupNamesListIndex++;
         }
     }
+
     if (describeSecurityGroupsRequest != nil) {
         int groupIdsListIndex = 1;
         for (NSString *groupIdsListValue in describeSecurityGroupsRequest.groupIds) {
             if (groupIdsListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", groupIdsListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"GroupId", groupIdsListIndex]];
             }
+
             groupIdsListIndex++;
         }
     }
@@ -56,12 +60,14 @@
                     [request setParameterValue:[NSString stringWithFormat:@"%@", filtersListValue.name] forKey:[NSString stringWithFormat:@"%@.%d.%@", @"Filter", filtersListIndex, @"Name"]];
                 }
             }
+
             if (filtersListValue != nil) {
                 int valuesListIndex = 1;
                 for (NSString *valuesListValue in filtersListValue.values) {
                     if (valuesListValue != nil) {
                         [request setParameterValue:[NSString stringWithFormat:@"%@", valuesListValue] forKey:[NSString stringWithFormat:@"%@.%d.%@.%d", @"Filter", filtersListIndex, @"Value", valuesListIndex]];
                     }
+
                     valuesListIndex++;
                 }
             }

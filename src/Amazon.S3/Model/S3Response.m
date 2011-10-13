@@ -26,6 +26,7 @@
 @synthesize deleteMarker;
 @synthesize id2;
 @synthesize versionId;
+@synthesize serverSideEncryption;
 
 -(id)init
 {
@@ -118,7 +119,8 @@
         [body setLength:0];
     }
     body = [[NSMutableData dataWithData:data] retain];
-    [self processBody];
+    
+    [self processBody];    
 }
 
 // Override this to perform processing on the body.
@@ -147,6 +149,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Delete-Marker: %d,", deleteMarker] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Id2: %@,", id2] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"VersionId: %@,", versionId] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Server Side Encryption: %@,", serverSideEncryption] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -189,6 +192,7 @@
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
+    NSDate *startDate = [NSDate date]; 
     NSString *tmp = [[NSString alloc] initWithData:self.body encoding:NSUTF8StringEncoding];
 
     AMZLogDebug(@"Response:\n%@", tmp);
@@ -211,12 +215,16 @@
     }
     else {
         [self processBody];
+        processingTime = fabs([startDate timeIntervalSinceNow]);        
         isFinishedLoading = YES;
     }
 
     if ([(NSObject *)self.request.delegate respondsToSelector:@selector(request:didCompleteWithResponse:)]) {
         [self.request.delegate request:self.request didCompleteWithResponse:self];
     }
+    
+    AMZLogDebug(@"Processing Time:[%6.5f]", processingTime);    
+        
 }
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
@@ -262,6 +270,11 @@
     return proposedRequest;
 }
 
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse
+{
+    return nil;
+}
+
 #pragma mark memory managament
 
 -(void)dealloc
@@ -272,6 +285,7 @@
     [server release];
     [id2 release];
     [versionId release];
+    [serverSideEncryption release];
     [headers release];
 
     [dateFormatter release];

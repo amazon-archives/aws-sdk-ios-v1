@@ -55,6 +55,21 @@
         return;
     }
 
+    if ([elementName isEqualToString:@"StartTime"]) {
+        self.response.startTime = [AmazonSDKUtil convertStringToDate:self.currentText];
+        return;
+    }
+
+    if ([elementName isEqualToString:@"EndTime"]) {
+        self.response.endTime = [AmazonSDKUtil convertStringToDate:self.currentText];
+        return;
+    }
+
+    if ([elementName isEqualToString:@"Recurrence"]) {
+        self.response.recurrence = self.currentText;
+        return;
+    }
+
     if ([elementName isEqualToString:@"MinSize"]) {
         self.response.minSize = [AmazonSDKUtil convertStringToNumber:self.currentText];
         return;

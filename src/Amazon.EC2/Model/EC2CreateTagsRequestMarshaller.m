@@ -29,12 +29,14 @@
     [request setEndpoint:[createTagsRequest requestEndpoint]];
     [request setRequestTag:[createTagsRequest requestTag]];
 
+
     if (createTagsRequest != nil) {
         int resourcesListIndex = 1;
         for (NSString *resourcesListValue in createTagsRequest.resources) {
             if (resourcesListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", resourcesListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"ResourceId", resourcesListIndex]];
             }
+
             resourcesListIndex++;
         }
     }

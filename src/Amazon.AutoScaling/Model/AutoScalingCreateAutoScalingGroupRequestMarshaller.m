@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[AutoScalingRequest alloc] init];
 
     [request setParameterValue:@"CreateAutoScalingGroup"           forKey:@"Action"];
-    [request setParameterValue:@"2010-08-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
 
     [request setDelegate:[createAutoScalingGroupRequest delegate]];
     [request setCredentials:[createAutoScalingGroupRequest credentials]];
@@ -59,21 +59,25 @@
             [request setParameterValue:[NSString stringWithFormat:@"%@", createAutoScalingGroupRequest.defaultCooldown] forKey:[NSString stringWithFormat:@"%@", @"DefaultCooldown"]];
         }
     }
+
     if (createAutoScalingGroupRequest != nil) {
         int availabilityZonesListIndex = 1;
         for (NSString *availabilityZonesListValue in createAutoScalingGroupRequest.availabilityZones) {
             if (availabilityZonesListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", availabilityZonesListValue] forKey:[NSString stringWithFormat:@"%@.member.%d", @"AvailabilityZones", availabilityZonesListIndex]];
             }
+
             availabilityZonesListIndex++;
         }
     }
+
     if (createAutoScalingGroupRequest != nil) {
         int loadBalancerNamesListIndex = 1;
         for (NSString *loadBalancerNamesListValue in createAutoScalingGroupRequest.loadBalancerNames) {
             if (loadBalancerNamesListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", loadBalancerNamesListValue] forKey:[NSString stringWithFormat:@"%@.member.%d", @"LoadBalancerNames", loadBalancerNamesListIndex]];
             }
+
             loadBalancerNamesListIndex++;
         }
     }

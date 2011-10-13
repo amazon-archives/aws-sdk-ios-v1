@@ -70,7 +70,10 @@
     if (nil == generatedRequest.credentials) {
         [generatedRequest setCredentials:credentials];
     }
+    
+    
 
+    
     NSMutableURLRequest *urlRequest = [generatedRequest configureURLRequest];
     [generatedRequest sign];
     [urlRequest setHTTPBody:[[generatedRequest queryString] dataUsingEncoding:NSUTF8StringEncoding]];

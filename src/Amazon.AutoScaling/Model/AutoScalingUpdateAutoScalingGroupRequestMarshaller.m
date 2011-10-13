@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[AutoScalingRequest alloc] init];
 
     [request setParameterValue:@"UpdateAutoScalingGroup"           forKey:@"Action"];
-    [request setParameterValue:@"2010-08-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
 
     [request setDelegate:[updateAutoScalingGroupRequest delegate]];
     [request setCredentials:[updateAutoScalingGroupRequest credentials]];
@@ -59,12 +59,14 @@
             [request setParameterValue:[NSString stringWithFormat:@"%@", updateAutoScalingGroupRequest.defaultCooldown] forKey:[NSString stringWithFormat:@"%@", @"DefaultCooldown"]];
         }
     }
+
     if (updateAutoScalingGroupRequest != nil) {
         int availabilityZonesListIndex = 1;
         for (NSString *availabilityZonesListValue in updateAutoScalingGroupRequest.availabilityZones) {
             if (availabilityZonesListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", availabilityZonesListValue] forKey:[NSString stringWithFormat:@"%@.member.%d", @"AvailabilityZones", availabilityZonesListIndex]];
             }
+
             availabilityZonesListIndex++;
         }
     }

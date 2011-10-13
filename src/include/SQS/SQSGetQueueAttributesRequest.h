@@ -33,12 +33,34 @@
 
 
 /**
- *
+ * The URL of the SQS queue to take action on.
  */
 @property (nonatomic, retain) NSString *queueUrl;
 
 /**
- * A list of attributes to get.
+ * A list of attributes to retrieve information for. The following
+ * attributes are supported: <ul> <li><code>All</code> - returns all
+ * values.</li> <li><code>ApproximateNumberOfMessages</code> - returns
+ * the approximate number of visible messages in a queue. For more
+ * information, see Resources Required to Process Messages in the Amazon
+ * SQS Developer Guide.</li>
+ * <li><code>ApproximateNumberOfMessagesNotVisible</code> - returns the
+ * approximate number of messages that are not timed-out and not deleted.
+ * For more information, see Resources Required to Process Messages in
+ * the Amazon SQS Developer Guide.</li>
+ * <li><code>VisibilityTimeout</code> - returns the visibility timeout
+ * for the queue. For more information about visibility timeout, see
+ * Visibility Timeout in the Amazon SQS Developer Guide.</li>
+ * <li><code>CreatedTimestamp</code> - returns the time when the queue
+ * was created (epoch time in seconds).</li>
+ * <li><code>LastModifiedTimestamp</code> - returns the time when the
+ * queue was last changed (epoch time in seconds).</li>
+ * <li><code>Policy</code> - returns the queue's policy.</li>
+ * <li><code>MaximumMessageSize</code> - returns the limit of how many
+ * bytes a message can contain before Amazon SQS rejects it.</li>
+ * <li><code>MessageRetentionPeriod</code> - returns the number of
+ * seconds Amazon SQS retains a message.</li> <li><code>QueueArn</code> -
+ * returns the queue's Amazon resource name (ARN).</li> </ul>
  */
 @property (nonatomic, retain) NSMutableArray *attributeNames;
 
@@ -53,7 +75,7 @@
  * Constructs a new GetQueueAttributesRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theQueueUrl
+ * @param theQueueUrl The URL of the SQS queue to take action on.
  */
 -(id)initWithQueueUrl:(NSString *)theQueueUrl;
 

@@ -157,10 +157,7 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite;
  */
 -(void)request:(AmazonServiceRequest *)request didFailWithError:(NSError *)error;
 
-/** Sent when the service responded with an error message.
- *
- * This is a convenience method. The exception can also be retrieved by from the response sent to
- * response:didCompleteWithResponse.
+/** Sent when the service responded with an exception.
  *
  * @param request   The AmazonServiceRequest sending the message.
  * @param exception The AmazonClientException that would have been thrown in the absence of a delegate.

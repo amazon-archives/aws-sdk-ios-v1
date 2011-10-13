@@ -29,30 +29,36 @@
     [request setEndpoint:[describeSnapshotsRequest requestEndpoint]];
     [request setRequestTag:[describeSnapshotsRequest requestTag]];
 
+
     if (describeSnapshotsRequest != nil) {
         int snapshotIdsListIndex = 1;
         for (NSString *snapshotIdsListValue in describeSnapshotsRequest.snapshotIds) {
             if (snapshotIdsListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", snapshotIdsListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"SnapshotId", snapshotIdsListIndex]];
             }
+
             snapshotIdsListIndex++;
         }
     }
+
     if (describeSnapshotsRequest != nil) {
         int ownerIdsListIndex = 1;
         for (NSString *ownerIdsListValue in describeSnapshotsRequest.ownerIds) {
             if (ownerIdsListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", ownerIdsListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"Owner", ownerIdsListIndex]];
             }
+
             ownerIdsListIndex++;
         }
     }
+
     if (describeSnapshotsRequest != nil) {
         int restorableByUserIdsListIndex = 1;
         for (NSString *restorableByUserIdsListValue in describeSnapshotsRequest.restorableByUserIds) {
             if (restorableByUserIdsListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", restorableByUserIdsListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"RestorableBy", restorableByUserIdsListIndex]];
             }
+
             restorableByUserIdsListIndex++;
         }
     }
@@ -65,12 +71,14 @@
                     [request setParameterValue:[NSString stringWithFormat:@"%@", filtersListValue.name] forKey:[NSString stringWithFormat:@"%@.%d.%@", @"Filter", filtersListIndex, @"Name"]];
                 }
             }
+
             if (filtersListValue != nil) {
                 int valuesListIndex = 1;
                 for (NSString *valuesListValue in filtersListValue.values) {
                     if (valuesListValue != nil) {
                         [request setParameterValue:[NSString stringWithFormat:@"%@", valuesListValue] forKey:[NSString stringWithFormat:@"%@.%d.%@.%d", @"Filter", filtersListIndex, @"Value", valuesListIndex]];
                     }
+
                     valuesListIndex++;
                 }
             }

@@ -78,7 +78,8 @@
 @property (nonatomic, retain) NSNumber *attributeValuesSizeBytes;
 
 /**
- * The data and time when metadata was calculated in Epoch (UNIX) time.
+ * The data and time when metadata was calculated, in Epoch (UNIX)
+ * seconds.
  */
 @property (nonatomic, retain) NSNumber *timestamp;
 

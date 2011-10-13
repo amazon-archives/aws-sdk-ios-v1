@@ -60,7 +60,7 @@
 
 /**
  * <p>
- * Returns the user's current sending limits.
+ * Returns the user's current activity limits.
  * </p>
  *
  * @param getSendQuotaRequest Container for the necessary parameters to
@@ -145,13 +145,6 @@
  * verified email addresses. For more information, go to the Amazon SES
  * Developer Guide.
  * </p>
- * <p>
- * Amazon SES has a limit on the total number of recipients per message:
- * The combined number of To:, CC: and BCC: email addresses cannot exceed
- * 50. If you need to send an email message to a larger audience, you can
- * divide your recipient list into groups of 50 or fewer, and then call
- * Amazon SES repeatedly to send the message to each group.
- * </p>
  *
  * @param sendEmailRequest Container for the necessary parameters to
  *           execute the SendEmail service method on AmazonSES.
@@ -220,21 +213,15 @@
  * <p>
  * Sends an email message, with header and content specified by the
  * client. The <code>SendRawEmail</code> action is useful for sending
- * multipart MIME emails. The raw text of the message must comply with
- * Internet email standards; otherwise, the message cannot be sent.
+ * multipart MIME emails, with attachments or inline content. The raw
+ * text of the message must comply with Internet email standards;
+ * otherwise, the message cannot be sent.
  * </p>
  * <p>
  * <b>IMPORTANT:</b>If you have not yet requested production access to
  * Amazon SES, then you will only be able to send email to and from
  * verified email addresses. For more information, go to the Amazon SES
  * Developer Guide.
- * </p>
- * <p>
- * Amazon SES has a limit on the total number of recipients per message:
- * The combined number of To:, CC: and BCC: email addresses cannot exceed
- * 50. If you need to send an email message to a larger audience, you can
- * divide your recipient list into groups of 50 or fewer, and then call
- * Amazon SES repeatedly to send the message to each group.
  * </p>
  *
  * @param sendRawEmailRequest Container for the necessary parameters to

@@ -45,6 +45,7 @@
     NSString       *placementGroup;
     NSString       *vPCZoneIdentifier;
     NSMutableArray *enabledMetrics;
+    NSString       *status;
 }
 
 
@@ -152,7 +153,7 @@
  * The name of the cluster placement group, if applicable. For more
  * information, go to <a
  * webservices.com/AWSEC2/latest/UserGuide/using_cluster_computing.html">
- * Using Cluster Instances</a> in the <i>Amazon EC2 User Guide</i>.
+ * Using Cluster Instances</a> in the Amazon EC2 User Guide.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 255<br/>
@@ -173,6 +174,15 @@
  * A list of metrics enabled for this Auto Scaling group.
  */
 @property (nonatomic, retain) NSMutableArray *enabledMetrics;
+
+/**
+ * A list of status conditions for the Auto Scaling group.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Length: </b>1 - 255<br/>
+ * <b>Pattern: </b>[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*<br/>
+ */
+@property (nonatomic, retain) NSString *status;
 
 /**
  * Adds a single object to instances.

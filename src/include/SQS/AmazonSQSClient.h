@@ -76,7 +76,7 @@
 
 /**
  * <p>
- * The <code>ListQueues</code> action returns a list of your queues.
+ * Returns a list of your queues.
  * </p>
  *
  * @param listQueuesRequest Container for the necessary parameters to
@@ -122,13 +122,14 @@
 
 /**
  * <p>
- * The <code>ChangeMessageVisibility</code> action changes the
- * visibility timeout of a specified message in a queue to a new value.
- * The maximum allowed timeout value you can set the value to is 12
- * hours. This means you can't extend the timeout of a message in an
- * existing queue to more than a total visibility timeout of 12 hours.
- * (For more information visibility timeout, see Visibility Timeout in
- * the Amazon SQS Developer Guide.)
+ * The <code>ChangeMessageVisibility</code> action changes the visibility
+ * timeout of a specified message in a queue to a new value. The maximum
+ * allowed timeout value you can set the value to is 12 hours. This means
+ * you can't extend the timeout of a message in an existing queue to more
+ * than a total visibility timeout of 12 hours. (For more information
+ * visibility timeout, see <a
+ * ices.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html">
+ * Visibility Timeout </a> in the Amazon SQS Developer Guide.)
  * </p>
  * <p>
  * For example, let's say you have a message and its default message
@@ -140,13 +141,13 @@
  * would be 9 hours and 30 minutes.
  * </p>
  * <p>
- * <b>IMPORTANT:</b> If you attempt to set the VisibilityTimeout to an
+ * <b>IMPORTANT:</b>If you attempt to set the VisibilityTimeout to an
  * amount more than the maximum time left, Amazon SQS returns an error.
  * It will not automatically recalculate and increase the timeout to the
  * maximum time remaining.
  * </p>
  * <p>
- * <b>IMPORTANT:</b> Unlike with a queue, when you change the visibility
+ * <b>IMPORTANT:</b>Unlike with a queue, when you change the visibility
  * timeout for a specific message, that timeout value is applied
  * immediately but is not saved in memory for that message. If you don't
  * delete a message after it is received, the visibility timeout for the
@@ -181,7 +182,7 @@
  * succeeds and the queue URL for the existing queue is returned.
  * </p>
  * <p>
- * <b>IMPORTANT:</b> If you provide a value for DefaultVisibilityTimeout
+ * <b>IMPORTANT:</b>If you provide a value for DefaultVisibilityTimeout
  * that is different from the value for the existing queue, you receive
  * an error.
  * </p>
@@ -230,9 +231,34 @@
 
 /**
  * <p>
- * Gets one or all attributes of a queue. Queues currently have two
- * attributes you can get: <code>ApproximateNumberOfMessages</code> and
- * <code>VisibilityTimeout</code> .
+ * Gets attributes for the specified queue. The following attributes are
+ * supported:
+ * <ul>
+ * <li> <code>All</code> - returns all values.</li>
+ * <li> <code>ApproximateNumberOfMessages</code> - returns the
+ * approximate number of visible messages in a queue. For more
+ * information, see Resources Required to Process Messages in the Amazon
+ * SQS Developer Guide.</li>
+ * <li> <code>ApproximateNumberOfMessagesNotVisible</code> - returns the
+ * approximate number of messages that are not timed-out and not deleted.
+ * For more information, see Resources Required to Process Messages in
+ * the Amazon SQS Developer Guide.</li>
+ * <li> <code>VisibilityTimeout</code> - returns the visibility timeout
+ * for the queue. For more information about visibility timeout, see
+ * Visibility Timeout in the Amazon SQS Developer Guide.</li>
+ * <li> <code>CreatedTimestamp</code> - returns the time when the queue
+ * was created (epoch time in seconds).</li>
+ * <li> <code>LastModifiedTimestamp</code> - returns the time when the
+ * queue was last changed (epoch time in seconds).</li>
+ * <li> <code>Policy</code> - returns the queue's policy.</li>
+ * <li> <code>MaximumMessageSize</code> - returns the limit of how many
+ * bytes a message can contain before Amazon SQS rejects it.</li>
+ * <li> <code>MessageRetentionPeriod</code> - returns the number of
+ * seconds Amazon SQS retains a message.</li>
+ * <li> <code>QueueArn</code> - returns the queue's Amazon resource name
+ * (ARN).</li>
+ *
+ * </ul>
  *
  * </p>
  *
@@ -258,14 +284,25 @@
 
 /**
  * <p>
- * The <code>AddPermission</code> action adds a permission to a queue
- * for a specific principal. This allows for sharing access to the queue.
+ * The AddPermission action adds a permission to a queue for a specific
+ * <a
+ * .com/AWSSimpleQueueService/latest/APIReference/Glossary.html#d0e3892">
+ * principal </a> . This allows for sharing access to the queue.
  * </p>
  * <p>
  * When you create a queue, you have full control access rights for the
  * queue. Only you (as owner of the queue) can grant or deny permissions
- * to the queue. For more information about these permissions, see Shared
- * Queues in the Amazon SQS Developer Guide.
+ * to the queue. For more information about these permissions, see <a
+ * om/AWSSimpleQueueService/latest/SQSDeveloperGuide/?acp-overview.html">
+ * Shared Queues </a> in the Amazon SQS Developer Guide.
+ * </p>
+ * <p>
+ * <code>AddPermission</code> writes an SQS-generated policy. If you
+ * want to write your own policy, use SetQueueAttributes to upload your
+ * policy. For more information about writing your own policy, see <a
+ * mpleQueueService/latest/SQSDeveloperGuide/?AccessPolicyLanguage.html">
+ * Appendix: The Access Policy Language </a> in the Amazon SQS Developer
+ * Guide.
  * </p>
  *
  * @param addPermissionRequest Container for the necessary parameters to
@@ -288,6 +325,10 @@
  * This action unconditionally deletes the queue specified by the queue
  * URL. Use this operation WITH CARE! The queue is deleted even if it is
  * NOT empty.
+ * </p>
+ * <p>
+ * Once a queue has been deleted, the queue name is unavailable for use
+ * with new queues for 60 seconds.
  * </p>
  *
  * @param deleteQueueRequest Container for the necessary parameters to
@@ -356,9 +397,9 @@
 
 /**
  * <p>
- * Retrieves one or more messages from the specified queue, including
- * the message body and message ID of each message. Messages returned by
- * this action stay in the queue until you delete them. However, once a
+ * Retrieves one or more messages from the specified queue, including the
+ * message body and message ID of each message. Messages returned by this
+ * action stay in the queue until you delete them. However, once a
  * message is returned to a <code>ReceiveMessage</code> request, it is
  * not returned on subsequent <code>ReceiveMessage</code> requests for
  * the duration of the <code>VisibilityTimeout</code> . If you do not

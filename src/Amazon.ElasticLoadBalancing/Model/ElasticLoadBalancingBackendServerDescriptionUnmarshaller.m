@@ -49,11 +49,6 @@
         return;
     }
 
-    if ([elementName isEqualToString:@"PolicyNames/member"]) {
-        [self.response.policyNames addObject:self.currentText];
-    }
-
-
     if ([elementName isEqualToString:@"BackendServerDescription"]) {
         if (caller != nil) {
             [parser setDelegate:caller];

@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[AutoScalingRequest alloc] init];
 
     [request setParameterValue:@"CreateLaunchConfiguration"           forKey:@"Action"];
-    [request setParameterValue:@"2010-08-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
 
     [request setDelegate:[createLaunchConfigurationRequest delegate]];
     [request setCredentials:[createLaunchConfigurationRequest credentials]];
@@ -44,12 +44,14 @@
             [request setParameterValue:[NSString stringWithFormat:@"%@", createLaunchConfigurationRequest.keyName] forKey:[NSString stringWithFormat:@"%@", @"KeyName"]];
         }
     }
+
     if (createLaunchConfigurationRequest != nil) {
         int securityGroupsListIndex = 1;
         for (NSString *securityGroupsListValue in createLaunchConfigurationRequest.securityGroups) {
             if (securityGroupsListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", securityGroupsListValue] forKey:[NSString stringWithFormat:@"%@.member.%d", @"SecurityGroups", securityGroupsListIndex]];
             }
+
             securityGroupsListIndex++;
         }
     }

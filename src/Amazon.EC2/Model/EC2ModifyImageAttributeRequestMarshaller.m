@@ -44,30 +44,36 @@
             [request setParameterValue:[NSString stringWithFormat:@"%@", modifyImageAttributeRequest.operationType] forKey:[NSString stringWithFormat:@"%@", @"OperationType"]];
         }
     }
+
     if (modifyImageAttributeRequest != nil) {
         int userIdsListIndex = 1;
         for (NSString *userIdsListValue in modifyImageAttributeRequest.userIds) {
             if (userIdsListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", userIdsListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"UserId", userIdsListIndex]];
             }
+
             userIdsListIndex++;
         }
     }
+
     if (modifyImageAttributeRequest != nil) {
         int userGroupsListIndex = 1;
         for (NSString *userGroupsListValue in modifyImageAttributeRequest.userGroups) {
             if (userGroupsListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", userGroupsListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"UserGroup", userGroupsListIndex]];
             }
+
             userGroupsListIndex++;
         }
     }
+
     if (modifyImageAttributeRequest != nil) {
         int productCodesListIndex = 1;
         for (NSString *productCodesListValue in modifyImageAttributeRequest.productCodes) {
             if (productCodesListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", productCodesListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"ProductCode", productCodesListIndex]];
             }
+
             productCodesListIndex++;
         }
     }

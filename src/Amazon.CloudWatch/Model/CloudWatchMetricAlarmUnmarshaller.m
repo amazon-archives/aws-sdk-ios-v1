@@ -96,21 +96,6 @@
         return;
     }
 
-    if ([elementName isEqualToString:@"OKActions/member"]) {
-        [self.response.oKActions addObject:self.currentText];
-    }
-
-
-    if ([elementName isEqualToString:@"AlarmActions/member"]) {
-        [self.response.alarmActions addObject:self.currentText];
-    }
-
-
-    if ([elementName isEqualToString:@"InsufficientDataActions/member"]) {
-        [self.response.insufficientDataActions addObject:self.currentText];
-    }
-
-
     if ([elementName isEqualToString:@"StateValue"]) {
         self.response.stateValue = self.currentText;
         return;

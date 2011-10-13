@@ -29,12 +29,14 @@
     [request setEndpoint:[describeBundleTasksRequest requestEndpoint]];
     [request setRequestTag:[describeBundleTasksRequest requestTag]];
 
+
     if (describeBundleTasksRequest != nil) {
         int bundleIdsListIndex = 1;
         for (NSString *bundleIdsListValue in describeBundleTasksRequest.bundleIds) {
             if (bundleIdsListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", bundleIdsListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"BundleId", bundleIdsListIndex]];
             }
+
             bundleIdsListIndex++;
         }
     }
@@ -47,12 +49,14 @@
                     [request setParameterValue:[NSString stringWithFormat:@"%@", filtersListValue.name] forKey:[NSString stringWithFormat:@"%@.%d.%@", @"Filter", filtersListIndex, @"Name"]];
                 }
             }
+
             if (filtersListValue != nil) {
                 int valuesListIndex = 1;
                 for (NSString *valuesListValue in filtersListValue.values) {
                     if (valuesListValue != nil) {
                         [request setParameterValue:[NSString stringWithFormat:@"%@", valuesListValue] forKey:[NSString stringWithFormat:@"%@.%d.%@.%d", @"Filter", filtersListIndex, @"Value", valuesListIndex]];
                     }
+
                     valuesListIndex++;
                 }
             }

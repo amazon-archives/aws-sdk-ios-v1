@@ -30,13 +30,6 @@
 }
 
 
-
-/**
- * Default constructor for a new  object.  Callers should use the
- * property methods to initialize this object after creating it.
- */
--(id)init;
-
 /**
  * The name of the attribute associated with the policy.
  */
@@ -46,6 +39,24 @@
  * The value of the attribute associated with the policy.
  */
 @property (nonatomic, retain) NSString *attributeValue;
+
+
+/**
+ * Default constructor for a new PolicyAttribute object.  Callers should use the
+ * property methods to initialize this object after creating it.
+ */
+-(id)init;
+
+/**
+ * Constructs a new PolicyAttribute object.
+ * Callers should use properties to initialize any additional object members.
+ *
+ * @param theAttributeName The name of the attribute associated with the
+ * policy.
+ * @param theAttributeValue The value of the attribute associated with
+ * the policy.
+ */
+-(id)initWithAttributeName:(NSString *)theAttributeName andAttributeValue:(NSString *)theAttributeValue;
 
 /**
  * Returns a string representation of this object; useful for testing and

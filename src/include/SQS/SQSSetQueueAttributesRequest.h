@@ -33,7 +33,7 @@
 
 
 /**
- *
+ * The URL of the SQS queue to take action on.
  */
 @property (nonatomic, retain) NSString *queueUrl;
 
@@ -53,7 +53,7 @@
  * Constructs a new SetQueueAttributesRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theQueueUrl
+ * @param theQueueUrl The URL of the SQS queue to take action on.
  * @param theAttributes A list of attributes to set.
  */
 -(id)initWithQueueUrl:(NSString *)theQueueUrl andAttributes:(NSMutableDictionary *)theAttributes;

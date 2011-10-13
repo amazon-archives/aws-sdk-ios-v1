@@ -351,12 +351,9 @@
  * LoadBalancer name, the operation returns either the descriptions of
  * the specified policies, or descriptions of all the policies created
  * for the LoadBalancer. If you don't specify a LoadBalancer name, the
- * operation returns descriptions of the specified policies, or
- * descriptions of all the policies created by default for the
- * LoadBalancer. The names of the sample policies have the
- * <code>ELBSample-</code> prefix. The attributes of the pre-defined
- * sample policies can be changed to create your own policy for your
- * LoadBalancer.
+ * operation returns descriptions of the specified sample policies, or
+ * descriptions of all the sample policies. The names of the sample
+ * policies have the <code>ELBSample-</code> prefix.
  * </p>
  *
  * @param describeLoadBalancerPoliciesRequest Container for the necessary

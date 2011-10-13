@@ -29,12 +29,14 @@
     [request setEndpoint:[stopInstancesRequest requestEndpoint]];
     [request setRequestTag:[stopInstancesRequest requestTag]];
 
+
     if (stopInstancesRequest != nil) {
         int instanceIdsListIndex = 1;
         for (NSString *instanceIdsListValue in stopInstancesRequest.instanceIds) {
             if (instanceIdsListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", instanceIdsListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"InstanceId", instanceIdsListIndex]];
             }
+
             instanceIdsListIndex++;
         }
     }

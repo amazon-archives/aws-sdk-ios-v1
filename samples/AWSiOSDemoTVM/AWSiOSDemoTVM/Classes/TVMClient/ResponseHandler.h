@@ -16,9 +16,9 @@
 #import <Foundation/Foundation.h>
 #import "Response.h"
 
-@interface ResponseHandler : NSObject {
+@interface ResponseHandler:NSObject {
 }
 
--(Response*)handleResponse:(int)responseCode body:(NSString*)responseBody;
+-(Response *)handleResponse:(int)responseCode body:(NSString *)responseBody;
 
 @end

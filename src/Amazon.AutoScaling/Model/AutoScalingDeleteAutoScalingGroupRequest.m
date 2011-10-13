@@ -19,12 +19,16 @@
 @implementation AutoScalingDeleteAutoScalingGroupRequest
 
 @synthesize autoScalingGroupName;
+@synthesize forceDelete;
+@synthesize forceDeleteIsSet;
 
 
 -(id)init
 {
     if (self = [super init]) {
         autoScalingGroupName = nil;
+        forceDelete          = NO;
+        forceDeleteIsSet     = NO;
     }
 
     return self;
@@ -38,12 +42,19 @@
 
     [buffer appendString:@"{"];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"AutoScalingGroupName: %@,", autoScalingGroupName] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"ForceDelete: %d,", forceDelete] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
     return [buffer autorelease];
 }
 
+
+-(void)setForceDelete:(bool)theValue
+{
+    forceDelete      = theValue;
+    forceDeleteIsSet = YES;
+}
 
 
 -(void)dealloc

@@ -40,8 +40,7 @@
 -(id)init;
 
 /**
- * A list of queue URLs for queues. The response can contain up to 1000
- * QueueUrl elements.
+ * A list of queue URLs, up to 1000 entries.
  */
 @property (nonatomic, retain) NSMutableArray *queueUrls;
 

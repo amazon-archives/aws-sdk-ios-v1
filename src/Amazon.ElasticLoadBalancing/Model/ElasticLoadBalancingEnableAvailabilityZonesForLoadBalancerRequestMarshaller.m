@@ -34,12 +34,14 @@
             [request setParameterValue:[NSString stringWithFormat:@"%@", enableAvailabilityZonesForLoadBalancerRequest.loadBalancerName] forKey:[NSString stringWithFormat:@"%@", @"LoadBalancerName"]];
         }
     }
+
     if (enableAvailabilityZonesForLoadBalancerRequest != nil) {
         int availabilityZonesListIndex = 1;
         for (NSString *availabilityZonesListValue in enableAvailabilityZonesForLoadBalancerRequest.availabilityZones) {
             if (availabilityZonesListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", availabilityZonesListValue] forKey:[NSString stringWithFormat:@"%@.member.%d", @"AvailabilityZones", availabilityZonesListIndex]];
             }
+
             availabilityZonesListIndex++;
         }
     }

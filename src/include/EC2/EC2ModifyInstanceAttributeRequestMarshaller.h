@@ -19,6 +19,8 @@
 #import "EC2ModifyInstanceAttributeRequest.h"
 #import "EC2InstanceBlockDeviceMappingSpecification.h"
 #import "EC2EbsInstanceBlockDeviceSpecification.h"
+#import "EC2InstanceBlockDeviceMappingSpecification.h"
+#import "EC2EbsInstanceBlockDeviceSpecification.h"
 
 
 /**

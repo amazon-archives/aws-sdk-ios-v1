@@ -39,7 +39,6 @@
         [self.response.queueUrls addObject:self.currentText];
     }
 
-
     if ([elementName isEqualToString:@"ListQueuesResult"]) {
         if (caller != nil) {
             [parser setDelegate:caller];

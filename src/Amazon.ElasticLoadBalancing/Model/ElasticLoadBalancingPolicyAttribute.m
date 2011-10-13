@@ -32,6 +32,16 @@
     return self;
 }
 
+-(id)initWithAttributeName:(NSString *)theAttributeName andAttributeValue:(NSString *)theAttributeValue
+{
+    if (self = [self init]) {
+        self.attributeName  = theAttributeName;
+        self.attributeValue = theAttributeValue;
+    }
+
+    return self;
+}
+
 
 
 -(NSString *)description

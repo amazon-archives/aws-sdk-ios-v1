@@ -64,8 +64,8 @@
  * The cardinality of the attribute. Valid Values: <ul> <li>ONE(1) :
  * Single value required</li> <li>ZERO_OR_ONE(0..1) : Up to one value can
  * be supplied</li> <li>ZERO_OR_MORE(0..*) : Optional. Multiple values
- * allowed</li> <li>ONE_OR_MORE(1..*0) : Required. Multiple values are
- * allowed.</li> </ul>
+ * are allowed</li> <li>ONE_OR_MORE(1..*0) : Required. Multiple values
+ * are allowed</li> </ul>
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Allowed Values: </b>ONE, ZERO_OR_ONE, ZERO_OR_MORE, ONE_OR_MORE

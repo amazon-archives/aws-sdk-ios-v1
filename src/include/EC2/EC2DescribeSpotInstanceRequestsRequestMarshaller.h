@@ -18,6 +18,7 @@
 #import "EC2Request.h"
 #import "EC2DescribeSpotInstanceRequestsRequest.h"
 #import "EC2Filter.h"
+#import "EC2Filter.h"
 
 
 /**

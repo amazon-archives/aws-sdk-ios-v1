@@ -35,18 +35,18 @@
 
 
 /**
- *
+ * The URL of the SQS queue to take action on.
  */
 @property (nonatomic, retain) NSString *queueUrl;
 
 /**
- * A list of attributes to get.
+ * A list of attributes to retrieve information for.
  */
 @property (nonatomic, retain) NSMutableArray *attributeNames;
 
 /**
  * The maximum number of messages to return. Amazon SQS never returns
- * more messages than this value but may return fewer. <p> All of the
+ * more messages than this value but may return fewer. <p>All of the
  * messages are not necessarily returned.
  */
 @property (nonatomic, retain) NSNumber *maxNumberOfMessages;
@@ -69,7 +69,7 @@
  * Constructs a new ReceiveMessageRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theQueueUrl
+ * @param theQueueUrl The URL of the SQS queue to take action on.
  */
 -(id)initWithQueueUrl:(NSString *)theQueueUrl;
 

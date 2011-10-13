@@ -34,9 +34,9 @@
 
 
 /**
- * Specifies the LoadBalancer transport protocol to use for routing - TCP
- * or HTTP. This property cannot be modified for the life of the
- * LoadBalancer.
+ * Specifies the LoadBalancer transport protocol to use for routing -
+ * HTTP, HTTPS, TCP or SSL. This property cannot be modified for the life
+ * of the LoadBalancer.
  */
 @property (nonatomic, retain) NSString *protocol;
 
@@ -51,7 +51,7 @@
  * instances - HTTP, HTTPS, TCP, or SSL. This property cannot be modified
  * for the life of the LoadBalancer. <note> If the front-end protocol is
  * HTTP or HTTPS, <code>InstanceProtocol</code> has to be at the same
- * protocol layer, i.e., HTTP or HTTPS. Likewise, If the front-end
+ * protocol layer, i.e., HTTP or HTTPS. Likewise, if the front-end
  * protocol is TCP or SSL, InstanceProtocol has to be TCP or SSL. </note>
  * <note> If there is another listener with the same
  * <code>InstancePort</code> whose <code>InstanceProtocol</code> is
@@ -73,11 +73,10 @@
 @property (nonatomic, retain) NSNumber *instancePort;
 
 /**
- * The ID of the SSL certificate chain to use. For more information on
- * SSL certificates, see <a
- * ervices.com/IAM/latest/UserGuide/index.html?ManagingCredentials.html">
- * Managing Keys and Certificates </a> in the AWS Identity and Access
- * Management documentation.
+ * The ARN string of the server certificate. To get the ARN of the server
+ * certificate, call the AWS Identity and Access Management <a
+ * e/index.html?API_UploadServerCertificate.html">UploadServerCertificate
+ * </a> API.
  */
 @property (nonatomic, retain) NSString *sSLCertificateId;
 
@@ -93,8 +92,8 @@
  * Callers should use properties to initialize any additional object members.
  *
  * @param theProtocol Specifies the LoadBalancer transport protocol to
- * use for routing - TCP or HTTP. This property cannot be modified for
- * the life of the LoadBalancer.
+ * use for routing - HTTP, HTTPS, TCP or SSL. This property cannot be
+ * modified for the life of the LoadBalancer.
  * @param theLoadBalancerPort Specifies the external LoadBalancer port
  * number. This property cannot be modified for the life of the
  * LoadBalancer.

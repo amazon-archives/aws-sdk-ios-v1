@@ -26,7 +26,7 @@
 
 /**
  * This is the App Name you may have provided in the AWS Elastic Beanstalk
- * configuration.  It was the value provided for PARAM1.  If no value was
+ * configuration.  It was the value provided for PARAM2.  If no value was
  * provided it should be defaulted to "MyMobileAppName".
  */
 #define APP_NAME   @"MyMobileAppName"

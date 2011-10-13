@@ -29,12 +29,14 @@
     [request setEndpoint:[describeReservedInstancesOfferingsRequest requestEndpoint]];
     [request setRequestTag:[describeReservedInstancesOfferingsRequest requestTag]];
 
+
     if (describeReservedInstancesOfferingsRequest != nil) {
         int reservedInstancesOfferingIdsListIndex = 1;
         for (NSString *reservedInstancesOfferingIdsListValue in describeReservedInstancesOfferingsRequest.reservedInstancesOfferingIds) {
             if (reservedInstancesOfferingIdsListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", reservedInstancesOfferingIdsListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"ReservedInstancesOfferingId", reservedInstancesOfferingIdsListIndex]];
             }
+
             reservedInstancesOfferingIdsListIndex++;
         }
     }
@@ -62,12 +64,14 @@
                     [request setParameterValue:[NSString stringWithFormat:@"%@", filtersListValue.name] forKey:[NSString stringWithFormat:@"%@.%d.%@", @"Filter", filtersListIndex, @"Name"]];
                 }
             }
+
             if (filtersListValue != nil) {
                 int valuesListIndex = 1;
                 for (NSString *valuesListValue in filtersListValue.values) {
                     if (valuesListValue != nil) {
                         [request setParameterValue:[NSString stringWithFormat:@"%@", valuesListValue] forKey:[NSString stringWithFormat:@"%@.%d.%@.%d", @"Filter", filtersListIndex, @"Value", valuesListIndex]];
                     }
+
                     valuesListIndex++;
                 }
             }

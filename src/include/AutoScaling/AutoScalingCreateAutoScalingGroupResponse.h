@@ -17,8 +17,8 @@
 #import "AutoScalingResponse.h"
 #import "../AmazonServiceExceptionUnmarshaller.h"
 
-#import "AutoScalingAlreadyExistsException.h"
 #import "AutoScalingLimitExceededException.h"
+#import "AutoScalingAlreadyExistsException.h"
 
 /**
  * Create Auto Scaling Group

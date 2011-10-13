@@ -44,21 +44,25 @@
             [request setParameterValue:[NSString stringWithFormat:@"%@", modifySnapshotAttributeRequest.operationType] forKey:[NSString stringWithFormat:@"%@", @"OperationType"]];
         }
     }
+
     if (modifySnapshotAttributeRequest != nil) {
         int userIdsListIndex = 1;
         for (NSString *userIdsListValue in modifySnapshotAttributeRequest.userIds) {
             if (userIdsListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", userIdsListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"UserId", userIdsListIndex]];
             }
+
             userIdsListIndex++;
         }
     }
+
     if (modifySnapshotAttributeRequest != nil) {
         int groupNamesListIndex = 1;
         for (NSString *groupNamesListValue in modifySnapshotAttributeRequest.groupNames) {
             if (groupNamesListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", groupNamesListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"UserGroup", groupNamesListIndex]];
             }
+
             groupNamesListIndex++;
         }
     }

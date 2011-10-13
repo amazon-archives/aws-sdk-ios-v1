@@ -27,12 +27,12 @@
 {
     AmazonServiceException *newException = nil;
 
-    if ([[theException errorCode] isEqualToString:@"AlreadyExists"]) {
-        newException = [[AutoScalingAlreadyExistsException alloc] initWithMessage:@""];
-    }
-
     if ([[theException errorCode] isEqualToString:@"LimitExceeded"]) {
         newException = [[AutoScalingLimitExceededException alloc] initWithMessage:@""];
+    }
+
+    if ([[theException errorCode] isEqualToString:@"AlreadyExists"]) {
+        newException = [[AutoScalingAlreadyExistsException alloc] initWithMessage:@""];
     }
 
     if (newException != nil) {

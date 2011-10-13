@@ -17,8 +17,8 @@
 
 #import "SimpleDBRequest.h"
 #import "SimpleDBDeleteAttributesRequest.h"
-#import "SimpleDBAttribute.h"
 #import "SimpleDBUpdateCondition.h"
+#import "SimpleDBAttribute.h"
 
 
 /**

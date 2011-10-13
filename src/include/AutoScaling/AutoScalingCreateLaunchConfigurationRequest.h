@@ -61,9 +61,8 @@
 /**
  * Unique ID of the <i>Amazon Machine Image</i> (AMI) which was assigned
  * during registration. For more information about Amazon EC2 images,
- * please go to <a
- * ://docs.amazonwebservices.com/AWSEC2/latest/UserGuide/AMIs.html">Using
- * AMIs</a> in the <i>Amazon EC2 User Guide</i>
+ * please see <a href="http://aws.amazon.com/ec2/"> Amazon EC2 product
+ * documentation</a>
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 255<br/>
@@ -81,19 +80,25 @@
 @property (nonatomic, retain) NSString *keyName;
 
 /**
- * The names of the security groups with which to associate EC2
- * instances. For more information about Amazon EC2 security groups, go
- * to <a
- * nwebservices.com/AWSEC2/latest/UserGuide/using-network-security.html">
- * Using Security Groups</a> in the <i>Amazon EC2 User Guide</i>.
+ * The names of the security groups with which to associate Amazon EC2 or
+ * Amazon VPC instances. Specify Amazon EC2 security groups using
+ * security group names, such as <code>websrv</code>. Specify Amazon VPC
+ * security groups using security group IDs, such as
+ * <code>sg-12345678</code>. For more information about Amazon EC2
+ * security groups, go to <a
+ * s.com/AWSEC2/latest/UserGuide/index.html?using-network-security.html">
+ * Using Security Groups</a> in the Amazon EC2 product documentation. For
+ * more information about Amazon VPC security groups, go to <a
+ * es.com/AmazonVPC/latest/UserGuide/index.html?VPC_SecurityGroups.html">
+ * Security Groups</a> in the Amazon VPC product documentation.
  */
 @property (nonatomic, retain) NSMutableArray *securityGroups;
 
 /**
- * The user data available to the launched EC2 instances. For more
- * information about Amazon EC2 user data, please go to <a
- * ://docs.amazonwebservices.com/AWSEC2/latest/UserGuide/Instances.html">
- * Using Instances</a> in the <i>Amazon EC2 User Guide</i>.
+ * The user data available to the launched Amazon EC2 instances. For more
+ * information about Amazon EC2 user data, please see <a
+ * href="http://aws.amazon.com/ec2/"> Amazon EC2 product
+ * documentation</a>.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>0 - 21847<br/>
@@ -103,9 +108,9 @@
 
 /**
  * The instance type of the EC2 instance. For more information about
- * Amazon EC2 instance types, please go to <a
- * ://docs.amazonwebservices.com/AWSEC2/latest/UserGuide/Instances.html">
- * Using Instances</a> in the <i>Amazon EC2 User Guide</i>.
+ * Amazon EC2 instance types, please see <a
+ * href="http://aws.amazon.com/ec2/"> Amazon EC2 product
+ * documentation</a>
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 255<br/>
@@ -137,8 +142,8 @@
  * <i>DeviceName</i>, and an <i>ebs</i> data structure that contains
  * information about the associated Elastic Block Storage volume. For
  * more information about Amazon EC2 BlockDeviceMappings, please go to <a
- * vices.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">
- * Block Device Mapping</a> in the <i>Amazon EC2 User Guide</i>.
+ * WSEC2/latest/UserGuide/index.html?block-device-mapping-concepts.html">
+ * Block Device Mapping</a> in the Amazon EC2 product documentation.
  */
 @property (nonatomic, retain) NSMutableArray *blockDeviceMappings;
 

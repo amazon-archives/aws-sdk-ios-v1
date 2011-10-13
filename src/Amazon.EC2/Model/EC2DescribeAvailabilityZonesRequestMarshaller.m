@@ -29,12 +29,14 @@
     [request setEndpoint:[describeAvailabilityZonesRequest requestEndpoint]];
     [request setRequestTag:[describeAvailabilityZonesRequest requestTag]];
 
+
     if (describeAvailabilityZonesRequest != nil) {
         int zoneNamesListIndex = 1;
         for (NSString *zoneNamesListValue in describeAvailabilityZonesRequest.zoneNames) {
             if (zoneNamesListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", zoneNamesListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"ZoneName", zoneNamesListIndex]];
             }
+
             zoneNamesListIndex++;
         }
     }
@@ -47,12 +49,14 @@
                     [request setParameterValue:[NSString stringWithFormat:@"%@", filtersListValue.name] forKey:[NSString stringWithFormat:@"%@.%d.%@", @"Filter", filtersListIndex, @"Name"]];
                 }
             }
+
             if (filtersListValue != nil) {
                 int valuesListIndex = 1;
                 for (NSString *valuesListValue in filtersListValue.values) {
                     if (valuesListValue != nil) {
                         [request setParameterValue:[NSString stringWithFormat:@"%@", valuesListValue] forKey:[NSString stringWithFormat:@"%@.%d.%@.%d", @"Filter", filtersListIndex, @"Value", valuesListIndex]];
                     }
+
                     valuesListIndex++;
                 }
             }

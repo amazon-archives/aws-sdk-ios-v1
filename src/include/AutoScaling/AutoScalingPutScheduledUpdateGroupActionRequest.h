@@ -30,6 +30,9 @@
     NSString *autoScalingGroupName;
     NSString *scheduledActionName;
     NSDate   *time;
+    NSDate   *startTime;
+    NSDate   *endTime;
+    NSString *recurrence;
     NSNumber *minSize;
     NSNumber *maxSize;
     NSNumber *desiredCapacity;
@@ -62,9 +65,36 @@
 @property (nonatomic, retain) NSString *scheduledActionName;
 
 /**
- * The time for this action to start.
+ * The time for this action to start. <code>Time</code> can be specified
+ * instead of <code>StartTime</code>, or vice versa. If <code>Time</code>
+ * is specified together with <code>StartTime</code>, their values should
+ * be identical. Otherwise, <code>PutScheduledUpdateGroupAction</code>
+ * will return an error.
  */
 @property (nonatomic, retain) NSDate *time;
+
+/**
+ * The time for this action to start.
+ */
+@property (nonatomic, retain) NSDate *startTime;
+
+/**
+ * The time for this action to end.
+ */
+@property (nonatomic, retain) NSDate *endTime;
+
+/**
+ * The time when recurring future actions will start. Start time is
+ * specified by the user following the Unix Cron syntax format. For
+ * information about Cron syntax, go to <a
+ * href="http://en.wikipedia.org/wiki/Cron">Wikipedia, The Free
+ * Encyclopedia</a>.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Length: </b>1 - 255<br/>
+ * <b>Pattern: </b>[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*<br/>
+ */
+@property (nonatomic, retain) NSString *recurrence;
 
 /**
  * The minimum size for the new Auto Scaling group.
@@ -77,7 +107,8 @@
 @property (nonatomic, retain) NSNumber *maxSize;
 
 /**
- * The number of EC2 instances that should be running in the group.
+ * The number of Amazon EC2 instances that should be running in the
+ * group.
  */
 @property (nonatomic, retain) NSNumber *desiredCapacity;
 

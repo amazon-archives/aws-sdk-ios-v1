@@ -39,21 +39,25 @@
             [request setParameterValue:[NSString stringWithFormat:@"%@", addPermissionRequest.label] forKey:[NSString stringWithFormat:@"%@", @"Label"]];
         }
     }
+
     if (addPermissionRequest != nil) {
         int aWSAccountIdsListIndex = 1;
         for (NSString *aWSAccountIdsListValue in addPermissionRequest.aWSAccountIds) {
             if (aWSAccountIdsListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", aWSAccountIdsListValue] forKey:[NSString stringWithFormat:@"%@.member.%d", @"AWSAccountId", aWSAccountIdsListIndex]];
             }
+
             aWSAccountIdsListIndex++;
         }
     }
+
     if (addPermissionRequest != nil) {
         int actionNamesListIndex = 1;
         for (NSString *actionNamesListValue in addPermissionRequest.actionNames) {
             if (actionNamesListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", actionNamesListValue] forKey:[NSString stringWithFormat:@"%@.member.%d", @"ActionName", actionNamesListIndex]];
             }
+
             actionNamesListIndex++;
         }
     }

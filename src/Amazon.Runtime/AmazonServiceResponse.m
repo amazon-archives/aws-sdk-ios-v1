@@ -26,6 +26,7 @@
 @synthesize requestId;
 @synthesize didTimeout;
 @synthesize unmarshallerDelegate;
+@synthesize processingTime;
 
 -(id)init
 {
@@ -112,6 +113,8 @@
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
+    NSDate *startDate = [NSDate date]; 
+
     isFinishedLoading = YES;
 
     NSString *tmpStr = [[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding];
@@ -142,12 +145,16 @@
     }
 
     [response postProcess];
-
+    processingTime = fabs([startDate timeIntervalSinceNow]);
+    response.processingTime = processingTime;
+        
+    
+        
     if ([(NSObject *)request.delegate respondsToSelector:@selector(request:didCompleteWithResponse:)]) {
         [request.delegate request:request didCompleteWithResponse:response];
     }
 
-    [response release];
+    [response release];    
 }
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
@@ -183,6 +190,11 @@
     return proposedRequest;
 }
 
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse
+{
+    return nil;
+}
+
 #pragma mark memory management
 
 -(void)dealloc
@@ -207,3 +219,8 @@
 }
 
 @end
+
+
+
+
+

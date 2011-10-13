@@ -54,6 +54,7 @@
 #define kHttpHdrAmzCopySourceIfNoneMatch     @"x-amz-copy-source-if-none-match"
 #define kHttpHdrAmzCopySourceIfModified      @"x-amz-copy-source-if-modified-since"
 #define kHttpHdrAmzCopySourceIfUnmodified    @"x-amz-copy-source-if-unmodified-since"
+#define kHttpHdrAmzServerSideEncryption      @"x-amz-server-side-encryption"
 
 #define kS3DateFormat                        @"EEE, dd MMM yyyy HH:mm:ss z"
 
@@ -85,8 +86,12 @@
 #define kS3QueryParamPartNumberMarker    @"part-number-marker"
 
 
-
+// Endpoint
 #define kS3ServiceEndpoint               @"http://s3.amazonaws.com"
+
+
+// Server Side Encryption
+#define kS3ServerSideEnryptionAES256     @"AES256"
 
 
 

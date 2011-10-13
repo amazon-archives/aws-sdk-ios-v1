@@ -33,7 +33,7 @@
 
 
 /**
- *
+ * The URL of the SQS queue to take action on.
  */
 @property (nonatomic, retain) NSString *queueUrl;
 
@@ -54,7 +54,7 @@
  * Constructs a new RemovePermissionRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theQueueUrl
+ * @param theQueueUrl The URL of the SQS queue to take action on.
  * @param theLabel The identfication of the permission to remove. This is
  * the label added with the <a>AddPermission</a> operation.
  */

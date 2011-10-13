@@ -29,12 +29,14 @@
     [request setEndpoint:[describeLoadBalancersRequest requestEndpoint]];
     [request setRequestTag:[describeLoadBalancersRequest requestTag]];
 
+
     if (describeLoadBalancersRequest != nil) {
         int loadBalancerNamesListIndex = 1;
         for (NSString *loadBalancerNamesListValue in describeLoadBalancersRequest.loadBalancerNames) {
             if (loadBalancerNamesListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", loadBalancerNamesListValue] forKey:[NSString stringWithFormat:@"%@.member.%d", @"LoadBalancerNames", loadBalancerNamesListIndex]];
             }
+
             loadBalancerNamesListIndex++;
         }
     }

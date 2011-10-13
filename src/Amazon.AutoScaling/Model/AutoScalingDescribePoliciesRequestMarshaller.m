@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[AutoScalingRequest alloc] init];
 
     [request setParameterValue:@"DescribePolicies"           forKey:@"Action"];
-    [request setParameterValue:@"2010-08-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
 
     [request setDelegate:[describePoliciesRequest delegate]];
     [request setCredentials:[describePoliciesRequest credentials]];
@@ -34,12 +34,14 @@
             [request setParameterValue:[NSString stringWithFormat:@"%@", describePoliciesRequest.autoScalingGroupName] forKey:[NSString stringWithFormat:@"%@", @"AutoScalingGroupName"]];
         }
     }
+
     if (describePoliciesRequest != nil) {
         int policyNamesListIndex = 1;
         for (NSString *policyNamesListValue in describePoliciesRequest.policyNames) {
             if (policyNamesListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", policyNamesListValue] forKey:[NSString stringWithFormat:@"%@.member.%d", @"PolicyNames", policyNamesListIndex]];
             }
+
             policyNamesListIndex++;
         }
     }

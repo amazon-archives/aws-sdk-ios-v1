@@ -29,30 +29,36 @@
     [request setEndpoint:[describeImagesRequest requestEndpoint]];
     [request setRequestTag:[describeImagesRequest requestTag]];
 
+
     if (describeImagesRequest != nil) {
         int imageIdsListIndex = 1;
         for (NSString *imageIdsListValue in describeImagesRequest.imageIds) {
             if (imageIdsListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", imageIdsListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"ImageId", imageIdsListIndex]];
             }
+
             imageIdsListIndex++;
         }
     }
+
     if (describeImagesRequest != nil) {
         int ownersListIndex = 1;
         for (NSString *ownersListValue in describeImagesRequest.owners) {
             if (ownersListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", ownersListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"Owner", ownersListIndex]];
             }
+
             ownersListIndex++;
         }
     }
+
     if (describeImagesRequest != nil) {
         int executableUsersListIndex = 1;
         for (NSString *executableUsersListValue in describeImagesRequest.executableUsers) {
             if (executableUsersListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", executableUsersListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"ExecutableBy", executableUsersListIndex]];
             }
+
             executableUsersListIndex++;
         }
     }
@@ -65,12 +71,14 @@
                     [request setParameterValue:[NSString stringWithFormat:@"%@", filtersListValue.name] forKey:[NSString stringWithFormat:@"%@.%d.%@", @"Filter", filtersListIndex, @"Name"]];
                 }
             }
+
             if (filtersListValue != nil) {
                 int valuesListIndex = 1;
                 for (NSString *valuesListValue in filtersListValue.values) {
                     if (valuesListValue != nil) {
                         [request setParameterValue:[NSString stringWithFormat:@"%@", valuesListValue] forKey:[NSString stringWithFormat:@"%@.%d.%@.%d", @"Filter", filtersListIndex, @"Value", valuesListIndex]];
                     }
+
                     valuesListIndex++;
                 }
             }

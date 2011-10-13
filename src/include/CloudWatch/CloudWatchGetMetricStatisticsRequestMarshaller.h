@@ -19,6 +19,7 @@
 #import "CloudWatchRequest.h"
 #import "CloudWatchGetMetricStatisticsRequest.h"
 #import "CloudWatchDimension.h"
+#import "CloudWatchDimension.h"
 
 
 /**

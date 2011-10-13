@@ -29,12 +29,14 @@
     [request setEndpoint:[disableAlarmActionsRequest requestEndpoint]];
     [request setRequestTag:[disableAlarmActionsRequest requestTag]];
 
+
     if (disableAlarmActionsRequest != nil) {
         int alarmNamesListIndex = 1;
         for (NSString *alarmNamesListValue in disableAlarmActionsRequest.alarmNames) {
             if (alarmNamesListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", alarmNamesListValue] forKey:[NSString stringWithFormat:@"%@.member.%d", @"AlarmNames", alarmNamesListIndex]];
             }
+
             alarmNamesListIndex++;
         }
     }

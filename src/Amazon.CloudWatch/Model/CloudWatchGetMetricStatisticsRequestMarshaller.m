@@ -72,12 +72,14 @@
             [request setParameterValue:[NSString stringWithFormat:@"%@", getMetricStatisticsRequest.period] forKey:[NSString stringWithFormat:@"%@", @"Period"]];
         }
     }
+
     if (getMetricStatisticsRequest != nil) {
         int statisticsListIndex = 1;
         for (NSString *statisticsListValue in getMetricStatisticsRequest.statistics) {
             if (statisticsListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", statisticsListValue] forKey:[NSString stringWithFormat:@"%@.member.%d", @"Statistics", statisticsListIndex]];
             }
+
             statisticsListIndex++;
         }
     }

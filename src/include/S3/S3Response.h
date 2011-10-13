@@ -34,10 +34,11 @@
     bool                deleteMarker;
     NSString            *id2;
     NSString            *versionId;
+    NSString            *serverSideEncryption;
 
     NSDateFormatter     *dateFormatter;
 
-    NSMutableDictionary *headers;
+    NSMutableDictionary *headers;    
 }
 
 /** Specfies whether the connection to the server is open or closed. */
@@ -60,6 +61,10 @@
  * The value is UTF-8 encoded and URL ready.
  * When you PUT an object in a bucket where versioning has been suspended, the version ID is always <code>null</code>. */
 @property (nonatomic, retain) NSString *versionId;
+
+/**
+ * Algorithm used for optional server side encryption. */
+@property (nonatomic, retain) NSString *serverSideEncryption;
 
 /** The date and time Amazon S3 responded. */
 @property (nonatomic, retain) NSDate *date;

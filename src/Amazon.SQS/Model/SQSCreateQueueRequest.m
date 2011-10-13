@@ -41,16 +41,6 @@
     return self;
 }
 
--(id)initWithQueueName:(NSString *)theQueueName andDefaultVisibilityTimeout:(NSNumber *)theDefaultVisibilityTimeout
-{
-    if (self = [self init]) {
-        self.queueName                = theQueueName;
-        self.defaultVisibilityTimeout = theDefaultVisibilityTimeout;
-    }
-
-    return self;
-}
-
 
 
 -(NSString *)description

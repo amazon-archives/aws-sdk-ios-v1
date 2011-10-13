@@ -29,12 +29,14 @@
     [request setEndpoint:[describeLoadBalancerPolicyTypesRequest requestEndpoint]];
     [request setRequestTag:[describeLoadBalancerPolicyTypesRequest requestTag]];
 
+
     if (describeLoadBalancerPolicyTypesRequest != nil) {
         int policyTypeNamesListIndex = 1;
         for (NSString *policyTypeNamesListValue in describeLoadBalancerPolicyTypesRequest.policyTypeNames) {
             if (policyTypeNamesListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", policyTypeNamesListValue] forKey:[NSString stringWithFormat:@"%@.member.%d", @"PolicyTypeNames", policyTypeNamesListIndex]];
             }
+
             policyTypeNamesListIndex++;
         }
     }

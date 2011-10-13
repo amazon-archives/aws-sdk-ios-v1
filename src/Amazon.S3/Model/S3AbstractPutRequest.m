@@ -19,6 +19,7 @@
 
 @synthesize cannedACL;
 @synthesize storageClass;
+@synthesize serverSideEncryption;
 
 -(NSMutableURLRequest *)configureURLRequest
 {
@@ -29,6 +30,9 @@
     }
     if (nil != self.storageClass) {
         [self.urlRequest setValue:self.storageClass forHTTPHeaderField:kHttpHdrAmzStorageClass];
+    }
+    if (nil != self.serverSideEncryption) {
+        [self.urlRequest setValue:self.serverSideEncryption forHTTPHeaderField:kHttpHdrAmzServerSideEncryption];
     }
     for (id k in [self metadata]) {
         [self.urlRequest setValue:[[self metadata] objectForKey:k] forHTTPHeaderField:[NSString stringWithFormat:kHttpHdrAmzMetaFormat, [k description]]];
@@ -55,6 +59,7 @@
     [cannedACL release];
     [storageClass release];
     [metadata release];
+    [serverSideEncryption release];
 
     [super dealloc];
 }

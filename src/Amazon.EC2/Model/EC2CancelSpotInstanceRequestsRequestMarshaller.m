@@ -29,12 +29,14 @@
     [request setEndpoint:[cancelSpotInstanceRequestsRequest requestEndpoint]];
     [request setRequestTag:[cancelSpotInstanceRequestsRequest requestTag]];
 
+
     if (cancelSpotInstanceRequestsRequest != nil) {
         int spotInstanceRequestIdsListIndex = 1;
         for (NSString *spotInstanceRequestIdsListValue in cancelSpotInstanceRequestsRequest.spotInstanceRequestIds) {
             if (spotInstanceRequestIdsListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", spotInstanceRequestIdsListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"SpotInstanceRequestId", spotInstanceRequestIdsListIndex]];
             }
+
             spotInstanceRequestIdsListIndex++;
         }
     }

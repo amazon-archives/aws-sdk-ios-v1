@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[AutoScalingRequest alloc] init];
 
     [request setParameterValue:@"ResumeProcesses"           forKey:@"Action"];
-    [request setParameterValue:@"2010-08-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
 
     [request setDelegate:[resumeProcessesRequest delegate]];
     [request setCredentials:[resumeProcessesRequest credentials]];
@@ -34,12 +34,14 @@
             [request setParameterValue:[NSString stringWithFormat:@"%@", resumeProcessesRequest.autoScalingGroupName] forKey:[NSString stringWithFormat:@"%@", @"AutoScalingGroupName"]];
         }
     }
+
     if (resumeProcessesRequest != nil) {
         int scalingProcessesListIndex = 1;
         for (NSString *scalingProcessesListValue in resumeProcessesRequest.scalingProcesses) {
             if (scalingProcessesListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", scalingProcessesListValue] forKey:[NSString stringWithFormat:@"%@.member.%d", @"ScalingProcesses", scalingProcessesListIndex]];
             }
+
             scalingProcessesListIndex++;
         }
     }

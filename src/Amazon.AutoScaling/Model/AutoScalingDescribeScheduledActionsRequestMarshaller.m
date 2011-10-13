@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[AutoScalingRequest alloc] init];
 
     [request setParameterValue:@"DescribeScheduledActions"           forKey:@"Action"];
-    [request setParameterValue:@"2010-08-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-01-01"   forKey:@"Version"];
 
     [request setDelegate:[describeScheduledActionsRequest delegate]];
     [request setCredentials:[describeScheduledActionsRequest credentials]];
@@ -34,12 +34,14 @@
             [request setParameterValue:[NSString stringWithFormat:@"%@", describeScheduledActionsRequest.autoScalingGroupName] forKey:[NSString stringWithFormat:@"%@", @"AutoScalingGroupName"]];
         }
     }
+
     if (describeScheduledActionsRequest != nil) {
         int scheduledActionNamesListIndex = 1;
         for (NSString *scheduledActionNamesListValue in describeScheduledActionsRequest.scheduledActionNames) {
             if (scheduledActionNamesListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", scheduledActionNamesListValue] forKey:[NSString stringWithFormat:@"%@.member.%d", @"ScheduledActionNames", scheduledActionNamesListIndex]];
             }
+
             scheduledActionNamesListIndex++;
         }
     }

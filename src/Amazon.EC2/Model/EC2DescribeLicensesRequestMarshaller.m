@@ -29,12 +29,14 @@
     [request setEndpoint:[describeLicensesRequest requestEndpoint]];
     [request setRequestTag:[describeLicensesRequest requestTag]];
 
+
     if (describeLicensesRequest != nil) {
         int licenseIdsListIndex = 1;
         for (NSString *licenseIdsListValue in describeLicensesRequest.licenseIds) {
             if (licenseIdsListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", licenseIdsListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"LicenseId", licenseIdsListIndex]];
             }
+
             licenseIdsListIndex++;
         }
     }
@@ -47,12 +49,14 @@
                     [request setParameterValue:[NSString stringWithFormat:@"%@", filtersListValue.name] forKey:[NSString stringWithFormat:@"%@.%d.%@", @"Filter", filtersListIndex, @"Name"]];
                 }
             }
+
             if (filtersListValue != nil) {
                 int valuesListIndex = 1;
                 for (NSString *valuesListValue in filtersListValue.values) {
                     if (valuesListValue != nil) {
                         [request setParameterValue:[NSString stringWithFormat:@"%@", valuesListValue] forKey:[NSString stringWithFormat:@"%@.%d.%@.%d", @"Filter", filtersListIndex, @"Value", valuesListIndex]];
                     }
+
                     valuesListIndex++;
                 }
             }

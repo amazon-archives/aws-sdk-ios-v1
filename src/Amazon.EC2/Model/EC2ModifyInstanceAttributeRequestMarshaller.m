@@ -115,12 +115,14 @@
             [request setParameterValue:[NSString stringWithFormat:@"%@", modifyInstanceAttributeRequest.instanceInitiatedShutdownBehavior] forKey:[NSString stringWithFormat:@"%@", @"InstanceInitiatedShutdownBehavior"]];
         }
     }
+
     if (modifyInstanceAttributeRequest != nil) {
         int groupsListIndex = 1;
         for (NSString *groupsListValue in modifyInstanceAttributeRequest.groups) {
             if (groupsListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", groupsListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"GroupId", groupsListIndex]];
             }
+
             groupsListIndex++;
         }
     }

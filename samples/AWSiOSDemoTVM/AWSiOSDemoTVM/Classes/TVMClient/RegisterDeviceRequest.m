@@ -18,21 +18,21 @@
 
 @implementation RegisterDeviceRequest
 
--(id)initWithEndpoint:(NSString*)theEndpoint andUid:(NSString*)theUid andKey:(NSString*)theKey usingSSL:(bool)usingSSL
+-(id)initWithEndpoint:(NSString *)theEndpoint andUid:(NSString *)theUid andKey:(NSString *)theKey usingSSL:(bool)usingSSL
 {
-    if ( ( self = [super init] ) ) {
+    if ((self = [super init])) {
         endpoint = [theEndpoint retain];
-        uid = [theUid retain];
-        key = [theKey retain];
-        useSSL = usingSSL;
+        uid      = [theUid retain];
+        key      = [theKey retain];
+        useSSL   = usingSSL;
     }
-    
-    return self;    
+
+    return self;
 }
 
--(NSString*)buildRequestUrl
+-(NSString *)buildRequestUrl
 {
-    return [NSString stringWithFormat:( useSSL ? SSL_REGISTER_REQUEST : REGISTER_REQUEST ), endpoint, uid, key];
+    return [NSString stringWithFormat:(useSSL ? SSL_REGISTER_REQUEST:REGISTER_REQUEST), endpoint, uid, key];
 }
 
 -(void)dealloc

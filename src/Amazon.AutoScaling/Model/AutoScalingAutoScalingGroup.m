@@ -35,6 +35,7 @@
 @synthesize placementGroup;
 @synthesize vPCZoneIdentifier;
 @synthesize enabledMetrics;
+@synthesize status;
 
 
 -(id)init
@@ -57,6 +58,7 @@
         placementGroup          = nil;
         vPCZoneIdentifier       = nil;
         enabledMetrics          = [[NSMutableArray alloc] initWithCapacity:1];
+        status                  = nil;
     }
 
     return self;
@@ -113,6 +115,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"PlacementGroup: %@,", placementGroup] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"VPCZoneIdentifier: %@,", vPCZoneIdentifier] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"EnabledMetrics: %@,", enabledMetrics] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Status: %@,", status] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -140,6 +143,7 @@
     [placementGroup release];
     [vPCZoneIdentifier release];
     [enabledMetrics release];
+    [status release];
 
     [super dealloc];
 }

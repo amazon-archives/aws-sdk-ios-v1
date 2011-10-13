@@ -39,6 +39,7 @@
             [request setParameterValue:[NSString stringWithFormat:@"%@", setLoadBalancerPoliciesOfListenerRequest.loadBalancerPort] forKey:[NSString stringWithFormat:@"%@", @"LoadBalancerPort"]];
         }
     }
+
     if (setLoadBalancerPoliciesOfListenerRequest != nil) {
         int policyNamesListIndex = 1;
 
@@ -49,6 +50,7 @@
             if (policyNamesListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", policyNamesListValue] forKey:[NSString stringWithFormat:@"%@.member.%d", @"PolicyNames", policyNamesListIndex]];
             }
+
             policyNamesListIndex++;
         }
     }

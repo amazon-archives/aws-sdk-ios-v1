@@ -29,12 +29,14 @@
     [request setEndpoint:[describeAddressesRequest requestEndpoint]];
     [request setRequestTag:[describeAddressesRequest requestTag]];
 
+
     if (describeAddressesRequest != nil) {
         int publicIpsListIndex = 1;
         for (NSString *publicIpsListValue in describeAddressesRequest.publicIps) {
             if (publicIpsListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", publicIpsListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"PublicIp", publicIpsListIndex]];
             }
+
             publicIpsListIndex++;
         }
     }
@@ -47,12 +49,14 @@
                     [request setParameterValue:[NSString stringWithFormat:@"%@", filtersListValue.name] forKey:[NSString stringWithFormat:@"%@.%d.%@", @"Filter", filtersListIndex, @"Name"]];
                 }
             }
+
             if (filtersListValue != nil) {
                 int valuesListIndex = 1;
                 for (NSString *valuesListValue in filtersListValue.values) {
                     if (valuesListValue != nil) {
                         [request setParameterValue:[NSString stringWithFormat:@"%@", valuesListValue] forKey:[NSString stringWithFormat:@"%@.%d.%@.%d", @"Filter", filtersListIndex, @"Value", valuesListIndex]];
                     }
+
                     valuesListIndex++;
                 }
             }
@@ -60,12 +64,14 @@
             filtersListIndex++;
         }
     }
+
     if (describeAddressesRequest != nil) {
         int allocationIdsListIndex = 1;
         for (NSString *allocationIdsListValue in describeAddressesRequest.allocationIds) {
             if (allocationIdsListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", allocationIdsListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"AllocationId", allocationIdsListIndex]];
             }
+
             allocationIdsListIndex++;
         }
     }

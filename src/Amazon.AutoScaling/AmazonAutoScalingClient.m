@@ -35,48 +35,6 @@
     return self;
 }
 
--(AutoScalingPutScheduledUpdateGroupActionResponse *)putScheduledUpdateGroupAction:(AutoScalingPutScheduledUpdateGroupActionRequest *)putScheduledUpdateGroupActionRequest
-{
-    AmazonServiceRequest *request = [AutoScalingPutScheduledUpdateGroupActionRequestMarshaller createRequest:putScheduledUpdateGroupActionRequest];
-
-    return (AutoScalingPutScheduledUpdateGroupActionResponse *)[self invoke:request rawRequest:putScheduledUpdateGroupActionRequest unmarshallerDelegate:[AutoScalingPutScheduledUpdateGroupActionResponseUnmarshaller class]];
-}
-
--(AutoScalingSetDesiredCapacityResponse *)setDesiredCapacity:(AutoScalingSetDesiredCapacityRequest *)setDesiredCapacityRequest
-{
-    AmazonServiceRequest *request = [AutoScalingSetDesiredCapacityRequestMarshaller createRequest:setDesiredCapacityRequest];
-
-    return (AutoScalingSetDesiredCapacityResponse *)[self invoke:request rawRequest:setDesiredCapacityRequest unmarshallerDelegate:[AutoScalingSetDesiredCapacityResponseUnmarshaller class]];
-}
-
--(AutoScalingDeletePolicyResponse *)deletePolicy:(AutoScalingDeletePolicyRequest *)deletePolicyRequest
-{
-    AmazonServiceRequest *request = [AutoScalingDeletePolicyRequestMarshaller createRequest:deletePolicyRequest];
-
-    return (AutoScalingDeletePolicyResponse *)[self invoke:request rawRequest:deletePolicyRequest unmarshallerDelegate:[AutoScalingDeletePolicyResponseUnmarshaller class]];
-}
-
--(AutoScalingDeleteScheduledActionResponse *)deleteScheduledAction:(AutoScalingDeleteScheduledActionRequest *)deleteScheduledActionRequest
-{
-    AmazonServiceRequest *request = [AutoScalingDeleteScheduledActionRequestMarshaller createRequest:deleteScheduledActionRequest];
-
-    return (AutoScalingDeleteScheduledActionResponse *)[self invoke:request rawRequest:deleteScheduledActionRequest unmarshallerDelegate:[AutoScalingDeleteScheduledActionResponseUnmarshaller class]];
-}
-
--(AutoScalingDescribeLaunchConfigurationsResponse *)describeLaunchConfigurations:(AutoScalingDescribeLaunchConfigurationsRequest *)describeLaunchConfigurationsRequest
-{
-    AmazonServiceRequest *request = [AutoScalingDescribeLaunchConfigurationsRequestMarshaller createRequest:describeLaunchConfigurationsRequest];
-
-    return (AutoScalingDescribeLaunchConfigurationsResponse *)[self invoke:request rawRequest:describeLaunchConfigurationsRequest unmarshallerDelegate:[AutoScalingDescribeLaunchConfigurationsResponseUnmarshaller class]];
-}
-
--(AutoScalingDescribeScalingProcessTypesResponse *)describeScalingProcessTypes:(AutoScalingDescribeScalingProcessTypesRequest *)describeScalingProcessTypesRequest
-{
-    AmazonServiceRequest *request = [AutoScalingDescribeScalingProcessTypesRequestMarshaller createRequest:describeScalingProcessTypesRequest];
-
-    return (AutoScalingDescribeScalingProcessTypesResponse *)[self invoke:request rawRequest:describeScalingProcessTypesRequest unmarshallerDelegate:[AutoScalingDescribeScalingProcessTypesResponseUnmarshaller class]];
-}
-
 -(AutoScalingDescribeAutoScalingGroupsResponse *)describeAutoScalingGroups:(AutoScalingDescribeAutoScalingGroupsRequest *)describeAutoScalingGroupsRequest
 {
     AmazonServiceRequest *request = [AutoScalingDescribeAutoScalingGroupsRequestMarshaller createRequest:describeAutoScalingGroupsRequest];
@@ -91,67 +49,11 @@
     return (AutoScalingEnableMetricsCollectionResponse *)[self invoke:request rawRequest:enableMetricsCollectionRequest unmarshallerDelegate:[AutoScalingEnableMetricsCollectionResponseUnmarshaller class]];
 }
 
--(AutoScalingTerminateInstanceInAutoScalingGroupResponse *)terminateInstanceInAutoScalingGroup:(AutoScalingTerminateInstanceInAutoScalingGroupRequest *)terminateInstanceInAutoScalingGroupRequest
+-(AutoScalingResumeProcessesResponse *)resumeProcesses:(AutoScalingResumeProcessesRequest *)resumeProcessesRequest
 {
-    AmazonServiceRequest *request = [AutoScalingTerminateInstanceInAutoScalingGroupRequestMarshaller createRequest:terminateInstanceInAutoScalingGroupRequest];
+    AmazonServiceRequest *request = [AutoScalingResumeProcessesRequestMarshaller createRequest:resumeProcessesRequest];
 
-    return (AutoScalingTerminateInstanceInAutoScalingGroupResponse *)[self invoke:request rawRequest:terminateInstanceInAutoScalingGroupRequest unmarshallerDelegate:[AutoScalingTerminateInstanceInAutoScalingGroupResponseUnmarshaller class]];
-}
-
--(AutoScalingDescribeScalingActivitiesResponse *)describeScalingActivities:(AutoScalingDescribeScalingActivitiesRequest *)describeScalingActivitiesRequest
-{
-    AmazonServiceRequest *request = [AutoScalingDescribeScalingActivitiesRequestMarshaller createRequest:describeScalingActivitiesRequest];
-
-    return (AutoScalingDescribeScalingActivitiesResponse *)[self invoke:request rawRequest:describeScalingActivitiesRequest unmarshallerDelegate:[AutoScalingDescribeScalingActivitiesResponseUnmarshaller class]];
-}
-
--(AutoScalingExecutePolicyResponse *)executePolicy:(AutoScalingExecutePolicyRequest *)executePolicyRequest
-{
-    AmazonServiceRequest *request = [AutoScalingExecutePolicyRequestMarshaller createRequest:executePolicyRequest];
-
-    return (AutoScalingExecutePolicyResponse *)[self invoke:request rawRequest:executePolicyRequest unmarshallerDelegate:[AutoScalingExecutePolicyResponseUnmarshaller class]];
-}
-
--(AutoScalingDescribeMetricCollectionTypesResponse *)describeMetricCollectionTypes:(AutoScalingDescribeMetricCollectionTypesRequest *)describeMetricCollectionTypesRequest
-{
-    AmazonServiceRequest *request = [AutoScalingDescribeMetricCollectionTypesRequestMarshaller createRequest:describeMetricCollectionTypesRequest];
-
-    return (AutoScalingDescribeMetricCollectionTypesResponse *)[self invoke:request rawRequest:describeMetricCollectionTypesRequest unmarshallerDelegate:[AutoScalingDescribeMetricCollectionTypesResponseUnmarshaller class]];
-}
-
--(AutoScalingDescribePoliciesResponse *)describePolicies:(AutoScalingDescribePoliciesRequest *)describePoliciesRequest
-{
-    AmazonServiceRequest *request = [AutoScalingDescribePoliciesRequestMarshaller createRequest:describePoliciesRequest];
-
-    return (AutoScalingDescribePoliciesResponse *)[self invoke:request rawRequest:describePoliciesRequest unmarshallerDelegate:[AutoScalingDescribePoliciesResponseUnmarshaller class]];
-}
-
--(AutoScalingDescribeAdjustmentTypesResponse *)describeAdjustmentTypes:(AutoScalingDescribeAdjustmentTypesRequest *)describeAdjustmentTypesRequest
-{
-    AmazonServiceRequest *request = [AutoScalingDescribeAdjustmentTypesRequestMarshaller createRequest:describeAdjustmentTypesRequest];
-
-    return (AutoScalingDescribeAdjustmentTypesResponse *)[self invoke:request rawRequest:describeAdjustmentTypesRequest unmarshallerDelegate:[AutoScalingDescribeAdjustmentTypesResponseUnmarshaller class]];
-}
-
--(AutoScalingDeleteAutoScalingGroupResponse *)deleteAutoScalingGroup:(AutoScalingDeleteAutoScalingGroupRequest *)deleteAutoScalingGroupRequest
-{
-    AmazonServiceRequest *request = [AutoScalingDeleteAutoScalingGroupRequestMarshaller createRequest:deleteAutoScalingGroupRequest];
-
-    return (AutoScalingDeleteAutoScalingGroupResponse *)[self invoke:request rawRequest:deleteAutoScalingGroupRequest unmarshallerDelegate:[AutoScalingDeleteAutoScalingGroupResponseUnmarshaller class]];
-}
-
--(AutoScalingCreateAutoScalingGroupResponse *)createAutoScalingGroup:(AutoScalingCreateAutoScalingGroupRequest *)createAutoScalingGroupRequest
-{
-    AmazonServiceRequest *request = [AutoScalingCreateAutoScalingGroupRequestMarshaller createRequest:createAutoScalingGroupRequest];
-
-    return (AutoScalingCreateAutoScalingGroupResponse *)[self invoke:request rawRequest:createAutoScalingGroupRequest unmarshallerDelegate:[AutoScalingCreateAutoScalingGroupResponseUnmarshaller class]];
-}
-
--(AutoScalingDescribeAutoScalingInstancesResponse *)describeAutoScalingInstances:(AutoScalingDescribeAutoScalingInstancesRequest *)describeAutoScalingInstancesRequest
-{
-    AmazonServiceRequest *request = [AutoScalingDescribeAutoScalingInstancesRequestMarshaller createRequest:describeAutoScalingInstancesRequest];
-
-    return (AutoScalingDescribeAutoScalingInstancesResponse *)[self invoke:request rawRequest:describeAutoScalingInstancesRequest unmarshallerDelegate:[AutoScalingDescribeAutoScalingInstancesResponseUnmarshaller class]];
+    return (AutoScalingResumeProcessesResponse *)[self invoke:request rawRequest:resumeProcessesRequest unmarshallerDelegate:[AutoScalingResumeProcessesResponseUnmarshaller class]];
 }
 
 -(AutoScalingDeleteLaunchConfigurationResponse *)deleteLaunchConfiguration:(AutoScalingDeleteLaunchConfigurationRequest *)deleteLaunchConfigurationRequest
@@ -161,11 +63,81 @@
     return (AutoScalingDeleteLaunchConfigurationResponse *)[self invoke:request rawRequest:deleteLaunchConfigurationRequest unmarshallerDelegate:[AutoScalingDeleteLaunchConfigurationResponseUnmarshaller class]];
 }
 
+-(AutoScalingDescribePoliciesResponse *)describePolicies:(AutoScalingDescribePoliciesRequest *)describePoliciesRequest
+{
+    AmazonServiceRequest *request = [AutoScalingDescribePoliciesRequestMarshaller createRequest:describePoliciesRequest];
+
+    return (AutoScalingDescribePoliciesResponse *)[self invoke:request rawRequest:describePoliciesRequest unmarshallerDelegate:[AutoScalingDescribePoliciesResponseUnmarshaller class]];
+}
+
+-(AutoScalingDescribeScalingProcessTypesResponse *)describeScalingProcessTypes:(AutoScalingDescribeScalingProcessTypesRequest *)describeScalingProcessTypesRequest
+{
+    AmazonServiceRequest *request = [AutoScalingDescribeScalingProcessTypesRequestMarshaller createRequest:describeScalingProcessTypesRequest];
+
+    return (AutoScalingDescribeScalingProcessTypesResponse *)[self invoke:request rawRequest:describeScalingProcessTypesRequest unmarshallerDelegate:[AutoScalingDescribeScalingProcessTypesResponseUnmarshaller class]];
+}
+
+-(AutoScalingCreateAutoScalingGroupResponse *)createAutoScalingGroup:(AutoScalingCreateAutoScalingGroupRequest *)createAutoScalingGroupRequest
+{
+    AmazonServiceRequest *request = [AutoScalingCreateAutoScalingGroupRequestMarshaller createRequest:createAutoScalingGroupRequest];
+
+    return (AutoScalingCreateAutoScalingGroupResponse *)[self invoke:request rawRequest:createAutoScalingGroupRequest unmarshallerDelegate:[AutoScalingCreateAutoScalingGroupResponseUnmarshaller class]];
+}
+
+-(AutoScalingDescribeScalingActivitiesResponse *)describeScalingActivities:(AutoScalingDescribeScalingActivitiesRequest *)describeScalingActivitiesRequest
+{
+    AmazonServiceRequest *request = [AutoScalingDescribeScalingActivitiesRequestMarshaller createRequest:describeScalingActivitiesRequest];
+
+    return (AutoScalingDescribeScalingActivitiesResponse *)[self invoke:request rawRequest:describeScalingActivitiesRequest unmarshallerDelegate:[AutoScalingDescribeScalingActivitiesResponseUnmarshaller class]];
+}
+
+-(AutoScalingDescribeNotificationConfigurationsResponse *)describeNotificationConfigurations:(AutoScalingDescribeNotificationConfigurationsRequest *)describeNotificationConfigurationsRequest
+{
+    AmazonServiceRequest *request = [AutoScalingDescribeNotificationConfigurationsRequestMarshaller createRequest:describeNotificationConfigurationsRequest];
+
+    return (AutoScalingDescribeNotificationConfigurationsResponse *)[self invoke:request rawRequest:describeNotificationConfigurationsRequest unmarshallerDelegate:[AutoScalingDescribeNotificationConfigurationsResponseUnmarshaller class]];
+}
+
+-(AutoScalingExecutePolicyResponse *)executePolicy:(AutoScalingExecutePolicyRequest *)executePolicyRequest
+{
+    AmazonServiceRequest *request = [AutoScalingExecutePolicyRequestMarshaller createRequest:executePolicyRequest];
+
+    return (AutoScalingExecutePolicyResponse *)[self invoke:request rawRequest:executePolicyRequest unmarshallerDelegate:[AutoScalingExecutePolicyResponseUnmarshaller class]];
+}
+
 -(AutoScalingPutScalingPolicyResponse *)putScalingPolicy:(AutoScalingPutScalingPolicyRequest *)putScalingPolicyRequest
 {
     AmazonServiceRequest *request = [AutoScalingPutScalingPolicyRequestMarshaller createRequest:putScalingPolicyRequest];
 
     return (AutoScalingPutScalingPolicyResponse *)[self invoke:request rawRequest:putScalingPolicyRequest unmarshallerDelegate:[AutoScalingPutScalingPolicyResponseUnmarshaller class]];
+}
+
+-(AutoScalingPutNotificationConfigurationResponse *)putNotificationConfiguration:(AutoScalingPutNotificationConfigurationRequest *)putNotificationConfigurationRequest
+{
+    AmazonServiceRequest *request = [AutoScalingPutNotificationConfigurationRequestMarshaller createRequest:putNotificationConfigurationRequest];
+
+    return (AutoScalingPutNotificationConfigurationResponse *)[self invoke:request rawRequest:putNotificationConfigurationRequest unmarshallerDelegate:[AutoScalingPutNotificationConfigurationResponseUnmarshaller class]];
+}
+
+-(AutoScalingDeletePolicyResponse *)deletePolicy:(AutoScalingDeletePolicyRequest *)deletePolicyRequest
+{
+    AmazonServiceRequest *request = [AutoScalingDeletePolicyRequestMarshaller createRequest:deletePolicyRequest];
+
+    return (AutoScalingDeletePolicyResponse *)[self invoke:request rawRequest:deletePolicyRequest unmarshallerDelegate:[AutoScalingDeletePolicyResponseUnmarshaller class]];
+}
+
+-(AutoScalingDeleteNotificationConfigurationResponse *)deleteNotificationConfiguration:(AutoScalingDeleteNotificationConfigurationRequest *)deleteNotificationConfigurationRequest
+{
+    AmazonServiceRequest *request = [AutoScalingDeleteNotificationConfigurationRequestMarshaller createRequest:deleteNotificationConfigurationRequest];
+
+    return (AutoScalingDeleteNotificationConfigurationResponse *)[self invoke:request rawRequest:deleteNotificationConfigurationRequest unmarshallerDelegate:[AutoScalingDeleteNotificationConfigurationResponseUnmarshaller class]];
+}
+
+-(AutoScalingDeleteScheduledActionResponse *)deleteScheduledAction:(AutoScalingDeleteScheduledActionRequest *)deleteScheduledActionRequest
+{
+    AmazonServiceRequest *request = [AutoScalingDeleteScheduledActionRequestMarshaller createRequest:deleteScheduledActionRequest];
+
+    return (AutoScalingDeleteScheduledActionResponse *)[self invoke:request rawRequest:deleteScheduledActionRequest unmarshallerDelegate:[AutoScalingDeleteScheduledActionResponseUnmarshaller class]];
 }
 
 -(AutoScalingSetInstanceHealthResponse *)setInstanceHealth:(AutoScalingSetInstanceHealthRequest *)setInstanceHealthRequest
@@ -175,18 +147,11 @@
     return (AutoScalingSetInstanceHealthResponse *)[self invoke:request rawRequest:setInstanceHealthRequest unmarshallerDelegate:[AutoScalingSetInstanceHealthResponseUnmarshaller class]];
 }
 
--(AutoScalingUpdateAutoScalingGroupResponse *)updateAutoScalingGroup:(AutoScalingUpdateAutoScalingGroupRequest *)updateAutoScalingGroupRequest
+-(AutoScalingDescribeAutoScalingNotificationTypesResponse *)describeAutoScalingNotificationTypes:(AutoScalingDescribeAutoScalingNotificationTypesRequest *)describeAutoScalingNotificationTypesRequest
 {
-    AmazonServiceRequest *request = [AutoScalingUpdateAutoScalingGroupRequestMarshaller createRequest:updateAutoScalingGroupRequest];
+    AmazonServiceRequest *request = [AutoScalingDescribeAutoScalingNotificationTypesRequestMarshaller createRequest:describeAutoScalingNotificationTypesRequest];
 
-    return (AutoScalingUpdateAutoScalingGroupResponse *)[self invoke:request rawRequest:updateAutoScalingGroupRequest unmarshallerDelegate:[AutoScalingUpdateAutoScalingGroupResponseUnmarshaller class]];
-}
-
--(AutoScalingDescribeScheduledActionsResponse *)describeScheduledActions:(AutoScalingDescribeScheduledActionsRequest *)describeScheduledActionsRequest
-{
-    AmazonServiceRequest *request = [AutoScalingDescribeScheduledActionsRequestMarshaller createRequest:describeScheduledActionsRequest];
-
-    return (AutoScalingDescribeScheduledActionsResponse *)[self invoke:request rawRequest:describeScheduledActionsRequest unmarshallerDelegate:[AutoScalingDescribeScheduledActionsResponseUnmarshaller class]];
+    return (AutoScalingDescribeAutoScalingNotificationTypesResponse *)[self invoke:request rawRequest:describeAutoScalingNotificationTypesRequest unmarshallerDelegate:[AutoScalingDescribeAutoScalingNotificationTypesResponseUnmarshaller class]];
 }
 
 -(AutoScalingSuspendProcessesResponse *)suspendProcesses:(AutoScalingSuspendProcessesRequest *)suspendProcessesRequest
@@ -196,11 +161,11 @@
     return (AutoScalingSuspendProcessesResponse *)[self invoke:request rawRequest:suspendProcessesRequest unmarshallerDelegate:[AutoScalingSuspendProcessesResponseUnmarshaller class]];
 }
 
--(AutoScalingResumeProcessesResponse *)resumeProcesses:(AutoScalingResumeProcessesRequest *)resumeProcessesRequest
+-(AutoScalingDescribeAutoScalingInstancesResponse *)describeAutoScalingInstances:(AutoScalingDescribeAutoScalingInstancesRequest *)describeAutoScalingInstancesRequest
 {
-    AmazonServiceRequest *request = [AutoScalingResumeProcessesRequestMarshaller createRequest:resumeProcessesRequest];
+    AmazonServiceRequest *request = [AutoScalingDescribeAutoScalingInstancesRequestMarshaller createRequest:describeAutoScalingInstancesRequest];
 
-    return (AutoScalingResumeProcessesResponse *)[self invoke:request rawRequest:resumeProcessesRequest unmarshallerDelegate:[AutoScalingResumeProcessesResponseUnmarshaller class]];
+    return (AutoScalingDescribeAutoScalingInstancesResponse *)[self invoke:request rawRequest:describeAutoScalingInstancesRequest unmarshallerDelegate:[AutoScalingDescribeAutoScalingInstancesResponseUnmarshaller class]];
 }
 
 -(AutoScalingCreateLaunchConfigurationResponse *)createLaunchConfiguration:(AutoScalingCreateLaunchConfigurationRequest *)createLaunchConfigurationRequest
@@ -210,11 +175,74 @@
     return (AutoScalingCreateLaunchConfigurationResponse *)[self invoke:request rawRequest:createLaunchConfigurationRequest unmarshallerDelegate:[AutoScalingCreateLaunchConfigurationResponseUnmarshaller class]];
 }
 
+-(AutoScalingDeleteAutoScalingGroupResponse *)deleteAutoScalingGroup:(AutoScalingDeleteAutoScalingGroupRequest *)deleteAutoScalingGroupRequest
+{
+    AmazonServiceRequest *request = [AutoScalingDeleteAutoScalingGroupRequestMarshaller createRequest:deleteAutoScalingGroupRequest];
+
+    return (AutoScalingDeleteAutoScalingGroupResponse *)[self invoke:request rawRequest:deleteAutoScalingGroupRequest unmarshallerDelegate:[AutoScalingDeleteAutoScalingGroupResponseUnmarshaller class]];
+}
+
 -(AutoScalingDisableMetricsCollectionResponse *)disableMetricsCollection:(AutoScalingDisableMetricsCollectionRequest *)disableMetricsCollectionRequest
 {
     AmazonServiceRequest *request = [AutoScalingDisableMetricsCollectionRequestMarshaller createRequest:disableMetricsCollectionRequest];
 
     return (AutoScalingDisableMetricsCollectionResponse *)[self invoke:request rawRequest:disableMetricsCollectionRequest unmarshallerDelegate:[AutoScalingDisableMetricsCollectionResponseUnmarshaller class]];
+}
+
+-(AutoScalingUpdateAutoScalingGroupResponse *)updateAutoScalingGroup:(AutoScalingUpdateAutoScalingGroupRequest *)updateAutoScalingGroupRequest
+{
+    AmazonServiceRequest *request = [AutoScalingUpdateAutoScalingGroupRequestMarshaller createRequest:updateAutoScalingGroupRequest];
+
+    return (AutoScalingUpdateAutoScalingGroupResponse *)[self invoke:request rawRequest:updateAutoScalingGroupRequest unmarshallerDelegate:[AutoScalingUpdateAutoScalingGroupResponseUnmarshaller class]];
+}
+
+-(AutoScalingDescribeLaunchConfigurationsResponse *)describeLaunchConfigurations:(AutoScalingDescribeLaunchConfigurationsRequest *)describeLaunchConfigurationsRequest
+{
+    AmazonServiceRequest *request = [AutoScalingDescribeLaunchConfigurationsRequestMarshaller createRequest:describeLaunchConfigurationsRequest];
+
+    return (AutoScalingDescribeLaunchConfigurationsResponse *)[self invoke:request rawRequest:describeLaunchConfigurationsRequest unmarshallerDelegate:[AutoScalingDescribeLaunchConfigurationsResponseUnmarshaller class]];
+}
+
+-(AutoScalingDescribeAdjustmentTypesResponse *)describeAdjustmentTypes:(AutoScalingDescribeAdjustmentTypesRequest *)describeAdjustmentTypesRequest
+{
+    AmazonServiceRequest *request = [AutoScalingDescribeAdjustmentTypesRequestMarshaller createRequest:describeAdjustmentTypesRequest];
+
+    return (AutoScalingDescribeAdjustmentTypesResponse *)[self invoke:request rawRequest:describeAdjustmentTypesRequest unmarshallerDelegate:[AutoScalingDescribeAdjustmentTypesResponseUnmarshaller class]];
+}
+
+-(AutoScalingDescribeScheduledActionsResponse *)describeScheduledActions:(AutoScalingDescribeScheduledActionsRequest *)describeScheduledActionsRequest
+{
+    AmazonServiceRequest *request = [AutoScalingDescribeScheduledActionsRequestMarshaller createRequest:describeScheduledActionsRequest];
+
+    return (AutoScalingDescribeScheduledActionsResponse *)[self invoke:request rawRequest:describeScheduledActionsRequest unmarshallerDelegate:[AutoScalingDescribeScheduledActionsResponseUnmarshaller class]];
+}
+
+-(AutoScalingPutScheduledUpdateGroupActionResponse *)putScheduledUpdateGroupAction:(AutoScalingPutScheduledUpdateGroupActionRequest *)putScheduledUpdateGroupActionRequest
+{
+    AmazonServiceRequest *request = [AutoScalingPutScheduledUpdateGroupActionRequestMarshaller createRequest:putScheduledUpdateGroupActionRequest];
+
+    return (AutoScalingPutScheduledUpdateGroupActionResponse *)[self invoke:request rawRequest:putScheduledUpdateGroupActionRequest unmarshallerDelegate:[AutoScalingPutScheduledUpdateGroupActionResponseUnmarshaller class]];
+}
+
+-(AutoScalingDescribeMetricCollectionTypesResponse *)describeMetricCollectionTypes:(AutoScalingDescribeMetricCollectionTypesRequest *)describeMetricCollectionTypesRequest
+{
+    AmazonServiceRequest *request = [AutoScalingDescribeMetricCollectionTypesRequestMarshaller createRequest:describeMetricCollectionTypesRequest];
+
+    return (AutoScalingDescribeMetricCollectionTypesResponse *)[self invoke:request rawRequest:describeMetricCollectionTypesRequest unmarshallerDelegate:[AutoScalingDescribeMetricCollectionTypesResponseUnmarshaller class]];
+}
+
+-(AutoScalingSetDesiredCapacityResponse *)setDesiredCapacity:(AutoScalingSetDesiredCapacityRequest *)setDesiredCapacityRequest
+{
+    AmazonServiceRequest *request = [AutoScalingSetDesiredCapacityRequestMarshaller createRequest:setDesiredCapacityRequest];
+
+    return (AutoScalingSetDesiredCapacityResponse *)[self invoke:request rawRequest:setDesiredCapacityRequest unmarshallerDelegate:[AutoScalingSetDesiredCapacityResponseUnmarshaller class]];
+}
+
+-(AutoScalingTerminateInstanceInAutoScalingGroupResponse *)terminateInstanceInAutoScalingGroup:(AutoScalingTerminateInstanceInAutoScalingGroupRequest *)terminateInstanceInAutoScalingGroupRequest
+{
+    AmazonServiceRequest *request = [AutoScalingTerminateInstanceInAutoScalingGroupRequestMarshaller createRequest:terminateInstanceInAutoScalingGroupRequest];
+
+    return (AutoScalingTerminateInstanceInAutoScalingGroupResponse *)[self invoke:request rawRequest:terminateInstanceInAutoScalingGroupRequest unmarshallerDelegate:[AutoScalingTerminateInstanceInAutoScalingGroupResponseUnmarshaller class]];
 }
 
 

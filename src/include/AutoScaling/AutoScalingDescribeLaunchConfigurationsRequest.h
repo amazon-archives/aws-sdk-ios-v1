@@ -54,7 +54,7 @@
 @property (nonatomic, retain) NSString *nextToken;
 
 /**
- * The maximum number of launch configurations.
+ * The maximum number of launch configurations. The default is 100.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Range: </b>1 - 50<br/>

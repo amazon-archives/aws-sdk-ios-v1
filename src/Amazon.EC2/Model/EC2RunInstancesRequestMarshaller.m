@@ -49,21 +49,25 @@
             [request setParameterValue:[NSString stringWithFormat:@"%@", runInstancesRequest.keyName] forKey:[NSString stringWithFormat:@"%@", @"KeyName"]];
         }
     }
+
     if (runInstancesRequest != nil) {
         int securityGroupsListIndex = 1;
         for (NSString *securityGroupsListValue in runInstancesRequest.securityGroups) {
             if (securityGroupsListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", securityGroupsListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"SecurityGroup", securityGroupsListIndex]];
             }
+
             securityGroupsListIndex++;
         }
     }
+
     if (runInstancesRequest != nil) {
         int securityGroupIdsListIndex = 1;
         for (NSString *securityGroupIdsListValue in runInstancesRequest.securityGroupIds) {
             if (securityGroupIdsListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", securityGroupIdsListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"SecurityGroupId", securityGroupIdsListIndex]];
             }
+
             securityGroupIdsListIndex++;
         }
     }

@@ -18,6 +18,7 @@
 #import "EC2Request.h"
 #import "EC2CreateTagsRequest.h"
 #import "EC2Tag.h"
+#import "EC2Tag.h"
 
 
 /**

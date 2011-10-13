@@ -50,11 +50,6 @@
     [super parser:parser didEndElement:elementName namespaceURI:namespaceURI qualifiedName:qName];
 
 
-    if ([elementName isEqualToString:@"PolicyNames/member"]) {
-        [self.response.policyNames addObject:self.currentText];
-    }
-
-
     if ([elementName isEqualToString:@"ListenerDescription"]) {
         if (caller != nil) {
             [parser setDelegate:caller];

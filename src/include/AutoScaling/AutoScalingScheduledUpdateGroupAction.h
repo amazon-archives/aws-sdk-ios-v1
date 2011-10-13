@@ -29,6 +29,9 @@
     NSString *scheduledActionName;
     NSString *scheduledActionARN;
     NSDate   *time;
+    NSDate   *startTime;
+    NSDate   *endTime;
+    NSString *recurrence;
     NSNumber *minSize;
     NSNumber *maxSize;
     NSNumber *desiredCapacity;
@@ -69,11 +72,28 @@
  */
 @property (nonatomic, retain) NSString *scheduledActionARN;
 
+@property (nonatomic, retain) NSDate   *time;
+
 /**
- * The time that the action is scheduled to occur. This value can be up
+ * The time that the action is scheduled to begin. This value can be up
  * to one month in the future.
  */
-@property (nonatomic, retain) NSDate *time;
+@property (nonatomic, retain) NSDate *startTime;
+
+/**
+ * The time that the action is scheduled to end. This value can be up to
+ * one month in the future.
+ */
+@property (nonatomic, retain) NSDate *endTime;
+
+/**
+ * The regular schedule that an action occurs.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Length: </b>1 - 255<br/>
+ * <b>Pattern: </b>[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*<br/>
+ */
+@property (nonatomic, retain) NSString *recurrence;
 
 /**
  * The minimum size of the Auto Scaling group.
@@ -87,9 +107,7 @@
 
 /**
  * The number of instances you prefer to maintain in your Auto Scaling
- * group. The desired capacity must be no less than
- * <a>ScheduledUpdateGroupAction$MinSize</a> and no greater than
- * <a>ScheduledUpdateGroupAction$MaxSize</a>.
+ * group.
  */
 @property (nonatomic, retain) NSNumber *desiredCapacity;
 

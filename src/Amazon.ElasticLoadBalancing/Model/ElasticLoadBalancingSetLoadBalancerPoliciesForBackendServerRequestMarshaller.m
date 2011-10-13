@@ -39,12 +39,18 @@
             [request setParameterValue:[NSString stringWithFormat:@"%@", setLoadBalancerPoliciesForBackendServerRequest.instancePort] forKey:[NSString stringWithFormat:@"%@", @"InstancePort"]];
         }
     }
+
     if (setLoadBalancerPoliciesForBackendServerRequest != nil) {
         int policyNamesListIndex = 1;
+
+        if ([setLoadBalancerPoliciesForBackendServerRequest.policyNames count] == 0) {
+            [request setParameterValue:@"" forKey:@"PolicyNames"];
+        }
         for (NSString *policyNamesListValue in setLoadBalancerPoliciesForBackendServerRequest.policyNames) {
             if (policyNamesListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", policyNamesListValue] forKey:[NSString stringWithFormat:@"%@.member.%d", @"PolicyNames", policyNamesListIndex]];
             }
+
             policyNamesListIndex++;
         }
     }

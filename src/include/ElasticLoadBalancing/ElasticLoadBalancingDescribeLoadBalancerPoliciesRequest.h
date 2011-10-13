@@ -42,15 +42,14 @@
 /**
  * The mnemonic name associated with the LoadBalancer. If no name is
  * specified, the operation returns the attributes of either all the
- * sample policies pre-defined by the Elastic Load Balancing service or
- * the specified sample polices.
+ * sample policies pre-defined by Elastic Load Balancing or the specified
+ * sample polices.
  */
 @property (nonatomic, retain) NSString *loadBalancerName;
 
 /**
- * The names of the LoadBalancer polices created, including the sample
- * policies pre-defined by the Elastic Load Balancing service or the
- * specified sample policies.
+ * The names of LoadBalancer policies you've created or Elastic Load
+ * Balancing sample policy names.
  */
 @property (nonatomic, retain) NSMutableArray *policyNames;
 

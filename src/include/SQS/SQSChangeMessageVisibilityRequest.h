@@ -34,13 +34,13 @@
 
 
 /**
- *
+ * The URL of the SQS queue to take action on.
  */
 @property (nonatomic, retain) NSString *queueUrl;
 
 /**
  * The receipt handle associated with the message whose visibility
- * timeout the client wants to change.
+ * timeout should be changed.
  */
 @property (nonatomic, retain) NSString *receiptHandle;
 
@@ -60,9 +60,9 @@
  * Constructs a new ChangeMessageVisibilityRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theQueueUrl
+ * @param theQueueUrl The URL of the SQS queue to take action on.
  * @param theReceiptHandle The receipt handle associated with the message
- * whose visibility timeout the client wants to change.
+ * whose visibility timeout should be changed.
  * @param theVisibilityTimeout The new value (in seconds) for the
  * message's visibility timeout.
  */

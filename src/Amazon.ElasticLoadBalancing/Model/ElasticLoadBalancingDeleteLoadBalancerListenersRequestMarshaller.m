@@ -34,12 +34,14 @@
             [request setParameterValue:[NSString stringWithFormat:@"%@", deleteLoadBalancerListenersRequest.loadBalancerName] forKey:[NSString stringWithFormat:@"%@", @"LoadBalancerName"]];
         }
     }
+
     if (deleteLoadBalancerListenersRequest != nil) {
         int loadBalancerPortsListIndex = 1;
         for (NSNumber *loadBalancerPortsListValue in deleteLoadBalancerListenersRequest.loadBalancerPorts) {
             if (loadBalancerPortsListValue != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", loadBalancerPortsListValue] forKey:[NSString stringWithFormat:@"%@.member.%d", @"LoadBalancerPorts", loadBalancerPortsListIndex]];
             }
+
             loadBalancerPortsListIndex++;
         }
     }

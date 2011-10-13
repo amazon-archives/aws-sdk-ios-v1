@@ -52,7 +52,7 @@
 @property (nonatomic, retain) NSNumber *instancePort;
 
 /**
- * List of policy names to be set. If the list is blank, then all current
+ * List of policy names to be set. If the list is empty, then all current
  * polices are removed from the back-end server.
  */
 @property (nonatomic, retain) NSMutableArray *policyNames;
