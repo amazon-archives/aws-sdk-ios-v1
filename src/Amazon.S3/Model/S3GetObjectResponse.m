@@ -84,6 +84,8 @@
 -(void)dealloc
 {
     [metadata release];
+	[lastModified release];
+	[contentType release];
 
     [super dealloc];
 }

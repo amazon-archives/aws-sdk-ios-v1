@@ -223,7 +223,6 @@
         [self.request.delegate request:self.request didCompleteWithResponse:self];
     }
     
-    AMZLogDebug(@"Processing Time:[%6.5f]", processingTime);    
         
 }
 

@@ -136,6 +136,7 @@
 {
     delegate = nil;
 
+	[authorization release];
     [contentType release];
     [securityToken release];
     [httpMethod release];
