@@ -22,8 +22,7 @@
 #import "Constants.h"
 #import "Response.h"
 
-@interface AmazonClientManager : NSObject {
-    
+@interface AmazonClientManager:NSObject {
 }
 
 +(AmazonS3Client *)s3;
@@ -32,7 +31,7 @@
 +(AmazonSNSClient *)sns;
 
 +(bool)hasCredentials;
-+(Response*)validateCredentials;
++(Response *)validateCredentials;
 +(void)clearCredentials;
 +(void)wipeAllCredentials;
 

@@ -34,6 +34,7 @@
 }
 
 
+
 /**
  * The URL of the SQS queue to take action on.
  */
@@ -83,6 +84,18 @@
  * specified principal.
  */
 -(id)initWithQueueUrl:(NSString *)theQueueUrl andLabel:(NSString *)theLabel andAWSAccountIds:(NSMutableArray *)theAWSAccountIds andActions:(NSMutableArray *)theActions;
+
+/**
+ * Adds a single object to aWSAccountIds.
+ * This function will alloc and init aWSAccountIds if not already done.
+ */
+-(void)addAWSAccountId:(NSString *)aWSAccountIdObject;
+
+/**
+ * Adds a single object to actions.
+ * This function will alloc and init actions if not already done.
+ */
+-(void)addAction:(NSString *)actionObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

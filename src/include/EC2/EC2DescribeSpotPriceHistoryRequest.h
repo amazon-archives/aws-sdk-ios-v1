@@ -40,6 +40,7 @@
 
 
 
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -89,6 +90,18 @@
  * Specifies the next set of rows to return.
  */
 @property (nonatomic, retain) NSString *nextToken;
+
+/**
+ * Adds a single object to instanceTypes.
+ * This function will alloc and init instanceTypes if not already done.
+ */
+-(void)addInstanceType:(NSString *)instanceTypeObject;
+
+/**
+ * Adds a single object to productDescriptions.
+ * This function will alloc and init productDescriptions if not already done.
+ */
+-(void)addProductDescription:(NSString *)productDescriptionObject;
 
 /**
  * Adds a single object to filters.

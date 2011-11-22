@@ -33,14 +33,21 @@
 
 
 
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
  */
 -(id)init;
 
+/**
+ * The value of the SpotInstanceRequestId property for this object.
+ */
 @property (nonatomic, retain) NSString *spotInstanceRequestId;
 
+/**
+ * The value of the State property for this object.
+ */
 @property (nonatomic, retain) NSString *state;
 
 /**

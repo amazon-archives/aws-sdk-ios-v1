@@ -23,11 +23,10 @@
 #import "AmazonTVMClient.h"
 #import "Response.h"
 
-@interface AmazonClientManager : NSObject {
-    
+@interface AmazonClientManager:NSObject {
 }
 
-+(void)setup:(NSString*)accessKey secretKey:(NSString*)secretKey securityToken:(NSString*)token expiration:(NSString*)expiration;
++(void)setup:(NSString *)accessKey secretKey:(NSString *)secretKey securityToken:(NSString *)token expiration:(NSString *)expiration;
 
 +(AmazonS3Client *)s3;
 +(AmazonSimpleDBClient *)sdb;
@@ -37,9 +36,9 @@
 +(AmazonTVMClient *)tvm;
 
 +(bool)isLoggedIn;
-+(Response*)login:(NSString*)username password:(NSString*)password;
++(Response *)login:(NSString *)username password:(NSString *)password;
 +(bool)hasCredentials;
-+(Response*)validateCredentials;
++(Response *)validateCredentials;
 +(void)clearCredentials;
 +(void)wipeAllCredentials;
 

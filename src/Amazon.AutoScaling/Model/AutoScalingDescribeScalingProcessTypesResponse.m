@@ -48,6 +48,12 @@
 
 
 
+-(AutoScalingProcessType *)processesObjectAtIndex:(int)index
+{
+    return (AutoScalingProcessType *)[processes objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

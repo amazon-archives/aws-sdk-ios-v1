@@ -33,6 +33,7 @@
 }
 
 
+
 /**
  * The name associated with the LoadBalancer. The name must be unique
  * within the client AWS account.
@@ -72,6 +73,12 @@
  * is empty, the current policy is removed from the listener.
  */
 -(id)initWithLoadBalancerName:(NSString *)theLoadBalancerName andLoadBalancerPort:(NSNumber *)theLoadBalancerPort andPolicyNames:(NSMutableArray *)thePolicyNames;
+
+/**
+ * Adds a single object to policyNames.
+ * This function will alloc and init policyNames if not already done.
+ */
+-(void)addPolicyName:(NSString *)policyNameObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

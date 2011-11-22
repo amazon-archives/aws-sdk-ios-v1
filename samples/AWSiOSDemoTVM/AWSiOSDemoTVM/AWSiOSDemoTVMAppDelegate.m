@@ -27,7 +27,7 @@
 {
     [window addSubview:viewController.view];
     [window makeKeyAndVisible];
-    
+
     // Comment the line below to stop some of the logging.
     [AmazonLogger verboseLogging];
 

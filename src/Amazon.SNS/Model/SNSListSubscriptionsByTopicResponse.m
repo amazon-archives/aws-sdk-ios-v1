@@ -66,6 +66,12 @@
 
 
 
+-(SNSSubscription *)subscriptionsObjectAtIndex:(int)index
+{
+    return (SNSSubscription *)[subscriptions objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

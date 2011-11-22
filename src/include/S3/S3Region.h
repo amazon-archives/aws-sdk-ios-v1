@@ -18,6 +18,7 @@
 #import "../AmazonClientException.h"
 
 #define kS3RegionUSWest1         @"us-west-1"
+#define kS3RegionUSWest2         @"us-west-2"
 #define kS3RegionEU              @"EU"
 #define kS3RegionAPSoutheast1    @"ap-southeast-1"
 #define kS3RegionAPNortheast1    @"ap-northeast-1"
@@ -75,6 +76,18 @@
  * </p>
  */
 +(S3Region *)USWest;
+
+/**
+ * The US-West-2 (Oregon) Region. This region uses Amazon S3 servers located
+ * in Oregon.
+ * <p>
+ * When using buckets in this region, optionally set the client
+ * endpoint to <code>s3-us-west-2.amazonaws.com</code> on all requests to these buckets
+ * to reduce any latency experienced after the first hour of
+ * creating a bucket in this region.
+ * </p>
+ */
++(S3Region *)USWest2;
 
 /**
  * The EU (Ireland) Amazon S3 Region. This region uses Amazon S3 servers located

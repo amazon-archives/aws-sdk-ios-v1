@@ -33,6 +33,7 @@
 
 
 
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -58,6 +59,12 @@
  * </ul>
  */
 @property (nonatomic, retain) NSMutableArray *metrics;
+
+/**
+ * Adds a single object to metrics.
+ * This function will alloc and init metrics if not already done.
+ */
+-(void)addMetric:(NSString *)metricObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

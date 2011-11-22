@@ -27,9 +27,10 @@
 @interface SQSCreateQueueRequest:AmazonServiceRequestConfig
 
 {
-    NSString *queueName;
-    NSNumber *defaultVisibilityTimeout;
+    NSString            *queueName;
+    NSMutableDictionary *attributes;
 }
+
 
 
 /**
@@ -38,9 +39,9 @@
 @property (nonatomic, retain) NSString *queueName;
 
 /**
- * The visibility timeout (in seconds) to use for the created queue.
+ * A map of attributes with their corresponding values.
  */
-@property (nonatomic, retain) NSNumber *defaultVisibilityTimeout;
+@property (nonatomic, retain) NSMutableDictionary *attributes;
 
 
 /**
@@ -56,6 +57,13 @@
  * @param theQueueName The name for the queue to be created.
  */
 -(id)initWithQueueName:(NSString *)theQueueName;
+
+
+/**
+ * Set a value in the dictionary attributes for the specified key.
+ * This function will alloc and init attributes if not already done.
+ */
+-(void)setAttributesValue:(NSString *)theValue forKey:(NSString *)theKey;
 
 /**
  * Returns a string representation of this object; useful for testing and

@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[SQSRequest alloc] init];
 
     [request setParameterValue:@"DeleteMessage"           forKey:@"Action"];
-    [request setParameterValue:@"2009-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-10-01"   forKey:@"Version"];
 
     [request setDelegate:[deleteMessageRequest delegate]];
     [request setCredentials:[deleteMessageRequest credentials]];

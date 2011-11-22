@@ -19,28 +19,28 @@
 
 @implementation GetTokenRequest
 
--(id)initWithEndpoint:(NSString*)theEndpoint andUid:(NSString*)theUid andKey:(NSString*)theKey usingSSL:(bool)usingSSL
+-(id)initWithEndpoint:(NSString *)theEndpoint andUid:(NSString *)theUid andKey:(NSString *)theKey usingSSL:(bool)usingSSL
 {
-    if ( ( self = [super init] ) ) {
+    if ((self = [super init])) {
         endpoint = [theEndpoint retain];
-        uid = [theUid retain];
-        key = [theKey retain];
-        useSSL = usingSSL;
+        uid      = [theUid retain];
+        key      = [theKey retain];
+        useSSL   = usingSSL;
     }
-    
-    return self;    
+
+    return self;
 }
 
--(NSString*)buildRequestUrl
+-(NSString *)buildRequestUrl
 {
-    NSDate *currentTime = [NSDate date];
+    NSDate   *currentTime = [NSDate date];
 
     NSString *timestamp = [currentTime stringWithISO8601Format];
-    NSData *signature = [Crypto sha256HMac:[timestamp dataUsingEncoding:NSUTF8StringEncoding] withKey:key];
-    NSString *rawSig = [[[NSString alloc] initWithData:signature encoding:NSASCIIStringEncoding] autorelease];
-    NSString *hexSign = [Crypto hexEncode:rawSig];
-    
-    return [NSString stringWithFormat:( useSSL ? SSL_GET_TOKEN_REQUEST : GET_TOKEN_REQUEST ), endpoint, [uid stringWithURLEncoding], [timestamp stringWithURLEncoding], [hexSign stringWithURLEncoding]];    
+    NSData   *signature = [Crypto sha256HMac:[timestamp dataUsingEncoding:NSUTF8StringEncoding] withKey:key];
+    NSString *rawSig    = [[[NSString alloc] initWithData:signature encoding:NSASCIIStringEncoding] autorelease];
+    NSString *hexSign   = [Crypto hexEncode:rawSig];
+
+    return [NSString stringWithFormat:(useSSL ? SSL_GET_TOKEN_REQUEST:GET_TOKEN_REQUEST), endpoint, [uid stringWithURLEncoding], [timestamp stringWithURLEncoding], [hexSign stringWithURLEncoding]];
 }
 
 -(void)dealloc

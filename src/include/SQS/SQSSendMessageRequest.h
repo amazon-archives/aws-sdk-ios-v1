@@ -29,7 +29,9 @@
 {
     NSString *queueUrl;
     NSString *messageBody;
+    NSNumber *delaySeconds;
 }
+
 
 
 /**
@@ -41,6 +43,11 @@
  * The message to send.
  */
 @property (nonatomic, retain) NSString *messageBody;
+
+/**
+ * The number of seconds the message has to be delayed.
+ */
+@property (nonatomic, retain) NSNumber *delaySeconds;
 
 
 /**

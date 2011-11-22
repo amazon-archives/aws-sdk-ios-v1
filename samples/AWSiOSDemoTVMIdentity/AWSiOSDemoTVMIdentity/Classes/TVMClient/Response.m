@@ -20,13 +20,13 @@
 @synthesize code;
 @synthesize message;
 
--(id)initWithCode:(int)theCode andMessage:(NSString*)theMessage
+-(id)initWithCode:(int)theCode andMessage:(NSString *)theMessage
 {
-    if ( ( self = [super init] ) ) {
-        code = theCode;
+    if ((self = [super init])) {
+        code         = theCode;
         self.message = theMessage;
     }
-    
+
     return self;
 }
 

@@ -76,6 +76,15 @@
     [blockDeviceMappings addObject:blockDeviceMappingObject];
 }
 
+-(void)addGroup:(NSString *)groupObject
+{
+    if (groups == nil) {
+        groups = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [groups addObject:groupObject];
+}
+
 
 -(NSString *)description
 {

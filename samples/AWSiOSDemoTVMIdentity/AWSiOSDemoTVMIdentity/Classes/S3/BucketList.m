@@ -46,7 +46,7 @@
         [buckets sortUsingSelector:@selector(compare:)];
     }
     @catch (AmazonServiceException *exception) {
-        if ( [exception.errorCode isEqualToString:@"ExpiredToken"] ) {
+        if ( [exception.errorCode isEqualToString:@"ExpiredToken"]) {
             [[Constants expiredCredentialsAlert] show];
             [AmazonClientManager wipeAllCredentials];
         }
@@ -116,7 +116,7 @@
             [tableView endUpdates];
         }
         @catch (AmazonServiceException *exception) {
-            if ( [exception.errorCode isEqualToString:@"ExpiredToken"] ) {
+            if ( [exception.errorCode isEqualToString:@"ExpiredToken"]) {
                 [[Constants expiredCredentialsAlert] show];
                 [AmazonClientManager wipeAllCredentials];
             }

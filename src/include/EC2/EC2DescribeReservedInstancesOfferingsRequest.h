@@ -38,6 +38,7 @@
 
 
 
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -83,6 +84,12 @@
  * only be launched within a VPC.
  */
 @property (nonatomic, retain) NSString *instanceTenancy;
+
+/**
+ * Adds a single object to reservedInstancesOfferingIds.
+ * This function will alloc and init reservedInstancesOfferingIds if not already done.
+ */
+-(void)addReservedInstancesOfferingId:(NSString *)reservedInstancesOfferingIdObject;
 
 /**
  * Adds a single object to filters.

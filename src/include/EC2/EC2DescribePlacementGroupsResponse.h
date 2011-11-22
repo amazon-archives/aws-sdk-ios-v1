@@ -34,6 +34,9 @@
 
 
 
+-(void)setException:(AmazonServiceException *)theException;
+
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -44,6 +47,13 @@
  * Contains information about the specified <code>PlacementGroups</code>.
  */
 @property (nonatomic, retain) NSMutableArray *placementGroups;
+
+
+
+/**
+ * Returns a value from the placementGroups array for the specified index
+ */
+-(EC2PlacementGroup *)placementGroupsObjectAtIndex:(int)index;
 
 /**
  * Returns a string representation of this object; useful for testing and

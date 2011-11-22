@@ -33,6 +33,15 @@
 }
 
 
+-(void)addGroupName:(NSString *)groupNameObject
+{
+    if (groupNames == nil) {
+        groupNames = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [groupNames addObject:groupNameObject];
+}
+
 -(void)addFilter:(EC2Filter *)filterObject
 {
     if (filters == nil) {

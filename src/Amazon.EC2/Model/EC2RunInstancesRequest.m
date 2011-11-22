@@ -84,6 +84,24 @@
 }
 
 
+-(void)addSecurityGroup:(NSString *)securityGroupObject
+{
+    if (securityGroups == nil) {
+        securityGroups = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [securityGroups addObject:securityGroupObject];
+}
+
+-(void)addSecurityGroupId:(NSString *)securityGroupIdObject
+{
+    if (securityGroupIds == nil) {
+        securityGroupIds = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [securityGroupIds addObject:securityGroupIdObject];
+}
+
 -(void)addBlockDeviceMapping:(EC2BlockDeviceMapping *)blockDeviceMappingObject
 {
     if (blockDeviceMappings == nil) {

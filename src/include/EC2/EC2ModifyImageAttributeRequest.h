@@ -40,6 +40,7 @@
 }
 
 
+
 /**
  * The ID of the AMI whose attribute you want to modify.
  */
@@ -82,8 +83,11 @@
  * The value of the attribute being modified. Only valid when the
  * description attribute is being modified.
  */
-@property (nonatomic, retain) NSString                         *value;
+@property (nonatomic, retain) NSString *value;
 
+/**
+ * The value of the LaunchPermission property for this object.
+ */
 @property (nonatomic, retain) EC2LaunchPermissionModifications *launchPermission;
 
 /**
@@ -109,6 +113,24 @@
  * <code>productCodes</code>
  */
 -(id)initWithImageId:(NSString *)theImageId andAttribute:(NSString *)theAttribute;
+
+/**
+ * Adds a single object to userIds.
+ * This function will alloc and init userIds if not already done.
+ */
+-(void)addUserId:(NSString *)userIdObject;
+
+/**
+ * Adds a single object to userGroups.
+ * This function will alloc and init userGroups if not already done.
+ */
+-(void)addUserGroup:(NSString *)userGroupObject;
+
+/**
+ * Adds a single object to productCodes.
+ * This function will alloc and init productCodes if not already done.
+ */
+-(void)addProductCode:(NSString *)productCodeObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

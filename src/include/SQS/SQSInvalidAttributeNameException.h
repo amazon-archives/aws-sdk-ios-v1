@@ -20,7 +20,7 @@
 
 /**
  * <p>
- * Unknown attribute.
+ * The attribute referred to does not exist.
  * </p>
  *
  * \ingroup SQS

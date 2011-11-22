@@ -48,6 +48,12 @@
 
 
 
+-(EC2Region *)regionsObjectAtIndex:(int)index
+{
+    return (EC2Region *)[regions objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

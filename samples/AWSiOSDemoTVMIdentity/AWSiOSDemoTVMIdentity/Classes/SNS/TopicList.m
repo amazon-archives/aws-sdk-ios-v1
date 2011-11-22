@@ -41,7 +41,7 @@
         [topics sortUsingSelector:@selector(compare:)];
     }
     @catch (AmazonServiceException *exception) {
-        if ( [exception.errorCode isEqualToString:@"ExpiredToken"] ) {
+        if ( [exception.errorCode isEqualToString:@"ExpiredToken"]) {
             [[Constants expiredCredentialsAlert] show];
             [AmazonClientManager wipeAllCredentials];
         }

@@ -34,6 +34,7 @@
 
 
 
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -65,6 +66,12 @@
  * <b>Pattern: </b>[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*<br/>
  */
 @property (nonatomic, retain) NSString *nextToken;
+
+/**
+ * Adds a single object to instanceIds.
+ * This function will alloc and init instanceIds if not already done.
+ */
+-(void)addInstanceId:(NSString *)instanceIdObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

@@ -67,8 +67,8 @@
     if ( [S3BucketNameUtilities contains:theBucketName searchString:@"_"]) {
         return NO;
     }
-    
-    if ( [S3BucketNameUtilities contains:theBucketName searchString:@"."] ) {
+
+    if ( [S3BucketNameUtilities contains:theBucketName searchString:@"."]) {
         return NO;
     }
 

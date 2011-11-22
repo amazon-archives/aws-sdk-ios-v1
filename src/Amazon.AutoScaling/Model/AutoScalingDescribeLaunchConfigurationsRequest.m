@@ -35,6 +35,15 @@
 }
 
 
+-(void)addLaunchConfigurationName:(NSString *)launchConfigurationNameObject
+{
+    if (launchConfigurationNames == nil) {
+        launchConfigurationNames = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [launchConfigurationNames addObject:launchConfigurationNameObject];
+}
+
 
 -(NSString *)description
 {

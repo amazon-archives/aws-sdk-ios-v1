@@ -18,6 +18,7 @@
 #import "../AmazonServiceExceptionUnmarshaller.h"
 
 #import "SQSReceiptHandleIsInvalidException.h"
+#import "SQSInvalidIdFormatException.h"
 
 /**
  * Delete Message

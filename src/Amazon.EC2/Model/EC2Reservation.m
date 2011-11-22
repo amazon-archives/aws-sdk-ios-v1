@@ -50,6 +50,15 @@
     [groups addObject:groupObject];
 }
 
+-(void)addGroupName:(NSString *)groupNameObject
+{
+    if (groupNames == nil) {
+        groupNames = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [groupNames addObject:groupNameObject];
+}
+
 -(void)addInstance:(EC2Instance *)instanceObject
 {
     if (instances == nil) {

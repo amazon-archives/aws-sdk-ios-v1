@@ -35,6 +35,7 @@
 }
 
 
+
 /**
  * The name of the domain in which to perform the operation.
  */
@@ -77,6 +78,12 @@
  * @param theItemName The name of the item.
  */
 -(id)initWithDomainName:(NSString *)theDomainName andItemName:(NSString *)theItemName;
+
+/**
+ * Adds a single object to attributeNames.
+ * This function will alloc and init attributeNames if not already done.
+ */
+-(void)addAttributeName:(NSString *)attributeNameObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

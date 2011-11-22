@@ -31,6 +31,7 @@
 }
 
 
+
 /**
  * Specifies the ID of the Spot Instance request.
  */
@@ -51,6 +52,12 @@
  * request.
  */
 -(id)initWithSpotInstanceRequestIds:(NSMutableArray *)theSpotInstanceRequestIds;
+
+/**
+ * Adds a single object to spotInstanceRequestIds.
+ * This function will alloc and init spotInstanceRequestIds if not already done.
+ */
+-(void)addSpotInstanceRequestId:(NSString *)spotInstanceRequestIdObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

@@ -33,6 +33,7 @@
 }
 
 
+
 /**
  * The list of Amazon EC2 instances to stop.
  */
@@ -62,6 +63,12 @@
  * @param theInstanceIds The list of Amazon EC2 instances to stop.
  */
 -(id)initWithInstanceIds:(NSMutableArray *)theInstanceIds;
+
+/**
+ * Adds a single object to instanceIds.
+ * This function will alloc and init instanceIds if not already done.
+ */
+-(void)addInstanceId:(NSString *)instanceIdObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

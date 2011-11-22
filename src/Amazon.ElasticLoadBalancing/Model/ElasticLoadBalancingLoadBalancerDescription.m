@@ -71,6 +71,15 @@
     [backendServerDescriptions addObject:backendServerDescriptionObject];
 }
 
+-(void)addAvailabilityZone:(NSString *)availabilityZoneObject
+{
+    if (availabilityZones == nil) {
+        availabilityZones = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [availabilityZones addObject:availabilityZoneObject];
+}
+
 -(void)addInstance:(ElasticLoadBalancingInstance *)instanceObject
 {
     if (instances == nil) {

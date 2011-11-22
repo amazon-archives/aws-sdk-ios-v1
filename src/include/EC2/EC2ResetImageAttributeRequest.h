@@ -32,6 +32,7 @@
 }
 
 
+
 /**
  * The ID of the AMI whose attribute is being reset.
  */

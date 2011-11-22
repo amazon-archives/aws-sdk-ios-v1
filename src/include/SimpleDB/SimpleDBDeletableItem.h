@@ -31,8 +31,15 @@
 }
 
 
-@property (nonatomic, retain) NSString       *name;
 
+/**
+ * The value of the Name property for this object.
+ */
+@property (nonatomic, retain) NSString *name;
+
+/**
+ * The value of the Attributes property for this object.
+ */
 @property (nonatomic, retain) NSMutableArray *attributes;
 
 

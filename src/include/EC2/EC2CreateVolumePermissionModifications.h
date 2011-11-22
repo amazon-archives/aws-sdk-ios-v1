@@ -33,14 +33,21 @@
 
 
 
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
  */
 -(id)init;
 
+/**
+ * The value of the Add property for this object.
+ */
 @property (nonatomic, retain) NSMutableArray *add;
 
+/**
+ * The value of the Remove property for this object.
+ */
 @property (nonatomic, retain) NSMutableArray *remove;
 
 /**

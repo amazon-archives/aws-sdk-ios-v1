@@ -27,11 +27,11 @@
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [window addSubview:viewController.view];
-    [window makeKeyAndVisible];        
-    
+    [window makeKeyAndVisible];
+
     // Comment the line below to stop some of the logging.
     [AmazonLogger verboseLogging];
-    
+
     return YES;
 }
 

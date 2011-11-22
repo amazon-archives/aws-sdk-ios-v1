@@ -22,15 +22,15 @@
 @synthesize securityToken;
 @synthesize expirationDate;
 
--(id)initWithAccessKey:(NSString*)theAccessKey andSecretKey:(NSString*)theSecurityKey andSecurityToken:(NSString*)theSecurityToken andExpirationDate:(NSString*)theExpirationDate
+-(id)initWithAccessKey:(NSString *)theAccessKey andSecretKey:(NSString *)theSecurityKey andSecurityToken:(NSString *)theSecurityToken andExpirationDate:(NSString *)theExpirationDate
 {
-    if ( ( self = [super initWithCode:200 andMessage:nil] ) ) {
-        self.accessKey = theAccessKey;
-        self.secretKey = theSecurityKey;
-        self.securityToken = theSecurityToken;
+    if ((self = [super initWithCode:200 andMessage:nil])) {
+        self.accessKey      = theAccessKey;
+        self.secretKey      = theSecurityKey;
+        self.securityToken  = theSecurityToken;
         self.expirationDate = theExpirationDate;
     }
-    
+
     return self;
 }
 
@@ -40,7 +40,7 @@
     [secretKey release];
     [securityToken release];
     [expirationDate release];
-    
+
     [super dealloc];
 }
 

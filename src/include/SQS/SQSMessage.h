@@ -33,6 +33,7 @@
 }
 
 
+
 /**
  *
  */
@@ -64,6 +65,13 @@
  * property methods to initialize this object after creating it.
  */
 -(id)init;
+
+
+/**
+ * Set a value in the dictionary attributes for the specified key.
+ * This function will alloc and init attributes if not already done.
+ */
+-(void)setAttributesValue:(NSString *)theValue forKey:(NSString *)theKey;
 
 /**
  * Returns a string representation of this object; useful for testing and

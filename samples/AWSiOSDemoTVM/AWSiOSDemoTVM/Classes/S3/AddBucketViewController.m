@@ -28,7 +28,7 @@
         [[AmazonClientManager s3] createBucket:[[[S3CreateBucketRequest alloc] initWithName:bucketName.text] autorelease]];
     }
     @catch (AmazonServiceException *exception) {
-        if ( [exception.errorCode isEqualToString:@"ExpiredToken"] ) {
+        if ( [exception.errorCode isEqualToString:@"ExpiredToken"]) {
             [[Constants expiredCredentialsAlert] show];
             [AmazonClientManager wipeAllCredentials];
         }

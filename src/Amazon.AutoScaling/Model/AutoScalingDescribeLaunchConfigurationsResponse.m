@@ -54,6 +54,12 @@
 
 
 
+-(AutoScalingLaunchConfiguration *)launchConfigurationsObjectAtIndex:(int)index
+{
+    return (AutoScalingLaunchConfiguration *)[launchConfigurations objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

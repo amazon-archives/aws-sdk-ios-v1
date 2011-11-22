@@ -50,6 +50,12 @@
 
 
 
+-(EC2CreateVolumePermission *)createVolumePermissionsObjectAtIndex:(int)index
+{
+    return (EC2CreateVolumePermission *)[createVolumePermissions objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

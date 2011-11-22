@@ -18,12 +18,12 @@
 @implementation Constants
 
 
-+(NSString*)pictureBucket
++(NSString *)pictureBucket
 {
     return [[NSString stringWithFormat:@"my-unique-name-%@%@", ACCESS_KEY_ID, PICTURE_BUCKET] lowercaseString];
 }
 
-+(void)showAlertMessage:(NSString*)message withTitle:(NSString*)title
++(void)showAlertMessage:(NSString *)message withTitle:(NSString *)title
 {
     [[[[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
 }

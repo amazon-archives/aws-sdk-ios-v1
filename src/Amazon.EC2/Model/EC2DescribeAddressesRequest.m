@@ -35,6 +35,15 @@
 }
 
 
+-(void)addPublicIp:(NSString *)publicIpObject
+{
+    if (publicIps == nil) {
+        publicIps = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [publicIps addObject:publicIpObject];
+}
+
 -(void)addFilter:(EC2Filter *)filterObject
 {
     if (filters == nil) {
@@ -42,6 +51,15 @@
     }
 
     [filters addObject:filterObject];
+}
+
+-(void)addAllocationId:(NSString *)allocationIdObject
+{
+    if (allocationIds == nil) {
+        allocationIds = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [allocationIds addObject:allocationIdObject];
 }
 
 

@@ -46,7 +46,7 @@
     }
     if (createImageRequest != nil) {
         if (createImageRequest.noRebootIsSet) {
-            [request setParameterValue:(createImageRequest.noReboot ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"NoReboot"]];
+            [request setParameterValue:(createImageRequest.noReboot ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@", @"NoReboot"]];
         }
     }
 

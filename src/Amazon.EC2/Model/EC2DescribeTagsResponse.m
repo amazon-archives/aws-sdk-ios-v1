@@ -48,6 +48,12 @@
 
 
 
+-(EC2TagDescription *)tagsObjectAtIndex:(int)index
+{
+    return (EC2TagDescription *)[tags objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

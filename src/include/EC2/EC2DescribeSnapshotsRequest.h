@@ -36,6 +36,7 @@
 
 
 
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -66,6 +67,24 @@
  * EC2 API reference</a>.
  */
 @property (nonatomic, retain) NSMutableArray *filters;
+
+/**
+ * Adds a single object to snapshotIds.
+ * This function will alloc and init snapshotIds if not already done.
+ */
+-(void)addSnapshotId:(NSString *)snapshotIdObject;
+
+/**
+ * Adds a single object to ownerIds.
+ * This function will alloc and init ownerIds if not already done.
+ */
+-(void)addOwnerId:(NSString *)ownerIdObject;
+
+/**
+ * Adds a single object to restorableByUserIds.
+ * This function will alloc and init restorableByUserIds if not already done.
+ */
+-(void)addRestorableByUserId:(NSString *)restorableByUserIdObject;
 
 /**
  * Adds a single object to filters.

@@ -40,6 +40,15 @@
 }
 
 
+-(void)addLoadBalancerName:(NSString *)loadBalancerNameObject
+{
+    if (loadBalancerNames == nil) {
+        loadBalancerNames = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [loadBalancerNames addObject:loadBalancerNameObject];
+}
+
 
 -(NSString *)description
 {

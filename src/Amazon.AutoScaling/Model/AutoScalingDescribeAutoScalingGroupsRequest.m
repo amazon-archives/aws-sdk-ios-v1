@@ -35,6 +35,15 @@
 }
 
 
+-(void)addAutoScalingGroupName:(NSString *)autoScalingGroupNameObject
+{
+    if (autoScalingGroupNames == nil) {
+        autoScalingGroupNames = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [autoScalingGroupNames addObject:autoScalingGroupNameObject];
+}
+
 
 -(NSString *)description
 {

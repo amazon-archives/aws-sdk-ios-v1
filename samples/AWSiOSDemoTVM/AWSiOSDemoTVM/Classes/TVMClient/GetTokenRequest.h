@@ -16,16 +16,16 @@
 #import <Foundation/Foundation.h>
 #import "Request.h"
 
-#define GET_TOKEN_REQUEST       @"http://%@/gettoken?uid=%@&timestamp=%@&signature=%@"
-#define SSL_GET_TOKEN_REQUEST   @"https://%@/gettoken?uid=%@&timestamp=%@&signature=%@"
+#define GET_TOKEN_REQUEST        @"http://%@/gettoken?uid=%@&timestamp=%@&signature=%@"
+#define SSL_GET_TOKEN_REQUEST    @"https://%@/gettoken?uid=%@&timestamp=%@&signature=%@"
 
-@interface GetTokenRequest : Request {
+@interface GetTokenRequest:Request {
     NSString *endpoint;
     NSString *uid;
     NSString *key;
-    bool useSSL;
+    bool     useSSL;
 }
 
--(id)initWithEndpoint:(NSString*)theEndpoint andUid:(NSString*)theUid andKey:(NSString*)theKey usingSSL:(bool)usingSSL;
+-(id)initWithEndpoint:(NSString *)theEndpoint andUid:(NSString *)theUid andKey:(NSString *)theKey usingSSL:(bool)usingSSL;
 
 @end

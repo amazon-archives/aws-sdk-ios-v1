@@ -43,6 +43,15 @@
 }
 
 
+-(void)addResource:(NSString *)resourceObject
+{
+    if (resources == nil) {
+        resources = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [resources addObject:resourceObject];
+}
+
 -(void)addTag:(EC2Tag *)tagObject
 {
     if (tags == nil) {

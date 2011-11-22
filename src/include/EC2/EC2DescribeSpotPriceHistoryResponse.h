@@ -35,12 +35,18 @@
 
 
 
+-(void)setException:(AmazonServiceException *)theException;
+
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
  */
 -(id)init;
 
+/**
+ * The value of the SpotPriceHistory property for this object.
+ */
 @property (nonatomic, retain) NSMutableArray *spotPriceHistory;
 
 /**
@@ -48,6 +54,13 @@
  * there are no more results to be returned.
  */
 @property (nonatomic, retain) NSString *nextToken;
+
+
+
+/**
+ * Returns a value from the spotPriceHistory array for the specified index
+ */
+-(EC2SpotPrice *)spotPriceHistoryObjectAtIndex:(int)index;
 
 /**
  * Returns a string representation of this object; useful for testing and

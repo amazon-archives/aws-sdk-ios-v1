@@ -48,6 +48,12 @@
 
 
 
+-(AutoScalingAdjustmentType *)adjustmentTypesObjectAtIndex:(int)index
+{
+    return (AutoScalingAdjustmentType *)[adjustmentTypes objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

@@ -16,10 +16,10 @@
 #import <Foundation/Foundation.h>
 #import "ResponseHandler.h"
 
-@interface GetTokenResponseHandler : ResponseHandler {
+@interface GetTokenResponseHandler:ResponseHandler {
     NSString *key;
 }
 
--(id)initWithKey:(NSString*)theKey;
+-(id)initWithKey:(NSString *)theKey;
 
 @end

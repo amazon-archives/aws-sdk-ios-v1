@@ -58,6 +58,12 @@
 
 
 
+-(NSString *)domainNamesObjectAtIndex:(int)index
+{
+    return (NSString *)[domainNames objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

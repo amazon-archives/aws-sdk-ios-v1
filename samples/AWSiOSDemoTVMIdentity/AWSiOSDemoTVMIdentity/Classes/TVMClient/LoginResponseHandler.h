@@ -16,10 +16,10 @@
 #import <Foundation/Foundation.h>
 #import "ResponseHandler.h"
 
-@interface LoginResponseHandler : ResponseHandler {
+@interface LoginResponseHandler:ResponseHandler {
     NSString *decryptionKey;
 }
 
--(id)initWithKey:(NSString*)theDecryptionKey;
+-(id)initWithKey:(NSString *)theDecryptionKey;
 
 @end

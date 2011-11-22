@@ -62,6 +62,12 @@
 
 
 
+-(SNSTopic *)topicsObjectAtIndex:(int)index
+{
+    return (SNSTopic *)[topics objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

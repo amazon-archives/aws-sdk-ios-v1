@@ -48,7 +48,7 @@
 {
     AMZLogDebug(@"didCompleteWithResponse");
     [response release];
-    response = [aResponse retain];
+    response         = [aResponse retain];
     response.request = request;
 }
 

@@ -64,6 +64,15 @@
     [listeners addObject:listenerObject];
 }
 
+-(void)addAvailabilityZone:(NSString *)availabilityZoneObject
+{
+    if (availabilityZones == nil) {
+        availabilityZones = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [availabilityZones addObject:availabilityZoneObject];
+}
+
 
 -(NSString *)description
 {

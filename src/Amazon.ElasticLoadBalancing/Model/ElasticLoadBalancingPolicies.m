@@ -53,6 +53,15 @@
     [lBCookieStickinessPolicies addObject:lBCookieStickinessPolicyObject];
 }
 
+-(void)addOtherPolicy:(NSString *)otherPolicyObject
+{
+    if (otherPolicies == nil) {
+        otherPolicies = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [otherPolicies addObject:otherPolicyObject];
+}
+
 
 -(NSString *)description
 {

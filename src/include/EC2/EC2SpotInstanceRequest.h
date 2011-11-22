@@ -49,40 +49,80 @@
 
 
 
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
  */
 -(id)init;
 
-@property (nonatomic, retain) NSString                  *spotInstanceRequestId;
+/**
+ * The value of the SpotInstanceRequestId property for this object.
+ */
+@property (nonatomic, retain) NSString *spotInstanceRequestId;
 
-@property (nonatomic, retain) NSString                  *spotPrice;
+/**
+ * The value of the SpotPrice property for this object.
+ */
+@property (nonatomic, retain) NSString *spotPrice;
 
-@property (nonatomic, retain) NSString                  *type;
+/**
+ * The value of the Type property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>one-time, persistent
+ */
+@property (nonatomic, retain) NSString *type;
 
-@property (nonatomic, retain) NSString                  *state;
+/**
+ * The value of the State property for this object.
+ */
+@property (nonatomic, retain) NSString *state;
 
+/**
+ * The value of the Fault property for this object.
+ */
 @property (nonatomic, retain) EC2SpotInstanceStateFault *fault;
 
-@property (nonatomic, retain) NSDate                    *validFrom;
+/**
+ * The value of the ValidFrom property for this object.
+ */
+@property (nonatomic, retain) NSDate *validFrom;
 
-@property (nonatomic, retain) NSDate                    *validUntil;
+/**
+ * The value of the ValidUntil property for this object.
+ */
+@property (nonatomic, retain) NSDate *validUntil;
 
-@property (nonatomic, retain) NSString                  *launchGroup;
+/**
+ * The value of the LaunchGroup property for this object.
+ */
+@property (nonatomic, retain) NSString *launchGroup;
 
-@property (nonatomic, retain) NSString                  *availabilityZoneGroup;
+/**
+ * The value of the AvailabilityZoneGroup property for this object.
+ */
+@property (nonatomic, retain) NSString *availabilityZoneGroup;
 
 /**
  * The LaunchSpecificationType data type.
  */
 @property (nonatomic, retain) EC2LaunchSpecification *launchSpecification;
 
-@property (nonatomic, retain) NSString               *instanceId;
+/**
+ * The value of the InstanceId property for this object.
+ */
+@property (nonatomic, retain) NSString *instanceId;
 
-@property (nonatomic, retain) NSDate                 *createTime;
+/**
+ * The value of the CreateTime property for this object.
+ */
+@property (nonatomic, retain) NSDate *createTime;
 
-@property (nonatomic, retain) NSString               *productDescription;
+/**
+ * The value of the ProductDescription property for this object.
+ */
+@property (nonatomic, retain) NSString *productDescription;
 
 /**
  * A list of tags for this spot instance request.

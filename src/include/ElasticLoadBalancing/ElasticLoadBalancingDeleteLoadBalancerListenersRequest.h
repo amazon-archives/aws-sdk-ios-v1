@@ -32,6 +32,7 @@
 }
 
 
+
 /**
  * The mnemonic name associated with the LoadBalancer.
  */
@@ -60,6 +61,12 @@
  * LoadBalancerListener(s) to be removed.
  */
 -(id)initWithLoadBalancerName:(NSString *)theLoadBalancerName andLoadBalancerPorts:(NSMutableArray *)theLoadBalancerPorts;
+
+/**
+ * Adds a single object to loadBalancerPorts.
+ * This function will alloc and init loadBalancerPorts if not already done.
+ */
+-(void)addLoadBalancerPort:(NSNumber *)loadBalancerPortObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

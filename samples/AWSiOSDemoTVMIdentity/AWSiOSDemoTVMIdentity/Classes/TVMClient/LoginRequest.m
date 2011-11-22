@@ -22,41 +22,41 @@
 
 @synthesize decryptionKey;
 
--(id)initWithEndpoint:(NSString*)theEndpoint andUid:(NSString*)theUid andUsername:(NSString*)theUsername andPassword:(NSString*)thePassword andAppName:(NSString*)theAppName usingSSL:(bool)usingSSL
+-(id)initWithEndpoint:(NSString *)theEndpoint andUid:(NSString *)theUid andUsername:(NSString *)theUsername andPassword:(NSString *)thePassword andAppName:(NSString *)theAppName usingSSL:(bool)usingSSL
 {
-    if ( ( self = [super init] ) ) {
+    if ((self = [super init])) {
         endpoint = [theEndpoint retain];
-        uid = [theUid retain];
+        uid      = [theUid retain];
         username = [theUsername retain];
         password = [thePassword retain];
-        appName = [theAppName retain];
-        useSSL = usingSSL;
-        
+        appName  = [theAppName retain];
+        useSSL   = usingSSL;
+
         self.decryptionKey = [self computeDecryptionKey];
     }
-    
-    return self;    
+
+    return self;
 }
 
--(NSString*)buildRequestUrl
+-(NSString *)buildRequestUrl
 {
-    NSDate *currentTime = [NSDate date];
-    
+    NSDate   *currentTime = [NSDate date];
+
     NSString *timestamp = [currentTime stringWithISO8601Format];
-    NSData *signature = [Crypto sha256HMac:[timestamp dataUsingEncoding:NSUTF8StringEncoding] withKey:self.decryptionKey];
-    NSString *rawSig = [[[NSString alloc] initWithData:signature encoding:NSASCIIStringEncoding] autorelease];
-    NSString *hexSign = [Crypto hexEncode:rawSig];
-    
-    return [NSString stringWithFormat:( useSSL ? SSL_LOGIN_REQUEST : LOGIN_REQUEST ), endpoint, [uid stringWithURLEncoding], [username stringWithURLEncoding], [timestamp stringWithURLEncoding], [hexSign stringWithURLEncoding]];    
+    NSData   *signature = [Crypto sha256HMac:[timestamp dataUsingEncoding:NSUTF8StringEncoding] withKey:self.decryptionKey];
+    NSString *rawSig    = [[[NSString alloc] initWithData:signature encoding:NSASCIIStringEncoding] autorelease];
+    NSString *hexSign   = [Crypto hexEncode:rawSig];
+
+    return [NSString stringWithFormat:(useSSL ? SSL_LOGIN_REQUEST:LOGIN_REQUEST), endpoint, [uid stringWithURLEncoding], [username stringWithURLEncoding], [timestamp stringWithURLEncoding], [hexSign stringWithURLEncoding]];
 }
 
--(NSString*)computeDecryptionKey 
+-(NSString *)computeDecryptionKey
 {
-    NSString *salt = [NSString stringWithFormat:@"%@%@%@", username, appName, endpoint ];
-    NSData *hashedSalt = [Crypto sha256HMac:[salt dataUsingEncoding:NSUTF8StringEncoding] withKey:password];
+    NSString *salt       = [NSString stringWithFormat:@"%@%@%@", username, appName, endpoint];
+    NSData   *hashedSalt = [Crypto sha256HMac:[salt dataUsingEncoding:NSUTF8StringEncoding] withKey:password];
     NSString *rawSaltStr = [[[NSString alloc] initWithData:hashedSalt encoding:NSASCIIStringEncoding] autorelease];
-    
-    return [Crypto hexEncode:rawSaltStr];    
+
+    return [Crypto hexEncode:rawSaltStr];
 }
 
 -(void)dealloc
@@ -67,7 +67,7 @@
     [password release];
     [appName release];
     [decryptionKey release];
-    
+
     [super dealloc];
 }
 

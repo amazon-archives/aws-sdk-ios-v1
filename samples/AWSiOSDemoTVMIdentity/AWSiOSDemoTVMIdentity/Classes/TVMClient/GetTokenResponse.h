@@ -16,18 +16,18 @@
 #import <Foundation/Foundation.h>
 #import "Response.h"
 
-@interface GetTokenResponse : Response {
+@interface GetTokenResponse:Response {
     NSString *accessKey;
     NSString *secretKey;
     NSString *securityToken;
     NSString *expirationDate;
 }
 
-@property (nonatomic, retain) NSString* accessKey;
-@property (nonatomic, retain) NSString* secretKey;
-@property (nonatomic, retain) NSString* securityToken;
-@property (nonatomic, retain) NSString* expirationDate;
+@property (nonatomic, retain) NSString *accessKey;
+@property (nonatomic, retain) NSString *secretKey;
+@property (nonatomic, retain) NSString *securityToken;
+@property (nonatomic, retain) NSString *expirationDate;
 
--(id)initWithAccessKey:(NSString*)theAccessKey andSecretKey:(NSString*)theSecurityKey andSecurityToken:(NSString*)theSecurityToken andExpirationDate:(NSString*)theExpirationDate;
+-(id)initWithAccessKey:(NSString *)theAccessKey andSecretKey:(NSString *)theSecurityKey andSecurityToken:(NSString *)theSecurityToken andExpirationDate:(NSString *)theExpirationDate;
 
 @end

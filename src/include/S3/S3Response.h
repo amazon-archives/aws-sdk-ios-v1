@@ -38,7 +38,7 @@
 
     NSDateFormatter     *dateFormatter;
 
-    NSMutableDictionary *headers;    
+    NSMutableDictionary *headers;
 }
 
 /** Specfies whether the connection to the server is open or closed. */

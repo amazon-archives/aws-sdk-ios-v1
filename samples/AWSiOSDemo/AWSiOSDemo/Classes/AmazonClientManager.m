@@ -51,19 +51,19 @@ static AmazonSNSClient      *sns = nil;
 
 +(bool)hasCredentials
 {
-    return ( ![ACCESS_KEY_ID isEqualToString:@"CHANGE ME"] && ![SECRET_KEY isEqualToString:@"CHANGE ME"]);
+    return (![ACCESS_KEY_ID isEqualToString:@"CHANGE ME"] && ![SECRET_KEY isEqualToString:@"CHANGE ME"]);
 }
 
-+(void)validateCredentials 
++(void)validateCredentials
 {
-    if ( ( sdb == nil ) || ( s3 == nil ) || ( sqs == nil ) || ( sns == nil ) ) {
+    if ((sdb == nil) || (s3 == nil) || (sqs == nil) || (sns == nil)) {
         [AmazonClientManager clearCredentials];
-        
-        s3 = [[AmazonS3Client alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY];
+
+        s3  = [[AmazonS3Client alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY];
         sdb = [[AmazonSimpleDBClient alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY];
         sqs = [[AmazonSQSClient alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY];
         sns = [[AmazonSNSClient alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY];
-    }    
+    }
 }
 
 +(void)clearCredentials
@@ -72,8 +72,8 @@ static AmazonSNSClient      *sns = nil;
     [sdb release];
     [sns release];
     [sqs release];
-    
-    s3 = nil;
+
+    s3  = nil;
     sdb = nil;
     sqs = nil;
     sns = nil;

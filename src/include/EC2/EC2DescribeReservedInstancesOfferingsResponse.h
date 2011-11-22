@@ -34,6 +34,9 @@
 
 
 
+-(void)setException:(AmazonServiceException *)theException;
+
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -44,6 +47,13 @@
  * The list of described Reserved Instance offerings.
  */
 @property (nonatomic, retain) NSMutableArray *reservedInstancesOfferings;
+
+
+
+/**
+ * Returns a value from the reservedInstancesOfferings array for the specified index
+ */
+-(EC2ReservedInstancesOffering *)reservedInstancesOfferingsObjectAtIndex:(int)index;
 
 /**
  * Returns a string representation of this object; useful for testing and

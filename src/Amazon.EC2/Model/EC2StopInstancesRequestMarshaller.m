@@ -42,7 +42,7 @@
     }
     if (stopInstancesRequest != nil) {
         if (stopInstancesRequest.forceIsSet) {
-            [request setParameterValue:(stopInstancesRequest.force ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"Force"]];
+            [request setParameterValue:(stopInstancesRequest.force ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@", @"Force"]];
         }
     }
 

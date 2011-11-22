@@ -57,6 +57,33 @@
 }
 
 
+-(void)addUserId:(NSString *)userIdObject
+{
+    if (userIds == nil) {
+        userIds = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [userIds addObject:userIdObject];
+}
+
+-(void)addUserGroup:(NSString *)userGroupObject
+{
+    if (userGroups == nil) {
+        userGroups = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [userGroups addObject:userGroupObject];
+}
+
+-(void)addProductCode:(NSString *)productCodeObject
+{
+    if (productCodes == nil) {
+        productCodes = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [productCodes addObject:productCodeObject];
+}
+
 
 -(NSString *)description
 {

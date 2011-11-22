@@ -48,6 +48,12 @@
 
 
 
+-(EC2CancelledSpotInstanceRequest *)cancelledSpotInstanceRequestsObjectAtIndex:(int)index
+{
+    return (EC2CancelledSpotInstanceRequest *)[cancelledSpotInstanceRequests objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

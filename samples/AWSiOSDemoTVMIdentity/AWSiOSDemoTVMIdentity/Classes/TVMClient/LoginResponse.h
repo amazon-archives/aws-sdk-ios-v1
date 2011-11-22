@@ -16,12 +16,12 @@
 #import <Foundation/Foundation.h>
 #import "Response.h"
 
-@interface LoginResponse : Response {
+@interface LoginResponse:Response {
     NSString *key;
 }
 
-@property (nonatomic, retain) NSString* key;
+@property (nonatomic, retain) NSString *key;
 
--(id)initWithKey:(NSString*)theKey;
+-(id)initWithKey:(NSString *)theKey;
 
 @end

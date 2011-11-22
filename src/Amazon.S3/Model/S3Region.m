@@ -48,6 +48,16 @@
     return west;
 }
 
++(S3Region *)USWest2
+{
+    static S3Region *west2 = nil;
+    
+    if (west2 == nil) {
+        west2 = [[S3Region alloc] initWithStringValue:kS3RegionUSWest2];
+    }
+    return west2;
+}
+
 +(S3Region *)EUIreland
 {
     static S3Region *eu = nil;
@@ -85,6 +95,9 @@
     }
     if ([regionName isEqual:kS3RegionUSWest1]) {
         return [S3Region USWest];
+    }
+    if ([regionName isEqual:kS3RegionUSWest2]) {
+        return [S3Region USWest2];
     }
     if ([regionName isEqual:kS3RegionEU]) {
         return [S3Region EUIreland];

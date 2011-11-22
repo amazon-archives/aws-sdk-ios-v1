@@ -32,6 +32,7 @@
 }
 
 
+
 /**
  * The unique ID of the Reserved Instances offering being purchased.
  */

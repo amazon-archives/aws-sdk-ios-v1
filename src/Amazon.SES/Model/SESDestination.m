@@ -35,6 +35,33 @@
 }
 
 
+-(void)addToAddresse:(NSString *)toAddresseObject
+{
+    if (toAddresses == nil) {
+        toAddresses = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [toAddresses addObject:toAddresseObject];
+}
+
+-(void)addCcAddresse:(NSString *)ccAddresseObject
+{
+    if (ccAddresses == nil) {
+        ccAddresses = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [ccAddresses addObject:ccAddresseObject];
+}
+
+-(void)addBccAddresse:(NSString *)bccAddresseObject
+{
+    if (bccAddresses == nil) {
+        bccAddresses = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [bccAddresses addObject:bccAddresseObject];
+}
+
 
 -(NSString *)description
 {

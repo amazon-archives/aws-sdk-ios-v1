@@ -34,6 +34,9 @@
 
 
 
+-(void)setException:(AmazonServiceException *)theException;
+
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -44,6 +47,13 @@
  * A list of information for each alarm with the specified metric.
  */
 @property (nonatomic, retain) NSMutableArray *metricAlarms;
+
+
+
+/**
+ * Returns a value from the metricAlarms array for the specified index
+ */
+-(CloudWatchMetricAlarm *)metricAlarmsObjectAtIndex:(int)index;
 
 /**
  * Returns a string representation of this object; useful for testing and

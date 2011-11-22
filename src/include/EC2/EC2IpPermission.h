@@ -35,6 +35,7 @@
 
 
 
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -76,6 +77,12 @@
  * This function will alloc and init userIdGroupPairs if not already done.
  */
 -(void)addUserIdGroupPair:(EC2UserIdGroupPair *)userIdGroupPairObject;
+
+/**
+ * Adds a single object to ipRanges.
+ * This function will alloc and init ipRanges if not already done.
+ */
+-(void)addIpRange:(NSString *)ipRangeObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

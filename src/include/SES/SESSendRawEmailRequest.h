@@ -35,6 +35,7 @@
 
 
 
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -63,6 +64,12 @@
  * base64-encoded, if MIME requires it.</li> </ul>
  */
 @property (nonatomic, retain) SESRawMessage *rawMessage;
+
+/**
+ * Adds a single object to destinations.
+ * This function will alloc and init destinations if not already done.
+ */
+-(void)addDestination:(NSString *)destinationObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

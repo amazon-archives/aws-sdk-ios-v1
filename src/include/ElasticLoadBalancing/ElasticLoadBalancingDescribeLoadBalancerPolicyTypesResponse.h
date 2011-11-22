@@ -35,6 +35,9 @@
 
 
 
+-(void)setException:(AmazonServiceException *)theException;
+
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -47,6 +50,13 @@
  * of all the policy types defined by Elastic Load Balancing service.
  */
 @property (nonatomic, retain) NSMutableArray *policyTypeDescriptions;
+
+
+
+/**
+ * Returns a value from the policyTypeDescriptions array for the specified index
+ */
+-(ElasticLoadBalancingPolicyTypeDescription *)policyTypeDescriptionsObjectAtIndex:(int)index;
 
 /**
  * Returns a string representation of this object; useful for testing and

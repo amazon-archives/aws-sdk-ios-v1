@@ -33,6 +33,15 @@
 }
 
 
+-(void)addKeyName:(NSString *)keyNameObject
+{
+    if (keyNames == nil) {
+        keyNames = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [keyNames addObject:keyNameObject];
+}
+
 -(void)addFilter:(EC2Filter *)filterObject
 {
     if (filters == nil) {

@@ -35,6 +35,9 @@
 
 
 
+-(void)setException:(AmazonServiceException *)theException;
+
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -45,6 +48,13 @@
  * A list of LoadBalancer description structures.
  */
 @property (nonatomic, retain) NSMutableArray *loadBalancerDescriptions;
+
+
+
+/**
+ * Returns a value from the loadBalancerDescriptions array for the specified index
+ */
+-(ElasticLoadBalancingLoadBalancerDescription *)loadBalancerDescriptionsObjectAtIndex:(int)index;
 
 /**
  * Returns a string representation of this object; useful for testing and

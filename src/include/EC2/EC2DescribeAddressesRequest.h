@@ -35,6 +35,7 @@
 
 
 
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -55,13 +56,28 @@
  */
 @property (nonatomic, retain) NSMutableArray *filters;
 
+/**
+ * The value of the AllocationIds property for this object.
+ */
 @property (nonatomic, retain) NSMutableArray *allocationIds;
+
+/**
+ * Adds a single object to publicIps.
+ * This function will alloc and init publicIps if not already done.
+ */
+-(void)addPublicIp:(NSString *)publicIpObject;
 
 /**
  * Adds a single object to filters.
  * This function will alloc and init filters if not already done.
  */
 -(void)addFilter:(EC2Filter *)filterObject;
+
+/**
+ * Adds a single object to allocationIds.
+ * This function will alloc and init allocationIds if not already done.
+ */
+-(void)addAllocationId:(NSString *)allocationIdObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

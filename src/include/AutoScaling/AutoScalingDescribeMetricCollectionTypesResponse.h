@@ -36,6 +36,9 @@
 
 
 
+-(void)setException:(AmazonServiceException *)theException;
+
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -51,6 +54,20 @@
  * A list of Granularities for the listed Metrics.
  */
 @property (nonatomic, retain) NSMutableArray *granularities;
+
+
+
+/**
+ * Returns a value from the metrics array for the specified index
+ */
+-(AutoScalingMetricCollectionType *)metricsObjectAtIndex:(int)index;
+
+
+
+/**
+ * Returns a value from the granularities array for the specified index
+ */
+-(AutoScalingMetricGranularityType *)granularitiesObjectAtIndex:(int)index;
 
 /**
  * Returns a string representation of this object; useful for testing and

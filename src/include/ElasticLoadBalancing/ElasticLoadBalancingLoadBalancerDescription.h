@@ -46,6 +46,7 @@
 }
 
 
+
 /**
  * Specifies the name associated with the LoadBalancer.
  */
@@ -141,6 +142,12 @@
  * This function will alloc and init backendServerDescriptions if not already done.
  */
 -(void)addBackendServerDescription:(ElasticLoadBalancingBackendServerDescription *)backendServerDescriptionObject;
+
+/**
+ * Adds a single object to availabilityZones.
+ * This function will alloc and init availabilityZones if not already done.
+ */
+-(void)addAvailabilityZone:(NSString *)availabilityZoneObject;
 
 /**
  * Adds a single object to instances.

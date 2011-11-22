@@ -37,6 +37,7 @@
 
 
 
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -89,6 +90,12 @@
  * data available.
  */
 @property (nonatomic, retain) NSString *nextToken;
+
+/**
+ * Adds a single object to alarmNames.
+ * This function will alloc and init alarmNames if not already done.
+ */
+-(void)addAlarmName:(NSString *)alarmNameObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

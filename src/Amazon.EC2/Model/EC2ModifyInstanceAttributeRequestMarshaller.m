@@ -62,7 +62,7 @@
                 }
                 if (ebs != nil) {
                     if (ebs.deleteOnTerminationIsSet) {
-                        [request setParameterValue:(ebs.deleteOnTermination ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@.%d.%@.%@", @"BlockDeviceMapping", blockDeviceMappingsListIndex, @"Ebs", @"DeleteOnTermination"]];
+                        [request setParameterValue:(ebs.deleteOnTermination ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@.%d.%@.%@", @"BlockDeviceMapping", blockDeviceMappingsListIndex, @"Ebs", @"DeleteOnTermination"]];
                     }
                 }
             }
@@ -82,12 +82,12 @@
     }
     if (modifyInstanceAttributeRequest != nil) {
         if (modifyInstanceAttributeRequest.sourceDestCheckIsSet) {
-            [request setParameterValue:(modifyInstanceAttributeRequest.sourceDestCheck ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"SourceDestCheck"]];
+            [request setParameterValue:(modifyInstanceAttributeRequest.sourceDestCheck ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@", @"SourceDestCheck"]];
         }
     }
     if (modifyInstanceAttributeRequest != nil) {
         if (modifyInstanceAttributeRequest.disableApiTerminationIsSet) {
-            [request setParameterValue:(modifyInstanceAttributeRequest.disableApiTermination ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DisableApiTermination"]];
+            [request setParameterValue:(modifyInstanceAttributeRequest.disableApiTermination ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@", @"DisableApiTermination"]];
         }
     }
     if (modifyInstanceAttributeRequest != nil) {

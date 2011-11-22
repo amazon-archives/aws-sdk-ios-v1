@@ -48,11 +48,11 @@
         messages = messageResponse.messages;
     }
     @catch (AmazonServiceException *exception) {
-        if ( [exception.errorCode isEqualToString:@"InvalidAccessKeyId"] ) {
+        if ( [exception.errorCode isEqualToString:@"InvalidAccessKeyId"]) {
             [[Constants expiredCredentialsAlert] show];
             [AmazonClientManager wipeAllCredentials];
         }
-    }    
+    }
     @catch (AmazonClientException *exception) {
         NSLog(@"Exception = %@", exception);
     }
@@ -121,11 +121,11 @@
             [messageTableView endUpdates];
         }
         @catch (AmazonServiceException *exception) {
-            if ( [exception.errorCode isEqualToString:@"InvalidAccessKeyId"] ) {
+            if ( [exception.errorCode isEqualToString:@"InvalidAccessKeyId"]) {
                 [[Constants expiredCredentialsAlert] show];
                 [AmazonClientManager wipeAllCredentials];
             }
-        }    
+        }
         @catch (AmazonClientException *exception) {
             NSLog(@"Exception = %@", exception);
         }

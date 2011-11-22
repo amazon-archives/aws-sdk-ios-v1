@@ -50,6 +50,12 @@
 
 
 
+-(EC2SpotPrice *)spotPriceHistoryObjectAtIndex:(int)index
+{
+    return (EC2SpotPrice *)[spotPriceHistory objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

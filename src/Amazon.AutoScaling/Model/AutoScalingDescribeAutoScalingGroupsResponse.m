@@ -54,6 +54,12 @@
 
 
 
+-(AutoScalingAutoScalingGroup *)autoScalingGroupsObjectAtIndex:(int)index
+{
+    return (AutoScalingAutoScalingGroup *)[autoScalingGroups objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

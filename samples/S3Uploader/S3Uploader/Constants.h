@@ -15,13 +15,13 @@
 
 
 // Constants used to represent your AWS Credentials.
-#define ACCESS_KEY_ID   @"CHANGE ME"
-#define SECRET_KEY      @"CHANGE ME"
+#define ACCESS_KEY_ID     @"CHANGE ME"
+#define SECRET_KEY        @"CHANGE ME"
 
 
 // Constants for the Bucket and Object name.
-#define PICTURE_BUCKET  @"picture-bucket"
-#define PICTURE_NAME    @"NameOfThePicture"
+#define PICTURE_BUCKET    @"picture-bucket"
+#define PICTURE_NAME      @"NameOfThePicture"
 
 
 @interface Constants:NSObject {
@@ -30,13 +30,13 @@
 /**
  * Utility method to create a bucket name using the Access Key Id.  This will help ensure uniqueness.
  */
-+(NSString*)pictureBucket;
++(NSString *)pictureBucket;
 
 
 /**
  * Utility method to display an alert message.  Used to communicate errors and failures.
  */
-+(void)showAlertMessage:(NSString*)message withTitle:(NSString*)title;
++(void)showAlertMessage:(NSString *)message withTitle:(NSString *)title;
 
 
 @end

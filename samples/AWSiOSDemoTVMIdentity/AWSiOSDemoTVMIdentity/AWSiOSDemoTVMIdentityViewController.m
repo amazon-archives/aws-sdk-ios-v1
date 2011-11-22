@@ -29,21 +29,21 @@
 
 -(IBAction)listBuckets:(id)sender
 {
-    if ( ![AmazonClientManager hasCredentials] ) {
+    if (![AmazonClientManager hasCredentials]) {
         [[Constants credentialsAlert] show];
     }
-    else if ( ![AmazonClientManager isLoggedIn] ) {
+    else if (![AmazonClientManager isLoggedIn]) {
         [self login];
     }
     else {
         Response *response = [AmazonClientManager validateCredentials];
-        if ( ![response wasSuccessful] ) {
+        if (![response wasSuccessful]) {
             [[Constants errorAlert:response.message] show];
         }
-        else {                
+        else {
             BucketList *bucketList = [[BucketList alloc] init];
             bucketList.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-            
+
             [self presentModalViewController:bucketList animated:YES];
             [bucketList release];
         }
@@ -52,21 +52,21 @@
 
 -(IBAction)listDomains:(id)sender
 {
-    if ( ![AmazonClientManager hasCredentials] ) {
+    if (![AmazonClientManager hasCredentials]) {
         [[Constants credentialsAlert] show];
     }
-    else if ( ![AmazonClientManager isLoggedIn] ) {
+    else if (![AmazonClientManager isLoggedIn]) {
         [self login];
     }
     else {
         Response *response = [AmazonClientManager validateCredentials];
-        if ( ![response wasSuccessful] ) {
+        if (![response wasSuccessful]) {
             [[Constants errorAlert:response.message] show];
         }
-        else {                
+        else {
             DomainList *domainList = [[DomainList alloc] init];
             domainList.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-            
+
             [self presentModalViewController:domainList animated:YES];
             [domainList release];
         }
@@ -75,21 +75,21 @@
 
 -(IBAction)listQueues:(id)sender
 {
-    if ( ![AmazonClientManager hasCredentials] ) {
+    if (![AmazonClientManager hasCredentials]) {
         [[Constants credentialsAlert] show];
     }
-    else if ( ![AmazonClientManager isLoggedIn] ) {
+    else if (![AmazonClientManager isLoggedIn]) {
         [self login];
     }
     else {
         Response *response = [AmazonClientManager validateCredentials];
-        if ( ![response wasSuccessful] ) {
+        if (![response wasSuccessful]) {
             [[Constants errorAlert:response.message] show];
         }
-        else {                
+        else {
             QueueList *queueList = [[QueueList alloc] init];
             queueList.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-            
+
             [self presentModalViewController:queueList animated:YES];
             [queueList release];
         }
@@ -98,21 +98,21 @@
 
 -(IBAction)listTopics:(id)sender
 {
-    if ( ![AmazonClientManager hasCredentials] ) {
+    if (![AmazonClientManager hasCredentials]) {
         [[Constants credentialsAlert] show];
     }
-    else if ( ![AmazonClientManager isLoggedIn] ) {
+    else if (![AmazonClientManager isLoggedIn]) {
         [self login];
     }
     else {
         Response *response = [AmazonClientManager validateCredentials];
-        if ( ![response wasSuccessful] ) {
+        if (![response wasSuccessful]) {
             [[Constants errorAlert:response.message] show];
         }
-        else {                
+        else {
             TopicList *topicList = [[TopicList alloc] init];
             topicList.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-            
+
             [self presentModalViewController:topicList animated:YES];
             [topicList release];
         }
@@ -121,21 +121,21 @@
 
 -(IBAction)s3AsyncDemo:(id)sender
 {
-    if ( ![AmazonClientManager hasCredentials] ) {
+    if (![AmazonClientManager hasCredentials]) {
         [[Constants credentialsAlert] show];
     }
-    else if ( ![AmazonClientManager isLoggedIn] ) {
+    else if (![AmazonClientManager isLoggedIn]) {
         [self login];
     }
     else {
         Response *response = [AmazonClientManager validateCredentials];
-        if ( ![response wasSuccessful] ) {
+        if (![response wasSuccessful]) {
             [[Constants errorAlert:response.message] show];
         }
-        else {                
+        else {
             S3AsyncViewController *s3Async = [[S3AsyncViewController alloc] init];
             s3Async.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-            
+
             [self presentModalViewController:s3Async animated:YES];
             [s3Async release];
         }
@@ -144,21 +144,21 @@
 
 -(IBAction)sdbAsyncDemo:(id)sender
 {
-    if ( ![AmazonClientManager hasCredentials] ) {
+    if (![AmazonClientManager hasCredentials]) {
         [[Constants credentialsAlert] show];
     }
-    else if ( ![AmazonClientManager isLoggedIn] ) {
+    else if (![AmazonClientManager isLoggedIn]) {
         [self login];
     }
     else {
         Response *response = [AmazonClientManager validateCredentials];
-        if ( ![response wasSuccessful] ) {
+        if (![response wasSuccessful]) {
             [[Constants errorAlert:response.message] show];
         }
-        else {                
+        else {
             SdbAsyncViewController *sdbAsync = [[SdbAsyncViewController alloc] init];
             sdbAsync.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-            
+
             [self presentModalViewController:sdbAsync animated:YES];
             [sdbAsync release];
         }
@@ -174,10 +174,11 @@
 -(void)login
 {
     LoginViewController *login = [[LoginViewController alloc] init];
+
     login.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    
+
     [self presentModalViewController:login animated:YES];
-    [login release];            
+    [login release];
 }
 
 -(void)dealloc

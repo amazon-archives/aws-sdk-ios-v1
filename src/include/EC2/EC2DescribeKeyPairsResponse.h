@@ -34,6 +34,9 @@
 
 
 
+-(void)setException:(AmazonServiceException *)theException;
+
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -44,6 +47,13 @@
  * The list of described key pairs.
  */
 @property (nonatomic, retain) NSMutableArray *keyPairs;
+
+
+
+/**
+ * Returns a value from the keyPairs array for the specified index
+ */
+-(EC2KeyPairInfo *)keyPairsObjectAtIndex:(int)index;
 
 /**
  * Returns a string representation of this object; useful for testing and

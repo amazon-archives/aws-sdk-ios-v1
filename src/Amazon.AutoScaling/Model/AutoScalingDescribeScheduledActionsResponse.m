@@ -54,6 +54,12 @@
 
 
 
+-(AutoScalingScheduledUpdateGroupAction *)scheduledUpdateGroupActionsObjectAtIndex:(int)index
+{
+    return (AutoScalingScheduledUpdateGroupAction *)[scheduledUpdateGroupActions objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

@@ -34,6 +34,7 @@
 
 
 
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -64,6 +65,12 @@
  * information, go to <a>DescribeAutoScalingNotificationTypes</a>.
  */
 @property (nonatomic, retain) NSMutableArray *notificationTypes;
+
+/**
+ * Adds a single object to notificationTypes.
+ * This function will alloc and init notificationTypes if not already done.
+ */
+-(void)addNotificationType:(NSString *)notificationTypeObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

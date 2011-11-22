@@ -41,6 +41,15 @@
 }
 
 
+-(void)addScheduledActionName:(NSString *)scheduledActionNameObject
+{
+    if (scheduledActionNames == nil) {
+        scheduledActionNames = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [scheduledActionNames addObject:scheduledActionNameObject];
+}
+
 
 -(NSString *)description
 {

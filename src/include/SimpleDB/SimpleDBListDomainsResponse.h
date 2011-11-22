@@ -36,6 +36,9 @@
 
 
 
+-(void)setException:(AmazonServiceException *)theException;
+
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -52,6 +55,13 @@
  * specified <code>MaxNumberOfDomains</code> still available.
  */
 @property (nonatomic, retain) NSString *nextToken;
+
+
+
+/**
+ * Returns a value from the domainNames array for the specified index
+ */
+-(NSString *)domainNamesObjectAtIndex:(int)index;
 
 /**
  * Returns a string representation of this object; useful for testing and

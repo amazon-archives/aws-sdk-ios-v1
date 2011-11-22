@@ -46,6 +46,7 @@
 
 
 
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -60,10 +61,16 @@
 /**
  * The name of the key pair.
  */
-@property (nonatomic, retain) NSString       *keyName;
+@property (nonatomic, retain) NSString *keyName;
 
+/**
+ * The value of the AllSecurityGroups property for this object.
+ */
 @property (nonatomic, retain) NSMutableArray *allSecurityGroups;
 
+/**
+ * The value of the SecurityGroups property for this object.
+ */
 @property (nonatomic, retain) NSMutableArray *securityGroups;
 
 /**
@@ -129,6 +136,12 @@
  * This function will alloc and init allSecurityGroups if not already done.
  */
 -(void)addAllSecurityGroup:(EC2GroupIdentifier *)allSecurityGroupObject;
+
+/**
+ * Adds a single object to securityGroups.
+ * This function will alloc and init securityGroups if not already done.
+ */
+-(void)addSecurityGroup:(NSString *)securityGroupObject;
 
 /**
  * Adds a single object to blockDeviceMappings.

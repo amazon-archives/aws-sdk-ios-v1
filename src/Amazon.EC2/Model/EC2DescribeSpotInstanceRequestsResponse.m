@@ -48,6 +48,12 @@
 
 
 
+-(EC2SpotInstanceRequest *)spotInstanceRequestsObjectAtIndex:(int)index
+{
+    return (EC2SpotInstanceRequest *)[spotInstanceRequests objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

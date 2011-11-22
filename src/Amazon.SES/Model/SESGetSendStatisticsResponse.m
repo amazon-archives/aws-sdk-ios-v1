@@ -48,6 +48,12 @@
 
 
 
+-(SESSendDataPoint *)sendDataPointsObjectAtIndex:(int)index
+{
+    return (SESSendDataPoint *)[sendDataPoints objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

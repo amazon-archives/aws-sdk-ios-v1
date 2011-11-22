@@ -19,13 +19,13 @@
 #define REGISTER_REQUEST        @"http://%@/registerdevice?uid=%@&key=%@"
 #define SSL_REGISTER_REQUEST    @"https://%@/registerdevice?uid=%@&key=%@"
 
-@interface RegisterDeviceRequest : Request {
+@interface RegisterDeviceRequest:Request {
     NSString *endpoint;
     NSString *uid;
     NSString *key;
-    bool useSSL;
+    bool     useSSL;
 }
 
--(id)initWithEndpoint:(NSString*)theEndpoint andUid:(NSString*)theUid andKey:(NSString*)theKey usingSSL:(bool)usingSSL;
+-(id)initWithEndpoint:(NSString *)theEndpoint andUid:(NSString *)theUid andKey:(NSString *)theKey usingSSL:(bool)usingSSL;
 
 @end

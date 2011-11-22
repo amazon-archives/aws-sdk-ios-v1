@@ -45,6 +45,24 @@
 }
 
 
+-(void)addInstanceType:(NSString *)instanceTypeObject
+{
+    if (instanceTypes == nil) {
+        instanceTypes = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [instanceTypes addObject:instanceTypeObject];
+}
+
+-(void)addProductDescription:(NSString *)productDescriptionObject
+{
+    if (productDescriptions == nil) {
+        productDescriptions = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [productDescriptions addObject:productDescriptionObject];
+}
+
 -(void)addFilter:(EC2Filter *)filterObject
 {
     if (filters == nil) {

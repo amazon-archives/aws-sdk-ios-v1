@@ -16,17 +16,17 @@
 #import <Foundation/Foundation.h>
 
 
-@interface RequestDelegate : NSObject {
+@interface RequestDelegate:NSObject {
     NSMutableData *receivedData;
 
-    NSString *responseBody;
-    
-    bool failed;
-    bool done;
+    NSString      *responseBody;
+
+    bool          failed;
+    bool          done;
 }
 
-@property (nonatomic, retain) NSString* responseBody;
-@property (nonatomic) bool failed;
-@property (nonatomic) bool done;
+@property (nonatomic, retain) NSString *responseBody;
+@property (nonatomic) bool             failed;
+@property (nonatomic) bool             done;
 
 @end

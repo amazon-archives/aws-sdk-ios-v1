@@ -119,8 +119,8 @@
         [body setLength:0];
     }
     body = [[NSMutableData dataWithData:data] retain];
-    
-    [self processBody];    
+
+    [self processBody];
 }
 
 // Override this to perform processing on the body.
@@ -192,8 +192,8 @@
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSDate *startDate = [NSDate date]; 
-    NSString *tmp = [[NSString alloc] initWithData:self.body encoding:NSUTF8StringEncoding];
+    NSDate   *startDate = [NSDate date];
+    NSString *tmp       = [[NSString alloc] initWithData:self.body encoding:NSUTF8StringEncoding];
 
     AMZLogDebug(@"Response:\n%@", tmp);
     [tmp release];
@@ -215,15 +215,15 @@
     }
     else {
         [self processBody];
-        processingTime = fabs([startDate timeIntervalSinceNow]);        
+        processingTime    = fabs([startDate timeIntervalSinceNow]);
         isFinishedLoading = YES;
     }
 
     if ([(NSObject *)self.request.delegate respondsToSelector:@selector(request:didCompleteWithResponse:)]) {
         [self.request.delegate request:self.request didCompleteWithResponse:self];
     }
-    
-        
+
+
 }
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
@@ -269,7 +269,7 @@
     return proposedRequest;
 }
 
-- (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse
+-(NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse
 {
     return nil;
 }

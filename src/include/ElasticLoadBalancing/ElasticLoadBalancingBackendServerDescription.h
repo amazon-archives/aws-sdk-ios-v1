@@ -31,6 +31,7 @@
 
 
 
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -49,6 +50,12 @@
  * Provides a list of policy names enabled for the back-end server.
  */
 @property (nonatomic, retain) NSMutableArray *policyNames;
+
+/**
+ * Adds a single object to policyNames.
+ * This function will alloc and init policyNames if not already done.
+ */
+-(void)addPolicyName:(NSString *)policyNameObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

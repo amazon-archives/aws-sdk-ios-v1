@@ -33,6 +33,7 @@
 }
 
 
+
 /**
  * The optional list of EBS volumes to describe.
  */
@@ -60,6 +61,12 @@
  * @param theVolumeIds The optional list of EBS volumes to describe.
  */
 -(id)initWithVolumeIds:(NSMutableArray *)theVolumeIds;
+
+/**
+ * Adds a single object to volumeIds.
+ * This function will alloc and init volumeIds if not already done.
+ */
+-(void)addVolumeId:(NSString *)volumeIdObject;
 
 /**
  * Adds a single object to filters.

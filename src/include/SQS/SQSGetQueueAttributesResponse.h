@@ -34,6 +34,9 @@
 
 
 
+-(void)setException:(AmazonServiceException *)theException;
+
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -41,9 +44,14 @@
 -(id)init;
 
 /**
- * A list of attributes.
+ * A map of attributes to the respective values.
  */
 @property (nonatomic, retain) NSMutableDictionary *attributes;
+
+/**
+ * Returns a value from the attributes dictionary for the specified key.
+ */
+-(NSString *)attributesValueForKey:(NSString *)theKey;
 
 /**
  * Returns a string representation of this object; useful for testing and

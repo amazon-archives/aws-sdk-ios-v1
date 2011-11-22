@@ -55,6 +55,7 @@
 }
 
 
+
 /**
  * Unique ID of a machine image, returned by a call to DescribeImages.
  */
@@ -85,6 +86,9 @@
  */
 @property (nonatomic, retain) NSMutableArray *securityGroups;
 
+/**
+ * The value of the SecurityGroupIds property for this object.
+ */
 @property (nonatomic, retain) NSMutableArray *securityGroupIds;
 
 /**
@@ -174,6 +178,9 @@
  */
 @property (nonatomic, retain) NSString *clientToken;
 
+/**
+ * The value of the AdditionalInfo property for this object.
+ */
 @property (nonatomic, retain) NSString *additionalInfo;
 
 
@@ -197,6 +204,18 @@
  * number allowed for your account (default: 20).
  */
 -(id)initWithImageId:(NSString *)theImageId andMinCount:(NSNumber *)theMinCount andMaxCount:(NSNumber *)theMaxCount;
+
+/**
+ * Adds a single object to securityGroups.
+ * This function will alloc and init securityGroups if not already done.
+ */
+-(void)addSecurityGroup:(NSString *)securityGroupObject;
+
+/**
+ * Adds a single object to securityGroupIds.
+ * This function will alloc and init securityGroupIds if not already done.
+ */
+-(void)addSecurityGroupId:(NSString *)securityGroupIdObject;
 
 /**
  * Adds a single object to blockDeviceMappings.

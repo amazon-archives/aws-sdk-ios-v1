@@ -48,6 +48,12 @@
 
 
 
+-(NSString *)verifiedEmailAddressesObjectAtIndex:(int)index
+{
+    return (NSString *)[verifiedEmailAddresses objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

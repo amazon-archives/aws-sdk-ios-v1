@@ -26,13 +26,13 @@
 {
     NSXMLParser                  *parser       = [[NSXMLParser alloc] initWithData:self.body];
     S3CopyPartResultUnmarshaller *unmarshaller = [[S3CopyPartResultUnmarshaller alloc] init];
-    
+
     [parser setDelegate:unmarshaller];
     [parser parse];
-    
+
     self.etag         = unmarshaller.copyPartResult.etag;
     self.lastModified = [NSDate dateWithISO8061Format:unmarshaller.copyPartResult.lastModified];
-    
+
     [unmarshaller release];
     [parser release];
 }

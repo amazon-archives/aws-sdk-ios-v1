@@ -48,6 +48,12 @@
 
 
 
+-(EC2Image *)imagesObjectAtIndex:(int)index
+{
+    return (EC2Image *)[images objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

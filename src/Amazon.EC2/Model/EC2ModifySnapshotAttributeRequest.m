@@ -52,6 +52,24 @@
 }
 
 
+-(void)addUserId:(NSString *)userIdObject
+{
+    if (userIds == nil) {
+        userIds = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [userIds addObject:userIdObject];
+}
+
+-(void)addGroupName:(NSString *)groupNameObject
+{
+    if (groupNames == nil) {
+        groupNames = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [groupNames addObject:groupNameObject];
+}
+
 
 -(NSString *)description
 {

@@ -66,6 +66,15 @@
     [allSecurityGroups addObject:allSecurityGroupObject];
 }
 
+-(void)addSecurityGroup:(NSString *)securityGroupObject
+{
+    if (securityGroups == nil) {
+        securityGroups = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [securityGroups addObject:securityGroupObject];
+}
+
 -(void)addBlockDeviceMapping:(EC2BlockDeviceMapping *)blockDeviceMappingObject
 {
     if (blockDeviceMappings == nil) {

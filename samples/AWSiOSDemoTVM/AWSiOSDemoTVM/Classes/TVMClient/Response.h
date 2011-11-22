@@ -16,15 +16,15 @@
 #import <Foundation/Foundation.h>
 
 
-@interface Response : NSObject {
-    int code;
+@interface Response:NSObject {
+    int      code;
     NSString *message;
 }
 
-@property (nonatomic) int code;
-@property (nonatomic, retain) NSString* message;
+@property (nonatomic) int              code;
+@property (nonatomic, retain) NSString *message;
 
--(id)initWithCode:(int)code andMessage:(NSString*)message;
+-(id)initWithCode:(int)code andMessage:(NSString *)message;
 -(bool)wasSuccessful;
 
 @end

@@ -23,14 +23,14 @@
     return [[[UIAlertView alloc] initWithTitle:@"AWS Credentials" message:CREDENTIALS_ALERT_MESSAGE delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];
 }
 
-+(UIAlertView *)errorAlert:(NSString*)message
++(UIAlertView *)errorAlert:(NSString *)message
 {
     return [[[UIAlertView alloc] initWithTitle:@"Error" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];
 }
 
 +(UIAlertView *)expiredCredentialsAlert
 {
-    return [[[UIAlertView alloc] initWithTitle:@"AWS Credentials" message:@"Credentials Expired, retry your request." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];    
+    return [[[UIAlertView alloc] initWithTitle:@"AWS Credentials" message:@"Credentials Expired, retry your request." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];
 }
 
 @end

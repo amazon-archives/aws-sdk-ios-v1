@@ -33,6 +33,9 @@
 
 
 
+-(void)setException:(AmazonServiceException *)theException;
+
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -48,6 +51,13 @@
  * autoscaling:TEST_NOTIFICATION
  */
 @property (nonatomic, retain) NSMutableArray *autoScalingNotificationTypes;
+
+
+
+/**
+ * Returns a value from the autoScalingNotificationTypes array for the specified index
+ */
+-(NSString *)autoScalingNotificationTypesObjectAtIndex:(int)index;
 
 /**
  * Returns a string representation of this object; useful for testing and

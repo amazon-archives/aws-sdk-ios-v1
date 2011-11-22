@@ -48,6 +48,15 @@
     [userIdGroupPairs addObject:userIdGroupPairObject];
 }
 
+-(void)addIpRange:(NSString *)ipRangeObject
+{
+    if (ipRanges == nil) {
+        ipRanges = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [ipRanges addObject:ipRangeObject];
+}
+
 
 -(NSString *)description
 {

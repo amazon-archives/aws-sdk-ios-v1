@@ -34,6 +34,7 @@
 
 
 
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -53,6 +54,12 @@
  * EC2 API reference</a>.
  */
 @property (nonatomic, retain) NSMutableArray *filters;
+
+/**
+ * Adds a single object to spotInstanceRequestIds.
+ * This function will alloc and init spotInstanceRequestIds if not already done.
+ */
+-(void)addSpotInstanceRequestId:(NSString *)spotInstanceRequestIdObject;
 
 /**
  * Adds a single object to filters.

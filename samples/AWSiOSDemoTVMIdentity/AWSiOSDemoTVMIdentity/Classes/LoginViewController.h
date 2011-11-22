@@ -16,7 +16,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface LoginViewController : UIViewController {
+@interface LoginViewController:UIViewController {
     IBOutlet UITextField *username;
     IBOutlet UITextField *password;
 }

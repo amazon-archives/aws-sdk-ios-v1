@@ -22,7 +22,7 @@
     AWSiOSDemoTVMViewController *viewController;
 }
 
-@property (nonatomic, retain) IBOutlet UIWindow                 *window;
+@property (nonatomic, retain) IBOutlet UIWindow                    *window;
 @property (nonatomic, retain) IBOutlet AWSiOSDemoTVMViewController *viewController;
 
 @end

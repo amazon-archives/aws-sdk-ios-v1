@@ -33,6 +33,15 @@
 }
 
 
+-(void)addRegionName:(NSString *)regionNameObject
+{
+    if (regionNames == nil) {
+        regionNames = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [regionNames addObject:regionNameObject];
+}
+
 -(void)addFilter:(EC2Filter *)filterObject
 {
     if (filters == nil) {

@@ -54,6 +54,12 @@
 
 
 
+-(AutoScalingActivity *)activitiesObjectAtIndex:(int)index
+{
+    return (AutoScalingActivity *)[activities objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

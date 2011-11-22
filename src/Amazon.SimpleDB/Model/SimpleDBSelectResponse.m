@@ -86,6 +86,12 @@
 
 
 
+-(SimpleDBItem *)itemsObjectAtIndex:(int)index
+{
+    return (SimpleDBItem *)[items objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

@@ -32,13 +32,14 @@
 }
 
 
+
 /**
  * The URL of the SQS queue to take action on.
  */
 @property (nonatomic, retain) NSString *queueUrl;
 
 /**
- * A list of attributes to set.
+ * A map of attributes to set.
  */
 @property (nonatomic, retain) NSMutableDictionary *attributes;
 
@@ -54,9 +55,16 @@
  * Callers should use properties to initialize any additional object members.
  *
  * @param theQueueUrl The URL of the SQS queue to take action on.
- * @param theAttributes A list of attributes to set.
+ * @param theAttributes A map of attributes to set.
  */
 -(id)initWithQueueUrl:(NSString *)theQueueUrl andAttributes:(NSMutableDictionary *)theAttributes;
+
+
+/**
+ * Set a value in the dictionary attributes for the specified key.
+ * This function will alloc and init attributes if not already done.
+ */
+-(void)setAttributesValue:(NSString *)theValue forKey:(NSString *)theKey;
 
 /**
  * Returns a string representation of this object; useful for testing and

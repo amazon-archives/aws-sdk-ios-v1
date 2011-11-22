@@ -32,6 +32,7 @@
 }
 
 
+
 /**
  * The name associated with the LoadBalancer. The name must be unique
  * within the client AWS account.
@@ -62,6 +63,12 @@
  * LoadBalancer.
  */
 -(id)initWithLoadBalancerName:(NSString *)theLoadBalancerName andAvailabilityZones:(NSMutableArray *)theAvailabilityZones;
+
+/**
+ * Adds a single object to availabilityZones.
+ * This function will alloc and init availabilityZones if not already done.
+ */
+-(void)addAvailabilityZone:(NSString *)availabilityZoneObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

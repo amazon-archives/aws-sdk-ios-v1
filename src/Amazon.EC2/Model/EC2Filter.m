@@ -52,6 +52,15 @@
 }
 
 
+-(void)addValue:(NSString *)valueObject
+{
+    if (values == nil) {
+        values = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [values addObject:valueObject];
+}
+
 
 -(NSString *)description
 {

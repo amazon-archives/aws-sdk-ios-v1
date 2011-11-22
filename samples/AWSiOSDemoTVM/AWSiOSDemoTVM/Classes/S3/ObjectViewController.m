@@ -41,7 +41,7 @@
         self.objectDataLabel.text = [[NSString alloc] initWithData:getObjectResponse.body encoding:NSUTF8StringEncoding];
     }
     @catch (AmazonServiceException *exception) {
-        if ( [exception.errorCode isEqualToString:@"ExpiredToken"] ) {
+        if ( [exception.errorCode isEqualToString:@"ExpiredToken"]) {
             [[Constants expiredCredentialsAlert] show];
             [AmazonClientManager wipeAllCredentials];
         }

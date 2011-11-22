@@ -16,23 +16,23 @@
 #import <Foundation/Foundation.h>
 #import "Request.h"
 
-#define LOGIN_REQUEST       @"http://%@/login?uid=%@&username=%@&timestamp=%@&signature=%@"
-#define SSL_LOGIN_REQUEST   @"https://%@/login?uid=%@&username=%@&timestamp=%@&signature=%@"
+#define LOGIN_REQUEST        @"http://%@/login?uid=%@&username=%@&timestamp=%@&signature=%@"
+#define SSL_LOGIN_REQUEST    @"https://%@/login?uid=%@&username=%@&timestamp=%@&signature=%@"
 
-@interface LoginRequest : Request {
+@interface LoginRequest:Request {
     NSString *endpoint;
     NSString *uid;
     NSString *username;
     NSString *password;
     NSString *appName;
-    bool useSSL;
-    
+    bool     useSSL;
+
     NSString *decryptionKey;
 }
 
 @property (nonatomic, retain) NSString *decryptionKey;
 
--(id)initWithEndpoint:(NSString*)theEndpoint andUid:(NSString*)theUid andUsername:(NSString*)theUsername andPassword:(NSString*)thePassword andAppName:(NSString*)theAppName usingSSL:(bool)usingSSL;
--(NSString*)computeDecryptionKey;
+-(id)initWithEndpoint:(NSString *)theEndpoint andUid:(NSString *)theUid andUsername:(NSString *)theUsername andPassword:(NSString *)thePassword andAppName:(NSString *)theAppName usingSSL:(bool)usingSSL;
+-(NSString *)computeDecryptionKey;
 
 @end

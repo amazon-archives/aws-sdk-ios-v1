@@ -42,6 +42,15 @@
 }
 
 
+-(void)addVolumeId:(NSString *)volumeIdObject
+{
+    if (volumeIds == nil) {
+        volumeIds = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [volumeIds addObject:volumeIdObject];
+}
+
 -(void)addFilter:(EC2Filter *)filterObject
 {
     if (filters == nil) {

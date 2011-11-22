@@ -35,6 +35,9 @@
 
 
 
+-(void)setException:(AmazonServiceException *)theException;
+
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -52,6 +55,13 @@
  * createVolumePermission attribute is requested.
  */
 @property (nonatomic, retain) NSMutableArray *createVolumePermissions;
+
+
+
+/**
+ * Returns a value from the createVolumePermissions array for the specified index
+ */
+-(EC2CreateVolumePermission *)createVolumePermissionsObjectAtIndex:(int)index;
 
 /**
  * Returns a string representation of this object; useful for testing and

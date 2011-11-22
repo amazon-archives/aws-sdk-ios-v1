@@ -54,6 +54,12 @@
 
 
 
+-(AutoScalingScalingPolicy *)scalingPoliciesObjectAtIndex:(int)index
+{
+    return (AutoScalingScalingPolicy *)[scalingPolicies objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

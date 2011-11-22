@@ -15,8 +15,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface S3UploaderViewController : UIViewController<UINavigationControllerDelegate,UIImagePickerControllerDelegate> {
-    
+@interface S3UploaderViewController:UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
 }
 
 -(IBAction)selectPhoto:(id)sender;

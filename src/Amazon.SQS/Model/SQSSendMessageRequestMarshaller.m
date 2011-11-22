@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[SQSRequest alloc] init];
 
     [request setParameterValue:@"SendMessage"           forKey:@"Action"];
-    [request setParameterValue:@"2009-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-10-01"   forKey:@"Version"];
 
     [request setDelegate:[sendMessageRequest delegate]];
     [request setCredentials:[sendMessageRequest credentials]];
@@ -37,6 +37,11 @@
     if (sendMessageRequest != nil) {
         if (sendMessageRequest.messageBody != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", sendMessageRequest.messageBody] forKey:[NSString stringWithFormat:@"%@", @"MessageBody"]];
+        }
+    }
+    if (sendMessageRequest != nil) {
+        if (sendMessageRequest.delaySeconds != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", sendMessageRequest.delaySeconds] forKey:[NSString stringWithFormat:@"%@", @"DelaySeconds"]];
         }
     }
 

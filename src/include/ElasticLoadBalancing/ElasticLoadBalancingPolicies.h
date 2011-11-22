@@ -33,6 +33,7 @@
 }
 
 
+
 /**
  * A list of the <a>AppCookieStickinessPolicy</a> objects created with
  * <a>CreateAppCookieStickinessPolicy</a>.
@@ -68,6 +69,12 @@
  * This function will alloc and init lBCookieStickinessPolicies if not already done.
  */
 -(void)addLBCookieStickinessPolicy:(ElasticLoadBalancingLBCookieStickinessPolicy *)lBCookieStickinessPolicyObject;
+
+/**
+ * Adds a single object to otherPolicies.
+ * This function will alloc and init otherPolicies if not already done.
+ */
+-(void)addOtherPolicy:(NSString *)otherPolicyObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

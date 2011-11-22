@@ -32,6 +32,7 @@
 
 
 
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -45,6 +46,12 @@
  * <b>Length: </b>0 - 100<br/>
  */
 @property (nonatomic, retain) NSMutableArray *alarmNames;
+
+/**
+ * Adds a single object to alarmNames.
+ * This function will alloc and init alarmNames if not already done.
+ */
+-(void)addAlarmName:(NSString *)alarmNameObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

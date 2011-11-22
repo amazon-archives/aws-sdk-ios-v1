@@ -32,6 +32,7 @@
 }
 
 
+
 /**
  * The ID of the Amazon EC2 instance whose attribute is being reset.
  */

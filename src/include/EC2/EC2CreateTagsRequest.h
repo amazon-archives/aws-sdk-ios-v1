@@ -33,6 +33,7 @@
 }
 
 
+
 /**
  * One or more IDs of resources to tag. This could be the ID of an AMI,
  * an instance, an EBS volume, or snapshot, etc.
@@ -62,6 +63,12 @@
  * resources. Each tag item consists of a key-value pair.
  */
 -(id)initWithResources:(NSMutableArray *)theResources andTags:(NSMutableArray *)theTags;
+
+/**
+ * Adds a single object to resources.
+ * This function will alloc and init resources if not already done.
+ */
+-(void)addResource:(NSString *)resourceObject;
 
 /**
  * Adds a single object to tags.

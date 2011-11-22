@@ -66,6 +66,12 @@
 
 
 
+-(CloudWatchDatapoint *)datapointsObjectAtIndex:(int)index
+{
+    return (CloudWatchDatapoint *)[datapoints objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

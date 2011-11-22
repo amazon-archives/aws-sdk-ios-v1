@@ -36,6 +36,9 @@
 
 
 
+-(void)setException:(AmazonServiceException *)theException;
+
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -46,6 +49,13 @@
  * A list containing health information for the specified instances.
  */
 @property (nonatomic, retain) NSMutableArray *instanceStates;
+
+
+
+/**
+ * Returns a value from the instanceStates array for the specified index
+ */
+-(ElasticLoadBalancingInstanceState *)instanceStatesObjectAtIndex:(int)index;
 
 /**
  * Returns a string representation of this object; useful for testing and

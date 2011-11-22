@@ -38,6 +38,9 @@
 
 
 
+-(void)setException:(AmazonServiceException *)theException;
+
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -54,6 +57,13 @@
  * returned if there are additional topics to retrieve.
  */
 @property (nonatomic, retain) NSString *nextToken;
+
+
+
+/**
+ * Returns a value from the topics array for the specified index
+ */
+-(SNSTopic *)topicsObjectAtIndex:(int)index;
 
 /**
  * Returns a string representation of this object; useful for testing and

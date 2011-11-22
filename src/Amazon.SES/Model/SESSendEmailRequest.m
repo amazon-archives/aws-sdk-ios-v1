@@ -39,6 +39,15 @@
 }
 
 
+-(void)addReplyToAddresse:(NSString *)replyToAddresseObject
+{
+    if (replyToAddresses == nil) {
+        replyToAddresses = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [replyToAddresses addObject:replyToAddresseObject];
+}
+
 
 -(NSString *)description
 {

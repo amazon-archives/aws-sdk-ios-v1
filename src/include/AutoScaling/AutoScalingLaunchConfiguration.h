@@ -43,6 +43,7 @@
 
 
 
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -144,6 +145,12 @@
  * Provides the creation date and time for this launch configuration.
  */
 @property (nonatomic, retain) NSDate *createdTime;
+
+/**
+ * Adds a single object to securityGroups.
+ * This function will alloc and init securityGroups if not already done.
+ */
+-(void)addSecurityGroup:(NSString *)securityGroupObject;
 
 /**
  * Adds a single object to blockDeviceMappings.

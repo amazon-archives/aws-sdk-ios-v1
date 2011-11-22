@@ -33,6 +33,15 @@
 }
 
 
+-(void)addMetric:(NSString *)metricObject
+{
+    if (metrics == nil) {
+        metrics = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [metrics addObject:metricObject];
+}
+
 
 -(NSString *)description
 {

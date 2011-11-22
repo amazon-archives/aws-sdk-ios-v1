@@ -17,6 +17,8 @@
 #import "SQSResponse.h"
 #import "../AmazonServiceExceptionUnmarshaller.h"
 
+#import "SQSReceiptHandleIsInvalidException.h"
+#import "SQSMessageNotInflightException.h"
 
 /**
  * Change Message Visibility

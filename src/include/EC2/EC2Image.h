@@ -55,6 +55,7 @@
 
 
 
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -164,14 +165,26 @@
  */
 @property (nonatomic, retain) NSMutableArray *blockDeviceMappings;
 
-@property (nonatomic, retain) NSString       *virtualizationType;
+/**
+ * The value of the VirtualizationType property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>hvm, paravirtual
+ */
+@property (nonatomic, retain) NSString *virtualizationType;
 
 /**
  * A list of tags for the Image.
  */
 @property (nonatomic, retain) NSMutableArray *tags;
 
-@property (nonatomic, retain) NSString       *hypervisor;
+/**
+ * The value of the Hypervisor property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>ovm, xen
+ */
+@property (nonatomic, retain) NSString *hypervisor;
 
 /**
  * Adds a single object to productCodes.

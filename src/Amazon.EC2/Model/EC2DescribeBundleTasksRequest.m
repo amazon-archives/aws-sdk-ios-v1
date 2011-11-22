@@ -33,6 +33,15 @@
 }
 
 
+-(void)addBundleId:(NSString *)bundleIdObject
+{
+    if (bundleIds == nil) {
+        bundleIds = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [bundleIds addObject:bundleIdObject];
+}
+
 -(void)addFilter:(EC2Filter *)filterObject
 {
     if (filters == nil) {

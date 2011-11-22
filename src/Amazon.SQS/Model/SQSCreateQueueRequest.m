@@ -19,14 +19,14 @@
 @implementation SQSCreateQueueRequest
 
 @synthesize queueName;
-@synthesize defaultVisibilityTimeout;
+@synthesize attributes;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        queueName                = nil;
-        defaultVisibilityTimeout = nil;
+        queueName  = nil;
+        attributes = [[NSMutableDictionary alloc] initWithCapacity:1];
     }
 
     return self;
@@ -42,6 +42,15 @@
 }
 
 
+-(void)setAttributesValue:(NSString *)theValue forKey:(NSString *)theKey
+{
+    if (attributes == nil) {
+        attributes = [[NSMutableDictionary alloc] initWithCapacity:1];
+    }
+
+    [attributes setValue:theValue forKey:theKey];
+}
+
 
 -(NSString *)description
 {
@@ -49,7 +58,7 @@
 
     [buffer appendString:@"{"];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"QueueName: %@,", queueName] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"DefaultVisibilityTimeout: %@,", defaultVisibilityTimeout] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Attributes: %@,", attributes] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -61,7 +70,7 @@
 -(void)dealloc
 {
     [queueName release];
-    [defaultVisibilityTimeout release];
+    [attributes release];
 
     [super dealloc];
 }

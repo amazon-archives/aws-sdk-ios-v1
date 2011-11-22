@@ -48,6 +48,12 @@
 
 
 
+-(EC2SecurityGroup *)securityGroupsObjectAtIndex:(int)index
+{
+    return (EC2SecurityGroup *)[securityGroups objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

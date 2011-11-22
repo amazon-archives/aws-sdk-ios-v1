@@ -32,6 +32,7 @@
 }
 
 
+
 /**
  * The Amazon S3 bucket in which to store the Spot Instance datafeed.
  */

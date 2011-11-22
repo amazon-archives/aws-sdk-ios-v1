@@ -33,6 +33,15 @@
 }
 
 
+-(void)addScalingProcesse:(NSString *)scalingProcesseObject
+{
+    if (scalingProcesses == nil) {
+        scalingProcesses = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [scalingProcesses addObject:scalingProcesseObject];
+}
+
 
 -(NSString *)description
 {

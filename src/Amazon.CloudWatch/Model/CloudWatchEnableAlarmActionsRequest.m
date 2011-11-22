@@ -31,6 +31,15 @@
 }
 
 
+-(void)addAlarmName:(NSString *)alarmNameObject
+{
+    if (alarmNames == nil) {
+        alarmNames = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [alarmNames addObject:alarmNameObject];
+}
+
 
 -(NSString *)description
 {

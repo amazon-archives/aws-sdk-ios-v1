@@ -33,6 +33,15 @@
 }
 
 
+-(void)addInstanceId:(NSString *)instanceIdObject
+{
+    if (instanceIds == nil) {
+        instanceIds = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [instanceIds addObject:instanceIdObject];
+}
+
 -(void)addFilter:(EC2Filter *)filterObject
 {
     if (filters == nil) {

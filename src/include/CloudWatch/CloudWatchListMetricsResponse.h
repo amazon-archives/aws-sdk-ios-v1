@@ -37,6 +37,9 @@
 
 
 
+-(void)setException:(AmazonServiceException *)theException;
+
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -52,6 +55,13 @@
  * A string that marks the start of the next batch of returned results.
  */
 @property (nonatomic, retain) NSString *nextToken;
+
+
+
+/**
+ * Returns a value from the metrics array for the specified index
+ */
+-(CloudWatchMetric *)metricsObjectAtIndex:(int)index;
 
 /**
  * Returns a string representation of this object; useful for testing and

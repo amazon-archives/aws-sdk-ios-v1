@@ -54,6 +54,12 @@
 
 
 
+-(CloudWatchMetricAlarm *)metricAlarmsObjectAtIndex:(int)index
+{
+    return (CloudWatchMetricAlarm *)[metricAlarms objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

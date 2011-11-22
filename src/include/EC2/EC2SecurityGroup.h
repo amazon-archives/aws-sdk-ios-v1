@@ -40,6 +40,7 @@
 
 
 
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -56,6 +57,9 @@
  */
 @property (nonatomic, retain) NSString *groupName;
 
+/**
+ * The value of the GroupId property for this object.
+ */
 @property (nonatomic, retain) NSString *groupId;
 
 /**
@@ -68,10 +72,19 @@
  */
 @property (nonatomic, retain) NSMutableArray *ipPermissions;
 
+/**
+ * The value of the IpPermissionsEgress property for this object.
+ */
 @property (nonatomic, retain) NSMutableArray *ipPermissionsEgress;
 
-@property (nonatomic, retain) NSString       *vpcId;
+/**
+ * The value of the VpcId property for this object.
+ */
+@property (nonatomic, retain) NSString *vpcId;
 
+/**
+ * The value of the Tags property for this object.
+ */
 @property (nonatomic, retain) NSMutableArray *tags;
 
 /**

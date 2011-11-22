@@ -33,6 +33,15 @@
 }
 
 
+-(void)addSpotInstanceRequestId:(NSString *)spotInstanceRequestIdObject
+{
+    if (spotInstanceRequestIds == nil) {
+        spotInstanceRequestIds = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [spotInstanceRequestIds addObject:spotInstanceRequestIdObject];
+}
+
 -(void)addFilter:(EC2Filter *)filterObject
 {
     if (filters == nil) {

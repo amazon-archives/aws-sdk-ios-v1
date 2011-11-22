@@ -18,7 +18,7 @@
 
 @implementation ResponseHandler
 
--(Response*)handleResponse:(int)responseCode body:(NSString*)responseBody
+-(Response *)handleResponse:(int)responseCode body:(NSString *)responseBody
 {
     return [[[Response alloc] initWithCode:responseCode andMessage:responseBody] autorelease];
 }

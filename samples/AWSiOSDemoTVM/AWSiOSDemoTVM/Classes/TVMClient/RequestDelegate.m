@@ -22,23 +22,23 @@
 @synthesize done;
 @synthesize responseBody;
 
--(id)init 
+-(id)init
 {
-    if ( (self = [super init]) ) {
-        failed = NO;
-        done = NO;
+    if ((self = [super init])) {
+        failed       = NO;
+        done         = NO;
         receivedData = [[NSMutableData data] retain];
         responseBody = nil;
     }
-    
+
     return self;
 }
 
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
     [receivedData setLength:0];
-    NSHTTPURLResponse *httpUrlResponse = (NSHTTPURLResponse*)response;
-    if ( [httpUrlResponse statusCode] != 200 ) {
+    NSHTTPURLResponse *httpUrlResponse = (NSHTTPURLResponse *)response;
+    if ( [httpUrlResponse statusCode] != 200) {
         failed = YES;
     }
 }
@@ -50,28 +50,28 @@
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    AMZLogDebug( @"Error: %@", error );
-    
+    AMZLogDebug(@"Error: %@", error);
+
     [connection release];
     connection = nil;
 
     responseBody = [error localizedDescription];
     [receivedData release];
     receivedData = nil;
-    
+
     failed = YES;
-    done = YES;
+    done   = YES;
 }
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     [connection release];
     connection = nil;
-    
+
     responseBody = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
     [receivedData release];
     receivedData = nil;
-    done = YES;
+    done         = YES;
 }
 
 -(void)dealloc

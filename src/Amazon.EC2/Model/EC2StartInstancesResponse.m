@@ -48,6 +48,12 @@
 
 
 
+-(EC2InstanceStateChange *)startingInstancesObjectAtIndex:(int)index
+{
+    return (EC2InstanceStateChange *)[startingInstances objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

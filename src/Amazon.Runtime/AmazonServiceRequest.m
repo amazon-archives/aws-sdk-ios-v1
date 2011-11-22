@@ -43,10 +43,10 @@
 
 -(NSMutableURLRequest *)configureURLRequest
 {
-    if ( self.credentials != nil && self.credentials.securityToken != nil ) {
-        [self setParameterValue:self.credentials.securityToken forKey:@"SecurityToken"];        
+    if (self.credentials != nil && self.credentials.securityToken != nil) {
+        [self setParameterValue:self.credentials.securityToken forKey:@"SecurityToken"];
     }
-    
+
     [self.urlRequest setHTTPMethod:@"POST"];
     [self.urlRequest setHTTPBody:[[self queryString] dataUsingEncoding:NSUTF8StringEncoding]];
     [self.urlRequest setValue:self.userAgent forHTTPHeaderField:@"User-Agent"];

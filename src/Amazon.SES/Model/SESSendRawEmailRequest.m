@@ -35,6 +35,15 @@
 }
 
 
+-(void)addDestination:(NSString *)destinationObject
+{
+    if (destinations == nil) {
+        destinations = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [destinations addObject:destinationObject];
+}
+
 
 -(NSString *)description
 {

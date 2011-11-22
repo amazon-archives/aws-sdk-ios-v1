@@ -35,6 +35,15 @@
 }
 
 
+-(void)addNotificationType:(NSString *)notificationTypeObject
+{
+    if (notificationTypes == nil) {
+        notificationTypes = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [notificationTypes addObject:notificationTypeObject];
+}
+
 
 -(NSString *)description
 {

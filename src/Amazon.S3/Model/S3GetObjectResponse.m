@@ -74,6 +74,7 @@
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     if (outputStream) {
+        [super connection:connection didReceiveData:data];
         [outputStream write:(uint8_t *)[data bytes] maxLength:[data length]];
     }
     else {
@@ -84,8 +85,8 @@
 -(void)dealloc
 {
     [metadata release];
-	[lastModified release];
-	[contentType release];
+    [lastModified release];
+    [contentType release];
 
     [super dealloc];
 }

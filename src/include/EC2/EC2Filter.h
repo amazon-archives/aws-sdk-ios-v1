@@ -30,6 +30,7 @@
 }
 
 
+
 /**
  * Specifies the name of the filter.
  */
@@ -63,6 +64,12 @@
  * @param theName Specifies the name of the filter.
  */
 -(id)initWithName:(NSString *)theName;
+
+/**
+ * Adds a single object to values.
+ * This function will alloc and init values if not already done.
+ */
+-(void)addValue:(NSString *)valueObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

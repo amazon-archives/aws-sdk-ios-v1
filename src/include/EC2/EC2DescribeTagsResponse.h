@@ -34,6 +34,9 @@
 
 
 
+-(void)setException:(AmazonServiceException *)theException;
+
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -44,6 +47,13 @@
  * A list of the tags for the specified resources.
  */
 @property (nonatomic, retain) NSMutableArray *tags;
+
+
+
+/**
+ * Returns a value from the tags array for the specified index
+ */
+-(EC2TagDescription *)tagsObjectAtIndex:(int)index;
 
 /**
  * Returns a string representation of this object; useful for testing and

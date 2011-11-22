@@ -34,13 +34,26 @@
 
 
 
+-(void)setException:(AmazonServiceException *)theException;
+
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
  */
 -(id)init;
 
+/**
+ * The value of the SendDataPoints property for this object.
+ */
 @property (nonatomic, retain) NSMutableArray *sendDataPoints;
+
+
+
+/**
+ * Returns a value from the sendDataPoints array for the specified index
+ */
+-(SESSendDataPoint *)sendDataPointsObjectAtIndex:(int)index;
 
 /**
  * Returns a string representation of this object; useful for testing and

@@ -48,6 +48,12 @@
 
 
 
+-(EC2InstanceMonitoring *)instanceMonitoringsObjectAtIndex:(int)index
+{
+    return (EC2InstanceMonitoring *)[instanceMonitorings objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

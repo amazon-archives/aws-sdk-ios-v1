@@ -34,6 +34,7 @@
 }
 
 
+
 /**
  * The ARN of the topic whose access control policy you wish to modify.
  */
@@ -84,6 +85,18 @@
  * principal(s).
  */
 -(id)initWithTopicArn:(NSString *)theTopicArn andLabel:(NSString *)theLabel andAWSAccountIds:(NSMutableArray *)theAWSAccountIds andActionNames:(NSMutableArray *)theActionNames;
+
+/**
+ * Adds a single object to aWSAccountIds.
+ * This function will alloc and init aWSAccountIds if not already done.
+ */
+-(void)addAWSAccountId:(NSString *)aWSAccountIdObject;
+
+/**
+ * Adds a single object to actionNames.
+ * This function will alloc and init actionNames if not already done.
+ */
+-(void)addActionName:(NSString *)actionNameObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

@@ -31,6 +31,15 @@
 }
 
 
+-(void)addPolicyTypeName:(NSString *)policyTypeNameObject
+{
+    if (policyTypeNames == nil) {
+        policyTypeNames = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [policyTypeNames addObject:policyTypeNameObject];
+}
+
 
 -(NSString *)description
 {

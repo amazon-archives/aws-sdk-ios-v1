@@ -28,12 +28,12 @@
 
 -(IBAction)listBuckets:(id)sender
 {
-    if ( ![AmazonClientManager hasCredentials] ) {
+    if (![AmazonClientManager hasCredentials]) {
         [[Constants credentialsAlert] show];
     }
     else {
         Response *response = [AmazonClientManager validateCredentials];
-        if ( ![response wasSuccessful] ) {
+        if (![response wasSuccessful]) {
             [[Constants errorAlert:response.message] show];
         }
         else {
@@ -48,18 +48,18 @@
 
 -(IBAction)listDomains:(id)sender
 {
-    if ( ![AmazonClientManager hasCredentials] ) {
+    if (![AmazonClientManager hasCredentials]) {
         [[Constants credentialsAlert] show];
     }
     else {
         Response *response = [AmazonClientManager validateCredentials];
-        if ( ![response wasSuccessful] ) {
+        if (![response wasSuccessful]) {
             [[Constants errorAlert:response.message] show];
         }
         else {
             DomainList *domainList = [[DomainList alloc] init];
             domainList.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-            
+
             [self presentModalViewController:domainList animated:YES];
             [domainList release];
         }
@@ -68,12 +68,12 @@
 
 -(IBAction)listQueues:(id)sender
 {
-    if ( ![AmazonClientManager hasCredentials] ) {
+    if (![AmazonClientManager hasCredentials]) {
         [[Constants credentialsAlert] show];
     }
     else {
         Response *response = [AmazonClientManager validateCredentials];
-        if ( ![response wasSuccessful] ) {
+        if (![response wasSuccessful]) {
             [[Constants errorAlert:response.message] show];
         }
         else {
@@ -88,12 +88,12 @@
 
 -(IBAction)listTopics:(id)sender
 {
-    if ( ![AmazonClientManager hasCredentials] ) {
+    if (![AmazonClientManager hasCredentials]) {
         [[Constants credentialsAlert] show];
     }
     else {
         Response *response = [AmazonClientManager validateCredentials];
-        if ( ![response wasSuccessful] ) {
+        if (![response wasSuccessful]) {
             [[Constants errorAlert:response.message] show];
         }
         else {
@@ -108,12 +108,12 @@
 
 -(IBAction)s3AsyncDemo:(id)sender
 {
-    if ( ![AmazonClientManager hasCredentials] ) {
+    if (![AmazonClientManager hasCredentials]) {
         [[Constants credentialsAlert] show];
     }
     else {
         Response *response = [AmazonClientManager validateCredentials];
-        if ( ![response wasSuccessful] ) {
+        if (![response wasSuccessful]) {
             [[Constants errorAlert:response.message] show];
         }
         else {
@@ -128,12 +128,12 @@
 
 -(IBAction)sdbAsyncDemo:(id)sender
 {
-    if ( ![AmazonClientManager hasCredentials] ) {
+    if (![AmazonClientManager hasCredentials]) {
         [[Constants credentialsAlert] show];
     }
     else {
         Response *response = [AmazonClientManager validateCredentials];
-        if ( ![response wasSuccessful] ) {
+        if (![response wasSuccessful]) {
             [[Constants errorAlert:response.message] show];
         }
         else {

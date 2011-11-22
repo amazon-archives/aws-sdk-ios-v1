@@ -50,6 +50,18 @@
 
 
 
+-(AutoScalingMetricCollectionType *)metricsObjectAtIndex:(int)index
+{
+    return (AutoScalingMetricCollectionType *)[metrics objectAtIndex:index];
+}
+
+
+-(AutoScalingMetricGranularityType *)granularitiesObjectAtIndex:(int)index
+{
+    return (AutoScalingMetricGranularityType *)[granularities objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

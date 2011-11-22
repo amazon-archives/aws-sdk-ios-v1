@@ -18,11 +18,11 @@
 @class AWSiOSDemoTVMIdentityViewController;
 
 @interface AWSiOSDemoTVMIdentityAppDelegate:NSObject<UIApplicationDelegate> {
-    UIWindow                 *window;
+    UIWindow                            *window;
     AWSiOSDemoTVMIdentityViewController *viewController;
 }
 
-@property (nonatomic, retain) IBOutlet UIWindow                 *window;
+@property (nonatomic, retain) IBOutlet UIWindow                            *window;
 @property (nonatomic, retain) IBOutlet AWSiOSDemoTVMIdentityViewController *viewController;
 
 @end

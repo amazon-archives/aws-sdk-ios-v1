@@ -48,6 +48,12 @@
 
 
 
+-(EC2Address *)addressesObjectAtIndex:(int)index
+{
+    return (EC2Address *)[addresses objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

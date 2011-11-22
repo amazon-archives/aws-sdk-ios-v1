@@ -37,6 +37,33 @@
 }
 
 
+-(void)addImageId:(NSString *)imageIdObject
+{
+    if (imageIds == nil) {
+        imageIds = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [imageIds addObject:imageIdObject];
+}
+
+-(void)addOwner:(NSString *)ownerObject
+{
+    if (owners == nil) {
+        owners = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [owners addObject:ownerObject];
+}
+
+-(void)addExecutableUser:(NSString *)executableUserObject
+{
+    if (executableUsers == nil) {
+        executableUsers = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [executableUsers addObject:executableUserObject];
+}
+
 -(void)addFilter:(EC2Filter *)filterObject
 {
     if (filters == nil) {

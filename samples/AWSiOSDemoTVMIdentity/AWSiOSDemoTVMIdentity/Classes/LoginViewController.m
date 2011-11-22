@@ -24,21 +24,23 @@
 -(IBAction)login:(id)sender
 {
     Response *response = [AmazonClientManager login:[username text] password:[password text]];
-    if ( ![response wasSuccessful] ) {
-        [[Constants errorAlert:response.message] show];        
+
+    if (![response wasSuccessful]) {
+        [[Constants errorAlert:response.message] show];
     }
-    
-    [self dismissModalViewControllerAnimated:YES];    
+
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 -(IBAction)reg:(id)sender
 {
-    NSString *urlString = [NSString stringWithFormat:( USE_SSL ? @"https://%@/%@" : @"http://%@/%@" ), TOKEN_VENDING_MACHINE_URL, @"register.jsp"];
-    NSURL *url = [NSURL URLWithString:urlString];
-    [[UIApplication sharedApplication] openURL:url];    
+    NSString *urlString = [NSString stringWithFormat:(USE_SSL ? @"https://%@/%@":@"http://%@/%@"), TOKEN_VENDING_MACHINE_URL, @"register.jsp"];
+    NSURL    *url       = [NSURL URLWithString:urlString];
+
+    [[UIApplication sharedApplication] openURL:url];
 }
 
-- (void)dealloc
+-(void)dealloc
 {
     [super dealloc];
 }

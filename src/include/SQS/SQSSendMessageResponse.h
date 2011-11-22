@@ -35,6 +35,9 @@
 
 
 
+-(void)setException:(AmazonServiceException *)theException;
+
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -51,7 +54,7 @@
 @property (nonatomic, retain) NSString *mD5OfMessageBody;
 
 /**
- * The message ID of the message sent to the queue.
+ * The message ID of the message added to the queue.
  */
 @property (nonatomic, retain) NSString *messageId;
 

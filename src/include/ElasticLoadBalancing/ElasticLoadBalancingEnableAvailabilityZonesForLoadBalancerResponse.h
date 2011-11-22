@@ -34,6 +34,9 @@
 
 
 
+-(void)setException:(AmazonServiceException *)theException;
+
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -44,6 +47,13 @@
  * An updated list of Availability Zones for the LoadBalancer.
  */
 @property (nonatomic, retain) NSMutableArray *availabilityZones;
+
+
+
+/**
+ * Returns a value from the availabilityZones array for the specified index
+ */
+-(NSString *)availabilityZonesObjectAtIndex:(int)index;
 
 /**
  * Returns a string representation of this object; useful for testing and

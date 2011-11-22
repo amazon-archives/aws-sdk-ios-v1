@@ -50,12 +50,12 @@ static AmazonTVMClient      *tvm = nil;
     return sns;
 }
 
-+(AmazonTVMClient *)tvm 
++(AmazonTVMClient *)tvm
 {
-    if ( tvm == nil ) {
+    if (tvm == nil) {
         tvm = [[AmazonTVMClient alloc] initWithEndpoint:TOKEN_VENDING_MACHINE_URL useSSL:USE_SSL];
     }
-    
+
     return tvm;
 }
 
@@ -64,29 +64,29 @@ static AmazonTVMClient      *tvm = nil;
     return ![TOKEN_VENDING_MACHINE_URL isEqualToString:@"CHANGE ME"];
 }
 
-+(Response*)validateCredentials 
++(Response *)validateCredentials
 {
-    Response* ableToGetToken = [[[Response alloc] initWithCode:200 andMessage:@"OK"] autorelease];
-    
-    if ( [AmazonKeyChainWrapper areCredentialsExpired] ) {
+    Response *ableToGetToken = [[[Response alloc] initWithCode:200 andMessage:@"OK"] autorelease];
+
+    if ( [AmazonKeyChainWrapper areCredentialsExpired]) {
         [AmazonClientManager clearCredentials];
 
         ableToGetToken = [[AmazonClientManager tvm] anonymousRegister];
-        if ( [ableToGetToken wasSuccessful] ) {
-            ableToGetToken = [[AmazonClientManager tvm] getToken];        
+        if ( [ableToGetToken wasSuccessful]) {
+            ableToGetToken = [[AmazonClientManager tvm] getToken];
         }
     }
-    
-    if ( [ableToGetToken wasSuccessful] && ( ( sdb == nil ) || ( s3 == nil ) || ( sqs == nil ) || ( sns == nil ) ) ) {
+
+    if ( [ableToGetToken wasSuccessful] && ((sdb == nil) || (s3 == nil) || (sqs == nil) || (sns == nil))) {
         [AmazonClientManager clearCredentials];
 
-        AmazonCredentials *credentials = [[AmazonKeyChainWrapper getCredentialsFromKeyChain] autorelease];                
-        s3 = [[AmazonS3Client alloc] initWithCredentials:credentials];
+        AmazonCredentials *credentials = [[AmazonKeyChainWrapper getCredentialsFromKeyChain] autorelease];
+        s3  = [[AmazonS3Client alloc] initWithCredentials:credentials];
         sdb = [[AmazonSimpleDBClient alloc] initWithCredentials:credentials];
         sqs = [[AmazonSQSClient alloc] initWithCredentials:credentials];
         sns = [[AmazonSNSClient alloc] initWithCredentials:credentials];
-    }    
-    
+    }
+
     return ableToGetToken;
 }
 
@@ -96,8 +96,8 @@ static AmazonTVMClient      *tvm = nil;
     [sdb release];
     [sns release];
     [sqs release];
-    
-    s3 = nil;
+
+    s3  = nil;
     sdb = nil;
     sqs = nil;
     sns = nil;

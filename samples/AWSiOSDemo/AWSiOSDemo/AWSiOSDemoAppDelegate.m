@@ -27,10 +27,10 @@
 {
     [window addSubview:viewController.view];
     [window makeKeyAndVisible];
-    
+
     //  Uncomment the line below to see more logging.
     [AmazonLogger verboseLogging];
-    
+
     return YES;
 }
 

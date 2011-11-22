@@ -18,26 +18,26 @@
 
 @implementation GetTokenRequest
 
--(id)initWithEndpoint:(NSString*)theEndpoint andUid:(NSString*)theUid andKey:(NSString*)theKey usingSSL:(bool)usingSSL
+-(id)initWithEndpoint:(NSString *)theEndpoint andUid:(NSString *)theUid andKey:(NSString *)theKey usingSSL:(bool)usingSSL
 {
-    if ( ( self = [super init] ) ) {
+    if ((self = [super init])) {
         endpoint = [theEndpoint retain];
-        uid = [theUid retain];
-        key = [theKey retain];
-        useSSL = usingSSL;
+        uid      = [theUid retain];
+        key      = [theKey retain];
+        useSSL   = usingSSL;
     }
-    
-    return self;    
+
+    return self;
 }
 
--(NSString*)buildRequestUrl
+-(NSString *)buildRequestUrl
 {
-    NSDate *currentTime = [NSDate date];
+    NSDate   *currentTime = [NSDate date];
 
     NSString *timestamp = [currentTime stringWithISO8601Format];
     NSString *signature = [AmazonAuthUtils HMACSign:[timestamp dataUsingEncoding:NSUTF8StringEncoding] withKey:key usingAlgorithm:kCCHmacAlgSHA256];
-    
-    return [NSString stringWithFormat:( useSSL ? SSL_GET_TOKEN_REQUEST : GET_TOKEN_REQUEST ), endpoint, [uid stringWithURLEncoding], [timestamp stringWithURLEncoding], [signature stringWithURLEncoding]];    
+
+    return [NSString stringWithFormat:(useSSL ? SSL_GET_TOKEN_REQUEST:GET_TOKEN_REQUEST), endpoint, [uid stringWithURLEncoding], [timestamp stringWithURLEncoding], [signature stringWithURLEncoding]];
 }
 
 -(void)dealloc

@@ -46,6 +46,15 @@
 }
 
 
+-(void)addAttributeName:(NSString *)attributeNameObject
+{
+    if (attributeNames == nil) {
+        attributeNames = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [attributeNames addObject:attributeNameObject];
+}
+
 
 -(NSString *)description
 {

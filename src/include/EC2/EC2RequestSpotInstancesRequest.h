@@ -39,6 +39,7 @@
 }
 
 
+
 /**
  * Specifies the maximum hourly price for any Spot Instance launched to
  * fulfill the request.

@@ -19,7 +19,9 @@
 
 
 /**
- *
+ * <p>
+ * The receipt handle provided is not valid.
+ * </p>
  *
  * \ingroup SQS
  */

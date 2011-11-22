@@ -20,13 +20,15 @@
 
 @synthesize queueUrl;
 @synthesize messageBody;
+@synthesize delaySeconds;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        queueUrl    = nil;
-        messageBody = nil;
+        queueUrl     = nil;
+        messageBody  = nil;
+        delaySeconds = nil;
     }
 
     return self;
@@ -51,6 +53,7 @@
     [buffer appendString:@"{"];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"QueueUrl: %@,", queueUrl] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"MessageBody: %@,", messageBody] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"DelaySeconds: %@,", delaySeconds] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -63,6 +66,7 @@
 {
     [queueUrl release];
     [messageBody release];
+    [delaySeconds release];
 
     [super dealloc];
 }

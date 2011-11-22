@@ -60,6 +60,12 @@
 
 
 
+-(SimpleDBAttribute *)attributesObjectAtIndex:(int)index
+{
+    return (SimpleDBAttribute *)[attributes objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

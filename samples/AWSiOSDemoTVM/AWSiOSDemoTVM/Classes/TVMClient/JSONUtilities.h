@@ -16,10 +16,9 @@
 #import <Foundation/Foundation.h>
 
 
-@interface JSONUtilities : NSObject {
-    
+@interface JSONUtilities:NSObject {
 }
 
-+(NSString*)getJSONElement:(NSString*)json element:(NSString*)elementName;
++(NSString *)getJSONElement:(NSString *)json element:(NSString *)elementName;
 
 @end

@@ -16,16 +16,15 @@
 #import <Foundation/Foundation.h>
 
 
-@interface Crypto : NSObject {
-    
+@interface Crypto:NSObject {
 }
 
-+(NSData*)decrypt:(NSString*)data key:(NSString*)key;
-+(NSData*)aes128Decrypt:(NSData*)data key:(NSData*)key withIV:(NSData*)iv;
++(NSData *)decrypt:(NSString *)data key:(NSString *)key;
++(NSData *)aes128Decrypt:(NSData *)data key:(NSData *)key withIV:(NSData *)iv;
 
-+(NSData*)hexDecode:(NSString*)hexString;
-+(NSString*)hexEncode:(NSString*)string;
++(NSData *)hexDecode:(NSString *)hexString;
++(NSString *)hexEncode:(NSString *)string;
 
-+(NSString*)generateRandomString;
++(NSString *)generateRandomString;
 
 @end

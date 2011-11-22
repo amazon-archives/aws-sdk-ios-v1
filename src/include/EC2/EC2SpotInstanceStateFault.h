@@ -31,14 +31,21 @@
 
 
 
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
  */
 -(id)init;
 
+/**
+ * The value of the Code property for this object.
+ */
 @property (nonatomic, retain) NSString *code;
 
+/**
+ * The value of the Message property for this object.
+ */
 @property (nonatomic, retain) NSString *message;
 
 /**

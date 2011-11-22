@@ -33,6 +33,15 @@
 }
 
 
+-(void)addLicenseId:(NSString *)licenseIdObject
+{
+    if (licenseIds == nil) {
+        licenseIds = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [licenseIds addObject:licenseIdObject];
+}
+
 -(void)addFilter:(EC2Filter *)filterObject
 {
     if (filters == nil) {

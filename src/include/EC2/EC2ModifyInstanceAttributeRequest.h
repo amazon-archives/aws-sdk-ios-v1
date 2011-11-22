@@ -45,6 +45,7 @@
 }
 
 
+
 /**
  * The ID of the instance whose attribute is being modified.
  */
@@ -113,8 +114,11 @@
 /**
  * String value
  */
-@property (nonatomic, retain) NSString       *instanceInitiatedShutdownBehavior;
+@property (nonatomic, retain) NSString *instanceInitiatedShutdownBehavior;
 
+/**
+ * The value of the Groups property for this object.
+ */
 @property (nonatomic, retain) NSMutableArray *groups;
 
 
@@ -144,6 +148,12 @@
  * This function will alloc and init blockDeviceMappings if not already done.
  */
 -(void)addBlockDeviceMapping:(EC2InstanceBlockDeviceMappingSpecification *)blockDeviceMappingObject;
+
+/**
+ * Adds a single object to groups.
+ * This function will alloc and init groups if not already done.
+ */
+-(void)addGroup:(NSString *)groupObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

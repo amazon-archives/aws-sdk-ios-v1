@@ -39,6 +39,7 @@
 }
 
 
+
 /**
  * The full path to your AMI manifest in Amazon S3 storage.
  */

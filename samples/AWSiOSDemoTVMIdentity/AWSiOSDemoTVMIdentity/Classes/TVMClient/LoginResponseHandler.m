@@ -20,22 +20,22 @@
 
 @implementation LoginResponseHandler
 
--(id)initWithKey:(NSString*)theKey
+-(id)initWithKey:(NSString *)theKey
 {
-    if ( ( self = [super init] ) ) {
+    if ((self = [super init])) {
         decryptionKey = [theKey retain];
     }
-    
-    return self;    
+
+    return self;
 }
 
--(Response*)handleResponse:(int)responseCode body:(NSString*)responseBody
+-(Response *)handleResponse:(int)responseCode body:(NSString *)responseBody
 {
-    if ( responseCode == 200 ) {
-        NSData *body = [Crypto decrypt:responseBody key:[decryptionKey substringToIndex:32]];
-        NSString *json = [[[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding] autorelease];        
-        NSString *key = [JSONUtilities getJSONElement:json element:@"key"];
-        
+    if (responseCode == 200) {
+        NSData   *body = [Crypto decrypt:responseBody key:[decryptionKey substringToIndex:32]];
+        NSString *json = [[[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding] autorelease];
+        NSString *key  = [JSONUtilities getJSONElement:json element:@"key"];
+
         return [[[LoginResponse alloc] initWithKey:key] autorelease];
     }
     else {
@@ -43,7 +43,7 @@
     }
 }
 
--(void)dealloc 
+-(void)dealloc
 {
     [decryptionKey release];
     [super dealloc];

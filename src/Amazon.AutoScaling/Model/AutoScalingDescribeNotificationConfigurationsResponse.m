@@ -54,6 +54,12 @@
 
 
 
+-(AutoScalingNotificationConfiguration *)notificationConfigurationsObjectAtIndex:(int)index
+{
+    return (AutoScalingNotificationConfiguration *)[notificationConfigurations objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

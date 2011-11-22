@@ -56,6 +56,12 @@
 
 
 
+-(ElasticLoadBalancingInstanceState *)instanceStatesObjectAtIndex:(int)index
+{
+    return (ElasticLoadBalancingInstanceState *)[instanceStates objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

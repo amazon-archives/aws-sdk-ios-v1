@@ -40,6 +40,15 @@
 }
 
 
+-(void)addSpotInstanceRequestId:(NSString *)spotInstanceRequestIdObject
+{
+    if (spotInstanceRequestIds == nil) {
+        spotInstanceRequestIds = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [spotInstanceRequestIds addObject:spotInstanceRequestIdObject];
+}
+
 
 -(NSString *)description
 {

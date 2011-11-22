@@ -32,14 +32,15 @@
 }
 
 
+
 /**
  * The URL of the SQS queue to take action on.
  */
 @property (nonatomic, retain) NSString *queueUrl;
 
 /**
- * The identfication of the permission to remove. This is the label added
- * with the <a>AddPermission</a> operation.
+ * The identification of the permission to remove. This is the label
+ * added with the <a>AddPermission</a> operation.
  */
 @property (nonatomic, retain) NSString *label;
 
@@ -55,8 +56,8 @@
  * Callers should use properties to initialize any additional object members.
  *
  * @param theQueueUrl The URL of the SQS queue to take action on.
- * @param theLabel The identfication of the permission to remove. This is
- * the label added with the <a>AddPermission</a> operation.
+ * @param theLabel The identification of the permission to remove. This
+ * is the label added with the <a>AddPermission</a> operation.
  */
 -(id)initWithQueueUrl:(NSString *)theQueueUrl andLabel:(NSString *)theLabel;
 

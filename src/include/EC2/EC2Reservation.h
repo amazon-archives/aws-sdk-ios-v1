@@ -37,6 +37,7 @@
 
 
 
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -81,6 +82,12 @@
  * This function will alloc and init groups if not already done.
  */
 -(void)addGroup:(EC2GroupIdentifier *)groupObject;
+
+/**
+ * Adds a single object to groupNames.
+ * This function will alloc and init groupNames if not already done.
+ */
+-(void)addGroupName:(NSString *)groupNameObject;
 
 /**
  * Adds a single object to instances.

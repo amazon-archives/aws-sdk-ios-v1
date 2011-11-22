@@ -20,26 +20,26 @@
 
 @implementation GetTokenResponseHandler
 
--(id)initWithKey:(NSString*)theKey
+-(id)initWithKey:(NSString *)theKey
 {
-    if ( ( self = [super init] ) ) {
+    if ((self = [super init])) {
         key = [theKey retain];
     }
-    
-    return self;    
+
+    return self;
 }
 
--(Response*)handleResponse:(int)responseCode body:(NSString*)responseBody
+-(Response *)handleResponse:(int)responseCode body:(NSString *)responseBody
 {
-    if ( responseCode == 200 ) {
-        NSData *body = [Crypto decrypt:responseBody key:key];
+    if (responseCode == 200) {
+        NSData   *body = [Crypto decrypt:responseBody key:key];
         NSString *json = [[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding];
-        
-        NSString *accessKey = [JSONUtilities getJSONElement:json element:@"accessKey"];
-        NSString *secretKey = [JSONUtilities getJSONElement:json element:@"secretKey"];
-        NSString *securityToken = [JSONUtilities getJSONElement:json element:@"securityToken"];
-        NSString *expirationDate = [JSONUtilities getJSONElement:json element:@"expirationDate"];    
-        
+
+        NSString *accessKey      = [JSONUtilities getJSONElement:json element:@"accessKey"];
+        NSString *secretKey      = [JSONUtilities getJSONElement:json element:@"secretKey"];
+        NSString *securityToken  = [JSONUtilities getJSONElement:json element:@"securityToken"];
+        NSString *expirationDate = [JSONUtilities getJSONElement:json element:@"expirationDate"];
+
         return [[[GetTokenResponse alloc] initWithAccessKey:accessKey andSecretKey:secretKey andSecurityToken:securityToken andExpirationDate:expirationDate] autorelease];
     }
     else {

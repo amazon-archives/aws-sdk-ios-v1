@@ -54,6 +54,15 @@
     [dimensions addObject:dimensionObject];
 }
 
+-(void)addStatistic:(NSString *)statisticObject
+{
+    if (statistics == nil) {
+        statistics = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [statistics addObject:statisticObject];
+}
+
 
 -(NSString *)description
 {

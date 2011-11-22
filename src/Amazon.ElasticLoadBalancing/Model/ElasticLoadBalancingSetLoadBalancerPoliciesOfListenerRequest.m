@@ -46,6 +46,15 @@
 }
 
 
+-(void)addPolicyName:(NSString *)policyNameObject
+{
+    if (policyNames == nil) {
+        policyNames = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [policyNames addObject:policyNameObject];
+}
+
 
 -(NSString *)description
 {

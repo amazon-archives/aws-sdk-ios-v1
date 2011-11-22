@@ -73,6 +73,7 @@
 
 
 
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -219,7 +220,13 @@
  */
 @property (nonatomic, retain) NSMutableArray *blockDeviceMappings;
 
-@property (nonatomic, retain) NSString       *virtualizationType;
+/**
+ * The value of the VirtualizationType property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>hvm, paravirtual
+ */
+@property (nonatomic, retain) NSString *virtualizationType;
 
 /**
  *
@@ -237,20 +244,35 @@
  */
 @property (nonatomic, retain) EC2InstanceLicense *license;
 
-@property (nonatomic, retain) NSString           *clientToken;
+/**
+ * The value of the ClientToken property for this object.
+ */
+@property (nonatomic, retain) NSString *clientToken;
 
 /**
  * A list of tags for the Instance.
  */
 @property (nonatomic, retain) NSMutableArray *tags;
 
+/**
+ * The value of the SecurityGroups property for this object.
+ */
 @property (nonatomic, retain) NSMutableArray *securityGroups;
 
-@property (nonatomic) bool                   sourceDestCheck;
+/**
+ * The value of the SourceDestCheck property for this object.
+ */
+@property (nonatomic) bool           sourceDestCheck;
 
-@property (nonatomic, readonly) bool         sourceDestCheckIsSet;
+@property (nonatomic, readonly) bool sourceDestCheckIsSet;
 
-@property (nonatomic, retain) NSString       *hypervisor;
+/**
+ * The value of the Hypervisor property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>ovm, xen
+ */
+@property (nonatomic, retain) NSString *hypervisor;
 
 /**
  * Adds a single object to productCodes.

@@ -34,6 +34,9 @@
 
 
 
+-(void)setException:(AmazonServiceException *)theException;
+
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -45,6 +48,13 @@
  * instance.
  */
 @property (nonatomic, retain) NSMutableArray *licenses;
+
+
+
+/**
+ * Returns a value from the licenses array for the specified index
+ */
+-(EC2License *)licensesObjectAtIndex:(int)index;
 
 /**
  * Returns a string representation of this object; useful for testing and

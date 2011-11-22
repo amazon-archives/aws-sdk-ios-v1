@@ -24,20 +24,20 @@
 @interface S3CopyPartRequest:S3Request {
     int      partNumber;
     NSString *uploadId;
-    
+
     NSString *sourceBucketName;
     NSString *sourceKey;
     NSString *sourceVersionId;
-    
+
     NSString *destinationBucketName;
     NSString *destinationKey;
-    
+
     NSString *ifMatch;
     NSString *ifNoneMatch;
-    
-    NSDate *ifModifiedSince;
-    NSDate *ifUnmodifiedSince;
-    
+
+    NSDate   *ifModifiedSince;
+    NSDate   *ifUnmodifiedSince;
+
     NSNumber *firstByte;
     NSNumber *lastByte;
 }
@@ -55,11 +55,11 @@
 @property (nonatomic, retain) NSString *destinationBucketName;
 @property (nonatomic, retain) NSString *destinationKey;
 
-@property (nonatomic, retain) NSString *ifMatch; 
+@property (nonatomic, retain) NSString *ifMatch;
 @property (nonatomic, retain) NSString *ifNoneMatch;
 
-@property (nonatomic, retain) NSDate *ifModifiedSince;
-@property (nonatomic, retain) NSDate *ifUnmodifiedSince;
+@property (nonatomic, retain) NSDate   *ifModifiedSince;
+@property (nonatomic, retain) NSDate   *ifUnmodifiedSince;
 
 @property (nonatomic, retain) NSNumber *firstByte;
 @property (nonatomic, retain) NSNumber *lastByte;

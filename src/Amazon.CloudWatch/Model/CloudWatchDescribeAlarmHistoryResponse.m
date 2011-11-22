@@ -54,6 +54,12 @@
 
 
 
+-(CloudWatchAlarmHistoryItem *)alarmHistoryItemsObjectAtIndex:(int)index
+{
+    return (CloudWatchAlarmHistoryItem *)[alarmHistoryItems objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

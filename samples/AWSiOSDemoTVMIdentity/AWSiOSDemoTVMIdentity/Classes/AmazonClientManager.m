@@ -26,7 +26,7 @@ static AmazonTVMClient      *tvm = nil;
 @implementation AmazonClientManager
 
 
-+(void)setup:(NSString*)accessKey secretKey:(NSString*)secretKey securityToken:(NSString*)token expiration:(NSString*)expiration
++(void)setup:(NSString *)accessKey secretKey:(NSString *)secretKey securityToken:(NSString *)token expiration:(NSString *)expiration
 {
     [AmazonKeyChainWrapper storeCredentialsInKeyChain:accessKey secretKey:secretKey securityToken:token expiration:expiration];
 }
@@ -55,12 +55,12 @@ static AmazonTVMClient      *tvm = nil;
     return sns;
 }
 
-+(AmazonTVMClient *)tvm 
++(AmazonTVMClient *)tvm
 {
-    if ( tvm == nil ) {
+    if (tvm == nil) {
         tvm = [[AmazonTVMClient alloc] initWithEndpoint:TOKEN_VENDING_MACHINE_URL andAppName:APP_NAME useSSL:USE_SSL];
     }
-    
+
     return tvm;
 }
 
@@ -69,35 +69,35 @@ static AmazonTVMClient      *tvm = nil;
     return ![TOKEN_VENDING_MACHINE_URL isEqualToString:@"CHANGE ME"];
 }
 
-+(bool)isLoggedIn 
++(bool)isLoggedIn
 {
-    return ( [AmazonKeyChainWrapper getKeyForDevice] != nil && [AmazonKeyChainWrapper getUidForDevice] != nil );
+    return ( [AmazonKeyChainWrapper getKeyForDevice] != nil && [AmazonKeyChainWrapper getUidForDevice] != nil);
 }
 
-+(Response*)login:(NSString*)username password:(NSString*)password
++(Response *)login:(NSString *)username password:(NSString *)password
 {
-    return [[AmazonClientManager tvm] login:username password:password]; 
+    return [[AmazonClientManager tvm] login:username password:password];
 }
 
-+(Response*)validateCredentials 
++(Response *)validateCredentials
 {
-    Response* ableToGetToken = [[[Response alloc] initWithCode:200 andMessage:@"OK"] autorelease];
+    Response *ableToGetToken = [[[Response alloc] initWithCode:200 andMessage:@"OK"] autorelease];
 
-    if ( [AmazonKeyChainWrapper areCredentialsExpired] ) {
+    if ( [AmazonKeyChainWrapper areCredentialsExpired]) {
         [AmazonClientManager clearCredentials];
-        ableToGetToken = [[AmazonClientManager tvm] getToken];        
+        ableToGetToken = [[AmazonClientManager tvm] getToken];
     }
-    
-    if ( [ableToGetToken wasSuccessful] && ( sdb == nil ) || ( s3 == nil ) || ( sqs == nil ) || ( sns == nil ) ) {
+
+    if ( [ableToGetToken wasSuccessful] && (sdb == nil) || (s3 == nil) || (sqs == nil) || (sns == nil)) {
         [AmazonClientManager clearCredentials];
-        
-        AmazonCredentials *credentials = [[AmazonKeyChainWrapper getCredentialsFromKeyChain] autorelease];                
-        s3 = [[AmazonS3Client alloc] initWithCredentials:credentials];
+
+        AmazonCredentials *credentials = [[AmazonKeyChainWrapper getCredentialsFromKeyChain] autorelease];
+        s3  = [[AmazonS3Client alloc] initWithCredentials:credentials];
         sdb = [[AmazonSimpleDBClient alloc] initWithCredentials:credentials];
         sqs = [[AmazonSQSClient alloc] initWithCredentials:credentials];
         sns = [[AmazonSNSClient alloc] initWithCredentials:credentials];
-    }   
-    
+    }
+
     return ableToGetToken;
 }
 
@@ -107,8 +107,8 @@ static AmazonTVMClient      *tvm = nil;
     [sdb release];
     [sns release];
     [sqs release];
-    
-    s3 = nil;
+
+    s3  = nil;
     sdb = nil;
     sqs = nil;
     sns = nil;

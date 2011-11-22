@@ -53,6 +53,24 @@
 }
 
 
+-(void)addAvailabilityZone:(NSString *)availabilityZoneObject
+{
+    if (availabilityZones == nil) {
+        availabilityZones = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [availabilityZones addObject:availabilityZoneObject];
+}
+
+-(void)addLoadBalancerName:(NSString *)loadBalancerNameObject
+{
+    if (loadBalancerNames == nil) {
+        loadBalancerNames = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [loadBalancerNames addObject:loadBalancerNameObject];
+}
+
 
 -(NSString *)description
 {

@@ -17,22 +17,23 @@
 
 @implementation JSONUtilities
 
-+(NSString*)getJSONElement:(NSString*)json element:(NSString*)elementName 
++(NSString *)getJSONElement:(NSString *)json element:(NSString *)elementName
 {
     NSRange hasElement = [json rangeOfString:elementName];
-    if ( hasElement.location != NSNotFound ) {
+
+    if (hasElement.location != NSNotFound) {
         NSRange startSearchRange = { hasElement.location, [json length] - hasElement.location };
-        NSRange startRange = [json rangeOfString:@"\"" options:NSLiteralSearch range:startSearchRange];
-        
+        NSRange startRange       = [json rangeOfString:@"\"" options:NSLiteralSearch range:startSearchRange];
+
         NSRange endSearchRange = { startRange.location + 1, ([json length] - startRange.location) - 1 };
-        NSRange endRange = [json rangeOfString:@"\"" options:NSLiteralSearch range:endSearchRange];
-        
+        NSRange endRange       = [json rangeOfString:@"\"" options:NSLiteralSearch range:endSearchRange];
+
         NSRange elementRange = { startRange.location + 1, endRange.location - startRange.location - 1 };
         return [json substringWithRange:elementRange];
     }
-    
+
     return nil;
 }
 
-          
+
 @end

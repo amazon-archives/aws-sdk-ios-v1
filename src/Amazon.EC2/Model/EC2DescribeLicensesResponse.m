@@ -48,6 +48,12 @@
 
 
 
+-(EC2License *)licensesObjectAtIndex:(int)index
+{
+    return (EC2License *)[licenses objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

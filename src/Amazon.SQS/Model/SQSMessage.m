@@ -39,6 +39,15 @@
 }
 
 
+-(void)setAttributesValue:(NSString *)theValue forKey:(NSString *)theKey
+{
+    if (attributes == nil) {
+        attributes = [[NSMutableDictionary alloc] initWithCapacity:1];
+    }
+
+    [attributes setValue:theValue forKey:theKey];
+}
+
 
 -(NSString *)description
 {

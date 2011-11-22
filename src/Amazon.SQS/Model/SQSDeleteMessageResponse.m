@@ -31,6 +31,10 @@
         newException = [[SQSReceiptHandleIsInvalidException alloc] initWithMessage:@""];
     }
 
+    if ([[theException errorCode] isEqualToString:@"InvalidIdFormat"]) {
+        newException = [[SQSInvalidIdFormatException alloc] initWithMessage:@""];
+    }
+
     if (newException != nil) {
         [newException setPropertiesWithException:theException];
         [exception release];

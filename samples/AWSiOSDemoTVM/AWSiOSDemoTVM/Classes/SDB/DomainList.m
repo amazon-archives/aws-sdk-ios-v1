@@ -43,7 +43,7 @@
         [domains sortUsingSelector:@selector(compare:)];
     }
     @catch (AmazonServiceException *exception) {
-        if ( [exception.errorCode isEqualToString:@"InvalidClientTokenId"] ) {
+        if ( [exception.errorCode isEqualToString:@"InvalidClientTokenId"]) {
             [[Constants expiredCredentialsAlert] show];
             [AmazonClientManager wipeAllCredentials];
         }

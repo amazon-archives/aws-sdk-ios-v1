@@ -44,6 +44,15 @@
 }
 
 
+-(void)addInstanceId:(NSString *)instanceIdObject
+{
+    if (instanceIds == nil) {
+        instanceIds = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [instanceIds addObject:instanceIdObject];
+}
+
 
 -(NSString *)description
 {

@@ -70,10 +70,10 @@
     if (nil == generatedRequest.credentials) {
         [generatedRequest setCredentials:credentials];
     }
-    
-    
 
-    
+
+
+
     NSMutableURLRequest *urlRequest = [generatedRequest configureURLRequest];
     [generatedRequest sign];
     [urlRequest setHTTPBody:[[generatedRequest queryString] dataUsingEncoding:NSUTF8StringEncoding]];
@@ -102,7 +102,7 @@
         originalRequest.urlConnection = urlConnection;
 
         if ([generatedRequest delegate] == nil) {
-            NSTimer *timeoutTimer  = [NSTimer scheduledTimerWithTimeInterval:self.timeout target:response selector:@selector(timeout) userInfo:nil repeats:NO];
+            NSTimer *timeoutTimer = [NSTimer scheduledTimerWithTimeInterval:self.timeout target:response selector:@selector(timeout) userInfo:nil repeats:NO];
             generatedRequest.delegate = [[[AmazonRequestDelegate alloc] init] autorelease];
 
             while (![(AmazonRequestDelegate *)(generatedRequest.delegate)isFinishedOrFailed]) {

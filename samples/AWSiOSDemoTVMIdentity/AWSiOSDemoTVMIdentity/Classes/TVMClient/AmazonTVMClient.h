@@ -19,21 +19,21 @@
 #import "ResponseHandler.h"
 
 
-@interface AmazonTVMClient : NSObject {
+@interface AmazonTVMClient:NSObject {
     NSString *endpoint;
     NSString *appName;
-    bool useSSL;
+    bool     useSSL;
 }
 
 @property (nonatomic, retain) NSString *endpoint;
 @property (nonatomic, retain) NSString *appName;
-@property (nonatomic) bool useSSL;
+@property (nonatomic) bool             useSSL;
 
--(id)initWithEndpoint:(NSString*)endpoint andAppName:(NSString*)appName useSSL:(bool)useSSL;
--(Response*)getToken;
--(Response*)login:(NSString*)username password:(NSString*)password;
--(Response*)processRequest:(Request*)request responseHandler:(ResponseHandler*)handler;
--(NSString*)getEndpointDomain:(NSString*)originalEndpoint;
+-(id)initWithEndpoint:(NSString *)endpoint andAppName:(NSString *)appName useSSL:(bool)useSSL;
+-(Response *)getToken;
+-(Response *)login:(NSString *)username password:(NSString *)password;
+-(Response *)processRequest:(Request *)request responseHandler:(ResponseHandler *)handler;
+-(NSString *)getEndpointDomain:(NSString *)originalEndpoint;
 
 @end
 

@@ -38,6 +38,7 @@
 
 
 
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -74,6 +75,12 @@
  * <code>ReturnPath</code> parameter.
  */
 @property (nonatomic, retain) NSString *returnPath;
+
+/**
+ * Adds a single object to replyToAddresses.
+ * This function will alloc and init replyToAddresses if not already done.
+ */
+-(void)addReplyToAddresse:(NSString *)replyToAddresseObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

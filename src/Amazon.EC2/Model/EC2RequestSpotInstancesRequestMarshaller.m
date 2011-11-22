@@ -169,7 +169,7 @@
                     }
                     if (ebs != nil) {
                         if (ebs.deleteOnTerminationIsSet) {
-                            [request setParameterValue:(ebs.deleteOnTermination ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@.%@.%d.%@.%@", @"LaunchSpecification", @"BlockDeviceMapping", blockDeviceMappingsListIndex, @"Ebs", @"DeleteOnTermination"]];
+                            [request setParameterValue:(ebs.deleteOnTermination ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@.%@.%d.%@.%@", @"LaunchSpecification", @"BlockDeviceMapping", blockDeviceMappingsListIndex, @"Ebs", @"DeleteOnTermination"]];
                         }
                     }
                 }
@@ -184,7 +184,7 @@
         }
         if (launchSpecification != nil) {
             if (launchSpecification.monitoringEnabledIsSet) {
-                [request setParameterValue:(launchSpecification.monitoringEnabled ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@.%@", @"LaunchSpecification", @"Monitoring.Enabled"]];
+                [request setParameterValue:(launchSpecification.monitoringEnabled ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@.%@", @"LaunchSpecification", @"Monitoring.Enabled"]];
             }
         }
         if (launchSpecification != nil) {

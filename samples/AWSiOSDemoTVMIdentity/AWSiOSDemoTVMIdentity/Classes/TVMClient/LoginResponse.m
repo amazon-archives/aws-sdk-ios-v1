@@ -19,12 +19,12 @@
 
 @synthesize key;
 
--(id)initWithKey:(NSString*)theKey 
+-(id)initWithKey:(NSString *)theKey
 {
-    if ( ( self = [super initWithCode:200 andMessage:nil] ) ) {
+    if ((self = [super initWithCode:200 andMessage:nil])) {
         self.key = theKey;
     }
-    
+
     return self;
 }
 

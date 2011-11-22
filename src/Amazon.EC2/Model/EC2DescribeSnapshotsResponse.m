@@ -48,6 +48,12 @@
 
 
 
+-(EC2Snapshot *)snapshotsObjectAtIndex:(int)index
+{
+    return (EC2Snapshot *)[snapshots objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

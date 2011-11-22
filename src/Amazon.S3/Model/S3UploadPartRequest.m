@@ -46,7 +46,7 @@
     if (nil != self.contentMD5) {
         [self.urlRequest setValue:self.contentMD5 forHTTPHeaderField:kHttpHdrContentMD5];
     }
-    
+
     [urlRequest setHTTPMethod:kHttpMethodPut];
 
     return urlRequest;

@@ -29,12 +29,12 @@
  * configuration.  It was the value provided for PARAM2.  If no value was
  * provided it should be defaulted to "MyMobileAppName".
  */
-#define APP_NAME   @"MyMobileAppName"
+#define APP_NAME                     @"MyMobileAppName"
 
 /**
  * This indiciates whether or not the TVM is supports SSL connections.
  */
-#define USE_SSL   NO
+#define USE_SSL                      NO
 
 
 #define CREDENTIALS_ALERT_MESSAGE    @"Please update the Constants.h file with your credentials or Token Vending Machine URL."
@@ -46,7 +46,7 @@
 }
 
 +(UIAlertView *)credentialsAlert;
-+(UIAlertView *)errorAlert:(NSString*)message;
++(UIAlertView *)errorAlert:(NSString *)message;
 +(UIAlertView *)expiredCredentialsAlert;
 
 @end

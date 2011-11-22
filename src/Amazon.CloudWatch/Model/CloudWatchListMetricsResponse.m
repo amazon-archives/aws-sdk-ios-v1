@@ -58,6 +58,12 @@
 
 
 
+-(CloudWatchMetric *)metricsObjectAtIndex:(int)index
+{
+    return (CloudWatchMetric *)[metrics objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

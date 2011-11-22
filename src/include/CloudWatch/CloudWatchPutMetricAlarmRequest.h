@@ -48,6 +48,7 @@
 
 
 
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -187,6 +188,24 @@
  * <b>Allowed Values: </b>GreaterThanOrEqualToThreshold, GreaterThanThreshold, LessThanThreshold, LessThanOrEqualToThreshold
  */
 @property (nonatomic, retain) NSString *comparisonOperator;
+
+/**
+ * Adds a single object to oKActions.
+ * This function will alloc and init oKActions if not already done.
+ */
+-(void)addOKAction:(NSString *)oKActionObject;
+
+/**
+ * Adds a single object to alarmActions.
+ * This function will alloc and init alarmActions if not already done.
+ */
+-(void)addAlarmAction:(NSString *)alarmActionObject;
+
+/**
+ * Adds a single object to insufficientDataActions.
+ * This function will alloc and init insufficientDataActions if not already done.
+ */
+-(void)addInsufficientDataAction:(NSString *)insufficientDataActionObject;
 
 /**
  * Adds a single object to dimensions.

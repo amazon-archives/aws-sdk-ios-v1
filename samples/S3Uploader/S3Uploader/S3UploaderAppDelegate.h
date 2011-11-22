@@ -17,11 +17,10 @@
 
 @class S3UploaderViewController;
 
-@interface S3UploaderAppDelegate : NSObject <UIApplicationDelegate> {
-
+@interface S3UploaderAppDelegate:NSObject<UIApplicationDelegate> {
 }
 
-@property (nonatomic, retain) IBOutlet UIWindow *window;
+@property (nonatomic, retain) IBOutlet UIWindow                 *window;
 
 @property (nonatomic, retain) IBOutlet S3UploaderViewController *viewController;
 

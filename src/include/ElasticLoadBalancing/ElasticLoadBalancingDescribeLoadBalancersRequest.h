@@ -31,6 +31,7 @@
 }
 
 
+
 /**
  * A list of names associated with the LoadBalancers at creation time.
  */
@@ -51,6 +52,12 @@
  * LoadBalancers at creation time.
  */
 -(id)initWithLoadBalancerNames:(NSMutableArray *)theLoadBalancerNames;
+
+/**
+ * Adds a single object to loadBalancerNames.
+ * This function will alloc and init loadBalancerNames if not already done.
+ */
+-(void)addLoadBalancerName:(NSString *)loadBalancerNameObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

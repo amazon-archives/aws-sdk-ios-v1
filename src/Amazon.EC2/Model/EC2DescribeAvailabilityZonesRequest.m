@@ -33,6 +33,15 @@
 }
 
 
+-(void)addZoneName:(NSString *)zoneNameObject
+{
+    if (zoneNames == nil) {
+        zoneNames = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [zoneNames addObject:zoneNameObject];
+}
+
 -(void)addFilter:(EC2Filter *)filterObject
 {
     if (filters == nil) {

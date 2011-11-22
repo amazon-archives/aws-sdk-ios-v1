@@ -34,6 +34,7 @@
 }
 
 
+
 /**
  * The URL of the SQS queue to take action on.
  */
@@ -72,6 +73,12 @@
  * @param theQueueUrl The URL of the SQS queue to take action on.
  */
 -(id)initWithQueueUrl:(NSString *)theQueueUrl;
+
+/**
+ * Adds a single object to attributeNames.
+ * This function will alloc and init attributeNames if not already done.
+ */
+-(void)addAttributeName:(NSString *)attributeNameObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

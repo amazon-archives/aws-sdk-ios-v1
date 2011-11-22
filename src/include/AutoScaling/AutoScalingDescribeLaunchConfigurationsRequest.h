@@ -34,6 +34,7 @@
 
 
 
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -60,6 +61,12 @@
  * <b>Range: </b>1 - 50<br/>
  */
 @property (nonatomic, retain) NSNumber *maxRecords;
+
+/**
+ * Adds a single object to launchConfigurationNames.
+ * This function will alloc and init launchConfigurationNames if not already done.
+ */
+-(void)addLaunchConfigurationName:(NSString *)launchConfigurationNameObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

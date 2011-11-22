@@ -35,18 +35,18 @@
     return self;
 }
 
--(SQSListQueuesResponse *)listQueues:(SQSListQueuesRequest *)listQueuesRequest
-{
-    AmazonServiceRequest *request = [SQSListQueuesRequestMarshaller createRequest:listQueuesRequest];
-
-    return (SQSListQueuesResponse *)[self invoke:request rawRequest:listQueuesRequest unmarshallerDelegate:[SQSListQueuesResponseUnmarshaller class]];
-}
-
 -(SQSSetQueueAttributesResponse *)setQueueAttributes:(SQSSetQueueAttributesRequest *)setQueueAttributesRequest
 {
     AmazonServiceRequest *request = [SQSSetQueueAttributesRequestMarshaller createRequest:setQueueAttributesRequest];
 
     return (SQSSetQueueAttributesResponse *)[self invoke:request rawRequest:setQueueAttributesRequest unmarshallerDelegate:[SQSSetQueueAttributesResponseUnmarshaller class]];
+}
+
+-(SQSChangeMessageVisibilityBatchResponse *)changeMessageVisibilityBatch:(SQSChangeMessageVisibilityBatchRequest *)changeMessageVisibilityBatchRequest
+{
+    AmazonServiceRequest *request = [SQSChangeMessageVisibilityBatchRequestMarshaller createRequest:changeMessageVisibilityBatchRequest];
+
+    return (SQSChangeMessageVisibilityBatchResponse *)[self invoke:request rawRequest:changeMessageVisibilityBatchRequest unmarshallerDelegate:[SQSChangeMessageVisibilityBatchResponseUnmarshaller class]];
 }
 
 -(SQSChangeMessageVisibilityResponse *)changeMessageVisibility:(SQSChangeMessageVisibilityRequest *)changeMessageVisibilityRequest
@@ -56,11 +56,11 @@
     return (SQSChangeMessageVisibilityResponse *)[self invoke:request rawRequest:changeMessageVisibilityRequest unmarshallerDelegate:[SQSChangeMessageVisibilityResponseUnmarshaller class]];
 }
 
--(SQSCreateQueueResponse *)createQueue:(SQSCreateQueueRequest *)createQueueRequest
+-(SQSGetQueueUrlResponse *)getQueueUrl:(SQSGetQueueUrlRequest *)getQueueUrlRequest
 {
-    AmazonServiceRequest *request = [SQSCreateQueueRequestMarshaller createRequest:createQueueRequest];
+    AmazonServiceRequest *request = [SQSGetQueueUrlRequestMarshaller createRequest:getQueueUrlRequest];
 
-    return (SQSCreateQueueResponse *)[self invoke:request rawRequest:createQueueRequest unmarshallerDelegate:[SQSCreateQueueResponseUnmarshaller class]];
+    return (SQSGetQueueUrlResponse *)[self invoke:request rawRequest:getQueueUrlRequest unmarshallerDelegate:[SQSGetQueueUrlResponseUnmarshaller class]];
 }
 
 -(SQSRemovePermissionResponse *)removePermission:(SQSRemovePermissionRequest *)removePermissionRequest
@@ -77,11 +77,11 @@
     return (SQSGetQueueAttributesResponse *)[self invoke:request rawRequest:getQueueAttributesRequest unmarshallerDelegate:[SQSGetQueueAttributesResponseUnmarshaller class]];
 }
 
--(SQSAddPermissionResponse *)addPermission:(SQSAddPermissionRequest *)addPermissionRequest
+-(SQSSendMessageBatchResponse *)sendMessageBatch:(SQSSendMessageBatchRequest *)sendMessageBatchRequest
 {
-    AmazonServiceRequest *request = [SQSAddPermissionRequestMarshaller createRequest:addPermissionRequest];
+    AmazonServiceRequest *request = [SQSSendMessageBatchRequestMarshaller createRequest:sendMessageBatchRequest];
 
-    return (SQSAddPermissionResponse *)[self invoke:request rawRequest:addPermissionRequest unmarshallerDelegate:[SQSAddPermissionResponseUnmarshaller class]];
+    return (SQSSendMessageBatchResponse *)[self invoke:request rawRequest:sendMessageBatchRequest unmarshallerDelegate:[SQSSendMessageBatchResponseUnmarshaller class]];
 }
 
 -(SQSDeleteQueueResponse *)deleteQueue:(SQSDeleteQueueRequest *)deleteQueueRequest
@@ -89,13 +89,6 @@
     AmazonServiceRequest *request = [SQSDeleteQueueRequestMarshaller createRequest:deleteQueueRequest];
 
     return (SQSDeleteQueueResponse *)[self invoke:request rawRequest:deleteQueueRequest unmarshallerDelegate:[SQSDeleteQueueResponseUnmarshaller class]];
-}
-
--(SQSDeleteMessageResponse *)deleteMessage:(SQSDeleteMessageRequest *)deleteMessageRequest
-{
-    AmazonServiceRequest *request = [SQSDeleteMessageRequestMarshaller createRequest:deleteMessageRequest];
-
-    return (SQSDeleteMessageResponse *)[self invoke:request rawRequest:deleteMessageRequest unmarshallerDelegate:[SQSDeleteMessageResponseUnmarshaller class]];
 }
 
 -(SQSSendMessageResponse *)sendMessage:(SQSSendMessageRequest *)sendMessageRequest
@@ -110,6 +103,41 @@
     AmazonServiceRequest *request = [SQSReceiveMessageRequestMarshaller createRequest:receiveMessageRequest];
 
     return (SQSReceiveMessageResponse *)[self invoke:request rawRequest:receiveMessageRequest unmarshallerDelegate:[SQSReceiveMessageResponseUnmarshaller class]];
+}
+
+-(SQSListQueuesResponse *)listQueues:(SQSListQueuesRequest *)listQueuesRequest
+{
+    AmazonServiceRequest *request = [SQSListQueuesRequestMarshaller createRequest:listQueuesRequest];
+
+    return (SQSListQueuesResponse *)[self invoke:request rawRequest:listQueuesRequest unmarshallerDelegate:[SQSListQueuesResponseUnmarshaller class]];
+}
+
+-(SQSDeleteMessageBatchResponse *)deleteMessageBatch:(SQSDeleteMessageBatchRequest *)deleteMessageBatchRequest
+{
+    AmazonServiceRequest *request = [SQSDeleteMessageBatchRequestMarshaller createRequest:deleteMessageBatchRequest];
+
+    return (SQSDeleteMessageBatchResponse *)[self invoke:request rawRequest:deleteMessageBatchRequest unmarshallerDelegate:[SQSDeleteMessageBatchResponseUnmarshaller class]];
+}
+
+-(SQSCreateQueueResponse *)createQueue:(SQSCreateQueueRequest *)createQueueRequest
+{
+    AmazonServiceRequest *request = [SQSCreateQueueRequestMarshaller createRequest:createQueueRequest];
+
+    return (SQSCreateQueueResponse *)[self invoke:request rawRequest:createQueueRequest unmarshallerDelegate:[SQSCreateQueueResponseUnmarshaller class]];
+}
+
+-(SQSAddPermissionResponse *)addPermission:(SQSAddPermissionRequest *)addPermissionRequest
+{
+    AmazonServiceRequest *request = [SQSAddPermissionRequestMarshaller createRequest:addPermissionRequest];
+
+    return (SQSAddPermissionResponse *)[self invoke:request rawRequest:addPermissionRequest unmarshallerDelegate:[SQSAddPermissionResponseUnmarshaller class]];
+}
+
+-(SQSDeleteMessageResponse *)deleteMessage:(SQSDeleteMessageRequest *)deleteMessageRequest
+{
+    AmazonServiceRequest *request = [SQSDeleteMessageRequestMarshaller createRequest:deleteMessageRequest];
+
+    return (SQSDeleteMessageResponse *)[self invoke:request rawRequest:deleteMessageRequest unmarshallerDelegate:[SQSDeleteMessageResponseUnmarshaller class]];
 }
 
 

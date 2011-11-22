@@ -63,6 +63,11 @@
 }
 
 
+-(NSString *)attributesValueForKey:(NSString *)theKey
+{
+    return (NSString *)[attributes valueForKey:theKey];
+}
+
 
 -(NSString *)description
 {

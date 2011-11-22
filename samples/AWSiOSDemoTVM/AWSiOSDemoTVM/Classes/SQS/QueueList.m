@@ -59,11 +59,11 @@
         [queues sortUsingSelector:@selector(compare:)];
     }
     @catch (AmazonServiceException *exception) {
-        if ( [exception.errorCode isEqualToString:@"InvalidAccessKeyId"] ) {
+        if ( [exception.errorCode isEqualToString:@"InvalidAccessKeyId"]) {
             [[Constants expiredCredentialsAlert] show];
             [AmazonClientManager wipeAllCredentials];
         }
-    }    
+    }
     @catch (AmazonClientException *exception) {
         NSLog(@"Exception = %@", exception);
     }
@@ -109,11 +109,11 @@
         [messageList release];
     }
     @catch (AmazonServiceException *exception) {
-        if ( [exception.errorCode isEqualToString:@"InvalidAccessKeyId"] ) {
+        if ( [exception.errorCode isEqualToString:@"InvalidAccessKeyId"]) {
             [[Constants expiredCredentialsAlert] show];
             [AmazonClientManager wipeAllCredentials];
         }
-    }    
+    }
     @catch (AmazonClientException *exception) {
         NSLog(@"Exception = %@", exception);
     }
@@ -134,11 +134,11 @@
             [queueTableView endUpdates];
         }
         @catch (AmazonServiceException *exception) {
-            if ( [exception.errorCode isEqualToString:@"InvalidAccessKeyId"] ) {
+            if ( [exception.errorCode isEqualToString:@"InvalidAccessKeyId"]) {
                 [[Constants expiredCredentialsAlert] show];
                 [AmazonClientManager wipeAllCredentials];
             }
-        }    
+        }
         @catch (AmazonClientException *exception) {
             NSLog(@"Exception = %@", exception);
         }

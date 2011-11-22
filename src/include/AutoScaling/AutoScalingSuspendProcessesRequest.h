@@ -33,6 +33,7 @@
 
 
 
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -57,6 +58,12 @@
  * omit this parameter.
  */
 @property (nonatomic, retain) NSMutableArray *scalingProcesses;
+
+/**
+ * Adds a single object to scalingProcesses.
+ * This function will alloc and init scalingProcesses if not already done.
+ */
+-(void)addScalingProcesse:(NSString *)scalingProcesseObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

@@ -33,6 +33,7 @@
 }
 
 
+
 /**
  * A list of one or more resource IDs. This could be the ID of an AMI, an
  * instance, an EBS volume, or snapshot, etc.
@@ -61,6 +62,12 @@
  * the ID of an AMI, an instance, an EBS volume, or snapshot, etc.
  */
 -(id)initWithResources:(NSMutableArray *)theResources;
+
+/**
+ * Adds a single object to resources.
+ * This function will alloc and init resources if not already done.
+ */
+-(void)addResource:(NSString *)resourceObject;
 
 /**
  * Adds a single object to tags.

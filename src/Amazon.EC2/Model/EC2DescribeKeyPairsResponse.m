@@ -48,6 +48,12 @@
 
 
 
+-(EC2KeyPairInfo *)keyPairsObjectAtIndex:(int)index
+{
+    return (EC2KeyPairInfo *)[keyPairs objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

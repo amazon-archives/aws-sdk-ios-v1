@@ -43,6 +43,15 @@
 }
 
 
+-(void)addLoadBalancerPort:(NSNumber *)loadBalancerPortObject
+{
+    if (loadBalancerPorts == nil) {
+        loadBalancerPorts = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [loadBalancerPorts addObject:loadBalancerPortObject];
+}
+
 
 -(NSString *)description
 {

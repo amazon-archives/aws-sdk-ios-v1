@@ -37,6 +37,7 @@
 }
 
 
+
 /**
  * The ID of the EBS snapshot whose attributes are being modified.
  */
@@ -70,8 +71,11 @@
  * <code>createVolumePermission</code> attribute is being modified.
  * </note>
  */
-@property (nonatomic, retain) NSMutableArray                         *groupNames;
+@property (nonatomic, retain) NSMutableArray *groupNames;
 
+/**
+ * The value of the CreateVolumePermission property for this object.
+ */
 @property (nonatomic, retain) EC2CreateVolumePermissionModifications *createVolumePermission;
 
 
@@ -93,6 +97,18 @@
  * Available operation names: <code>add</code>, <code>remove</code>
  */
 -(id)initWithSnapshotId:(NSString *)theSnapshotId andAttribute:(NSString *)theAttribute andOperationType:(NSString *)theOperationType;
+
+/**
+ * Adds a single object to userIds.
+ * This function will alloc and init userIds if not already done.
+ */
+-(void)addUserId:(NSString *)userIdObject;
+
+/**
+ * Adds a single object to groupNames.
+ * This function will alloc and init groupNames if not already done.
+ */
+-(void)addGroupName:(NSString *)groupNameObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

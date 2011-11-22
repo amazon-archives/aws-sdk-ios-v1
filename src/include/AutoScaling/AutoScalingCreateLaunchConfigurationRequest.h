@@ -43,6 +43,7 @@
 
 
 
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -151,6 +152,12 @@
  * Enables detailed monitoring.
  */
 @property (nonatomic, retain) AutoScalingInstanceMonitoring *instanceMonitoring;
+
+/**
+ * Adds a single object to securityGroups.
+ * This function will alloc and init securityGroups if not already done.
+ */
+-(void)addSecurityGroup:(NSString *)securityGroupObject;
 
 /**
  * Adds a single object to blockDeviceMappings.

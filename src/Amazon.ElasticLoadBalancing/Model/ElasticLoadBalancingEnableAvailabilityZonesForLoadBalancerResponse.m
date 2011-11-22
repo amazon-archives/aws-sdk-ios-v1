@@ -52,6 +52,12 @@
 
 
 
+-(NSString *)availabilityZonesObjectAtIndex:(int)index
+{
+    return (NSString *)[availabilityZones objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

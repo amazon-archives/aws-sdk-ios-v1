@@ -37,6 +37,15 @@
 }
 
 
+-(void)addActivityId:(NSString *)activityIdObject
+{
+    if (activityIds == nil) {
+        activityIds = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [activityIds addObject:activityIdObject];
+}
+
 
 -(NSString *)description
 {

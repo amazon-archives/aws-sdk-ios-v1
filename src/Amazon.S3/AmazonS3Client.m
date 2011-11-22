@@ -129,7 +129,7 @@
 
 -(S3PutObjectResponse *)putObject:(S3PutObjectRequest *)putObjectRequest
 {
-    return (S3PutObjectResponse*)[self invoke:putObjectRequest];
+    return (S3PutObjectResponse *)[self invoke:putObjectRequest];
 }
 
 -(S3GetObjectResponse *)getObject:(S3GetObjectRequest *)getObjectRequest
@@ -305,34 +305,34 @@
     if (request.endpoint == nil) {
         [request setEndpoint:self.endpoint];
     }
-    
-    
- 
-    
-    
+
+
+
+
+
     if (request.securityToken == nil && credentials != nil && credentials.securityToken != nil) {
         request.securityToken = credentials.securityToken;
     }
-    
+
 
     AMZLogDebug(@"Begin Request: %@", NSStringFromClass([request class]));
 
     S3Response *response = nil;
     int        retries   = 0;
     while (retries < self.maxRetries) {
-        if ( retries > 0 ) {
+        if (retries > 0) {
             request.date = [NSDate date];
         }
-        
+
         NSURLRequest *urlRequest = [self signS3Request:request];
-        
+
         AMZLogDebug(@"%@ %@", [urlRequest HTTPMethod], [urlRequest URL]);
         AMZLogDebug(@"Request headers: ");
         for (id hKey in [[urlRequest allHTTPHeaderFields] allKeys])
         {
             AMZLogDebug(@"  %@: %@", [hKey description], [[urlRequest allHTTPHeaderFields] valueForKey:hKey]);
         }
-        
+
         response = [AmazonS3Client constructResponseFromRequest:request];
         [response setRequest:request];
 
@@ -389,7 +389,7 @@
 
     AMZLogDebug(@"Received response from server. RequestId: %@. HTTP: %d. Id2: %@.", response.requestId, response.httpStatusCode, response.id2);
     AMZLogDebug(@"Response [%@]", response);
-    
+
     return response;
 }
 
@@ -519,7 +519,7 @@
     [S3DeleteObjectResponse class];
     [S3DeleteVersionResponse class];
     [S3GetACLResponse class];
-    [S3GetBucketPolicyResponse class];    
+    [S3GetBucketPolicyResponse class];
     [S3GetBucketVersioningConfigurationResponse class];
     [S3GetObjectMetadataResponse class];
     [S3GetObjectResponse class];
@@ -532,7 +532,7 @@
     [S3PutObjectResponse class];
     [S3SetACLResponse class];
     [S3SetBucketPolicyResponse class];
-    [S3SetBucketVersioningConfigurationResponse class];    
+    [S3SetBucketVersioningConfigurationResponse class];
     [S3UploadPartResponse class];
 }
 

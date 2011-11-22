@@ -35,6 +35,10 @@
 {
     AmazonServiceException *newException = nil;
 
+    if ([[theException errorCode] isEqualToString:@"OverLimit"]) {
+        newException = [[SQSOverLimitException alloc] initWithMessage:@""];
+    }
+
     if (newException != nil) {
         [newException setPropertiesWithException:theException];
         [exception release];
@@ -46,6 +50,12 @@
     }
 }
 
+
+
+-(SQSMessage *)messagesObjectAtIndex:(int)index
+{
+    return (SQSMessage *)[messages objectAtIndex:index];
+}
 
 
 -(NSString *)description

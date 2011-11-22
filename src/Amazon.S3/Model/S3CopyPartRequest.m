@@ -40,38 +40,38 @@
 -(NSMutableURLRequest *)configureURLRequest
 {
     self.bucket = destinationBucketName;
-    self.key = destinationKey;
-    
+    self.key    = destinationKey;
+
     NSString *sourceHeader = [NSString stringWithFormat:@"/%@/%@", [AmazonSDKUtil urlEncode:self.sourceBucketName], [AmazonSDKUtil urlEncode:self.sourceKey]];
-    if ( sourceVersionId != nil ) {
+    if (sourceVersionId != nil) {
         sourceHeader = [NSString stringWithFormat:@"%@?versionId=%@", sourceHeader, sourceVersionId];
     }
     [self.urlRequest setValue:sourceHeader forHTTPHeaderField:kHttpHdrAmzCopySource];
-    
+
     if (nil != self.ifModifiedSince) {
         [self.urlRequest setValue:[self.ifModifiedSince requestFormat] forHTTPHeaderField:kHttpHdrAmzCopySourceIfModified];
     }
     if (nil != self.ifUnmodifiedSince) {
         [self.urlRequest setValue:[self.ifUnmodifiedSince requestFormat] forHTTPHeaderField:kHttpHdrAmzCopySourceIfUnmodified];
-    }         
-    
+    }
+
     if (nil != self.ifMatch) {
         [self.urlRequest setValue:self.ifMatch forHTTPHeaderField:kHttpHdrAmzCopySourceIfMatch];
     }
     if (nil != self.ifNoneMatch) {
         [self.urlRequest setValue:self.ifNoneMatch forHTTPHeaderField:kHttpHdrAmzCopySourceIfNoneMatch];
     }
-    
-    if ( nil != self.firstByte && nil != self.lastByte ) {
+
+    if (nil != self.firstByte && nil != self.lastByte) {
         NSString *range = [NSString stringWithFormat:@"bytes=%d-%d", [firstByte longValue], [lastByte longValue]];
         [self.urlRequest setValue:range forHTTPHeaderField:kHttpHdrRange];
     }
-            
+
     self.subResource = [NSString stringWithFormat:@"%@=%d&%@=%@", kS3QueryParamPartNumber, self.partNumber, kS3QueryParamUploadId, self.uploadId];
 
-    self.contentLength = 0;      
+    self.contentLength = 0;
     [super configureURLRequest];
-            
+
     [urlRequest setHTTPMethod:kHttpMethodPut];
 
     return urlRequest;

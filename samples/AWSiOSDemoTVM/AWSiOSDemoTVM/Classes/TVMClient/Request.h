@@ -16,9 +16,9 @@
 #import <Foundation/Foundation.h>
 
 
-@interface Request : NSObject {
+@interface Request:NSObject {
 }
 
--(NSString*)buildRequestUrl;
+-(NSString *)buildRequestUrl;
 
 @end

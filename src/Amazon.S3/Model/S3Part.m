@@ -26,7 +26,7 @@
 -(void)dealloc
 {
     [etag release];
-	[lastModified release];
+    [lastModified release];
 
     [super dealloc];
 }

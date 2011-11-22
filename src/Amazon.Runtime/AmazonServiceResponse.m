@@ -113,7 +113,7 @@
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSDate *startDate = [NSDate date]; 
+    NSDate *startDate = [NSDate date];
 
     isFinishedLoading = YES;
 
@@ -145,16 +145,16 @@
     }
 
     [response postProcess];
-    processingTime = fabs([startDate timeIntervalSinceNow]);
+    processingTime          = fabs([startDate timeIntervalSinceNow]);
     response.processingTime = processingTime;
-        
-    
-        
+
+
+
     if ([(NSObject *)request.delegate respondsToSelector:@selector(request:didCompleteWithResponse:)]) {
         [request.delegate request:request didCompleteWithResponse:response];
     }
 
-    [response release];    
+    [response release];
 }
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
@@ -190,7 +190,7 @@
     return proposedRequest;
 }
 
-- (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse
+-(NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse
 {
     return nil;
 }

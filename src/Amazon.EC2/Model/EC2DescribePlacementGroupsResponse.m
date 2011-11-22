@@ -48,6 +48,12 @@
 
 
 
+-(EC2PlacementGroup *)placementGroupsObjectAtIndex:(int)index
+{
+    return (EC2PlacementGroup *)[placementGroups objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

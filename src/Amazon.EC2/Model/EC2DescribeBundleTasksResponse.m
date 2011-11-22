@@ -48,6 +48,12 @@
 
 
 
+-(EC2BundleTask *)bundleTasksObjectAtIndex:(int)index
+{
+    return (EC2BundleTask *)[bundleTasks objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

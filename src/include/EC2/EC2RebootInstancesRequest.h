@@ -31,6 +31,7 @@
 }
 
 
+
 /**
  * The list of instances to terminate.
  */
@@ -50,6 +51,12 @@
  * @param theInstanceIds The list of instances to terminate.
  */
 -(id)initWithInstanceIds:(NSMutableArray *)theInstanceIds;
+
+/**
+ * Adds a single object to instanceIds.
+ * This function will alloc and init instanceIds if not already done.
+ */
+-(void)addInstanceId:(NSString *)instanceIdObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

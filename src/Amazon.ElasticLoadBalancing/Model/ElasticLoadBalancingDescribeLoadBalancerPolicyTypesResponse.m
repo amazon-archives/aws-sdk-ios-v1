@@ -52,6 +52,12 @@
 
 
 
+-(ElasticLoadBalancingPolicyTypeDescription *)policyTypeDescriptionsObjectAtIndex:(int)index
+{
+    return (ElasticLoadBalancingPolicyTypeDescription *)[policyTypeDescriptions objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

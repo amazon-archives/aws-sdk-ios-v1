@@ -17,8 +17,8 @@
 
 @implementation Request
 
--(NSString*)buildRequestUrl
-{   
+-(NSString *)buildRequestUrl
+{
     return nil;
 }
 

@@ -32,7 +32,7 @@
     NSString                         *userAgent;
     AmazonCredentials                *credentials;
     NSURLConnection                  *urlConnection;
-    
+
     NSString                         *requestTag;
 }
 
@@ -64,7 +64,7 @@
  * Open property that enables user to distinquish various requests.
  */
 
-@property (nonatomic, retain) NSString            *requestTag;
+@property (nonatomic, retain) NSString *requestTag;
 
 -(AmazonURLRequest *)configureURLRequest;
 

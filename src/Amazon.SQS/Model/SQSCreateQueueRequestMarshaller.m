@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[SQSRequest alloc] init];
 
     [request setParameterValue:@"CreateQueue"           forKey:@"Action"];
-    [request setParameterValue:@"2009-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-10-01"   forKey:@"Version"];
 
     [request setDelegate:[createQueueRequest delegate]];
     [request setCredentials:[createQueueRequest credentials]];
@@ -35,8 +35,23 @@
         }
     }
     if (createQueueRequest != nil) {
-        if (createQueueRequest.defaultVisibilityTimeout != nil) {
-            [request setParameterValue:[NSString stringWithFormat:@"%@", createQueueRequest.defaultVisibilityTimeout] forKey:[NSString stringWithFormat:@"%@", @"DefaultVisibilityTimeout"]];
+        if (createQueueRequest.attributes != nil) {
+            int attributesListIndex = 1;
+            for (NSString *attributesListKey in createQueueRequest.attributes) {
+                NSString *attributesListKeyValue = [createQueueRequest.attributes valueForKey:attributesListKey];
+                if (attributesListKey != nil) {
+                    [request setParameterValue:[NSString stringWithFormat:@"%@", attributesListKey] forKey:[NSString stringWithFormat:@"%@.%d.%@", @"Attribute", attributesListIndex, @"Name"]];
+                }
+
+                if (attributesListKeyValue != nil) {
+                    [request setParameterValue:[NSString stringWithFormat:@"%@", attributesListKeyValue] forKey:[NSString stringWithFormat:@"%@.%d.%@", @"Attribute", attributesListIndex, @"Value"]];
+                }
+
+
+
+
+                ++attributesListIndex;
+            }
         }
     }
 

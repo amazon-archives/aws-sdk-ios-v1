@@ -37,6 +37,9 @@
 
 
 
+-(void)setException:(AmazonServiceException *)theException;
+
+
 /**
  * Default constructor for a new  object.  Callers should use the
  * property methods to initialize this object after creating it.
@@ -47,6 +50,13 @@
  * The list of attributes returned by the operation.
  */
 @property (nonatomic, retain) NSMutableArray *attributes;
+
+
+
+/**
+ * Returns a value from the attributes array for the specified index
+ */
+-(SimpleDBAttribute *)attributesObjectAtIndex:(int)index;
 
 /**
  * Returns a string representation of this object; useful for testing and

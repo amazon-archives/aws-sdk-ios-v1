@@ -46,7 +46,7 @@
     }
     if (detachVolumeRequest != nil) {
         if (detachVolumeRequest.forceIsSet) {
-            [request setParameterValue:(detachVolumeRequest.force ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"Force"]];
+            [request setParameterValue:(detachVolumeRequest.force ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@", @"Force"]];
         }
     }
 

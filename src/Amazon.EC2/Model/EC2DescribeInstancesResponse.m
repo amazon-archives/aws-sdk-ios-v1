@@ -48,6 +48,12 @@
 
 
 
+-(EC2Reservation *)reservationsObjectAtIndex:(int)index
+{
+    return (EC2Reservation *)[reservations objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];

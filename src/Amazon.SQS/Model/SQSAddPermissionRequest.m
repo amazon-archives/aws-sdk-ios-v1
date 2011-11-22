@@ -49,6 +49,24 @@
 }
 
 
+-(void)addAWSAccountId:(NSString *)aWSAccountIdObject
+{
+    if (aWSAccountIds == nil) {
+        aWSAccountIds = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [aWSAccountIds addObject:aWSAccountIdObject];
+}
+
+-(void)addAction:(NSString *)actionObject
+{
+    if (actions == nil) {
+        actions = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [actions addObject:actionObject];
+}
+
 
 -(NSString *)description
 {

@@ -21,8 +21,7 @@
 #import <AWSiOSSDK/SNS/AmazonSNSClient.h>
 #import "Constants.h"
 
-@interface AmazonClientManager : NSObject {
-    
+@interface AmazonClientManager:NSObject {
 }
 
 +(AmazonS3Client *)s3;
