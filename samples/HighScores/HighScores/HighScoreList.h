@@ -29,6 +29,8 @@
     int sortMethod;
 }
 
+@property (nonatomic, retain) NSString *nextToken;
+
 
 -(int)highScoreCount;
 -(NSArray*)getHighScores;

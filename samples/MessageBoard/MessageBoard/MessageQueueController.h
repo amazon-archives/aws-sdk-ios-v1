@@ -13,19 +13,18 @@
  * permissions and limitations under the License.
  */
 
-
-// Constants used to represent your AWS Credentials.
-#define ACCESS_KEY_ID           @"CHANGE ME"
-#define SECRET_KEY              @"CHANGE ME"
-#define CREDENTIALS_MESSAGE     @"AWS Credentials not configured correctly.  Please review the README file."
+#import <UIKit/UIKit.h>
 
 
-@interface Constants:NSObject {
+// View used to display the messages in the queue.
+@interface MessageQueueController : UIViewController {
+    IBOutlet UITableView *messageTable;  
 }
 
-+(NSString*)getRandomPlayerName;
-+(int)getRandomScore;
-+(UIAlertView *)credentialsAlert;
+@property (nonatomic, retain) NSMutableArray *messages;
 
+-(IBAction)back:(id)sender;
+
+-(NSString*)extractMessageFromJson:(NSString*)json;
 
 @end

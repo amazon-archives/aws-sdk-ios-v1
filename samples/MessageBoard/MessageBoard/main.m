@@ -14,18 +14,12 @@
  */
 
 
-// Constants used to represent your AWS Credentials.
-#define ACCESS_KEY_ID           @"CHANGE ME"
-#define SECRET_KEY              @"CHANGE ME"
-#define CREDENTIALS_MESSAGE     @"AWS Credentials not configured correctly.  Please review the README file."
+#import <UIKit/UIKit.h>
 
-
-@interface Constants:NSObject {
+int main(int argc, char *argv[])
+{
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    int retVal = UIApplicationMain(argc, argv, nil, nil);
+    [pool release];
+    return retVal;
 }
-
-+(NSString*)getRandomPlayerName;
-+(int)getRandomScore;
-+(UIAlertView *)credentialsAlert;
-
-
-@end

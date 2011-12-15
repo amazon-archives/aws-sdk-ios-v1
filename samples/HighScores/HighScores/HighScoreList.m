@@ -43,6 +43,10 @@
  */
 @implementation HighScoreList
 
+
+@synthesize nextToken;
+
+
 -(id)init
 {
     self = [super init];
@@ -50,7 +54,7 @@
     {
         // Initial the SimpleDB Client.
         sdbClient = [[AmazonSimpleDBClient alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY];            
-        nextToken = nil;
+        self.nextToken = nil;
         sortMethod = NO_SORT;
     }
     
@@ -64,7 +68,7 @@
     {
         // Initial the SimpleDB Client.
         sdbClient = [[AmazonSimpleDBClient alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY];            
-        nextToken = nil;
+        self.nextToken = nil;
         sortMethod = theSortMethod;
     }
     
@@ -126,10 +130,10 @@
     @try {
         SimpleDBSelectRequest *selectRequest = [[[SimpleDBSelectRequest alloc] initWithSelectExpression:query] autorelease];
         selectRequest.consistentRead = YES;
-        if ( nextToken != nil ) selectRequest.nextToken = nextToken;
+        if ( self.nextToken != nil ) selectRequest.nextToken = self.nextToken;
 
         SimpleDBSelectResponse *selectResponse = [sdbClient select:selectRequest];
-        nextToken = selectResponse.nextToken;
+        self.nextToken = selectResponse.nextToken;
 
         return [self convertItemsToHighScores:selectResponse.items];
     }
@@ -144,7 +148,7 @@
  */
 -(NSArray*)getNextPageOfScores
 {
-    if ( nextToken == nil ) {
+    if ( self.nextToken == nil ) {
         return [NSArray array];
     }
     else {
@@ -227,7 +231,7 @@
  */
 -(NSArray*)convertItemsToHighScores:(NSArray*)theItems
 {
-    NSMutableArray *highScores = [[NSMutableArray alloc] initWithCapacity:[theItems count]];    
+    NSMutableArray *highScores = [[[NSMutableArray alloc] initWithCapacity:[theItems count]] autorelease];    
     for ( SimpleDBItem *item in theItems ) {        
         [highScores addObject:[self convertSimpleDBItemToHighScore:item]];
     }
@@ -240,7 +244,7 @@
  */
 -(HighScore*)convertSimpleDBItemToHighScore:(SimpleDBItem*)theItem
 {
-    return [[HighScore alloc] initWithPlayer:[self getPlayerNameFromItem:theItem] andScore:[self getPlayerScoreFromItem:theItem]];
+    return [[[HighScore alloc] initWithPlayer:[self getPlayerNameFromItem:theItem] andScore:[self getPlayerScoreFromItem:theItem]] autorelease];
 }
 
 /*
@@ -303,6 +307,13 @@
     range.length = [scoreValue length];
     
     return [pad stringByReplacingCharactersInRange:range withString:scoreValue];    
+}
+
+-(void)dealloc
+{
+    [sdbClient release];
+    [nextToken release];
+    [super dealloc];
 }
 
 @end

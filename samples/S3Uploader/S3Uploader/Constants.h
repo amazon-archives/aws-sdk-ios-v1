@@ -24,6 +24,9 @@
 #define PICTURE_NAME      @"NameOfThePicture"
 
 
+#define CREDENTIALS_MESSAGE     @"AWS Credentials not configured correctly.  Please review the README file."
+
+
 @interface Constants:NSObject {
 }
 
@@ -37,6 +40,10 @@
  * Utility method to display an alert message.  Used to communicate errors and failures.
  */
 +(void)showAlertMessage:(NSString *)message withTitle:(NSString *)title;
+
+
+
++(UIAlertView *)credentialsAlert;
 
 
 @end

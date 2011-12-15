@@ -21,6 +21,13 @@
 
 @implementation S3UploaderViewController
 
+-(void)viewDidLoad
+{
+    if ( [ACCESS_KEY_ID isEqualToString:@"CHANGE ME"] ) {
+        [[Constants credentialsAlert] show];          
+    }
+}
+
 -(IBAction)selectPhoto:(id)sender
 {
     UIImagePickerController *imagePicker = [[[UIImagePickerController alloc] init] autorelease];

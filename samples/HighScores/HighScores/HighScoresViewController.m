@@ -20,6 +20,13 @@
 
 @implementation HighScoresViewController
 
+-(void)viewDidLoad
+{
+    if ( [ACCESS_KEY_ID isEqualToString:@"CHANGE ME"] ) {
+        [[Constants credentialsAlert] show];          
+    }
+}
+
 -(IBAction)playerSort:(id)sender
 {
     if ( sortByPlayer.on ) {

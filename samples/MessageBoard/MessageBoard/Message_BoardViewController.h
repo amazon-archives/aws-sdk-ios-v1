@@ -14,18 +14,28 @@
  */
 
 
-// Constants used to represent your AWS Credentials.
-#define ACCESS_KEY_ID           @"CHANGE ME"
-#define SECRET_KEY              @"CHANGE ME"
-#define CREDENTIALS_MESSAGE     @"AWS Credentials not configured correctly.  Please review the README file."
+#import <UIKit/UIKit.h>
 
+#import "MessageBoard.h"
 
-@interface Constants:NSObject {
+// Main View
+@interface Message_BoardViewController : UIViewController {
+    MessageBoard *messageBoard;
+
+    IBOutlet UITextField *message;
+    IBOutlet UITextField *email;
+    IBOutlet UITextField *sms;
+    
+    bool seenQueueMessage;
 }
 
-+(NSString*)getRandomPlayerName;
-+(int)getRandomScore;
-+(UIAlertView *)credentialsAlert;
+-(IBAction)subscribeEmail:(id)sender;
+-(IBAction)subscribeSMS:(id)sender;
+-(IBAction)viewMembers:(id)sender;
+-(IBAction)viewQueue:(id)sender;
+-(IBAction)post:(id)sender;
+
+-(void)animateTextField:(UITextField*)textField up:(BOOL)moveUp;
 
 
 @end

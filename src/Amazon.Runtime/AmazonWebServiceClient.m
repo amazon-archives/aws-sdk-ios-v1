@@ -25,7 +25,7 @@
     if (self = [self init]) {
         credentials = [[AmazonCredentials alloc] initWithAccessKey:theAccessKey withSecretKey:theSecretKey];
         maxRetries  = 5;
-        timeout     = 240;
+        timeout     = 30;
         userAgent   = [[AmazonSDKUtil userAgentString] retain];
     }
     return self;
@@ -36,7 +36,7 @@
     if (self = [self init]) {
         credentials = [theCredentials retain];
         maxRetries  = 5;
-        timeout     = 240;
+        timeout     = 30;
         userAgent   = [[AmazonSDKUtil userAgentString] retain];
     }
     return self;

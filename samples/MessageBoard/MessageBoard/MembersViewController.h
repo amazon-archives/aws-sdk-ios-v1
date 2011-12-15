@@ -13,19 +13,15 @@
  * permissions and limitations under the License.
  */
 
+#import <UIKit/UIKit.h>
 
-// Constants used to represent your AWS Credentials.
-#define ACCESS_KEY_ID           @"CHANGE ME"
-#define SECRET_KEY              @"CHANGE ME"
-#define CREDENTIALS_MESSAGE     @"AWS Credentials not configured correctly.  Please review the README file."
-
-
-@interface Constants:NSObject {
+// View used to display the subscribers for the topic.
+@interface MembersViewController : UIViewController {
+    IBOutlet UITableView *members;  
 }
 
-+(NSString*)getRandomPlayerName;
-+(int)getRandomScore;
-+(UIAlertView *)credentialsAlert;
+@property (nonatomic, retain) NSMutableArray *subscribers;
 
+-(IBAction)back:(id)sender;
 
 @end

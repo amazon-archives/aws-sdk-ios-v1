@@ -18,14 +18,19 @@
 @implementation Constants
 
 
-+(NSString *)pictureBucket
++(UIAlertView *)confirmationAlert
 {
-    return [[NSString stringWithFormat:@"my-unique-name-%@%@", ACCESS_KEY_ID, PICTURE_BUCKET] lowercaseString];
+    return [[[UIAlertView alloc] initWithTitle:@"Confirmation Required" message:CONFIRM_SUBSCRIPTION_MESSAGE delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];
 }
 
-+(void)showAlertMessage:(NSString *)message withTitle:(NSString *)title
++(UIAlertView *)queueAlert
 {
-    [[[[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+    return [[[UIAlertView alloc] initWithTitle:@"Message Queue" message:QUEUE_NOTICE delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];
+}
+
++(UIAlertView *)smsSubscriptionAlert
+{
+    return [[[UIAlertView alloc] initWithTitle:@"SMS Validation" message:SMS_SUBSCRIPTION_MESSAGE delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];
 }
 
 +(UIAlertView *)credentialsAlert
@@ -34,4 +39,3 @@
 }
 
 @end
-

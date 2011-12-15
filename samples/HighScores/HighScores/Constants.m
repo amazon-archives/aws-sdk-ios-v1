@@ -18,9 +18,14 @@
 @implementation Constants
 
 
++(UIAlertView *)credentialsAlert
+{
+    return [[[UIAlertView alloc] initWithTitle:@"Missing Credentials" message:CREDENTIALS_MESSAGE delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];        
+}
+
 +(NSString*)getRandomPlayerName
 {
-    NSArray *playerNames = [[NSArray alloc] initWithObjects:@"Norm", @"Jim", @"Jason", @"Zach", @"Matt", @"Glenn", @"Will", @"Wade", @"Trevor", @"Jeremy", @"Ryan", @"Matty", @"Steve", @"Pavel", nil];
+    NSArray *playerNames = [[[NSArray alloc] initWithObjects:@"Norm", @"Jim", @"Jason", @"Zach", @"Matt", @"Glenn", @"Will", @"Wade", @"Trevor", @"Jeremy", @"Ryan", @"Matty", @"Steve", @"Pavel", nil] autorelease];
     int name1 = arc4random() % [playerNames count];
     int name2 = arc4random() % [playerNames count];
     

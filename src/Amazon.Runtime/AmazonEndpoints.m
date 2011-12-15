@@ -34,6 +34,8 @@
         case AP_SOUTHEAST_1: return AMAZON_S3_AP_SOUTHEAST_1_ENDPOINT_SECURE;
 
         case AP_NORTHEAST_1: return AMAZON_S3_AP_NORTHEAST_1_ENDPOINT_SECURE;
+        
+        case SA_EAST_1: return AMAZON_S3_SA_EAST_1_ENDPOINT_SECURE;
         };
     }
     else {
@@ -49,6 +51,8 @@
         case AP_SOUTHEAST_1: return AMAZON_S3_AP_SOUTHEAST_1_ENDPOINT;
 
         case AP_NORTHEAST_1: return AMAZON_S3_AP_NORTHEAST_1_ENDPOINT;
+
+        case SA_EAST_1: return AMAZON_S3_SA_EAST_1_ENDPOINT;
         };
     }
 
@@ -70,6 +74,8 @@
         case AP_SOUTHEAST_1: return AMAZON_SDB_AP_SOUTHEAST_1_ENDPOINT_SECURE;
 
         case AP_NORTHEAST_1: return AMAZON_SDB_AP_NORTHEAST_1_ENDPOINT_SECURE;
+
+        case SA_EAST_1: return AMAZON_SDB_SA_EAST_1_ENDPOINT_SECURE;
         };
     }
     else {
@@ -85,6 +91,8 @@
         case AP_SOUTHEAST_1: return AMAZON_SDB_AP_SOUTHEAST_1_ENDPOINT;
 
         case AP_NORTHEAST_1: return AMAZON_SDB_AP_NORTHEAST_1_ENDPOINT;
+                
+        case SA_EAST_1: return AMAZON_SDB_SA_EAST_1_ENDPOINT;
         };
     }
 
@@ -106,6 +114,8 @@
         case AP_SOUTHEAST_1: return AMAZON_SNS_AP_SOUTHEAST_1_ENDPOINT_SECURE;
 
         case AP_NORTHEAST_1: return AMAZON_SNS_AP_NORTHEAST_1_ENDPOINT_SECURE;
+                
+        case SA_EAST_1: return AMAZON_SNS_SA_EAST_1_ENDPOINT_SECURE;
         };
     }
     else {
@@ -121,6 +131,8 @@
         case AP_SOUTHEAST_1: return AMAZON_SNS_AP_SOUTHEAST_1_ENDPOINT;
 
         case AP_NORTHEAST_1: return AMAZON_SNS_AP_NORTHEAST_1_ENDPOINT;
+                
+        case SA_EAST_1: return AMAZON_SNS_SA_EAST_1_ENDPOINT;
         };
     }
 
@@ -142,6 +154,8 @@
         case AP_SOUTHEAST_1: return AMAZON_SQS_AP_SOUTHEAST_1_ENDPOINT_SECURE;
 
         case AP_NORTHEAST_1: return AMAZON_SQS_AP_NORTHEAST_1_ENDPOINT_SECURE;
+                
+        case SA_EAST_1: return AMAZON_SQS_SA_EAST_1_ENDPOINT_SECURE;
         };
     }
     else {
@@ -157,6 +171,8 @@
         case AP_SOUTHEAST_1: return AMAZON_SQS_AP_SOUTHEAST_1_ENDPOINT;
 
         case AP_NORTHEAST_1: return AMAZON_SQS_AP_NORTHEAST_1_ENDPOINT;
+                
+        case SA_EAST_1: return AMAZON_SQS_SA_EAST_1_ENDPOINT;
         };
     }
 
@@ -183,6 +199,8 @@
         case AP_SOUTHEAST_1: return AMAZON_EC2_AP_SOUTHEAST_1_ENDPOINT_SECURE;
 
         case AP_NORTHEAST_1: return AMAZON_EC2_AP_NORTHEAST_1_ENDPOINT_SECURE;
+                
+        case SA_EAST_1: return AMAZON_EC2_SA_EAST_1_ENDPOINT_SECURE;
         };
     }
     else {
@@ -198,6 +216,8 @@
         case AP_SOUTHEAST_1: return AMAZON_EC2_AP_SOUTHEAST_1_ENDPOINT;
 
         case AP_NORTHEAST_1: return AMAZON_EC2_AP_NORTHEAST_1_ENDPOINT;
+                
+        case SA_EAST_1: return AMAZON_EC2_SA_EAST_1_ENDPOINT;
         };
     }
 
@@ -219,6 +239,8 @@
         case AP_SOUTHEAST_1: return AMAZON_CW_AP_SOUTHEAST_1_ENDPOINT_SECURE;
 
         case AP_NORTHEAST_1: return AMAZON_CW_AP_NORTHEAST_1_ENDPOINT_SECURE;
+                
+        case SA_EAST_1: return AMAZON_CW_SA_EAST_1_ENDPOINT_SECURE;
         };
     }
     else {
@@ -234,6 +256,8 @@
         case AP_SOUTHEAST_1: return AMAZON_CW_AP_SOUTHEAST_1_ENDPOINT;
 
         case AP_NORTHEAST_1: return AMAZON_CW_AP_NORTHEAST_1_ENDPOINT;
+                
+        case SA_EAST_1: return AMAZON_CW_SA_EAST_1_ENDPOINT;
         };
     }
 
@@ -255,6 +279,8 @@
         case AP_SOUTHEAST_1: return AMAZON_AS_AP_SOUTHEAST_1_ENDPOINT_SECURE;
 
         case AP_NORTHEAST_1: return AMAZON_AS_AP_NORTHEAST_1_ENDPOINT_SECURE;
+                
+        case SA_EAST_1: return AMAZON_AS_SA_EAST_1_ENDPOINT_SECURE;
         };
     }
     else {
@@ -270,6 +296,8 @@
         case AP_SOUTHEAST_1: return AMAZON_AS_AP_SOUTHEAST_1_ENDPOINT;
 
         case AP_NORTHEAST_1: return AMAZON_AS_AP_NORTHEAST_1_ENDPOINT;
+                
+        case SA_EAST_1: return AMAZON_AS_SA_EAST_1_ENDPOINT;
         };
     }
 
@@ -291,6 +319,8 @@
         case AP_SOUTHEAST_1: return AMAZON_ELB_AP_SOUTHEAST_1_ENDPOINT_SECURE;
 
         case AP_NORTHEAST_1: return AMAZON_ELB_AP_NORTHEAST_1_ENDPOINT_SECURE;
+                
+        case SA_EAST_1: return AMAZON_ELB_SA_EAST_1_ENDPOINT_SECURE;
         };
     }
     else {
@@ -306,6 +336,8 @@
         case AP_SOUTHEAST_1: return AMAZON_ELB_AP_SOUTHEAST_1_ENDPOINT;
 
         case AP_NORTHEAST_1: return AMAZON_ELB_AP_NORTHEAST_1_ENDPOINT;
+                
+        case SA_EAST_1: return AMAZON_ELB_SA_EAST_1_ENDPOINT;
         };
     }
 

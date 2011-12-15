@@ -88,6 +88,16 @@
     return ap;
 }
 
++(S3Region *)SASaoPaulo
+{
+    static S3Region *ap = nil;
+    
+    if (ap == nil) {
+        ap = [[S3Region alloc] initWithStringValue:kS3RegionSAEast1];
+    }
+    return ap;
+}
+
 +(S3Region *)regionWithString:(NSString *)regionName
 {
     if ([regionName isEqual:@""]) {
@@ -107,6 +117,9 @@
     }
     if ([regionName isEqual:kS3RegionAPNortheast1]) {
         return [S3Region APJapan];
+    }
+    if ([regionName isEqual:kS3RegionSAEast1]) {
+        return [S3Region SASaoPaulo];
     }
 
 
