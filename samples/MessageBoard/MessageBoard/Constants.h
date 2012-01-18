@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -22,15 +22,15 @@
 // to devices securely.
 // http://aws.amazon.com/articles/Mobile/4611615499399490
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-#define ACCESS_KEY_ID                @"CHANGE ME"
-#define SECRET_KEY                   @"CHANGE ME"
-#define CONFIRM_SUBSCRIPTION_MESSAGE @"A confirmation must be accepted before messages are received."
-#define QUEUE_NOTICE                 @"It may take a few minutes before the queue starts receiving messages."
-#define SMS_SUBSCRIPTION_MESSAGE     @"SMS Subscritions must include country codes.  1 for US phones."
-#define CREDENTIALS_MESSAGE          @"AWS Credentials not configured correctly.  Please review the README file."
+#define ACCESS_KEY_ID                   @"CHANGE ME"
+#define SECRET_KEY                      @"CHANGE ME"
+#define CONFIRM_SUBSCRIPTION_MESSAGE    @"A confirmation must be accepted before messages are received."
+#define QUEUE_NOTICE                    @"It may take a few minutes before the queue starts receiving messages."
+#define SMS_SUBSCRIPTION_MESSAGE        @"SMS Subscritions must include country codes.  1 for US phones."
+#define CREDENTIALS_MESSAGE             @"AWS Credentials not configured correctly.  Please review the README file."
 
-#define TOPIC_NAME                   @"MessageBoard"
-#define QUEUE_NAME                   @"message-board-queue"
+#define TOPIC_NAME                      @"MessageBoard"
+#define QUEUE_NAME                      @"message-board-queue"
 
 @interface Constants:NSObject {
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -17,10 +17,13 @@
 #import "ElasticLoadBalancingResponse.h"
 #import "../AmazonServiceExceptionUnmarshaller.h"
 
+#import "ElasticLoadBalancingInvalidSubnetException.h"
+#import "ElasticLoadBalancingCertificateNotFoundException.h"
+#import "ElasticLoadBalancingSubnetNotFoundException.h"
 #import "ElasticLoadBalancingTooManyLoadBalancersException.h"
 #import "ElasticLoadBalancingDuplicateLoadBalancerNameException.h"
-#import "ElasticLoadBalancingCertificateNotFoundException.h"
 #import "ElasticLoadBalancingInvalidConfigurationRequestException.h"
+#import "ElasticLoadBalancingInvalidSecurityGroupException.h"
 
 
 /**

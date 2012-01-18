@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -17,14 +17,14 @@
 
 
 // View used to display the messages in the queue.
-@interface MessageQueueController : UIViewController {
-    IBOutlet UITableView *messageTable;  
+@interface MessageQueueController:UIViewController {
+    IBOutlet UITableView *messageTable;
 }
 
 @property (nonatomic, retain) NSMutableArray *messages;
 
 -(IBAction)back:(id)sender;
 
--(NSString*)extractMessageFromJson:(NSString*)json;
+-(NSString *)extractMessageFromJson:(NSString *)json;
 
 @end

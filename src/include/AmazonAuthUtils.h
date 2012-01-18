@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -42,6 +42,12 @@
  * @param algorithm	Which HMAC algortithm to use. Currently support <code>kCCHmacAlgSHA1</code> and <code>kCCHmacAlgSHA256</code>.
  * @return Base64 encoded string that is the signature of the data with the specified key.
  */
-+(NSString *) HMACSign:(NSData *)data withKey:(NSString *)key usingAlgorithm:(CCHmacAlgorithm)algorithm;
++(NSString *)HMACSign:(NSData *)data withKey:(NSString *)key usingAlgorithm:(CCHmacAlgorithm)algorithm;
+
++(NSData *)sha256HMac:(NSData *)data withKey:(NSString *)key;
++(NSString *)hashString:(NSString *)stringToHash;
++(NSData *)hash:(NSData *)data;
++(NSData *)sha256HMacWithData:(NSData *)data withKey:(NSData *)key;
+
 
 @end

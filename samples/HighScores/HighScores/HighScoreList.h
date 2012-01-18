@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -18,37 +18,37 @@
 
 #import "HighScore.h"
 
-#define NO_SORT         0
-#define PLAYER_SORT     1
-#define SCORE_SORT      2
+#define NO_SORT        0
+#define PLAYER_SORT    1
+#define SCORE_SORT     2
 
 
-@interface HighScoreList : NSObject {
+@interface HighScoreList:NSObject {
     AmazonSimpleDBClient *sdbClient;
-    NSString *nextToken;
-    int sortMethod;
+    NSString             *nextToken;
+    int                  sortMethod;
 }
 
 @property (nonatomic, retain) NSString *nextToken;
 
 
 -(int)highScoreCount;
--(NSArray*)getHighScores;
--(NSArray*)getNextPageOfScores;
--(void)addHighScore:(HighScore*)theHighScore;
--(void)removeHighScore:(HighScore*)theHighScore;
+-(NSArray *)getHighScores;
+-(NSArray *)getNextPageOfScores;
+-(void)addHighScore:(HighScore *)theHighScore;
+-(void)removeHighScore:(HighScore *)theHighScore;
 -(void)createHighScoresDomain;
 -(void)clearHighScores;
--(HighScore*)getPlayer:(NSString*)playerName;
+-(HighScore *)getPlayer:(NSString *)playerName;
 
 
 // Utility Methods
--(NSArray*)convertItemsToHighScores:(NSArray*)items;
--(HighScore*)convertSimpleDBItemToHighScore:(SimpleDBItem*)theItem;
--(NSString*)getPlayerNameFromItem:(SimpleDBItem*)theItem;
--(int)getPlayerScoreFromItem:(SimpleDBItem*)theItem;
--(int)getIntValueForAttribute:(NSString*)theAttribute fromList:(NSArray*)attributeList;
--(NSString*)getStringValueForAttribute:(NSString*)theAttribute fromList:(NSArray*)attributeList;
--(NSString*)getPaddedScore:(int)theScore;
+-(NSArray *)convertItemsToHighScores:(NSArray *)items;
+-(HighScore *)convertSimpleDBItemToHighScore:(SimpleDBItem *)theItem;
+-(NSString *)getPlayerNameFromItem:(SimpleDBItem *)theItem;
+-(int)getPlayerScoreFromItem:(SimpleDBItem *)theItem;
+-(int)getIntValueForAttribute:(NSString *)theAttribute fromList:(NSArray *)attributeList;
+-(NSString *)getStringValueForAttribute:(NSString *)theAttribute fromList:(NSArray *)attributeList;
+-(NSString *)getPaddedScore:(int)theScore;
 
 @end

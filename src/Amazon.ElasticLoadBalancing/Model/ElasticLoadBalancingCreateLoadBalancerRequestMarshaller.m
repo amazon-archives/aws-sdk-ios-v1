@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[ElasticLoadBalancingRequest alloc] init];
 
     [request setParameterValue:@"CreateLoadBalancer"           forKey:@"Action"];
-    [request setParameterValue:@"2011-08-15"   forKey:@"Version"];
+    [request setParameterValue:@"2011-11-15"   forKey:@"Version"];
 
     [request setDelegate:[createLoadBalancerRequest delegate]];
     [request setCredentials:[createLoadBalancerRequest credentials]];
@@ -76,6 +76,28 @@
             }
 
             availabilityZonesListIndex++;
+        }
+    }
+
+    if (createLoadBalancerRequest != nil) {
+        int subnetsListIndex = 1;
+        for (NSString *subnetsListValue in createLoadBalancerRequest.subnets) {
+            if (subnetsListValue != nil) {
+                [request setParameterValue:[NSString stringWithFormat:@"%@", subnetsListValue] forKey:[NSString stringWithFormat:@"%@.member.%d", @"Subnets", subnetsListIndex]];
+            }
+
+            subnetsListIndex++;
+        }
+    }
+
+    if (createLoadBalancerRequest != nil) {
+        int securityGroupsListIndex = 1;
+        for (NSString *securityGroupsListValue in createLoadBalancerRequest.securityGroups) {
+            if (securityGroupsListValue != nil) {
+                [request setParameterValue:[NSString stringWithFormat:@"%@", securityGroupsListValue] forKey:[NSString stringWithFormat:@"%@.member.%d", @"SecurityGroups", securityGroupsListIndex]];
+            }
+
+            securityGroupsListIndex++;
         }
     }
 

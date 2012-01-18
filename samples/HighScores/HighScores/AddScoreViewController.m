@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -27,18 +27,18 @@
 {
     [player resignFirstResponder];
     [score resignFirstResponder];
- 
-    HighScore *highScore = [[[HighScore alloc] initWithPlayer:[player text] andScore:[[score text] intValue]] autorelease];    
+
+    HighScore     *highScore     = [[[HighScore alloc] initWithPlayer:[player text] andScore:[[score text] intValue]] autorelease];
     HighScoreList *highScoreList = [[[HighScoreList alloc] init] autorelease];
     [highScoreList addHighScore:highScore];
-    
+
     [self dismissModalViewControllerAnimated:YES];
 }
 
 -(IBAction)cancel:(id)sender
 {
-    [self dismissModalViewControllerAnimated:YES];    
-}     
+    [self dismissModalViewControllerAnimated:YES];
+}
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField
 {

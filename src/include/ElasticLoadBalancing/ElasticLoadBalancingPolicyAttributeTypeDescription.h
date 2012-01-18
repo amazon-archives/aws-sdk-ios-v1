@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -67,9 +67,6 @@
  * be supplied</li> <li>ZERO_OR_MORE(0..*) : Optional. Multiple values
  * are allowed</li> <li>ONE_OR_MORE(1..*0) : Required. Multiple values
  * are allowed</li> </ul>
- * <p>
- * <b>Constraints:</b><br/>
- * <b>Allowed Values: </b>ONE, ZERO_OR_ONE, ZERO_OR_MORE, ONE_OR_MORE
  */
 @property (nonatomic, retain) NSString *cardinality;
 

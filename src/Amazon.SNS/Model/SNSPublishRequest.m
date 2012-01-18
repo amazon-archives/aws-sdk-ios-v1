@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -21,14 +21,16 @@
 @synthesize topicArn;
 @synthesize message;
 @synthesize subject;
+@synthesize messageStructure;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        topicArn = nil;
-        message  = nil;
-        subject  = nil;
+        topicArn         = nil;
+        message          = nil;
+        subject          = nil;
+        messageStructure = nil;
     }
 
     return self;
@@ -65,6 +67,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"TopicArn: %@,", topicArn] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Message: %@,", message] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Subject: %@,", subject] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"MessageStructure: %@,", messageStructure] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -78,6 +81,7 @@
     [topicArn release];
     [message release];
     [subject release];
+    [messageStructure release];
 
     [super dealloc];
 }

@@ -52,7 +52,7 @@
 //
 @interface GTMLogASLWriter : NSObject <GTMLogWriter> {
 @private
-	__weak Class aslClientClass_;
+	Class aslClientClass_;
 }
 
 // Returns an autoreleased GTMLogASLWriter instance that uses an instance of

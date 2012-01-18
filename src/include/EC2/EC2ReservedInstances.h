@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -14,6 +14,7 @@
  */
 
 #import "EC2Tag.h"
+#import "EC2RecurringCharge.h"
 
 
 
@@ -39,6 +40,8 @@
     NSMutableArray *tags;
     NSString       *instanceTenancy;
     NSString       *currencyCode;
+    NSString       *offeringType;
+    NSMutableArray *recurringCharges;
 }
 
 
@@ -59,7 +62,7 @@
  * The instance type on which the Reserved Instances can be used.
  * <p>
  * <b>Constraints:</b><br/>
- * <b>Allowed Values: </b>t1.micro, m1.small, m1.large, m1.xlarge, m2.xlarge, m2.2xlarge, m2.4xlarge, c1.medium, c1.xlarge, cc1.4xlarge, cg1.4xlarge
+ * <b>Allowed Values: </b>t1.micro, m1.small, m1.large, m1.xlarge, m2.xlarge, m2.2xlarge, m2.4xlarge, c1.medium, c1.xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge
  */
 @property (nonatomic, retain) NSString *instanceType;
 
@@ -121,10 +124,26 @@
 @property (nonatomic, retain) NSString *currencyCode;
 
 /**
+ * The Reserved Instance offering type.
+ */
+@property (nonatomic, retain) NSString *offeringType;
+
+/**
+ * The recurring charge tag assigned to the resource.
+ */
+@property (nonatomic, retain) NSMutableArray *recurringCharges;
+
+/**
  * Adds a single object to tags.
  * This function will alloc and init tags if not already done.
  */
 -(void)addTag:(EC2Tag *)tagObject;
+
+/**
+ * Adds a single object to recurringCharges.
+ * This function will alloc and init recurringCharges if not already done.
+ */
+-(void)addRecurringCharge:(EC2RecurringCharge *)recurringChargeObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -102,6 +102,52 @@
     NSData *digestData = [NSData dataWithBytes:digestRaw length:digestLength];
 
     return [digestData base64EncodedString];
+}
+
++(NSData *)sha256HMac:(NSData *)data withKey:(NSString *)key
+{
+    CCHmacContext context;
+    const char    *keyCString = [key cStringUsingEncoding:NSASCIIStringEncoding];
+
+    CCHmacInit(&context, kCCHmacAlgSHA256, keyCString, strlen(keyCString));
+    CCHmacUpdate(&context, [data bytes], [data length]);
+
+    unsigned char digestRaw[CC_SHA256_DIGEST_LENGTH];
+    int           digestLength = CC_SHA256_DIGEST_LENGTH;
+
+    CCHmacFinal(&context, digestRaw);
+
+    return [NSData dataWithBytes:digestRaw length:digestLength];
+}
+
++(NSData *)sha256HMacWithData:(NSData *)data withKey:(NSData *)key
+{
+    CCHmacContext context;
+
+    CCHmacInit(&context, kCCHmacAlgSHA256, [key bytes], [key length]);
+    CCHmacUpdate(&context, [data bytes], [data length]);
+
+    unsigned char digestRaw[CC_SHA256_DIGEST_LENGTH];
+    int           digestLength = CC_SHA256_DIGEST_LENGTH;
+
+    CCHmacFinal(&context, digestRaw);
+
+    return [NSData dataWithBytes:digestRaw length:digestLength];
+}
+
++(NSString *)hashString:(NSString *)stringToHash
+{
+    return [[NSString alloc] initWithData:[AmazonAuthUtils hash:[stringToHash dataUsingEncoding:NSUTF8StringEncoding]] encoding:NSASCIIStringEncoding];
+}
+
++(NSData *)hash:(NSData *)dataToHash
+{
+    const void    *cStr = [dataToHash bytes];
+    unsigned char result[CC_SHA256_DIGEST_LENGTH];
+
+    CC_SHA256(cStr, [dataToHash length], result);
+
+    return [[[NSData alloc] initWithBytes:result length:CC_SHA256_DIGEST_LENGTH] autorelease];
 }
 
 @end

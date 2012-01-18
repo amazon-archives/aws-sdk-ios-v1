@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@
 @synthesize zoneName;
 @synthesize state;
 @synthesize regionName;
+@synthesize messages;
 
 
 -(id)init
@@ -29,11 +30,21 @@
         zoneName   = nil;
         state      = nil;
         regionName = nil;
+        messages   = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
     return self;
 }
 
+
+-(void)addMessage:(EC2AvailabilityZoneMessage *)messageObject
+{
+    if (messages == nil) {
+        messages = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [messages addObject:messageObject];
+}
 
 
 -(NSString *)description
@@ -44,6 +55,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ZoneName: %@,", zoneName] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"State: %@,", state] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"RegionName: %@,", regionName] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Messages: %@,", messages] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -57,6 +69,7 @@
     [zoneName release];
     [state release];
     [regionName release];
+    [messages release];
 
     [super dealloc];
 }

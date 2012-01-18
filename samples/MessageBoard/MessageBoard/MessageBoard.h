@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -18,33 +18,33 @@
 #import <AWSiOSSDK/SNS/AmazonSNSClient.h>
 #import <AWSiOSSDK/SQS/AmazonSQSClient.h>
 
-@interface MessageBoard : NSObject {
+@interface MessageBoard:NSObject {
     AmazonSNSClient *snsClient;
     AmazonSQSClient *sqsClient;
-    NSString *topicARN;
-    NSString *queueUrl;
+    NSString        *topicARN;
+    NSString        *queueUrl;
 }
 
-+(MessageBoard*)instance;
++(MessageBoard *)instance;
 
 -(id)init;
--(NSString*)createTopic;
+-(NSString *)createTopic;
 -(void)deleteTopic;
--(NSString*)findTopicArn;
--(void)subscribeEmail:(NSString*)emailAddress;
--(void)subscribeSms:(NSString*)smsNumber;
--(void)post:(NSString*)theMessage;
--(NSMutableArray*)listSubscribers;
--(void)removeSubscriber:(NSString*)subscriptionArn;
+-(NSString *)findTopicArn;
+-(void)subscribeEmail:(NSString *)emailAddress;
+-(void)subscribeSms:(NSString *)smsNumber;
+-(void)post:(NSString *)theMessage;
+-(NSMutableArray *)listSubscribers;
+-(void)removeSubscriber:(NSString *)subscriptionArn;
 
--(NSString*)findQueueUrl;
--(NSMutableArray*)getMessagesFromQueue;
+-(NSString *)findQueueUrl;
+-(NSMutableArray *)getMessagesFromQueue;
 -(void)subscribeQueue;
--(NSString*)createQueue;
+-(NSString *)createQueue;
 -(void)deleteQueue;
--(NSString*)getQueueArn:(NSString*)queueUrl;
--(void)addPolicyToQueueForTopic:(NSString*)queueUrl queueArn:(NSString*)queueArn;
--(NSString*)generateSqsPolicyForTopic:(NSString*)queueArn;
--(void)deleteMessageFromQueue:(SQSMessage*)message;
+-(NSString *)getQueueArn:(NSString *)queueUrl;
+-(void)addPolicyToQueueForTopic:(NSString *)queueUrl queueArn:(NSString *)queueArn;
+-(NSString *)generateSqsPolicyForTopic:(NSString *)queueArn;
+-(void)deleteMessageFromQueue:(SQSMessage *)message;
 
 @end

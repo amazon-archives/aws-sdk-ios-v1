@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -85,6 +85,14 @@ typedef enum
 //#define AMAZON_SES_AP_NORTHEAST_1_ENDPOINT		@"http://"
 //#define AMAZON_SES_SA_EAST_1_ENDPOINT             @"http://"
 
+#define AMAZON_DDB_US_EAST_1_ENDPOINT               @"http://dynamodb.us-east-1.amazonaws.com"
+//#define AMAZON_DDB_US_WEST_1_ENDPOINT             @"http://"
+//#define AMAZON_DDB_US_WEST_2_ENDPOINT             @"http://"
+//#define AMAZON_DDB_EU_WEST_1_ENDPOINT             @"http://"
+//#define AMAZON_DDB_AP_SOUTHEAST_1_ENDPOINT        @"http://"
+//#define AMAZON_DDB_AP_NORTHEAST_1_ENDPOINT        @"http://"
+//#define AMAZON_DDB_SA_EAST_1_ENDPOINT             @"http://"
+
 #define AMAZON_AS_US_EAST_1_ENDPOINT                 @"http://autoscaling.us-east-1.amazonaws.com"
 #define AMAZON_AS_US_WEST_1_ENDPOINT                 @"http://autoscaling.us-west-1.amazonaws.com"
 #define AMAZON_AS_US_WEST_2_ENDPOINT                 @"http://autoscaling.us-west-2.amazonaws.com"
@@ -158,6 +166,14 @@ typedef enum
 //#define AMAZON_SES_AP_SOUTHEAST_1_ENDPOINT_SECURE	 @"https://"
 //#define AMAZON_SES_AP_NORTHEAST_1_ENDPOINT_SECURE	 @"https://"
 //#define AMAZON_SES_SA_EAST_1_ENDPOINT_SECURE       @"https://"
+
+#define AMAZON_DDB_US_EAST_1_ENDPOINT_SECURE         @"https://dynamodb.us-east-1.amazonaws.com"
+//#define AMAZON_DDB_US_WEST_1_ENDPOINT_SECURE		 @"https://"
+//#define AMAZON_DDB_US_WEST_2_ENDPOINT_SECURE		 @"https://"
+//#define AMAZON_DDB_EU_WEST_1_ENDPOINT_SECURE		 @"https://"
+//#define AMAZON_DDB_AP_SOUTHEAST_1_ENDPOINT_SECURE	 @"https://"
+//#define AMAZON_DDB_AP_NORTHEAST_1_ENDPOINT_SECURE	 @"https://"
+//#define AMAZON_DDB_SA_EAST_1_ENDPOINT_SECURE       @"https://"
 
 #define AMAZON_AS_US_EAST_1_ENDPOINT_SECURE          @"https://autoscaling.us-east-1.amazonaws.com"
 #define AMAZON_AS_US_WEST_1_ENDPOINT_SECURE          @"https://autoscaling.us-west-1.amazonaws.com"

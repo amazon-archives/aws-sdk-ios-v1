@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -18,11 +18,10 @@
 
 @class Message_BoardViewController;
 
-@interface Message_BoardAppDelegate : NSObject <UIApplicationDelegate> {
-
+@interface Message_BoardAppDelegate:NSObject<UIApplicationDelegate> {
 }
 
-@property (nonatomic, retain) IBOutlet UIWindow *window;
+@property (nonatomic, retain) IBOutlet UIWindow                    *window;
 
 @property (nonatomic, retain) IBOutlet Message_BoardViewController *viewController;
 

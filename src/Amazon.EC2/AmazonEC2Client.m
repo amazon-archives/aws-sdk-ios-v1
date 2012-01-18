@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -439,6 +439,13 @@
     AmazonServiceRequest *request = [EC2CreateVolumeRequestMarshaller createRequest:createVolumeRequest];
 
     return (EC2CreateVolumeResponse *)[self invoke:request rawRequest:createVolumeRequest unmarshallerDelegate:[EC2CreateVolumeResponseUnmarshaller class]];
+}
+
+-(EC2DescribeInstanceStatusResponse *)describeInstanceStatus:(EC2DescribeInstanceStatusRequest *)describeInstanceStatusRequest
+{
+    AmazonServiceRequest *request = [EC2DescribeInstanceStatusRequestMarshaller createRequest:describeInstanceStatusRequest];
+
+    return (EC2DescribeInstanceStatusResponse *)[self invoke:request rawRequest:describeInstanceStatusRequest unmarshallerDelegate:[EC2DescribeInstanceStatusResponseUnmarshaller class]];
 }
 
 -(EC2DescribeReservedInstancesOfferingsResponse *)describeReservedInstancesOfferings:(EC2DescribeReservedInstancesOfferingsRequest *)describeReservedInstancesOfferingsRequest

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -34,6 +34,7 @@
     NSString       *productDescription;
     NSMutableArray *filters;
     NSString       *instanceTenancy;
+    NSString       *offeringType;
 }
 
 
@@ -55,7 +56,7 @@
  * The instance type on which the Reserved Instance can be used.
  * <p>
  * <b>Constraints:</b><br/>
- * <b>Allowed Values: </b>t1.micro, m1.small, m1.large, m1.xlarge, m2.xlarge, m2.2xlarge, m2.4xlarge, c1.medium, c1.xlarge, cc1.4xlarge, cg1.4xlarge
+ * <b>Allowed Values: </b>t1.micro, m1.small, m1.large, m1.xlarge, m2.xlarge, m2.2xlarge, m2.4xlarge, c1.medium, c1.xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge
  */
 @property (nonatomic, retain) NSString *instanceType;
 
@@ -84,6 +85,11 @@
  * only be launched within a VPC.
  */
 @property (nonatomic, retain) NSString *instanceTenancy;
+
+/**
+ * The Reserved Instance offering type.
+ */
+@property (nonatomic, retain) NSString *offeringType;
 
 /**
  * Adds a single object to reservedInstancesOfferingIds.

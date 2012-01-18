@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -33,20 +33,20 @@
 {
     AmazonServiceException *newException = nil;
 
-    if ([[theException errorCode] isEqualToString:@"LoadBalancerNotFound"]) {
-        newException = [[ElasticLoadBalancingLoadBalancerNotFoundException alloc] initWithMessage:@""];
-    }
-
     if ([[theException errorCode] isEqualToString:@"TooManyPolicies"]) {
         newException = [[ElasticLoadBalancingTooManyPoliciesException alloc] initWithMessage:@""];
     }
 
-    if ([[theException errorCode] isEqualToString:@"InvalidConfigurationRequest"]) {
-        newException = [[ElasticLoadBalancingInvalidConfigurationRequestException alloc] initWithMessage:@""];
-    }
-
     if ([[theException errorCode] isEqualToString:@"DuplicatePolicyName"]) {
         newException = [[ElasticLoadBalancingDuplicatePolicyNameException alloc] initWithMessage:@""];
+    }
+
+    if ([[theException errorCode] isEqualToString:@"LoadBalancerNotFound"]) {
+        newException = [[ElasticLoadBalancingLoadBalancerNotFoundException alloc] initWithMessage:@""];
+    }
+
+    if ([[theException errorCode] isEqualToString:@"InvalidConfigurationRequest"]) {
+        newException = [[ElasticLoadBalancingInvalidConfigurationRequestException alloc] initWithMessage:@""];
     }
 
     if (newException != nil) {

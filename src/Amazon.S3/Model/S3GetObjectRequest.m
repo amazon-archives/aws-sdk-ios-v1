@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@
 @synthesize outputStream;
 @synthesize rangeStart;
 @synthesize rangeEnd;
+@synthesize versionId;
 @synthesize responseHeaderOverrides;
 
 -(id)initWithKey:(NSString *)aKey withBucket:(NSString *)aBucket
@@ -36,11 +37,31 @@
     return self;
 }
 
+-(id)initWithKey:(NSString *)aKey withBucket:(NSString *)aBucket withVersionId:(NSString *)aVersionId
+{
+    if (self = [self init]) {
+        self.bucket    = aBucket;
+        self.key       = aKey;
+        self.versionId = aVersionId;
+    }
+
+    return self;
+}
+
+
 -(NSMutableURLRequest *)configureURLRequest
 {
+    NSMutableString *queryString = [NSMutableString stringWithCapacity:512];
+
     if (self.responseHeaderOverrides != nil) {
-        self.subResource = self.responseHeaderOverrides.queryString;
+        [queryString appendString:self.responseHeaderOverrides.queryString];
     }
+
+    if (nil != self.versionId) {
+        [queryString appendString:[NSString stringWithFormat:@"%@%@=%@", [queryString length] > 0 ? @"&":@"", kS3SubResourceVersionId, self.versionId]];
+    }
+
+    self.subResource = queryString;
 
     [super configureURLRequest];
 
@@ -93,6 +114,7 @@
     [ifMatch release];
     [ifNoneMatch release];
     [responseHeaderOverrides release];
+    [versionId release];
 
     [super dealloc];
 }

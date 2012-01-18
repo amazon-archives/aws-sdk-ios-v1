@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -15,15 +15,15 @@
 
 
 // Constants used to represent your AWS Credentials.
-#define ACCESS_KEY_ID           @"CHANGE ME"
-#define SECRET_KEY              @"CHANGE ME"
-#define CREDENTIALS_MESSAGE     @"AWS Credentials not configured correctly.  Please review the README file."
+#define ACCESS_KEY_ID          @"CHANGE ME"
+#define SECRET_KEY             @"CHANGE ME"
+#define CREDENTIALS_MESSAGE    @"AWS Credentials not configured correctly.  Please review the README file."
 
 
 @interface Constants:NSObject {
 }
 
-+(NSString*)getRandomPlayerName;
++(NSString *)getRandomPlayerName;
 +(int)getRandomScore;
 +(UIAlertView *)credentialsAlert;
 

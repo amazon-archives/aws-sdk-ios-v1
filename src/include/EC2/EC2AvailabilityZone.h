@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -13,6 +13,7 @@
  * permissions and limitations under the License.
  */
 
+#import "EC2AvailabilityZoneMessage.h"
 
 
 
@@ -25,9 +26,10 @@
 @interface EC2AvailabilityZone:NSObject
 
 {
-    NSString *zoneName;
-    NSString *state;
-    NSString *regionName;
+    NSString       *zoneName;
+    NSString       *state;
+    NSString       *regionName;
+    NSMutableArray *messages;
 }
 
 
@@ -53,6 +55,17 @@
  * Name of the region in which this zone resides.
  */
 @property (nonatomic, retain) NSString *regionName;
+
+/**
+ * A list of messages about the Availability Zone.
+ */
+@property (nonatomic, retain) NSMutableArray *messages;
+
+/**
+ * Adds a single object to messages.
+ * This function will alloc and init messages if not already done.
+ */
+-(void)addMessage:(EC2AvailabilityZoneMessage *)messageObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

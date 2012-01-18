@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -19,12 +19,14 @@
 @implementation ElasticLoadBalancingDescribeLoadBalancersResponse
 
 @synthesize loadBalancerDescriptions;
+@synthesize nextMarker;
 
 
 -(id)init
 {
     if (self = [super init]) {
         loadBalancerDescriptions = [[NSMutableArray alloc] initWithCapacity:1];
+        nextMarker               = nil;
     }
 
     return self;
@@ -64,6 +66,7 @@
 
     [buffer appendString:@"{"];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"LoadBalancerDescriptions: %@,", loadBalancerDescriptions] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"NextMarker: %@,", nextMarker] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -75,6 +78,7 @@
 -(void)dealloc
 {
     [loadBalancerDescriptions release];
+    [nextMarker release];
 
     [super dealloc];
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -55,6 +55,57 @@ static const short base64DecodingTable[] =
     NSString *encoded = (NSString *)CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)input, NULL, (CFStringRef)@"!*'\"();:@&=+$,/?%#[]% ", kCFStringEncodingUTF8);
 
     return [encoded autorelease];
+}
+
++(NSData *)hexDecode:(NSString *)hexString
+{
+    NSMutableData *stringData = [[[NSMutableData alloc] init] autorelease];
+    unsigned char whole_byte;
+    char          byte_chars[3] = { '\0', '\0', '\0' };
+    int           i;
+    for (i = 0; i < [hexString length] / 2; i++) {
+        byte_chars[0] = [hexString characterAtIndex:i * 2];
+        byte_chars[1] = [hexString characterAtIndex:i * 2 + 1];
+        whole_byte    = strtol(byte_chars, NULL, 16);
+        [stringData appendBytes:&whole_byte length:1];
+    }
+
+    return stringData;
+}
+
++(NSString *)hexEncode:(NSString *)string
+{
+    NSUInteger len    = [string length];
+    unichar    *chars = malloc(len * sizeof(unichar));
+
+    [string getCharacters:chars];
+
+    NSMutableString *hexString = [[NSMutableString alloc] init];
+    for (NSUInteger i = 0; i < len; i++) {
+        if ((int)chars[i] < 16) {
+            [hexString appendString:@"0"];
+        }
+        [hexString appendString:[NSString stringWithFormat:@"%x", chars[i]]];
+    }
+    free(chars);
+
+    return [hexString autorelease];
+}
+
++(NSString *)hexEncodeData:(NSData *)data
+{
+    NSUInteger      len    = [data length];
+    const unsigned  *chars = [data bytes];
+
+    NSMutableString *hexString = [[NSMutableString alloc] init];
+    for (NSUInteger i = 0; i < len; i++) {
+        if ((int)chars[i] < 16) {
+            [hexString appendString:@"0"];
+        }
+        [hexString appendString:[NSString stringWithFormat:@"%x", chars[i]]];
+    }
+
+    return [hexString autorelease];
 }
 
 +(NSString *)MIMETypeForExtension:(NSString *)extension
@@ -254,6 +305,11 @@ static const short base64DecodingTable[] =
     }
 }
 
++(NSDate *)millisSinceEpochToDate:(NSNumber *)millisSinceEpoch
+{
+    return [NSDate dateWithTimeIntervalSince1970:([millisSinceEpoch longLongValue] / 1000)];
+}
+
 +(NSDate *)convertStringToDate:(NSString *)string usingFormat:(NSString *)dateFormat
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -370,6 +426,37 @@ static const short base64DecodingTable[] =
 {
     return [[NSDate date] stringWithISO8061Format];
 }
+
+-(NSString *)dateStamp
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+    [dateFormatter setDateFormat:kDateStampFormat];
+    [dateFormatter setLocale:[AmazonSDKUtil timestampLocale]];
+
+    NSString *formatted = [dateFormatter stringFromDate:self];
+
+    [dateFormatter release];
+
+    return formatted;
+}
+
+-(NSString *)dateTime
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+    [dateFormatter setDateFormat:kDateTimeFormat];
+    [dateFormatter setLocale:[AmazonSDKUtil timestampLocale]];
+
+    NSString *formatted = [dateFormatter stringFromDate:self];
+
+    [dateFormatter release];
+
+    return formatted;
+}
+
 
 
 @end

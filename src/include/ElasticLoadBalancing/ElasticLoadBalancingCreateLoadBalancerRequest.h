@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -31,6 +31,8 @@
     NSString       *loadBalancerName;
     NSMutableArray *listeners;
     NSMutableArray *availabilityZones;
+    NSMutableArray *subnets;
+    NSMutableArray *securityGroups;
 }
 
 
@@ -55,6 +57,16 @@
  * LoadBalancer.
  */
 @property (nonatomic, retain) NSMutableArray *availabilityZones;
+
+/**
+ * A list of subnet IDs in your VPC to attach to your LoadBalancer.
+ */
+@property (nonatomic, retain) NSMutableArray *subnets;
+
+/**
+ * The security groups assigned to your LoadBalancer within your VPC.
+ */
+@property (nonatomic, retain) NSMutableArray *securityGroups;
 
 
 /**
@@ -99,6 +111,18 @@
  * This function will alloc and init availabilityZones if not already done.
  */
 -(void)addAvailabilityZone:(NSString *)availabilityZoneObject;
+
+/**
+ * Adds a single object to subnets.
+ * This function will alloc and init subnets if not already done.
+ */
+-(void)addSubnet:(NSString *)subnetObject;
+
+/**
+ * Adds a single object to securityGroups.
+ * This function will alloc and init securityGroups if not already done.
+ */
+-(void)addSecurityGroup:(NSString *)securityGroupObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

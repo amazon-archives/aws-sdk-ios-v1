@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@
 -(id)initWithSortMethod:(int)theSortMethod
 {
     highScoreList = [[HighScoreList alloc] initWithSortMethod:theSortMethod];
-    scores = [[NSMutableArray alloc] initWithCapacity:0];
+    scores        = [[NSMutableArray alloc] initWithCapacity:0];
     return [super initWithNibName:@"HighScoresTableViewController" bundle:nil];
 }
 
@@ -44,58 +44,58 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ( [scores count] == 0 ) {
+    if ( [scores count] == 0) {
         [scores addObjectsFromArray:[highScoreList getHighScores]];
-    } 
-    else if ( indexPath.row > [scores count] - 1 ) {
+    }
+    else if (indexPath.row > [scores count] - 1) {
         [scores addObjectsFromArray:[highScoreList getNextPageOfScores]];
     }
-        
-    
+
+
     static NSString *CellIdentifier = @"Cell";
-    
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
+
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
     }
-    
-    // Configure the cell...    
-    HighScore *highScore = [scores objectAtIndex:indexPath.row];            
-    cell.textLabel.text = highScore.player;
+
+    // Configure the cell...
+    HighScore *highScore = [scores objectAtIndex:indexPath.row];
+    cell.textLabel.text                      = highScore.player;
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", highScore.score];
-    
+    cell.detailTextLabel.text                = [NSString stringWithFormat:@"%d", highScore.score];
+
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    HighScore *highScore = (HighScore*)[scores objectAtIndex:indexPath.row];
-    
+    HighScore            *highScore = (HighScore *)[scores objectAtIndex:indexPath.row];
+
     PlayerViewController *playerView = [[PlayerViewController alloc] initWithPlayer:highScore];
- 
+
     playerView.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentModalViewController:playerView animated:YES];
-    [playerView release];    
+    [playerView release];
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        HighScore *highScore = (HighScore*)[scores objectAtIndex:indexPath.row];
+        HighScore *highScore = (HighScore *)[scores objectAtIndex:indexPath.row];
         [highScoreList removeHighScore:highScore];
-        
+
         [scores removeObjectAtIndex:indexPath.row];
-        
-        NSArray *indexPaths = [NSArray arrayWithObjects:indexPath, nil];            
+
+        NSArray *indexPaths = [NSArray arrayWithObjects:indexPath, nil];
         [tableView beginUpdates];
         [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
-        [tableView endUpdates];            
+        [tableView endUpdates];
     }
 }
 
--(void)dealloc 
+-(void)dealloc
 {
     [scores release];
     [highScoreList release];

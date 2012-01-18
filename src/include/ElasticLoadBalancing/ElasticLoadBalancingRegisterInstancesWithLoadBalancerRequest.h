@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -41,8 +41,14 @@
 @property (nonatomic, retain) NSString *loadBalancerName;
 
 /**
- * A list of instances IDs that should be registered with the
- * LoadBalancer.
+ * A list of instance IDs that should be registered with the
+ * LoadBalancer. <note>If you stop and then restart the instance, the
+ * instance ID changes. Elastic Load Balancing cannot recognize the new
+ * ID, which prevents it from routing traffic to your instance. We
+ * recommend you de-register and then register your the new instance ID
+ * with the load balancer after you restart your instance. To de-register
+ * your instances from load balancer, use
+ * <a>DeregisterInstancesFromLoadBalancer</a> action.</note>
  */
 @property (nonatomic, retain) NSMutableArray *instances;
 
@@ -59,8 +65,14 @@
  *
  * @param theLoadBalancerName The name associated with the LoadBalancer.
  * The name must be unique within the client AWS account.
- * @param theInstances A list of instances IDs that should be registered
- * with the LoadBalancer.
+ * @param theInstances A list of instance IDs that should be registered
+ * with the LoadBalancer. <note>If you stop and then restart the
+ * instance, the instance ID changes. Elastic Load Balancing cannot
+ * recognize the new ID, which prevents it from routing traffic to your
+ * instance. We recommend you de-register and then register your the new
+ * instance ID with the load balancer after you restart your instance. To
+ * de-register your instances from load balancer, use
+ * <a>DeregisterInstancesFromLoadBalancer</a> action.</note>
  */
 -(id)initWithLoadBalancerName:(NSString *)theLoadBalancerName andInstances:(NSMutableArray *)theInstances;
 

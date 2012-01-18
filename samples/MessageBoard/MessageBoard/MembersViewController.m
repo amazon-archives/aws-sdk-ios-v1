@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@
 
 @synthesize subscribers;
 
-- (id)init
+-(id)init
 {
     self.subscribers = [[MessageBoard instance] listSubscribers];
     return [super initWithNibName:@"MembersViewController" bundle:nil];
@@ -45,19 +45,19 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
+
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
     }
-    
-    // Configure the cell...    
-    SNSSubscription *subscriber = [self.subscribers objectAtIndex:indexPath.row];            
-    cell.textLabel.text = subscriber.endpoint;
+
+    // Configure the cell...
+    SNSSubscription *subscriber = [self.subscribers objectAtIndex:indexPath.row];
+    cell.textLabel.text                      = subscriber.endpoint;
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
-    cell.detailTextLabel.text = subscriber.protocol;
-    
+    cell.detailTextLabel.text                = subscriber.protocol;
+
     return cell;
 }
 
@@ -65,18 +65,18 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         SNSSubscription *subscriber = [self.subscribers objectAtIndex:indexPath.row];
-        
+
         [[MessageBoard instance] removeSubscriber:subscriber.subscriptionArn];
         [self.subscribers removeObjectAtIndex:indexPath.row];
 
-        NSArray *indexPaths = [NSArray arrayWithObjects:indexPath, nil];            
+        NSArray *indexPaths = [NSArray arrayWithObjects:indexPath, nil];
         [tableView beginUpdates];
         [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
-        [tableView endUpdates];            
+        [tableView endUpdates];
     }
 }
 
-- (void)dealloc
+-(void)dealloc
 {
     [subscribers release];
     [super dealloc];

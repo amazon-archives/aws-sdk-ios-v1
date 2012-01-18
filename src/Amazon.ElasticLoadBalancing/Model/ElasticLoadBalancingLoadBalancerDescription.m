@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -26,9 +26,12 @@
 @synthesize policies;
 @synthesize backendServerDescriptions;
 @synthesize availabilityZones;
+@synthesize subnets;
+@synthesize vPCId;
 @synthesize instances;
 @synthesize healthCheck;
 @synthesize sourceSecurityGroup;
+@synthesize securityGroups;
 @synthesize createdTime;
 
 
@@ -43,9 +46,12 @@
         policies                  = nil;
         backendServerDescriptions = [[NSMutableArray alloc] initWithCapacity:1];
         availabilityZones         = [[NSMutableArray alloc] initWithCapacity:1];
+        subnets                   = [[NSMutableArray alloc] initWithCapacity:1];
+        vPCId                     = nil;
         instances                 = [[NSMutableArray alloc] initWithCapacity:1];
         healthCheck               = nil;
         sourceSecurityGroup       = nil;
+        securityGroups            = [[NSMutableArray alloc] initWithCapacity:1];
         createdTime               = nil;
     }
 
@@ -80,6 +86,15 @@
     [availabilityZones addObject:availabilityZoneObject];
 }
 
+-(void)addSubnet:(NSString *)subnetObject
+{
+    if (subnets == nil) {
+        subnets = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [subnets addObject:subnetObject];
+}
+
 -(void)addInstance:(ElasticLoadBalancingInstance *)instanceObject
 {
     if (instances == nil) {
@@ -87,6 +102,15 @@
     }
 
     [instances addObject:instanceObject];
+}
+
+-(void)addSecurityGroup:(NSString *)securityGroupObject
+{
+    if (securityGroups == nil) {
+        securityGroups = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [securityGroups addObject:securityGroupObject];
 }
 
 
@@ -103,9 +127,12 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Policies: %@,", policies] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"BackendServerDescriptions: %@,", backendServerDescriptions] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"AvailabilityZones: %@,", availabilityZones] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Subnets: %@,", subnets] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"VPCId: %@,", vPCId] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Instances: %@,", instances] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"HealthCheck: %@,", healthCheck] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"SourceSecurityGroup: %@,", sourceSecurityGroup] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"SecurityGroups: %@,", securityGroups] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"CreatedTime: %@,", createdTime] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
@@ -125,9 +152,12 @@
     [policies release];
     [backendServerDescriptions release];
     [availabilityZones release];
+    [subnets release];
+    [vPCId release];
     [instances release];
     [healthCheck release];
     [sourceSecurityGroup release];
+    [securityGroups release];
     [createdTime release];
 
     [super dealloc];

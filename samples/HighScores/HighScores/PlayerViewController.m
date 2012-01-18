@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -18,25 +18,25 @@
 
 @implementation PlayerViewController
 
-- (id)initWithPlayer:(HighScore*)thePlayer;
-{    
-    if ( (self = [super initWithNibName:@"PlayerViewController" bundle:nil]) ) {    
+-(id)initWithPlayer:(HighScore *)thePlayer;
+{
+    if ((self = [super initWithNibName:@"PlayerViewController" bundle:nil])) {
         playerScore = thePlayer;
     }
-    
-    return self;    
+
+    return self;
 }
 
 -(IBAction)ok:(id)sender
 {
-    [self dismissModalViewControllerAnimated:YES];    
+    [self dismissModalViewControllerAnimated:YES];
 }
 
-- (void)viewDidLoad
+-(void)viewDidLoad
 {
     player.text = playerScore.player;
-    score.text = [NSString stringWithFormat:@"%d", playerScore.score];
-    
+    score.text  = [NSString stringWithFormat:@"%d", playerScore.score];
+
     [super viewDidLoad];
 }
 

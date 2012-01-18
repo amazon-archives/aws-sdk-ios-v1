@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -16,12 +16,11 @@
 #import <UIKit/UIKit.h>
 #import "HighScoreList.h"
 
-@interface HighScoresTableViewController : UIViewController {
-    
+@interface HighScoresTableViewController:UIViewController {
     IBOutlet UITableView *highScores;
-    
-    HighScoreList *highScoreList;
-    NSMutableArray *scores;
+
+    HighScoreList        *highScoreList;
+    NSMutableArray       *scores;
 }
 
 -(id)initWithSortMethod:(int)theSortMethod;

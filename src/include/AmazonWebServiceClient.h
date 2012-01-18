@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -34,6 +34,7 @@
     NSString          *endpoint;
     int               maxRetries;
     NSTimeInterval    timeout;
+    NSTimeInterval    delay;
     NSString          *userAgent;
 }
 
@@ -45,14 +46,21 @@
  *
  * Default is 5.
  */
-@property (nonatomic) int maxRetries;
+@property (nonatomic, assign) int maxRetries;
 
 /** The amount of time to wait (in milliseconds) for data to be transfered over
  * an established, open connection before the connection times out and is closed.
  *
- * Default is 240 seconds.
+ * Default is 30 seconds.
  */
-@property (nonatomic) NSTimeInterval timeout;
+@property (nonatomic, assign) NSTimeInterval timeout;
+
+/**
+ * The amount of time to pause between retries.  The pause time will grow exponentially
+ * for each retry on a single request.
+ * Default is 0.05 seconds.
+ */
+@property (nonatomic, assign) NSTimeInterval delay;
 
 /** The HTTP user agent header to send with all requests. */
 @property (nonatomic, retain) NSString *userAgent;

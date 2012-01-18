@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -23,22 +23,22 @@
 // http://aws.amazon.com/articles/1231
 // ========================================================
 
-#define HIGH_SCORE_DOMAIN   @"HighScores"
+#define HIGH_SCORE_DOMAIN    @"HighScores"
 
-#define PLAYER_ATTRIBUTE    @"player"
-#define SCORE_ATTRIBUTE     @"score"
+#define PLAYER_ATTRIBUTE     @"player"
+#define SCORE_ATTRIBUTE      @"score"
 
-#define COUNT_QUERY         @"select count(*) from HighScores"
+#define COUNT_QUERY          @"select count(*) from HighScores"
 
-#define PLAYER_SORT_QUERY   @"select player, score from HighScores where player > '' order by player asc"
-#define SCORE_SORT_QUERY    @"select player, score from HighScores where score >= '0' order by score desc"
-#define NO_SORT_QUERY       @"select player, score from HighScores"
+#define PLAYER_SORT_QUERY    @"select player, score from HighScores where player > '' order by player asc"
+#define SCORE_SORT_QUERY     @"select player, score from HighScores where score >= '0' order by score desc"
+#define NO_SORT_QUERY        @"select player, score from HighScores"
 
 
 /*
  * This class provides all the functionality for the High Scores list.
  *
- * The class uses SimpleDB to store individuals Items in a Domain.  
+ * The class uses SimpleDB to store individuals Items in a Domain.
  * Each Item represents a player and their score.
  */
 @implementation HighScoreList
@@ -53,11 +53,11 @@
     if (self)
     {
         // Initial the SimpleDB Client.
-        sdbClient = [[AmazonSimpleDBClient alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY];            
+        sdbClient      = [[AmazonSimpleDBClient alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY];
         self.nextToken = nil;
-        sortMethod = NO_SORT;
+        sortMethod     = NO_SORT;
     }
-    
+
     return self;
 }
 
@@ -67,11 +67,11 @@
     if (self)
     {
         // Initial the SimpleDB Client.
-        sdbClient = [[AmazonSimpleDBClient alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY];            
+        sdbClient      = [[AmazonSimpleDBClient alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY];
         self.nextToken = nil;
-        sortMethod = theSortMethod;
+        sortMethod     = theSortMethod;
     }
-    
+
     return self;
 }
 
@@ -83,14 +83,14 @@
     @try {
         SimpleDBSelectRequest *selectRequest = [[[SimpleDBSelectRequest alloc] initWithSelectExpression:COUNT_QUERY] autorelease];
         selectRequest.consistentRead = YES;
-        
+
         SimpleDBSelectResponse *selectResponse = [sdbClient select:selectRequest];
-        SimpleDBItem *countItem = [selectResponse.items objectAtIndex:0];
-        
+        SimpleDBItem           *countItem      = [selectResponse.items objectAtIndex:0];
+
         return [self getIntValueForAttribute:@"Count" fromList:countItem.attributes];
     }
-    @catch ( NSException *exception ) {
-        NSLog( @"Exception : [%@]", exception );
+    @catch (NSException *exception) {
+        NSLog(@"Exception : [%@]", exception);
         return 0;
     }
 }
@@ -98,19 +98,19 @@
 /*
  * Gets the item from the High Scores domain with the item name equal to 'thePlayer'.
  */
--(HighScore*)getPlayer:(NSString*)thePlayer
+-(HighScore *)getPlayer:(NSString *)thePlayer
 {
     @try {
-        SimpleDBGetAttributesRequest *gar = [[SimpleDBGetAttributesRequest alloc] initWithDomainName:HIGH_SCORE_DOMAIN andItemName:thePlayer];
+        SimpleDBGetAttributesRequest  *gar      = [[SimpleDBGetAttributesRequest alloc] initWithDomainName:HIGH_SCORE_DOMAIN andItemName:thePlayer];
         SimpleDBGetAttributesResponse *response = [sdbClient getAttributes:gar];
-    
-        NSString *playerName = [self getStringValueForAttribute:PLAYER_ATTRIBUTE fromList:response.attributes];
-        int score = [self getIntValueForAttribute:SCORE_ATTRIBUTE fromList:response.attributes];
-    
+
+        NSString                      *playerName = [self getStringValueForAttribute:PLAYER_ATTRIBUTE fromList:response.attributes];
+        int                           score       = [self getIntValueForAttribute:SCORE_ATTRIBUTE fromList:response.attributes];
+
         return [[HighScore alloc] initWithPlayer:playerName andScore:score];
     }
-    @catch ( NSException *exception ) {
-        NSLog( @"Exception : [%@]", exception );
+    @catch (NSException *exception) {
+        NSLog(@"Exception : [%@]", exception);
         return nil;
     }
 }
@@ -118,27 +118,40 @@
 /*
  * Using the pre-defined query, extracts items from the domain in a determined order using the 'select' operation.
  */
--(NSArray*)getHighScores
+-(NSArray *)getHighScores
 {
     NSString *query = nil;
-    switch ( sortMethod ) {
-        case PLAYER_SORT: { query = PLAYER_SORT_QUERY; break; }
-        case SCORE_SORT: { query = SCORE_SORT_QUERY; break; }
-        default: { query = NO_SORT_QUERY; }
+
+    switch (sortMethod) {
+    case PLAYER_SORT: {
+        query = PLAYER_SORT_QUERY;
+        break;
     }
-        
+
+    case SCORE_SORT: {
+        query = SCORE_SORT_QUERY;
+        break;
+    }
+
+    default: {
+        query = NO_SORT_QUERY;
+    }
+    }
+
     @try {
         SimpleDBSelectRequest *selectRequest = [[[SimpleDBSelectRequest alloc] initWithSelectExpression:query] autorelease];
         selectRequest.consistentRead = YES;
-        if ( self.nextToken != nil ) selectRequest.nextToken = self.nextToken;
+        if (self.nextToken != nil) {
+            selectRequest.nextToken = self.nextToken;
+        }
 
         SimpleDBSelectResponse *selectResponse = [sdbClient select:selectRequest];
         self.nextToken = selectResponse.nextToken;
 
         return [self convertItemsToHighScores:selectResponse.items];
     }
-    @catch ( NSException *exception ) {
-        NSLog( @"Exception : [%@]", exception );
+    @catch (NSException *exception) {
+        NSLog(@"Exception : [%@]", exception);
         return [NSArray array];
     }
 }
@@ -146,9 +159,9 @@
 /*
  * If a 'nextToken' was returned on the previous query execution, use the next token to get the next batch of items.
  */
--(NSArray*)getNextPageOfScores
+-(NSArray *)getNextPageOfScores
 {
-    if ( self.nextToken == nil ) {
+    if (self.nextToken == nil) {
         return [NSArray array];
     }
     else {
@@ -159,15 +172,15 @@
 /*
  * Creates a new item and adds it to the HighScores domain.
  */
--(void)addHighScore:(HighScore*)theHighScore
+-(void)addHighScore:(HighScore *)theHighScore
 {
     @try {
-        NSString *paddedScore = [self getPaddedScore:theHighScore.score];
-        
-        SimpleDBReplaceableAttribute *playerAttribute = [[[SimpleDBReplaceableAttribute alloc] initWithName:PLAYER_ATTRIBUTE andValue:theHighScore.player andReplace:YES] autorelease];
-        SimpleDBReplaceableAttribute *scoreAttribute = [[[SimpleDBReplaceableAttribute alloc] initWithName:SCORE_ATTRIBUTE andValue:paddedScore andReplace:YES] autorelease];
+        NSString                     *paddedScore = [self getPaddedScore:theHighScore.score];
 
-        NSMutableArray *attributes = [[[NSMutableArray alloc] initWithCapacity:1] autorelease];
+        SimpleDBReplaceableAttribute *playerAttribute = [[[SimpleDBReplaceableAttribute alloc] initWithName:PLAYER_ATTRIBUTE andValue:theHighScore.player andReplace:YES] autorelease];
+        SimpleDBReplaceableAttribute *scoreAttribute  = [[[SimpleDBReplaceableAttribute alloc] initWithName:SCORE_ATTRIBUTE andValue:paddedScore andReplace:YES] autorelease];
+
+        NSMutableArray               *attributes = [[[NSMutableArray alloc] initWithCapacity:1] autorelease];
         [attributes addObject:playerAttribute];
         [attributes addObject:scoreAttribute];
 
@@ -175,8 +188,8 @@
 
         [sdbClient putAttributes:putAttributesRequest];
     }
-    @catch ( NSException *exception ) {
-        NSLog( @"Exception : [%@]", exception );        
+    @catch (NSException *exception) {
+        NSLog(@"Exception : [%@]", exception);
     }
 }
 
@@ -184,14 +197,14 @@
  * Removes the item from the HighScores domain.
  * The item removes is the item whose 'player' matches the theHighScore submitted.
  */
--(void)removeHighScore:(HighScore*)theHighScore
+-(void)removeHighScore:(HighScore *)theHighScore
 {
     @try {
         SimpleDBDeleteAttributesRequest *deleteItem = [[[SimpleDBDeleteAttributesRequest alloc] initWithDomainName:HIGH_SCORE_DOMAIN andItemName:theHighScore.player] autorelease];
-        [sdbClient deleteAttributes:deleteItem];    
+        [sdbClient deleteAttributes:deleteItem];
     }
-    @catch ( NSException *exception ) {
-        NSLog( @"Exception : [%@]", exception );        
+    @catch (NSException *exception) {
+        NSLog(@"Exception : [%@]", exception);
     }
 }
 
@@ -201,11 +214,11 @@
 -(void)createHighScoresDomain
 {
     @try {
-        SimpleDBCreateDomainRequest *createDomain = [[[SimpleDBCreateDomainRequest alloc] initWithDomainName:HIGH_SCORE_DOMAIN] autorelease];    
+        SimpleDBCreateDomainRequest *createDomain = [[[SimpleDBCreateDomainRequest alloc] initWithDomainName:HIGH_SCORE_DOMAIN] autorelease];
         [sdbClient createDomain:createDomain];
     }
-    @catch ( NSException *exception ) {
-        NSLog( @"Exception : [%@]", exception );
+    @catch (NSException *exception) {
+        NSLog(@"Exception : [%@]", exception);
     }
 }
 
@@ -215,34 +228,34 @@
 -(void)clearHighScores
 {
     @try {
-        SimpleDBDeleteDomainRequest *deleteDomain = [[[SimpleDBDeleteDomainRequest alloc] initWithDomainName:HIGH_SCORE_DOMAIN] autorelease];    
+        SimpleDBDeleteDomainRequest *deleteDomain = [[[SimpleDBDeleteDomainRequest alloc] initWithDomainName:HIGH_SCORE_DOMAIN] autorelease];
         [sdbClient deleteDomain:deleteDomain];
-        
-        SimpleDBCreateDomainRequest *createDomain = [[[SimpleDBCreateDomainRequest alloc] initWithDomainName:HIGH_SCORE_DOMAIN] autorelease];    
+
+        SimpleDBCreateDomainRequest *createDomain = [[[SimpleDBCreateDomainRequest alloc] initWithDomainName:HIGH_SCORE_DOMAIN] autorelease];
         [sdbClient createDomain:createDomain];
     }
-    @catch ( NSException *exception ) {
-        NSLog( @"Exception : [%@]", exception );
+    @catch (NSException *exception) {
+        NSLog(@"Exception : [%@]", exception);
     }
 }
 
 /*
  * Converts an array of Items into an array of HighScore objects.
  */
--(NSArray*)convertItemsToHighScores:(NSArray*)theItems
+-(NSArray *)convertItemsToHighScores:(NSArray *)theItems
 {
-    NSMutableArray *highScores = [[[NSMutableArray alloc] initWithCapacity:[theItems count]] autorelease];    
-    for ( SimpleDBItem *item in theItems ) {        
+    NSMutableArray *highScores = [[[NSMutableArray alloc] initWithCapacity:[theItems count]] autorelease];
+    for (SimpleDBItem *item in theItems) {
         [highScores addObject:[self convertSimpleDBItemToHighScore:item]];
     }
-    
+
     return highScores;
 }
 
 /*
  * Converts a single SimpleDB Item into a HighScore object.
  */
--(HighScore*)convertSimpleDBItemToHighScore:(SimpleDBItem*)theItem
+-(HighScore *)convertSimpleDBItemToHighScore:(SimpleDBItem *)theItem
 {
     return [[[HighScore alloc] initWithPlayer:[self getPlayerNameFromItem:theItem] andScore:[self getPlayerScoreFromItem:theItem]] autorelease];
 }
@@ -250,7 +263,7 @@
 /*
  * Extracts the 'player' attribute from the SimpleDB Item.
  */
--(NSString*)getPlayerNameFromItem:(SimpleDBItem*)theItem 
+-(NSString *)getPlayerNameFromItem:(SimpleDBItem *)theItem
 {
     return [self getStringValueForAttribute:PLAYER_ATTRIBUTE fromList:theItem.attributes];
 }
@@ -258,7 +271,7 @@
 /*
  * Extracts the 'score' attribute from the SimpleDB Item.
  */
--(int)getPlayerScoreFromItem:(SimpleDBItem*)theItem
+-(int)getPlayerScoreFromItem:(SimpleDBItem *)theItem
 {
     return [self getIntValueForAttribute:SCORE_ATTRIBUTE fromList:theItem.attributes];
 }
@@ -267,46 +280,47 @@
  * Extracts the value for the given attribute from the list of attributes.
  * Extracted value is returned as a NSString.
  */
--(NSString*)getStringValueForAttribute:(NSString*)theAttribute fromList:(NSArray*)attributeList
+-(NSString *)getStringValueForAttribute:(NSString *)theAttribute fromList:(NSArray *)attributeList
 {
-    for ( SimpleDBAttribute *attribute in attributeList ) {
-        if ( [attribute.name isEqualToString:theAttribute] ) {
+    for (SimpleDBAttribute *attribute in attributeList) {
+        if ( [attribute.name isEqualToString:theAttribute]) {
             return attribute.value;
         }
     }
-    
-    return @"";    
+
+    return @"";
 }
 
 /*
  * Extracts the value for the given attribute from the list of attributes.
  * Extracted value is returned as an int.
  */
--(int)getIntValueForAttribute:(NSString*)theAttribute fromList:(NSArray*)attributeList
+-(int)getIntValueForAttribute:(NSString *)theAttribute fromList:(NSArray *)attributeList
 {
-    for ( SimpleDBAttribute *attribute in attributeList ) {
-        if ( [attribute.name isEqualToString:theAttribute] ) {
+    for (SimpleDBAttribute *attribute in attributeList) {
+        if ( [attribute.name isEqualToString:theAttribute]) {
             return [attribute.value intValue];
         }
     }
-    
-    return 0;    
+
+    return 0;
 }
 
 /*
  * Creates a padded number and returns it as a string.
  * All strings returned will have 10 characters.
  */
--(NSString*)getPaddedScore:(int)theScore
+-(NSString *)getPaddedScore:(int)theScore
 {
-    NSString *pad = @"0000000000";
+    NSString *pad        = @"0000000000";
     NSString *scoreValue = [NSString stringWithFormat:@"%d", theScore];
-    
-    NSRange range;
+
+    NSRange  range;
+
     range.location = [pad length] - [scoreValue length];
-    range.length = [scoreValue length];
-    
-    return [pad stringByReplacingCharactersInRange:range withString:scoreValue];    
+    range.length   = [scoreValue length];
+
+    return [pad stringByReplacingCharactersInRange:range withString:scoreValue];
 }
 
 -(void)dealloc

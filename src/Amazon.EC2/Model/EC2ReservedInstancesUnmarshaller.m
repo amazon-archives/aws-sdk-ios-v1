@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -28,6 +28,15 @@
         listUnmarshaller.endListElementName = @"tagSet";
         listUnmarshaller.entryElementName   = @"item";
         listUnmarshaller.delegateClass      = [EC2TagUnmarshaller class];
+
+        [parser setDelegate:listUnmarshaller];
+    }
+
+    if ([elementName isEqualToString:@"recurringCharges"]) {
+        AmazonListUnmarshaller *listUnmarshaller = [[[AmazonListUnmarshaller alloc] initWithCaller:self withParentObject:self.response.recurringCharges withSetter:@selector(addObjectsFromArray:)] autorelease];
+        listUnmarshaller.endListElementName = @"recurringCharges";
+        listUnmarshaller.entryElementName   = @"item";
+        listUnmarshaller.delegateClass      = [EC2RecurringChargeUnmarshaller class];
 
         [parser setDelegate:listUnmarshaller];
     }
@@ -107,6 +116,11 @@
 
     if ([elementName isEqualToString:@"currencyCode"]) {
         self.response.currencyCode = self.currentText;
+        return;
+    }
+
+    if ([elementName isEqualToString:@"offeringType"]) {
+        self.response.offeringType = self.currentText;
         return;
     }
 

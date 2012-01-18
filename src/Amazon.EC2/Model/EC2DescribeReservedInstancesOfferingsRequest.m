@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@
 @synthesize productDescription;
 @synthesize filters;
 @synthesize instanceTenancy;
+@synthesize offeringType;
 
 
 -(id)init
@@ -35,6 +36,7 @@
         productDescription           = nil;
         filters                      = [[NSMutableArray alloc] initWithCapacity:1];
         instanceTenancy              = nil;
+        offeringType                 = nil;
     }
 
     return self;
@@ -71,6 +73,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ProductDescription: %@,", productDescription] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Filters: %@,", filters] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"InstanceTenancy: %@,", instanceTenancy] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"OfferingType: %@,", offeringType] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -87,6 +90,7 @@
     [productDescription release];
     [filters release];
     [instanceTenancy release];
+    [offeringType release];
 
     [super dealloc];
 }

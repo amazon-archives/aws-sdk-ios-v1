@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -19,14 +19,14 @@
 #import "MessageBoard.h"
 
 // Main View
-@interface Message_BoardViewController : UIViewController {
-    MessageBoard *messageBoard;
+@interface Message_BoardViewController:UIViewController {
+    MessageBoard         *messageBoard;
 
     IBOutlet UITextField *message;
     IBOutlet UITextField *email;
     IBOutlet UITextField *sms;
-    
-    bool seenQueueMessage;
+
+    bool                 seenQueueMessage;
 }
 
 -(IBAction)subscribeEmail:(id)sender;
@@ -35,7 +35,7 @@
 -(IBAction)viewQueue:(id)sender;
 -(IBAction)post:(id)sender;
 
--(void)animateTextField:(UITextField*)textField up:(BOOL)moveUp;
+-(void)animateTextField:(UITextField *)textField up:(BOOL)moveUp;
 
 
 @end

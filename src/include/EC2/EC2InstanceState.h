@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -49,7 +49,7 @@
  * The current state of the instance.
  * <p>
  * <b>Constraints:</b><br/>
- * <b>Allowed Values: </b>pending, running, shutting-down, terminated
+ * <b>Allowed Values: </b>pending, running, shutting-down, terminated, stopping, stopped
  */
 @property (nonatomic, retain) NSString *name;
 

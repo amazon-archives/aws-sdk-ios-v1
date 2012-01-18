@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -21,6 +21,8 @@
 @synthesize loadBalancerName;
 @synthesize listeners;
 @synthesize availabilityZones;
+@synthesize subnets;
+@synthesize securityGroups;
 
 
 -(id)init
@@ -29,6 +31,8 @@
         loadBalancerName  = nil;
         listeners         = [[NSMutableArray alloc] initWithCapacity:1];
         availabilityZones = [[NSMutableArray alloc] initWithCapacity:1];
+        subnets           = [[NSMutableArray alloc] initWithCapacity:1];
+        securityGroups    = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
     return self;
@@ -73,6 +77,24 @@
     [availabilityZones addObject:availabilityZoneObject];
 }
 
+-(void)addSubnet:(NSString *)subnetObject
+{
+    if (subnets == nil) {
+        subnets = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [subnets addObject:subnetObject];
+}
+
+-(void)addSecurityGroup:(NSString *)securityGroupObject
+{
+    if (securityGroups == nil) {
+        securityGroups = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [securityGroups addObject:securityGroupObject];
+}
+
 
 -(NSString *)description
 {
@@ -82,6 +104,8 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"LoadBalancerName: %@,", loadBalancerName] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Listeners: %@,", listeners] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"AvailabilityZones: %@,", availabilityZones] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Subnets: %@,", subnets] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"SecurityGroups: %@,", securityGroups] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -95,6 +119,8 @@
     [loadBalancerName release];
     [listeners release];
     [availabilityZones release];
+    [subnets release];
+    [securityGroups release];
 
     [super dealloc];
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -27,6 +27,14 @@
  * @param secretKey The AWS Secret Key
  */
 -(id)initWithAccessKey:(NSString *)accessKey withSecretKey:(NSString *)secretKey;
+
+/** Inits the credential with the access key and the secret key.
+ *
+ * @param theAccessKey The AWS Access Key
+ * @param theSecretKey The AWS Secret Key
+ * @param theSecurityToken The AWS Security Token
+ */
+-(id)initWithAccessKey:(NSString *)theAccessKey withSecretKey:(NSString *)theSecretKey withSecurityToken:(NSString *)theSecurityToken;
 
 
 /** The AWS Access Key */

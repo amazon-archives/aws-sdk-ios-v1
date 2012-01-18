@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -52,10 +52,10 @@
 @property (nonatomic, retain) AmazonServiceRequest *request;
 
 /** The requestId assigned by the service */
-@property (nonatomic, retain) NSString *requestId;
+@property (nonatomic, retain) NSString       *requestId;
 
-@property (nonatomic) Class            unmarshallerDelegate;
-@property (nonatomic) NSTimeInterval   processingTime;
+@property (nonatomic, assign) Class          unmarshallerDelegate;
+@property (nonatomic, assign) NSTimeInterval processingTime;
 
 
 /** Once the body has been received, perform additional processing, such as parse as XML. */

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -31,6 +31,8 @@
 @synthesize tags;
 @synthesize instanceTenancy;
 @synthesize currencyCode;
+@synthesize offeringType;
+@synthesize recurringCharges;
 
 
 -(id)init
@@ -49,6 +51,8 @@
         tags                = [[NSMutableArray alloc] initWithCapacity:1];
         instanceTenancy     = nil;
         currencyCode        = nil;
+        offeringType        = nil;
+        recurringCharges    = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
     return self;
@@ -62,6 +66,15 @@
     }
 
     [tags addObject:tagObject];
+}
+
+-(void)addRecurringCharge:(EC2RecurringCharge *)recurringChargeObject
+{
+    if (recurringCharges == nil) {
+        recurringCharges = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [recurringCharges addObject:recurringChargeObject];
 }
 
 
@@ -83,6 +96,8 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Tags: %@,", tags] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"InstanceTenancy: %@,", instanceTenancy] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"CurrencyCode: %@,", currencyCode] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"OfferingType: %@,", offeringType] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"RecurringCharges: %@,", recurringCharges] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -106,6 +121,8 @@
     [tags release];
     [instanceTenancy release];
     [currencyCode release];
+    [offeringType release];
+    [recurringCharges release];
 
     [super dealloc];
 }

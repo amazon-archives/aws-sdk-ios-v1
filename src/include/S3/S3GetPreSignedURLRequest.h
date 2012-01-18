@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@
     NSString                  *protocol;
     NSString                  *httpVerb;
     NSString                  *accessKey;
+    NSString                  *versionId;
 
     S3ResponseHeaderOverrides *responseHeaderOverrides;
 }
@@ -56,6 +57,10 @@
  * create the AmazonS3Client.
  */
 @property (nonatomic, retain) NSString *accessKey;
+
+/** Sets the (optional) versionId used in the pre signed URL.
+ */
+@property (nonatomic, retain) NSString *versionId;
 
 /** Specify one or more overrides to headers in the response to this request */
 @property (nonatomic, retain) S3ResponseHeaderOverrides *responseHeaderOverrides;

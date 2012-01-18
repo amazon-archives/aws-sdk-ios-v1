@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -39,9 +39,12 @@
     ElasticLoadBalancingPolicies            *policies;
     NSMutableArray                          *backendServerDescriptions;
     NSMutableArray                          *availabilityZones;
+    NSMutableArray                          *subnets;
+    NSString                                *vPCId;
     NSMutableArray                          *instances;
     ElasticLoadBalancingHealthCheck         *healthCheck;
     ElasticLoadBalancingSourceSecurityGroup *sourceSecurityGroup;
+    NSMutableArray                          *securityGroups;
     NSDate                                  *createdTime;
 }
 
@@ -100,6 +103,16 @@
 @property (nonatomic, retain) NSMutableArray *availabilityZones;
 
 /**
+ * Provides a list of VPC subnet IDs for the LoadBalancer.
+ */
+@property (nonatomic, retain) NSMutableArray *subnets;
+
+/**
+ * Provides the ID of the VPC attached to the LoadBalancer.
+ */
+@property (nonatomic, retain) NSString *vPCId;
+
+/**
  * Provides a list of EC2 instance IDs for the LoadBalancer.
  */
 @property (nonatomic, retain) NSMutableArray *instances;
@@ -118,6 +131,11 @@
  * inbound source.
  */
 @property (nonatomic, retain) ElasticLoadBalancingSourceSecurityGroup *sourceSecurityGroup;
+
+/**
+ * The security groups the LoadBalancer is a member of (VPC only).
+ */
+@property (nonatomic, retain) NSMutableArray *securityGroups;
 
 /**
  * Provides the date and time the LoadBalancer was created.
@@ -150,10 +168,22 @@
 -(void)addAvailabilityZone:(NSString *)availabilityZoneObject;
 
 /**
+ * Adds a single object to subnets.
+ * This function will alloc and init subnets if not already done.
+ */
+-(void)addSubnet:(NSString *)subnetObject;
+
+/**
  * Adds a single object to instances.
  * This function will alloc and init instances if not already done.
  */
 -(void)addInstance:(ElasticLoadBalancingInstance *)instanceObject;
+
+/**
+ * Adds a single object to securityGroups.
+ * This function will alloc and init securityGroups if not already done.
+ */
+-(void)addSecurityGroup:(NSString *)securityGroupObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

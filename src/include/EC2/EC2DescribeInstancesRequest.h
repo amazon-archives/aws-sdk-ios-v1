@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -50,7 +50,7 @@
  * A list of filters used to match properties for Instances. For a
  * complete reference to the available filter keys for this operation,
  * see the <a
- * "http://docs.amazonwebservices.com/AWSEC2/latest/APIReference/">Amazon
+ * Reference/index.html?ApiReference-query-DescribeInstances.html">Amazon
  * EC2 API reference</a>.
  */
 @property (nonatomic, retain) NSMutableArray *filters;

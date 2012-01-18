@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@
     NSDate                    *ifUnmodifiedSince;
     NSString                  *ifMatch;
     NSString                  *ifNoneMatch;
+    NSString                  *versionId;
     NSOutputStream            *outputStream;
     S3ResponseHeaderOverrides *responseHeaderOverrides;
 }
@@ -50,6 +51,9 @@
 
 /** Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed). */
 @property (nonatomic, retain) NSString *ifMatch;
+
+/** Specifies the (optional) version to retrieve **/
+@property (nonatomic, retain) NSString *versionId;
 
 /** Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified). */
 @property (nonatomic, retain) NSString *ifNoneMatch;
@@ -70,6 +74,9 @@
 
 /** Initialize the request setting the key and bucketName properties. */
 -(S3GetObjectRequest *)initWithKey:(NSString *)key withBucket:(NSString *)bucket;
+
+/** Initialize the request setting the key, bucketName and versionId properties. */
+-(S3GetObjectRequest *)initWithKey:(NSString *)key withBucket:(NSString *)bucket withVersionId:(NSString *)versionId;
 
 /** sets the start and end of the range. */
 -(void)setRangeStart:(int)start rangeEnd:(int)end;

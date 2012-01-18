@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -22,13 +22,22 @@
 @synthesize protocol;
 @synthesize httpVerb;
 @synthesize accessKey;
+@synthesize versionId;
 @synthesize responseHeaderOverrides;
 
 -(AmazonURLRequest *)configureURLRequest
 {
+    NSMutableString *queryString = [NSMutableString stringWithCapacity:512];
+
     if (self.responseHeaderOverrides != nil) {
-        [self setSubResource:self.responseHeaderOverrides.queryString];
+        [queryString appendString:self.responseHeaderOverrides.queryString];
     }
+
+    if (nil != self.versionId) {
+        [queryString appendString:[NSString stringWithFormat:@"%@%@=%@", [queryString length] > 0 ? @"&":@"", kS3SubResourceVersionId, self.versionId]];
+    }
+
+    self.subResource = queryString;
 
     [super configureURLRequest];
 
@@ -79,8 +88,14 @@
     int epoch = (int)[self.expires timeIntervalSince1970];
     [queryString appendFormat:@"&%@=%d", kS3QueryParamExpires, epoch];
 
+
     if (self.responseHeaderOverrides != nil) {
         [queryString appendFormat:@"&%@", self.responseHeaderOverrides.queryString];
+    }
+
+    // Version
+    if (self.versionId != nil) {
+        [queryString appendFormat:@"&%@=%@", kS3SubResourceVersionId, self.versionId];
     }
 
     return queryString;
@@ -92,6 +107,7 @@
     [protocol release];
     [httpVerb release];
     [accessKey release];
+    [versionId release];
     [responseHeaderOverrides release];
 
     [super dealloc];

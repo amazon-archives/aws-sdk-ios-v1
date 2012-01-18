@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -25,28 +25,28 @@
 
 -(void)viewDidLoad
 {
-    if ( [ACCESS_KEY_ID isEqualToString:@"CHANGE ME"] ) {
-        [[Constants credentialsAlert] show];          
+    if ( [ACCESS_KEY_ID isEqualToString:@"CHANGE ME"]) {
+        [[Constants credentialsAlert] show];
     }
 }
 
 
 -(IBAction)viewQueue:(id)sender
 {
-    if ( !seenQueueMessage ) {
+    if (!seenQueueMessage) {
         seenQueueMessage = YES;
-        [[Constants queueAlert] show];        
+        [[Constants queueAlert] show];
     }
-    
-    MessageQueueController *queue = [[MessageQueueController alloc] init];        
+
+    MessageQueueController *queue = [[MessageQueueController alloc] init];
     queue.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentModalViewController:queue animated:YES];
-    [queue release];    
+    [queue release];
 }
 
 -(IBAction)subscribeEmail:(id)sender
 {
-    [email resignFirstResponder];    
+    [email resignFirstResponder];
     [[MessageBoard instance] subscribeEmail:email.text];
     [[Constants confirmationAlert] show];
 }
@@ -54,11 +54,11 @@
 -(IBAction)subscribeSMS:(id)sender
 {
     [sms resignFirstResponder];
-    
-    if ( [sms.text length] < 10 ) {
-        [[Constants smsSubscriptionAlert] show];        
+
+    if ( [sms.text length] < 10) {
+        [[Constants smsSubscriptionAlert] show];
     }
-    else {    
+    else {
         [[MessageBoard instance] subscribeSms:sms.text];
         [[Constants confirmationAlert] show];
     }
@@ -66,7 +66,8 @@
 
 -(IBAction)viewMembers:(id)sender
 {
-    MembersViewController *members = [[MembersViewController alloc] init];        
+    MembersViewController *members = [[MembersViewController alloc] init];
+
     members.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentModalViewController:members animated:YES];
     [members release];
@@ -74,8 +75,8 @@
 
 -(IBAction)post:(id)sender
 {
-    [message resignFirstResponder];    
-    [[MessageBoard instance] post:message.text];    
+    [message resignFirstResponder];
+    [[MessageBoard instance] post:message.text];
 }
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField
@@ -94,21 +95,22 @@
     [self animateTextField:sms up:NO];
 }
 
--(void)animateTextField:(UITextField*)textField up:(BOOL)moveUp
+-(void)animateTextField:(UITextField *)textField up:(BOOL)moveUp
 {
     int move = 50;
-    if ( moveUp ) {
+
+    if (moveUp) {
         move = -50;
     }
-    
-    [UIView beginAnimations: @"animation" context: nil];
-    [UIView setAnimationBeginsFromCurrentState: YES];
+
+    [UIView beginAnimations:@"animation" context:nil];
+    [UIView setAnimationBeginsFromCurrentState:YES];
     [UIView setAnimationDuration:0.25f];
     self.view.frame = CGRectOffset(self.view.frame, 0, move);
     [UIView commitAnimations];
 }
 
-- (void)dealloc
+-(void)dealloc
 {
     [super dealloc];
 }

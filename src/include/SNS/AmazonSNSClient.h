@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -40,6 +40,10 @@
 #import "SNSListSubscriptionsResponseUnmarshaller.h"
 #import "SNSListSubscriptionsRequest.h"
 #import "SNSListSubscriptionsRequestMarshaller.h"
+#import "SNSSetSubscriptionAttributesResponse.h"
+#import "SNSSetSubscriptionAttributesResponseUnmarshaller.h"
+#import "SNSSetSubscriptionAttributesRequest.h"
+#import "SNSSetSubscriptionAttributesRequestMarshaller.h"
 #import "SNSAddPermissionResponse.h"
 #import "SNSAddPermissionResponseUnmarshaller.h"
 #import "SNSAddPermissionRequest.h"
@@ -48,6 +52,10 @@
 #import "SNSCreateTopicResponseUnmarshaller.h"
 #import "SNSCreateTopicRequest.h"
 #import "SNSCreateTopicRequestMarshaller.h"
+#import "SNSGetSubscriptionAttributesResponse.h"
+#import "SNSGetSubscriptionAttributesResponseUnmarshaller.h"
+#import "SNSGetSubscriptionAttributesRequest.h"
+#import "SNSGetSubscriptionAttributesRequestMarshaller.h"
 #import "SNSListTopicsResponse.h"
 #import "SNSListTopicsResponseUnmarshaller.h"
 #import "SNSListTopicsRequest.h"
@@ -152,7 +160,7 @@
  * endpoint a confirmation message. To actually create a subscription,
  * the endpoint owner must call the ConfirmSubscription action with the
  * token from the confirmation message. Confirmation tokens are valid for
- * twenty-four hours.
+ * three days.
  * </p>
  *
  * @param subscribeRequest Container for the necessary parameters to
@@ -259,10 +267,10 @@
 /**
  * <p>
  * The ListSubscriptions action returns a list of the requester's
- * subscriptions. Each call returns a limited list of subscriptions. If
- * there are more subscriptions, a NextToken is also returned. Use the
- * NextToken parameter in a new ListSubscriptions call to get further
- * results.
+ * subscriptions. Each call returns a limited list of subscriptions, up
+ * to 100. If there are more subscriptions, a NextToken is also returned.
+ * Use the NextToken parameter in a new ListSubscriptions call to get
+ * further results.
  * </p>
  *
  * @param listSubscriptionsRequest Container for the necessary parameters
@@ -284,6 +292,32 @@
  *             either a problem with the data in the request, or a server side issue.
  */
 -(SNSListSubscriptionsResponse *)listSubscriptions:(SNSListSubscriptionsRequest *)listSubscriptionsRequest;
+
+
+/**
+ * <p>
+ * The SetSubscriptionAttributes action allows a subscription owner to
+ * set an attribute of the topic to a new value.
+ * </p>
+ *
+ * @param setSubscriptionAttributesRequest Container for the necessary
+ *           parameters to execute the SetSubscriptionAttributes service method on
+ *           AmazonSNS.
+ *
+ * @throws SNSNotFoundException
+ * @throws SNSAuthorizationErrorException
+ * @throws SNSInternalErrorException
+ * @throws SNSInvalidParameterException
+ *
+ * @throws AmazonClientException
+ *             If any internal errors are encountered inside the client while
+ *             attempting to make the request or handle the response.  For example
+ *             if a network connection is not available.
+ * @throws AmazonServiceException
+ *             If an error response is returned by AmazonSNS indicating
+ *             either a problem with the data in the request, or a server side issue.
+ */
+-(SNSSetSubscriptionAttributesResponse *)setSubscriptionAttributes:(SNSSetSubscriptionAttributesRequest *)setSubscriptionAttributesRequest;
 
 
 /**
@@ -345,10 +379,39 @@
 
 /**
  * <p>
+ * The GetSubscriptionAttribtues action returns all of the properties of
+ * a subscription.
+ * </p>
+ *
+ * @param getSubscriptionAttributesRequest Container for the necessary
+ *           parameters to execute the GetSubscriptionAttributes service method on
+ *           AmazonSNS.
+ *
+ * @return The response from the GetSubscriptionAttributes service
+ *         method, as returned by AmazonSNS.
+ *
+ * @throws SNSNotFoundException
+ * @throws SNSAuthorizationErrorException
+ * @throws SNSInternalErrorException
+ * @throws SNSInvalidParameterException
+ *
+ * @throws AmazonClientException
+ *             If any internal errors are encountered inside the client while
+ *             attempting to make the request or handle the response.  For example
+ *             if a network connection is not available.
+ * @throws AmazonServiceException
+ *             If an error response is returned by AmazonSNS indicating
+ *             either a problem with the data in the request, or a server side issue.
+ */
+-(SNSGetSubscriptionAttributesResponse *)getSubscriptionAttributes:(SNSGetSubscriptionAttributesRequest *)getSubscriptionAttributesRequest;
+
+
+/**
+ * <p>
  * The ListTopics action returns a list of the requester's topics. Each
- * call returns a limited list of topics. If there are more topics, a
- * NextToken is also returned. Use the NextToken parameter in a new
- * ListTopics call to get further results.
+ * call returns a limited list of topics, up to 100. If there are more
+ * topics, a NextToken is also returned. Use the NextToken parameter in a
+ * new ListTopics call to get further results.
  * </p>
  *
  * @param listTopicsRequest Container for the necessary parameters to
@@ -407,8 +470,8 @@
  * <p>
  * The ListSubscriptionsByTopic action returns a list of the
  * subscriptions to a specific topic. Each call returns a limited list of
- * subscriptions. If there are more subscriptions, a NextToken is also
- * returned. Use the NextToken parameter in a new
+ * subscriptions, up to 100. If there are more subscriptions, a NextToken
+ * is also returned. Use the NextToken parameter in a new
  * ListSubscriptionsByTopic call to get further results.
  * </p>
  *

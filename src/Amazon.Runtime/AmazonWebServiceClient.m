@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@
 
 @implementation AmazonWebServiceClient
 
-@synthesize endpoint, maxRetries, timeout, userAgent;
+@synthesize endpoint, maxRetries, timeout, userAgent, delay;
 
 -(id)initWithAccessKey:(NSString *)theAccessKey withSecretKey:(NSString *)theSecretKey
 {
@@ -26,6 +26,7 @@
         credentials = [[AmazonCredentials alloc] initWithAccessKey:theAccessKey withSecretKey:theSecretKey];
         maxRetries  = 5;
         timeout     = 30;
+        delay       = 0.2;
         userAgent   = [[AmazonSDKUtil userAgentString] retain];
     }
     return self;
@@ -37,6 +38,7 @@
         credentials = [theCredentials retain];
         maxRetries  = 5;
         timeout     = 30;
+        delay       = 0.2;
         userAgent   = [[AmazonSDKUtil userAgentString] retain];
     }
     return self;
@@ -165,7 +167,7 @@
 
 -(void)pauseExponentially:(int)tryCount
 {
-    NSTimeInterval pause = 0.5 * (pow(2, tryCount));
+    NSTimeInterval pause = self.delay * (pow(2, tryCount));
 
     [NSThread sleepForTimeInterval:pause];
 }

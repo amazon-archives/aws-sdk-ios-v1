@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"ModifyInstanceAttribute"           forKey:@"Action"];
-    [request setParameterValue:@"2011-05-15"   forKey:@"Version"];
+    [request setParameterValue:@"2011-11-01"   forKey:@"Version"];
 
     [request setDelegate:[modifyInstanceAttributeRequest delegate]];
     [request setCredentials:[modifyInstanceAttributeRequest credentials]];
@@ -82,37 +82,37 @@
     }
     if (modifyInstanceAttributeRequest != nil) {
         if (modifyInstanceAttributeRequest.sourceDestCheckIsSet) {
-            [request setParameterValue:(modifyInstanceAttributeRequest.sourceDestCheck ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@", @"SourceDestCheck"]];
+            [request setParameterValue:(modifyInstanceAttributeRequest.sourceDestCheck ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@", @"SourceDestCheck.Value"]];
         }
     }
     if (modifyInstanceAttributeRequest != nil) {
         if (modifyInstanceAttributeRequest.disableApiTerminationIsSet) {
-            [request setParameterValue:(modifyInstanceAttributeRequest.disableApiTermination ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@", @"DisableApiTermination"]];
+            [request setParameterValue:(modifyInstanceAttributeRequest.disableApiTermination ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@", @"DisableApiTermination.Value"]];
         }
     }
     if (modifyInstanceAttributeRequest != nil) {
         if (modifyInstanceAttributeRequest.instanceType != nil) {
-            [request setParameterValue:[NSString stringWithFormat:@"%@", modifyInstanceAttributeRequest.instanceType] forKey:[NSString stringWithFormat:@"%@", @"InstanceType"]];
+            [request setParameterValue:[NSString stringWithFormat:@"%@", modifyInstanceAttributeRequest.instanceType] forKey:[NSString stringWithFormat:@"%@", @"InstanceType.Value"]];
         }
     }
     if (modifyInstanceAttributeRequest != nil) {
         if (modifyInstanceAttributeRequest.kernel != nil) {
-            [request setParameterValue:[NSString stringWithFormat:@"%@", modifyInstanceAttributeRequest.kernel] forKey:[NSString stringWithFormat:@"%@", @"Kernel"]];
+            [request setParameterValue:[NSString stringWithFormat:@"%@", modifyInstanceAttributeRequest.kernel] forKey:[NSString stringWithFormat:@"%@", @"Kernel.Value"]];
         }
     }
     if (modifyInstanceAttributeRequest != nil) {
         if (modifyInstanceAttributeRequest.ramdisk != nil) {
-            [request setParameterValue:[NSString stringWithFormat:@"%@", modifyInstanceAttributeRequest.ramdisk] forKey:[NSString stringWithFormat:@"%@", @"Ramdisk"]];
+            [request setParameterValue:[NSString stringWithFormat:@"%@", modifyInstanceAttributeRequest.ramdisk] forKey:[NSString stringWithFormat:@"%@", @"Ramdisk.Value"]];
         }
     }
     if (modifyInstanceAttributeRequest != nil) {
         if (modifyInstanceAttributeRequest.userData != nil) {
-            [request setParameterValue:[NSString stringWithFormat:@"%@", modifyInstanceAttributeRequest.userData] forKey:[NSString stringWithFormat:@"%@", @"UserData"]];
+            [request setParameterValue:[NSString stringWithFormat:@"%@", modifyInstanceAttributeRequest.userData] forKey:[NSString stringWithFormat:@"%@", @"UserData.Value"]];
         }
     }
     if (modifyInstanceAttributeRequest != nil) {
         if (modifyInstanceAttributeRequest.instanceInitiatedShutdownBehavior != nil) {
-            [request setParameterValue:[NSString stringWithFormat:@"%@", modifyInstanceAttributeRequest.instanceInitiatedShutdownBehavior] forKey:[NSString stringWithFormat:@"%@", @"InstanceInitiatedShutdownBehavior"]];
+            [request setParameterValue:[NSString stringWithFormat:@"%@", modifyInstanceAttributeRequest.instanceInitiatedShutdownBehavior] forKey:[NSString stringWithFormat:@"%@", @"InstanceInitiatedShutdownBehavior.Value"]];
         }
     }
 
