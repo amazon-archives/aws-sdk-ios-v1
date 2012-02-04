@@ -56,6 +56,7 @@
         @throw [AmazonClientException exceptionWithMessage : @"httpVerb must be GET, HEAD, or PUT."];
     }
     [self setHttpMethod:self.httpVerb];
+    [self.urlRequest setHTTPMethod:self.httpVerb];
 
     // Expires
     if (self.expires == nil) {
@@ -77,7 +78,7 @@
 
     // HEAD special case
     if ([self.httpVerb isEqualToString:kHttpMethodHead]) {
-        [queryString appendFormat:@"%@=0", kS3QueryParamMaxKeys];
+        [queryString appendFormat:@"&%@=0", kS3QueryParamMaxKeys];
     }
 
     // Expires
