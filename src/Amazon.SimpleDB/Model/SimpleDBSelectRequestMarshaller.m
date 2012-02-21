@@ -41,7 +41,7 @@
     }
     if (selectRequest != nil) {
         if (selectRequest.consistentReadIsSet) {
-            [request setParameterValue:(selectRequest.consistentRead ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@", @"ConsistentRead"]];
+            [request setParameterValue:(selectRequest.consistentRead ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"ConsistentRead"]];
         }
     }
 

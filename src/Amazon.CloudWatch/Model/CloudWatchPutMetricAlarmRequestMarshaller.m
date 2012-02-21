@@ -41,7 +41,7 @@
     }
     if (putMetricAlarmRequest != nil) {
         if (putMetricAlarmRequest.actionsEnabledIsSet) {
-            [request setParameterValue:(putMetricAlarmRequest.actionsEnabled ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@", @"ActionsEnabled"]];
+            [request setParameterValue:(putMetricAlarmRequest.actionsEnabled ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"ActionsEnabled"]];
         }
     }
 

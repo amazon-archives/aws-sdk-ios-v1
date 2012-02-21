@@ -98,11 +98,25 @@
     return (AutoScalingDescribeNotificationConfigurationsResponse *)[self invoke:request rawRequest:describeNotificationConfigurationsRequest unmarshallerDelegate:[AutoScalingDescribeNotificationConfigurationsResponseUnmarshaller class]];
 }
 
+-(AutoScalingDescribeTagsResponse *)describeTags:(AutoScalingDescribeTagsRequest *)describeTagsRequest
+{
+    AmazonServiceRequest *request = [AutoScalingDescribeTagsRequestMarshaller createRequest:describeTagsRequest];
+
+    return (AutoScalingDescribeTagsResponse *)[self invoke:request rawRequest:describeTagsRequest unmarshallerDelegate:[AutoScalingDescribeTagsResponseUnmarshaller class]];
+}
+
 -(AutoScalingExecutePolicyResponse *)executePolicy:(AutoScalingExecutePolicyRequest *)executePolicyRequest
 {
     AmazonServiceRequest *request = [AutoScalingExecutePolicyRequestMarshaller createRequest:executePolicyRequest];
 
     return (AutoScalingExecutePolicyResponse *)[self invoke:request rawRequest:executePolicyRequest unmarshallerDelegate:[AutoScalingExecutePolicyResponseUnmarshaller class]];
+}
+
+-(AutoScalingDeleteTagsResponse *)deleteTags:(AutoScalingDeleteTagsRequest *)deleteTagsRequest
+{
+    AmazonServiceRequest *request = [AutoScalingDeleteTagsRequestMarshaller createRequest:deleteTagsRequest];
+
+    return (AutoScalingDeleteTagsResponse *)[self invoke:request rawRequest:deleteTagsRequest unmarshallerDelegate:[AutoScalingDeleteTagsResponseUnmarshaller class]];
 }
 
 -(AutoScalingPutScalingPolicyResponse *)putScalingPolicy:(AutoScalingPutScalingPolicyRequest *)putScalingPolicyRequest
@@ -152,6 +166,13 @@
     AmazonServiceRequest *request = [AutoScalingDescribeAutoScalingNotificationTypesRequestMarshaller createRequest:describeAutoScalingNotificationTypesRequest];
 
     return (AutoScalingDescribeAutoScalingNotificationTypesResponse *)[self invoke:request rawRequest:describeAutoScalingNotificationTypesRequest unmarshallerDelegate:[AutoScalingDescribeAutoScalingNotificationTypesResponseUnmarshaller class]];
+}
+
+-(AutoScalingCreateOrUpdateTagsResponse *)createOrUpdateTags:(AutoScalingCreateOrUpdateTagsRequest *)createOrUpdateTagsRequest
+{
+    AmazonServiceRequest *request = [AutoScalingCreateOrUpdateTagsRequestMarshaller createRequest:createOrUpdateTagsRequest];
+
+    return (AutoScalingCreateOrUpdateTagsResponse *)[self invoke:request rawRequest:createOrUpdateTagsRequest unmarshallerDelegate:[AutoScalingCreateOrUpdateTagsResponseUnmarshaller class]];
 }
 
 -(AutoScalingSuspendProcessesResponse *)suspendProcesses:(AutoScalingSuspendProcessesRequest *)suspendProcessesRequest

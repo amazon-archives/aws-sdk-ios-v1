@@ -72,6 +72,15 @@
         [parser setDelegate:listUnmarshaller];
     }
 
+    if ([elementName isEqualToString:@"networkInterfaceSet"]) {
+        AmazonListUnmarshaller *listUnmarshaller = [[[AmazonListUnmarshaller alloc] initWithCaller:self withParentObject:self.response.networkInterfaces withSetter:@selector(addObjectsFromArray:)] autorelease];
+        listUnmarshaller.endListElementName = @"networkInterfaceSet";
+        listUnmarshaller.entryElementName   = @"item";
+        listUnmarshaller.delegateClass      = [EC2InstanceNetworkInterfaceSpecificationUnmarshaller class];
+
+        [parser setDelegate:listUnmarshaller];
+    }
+
 
 
     if ([elementName isEqualToString:@"Error"]) {

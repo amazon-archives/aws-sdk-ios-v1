@@ -63,7 +63,7 @@
  * Unique ID of the <i>Amazon Machine Image</i> (AMI) which was assigned
  * during registration. For more information about Amazon EC2 images,
  * please see <a href="http://aws.amazon.com/ec2/"> Amazon EC2 product
- * documentation</a>
+ * documentation</a>.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 255<br/>
@@ -72,7 +72,7 @@
 @property (nonatomic, retain) NSString *imageId;
 
 /**
- * The name of the EC2 key pair.
+ * The name of the Amazon EC2 key pair.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 255<br/>
@@ -108,8 +108,8 @@
 @property (nonatomic, retain) NSString *userData;
 
 /**
- * The instance type of the EC2 instance. For more information about
- * Amazon EC2 instance types, please see <a
+ * The instance type of the Amazon EC2 instance. For more information
+ * about Amazon EC2 instance types, please see <a
  * href="http://aws.amazon.com/ec2/"> Amazon EC2 product
  * documentation</a>
  * <p>
@@ -120,7 +120,7 @@
 @property (nonatomic, retain) NSString *instanceType;
 
 /**
- * The ID of the kernel associated with the EC2 AMI.
+ * The ID of the kernel associated with the Amazon EC2 AMI.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 255<br/>
@@ -129,7 +129,7 @@
 @property (nonatomic, retain) NSString *kernelId;
 
 /**
- * The ID of the RAM disk associated with the EC2 AMI.
+ * The ID of the RAM disk associated with the Amazon EC2 AMI.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 255<br/>
@@ -142,14 +142,20 @@
  * instance. Each mapping is made up of a <i>VirtualName</i>, a
  * <i>DeviceName</i>, and an <i>ebs</i> data structure that contains
  * information about the associated Elastic Block Storage volume. For
- * more information about Amazon EC2 BlockDeviceMappings, please go to <a
+ * more information about Amazon EC2 BlockDeviceMappings, go to <a
  * WSEC2/latest/UserGuide/index.html?block-device-mapping-concepts.html">
  * Block Device Mapping</a> in the Amazon EC2 product documentation.
  */
 @property (nonatomic, retain) NSMutableArray *blockDeviceMappings;
 
 /**
- * Enables detailed monitoring.
+ * Enables detailed monitoring, which is enabled by default. <p> When
+ * detailed monitoring is enabled, CloudWatch will generate metrics every
+ * minute and your account will be charged a fee. When you disable
+ * detailed monitoring, by specifying <code>False</code>, Cloudwatch will
+ * generate metrics every 5 minutes. For information about monitoring,
+ * see the <a href="http://aws.amazon.com/cloudwatch/">Amazon
+ * CloudWatch</a> product page.
  */
 @property (nonatomic, retain) AutoScalingInstanceMonitoring *instanceMonitoring;
 

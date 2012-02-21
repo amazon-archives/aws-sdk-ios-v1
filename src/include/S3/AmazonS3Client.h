@@ -49,6 +49,10 @@
 #import "S3DeleteBucketResponse.h"
 #import "S3DeleteObjectRequest.h"
 #import "S3DeleteObjectResponse.h"
+#import "S3DeleteObjectsRequest.h"
+#import "S3DeleteObjectsResponse.h"
+#import "DeleteError.h"
+#import "DeletedObject.h"
 #import "S3ErrorResponseHandler.h"
 #import "S3GetACLRequest.h"
 #import "S3GetACLResponse.h"
@@ -99,7 +103,19 @@
 #import "S3CopyPartRequest.h"
 #import "S3CopyPartResponse.h"
 #import "S3CopyObjectResponse.h"
-
+#import "S3SetBucketWebsiteConfigurationRequest.h"
+#import "S3SetBucketWebsiteConfigurationResponse.h"
+#import "S3GetBucketWebsiteConfigurationRequest.h"
+#import "S3GetBucketWebsiteConfigurationResponse.h"
+#import "S3DeleteBucketWebsiteConfigurationRequest.h"
+#import "S3DeleteBucketWebsiteConfigurationResponse.h"
+#import "S3BucketLifecycleConfiguration.h"
+#import "S3SetBucketLifecycleConfigurationRequest.h"
+#import "S3SetBucketLifecycleConfigurationResponse.h"
+#import "S3GetBucketLifecycleConfigurationRequest.h"
+#import "S3GetBucketLifecycleConfigurationResponse.h"
+#import "S3DeleteBucketLifecycleConfigurationRequest.h"
+#import "S3DeleteBucketLifecycleConfigurationResponse.h"
 
 /** \defgroup S3 Amazon S3 */
 
@@ -201,6 +217,17 @@
  * @return An S3DeleteObjectResponse from S3.
  */
 -(S3DeleteObjectResponse *)deleteObject:(S3DeleteObjectRequest *)deleteObjectRequest;
+
+/** Removes the specified objects from Amazon S3.
+ * Once deleted, there is no method to restore or undelete an object.
+ * Check S3DeleteObjectsResponse.deleteErrors to see if there were any errors after calling this method.
+ * - When there was no error, deleteErrors will be an empty NSArray.
+ * - When there were any errors, deleteErrors contains a list of DeleteError objects.
+ *
+ * @param deleteObjectsRequest The S3DeleteObjectsRequest that defines the parameters of the operation.
+ * @return An S3DeleteObjectsResponse from S3.
+ */
+-(S3DeleteObjectsResponse *)deleteObjects:(S3DeleteObjectsRequest *)deleteObjectsRequest;
 
 /** Removes the specified object from Amazon S3.
  * Once deleted, there is no method to restore or undelete an object.
@@ -328,6 +355,181 @@
  */
 -(S3SetBucketVersioningConfigurationResponse *)setBucketVersioningConfiguration:(S3SetBucketVersioningConfigurationRequest *)setBucketVersioningConfigurationRequest;
 
+/**
+ * Sets the website configuration for the specified bucket. Bucket
+ * website configuration allows you to host your static websites entirely
+ * out of Amazon S3. To host your website in Amazon S3, create a bucket,
+ * upload your files, and configure it as a website. Once your bucket has
+ * been configured as a website, you can access all your content via the
+ * Amazon S3 website endpoint. To ensure that the existing Amazon S3 REST
+ * API will continue to behave the same, regardless of whether or not your
+ * bucket has been configured to host a website, a new HTTP endpoint has
+ * been introduced where you can access your content. The bucket content you
+ * want to make available via the website must be publicly readable.
+ * <p>
+ * For more information on how to host a website on Amazon S3, see:
+ * <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/WebsiteHosting.html">http://docs.amazonwebservices.com/AmazonS3/latest/dev/WebsiteHosting.html</a>.
+ * <p>
+ * This operation requires the <code>S3:PutBucketWebsite</code> permission.
+ * By default, only the bucket owner can configure the website attached to a
+ * bucket. However, bucket owners can allow other users to set the website
+ * configuration by writing a bucket policy granting them the
+ * <code>S3:PutBucketWebsite</code> permission.
+ *
+ * @param bucketName
+ *            The name of the bucket whose website configuration is being
+ *            set.
+ * @param configuration
+ *            The configuration describing how the specified bucket will
+ *            serve web requests (i.e. default index page, error page).
+ *
+ * @throws AmazonClientException
+ *             If any errors are encountered on the client while making the
+ *             request or handling the response.
+ * @throws AmazonServiceException
+ *             If any errors occurred in Amazon S3 while processing the
+ *             request.
+ */
+-(S3SetBucketWebsiteConfigurationResponse *)setBucketWebsiteConfiguration:(S3SetBucketWebsiteConfigurationRequest *)setBucketWebsiteConfigurationRequest;
+
+/**
+ * Returns the website configuration for the specified bucket. Bucket
+ * website configuration allows you to host your static websites entirely
+ * out of Amazon S3. To host your website in Amazon S3, create a bucket,
+ * upload your files, and configure it as a website. Once your bucket has
+ * been configured as a website, you can access all your content via the
+ * Amazon S3 website endpoint. To ensure that the existing Amazon S3 REST
+ * API will continue to behave the same, regardless of whether or not your
+ * bucket has been configured to host a website, a new HTTP endpoint has
+ * been introduced where you can access your content. The bucket content you
+ * want to make available via the website must be publicly readable.
+ * <p>
+ * For more information on how to host a website on Amazon S3, see:
+ * <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/WebsiteHosting.html">http://docs.amazonwebservices.com/AmazonS3/latest/dev/WebsiteHosting.html</a>.
+ * <p>
+ * This operation requires the <code>S3:GetBucketWebsite</code> permission.
+ * By default, only the bucket owner can read the bucket website
+ * configuration. However, bucket owners can allow other users to read the
+ * website configuration by writing a bucket policy granting them the
+ * <code>S3:GetBucketWebsite</code> permission.
+ *
+ * @param bucketName
+ *            The name of the bucket whose website configuration is being
+ *            retrieved.
+ *
+ * @return The bucket website configuration for the specified bucket,
+ *         otherwise null if there is no website configuration set for the
+ *         specified bucket.
+ *
+ * @throws AmazonClientException
+ *             If any errors are encountered on the client while making the
+ *             request or handling the response.
+ * @throws AmazonServiceException
+ *             If any errors occurred in Amazon S3 while processing the
+ *             request.
+ */
+-(S3GetBucketWebsiteConfigurationResponse *)getBucketWebsiteConfiguration:(S3GetBucketWebsiteConfigurationRequest *)getBucketWebsiteConfigurationRequest;
+
+/**
+ * This operation removes the website configuration for a bucket. Calling
+ * this operation on a bucket with no website configuration does <b>not</b>
+ * throw an exception. Calling this operation a bucket that does not exist
+ * <b>will</b> throw an exception.
+ * <p>
+ * For more information on how to host a website on Amazon S3, see:
+ * <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/WebsiteHosting.html">http://docs.amazonwebservices.com/AmazonS3/latest/dev/WebsiteHosting.html</a>.
+ * <p>
+ * This operation requires the <code>S3:DeleteBucketWebsite</code>
+ * permission. By default, only the bucket owner can delete the website
+ * configuration attached to a bucket. However, bucket owners can grant
+ * other users permission to delete the website configuration by writing a
+ * bucket policy granting them the <code>S3:DeleteBucketWebsite</code>
+ * permission.
+ *
+ * @param bucketName
+ *            The name of the bucket whose website configuration is being
+ *            deleted.
+ *
+ * @throws AmazonClientException
+ *             If any errors are encountered on the client while making the
+ *             request or handling the response.
+ * @throws AmazonServiceException
+ *             If any errors occurred in Amazon S3 while processing the
+ *             request.
+ */
+-(S3DeleteBucketWebsiteConfigurationResponse *)deleteBucketWebsiteConfiguration:(S3DeleteBucketWebsiteConfigurationRequest *)deleteBucketWebsiteConfigurationRequest;
+
+/**
+ * Sets the lifecycle configuration for the specified bucket. Bucket
+ * lifecycle configuration allows you specify a number of rules for object 
+ * based on the object's key prefix.  Each rule is a combination of id, prefix
+ * status and expiration time (in days).
+ * <p>
+ * For more informaiton on how to use Bucket Lifecycle/Object Expiration see:
+ * <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/ObjectExpiration.html">http://docs.amazonwebservices.com/AmazonS3/latest/dev/ObjectExpiration.html</a>.
+ *
+ * @param bucketName
+ *            The name of the bucket whose lifecycle configuration is being
+ *            set.
+ * @param configuration
+ *            The configuration containing the set of rules for this bucket.
+ *
+ * @throws AmazonClientException
+ *             If any errors are encountered on the client while making the
+ *             request or handling the response.
+ * @throws AmazonServiceException
+ *             If any errors occurred in Amazon S3 while processing the
+ *             request.
+ */
+-(S3SetBucketLifecycleConfigurationResponse *)setBucketLifecycleConfiguration:(S3SetBucketLifecycleConfigurationRequest *)setBucketLifecycleConfigurationRequest;
+
+/**
+ * Returns the the lifecycle configuration for the specified bucket. Bucket
+ * lifecycle configuration allows you specify a number of rules for object 
+ * based on the object's key prefix.  Each rule is a combination of id, prefix
+ * status and expiration time (in days).
+ * <p>
+ * For more informaiton on how to use Bucket Lifecycle/Object Expiration see:
+ * <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/ObjectExpiration.html">http://docs.amazonwebservices.com/AmazonS3/latest/dev/ObjectExpiration.html</a>.
+ *
+ * @param bucketName
+ *            The name of the bucket whose lifecycle configuration is being
+ *            retrieved.
+ *
+ * @return The bucket lifecycle configuration for the specified bucket,
+ *         otherwise null if there is no Lifecycle configuration set for the
+ *         specified bucket.
+ *
+ * @throws AmazonClientException
+ *             If any errors are encountered on the client while making the
+ *             request or handling the response.
+ * @throws AmazonServiceException
+ *             If any errors occurred in Amazon S3 while processing the
+ *             request.
+ */
+-(S3GetBucketLifecycleConfigurationResponse *)getBucketLifecycleConfiguration:(S3GetBucketLifecycleConfigurationRequest *)getBucketLifecycleConfigurationRequest;
+
+/**
+ * This operation removes the lifecycle configuration for a bucket. Calling
+ * this operation on a bucket with no lifecycle configuration does <b>not</b>
+ * throw an exception. Calling this operation on a bucket that does not exist
+ * <b>will</b> throw an exception.
+ * <p>
+ * For more informaiton on how to use Bucket Lifecycle/Object Expiration see:
+ * <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/ObjectExpiration.html">http://docs.amazonwebservices.com/AmazonS3/latest/dev/ObjectExpiration.html</a>.
+ *
+ * @param bucketName
+ *            The name of the bucket whose lifecycle configuration is being
+ *            deleted.
+ *
+ * @throws AmazonClientException
+ *             If any errors are encountered on the client while making the
+ *             request or handling the response.
+ * @throws AmazonServiceException
+ *             If any errors occurred in Amazon S3 while processing the
+ *             request.
+ */
+-(S3DeleteBucketLifecycleConfigurationResponse *)deleteBucketLifecycleConfiguration:(S3DeleteBucketLifecycleConfigurationRequest *)deleteBucketLifecycleConfigurationRequest;
 
 /** Deletes a specific version of an object in the specified bucket. Once
  * deleted, there is no method to restore or undelete an object version.

@@ -102,6 +102,39 @@
         }
     }
 
+    if (createAutoScalingGroupRequest != nil) {
+        int tagsListIndex = 1;
+        for (AutoScalingTag *tagsListValue in createAutoScalingGroupRequest.tags) {
+            if (tagsListValue != nil) {
+                if (tagsListValue.resourceId != nil) {
+                    [request setParameterValue:[NSString stringWithFormat:@"%@", tagsListValue.resourceId] forKey:[NSString stringWithFormat:@"%@.member.%d.%@", @"Tags", tagsListIndex, @"ResourceId"]];
+                }
+            }
+            if (tagsListValue != nil) {
+                if (tagsListValue.resourceType != nil) {
+                    [request setParameterValue:[NSString stringWithFormat:@"%@", tagsListValue.resourceType] forKey:[NSString stringWithFormat:@"%@.member.%d.%@", @"Tags", tagsListIndex, @"ResourceType"]];
+                }
+            }
+            if (tagsListValue != nil) {
+                if (tagsListValue.key != nil) {
+                    [request setParameterValue:[NSString stringWithFormat:@"%@", tagsListValue.key] forKey:[NSString stringWithFormat:@"%@.member.%d.%@", @"Tags", tagsListIndex, @"Key"]];
+                }
+            }
+            if (tagsListValue != nil) {
+                if (tagsListValue.value != nil) {
+                    [request setParameterValue:[NSString stringWithFormat:@"%@", tagsListValue.value] forKey:[NSString stringWithFormat:@"%@.member.%d.%@", @"Tags", tagsListIndex, @"Value"]];
+                }
+            }
+            if (tagsListValue != nil) {
+                if (tagsListValue.propagateAtLaunchIsSet) {
+                    [request setParameterValue:(tagsListValue.propagateAtLaunch ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@.member.%d.%@", @"Tags", tagsListIndex, @"PropagateAtLaunch"]];
+                }
+            }
+
+            tagsListIndex++;
+        }
+    }
+
 
     return [request autorelease];
 }

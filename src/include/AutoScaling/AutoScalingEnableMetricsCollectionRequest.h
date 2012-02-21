@@ -42,7 +42,7 @@
 -(id)init;
 
 /**
- * The name or ARN of the Auto Scaling Group.
+ * The name or ARN of the Auto Scaling group.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 1600<br/>

@@ -22,6 +22,8 @@
 @synthesize availabilityZone;
 @synthesize events;
 @synthesize instanceState;
+@synthesize systemStatus;
+@synthesize instanceStatus;
 
 
 -(id)init
@@ -31,6 +33,8 @@
         availabilityZone = nil;
         events           = [[NSMutableArray alloc] initWithCapacity:1];
         instanceState    = nil;
+        systemStatus     = nil;
+        instanceStatus   = nil;
     }
 
     return self;
@@ -56,6 +60,8 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"AvailabilityZone: %@,", availabilityZone] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Events: %@,", events] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"InstanceState: %@,", instanceState] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"SystemStatus: %@,", systemStatus] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"InstanceStatus: %@,", instanceStatus] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -70,6 +76,8 @@
     [availabilityZone release];
     [events release];
     [instanceState release];
+    [systemStatus release];
+    [instanceStatus release];
 
     [super dealloc];
 }

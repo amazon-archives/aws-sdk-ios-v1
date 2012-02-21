@@ -21,16 +21,22 @@
 @synthesize instanceId;
 @synthesize publicIp;
 @synthesize allocationId;
+@synthesize associationId;
 @synthesize domain;
+@synthesize networkInterfaceId;
+@synthesize networkInterfaceOwnerId;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        instanceId   = nil;
-        publicIp     = nil;
-        allocationId = nil;
-        domain       = nil;
+        instanceId              = nil;
+        publicIp                = nil;
+        allocationId            = nil;
+        associationId           = nil;
+        domain                  = nil;
+        networkInterfaceId      = nil;
+        networkInterfaceOwnerId = nil;
     }
 
     return self;
@@ -46,7 +52,10 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"InstanceId: %@,", instanceId] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"PublicIp: %@,", publicIp] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"AllocationId: %@,", allocationId] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"AssociationId: %@,", associationId] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Domain: %@,", domain] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"NetworkInterfaceId: %@,", networkInterfaceId] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"NetworkInterfaceOwnerId: %@,", networkInterfaceOwnerId] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -60,7 +69,10 @@
     [instanceId release];
     [publicIp release];
     [allocationId release];
+    [associationId release];
     [domain release];
+    [networkInterfaceId release];
+    [networkInterfaceOwnerId release];
 
     [super dealloc];
 }

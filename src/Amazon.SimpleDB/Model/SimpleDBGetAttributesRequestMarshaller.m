@@ -52,7 +52,7 @@
     }
     if (getAttributesRequest != nil) {
         if (getAttributesRequest.consistentReadIsSet) {
-            [request setParameterValue:(getAttributesRequest.consistentRead ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@", @"ConsistentRead"]];
+            [request setParameterValue:(getAttributesRequest.consistentRead ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"ConsistentRead"]];
         }
     }
 

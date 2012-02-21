@@ -39,7 +39,7 @@
 -(id)init;
 
 /**
- * If true, instance monitoring is enabled.
+ * If <code>True</code>, instance monitoring is enabled.
  */
 @property (nonatomic) bool           enabled;
 

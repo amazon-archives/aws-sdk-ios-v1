@@ -51,20 +51,18 @@
  * primary key. Single attribute primary keys have one index value: a
  * HashKeyElement. A composite hash-and-range primary key contains two
  * attribute values: a HashKeyElement and a RangeKeyElement.
- * HashKeyElement: A hash key element can be a string or a number. Single
- * attribute primary keys have one index value: a HashKeyElement.
- * RangeKeyElement: A range key element can be a string or a number, and
- * is only used for hash-and-range primary keys. Composite hash-and-range
- * primary keys contain two attribute values for the index: a
- * HashKeyElement and a RangeKeyElement. A RangeKeyElement enables
- * greater precision for a primary key so data queries can refine results
- * based on the two part hash-and-range index.
  */
 @property (nonatomic, retain) DynamoDBKeySchema *keySchema;
 
 /**
- * Desired throughput for the specified table, consisting of values for
- * ReadCapacityUnits and WriteCapacityUnits.
+ * Provisioned throughput reserves the required read and write resources
+ * for your table in terms of ReadCapacityUnits and WriteCapacityUnits.
+ * Values for provisioned throughput depend upon your expected read/write
+ * rates, item size, and consistency. Provide the expected number of read
+ * and write operations, assuming an item size of 1KB and strictly
+ * consistent reads. For 2KB item size, double the value, 3KB, triple the
+ * value, etc. Eventually consistent reads consume half the resources of
+ * strictly consistent reads.
  */
 @property (nonatomic, retain) DynamoDBProvisionedThroughput *provisionedThroughput;
 
@@ -85,14 +83,6 @@
  * (hash-and-range) primary key. Single attribute primary keys have one
  * index value: a HashKeyElement. A composite hash-and-range primary key
  * contains two attribute values: a HashKeyElement and a RangeKeyElement.
- * HashKeyElement: A hash key element can be a string or a number. Single
- * attribute primary keys have one index value: a HashKeyElement.
- * RangeKeyElement: A range key element can be a string or a number, and
- * is only used for hash-and-range primary keys. Composite hash-and-range
- * primary keys contain two attribute values for the index: a
- * HashKeyElement and a RangeKeyElement. A RangeKeyElement enables
- * greater precision for a primary key so data queries can refine results
- * based on the two part hash-and-range index.
  */
 -(id)initWithTableName:(NSString *)theTableName andKeySchema:(DynamoDBKeySchema *)theKeySchema;
 
@@ -106,17 +96,15 @@
  * (hash-and-range) primary key. Single attribute primary keys have one
  * index value: a HashKeyElement. A composite hash-and-range primary key
  * contains two attribute values: a HashKeyElement and a RangeKeyElement.
- * HashKeyElement: A hash key element can be a string or a number. Single
- * attribute primary keys have one index value: a HashKeyElement.
- * RangeKeyElement: A range key element can be a string or a number, and
- * is only used for hash-and-range primary keys. Composite hash-and-range
- * primary keys contain two attribute values for the index: a
- * HashKeyElement and a RangeKeyElement. A RangeKeyElement enables
- * greater precision for a primary key so data queries can refine results
- * based on the two part hash-and-range index.
- * @param theProvisionedThroughput Desired throughput for the specified
- * table, consisting of values for ReadCapacityUnits and
- * WriteCapacityUnits.
+ * @param theProvisionedThroughput Provisioned throughput reserves the
+ * required read and write resources for your table in terms of
+ * ReadCapacityUnits and WriteCapacityUnits. Values for provisioned
+ * throughput depend upon your expected read/write rates, item size, and
+ * consistency. Provide the expected number of read and write operations,
+ * assuming an item size of 1KB and strictly consistent reads. For 2KB
+ * item size, double the value, 3KB, triple the value, etc. Eventually
+ * consistent reads consume half the resources of strictly consistent
+ * reads.
  */
 -(id)initWithTableName:(NSString *)theTableName andKeySchema:(DynamoDBKeySchema *)theKeySchema andProvisionedThroughput:(DynamoDBProvisionedThroughput *)theProvisionedThroughput;
 

@@ -21,7 +21,7 @@
 /**
  * <p>
  * This is returned when you cannot delete a launch configuration or
- * auto scaling group because it is being used.
+ * Auto Scaling group because it is being used.
  * </p>
  *
  * \ingroup AutoScaling

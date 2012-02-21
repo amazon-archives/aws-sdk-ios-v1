@@ -15,13 +15,13 @@
 
 
 #import <UIKit/UIKit.h>
-#import "S3RequestDelegate.h"
+#import "S3ResponseHandler.h"
 #import "AmazonClientManager.h"
 
 @interface S3AsyncViewController:UIViewController {
     IBOutlet UILabel   *bytesIn;
     IBOutlet UILabel   *bytesOut;
-    S3RequestDelegate  *s3Delegate;
+    S3ResponseHandler  *s3ResponseHandler;
 
     S3PutObjectRequest *putObjectRequest;
     S3GetObjectRequest *getObjectRequest;

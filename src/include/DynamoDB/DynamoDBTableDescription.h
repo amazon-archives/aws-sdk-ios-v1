@@ -53,14 +53,6 @@
  * primary key. Single attribute primary keys have one index value: a
  * HashKeyElement. A composite hash-and-range primary key contains two
  * attribute values: a HashKeyElement and a RangeKeyElement.
- * HashKeyElement: A hash key element can be a string or a number. Single
- * attribute primary keys have one index value: a HashKeyElement.
- * RangeKeyElement: A range key element can be a string or a number, and
- * is only used for hash-and-range primary keys. Composite hash-and-range
- * primary keys contain two attribute values for the index: a
- * HashKeyElement and a RangeKeyElement. A RangeKeyElement enables
- * greater precision for a primary key so data queries can refine results
- * based on the two part hash-and-range index.
  */
 @property (nonatomic, retain) DynamoDBKeySchema *keySchema;
 

@@ -43,7 +43,7 @@
 -(id)init;
 
 /**
- * The name of the AutoScalingGroup.
+ * The name of the Auto Scaling group.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 1600<br/>
@@ -52,14 +52,14 @@
 @property (nonatomic, retain) NSString *autoScalingGroupName;
 
 /**
- * The new capacity setting for the AutoScalingGroup.
+ * The new capacity setting for the Auto Scaling group.
  */
 @property (nonatomic, retain) NSNumber *desiredCapacity;
 
 /**
  * By default, <code>SetDesiredCapacity</code> overrides any cooldown
- * period. Set to True if you want Auto Scaling to reject this request if
- * the Auto Scaling group is in cooldown.
+ * period. Set to <code>True</code> if you want Auto Scaling to reject
+ * this request when the Auto Scaling group is in cooldown.
  */
 @property (nonatomic) bool           honorCooldown;
 

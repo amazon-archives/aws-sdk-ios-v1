@@ -45,10 +45,10 @@
 /**
  * A list containing the activity IDs of the desired scaling activities.
  * If this list is omitted, all activities are described. If an
- * AutoScalingGroupName is provided, the results are limited to that
- * group. The list of requested activities cannot contain more than 50
- * items. If unknown activities are requested, they are ignored with no
- * error.
+ * <code>AutoScalingGroupName</code> is provided, the results are limited
+ * to that group. The list of requested activities cannot contain more
+ * than 50 items. If unknown activities are requested, they are ignored
+ * with no error.
  */
 @property (nonatomic, retain) NSMutableArray *activityIds;
 

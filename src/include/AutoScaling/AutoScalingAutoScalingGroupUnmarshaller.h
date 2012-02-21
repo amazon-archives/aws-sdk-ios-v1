@@ -26,6 +26,8 @@
 #import "AutoScalingSuspendedProcessUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
 #import "AutoScalingEnabledMetricUnmarshaller.h"
+#import "../AmazonListUnmarshaller.h"
+#import "AutoScalingTagDescriptionUnmarshaller.h"
 #import "../AmazonSDKUtil.h"
 
 

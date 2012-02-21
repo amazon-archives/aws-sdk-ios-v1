@@ -43,7 +43,7 @@
 -(id)init;
 
 /**
- * The identifier of the EC2 instance.
+ * The identifier of the Amazon EC2 instance.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 16<br/>

@@ -24,6 +24,8 @@
 #import "EC2SpotPlacementUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
 #import "EC2BlockDeviceMappingUnmarshaller.h"
+#import "../AmazonListUnmarshaller.h"
+#import "EC2InstanceNetworkInterfaceSpecificationUnmarshaller.h"
 
 
 /**

@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"GetPasswordData"           forKey:@"Action"];
-    [request setParameterValue:@"2011-11-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-12-15"   forKey:@"Version"];
 
     [request setDelegate:[getPasswordDataRequest delegate]];
     [request setCredentials:[getPasswordDataRequest credentials]];

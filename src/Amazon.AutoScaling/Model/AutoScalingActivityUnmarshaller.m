@@ -80,6 +80,11 @@
         return;
     }
 
+    if ([elementName isEqualToString:@"Details"]) {
+        self.response.details = self.currentText;
+        return;
+    }
+
     if ([elementName isEqualToString:@"Activity"]) {
         if (caller != nil) {
             [parser setDelegate:caller];

@@ -15,7 +15,7 @@
 
 #import <AWSiOSSDK/AmazonServiceResponse.h>
 
-@interface S3RequestDelegate:NSObject<AmazonServiceRequestDelegate>
+@interface S3ResponseHandler:NSObject<AmazonServiceRequestDelegate>
 {
     UILabel *bytesIn;
     UILabel *bytesOut;

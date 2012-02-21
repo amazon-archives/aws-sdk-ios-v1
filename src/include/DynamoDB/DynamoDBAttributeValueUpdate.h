@@ -33,23 +33,19 @@
 
 
 /**
- * AttributeValue can be String, Number, StringSet, NumberSet. Strings
- * are Unicode with UTF8 binary encoding. The maximum size is limited by
- * the size of the primary key (1024 bytes as a range part of a key or
- * 2048 bytes as a single part hash key) or the item size (64 K). Numbers
- * are positive or negative exact-value decimals and integers. A number
- * can have up to 38 digits precision and can be between 10^-128 to
- * 10^+126. An array of Strings. Strings are Unicode with UTF8 binary
- * encoding. The maximum size is limited by the size of the primary key
- * (1024 bytes as a range part of a key or 2048 bytes as a single part
- * hash key) or the item size (64 K). An array of Numbers. Numbers are
- * positive or negative exact-value decimals and integers. A number can
- * have up to 38 digits precision and can be between 10^-128 to 10^+126.
+ * AttributeValue can be String, Number, StringSet, NumberSet.
  */
 @property (nonatomic, retain) DynamoDBAttributeValue *value;
 
 /**
- * The value of the Action property for this object.
+ * The type of action for an item update operation. Only use the add
+ * action for numbers or sets; the specified value is added to the
+ * existing value. If a set of values is specified, the values are added
+ * to the existing set. Adds the specified attribute. If the attribute
+ * exists, it is replaced by the new value. If no value is specified,
+ * this removes the attribute and its value. If a set of values is
+ * specified, then the values in the specified set are removed from the
+ * old set.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Allowed Values: </b>ADD, PUT, DELETE
@@ -68,19 +64,15 @@
  * Callers should use properties to initialize any additional object members.
  *
  * @param theValue AttributeValue can be String, Number, StringSet,
- * NumberSet. Strings are Unicode with UTF8 binary encoding. The maximum
- * size is limited by the size of the primary key (1024 bytes as a range
- * part of a key or 2048 bytes as a single part hash key) or the item
- * size (64 K). Numbers are positive or negative exact-value decimals and
- * integers. A number can have up to 38 digits precision and can be
- * between 10^-128 to 10^+126. An array of Strings. Strings are Unicode
- * with UTF8 binary encoding. The maximum size is limited by the size of
- * the primary key (1024 bytes as a range part of a key or 2048 bytes as
- * a single part hash key) or the item size (64 K). An array of Numbers.
- * Numbers are positive or negative exact-value decimals and integers. A
- * number can have up to 38 digits precision and can be between 10^-128
- * to 10^+126.
- * @param theAction
+ * NumberSet.
+ * @param theAction The type of action for an item update operation. Only
+ * use the add action for numbers or sets; the specified value is added
+ * to the existing value. If a set of values is specified, the values are
+ * added to the existing set. Adds the specified attribute. If the
+ * attribute exists, it is replaced by the new value. If no value is
+ * specified, this removes the attribute and its value. If a set of
+ * values is specified, then the values in the specified set are removed
+ * from the old set.
  */
 -(id)initWithValue:(DynamoDBAttributeValue *)theValue andAction:(NSString *)theAction;
 

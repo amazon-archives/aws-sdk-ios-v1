@@ -16,6 +16,7 @@
 #import "AutoScalingInstance.h"
 #import "AutoScalingSuspendedProcess.h"
 #import "AutoScalingEnabledMetric.h"
+#import "AutoScalingTagDescription.h"
 
 
 
@@ -46,6 +47,7 @@
     NSString       *vPCZoneIdentifier;
     NSMutableArray *enabledMetrics;
     NSString       *status;
+    NSMutableArray *tags;
 }
 
 
@@ -85,17 +87,17 @@
 @property (nonatomic, retain) NSString *launchConfigurationName;
 
 /**
- * Contains the minimum size of the AutoScalingGroup.
+ * Contains the minimum size of the Auto Scaling group.
  */
 @property (nonatomic, retain) NSNumber *minSize;
 
 /**
- * Contains the maximum size of the AutoScalingGroup.
+ * Contains the maximum size of the Auto Scaling group.
  */
 @property (nonatomic, retain) NSNumber *maxSize;
 
 /**
- * Specifies the desired capacity for the AutoScalingGroup.
+ * Specifies the desired capacity for the Auto Scaling group.
  */
 @property (nonatomic, retain) NSNumber *desiredCapacity;
 
@@ -106,7 +108,7 @@
 @property (nonatomic, retain) NSNumber *defaultCooldown;
 
 /**
- * Contains a list of availability zones for the group.
+ * Contains a list of Availability Zones for the group.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - <br/>
@@ -136,7 +138,7 @@
 @property (nonatomic, retain) NSNumber *healthCheckGracePeriod;
 
 /**
- * Provides a summary list of EC2 instances.
+ * Provides a summary list of Amazon EC2 instances.
  */
 @property (nonatomic, retain) NSMutableArray *instances;
 
@@ -163,7 +165,11 @@
 @property (nonatomic, retain) NSString *placementGroup;
 
 /**
- * The identifier for the VPC connection, if applicable.
+ * The subnet identifier for the Amazon VPC connection, if applicable.
+ * You can specify several subnets in a comma-separated list. <p> When
+ * you specify <code>VPCZoneIdentifier</code> with
+ * <code>AvailabilityZones</code>, ensure that the subnets' Availability
+ * Zones match the values you specify for <code>AvailabilityZones</code>.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 255<br/>
@@ -184,6 +190,11 @@
  * <b>Pattern: </b>[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*<br/>
  */
 @property (nonatomic, retain) NSString *status;
+
+/**
+ * A list of tags for the Auto Scaling group.
+ */
+@property (nonatomic, retain) NSMutableArray *tags;
 
 /**
  * Adds a single object to availabilityZones.
@@ -214,6 +225,12 @@
  * This function will alloc and init enabledMetrics if not already done.
  */
 -(void)addEnabledMetric:(AutoScalingEnabledMetric *)enabledMetricObject;
+
+/**
+ * Adds a single object to tags.
+ * This function will alloc and init tags if not already done.
+ */
+-(void)addTag:(AutoScalingTagDescription *)tagObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

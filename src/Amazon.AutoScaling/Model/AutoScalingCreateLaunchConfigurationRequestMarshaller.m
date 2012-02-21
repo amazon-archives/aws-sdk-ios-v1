@@ -110,7 +110,7 @@
         AutoScalingInstanceMonitoring *instanceMonitoring = createLaunchConfigurationRequest.instanceMonitoring;
         if (instanceMonitoring != nil) {
             if (instanceMonitoring.enabledIsSet) {
-                [request setParameterValue:(instanceMonitoring.enabled ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@.%@", @"InstanceMonitoring", @"Enabled"]];
+                [request setParameterValue:(instanceMonitoring.enabled ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@.%@", @"InstanceMonitoring", @"Enabled"]];
             }
         }
     }

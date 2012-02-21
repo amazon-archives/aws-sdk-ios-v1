@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DeregisterImage"           forKey:@"Action"];
-    [request setParameterValue:@"2011-11-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-12-15"   forKey:@"Version"];
 
     [request setDelegate:[deregisterImageRequest delegate]];
     [request setCredentials:[deregisterImageRequest credentials]];

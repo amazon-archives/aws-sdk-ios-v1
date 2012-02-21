@@ -41,7 +41,7 @@
     }
     if (setInstanceHealthRequest != nil) {
         if (setInstanceHealthRequest.shouldRespectGracePeriodIsSet) {
-            [request setParameterValue:(setInstanceHealthRequest.shouldRespectGracePeriod ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@", @"ShouldRespectGracePeriod"]];
+            [request setParameterValue:(setInstanceHealthRequest.shouldRespectGracePeriod ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"ShouldRespectGracePeriod"]];
         }
     }
 

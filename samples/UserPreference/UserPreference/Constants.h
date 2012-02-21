@@ -24,7 +24,7 @@
 {
 }
 
-    + (NSString *)getRandomName;
++(NSString *)getRandomName;
 +(NSArray *)getColors;
 
 @end

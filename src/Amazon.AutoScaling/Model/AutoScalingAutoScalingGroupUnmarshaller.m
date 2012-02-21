@@ -68,6 +68,15 @@
         [parser setDelegate:listUnmarshaller];
     }
 
+    if ([elementName isEqualToString:@"Tags"]) {
+        AmazonListUnmarshaller *listUnmarshaller = [[[AmazonListUnmarshaller alloc] initWithCaller:self withParentObject:self.response.tags withSetter:@selector(addObjectsFromArray:)] autorelease];
+        listUnmarshaller.endListElementName = @"Tags";
+        listUnmarshaller.entryElementName   = @"member";
+        listUnmarshaller.delegateClass      = [AutoScalingTagDescriptionUnmarshaller class];
+
+        [parser setDelegate:listUnmarshaller];
+    }
+
 
 
     if ([elementName isEqualToString:@"Error"]) {

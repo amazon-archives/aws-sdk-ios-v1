@@ -23,6 +23,7 @@
 -(IBAction)listQueues:(id)sender;
 -(IBAction)listTopics:(id)sender;
 -(IBAction)s3AsyncDemo:(id)sender;
+-(IBAction)s3NSOperationDemo:(id)sender;
 -(IBAction)sdbAsyncDemo:(id)sender;
 
 @end

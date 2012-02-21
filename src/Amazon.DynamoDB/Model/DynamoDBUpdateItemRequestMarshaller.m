@@ -232,7 +232,7 @@
             }
 
             if (expectedListValueValue.existsIsSet) {
-                [expectedListValueJson setValue:(expectedListValueValue.exists ? @"true":@"false")forKey:@"Exists"];
+                [expectedListValueJson setValue:(expectedListValueValue.exists ? @"true":@"false") forKey:@"Exists"];
             }
         }
     }

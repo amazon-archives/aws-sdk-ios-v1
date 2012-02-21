@@ -344,4 +344,9 @@
     return AMAZON_CW_US_EAST_1_ENDPOINT;
 }
 
++(NSString *)stsEndpoint
+{
+    return AMAZON_STS_ENDPOINT_SECURE;
+}
+
 @end

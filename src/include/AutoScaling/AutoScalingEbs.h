@@ -39,7 +39,7 @@
 -(id)init;
 
 /**
- * The Snapshot ID.
+ * The snapshot ID.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 255<br/>
@@ -48,7 +48,7 @@
 @property (nonatomic, retain) NSString *snapshotId;
 
 /**
- * The volume size, in GigaBytes.
+ * The volume size, in gigabytes.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Range: </b>1 - 1024<br/>

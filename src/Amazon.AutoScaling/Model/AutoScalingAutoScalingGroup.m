@@ -36,6 +36,7 @@
 @synthesize vPCZoneIdentifier;
 @synthesize enabledMetrics;
 @synthesize status;
+@synthesize tags;
 
 
 -(id)init
@@ -59,6 +60,7 @@
         vPCZoneIdentifier       = nil;
         enabledMetrics          = [[NSMutableArray alloc] initWithCapacity:1];
         status                  = nil;
+        tags                    = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
     return self;
@@ -110,6 +112,15 @@
     [enabledMetrics addObject:enabledMetricObject];
 }
 
+-(void)addTag:(AutoScalingTagDescription *)tagObject
+{
+    if (tags == nil) {
+        tags = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [tags addObject:tagObject];
+}
+
 
 -(NSString *)description
 {
@@ -134,6 +145,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"VPCZoneIdentifier: %@,", vPCZoneIdentifier] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"EnabledMetrics: %@,", enabledMetrics] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Status: %@,", status] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Tags: %@,", tags] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -162,6 +174,7 @@
     [vPCZoneIdentifier release];
     [enabledMetrics release];
     [status release];
+    [tags release];
 
     [super dealloc];
 }

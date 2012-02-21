@@ -79,7 +79,7 @@
 @property (nonatomic, retain) NSString *imageId;
 
 /**
- * Provides the name of the EC2 key pair.
+ * Provides the name of the Amazon EC2 key pair.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 255<br/>
@@ -88,13 +88,13 @@
 @property (nonatomic, retain) NSString *keyName;
 
 /**
- * A description of the security groups to associate with the EC2
+ * A description of the security groups to associate with the Amazon EC2
  * instances.
  */
 @property (nonatomic, retain) NSMutableArray *securityGroups;
 
 /**
- * The user data available to the launched EC2 instances.
+ * The user data available to the launched Amazon EC2 instances.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>0 - 21847<br/>
@@ -103,7 +103,7 @@
 @property (nonatomic, retain) NSString *userData;
 
 /**
- * Specifies the instance type of the EC2 instance.
+ * Specifies the instance type of the Amazon EC2 instance.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 255<br/>
@@ -112,7 +112,7 @@
 @property (nonatomic, retain) NSString *instanceType;
 
 /**
- * Provides the ID of the kernel associated with the EC2 AMI.
+ * Provides the ID of the kernel associated with the Amazon EC2 AMI.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 255<br/>
@@ -121,7 +121,7 @@
 @property (nonatomic, retain) NSString *kernelId;
 
 /**
- * Provides ID of the RAM disk associated with the EC2 AMI.
+ * Provides ID of the RAM disk associated with the Amazon EC2 AMI.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 255<br/>

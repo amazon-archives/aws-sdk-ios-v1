@@ -67,31 +67,34 @@
 #define kS3SubResourceUploads                @"uploads"
 #define kS3SubResourceUploadId               @"uploadId"
 #define kS3SubResourceVersionId              @"versionId"
+#define kS3SubResourceDelete                 @"delete"
+#define kS3SubResourceWebsite                @"website"
+#define kS3SubResourceLifecycle              @"lifecycle"
 
 
 // pre-signed URL query string parameters
 
-#define kS3QueryParamAccessKey           @"AWSAccessKeyId"
-#define kS3QueryParamExpires             @"Expires"
-#define kS3QueryParamSignature           @"Signature"
-#define kS3QueryParamMaxKeys             @"max-keys"
-#define kS3QueryParamPrefix              @"prefix"
-#define kS3QueryParamMarker              @"marker"
-#define kS3QueryParamDelimiter           @"delimiter"
-#define kS3QueryParamKeyMarker           @"key-marker"
-#define kS3QueryParamVersionIdMarker     @"version-id-marker"
-#define kS3QueryParamPartNumber          @"partNumber"
-#define kS3QueryParamUploadId            @"uploadId"
-#define kS3QueryParamMaxParts            @"max-parts"
-#define kS3QueryParamPartNumberMarker    @"part-number-marker"
+#define kS3QueryParamAccessKey               @"AWSAccessKeyId"
+#define kS3QueryParamExpires                 @"Expires"
+#define kS3QueryParamSignature               @"Signature"
+#define kS3QueryParamMaxKeys                 @"max-keys"
+#define kS3QueryParamPrefix                  @"prefix"
+#define kS3QueryParamMarker                  @"marker"
+#define kS3QueryParamDelimiter               @"delimiter"
+#define kS3QueryParamKeyMarker               @"key-marker"
+#define kS3QueryParamVersionIdMarker         @"version-id-marker"
+#define kS3QueryParamPartNumber              @"partNumber"
+#define kS3QueryParamUploadId                @"uploadId"
+#define kS3QueryParamMaxParts                @"max-parts"
+#define kS3QueryParamPartNumberMarker        @"part-number-marker"
 
 
 // Endpoint
-#define kS3ServiceEndpoint               @"http://s3.amazonaws.com"
+#define kS3ServiceEndpoint                   @"http://s3.amazonaws.com"
 
 
 // Server Side Encryption
-#define kS3ServerSideEnryptionAES256     @"AES256"
+#define kS3ServerSideEnryptionAES256         @"AES256"
 
 
 

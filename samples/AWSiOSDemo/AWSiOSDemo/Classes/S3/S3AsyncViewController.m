@@ -26,17 +26,17 @@
 -(id)init
 {
     // Create the S3 Request Delegate
-    s3Delegate       = [[S3RequestDelegate alloc] init];
-    putObjectRequest = nil;
-    getObjectRequest = nil;
+    s3ResponseHandler = [[S3ResponseHandler alloc] init];
+    putObjectRequest  = nil;
+    getObjectRequest  = nil;
 
     return [super initWithNibName:@"S3AsyncViewController" bundle:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    s3Delegate.bytesIn  = bytesIn;
-    s3Delegate.bytesOut = bytesOut;
+    s3ResponseHandler.bytesIn  = bytesIn;
+    s3ResponseHandler.bytesOut = bytesOut;
 }
 
 -(IBAction)start:(id)sender
@@ -71,7 +71,8 @@
     NSString *filename   = [[NSBundle mainBundle] pathForResource:@"temp" ofType:@"txt"];
 
     // Create the Bucket to put the Object.
-    @try {
+    @try
+    {
         [[AmazonClientManager s3] createBucketWithName:bucketName];
     }
     @catch (NSException *e) {
@@ -82,7 +83,7 @@
     // Put the file as an object in the bucket.
     putObjectRequest          = [[S3PutObjectRequest alloc] initWithKey:keyName inBucket:bucketName];
     putObjectRequest.filename = filename;
-    [putObjectRequest setDelegate:s3Delegate];
+    [putObjectRequest setDelegate:s3ResponseHandler];
 
     // When using delegates the return is nil.
     [[AmazonClientManager s3] putObject:putObjectRequest];
@@ -95,7 +96,7 @@
 
     // Get the object from the bucket.
     getObjectRequest = [[S3GetObjectRequest alloc] initWithKey:keyName withBucket:bucketName];
-    [getObjectRequest setDelegate:s3Delegate];
+    [getObjectRequest setDelegate:s3ResponseHandler];
 
     // When using delegates the return is nil.
     [[AmazonClientManager s3] getObject:getObjectRequest];
@@ -103,7 +104,7 @@
 
 -(void)dealloc
 {
-    [s3Delegate dealloc];
+    [s3ResponseHandler dealloc];
     [putObjectRequest release];
     [getObjectRequest release];
     [super dealloc];

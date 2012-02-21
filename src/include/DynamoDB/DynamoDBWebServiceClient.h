@@ -46,21 +46,21 @@
  *
  * Default is 10.
  */
-@property (nonatomic, atomic) int maxRetries;
+@property int maxRetries;
 
 /** The amount of time to wait (in milliseconds) for data to be transfered over
  * an established, open connection before the connection times out and is closed.
  *
  * Default is 30 seconds.
  */
-@property (nonatomic, atomic) NSTimeInterval timeout;
+@property NSTimeInterval timeout;
 
 /**
  * The amount of time to pause between retries.  The pause time will grow exponentially
  * for each retry on a single request.
  * Default is 0.05 seconds.
  */
-@property (nonatomic, atomic) NSTimeInterval delay;
+@property NSTimeInterval delay;
 
 /** The HTTP user agent header to send with all requests. */
 @property (nonatomic, retain) NSString *userAgent;

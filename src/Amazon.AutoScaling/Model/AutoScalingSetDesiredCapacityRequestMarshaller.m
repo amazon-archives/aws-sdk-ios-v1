@@ -41,7 +41,7 @@
     }
     if (setDesiredCapacityRequest != nil) {
         if (setDesiredCapacityRequest.honorCooldownIsSet) {
-            [request setParameterValue:(setDesiredCapacityRequest.honorCooldown ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@", @"HonorCooldown"]];
+            [request setParameterValue:(setDesiredCapacityRequest.honorCooldown ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"HonorCooldown"]];
         }
     }
 

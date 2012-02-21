@@ -20,7 +20,7 @@
 
 /**
  * <p>
- * The named AutoScalingGroup or launch configuration already exists.
+ * The named Auto Scaling group or launch configuration already exists.
  * </p>
  *
  * \ingroup AutoScaling

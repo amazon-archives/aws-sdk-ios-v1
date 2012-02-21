@@ -36,7 +36,7 @@
     }
     if (terminateInstanceInAutoScalingGroupRequest != nil) {
         if (terminateInstanceInAutoScalingGroupRequest.shouldDecrementDesiredCapacityIsSet) {
-            [request setParameterValue:(terminateInstanceInAutoScalingGroupRequest.shouldDecrementDesiredCapacity ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@", @"ShouldDecrementDesiredCapacity"]];
+            [request setParameterValue:(terminateInstanceInAutoScalingGroupRequest.shouldDecrementDesiredCapacity ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"ShouldDecrementDesiredCapacity"]];
         }
     }
 

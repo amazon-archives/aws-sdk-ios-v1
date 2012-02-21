@@ -41,7 +41,7 @@
     }
     if (executePolicyRequest != nil) {
         if (executePolicyRequest.honorCooldownIsSet) {
-            [request setParameterValue:(executePolicyRequest.honorCooldown ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@", @"HonorCooldown"]];
+            [request setParameterValue:(executePolicyRequest.honorCooldown ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"HonorCooldown"]];
         }
     }
 

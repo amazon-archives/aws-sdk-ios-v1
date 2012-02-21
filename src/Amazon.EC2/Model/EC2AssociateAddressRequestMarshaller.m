@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"AssociateAddress"           forKey:@"Action"];
-    [request setParameterValue:@"2011-11-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-12-15"   forKey:@"Version"];
 
     [request setDelegate:[associateAddressRequest delegate]];
     [request setCredentials:[associateAddressRequest credentials]];
@@ -42,6 +42,11 @@
     if (associateAddressRequest != nil) {
         if (associateAddressRequest.allocationId != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", associateAddressRequest.allocationId] forKey:[NSString stringWithFormat:@"%@", @"AllocationId"]];
+        }
+    }
+    if (associateAddressRequest != nil) {
+        if (associateAddressRequest.networkInterfaceId != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", associateAddressRequest.networkInterfaceId] forKey:[NSString stringWithFormat:@"%@", @"NetworkInterfaceId"]];
         }
     }
 

@@ -48,7 +48,7 @@
 -(id)init;
 
 /**
- * The name or ARN of the Auto Scaling Group.
+ * The name or ARN of the Auto Scaling group.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 1600<br/>
@@ -66,16 +66,20 @@
 @property (nonatomic, retain) NSString *scheduledActionName;
 
 /**
- * The time for this action to start. <code>Time</code> can be specified
- * instead of <code>StartTime</code>, or vice versa. If <code>Time</code>
- * is specified together with <code>StartTime</code>, their values should
- * be identical. Otherwise, <code>PutScheduledUpdateGroupAction</code>
- * will return an error.
+ * <code>Time</code> is deprecated. <p>The time for this action to start.
+ * <code>Time</code> is an alias for <code>StartTime</code> and can be
+ * specified instead of <code>StartTime</code>, or vice versa. If both
+ * <code>Time</code> and <code>StartTime</code> are specified, their
+ * values should be identical. Otherwise,
+ * <code>PutScheduledUpdateGroupAction</code> will return an error.
  */
 @property (nonatomic, retain) NSDate *time;
 
 /**
- * The time for this action to start.
+ * The time for this action to start, as in <code>--start-time
+ * 2010-06-01T00:00:00Z</code>. <p>When <code>StartTime</code> and
+ * <code>EndTime</code> are specified with <code>Recurrence</code>, they
+ * form the boundaries of when the recurring action will start and stop.
  */
 @property (nonatomic, retain) NSDate *startTime;
 
@@ -86,10 +90,12 @@
 
 /**
  * The time when recurring future actions will start. Start time is
- * specified by the user following the Unix Cron syntax format. For
- * information about Cron syntax, go to <a
+ * specified by the user following the Unix cron syntax format. For
+ * information about cron syntax, go to <a
  * href="http://en.wikipedia.org/wiki/Cron">Wikipedia, The Free
- * Encyclopedia</a>.
+ * Encyclopedia</a>. <p>When <code>StartTime</code> and
+ * <code>EndTime</code> are specified with <code>Recurrence</code>, they
+ * form the boundaries of when the recurring action will start and stop.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 255<br/>

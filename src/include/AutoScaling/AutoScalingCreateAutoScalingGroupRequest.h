@@ -13,6 +13,7 @@
  * permissions and limitations under the License.
  */
 
+#import "AutoScalingTag.h"
 
 #import "../AmazonServiceRequestConfig.h"
 
@@ -39,6 +40,7 @@
     NSNumber       *healthCheckGracePeriod;
     NSString       *placementGroup;
     NSString       *vPCZoneIdentifier;
+    NSMutableArray *tags;
 }
 
 
@@ -80,7 +82,8 @@
 @property (nonatomic, retain) NSNumber *maxSize;
 
 /**
- * The number of EC2 instances that should be running in the group.
+ * The number of Amazon EC2 instances that should be running in the
+ * group.
  */
 @property (nonatomic, retain) NSNumber *desiredCapacity;
 
@@ -91,7 +94,7 @@
 @property (nonatomic, retain) NSNumber *defaultCooldown;
 
 /**
- * A list of availability zones for the Auto Scaling group.
+ * A list of Availability Zones for the Auto Scaling group.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - <br/>
@@ -99,13 +102,13 @@
 @property (nonatomic, retain) NSMutableArray *availabilityZones;
 
 /**
- * A list of LoadBalancers to use.
+ * A list of load balancers to use.
  */
 @property (nonatomic, retain) NSMutableArray *loadBalancerNames;
 
 /**
  * The service you want the health status from, Amazon EC2 or Elastic
- * Load Balancer. Valid values are "EC2" or "ELB."
+ * Load Balancer. Valid values are <code>EC2</code> or <code>ELB</code>.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 32<br/>
@@ -114,14 +117,16 @@
 @property (nonatomic, retain) NSString *healthCheckType;
 
 /**
- * Length of time in seconds after a new EC2 instance comes into service
- * that Auto Scaling starts checking its health.
+ * Length of time in seconds after a new Amazon EC2 instance comes into
+ * service that Auto Scaling starts checking its health.
  */
 @property (nonatomic, retain) NSNumber *healthCheckGracePeriod;
 
 /**
  * Physical location of your cluster placement group created in Amazon
- * EC2.
+ * EC2. For more information about cluster placement group, see <a
+ * rvices.com/AWSEC2/latest/UserGuide/using_cluster_computing.html">Using
+ * Cluster Instances</a>
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 255<br/>
@@ -130,13 +135,25 @@
 @property (nonatomic, retain) NSString *placementGroup;
 
 /**
- * The subnet identifier of the Virtual Private Cloud.
+ * A comma-separated list of subnet identifiers of Amazon Virtual Private
+ * Clouds (Amazon VPCs). <p>When you specify subnets and Availability
+ * Zones with this call, ensure that the subnets' Availability Zones
+ * match the Availability Zones specified.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 255<br/>
  * <b>Pattern: </b>[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*<br/>
  */
 @property (nonatomic, retain) NSString *vPCZoneIdentifier;
+
+/**
+ * The tag to be created or updated. Each tag should be defined by its
+ * resource type, resource ID, key, value, and a propagate flag. Valid
+ * values are: key=<i>value</i>, value=<i>value</i>,
+ * propagate=<i>true</i> or <i>false</i>. Value and propagate are
+ * optional parameters.
+ */
+@property (nonatomic, retain) NSMutableArray *tags;
 
 /**
  * Adds a single object to availabilityZones.
@@ -149,6 +166,12 @@
  * This function will alloc and init loadBalancerNames if not already done.
  */
 -(void)addLoadBalancerName:(NSString *)loadBalancerNameObject;
+
+/**
+ * Adds a single object to tags.
+ * This function will alloc and init tags if not already done.
+ */
+-(void)addTag:(AutoScalingTag *)tagObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

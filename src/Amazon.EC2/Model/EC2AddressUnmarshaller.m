@@ -56,8 +56,23 @@
         return;
     }
 
+    if ([elementName isEqualToString:@"associationId"]) {
+        self.response.associationId = self.currentText;
+        return;
+    }
+
     if ([elementName isEqualToString:@"domain"]) {
         self.response.domain = self.currentText;
+        return;
+    }
+
+    if ([elementName isEqualToString:@"networkInterfaceId"]) {
+        self.response.networkInterfaceId = self.currentText;
+        return;
+    }
+
+    if ([elementName isEqualToString:@"networkInterfaceOwnerId"]) {
+        self.response.networkInterfaceOwnerId = self.currentText;
         return;
     }
 

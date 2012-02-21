@@ -56,7 +56,7 @@
     }
 
     if (scanRequest.countIsSet) {
-        [json setValue:(scanRequest.count ? @"true":@"false")forKey:@"Count"];
+        [json setValue:(scanRequest.count ? @"true":@"false") forKey:@"Count"];
     }
     if (scanRequest.scanFilter != nil) {
         NSMutableDictionary *scanFilterJson = [[[NSMutableDictionary alloc] init] autorelease];

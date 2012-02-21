@@ -34,34 +34,17 @@
 
 
 /**
- * AttributeValue can be String, Number, StringSet, NumberSet. Strings
- * are Unicode with UTF8 binary encoding. The maximum size is limited by
- * the size of the primary key (1024 bytes as a range part of a key or
- * 2048 bytes as a single part hash key) or the item size (64 K). Numbers
- * are positive or negative exact-value decimals and integers. A number
- * can have up to 38 digits precision and can be between 10^-128 to
- * 10^+126. An array of Strings. Strings are Unicode with UTF8 binary
- * encoding. The maximum size is limited by the size of the primary key
- * (1024 bytes as a range part of a key or 2048 bytes as a single part
- * hash key) or the item size (64 K). An array of Numbers. Numbers are
- * positive or negative exact-value decimals and integers. A number can
- * have up to 38 digits precision and can be between 10^-128 to 10^+126.
+ * A hash key element is treated as the primary key, and can be a string
+ * or a number. Single attribute primary keys have one index value. The
+ * value can be String, Number, StringSet, NumberSet.
  */
 @property (nonatomic, retain) DynamoDBAttributeValue *hashKeyElement;
 
 /**
- * AttributeValue can be String, Number, StringSet, NumberSet. Strings
- * are Unicode with UTF8 binary encoding. The maximum size is limited by
- * the size of the primary key (1024 bytes as a range part of a key or
- * 2048 bytes as a single part hash key) or the item size (64 K). Numbers
- * are positive or negative exact-value decimals and integers. A number
- * can have up to 38 digits precision and can be between 10^-128 to
- * 10^+126. An array of Strings. Strings are Unicode with UTF8 binary
- * encoding. The maximum size is limited by the size of the primary key
- * (1024 bytes as a range part of a key or 2048 bytes as a single part
- * hash key) or the item size (64 K). An array of Numbers. Numbers are
- * positive or negative exact-value decimals and integers. A number can
- * have up to 38 digits precision and can be between 10^-128 to 10^+126.
+ * A range key element is treated as a secondary key (used in conjunction
+ * with the primary key), and can be a string or a number, and is only
+ * used for hash-and-range primary keys. The value can be String, Number,
+ * StringSet, NumberSet.
  */
 @property (nonatomic, retain) DynamoDBAttributeValue *rangeKeyElement;
 
@@ -76,19 +59,10 @@
  * Constructs a new Key object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theHashKeyElement AttributeValue can be String, Number,
- * StringSet, NumberSet. Strings are Unicode with UTF8 binary encoding.
- * The maximum size is limited by the size of the primary key (1024 bytes
- * as a range part of a key or 2048 bytes as a single part hash key) or
- * the item size (64 K). Numbers are positive or negative exact-value
- * decimals and integers. A number can have up to 38 digits precision and
- * can be between 10^-128 to 10^+126. An array of Strings. Strings are
- * Unicode with UTF8 binary encoding. The maximum size is limited by the
- * size of the primary key (1024 bytes as a range part of a key or 2048
- * bytes as a single part hash key) or the item size (64 K). An array of
- * Numbers. Numbers are positive or negative exact-value decimals and
- * integers. A number can have up to 38 digits precision and can be
- * between 10^-128 to 10^+126.
+ * @param theHashKeyElement A hash key element is treated as the primary
+ * key, and can be a string or a number. Single attribute primary keys
+ * have one index value. The value can be String, Number, StringSet,
+ * NumberSet.
  */
 -(id)initWithHashKeyElement:(DynamoDBAttributeValue *)theHashKeyElement;
 
@@ -96,32 +70,14 @@
  * Constructs a new Key object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theHashKeyElement AttributeValue can be String, Number,
- * StringSet, NumberSet. Strings are Unicode with UTF8 binary encoding.
- * The maximum size is limited by the size of the primary key (1024 bytes
- * as a range part of a key or 2048 bytes as a single part hash key) or
- * the item size (64 K). Numbers are positive or negative exact-value
- * decimals and integers. A number can have up to 38 digits precision and
- * can be between 10^-128 to 10^+126. An array of Strings. Strings are
- * Unicode with UTF8 binary encoding. The maximum size is limited by the
- * size of the primary key (1024 bytes as a range part of a key or 2048
- * bytes as a single part hash key) or the item size (64 K). An array of
- * Numbers. Numbers are positive or negative exact-value decimals and
- * integers. A number can have up to 38 digits precision and can be
- * between 10^-128 to 10^+126.
- * @param theRangeKeyElement AttributeValue can be String, Number,
- * StringSet, NumberSet. Strings are Unicode with UTF8 binary encoding.
- * The maximum size is limited by the size of the primary key (1024 bytes
- * as a range part of a key or 2048 bytes as a single part hash key) or
- * the item size (64 K). Numbers are positive or negative exact-value
- * decimals and integers. A number can have up to 38 digits precision and
- * can be between 10^-128 to 10^+126. An array of Strings. Strings are
- * Unicode with UTF8 binary encoding. The maximum size is limited by the
- * size of the primary key (1024 bytes as a range part of a key or 2048
- * bytes as a single part hash key) or the item size (64 K). An array of
- * Numbers. Numbers are positive or negative exact-value decimals and
- * integers. A number can have up to 38 digits precision and can be
- * between 10^-128 to 10^+126.
+ * @param theHashKeyElement A hash key element is treated as the primary
+ * key, and can be a string or a number. Single attribute primary keys
+ * have one index value. The value can be String, Number, StringSet,
+ * NumberSet.
+ * @param theRangeKeyElement A range key element is treated as a
+ * secondary key (used in conjunction with the primary key), and can be a
+ * string or a number, and is only used for hash-and-range primary keys.
+ * The value can be String, Number, StringSet, NumberSet.
  */
 -(id)initWithHashKeyElement:(DynamoDBAttributeValue *)theHashKeyElement andRangeKeyElement:(DynamoDBAttributeValue *)theRangeKeyElement;
 

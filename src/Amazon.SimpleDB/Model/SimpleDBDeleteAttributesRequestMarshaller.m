@@ -81,7 +81,7 @@
         }
         if (expected != nil) {
             if (expected.existsIsSet) {
-                [request setParameterValue:(expected.exists ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@.%@", @"Expected", @"Exists"]];
+                [request setParameterValue:(expected.exists ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@.%@", @"Expected", @"Exists"]];
             }
         }
     }

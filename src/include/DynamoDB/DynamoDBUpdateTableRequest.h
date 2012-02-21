@@ -44,8 +44,14 @@
 @property (nonatomic, retain) NSString *tableName;
 
 /**
- * Desired throughput for the specified table, consisting of values for
- * ReadCapacityUnits and WriteCapacityUnits.
+ * Provisioned throughput reserves the required read and write resources
+ * for your table in terms of ReadCapacityUnits and WriteCapacityUnits.
+ * Values for provisioned throughput depend upon your expected read/write
+ * rates, item size, and consistency. Provide the expected number of read
+ * and write operations, assuming an item size of 1KB and strictly
+ * consistent reads. For 2KB item size, double the value, 3KB, triple the
+ * value, etc. Eventually consistent reads consume half the resources of
+ * strictly consistent reads.
  */
 @property (nonatomic, retain) DynamoDBProvisionedThroughput *provisionedThroughput;
 
@@ -61,9 +67,15 @@
  * Callers should use properties to initialize any additional object members.
  *
  * @param theTableName
- * @param theProvisionedThroughput Desired throughput for the specified
- * table, consisting of values for ReadCapacityUnits and
- * WriteCapacityUnits.
+ * @param theProvisionedThroughput Provisioned throughput reserves the
+ * required read and write resources for your table in terms of
+ * ReadCapacityUnits and WriteCapacityUnits. Values for provisioned
+ * throughput depend upon your expected read/write rates, item size, and
+ * consistency. Provide the expected number of read and write operations,
+ * assuming an item size of 1KB and strictly consistent reads. For 2KB
+ * item size, double the value, 3KB, triple the value, etc. Eventually
+ * consistent reads consume half the resources of strictly consistent
+ * reads.
  */
 -(id)initWithTableName:(NSString *)theTableName andProvisionedThroughput:(DynamoDBProvisionedThroughput *)theProvisionedThroughput;
 

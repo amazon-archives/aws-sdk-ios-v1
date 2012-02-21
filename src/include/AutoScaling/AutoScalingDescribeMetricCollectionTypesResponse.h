@@ -46,12 +46,17 @@
 -(id)init;
 
 /**
- * The list of Metrics collected.
+ * The list of Metrics collected.The following metrics are supported:
+ * <ul> <li><p>GroupMinSize</li> <li><p>GroupMaxSize</li>
+ * <li><p>GroupDesiredCapacity</li> <li><p>GroupInServiceInstances</li>
+ * <li><p>GroupPendingInstances</li>
+ * <li><p>GroupTerminatingInstances</li> <li><p>GroupTotalInstances</li>
+ * </ul>
  */
 @property (nonatomic, retain) NSMutableArray *metrics;
 
 /**
- * A list of Granularities for the listed Metrics.
+ * A list of granularities for the listed Metrics.
  */
 @property (nonatomic, retain) NSMutableArray *granularities;
 

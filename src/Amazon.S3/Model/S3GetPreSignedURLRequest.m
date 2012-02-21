@@ -55,6 +55,7 @@
           [self.httpVerb isEqualToString:kHttpMethodPut])) {
         @throw [AmazonClientException exceptionWithMessage : @"httpVerb must be GET, HEAD, or PUT."];
     }
+
     [self setHttpMethod:self.httpVerb];
     [self.urlRequest setHTTPMethod:self.httpVerb];
 
@@ -73,6 +74,11 @@
 {
     // Access Key
     NSMutableString *queryString = [NSMutableString stringWithCapacity:512];
+
+    // Security Token
+    if ( self.securityToken != nil ) {
+        [queryString appendFormat:@"%@=%@&", kHttpHdrAmzSecurityToken, [AmazonSDKUtil urlEncode:self.securityToken]];        
+    }
 
     [queryString appendFormat:@"%@=%@", kS3QueryParamAccessKey, self.accessKey];
 

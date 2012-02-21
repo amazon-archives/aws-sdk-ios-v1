@@ -34,22 +34,30 @@
 
 
 /**
- * The value of the S property for this object.
+ * AttributeValue can be String, Number, StringSet, NumberSet. Strings
+ * are Unicode with UTF-8 binary encoding. The maximum size is limited by
+ * the size of the primary key (1024 bytes as a range part of a key or
+ * 2048 bytes as a single part hash key) or the item size (64k).
  */
 @property (nonatomic, retain) NSString *s;
 
 /**
- * The value of the N property for this object.
+ * AttributeValue can be String, Number, StringSet, NumberSet. Numbers
+ * are positive or negative exact-value decimals and integers. A number
+ * can have up to 38 digits precision and can be between 10^-128 to
+ * 10^+126.
  */
 @property (nonatomic, retain) NSString *n;
 
 /**
- * The value of the SS property for this object.
+ * AttributeValue can be String, Number, StringSet, NumberSet. A Set of
+ * Strings.
  */
 @property (nonatomic, retain) NSMutableArray *sS;
 
 /**
- * The value of the NS property for this object.
+ * AttributeValue can be String, Number, StringSet, NumberSet. A Set of
+ * Numbers.
  */
 @property (nonatomic, retain) NSMutableArray *nS;
 
@@ -64,7 +72,11 @@
  * Constructs a new AttributeValue object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theS
+ * @param theS AttributeValue can be String, Number, StringSet,
+ * NumberSet. Strings are Unicode with UTF-8 binary encoding. The maximum
+ * size is limited by the size of the primary key (1024 bytes as a range
+ * part of a key or 2048 bytes as a single part hash key) or the item
+ * size (64k).
  */
 -(id)initWithS:(NSString *)theS;
 
@@ -72,7 +84,8 @@
  * Constructs a new AttributeValue object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theSS
+ * @param theSS AttributeValue can be String, Number, StringSet,
+ * NumberSet. A Set of Strings.
  */
 -(id)initWithSS:(NSMutableArray *)theSS;
 
@@ -80,7 +93,10 @@
  * Constructs a new AttributeValue object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theN
+ * @param theN AttributeValue can be String, Number, StringSet,
+ * NumberSet. Numbers are positive or negative exact-value decimals and
+ * integers. A number can have up to 38 digits precision and can be
+ * between 10^-128 to 10^+126.
  */
 -(id)initWithN:(NSString *)theN;
 
@@ -88,7 +104,8 @@
  * Constructs a new AttributeValue object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theNS
+ * @param theNS AttributeValue can be String, Number, StringSet,
+ * NumberSet. A Set of Numbers.
  */
 -(id)initWithNS:(NSMutableArray *)theNS;
 

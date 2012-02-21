@@ -63,10 +63,16 @@
 
 /**
  * Use this parameter if you want to get the attribute name-value pairs
- * before they were modified. Possible parameter values are NONE
- * (default) or ALL_OLD. If ALL_OLD is specified, the content of the old
- * item is returned. If this parameter is not provided or is NONE,
- * nothing is returned.
+ * before or after they are modified. For put operations, the possible
+ * parameter values are NONE (default) or ALL_OLD. For update operations,
+ * the possible parameter values are NONE (default) or ALL_OLD,
+ * UPDATED_OLD, ALL_NEW or UPDATED_NEW. NONE : Nothing is returned.
+ * ALL_OLD : Returns the attributes of the item as they were before the
+ * operation. UPDATED_OLD : Returns the values of the updated attributes,
+ * only, as they were before the operation. ALL_NEW : Returns all the
+ * attributes and their new values after the operation. UPDATED_NEW :
+ * Returns the values of the updated attributes, only, as they are after
+ * the operation.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Allowed Values: </b>NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW

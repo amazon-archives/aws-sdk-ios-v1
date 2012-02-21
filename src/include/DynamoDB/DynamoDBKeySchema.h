@@ -34,12 +34,17 @@
 
 
 /**
- * The value of the HashKeyElement property for this object.
+ * A hash key element is treated as the primary key, and can be a string
+ * or a number. Single attribute primary keys have one index value. The
+ * value can be String, Number, StringSet, NumberSet.
  */
 @property (nonatomic, retain) DynamoDBKeySchemaElement *hashKeyElement;
 
 /**
- * The value of the RangeKeyElement property for this object.
+ * A range key element is treated as a secondary key (used in conjunction
+ * with the primary key), and can be a string or a number, and is only
+ * used for hash-and-range primary keys. The value can be String, Number,
+ * StringSet, NumberSet.
  */
 @property (nonatomic, retain) DynamoDBKeySchemaElement *rangeKeyElement;
 
@@ -54,7 +59,10 @@
  * Constructs a new KeySchema object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theHashKeyElement
+ * @param theHashKeyElement A hash key element is treated as the primary
+ * key, and can be a string or a number. Single attribute primary keys
+ * have one index value. The value can be String, Number, StringSet,
+ * NumberSet.
  */
 -(id)initWithHashKeyElement:(DynamoDBKeySchemaElement *)theHashKeyElement;
 

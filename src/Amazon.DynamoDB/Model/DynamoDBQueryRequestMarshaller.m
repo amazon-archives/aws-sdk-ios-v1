@@ -56,11 +56,11 @@
     }
 
     if (queryRequest.consistentReadIsSet) {
-        [json setValue:(queryRequest.consistentRead ? @"true":@"false")forKey:@"ConsistentRead"];
+        [json setValue:(queryRequest.consistentRead ? @"true":@"false") forKey:@"ConsistentRead"];
     }
 
     if (queryRequest.countIsSet) {
-        [json setValue:(queryRequest.count ? @"true":@"false")forKey:@"Count"];
+        [json setValue:(queryRequest.count ? @"true":@"false") forKey:@"Count"];
     }
     if (queryRequest != nil) {
         DynamoDBAttributeValue *hashKeyValue = queryRequest.hashKeyValue;
@@ -161,7 +161,7 @@
     }
 
     if (queryRequest.scanIndexForwardIsSet) {
-        [json setValue:(queryRequest.scanIndexForward ? @"true":@"false")forKey:@"ScanIndexForward"];
+        [json setValue:(queryRequest.scanIndexForward ? @"true":@"false") forKey:@"ScanIndexForward"];
     }
     if (queryRequest != nil) {
         DynamoDBKey *exclusiveStartKey = queryRequest.exclusiveStartKey;

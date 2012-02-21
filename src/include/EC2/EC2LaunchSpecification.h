@@ -16,6 +16,7 @@
 #import "EC2GroupIdentifier.h"
 #import "EC2SpotPlacement.h"
 #import "EC2BlockDeviceMapping.h"
+#import "EC2InstanceNetworkInterfaceSpecification.h"
 
 
 
@@ -42,6 +43,7 @@
     bool             monitoringEnabled;
     bool             monitoringEnabledIsSet;
     NSString         *subnetId;
+    NSMutableArray   *networkInterfaces;
 }
 
 
@@ -132,6 +134,11 @@
 @property (nonatomic, retain) NSString *subnetId;
 
 /**
+ * The value of the NetworkInterfaces property for this object.
+ */
+@property (nonatomic, retain) NSMutableArray *networkInterfaces;
+
+/**
  * Adds a single object to allSecurityGroups.
  * This function will alloc and init allSecurityGroups if not already done.
  */
@@ -148,6 +155,12 @@
  * This function will alloc and init blockDeviceMappings if not already done.
  */
 -(void)addBlockDeviceMapping:(EC2BlockDeviceMapping *)blockDeviceMappingObject;
+
+/**
+ * Adds a single object to networkInterfaces.
+ * This function will alloc and init networkInterfaces if not already done.
+ */
+-(void)addNetworkInterface:(EC2InstanceNetworkInterfaceSpecification *)networkInterfaceObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

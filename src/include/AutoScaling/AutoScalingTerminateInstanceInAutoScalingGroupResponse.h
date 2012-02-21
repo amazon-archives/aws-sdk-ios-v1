@@ -45,7 +45,7 @@
 -(id)init;
 
 /**
- * A Scaling Activity.
+ * A scaling Activity.
  */
 @property (nonatomic, retain) AutoScalingActivity *activity;
 

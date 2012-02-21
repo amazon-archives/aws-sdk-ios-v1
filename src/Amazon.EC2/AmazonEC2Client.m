@@ -140,6 +140,13 @@
     return (EC2ResetSnapshotAttributeResponse *)[self invoke:request rawRequest:resetSnapshotAttributeRequest unmarshallerDelegate:[EC2ResetSnapshotAttributeResponseUnmarshaller class]];
 }
 
+-(EC2ImportVolumeResponse *)importVolume:(EC2ImportVolumeRequest *)importVolumeRequest
+{
+    AmazonServiceRequest *request = [EC2ImportVolumeRequestMarshaller createRequest:importVolumeRequest];
+
+    return (EC2ImportVolumeResponse *)[self invoke:request rawRequest:importVolumeRequest unmarshallerDelegate:[EC2ImportVolumeResponseUnmarshaller class]];
+}
+
 -(EC2DescribeSecurityGroupsResponse *)describeSecurityGroups:(EC2DescribeSecurityGroupsRequest *)describeSecurityGroupsRequest
 {
     AmazonServiceRequest *request = [EC2DescribeSecurityGroupsRequestMarshaller createRequest:describeSecurityGroupsRequest];
@@ -224,11 +231,25 @@
     return (EC2AssociateAddressResponse *)[self invoke:request rawRequest:associateAddressRequest unmarshallerDelegate:[EC2AssociateAddressResponseUnmarshaller class]];
 }
 
+-(EC2CancelConversionTaskResponse *)cancelConversionTask:(EC2CancelConversionTaskRequest *)cancelConversionTaskRequest
+{
+    AmazonServiceRequest *request = [EC2CancelConversionTaskRequestMarshaller createRequest:cancelConversionTaskRequest];
+
+    return (EC2CancelConversionTaskResponse *)[self invoke:request rawRequest:cancelConversionTaskRequest unmarshallerDelegate:[EC2CancelConversionTaskResponseUnmarshaller class]];
+}
+
 -(EC2DescribeVolumesResponse *)describeVolumes:(EC2DescribeVolumesRequest *)describeVolumesRequest
 {
     AmazonServiceRequest *request = [EC2DescribeVolumesRequestMarshaller createRequest:describeVolumesRequest];
 
     return (EC2DescribeVolumesResponse *)[self invoke:request rawRequest:describeVolumesRequest unmarshallerDelegate:[EC2DescribeVolumesResponseUnmarshaller class]];
+}
+
+-(EC2ReportInstanceStatusResponse *)reportInstanceStatus:(EC2ReportInstanceStatusRequest *)reportInstanceStatusRequest
+{
+    AmazonServiceRequest *request = [EC2ReportInstanceStatusRequestMarshaller createRequest:reportInstanceStatusRequest];
+
+    return (EC2ReportInstanceStatusResponse *)[self invoke:request rawRequest:reportInstanceStatusRequest unmarshallerDelegate:[EC2ReportInstanceStatusResponseUnmarshaller class]];
 }
 
 -(EC2MonitorInstancesResponse *)monitorInstances:(EC2MonitorInstancesRequest *)monitorInstancesRequest
@@ -243,6 +264,13 @@
     AmazonServiceRequest *request = [EC2DescribeBundleTasksRequestMarshaller createRequest:describeBundleTasksRequest];
 
     return (EC2DescribeBundleTasksResponse *)[self invoke:request rawRequest:describeBundleTasksRequest unmarshallerDelegate:[EC2DescribeBundleTasksResponseUnmarshaller class]];
+}
+
+-(EC2ImportInstanceResponse *)importInstance:(EC2ImportInstanceRequest *)importInstanceRequest
+{
+    AmazonServiceRequest *request = [EC2ImportInstanceRequestMarshaller createRequest:importInstanceRequest];
+
+    return (EC2ImportInstanceResponse *)[self invoke:request rawRequest:importInstanceRequest unmarshallerDelegate:[EC2ImportInstanceResponseUnmarshaller class]];
 }
 
 -(EC2RevokeSecurityGroupIngressResponse *)revokeSecurityGroupIngress:(EC2RevokeSecurityGroupIngressRequest *)revokeSecurityGroupIngressRequest
@@ -271,6 +299,13 @@
     AmazonServiceRequest *request = [EC2CreateSpotDatafeedSubscriptionRequestMarshaller createRequest:createSpotDatafeedSubscriptionRequest];
 
     return (EC2CreateSpotDatafeedSubscriptionResponse *)[self invoke:request rawRequest:createSpotDatafeedSubscriptionRequest unmarshallerDelegate:[EC2CreateSpotDatafeedSubscriptionResponseUnmarshaller class]];
+}
+
+-(EC2DescribeConversionTasksResponse *)describeConversionTasks:(EC2DescribeConversionTasksRequest *)describeConversionTasksRequest
+{
+    AmazonServiceRequest *request = [EC2DescribeConversionTasksRequestMarshaller createRequest:describeConversionTasksRequest];
+
+    return (EC2DescribeConversionTasksResponse *)[self invoke:request rawRequest:describeConversionTasksRequest unmarshallerDelegate:[EC2DescribeConversionTasksResponseUnmarshaller class]];
 }
 
 -(EC2DescribeInstanceAttributeResponse *)describeInstanceAttribute:(EC2DescribeInstanceAttributeRequest *)describeInstanceAttributeRequest
@@ -413,18 +448,18 @@
     return (EC2DescribeAddressesResponse *)[self invoke:request rawRequest:describeAddressesRequest unmarshallerDelegate:[EC2DescribeAddressesResponseUnmarshaller class]];
 }
 
--(EC2DescribeKeyPairsResponse *)describeKeyPairs:(EC2DescribeKeyPairsRequest *)describeKeyPairsRequest
-{
-    AmazonServiceRequest *request = [EC2DescribeKeyPairsRequestMarshaller createRequest:describeKeyPairsRequest];
-
-    return (EC2DescribeKeyPairsResponse *)[self invoke:request rawRequest:describeKeyPairsRequest unmarshallerDelegate:[EC2DescribeKeyPairsResponseUnmarshaller class]];
-}
-
 -(EC2DescribeImageAttributeResponse *)describeImageAttribute:(EC2DescribeImageAttributeRequest *)describeImageAttributeRequest
 {
     AmazonServiceRequest *request = [EC2DescribeImageAttributeRequestMarshaller createRequest:describeImageAttributeRequest];
 
     return (EC2DescribeImageAttributeResponse *)[self invoke:request rawRequest:describeImageAttributeRequest unmarshallerDelegate:[EC2DescribeImageAttributeResponseUnmarshaller class]];
+}
+
+-(EC2DescribeKeyPairsResponse *)describeKeyPairs:(EC2DescribeKeyPairsRequest *)describeKeyPairsRequest
+{
+    AmazonServiceRequest *request = [EC2DescribeKeyPairsRequestMarshaller createRequest:describeKeyPairsRequest];
+
+    return (EC2DescribeKeyPairsResponse *)[self invoke:request rawRequest:describeKeyPairsRequest unmarshallerDelegate:[EC2DescribeKeyPairsResponseUnmarshaller class]];
 }
 
 -(EC2ConfirmProductInstanceResponse *)confirmProductInstance:(EC2ConfirmProductInstanceRequest *)confirmProductInstanceRequest

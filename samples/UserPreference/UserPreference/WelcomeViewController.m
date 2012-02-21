@@ -35,14 +35,14 @@
     [super viewDidLoad];
 
     tokenVendingMachineUrlLabel.text = TOKEN_VENDING_MACHINE_URL;
-    sslEnabledLabel.text               = USE_SSL ? @"YES" : @"NO";
+    sslEnabledLabel.text             = USE_SSL ? @"YES" : @"NO";
 
     // if TOKEN_VENDING_MACHINE_URL is a valid URL
     if ([NSURL URLWithString:TOKEN_VENDING_MACHINE_URL] != nil)
     {
         createDbButton.hidden = NO;
         setUpButton.hidden    = NO;
-        startButton.hidden     = NO;
+        startButton.hidden    = NO;
         cleanUpButton.hidden  = NO;
     }
 }

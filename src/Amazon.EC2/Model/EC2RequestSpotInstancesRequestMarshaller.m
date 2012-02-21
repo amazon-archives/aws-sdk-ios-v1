@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"RequestSpotInstances"           forKey:@"Action"];
-    [request setParameterValue:@"2011-11-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-12-15"   forKey:@"Version"];
 
     [request setDelegate:[requestSpotInstancesRequest delegate]];
     [request setCredentials:[requestSpotInstancesRequest credentials]];
@@ -169,7 +169,7 @@
                     }
                     if (ebs != nil) {
                         if (ebs.deleteOnTerminationIsSet) {
-                            [request setParameterValue:(ebs.deleteOnTermination ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@.%@.%d.%@.%@", @"LaunchSpecification", @"BlockDeviceMapping", blockDeviceMappingsListIndex, @"Ebs", @"DeleteOnTermination"]];
+                            [request setParameterValue:(ebs.deleteOnTermination ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@.%@.%d.%@.%@", @"LaunchSpecification", @"BlockDeviceMapping", blockDeviceMappingsListIndex, @"Ebs", @"DeleteOnTermination"]];
                         }
                     }
                 }
@@ -184,12 +184,61 @@
         }
         if (launchSpecification != nil) {
             if (launchSpecification.monitoringEnabledIsSet) {
-                [request setParameterValue:(launchSpecification.monitoringEnabled ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@.%@", @"LaunchSpecification", @"Monitoring.Enabled"]];
+                [request setParameterValue:(launchSpecification.monitoringEnabled ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@.%@", @"LaunchSpecification", @"Monitoring.Enabled"]];
             }
         }
         if (launchSpecification != nil) {
             if (launchSpecification.subnetId != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", launchSpecification.subnetId] forKey:[NSString stringWithFormat:@"%@.%@", @"LaunchSpecification", @"SubnetId"]];
+            }
+        }
+
+        if (launchSpecification != nil) {
+            int networkInterfacesListIndex = 1;
+            for (EC2InstanceNetworkInterfaceSpecification *networkInterfacesListValue in launchSpecification.networkInterfaces) {
+                if (networkInterfacesListValue != nil) {
+                    if (networkInterfacesListValue.networkInterfaceId != nil) {
+                        [request setParameterValue:[NSString stringWithFormat:@"%@", networkInterfacesListValue.networkInterfaceId] forKey:[NSString stringWithFormat:@"%@.%@.%d.%@", @"LaunchSpecification", @"NetworkInterfaceSet", networkInterfacesListIndex, @"NetworkInterfaceId"]];
+                    }
+                }
+                if (networkInterfacesListValue != nil) {
+                    if (networkInterfacesListValue.deviceIndex != nil) {
+                        [request setParameterValue:[NSString stringWithFormat:@"%@", networkInterfacesListValue.deviceIndex] forKey:[NSString stringWithFormat:@"%@.%@.%d.%@", @"LaunchSpecification", @"NetworkInterfaceSet", networkInterfacesListIndex, @"DeviceIndex"]];
+                    }
+                }
+                if (networkInterfacesListValue != nil) {
+                    if (networkInterfacesListValue.subnetId != nil) {
+                        [request setParameterValue:[NSString stringWithFormat:@"%@", networkInterfacesListValue.subnetId] forKey:[NSString stringWithFormat:@"%@.%@.%d.%@", @"LaunchSpecification", @"NetworkInterfaceSet", networkInterfacesListIndex, @"SubnetId"]];
+                    }
+                }
+                if (networkInterfacesListValue != nil) {
+                    if (networkInterfacesListValue.descriptionValue != nil) {
+                        [request setParameterValue:[NSString stringWithFormat:@"%@", networkInterfacesListValue.descriptionValue] forKey:[NSString stringWithFormat:@"%@.%@.%d.%@", @"LaunchSpecification", @"NetworkInterfaceSet", networkInterfacesListIndex, @"Description"]];
+                    }
+                }
+                if (networkInterfacesListValue != nil) {
+                    if (networkInterfacesListValue.privateIpAddress != nil) {
+                        [request setParameterValue:[NSString stringWithFormat:@"%@", networkInterfacesListValue.privateIpAddress] forKey:[NSString stringWithFormat:@"%@.%@.%d.%@", @"LaunchSpecification", @"NetworkInterfaceSet", networkInterfacesListIndex, @"PrivateIpAddress"]];
+                    }
+                }
+
+                if (networkInterfacesListValue != nil) {
+                    int groupsListIndex = 1;
+                    for (NSString *groupsListValue in networkInterfacesListValue.groups) {
+                        if (groupsListValue != nil) {
+                            [request setParameterValue:[NSString stringWithFormat:@"%@", groupsListValue] forKey:[NSString stringWithFormat:@"%@.%@.%d.%@.%d", @"LaunchSpecification", @"NetworkInterfaceSet", networkInterfacesListIndex, @"SecurityGroupId", groupsListIndex]];
+                        }
+
+                        groupsListIndex++;
+                    }
+                }
+                if (networkInterfacesListValue != nil) {
+                    if (networkInterfacesListValue.deleteOnTerminationIsSet) {
+                        [request setParameterValue:(networkInterfacesListValue.deleteOnTermination ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@.%@.%d.%@", @"LaunchSpecification", @"NetworkInterfaceSet", networkInterfacesListIndex, @"DeleteOnTermination"]];
+                    }
+                }
+
+                networkInterfacesListIndex++;
             }
         }
     }

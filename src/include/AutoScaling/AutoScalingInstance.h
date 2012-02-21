@@ -42,7 +42,7 @@
 -(id)init;
 
 /**
- * Specifies the EC2 instance ID.
+ * Specifies the ID of the Amazon EC2 instance.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 16<br/>
@@ -51,7 +51,7 @@
 @property (nonatomic, retain) NSString *instanceId;
 
 /**
- * Availability zones associated with this instance.
+ * Availability Zones associated with this instance.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 255<br/>

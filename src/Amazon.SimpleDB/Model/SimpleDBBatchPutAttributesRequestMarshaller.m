@@ -59,7 +59,7 @@
                     }
                     if (attributesListValue != nil) {
                         if (attributesListValue.replaceIsSet) {
-                            [request setParameterValue:(attributesListValue.replace ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@.%d.%@.%d.%@", @"Item", itemsListIndex, @"Attribute", attributesListIndex, @"Replace"]];
+                            [request setParameterValue:(attributesListValue.replace ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@.%d.%@.%d.%@", @"Item", itemsListIndex, @"Attribute", attributesListIndex, @"Replace"]];
                         }
                     }
 

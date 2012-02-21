@@ -39,7 +39,7 @@
 -(id)init;
 
 /**
- * The name of the alarm
+ * The name of the alarm.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 255<br/>

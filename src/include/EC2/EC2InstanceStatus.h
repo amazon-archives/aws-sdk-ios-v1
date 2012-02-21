@@ -15,6 +15,8 @@
 
 #import "EC2InstanceStatusEvent.h"
 #import "EC2InstanceState.h"
+#import "EC2InstanceStatusSummary.h"
+#import "EC2InstanceStatusSummary.h"
 
 
 
@@ -27,10 +29,12 @@
 @interface EC2InstanceStatus:NSObject
 
 {
-    NSString         *instanceId;
-    NSString         *availabilityZone;
-    NSMutableArray   *events;
-    EC2InstanceState *instanceState;
+    NSString                 *instanceId;
+    NSString                 *availabilityZone;
+    NSMutableArray           *events;
+    EC2InstanceState         *instanceState;
+    EC2InstanceStatusSummary *systemStatus;
+    EC2InstanceStatusSummary *instanceStatus;
 }
 
 
@@ -61,6 +65,16 @@
  * Represents the state of an Amazon EC2 instance.
  */
 @property (nonatomic, retain) EC2InstanceState *instanceState;
+
+/**
+ * The value of the SystemStatus property for this object.
+ */
+@property (nonatomic, retain) EC2InstanceStatusSummary *systemStatus;
+
+/**
+ * The value of the InstanceStatus property for this object.
+ */
+@property (nonatomic, retain) EC2InstanceStatusSummary *instanceStatus;
 
 /**
  * Adds a single object to events.

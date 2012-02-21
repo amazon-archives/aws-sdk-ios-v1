@@ -55,7 +55,7 @@
             }
             if (attributesListValue != nil) {
                 if (attributesListValue.replaceIsSet) {
-                    [request setParameterValue:(attributesListValue.replace ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@.%d.%@", @"Attribute", attributesListIndex, @"Replace"]];
+                    [request setParameterValue:(attributesListValue.replace ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@.%d.%@", @"Attribute", attributesListIndex, @"Replace"]];
                 }
             }
 
@@ -76,7 +76,7 @@
         }
         if (expected != nil) {
             if (expected.existsIsSet) {
-                [request setParameterValue:(expected.exists ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@.%@", @"Expected", @"Exists"]];
+                [request setParameterValue:(expected.exists ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@.%@", @"Expected", @"Exists"]];
             }
         }
     }

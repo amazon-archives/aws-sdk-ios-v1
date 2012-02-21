@@ -28,6 +28,8 @@
     bool     expiresSet;
 }
 
+-(id)initWithKey:(NSString *)aKey inBucket:(NSString *)aBucket;
+
 /** Can be used to specify caching behavior along the request/reply chain.
  * For more information, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9.
  */

@@ -17,6 +17,9 @@
 
 #import "AutoScalingRequest.h"
 #import "AutoScalingCreateAutoScalingGroupRequest.h"
+#import "AutoScalingTag.h"
+#import "AutoScalingTag.h"
+#import "AutoScalingTag.h"
 
 
 /**

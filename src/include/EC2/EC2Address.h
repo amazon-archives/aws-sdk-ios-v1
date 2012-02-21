@@ -28,7 +28,10 @@
     NSString *instanceId;
     NSString *publicIp;
     NSString *allocationId;
+    NSString *associationId;
     NSString *domain;
+    NSString *networkInterfaceId;
+    NSString *networkInterfaceOwnerId;
 }
 
 
@@ -56,12 +59,27 @@
 @property (nonatomic, retain) NSString *allocationId;
 
 /**
+ * The value of the AssociationId property for this object.
+ */
+@property (nonatomic, retain) NSString *associationId;
+
+/**
  * The value of the Domain property for this object.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Allowed Values: </b>vpc, standard
  */
 @property (nonatomic, retain) NSString *domain;
+
+/**
+ * The value of the NetworkInterfaceId property for this object.
+ */
+@property (nonatomic, retain) NSString *networkInterfaceId;
+
+/**
+ * The value of the NetworkInterfaceOwnerId property for this object.
+ */
+@property (nonatomic, retain) NSString *networkInterfaceOwnerId;
 
 /**
  * Returns a string representation of this object; useful for testing and

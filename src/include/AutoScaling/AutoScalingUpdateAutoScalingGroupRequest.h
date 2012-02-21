@@ -89,7 +89,7 @@
 @property (nonatomic, retain) NSNumber *defaultCooldown;
 
 /**
- * Availability zones for the group.
+ * Availability Zones for the group.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - <br/>
@@ -126,7 +126,11 @@
 @property (nonatomic, retain) NSString *placementGroup;
 
 /**
- * The identifier for the VPC connection, if applicable.
+ * The subnet identifier for the Amazon VPC connection, if applicable.
+ * You can specify several subnets in a comma-separated list. <p> When
+ * you specify <code>VPCZoneIdentifier</code> with
+ * <code>AvailabilityZones</code>, ensure that the subnets' Availability
+ * Zones match the values you specify for <code>AvailabilityZones</code>.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 255<br/>

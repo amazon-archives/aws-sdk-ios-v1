@@ -21,7 +21,7 @@
  * http://mytvm.elasticbeanstalk.com this parameter should be set to
  * mytvm.elasticbeanstalk.com.)
  */
-#define TOKEN_VENDING_MACHINE_URL    @"CHANGE ME"
+#define TOKEN_VENDING_MACHINE_URL    @"http://tvm-for-testing-dyn-123.elasticbeanstalk.com/"
 
 /**
  * This indiciates whether or not the TVM is supports SSL connections.

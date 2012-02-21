@@ -41,7 +41,7 @@
 -(id)init;
 
 /**
- * The name of the Auto Scaling group
+ * The name of the Auto Scaling group.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 1600<br/>

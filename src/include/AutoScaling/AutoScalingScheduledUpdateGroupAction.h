@@ -74,13 +74,17 @@
 @property (nonatomic, retain) NSString *scheduledActionARN;
 
 /**
- * The value of the Time property for this object.
+ * <code>Time</code> is deprecated. <p>The time that the action is
+ * scheduled to begin. <code>Time</code> is an alias for
+ * <code>StartTime</code>.
  */
 @property (nonatomic, retain) NSDate *time;
 
 /**
  * The time that the action is scheduled to begin. This value can be up
- * to one month in the future.
+ * to one month in the future. <p>When <code>StartTime</code> and
+ * <code>EndTime</code> are specified with <code>Recurrence</code>, they
+ * form the boundaries of when the recurring action will start and stop.
  */
 @property (nonatomic, retain) NSDate *startTime;
 

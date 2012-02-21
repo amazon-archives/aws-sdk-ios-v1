@@ -34,18 +34,7 @@
 
 
 /**
- * AttributeValue can be String, Number, StringSet, NumberSet. Strings
- * are Unicode with UTF8 binary encoding. The maximum size is limited by
- * the size of the primary key (1024 bytes as a range part of a key or
- * 2048 bytes as a single part hash key) or the item size (64 K). Numbers
- * are positive or negative exact-value decimals and integers. A number
- * can have up to 38 digits precision and can be between 10^-128 to
- * 10^+126. An array of Strings. Strings are Unicode with UTF8 binary
- * encoding. The maximum size is limited by the size of the primary key
- * (1024 bytes as a range part of a key or 2048 bytes as a single part
- * hash key) or the item size (64 K). An array of Numbers. Numbers are
- * positive or negative exact-value decimals and integers. A number can
- * have up to 38 digits precision and can be between 10^-128 to 10^+126.
+ * AttributeValue can be String, Number, StringSet, NumberSet.
  */
 @property (nonatomic, retain) DynamoDBAttributeValue *value;
 
@@ -68,18 +57,7 @@
  * Callers should use properties to initialize any additional object members.
  *
  * @param theValue AttributeValue can be String, Number, StringSet,
- * NumberSet. Strings are Unicode with UTF8 binary encoding. The maximum
- * size is limited by the size of the primary key (1024 bytes as a range
- * part of a key or 2048 bytes as a single part hash key) or the item
- * size (64 K). Numbers are positive or negative exact-value decimals and
- * integers. A number can have up to 38 digits precision and can be
- * between 10^-128 to 10^+126. An array of Strings. Strings are Unicode
- * with UTF8 binary encoding. The maximum size is limited by the size of
- * the primary key (1024 bytes as a range part of a key or 2048 bytes as
- * a single part hash key) or the item size (64 K). An array of Numbers.
- * Numbers are positive or negative exact-value decimals and integers. A
- * number can have up to 38 digits precision and can be between 10^-128
- * to 10^+126.
+ * NumberSet.
  */
 -(id)initWithValue:(DynamoDBAttributeValue *)theValue;
 

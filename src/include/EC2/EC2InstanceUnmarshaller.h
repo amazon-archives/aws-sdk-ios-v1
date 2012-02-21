@@ -31,6 +31,8 @@
 #import "EC2TagUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
 #import "EC2GroupIdentifierUnmarshaller.h"
+#import "../AmazonListUnmarshaller.h"
+#import "EC2InstanceNetworkInterfaceUnmarshaller.h"
 #import "../AmazonSDKUtil.h"
 
 

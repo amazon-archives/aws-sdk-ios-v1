@@ -13,9 +13,9 @@
  * permissions and limitations under the License.
  */
 
-#import "S3RequestDelegate.h"
+#import "S3ResponseHandler.h"
 
-@implementation S3RequestDelegate
+@implementation S3ResponseHandler
 
 @synthesize response;
 @synthesize error;

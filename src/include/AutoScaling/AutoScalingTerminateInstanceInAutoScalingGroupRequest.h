@@ -42,7 +42,7 @@
 -(id)init;
 
 /**
- * The ID of the EC2 instance to be terminated.
+ * The ID of the Amazon EC2 instance to be terminated.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 16<br/>

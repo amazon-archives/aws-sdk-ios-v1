@@ -30,6 +30,7 @@
     NSString *instanceId;
     NSString *publicIp;
     NSString *allocationId;
+    NSString *networkInterfaceId;
 }
 
 
@@ -49,6 +50,11 @@
  * address for use with Amazon VPC.
  */
 @property (nonatomic, retain) NSString *allocationId;
+
+/**
+ * The value of the NetworkInterfaceId property for this object.
+ */
+@property (nonatomic, retain) NSString *networkInterfaceId;
 
 
 /**

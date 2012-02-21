@@ -38,6 +38,18 @@
         [parser setDelegate:unmarshaller];
     }
 
+    if ([elementName isEqualToString:@"systemStatus"]) {
+        EC2InstanceStatusSummaryUnmarshaller *unmarshaller = [[[EC2InstanceStatusSummaryUnmarshaller alloc] initWithCaller:self withParentObject:self.response withSetter:@selector(setSystemStatus:)] autorelease];
+        unmarshaller.endElementTagName = @"systemStatus";
+        [parser setDelegate:unmarshaller];
+    }
+
+    if ([elementName isEqualToString:@"instanceStatus"]) {
+        EC2InstanceStatusSummaryUnmarshaller *unmarshaller = [[[EC2InstanceStatusSummaryUnmarshaller alloc] initWithCaller:self withParentObject:self.response withSetter:@selector(setInstanceStatus:)] autorelease];
+        unmarshaller.endElementTagName = @"instanceStatus";
+        [parser setDelegate:unmarshaller];
+    }
+
 
 
     if ([elementName isEqualToString:@"Error"]) {

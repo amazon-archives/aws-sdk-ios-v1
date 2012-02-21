@@ -21,14 +21,16 @@
 @synthesize instanceId;
 @synthesize publicIp;
 @synthesize allocationId;
+@synthesize networkInterfaceId;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        instanceId   = nil;
-        publicIp     = nil;
-        allocationId = nil;
+        instanceId         = nil;
+        publicIp           = nil;
+        allocationId       = nil;
+        networkInterfaceId = nil;
     }
 
     return self;
@@ -54,6 +56,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"InstanceId: %@,", instanceId] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"PublicIp: %@,", publicIp] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"AllocationId: %@,", allocationId] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"NetworkInterfaceId: %@,", networkInterfaceId] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -67,6 +70,7 @@
     [instanceId release];
     [publicIp release];
     [allocationId release];
+    [networkInterfaceId release];
 
     [super dealloc];
 }

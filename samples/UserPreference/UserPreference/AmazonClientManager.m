@@ -22,7 +22,7 @@
 #import <AWSiOSSDK/S3/S3GetObjectResponse.h>
 
 static AmazonDynamoDBClient *ddb = nil;
-static AmazonTVMClient   *tvm = nil;
+static AmazonTVMClient      *tvm = nil;
 
 @implementation AmazonClientManager
 

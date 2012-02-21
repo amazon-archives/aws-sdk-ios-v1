@@ -140,7 +140,7 @@
     }
 
     if (getItemRequest.consistentReadIsSet) {
-        [json setValue:(getItemRequest.consistentRead ? @"true":@"false")forKey:@"ConsistentRead"];
+        [json setValue:(getItemRequest.consistentRead ? @"true":@"false") forKey:@"ConsistentRead"];
     }
 
 

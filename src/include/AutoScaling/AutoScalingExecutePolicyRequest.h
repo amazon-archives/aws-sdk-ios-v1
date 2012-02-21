@@ -43,7 +43,7 @@
 -(id)init;
 
 /**
- * The name or ARN of the Auto Scaling Group.
+ * The name or ARN of the Auto Scaling group.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 1600<br/>
@@ -61,8 +61,8 @@
 @property (nonatomic, retain) NSString *policyName;
 
 /**
- * Set to True if you want Auto Scaling to reject this request if the
- * Auto Scaling group is in cooldown.
+ * Set to <code>True</code> if you want Auto Scaling to reject this
+ * request when the Auto Scaling group is in cooldown.
  */
 @property (nonatomic) bool           honorCooldown;
 

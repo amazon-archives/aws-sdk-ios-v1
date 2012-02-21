@@ -32,6 +32,7 @@
 @synthesize monitoringEnabled;
 @synthesize monitoringEnabledIsSet;
 @synthesize subnetId;
+@synthesize networkInterfaces;
 
 
 -(id)init
@@ -51,6 +52,7 @@
         monitoringEnabled      = NO;
         monitoringEnabledIsSet = NO;
         subnetId               = nil;
+        networkInterfaces      = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
     return self;
@@ -84,6 +86,15 @@
     [blockDeviceMappings addObject:blockDeviceMappingObject];
 }
 
+-(void)addNetworkInterface:(EC2InstanceNetworkInterfaceSpecification *)networkInterfaceObject
+{
+    if (networkInterfaces == nil) {
+        networkInterfaces = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [networkInterfaces addObject:networkInterfaceObject];
+}
+
 
 -(NSString *)description
 {
@@ -103,6 +114,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"BlockDeviceMappings: %@,", blockDeviceMappings] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"MonitoringEnabled: %d,", monitoringEnabled] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"SubnetId: %@,", subnetId] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"NetworkInterfaces: %@,", networkInterfaces] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -131,6 +143,7 @@
     [ramdiskId release];
     [blockDeviceMappings release];
     [subnetId release];
+    [networkInterfaces release];
 
     [super dealloc];
 }

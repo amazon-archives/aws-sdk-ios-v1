@@ -21,6 +21,8 @@
 #import "../AmazonListUnmarshaller.h"
 #import "EC2InstanceStatusEventUnmarshaller.h"
 #import "EC2InstanceStateUnmarshaller.h"
+#import "EC2InstanceStatusSummaryUnmarshaller.h"
+#import "EC2InstanceStatusSummaryUnmarshaller.h"
 
 
 /**

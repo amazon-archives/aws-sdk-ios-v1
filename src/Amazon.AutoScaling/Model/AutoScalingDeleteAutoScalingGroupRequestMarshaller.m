@@ -36,7 +36,7 @@
     }
     if (deleteAutoScalingGroupRequest != nil) {
         if (deleteAutoScalingGroupRequest.forceDeleteIsSet) {
-            [request setParameterValue:(deleteAutoScalingGroupRequest.forceDelete ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@", @"ForceDelete"]];
+            [request setParameterValue:(deleteAutoScalingGroupRequest.forceDelete ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"ForceDelete"]];
         }
     }
 

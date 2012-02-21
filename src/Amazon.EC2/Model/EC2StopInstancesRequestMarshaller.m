@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"StopInstances"           forKey:@"Action"];
-    [request setParameterValue:@"2011-11-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-12-15"   forKey:@"Version"];
 
     [request setDelegate:[stopInstancesRequest delegate]];
     [request setCredentials:[stopInstancesRequest credentials]];
@@ -42,7 +42,7 @@
     }
     if (stopInstancesRequest != nil) {
         if (stopInstancesRequest.forceIsSet) {
-            [request setParameterValue:(stopInstancesRequest.force ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@", @"Force"]];
+            [request setParameterValue:(stopInstancesRequest.force ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"Force"]];
         }
     }
 

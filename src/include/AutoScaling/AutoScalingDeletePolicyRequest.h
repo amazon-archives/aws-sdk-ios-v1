@@ -50,7 +50,7 @@
 @property (nonatomic, retain) NSString *autoScalingGroupName;
 
 /**
- * The name or PolicyARN of the policy you want to delete
+ * The name or PolicyARN of the policy you want to delete.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 1600<br/>

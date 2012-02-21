@@ -53,6 +53,7 @@
 @synthesize sourceDestCheck;
 @synthesize sourceDestCheckIsSet;
 @synthesize hypervisor;
+@synthesize networkInterfaces;
 
 
 -(id)init
@@ -93,6 +94,7 @@
         sourceDestCheck       = NO;
         sourceDestCheckIsSet  = NO;
         hypervisor            = nil;
+        networkInterfaces     = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
     return self;
@@ -135,6 +137,15 @@
     [securityGroups addObject:securityGroupObject];
 }
 
+-(void)addNetworkInterface:(EC2InstanceNetworkInterface *)networkInterfaceObject
+{
+    if (networkInterfaces == nil) {
+        networkInterfaces = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [networkInterfaces addObject:networkInterfaceObject];
+}
+
 
 -(NSString *)description
 {
@@ -175,6 +186,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"SecurityGroups: %@,", securityGroups] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"SourceDestCheck: %d,", sourceDestCheck] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Hypervisor: %@,", hypervisor] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"NetworkInterfaces: %@,", networkInterfaces] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -224,6 +236,7 @@
     [tags release];
     [securityGroups release];
     [hypervisor release];
+    [networkInterfaces release];
 
     [super dealloc];
 }

@@ -21,6 +21,7 @@
 #import "TopicList.h"
 #import "S3AsyncViewController.h"
 #import "SdbAsyncViewController.h"
+#import "S3NSOperationDemoViewController.h"
 
 @implementation AWSiOSDemoViewController
 
@@ -91,6 +92,18 @@
 
         [self presentModalViewController:s3Async animated:YES];
         [s3Async release];
+    }
+}
+
+-(IBAction)s3NSOperationDemo:(id)sender
+{
+    if (![AmazonClientManager hasCredentials]) {
+        [[Constants credentialsAlert] show];
+    }
+    else {
+        S3NSOperationDemoViewController *s3Async2 = [[S3NSOperationDemoViewController alloc] initWithNibName:@"S3NSOperationDemoView" bundle:nil];
+        [self presentModalViewController:s3Async2 animated:YES];
+        [s3Async2 release];
     }
 }
 

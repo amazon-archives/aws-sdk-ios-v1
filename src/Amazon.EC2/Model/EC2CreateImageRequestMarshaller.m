@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"CreateImage"           forKey:@"Action"];
-    [request setParameterValue:@"2011-11-01"   forKey:@"Version"];
+    [request setParameterValue:@"2011-12-15"   forKey:@"Version"];
 
     [request setDelegate:[createImageRequest delegate]];
     [request setCredentials:[createImageRequest credentials]];
@@ -46,7 +46,7 @@
     }
     if (createImageRequest != nil) {
         if (createImageRequest.noRebootIsSet) {
-            [request setParameterValue:(createImageRequest.noReboot ? @"true":@"false")forKey:[NSString stringWithFormat:@"%@", @"NoReboot"]];
+            [request setParameterValue:(createImageRequest.noReboot ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"NoReboot"]];
         }
     }
 

@@ -72,6 +72,10 @@
 #import "EC2ResetSnapshotAttributeResponseUnmarshaller.h"
 #import "EC2ResetSnapshotAttributeRequest.h"
 #import "EC2ResetSnapshotAttributeRequestMarshaller.h"
+#import "EC2ImportVolumeResponse.h"
+#import "EC2ImportVolumeResponseUnmarshaller.h"
+#import "EC2ImportVolumeRequest.h"
+#import "EC2ImportVolumeRequestMarshaller.h"
 #import "EC2DescribeSecurityGroupsResponse.h"
 #import "EC2DescribeSecurityGroupsResponseUnmarshaller.h"
 #import "EC2DescribeSecurityGroupsRequest.h"
@@ -120,10 +124,18 @@
 #import "EC2AssociateAddressResponseUnmarshaller.h"
 #import "EC2AssociateAddressRequest.h"
 #import "EC2AssociateAddressRequestMarshaller.h"
+#import "EC2CancelConversionTaskResponse.h"
+#import "EC2CancelConversionTaskResponseUnmarshaller.h"
+#import "EC2CancelConversionTaskRequest.h"
+#import "EC2CancelConversionTaskRequestMarshaller.h"
 #import "EC2DescribeVolumesResponse.h"
 #import "EC2DescribeVolumesResponseUnmarshaller.h"
 #import "EC2DescribeVolumesRequest.h"
 #import "EC2DescribeVolumesRequestMarshaller.h"
+#import "EC2ReportInstanceStatusResponse.h"
+#import "EC2ReportInstanceStatusResponseUnmarshaller.h"
+#import "EC2ReportInstanceStatusRequest.h"
+#import "EC2ReportInstanceStatusRequestMarshaller.h"
 #import "EC2MonitorInstancesResponse.h"
 #import "EC2MonitorInstancesResponseUnmarshaller.h"
 #import "EC2MonitorInstancesRequest.h"
@@ -132,6 +144,10 @@
 #import "EC2DescribeBundleTasksResponseUnmarshaller.h"
 #import "EC2DescribeBundleTasksRequest.h"
 #import "EC2DescribeBundleTasksRequestMarshaller.h"
+#import "EC2ImportInstanceResponse.h"
+#import "EC2ImportInstanceResponseUnmarshaller.h"
+#import "EC2ImportInstanceRequest.h"
+#import "EC2ImportInstanceRequestMarshaller.h"
 #import "EC2RevokeSecurityGroupIngressResponse.h"
 #import "EC2RevokeSecurityGroupIngressResponseUnmarshaller.h"
 #import "EC2RevokeSecurityGroupIngressRequest.h"
@@ -148,6 +164,10 @@
 #import "EC2CreateSpotDatafeedSubscriptionResponseUnmarshaller.h"
 #import "EC2CreateSpotDatafeedSubscriptionRequest.h"
 #import "EC2CreateSpotDatafeedSubscriptionRequestMarshaller.h"
+#import "EC2DescribeConversionTasksResponse.h"
+#import "EC2DescribeConversionTasksResponseUnmarshaller.h"
+#import "EC2DescribeConversionTasksRequest.h"
+#import "EC2DescribeConversionTasksRequestMarshaller.h"
 #import "EC2DescribeInstanceAttributeResponse.h"
 #import "EC2DescribeInstanceAttributeResponseUnmarshaller.h"
 #import "EC2DescribeInstanceAttributeRequest.h"
@@ -228,14 +248,14 @@
 #import "EC2DescribeAddressesResponseUnmarshaller.h"
 #import "EC2DescribeAddressesRequest.h"
 #import "EC2DescribeAddressesRequestMarshaller.h"
-#import "EC2DescribeKeyPairsResponse.h"
-#import "EC2DescribeKeyPairsResponseUnmarshaller.h"
-#import "EC2DescribeKeyPairsRequest.h"
-#import "EC2DescribeKeyPairsRequestMarshaller.h"
 #import "EC2DescribeImageAttributeResponse.h"
 #import "EC2DescribeImageAttributeResponseUnmarshaller.h"
 #import "EC2DescribeImageAttributeRequest.h"
 #import "EC2DescribeImageAttributeRequestMarshaller.h"
+#import "EC2DescribeKeyPairsResponse.h"
+#import "EC2DescribeKeyPairsResponseUnmarshaller.h"
+#import "EC2DescribeKeyPairsRequest.h"
+#import "EC2DescribeKeyPairsRequestMarshaller.h"
 #import "EC2ConfirmProductInstanceResponse.h"
 #import "EC2ConfirmProductInstanceResponseUnmarshaller.h"
 #import "EC2ConfirmProductInstanceRequest.h"
@@ -761,6 +781,26 @@
 
 
 /**
+ *
+ * @param importVolumeRequest Container for the necessary parameters to
+ *           execute the ImportVolume service method on AmazonEC2.
+ *
+ * @return The response from the ImportVolume service method, as returned
+ *         by AmazonEC2.
+ *
+ *
+ * @throws AmazonClientException
+ *             If any internal errors are encountered inside the client while
+ *             attempting to make the request or handle the response.  For example
+ *             if a network connection is not available.
+ * @throws AmazonServiceException
+ *             If an error response is returned by AmazonEC2 indicating
+ *             either a problem with the data in the request, or a server side issue.
+ */
+-(EC2ImportVolumeResponse *)importVolume:(EC2ImportVolumeRequest *)importVolumeRequest;
+
+
+/**
  * <p>
  * The DescribeSecurityGroups operation returns information about
  * security groups that you own.
@@ -1063,6 +1103,24 @@
 
 
 /**
+ *
+ * @param cancelConversionTaskRequest Container for the necessary
+ *           parameters to execute the CancelConversionTask service method on
+ *           AmazonEC2.
+ *
+ *
+ * @throws AmazonClientException
+ *             If any internal errors are encountered inside the client while
+ *             attempting to make the request or handle the response.  For example
+ *             if a network connection is not available.
+ * @throws AmazonServiceException
+ *             If an error response is returned by AmazonEC2 indicating
+ *             either a problem with the data in the request, or a server side issue.
+ */
+-(EC2CancelConversionTaskResponse *)cancelConversionTask:(EC2CancelConversionTaskRequest *)cancelConversionTaskRequest;
+
+
+/**
  * <p>
  * Describes the status of the indicated volume or, in lieu of any
  * specified, all volumes belonging to the caller. Volumes that have been
@@ -1085,6 +1143,24 @@
  *             either a problem with the data in the request, or a server side issue.
  */
 -(EC2DescribeVolumesResponse *)describeVolumes:(EC2DescribeVolumesRequest *)describeVolumesRequest;
+
+
+/**
+ *
+ * @param reportInstanceStatusRequest Container for the necessary
+ *           parameters to execute the ReportInstanceStatus service method on
+ *           AmazonEC2.
+ *
+ *
+ * @throws AmazonClientException
+ *             If any internal errors are encountered inside the client while
+ *             attempting to make the request or handle the response.  For example
+ *             if a network connection is not available.
+ * @throws AmazonServiceException
+ *             If an error response is returned by AmazonEC2 indicating
+ *             either a problem with the data in the request, or a server side issue.
+ */
+-(EC2ReportInstanceStatusResponse *)reportInstanceStatus:(EC2ReportInstanceStatusRequest *)reportInstanceStatusRequest;
 
 
 /**
@@ -1135,6 +1211,26 @@
  *             either a problem with the data in the request, or a server side issue.
  */
 -(EC2DescribeBundleTasksResponse *)describeBundleTasks:(EC2DescribeBundleTasksRequest *)describeBundleTasksRequest;
+
+
+/**
+ *
+ * @param importInstanceRequest Container for the necessary parameters to
+ *           execute the ImportInstance service method on AmazonEC2.
+ *
+ * @return The response from the ImportInstance service method, as
+ *         returned by AmazonEC2.
+ *
+ *
+ * @throws AmazonClientException
+ *             If any internal errors are encountered inside the client while
+ *             attempting to make the request or handle the response.  For example
+ *             if a network connection is not available.
+ * @throws AmazonServiceException
+ *             If an error response is returned by AmazonEC2 indicating
+ *             either a problem with the data in the request, or a server side issue.
+ */
+-(EC2ImportInstanceResponse *)importInstance:(EC2ImportInstanceRequest *)importInstanceRequest;
 
 
 /**
@@ -1251,6 +1347,27 @@
  *             either a problem with the data in the request, or a server side issue.
  */
 -(EC2CreateSpotDatafeedSubscriptionResponse *)createSpotDatafeedSubscription:(EC2CreateSpotDatafeedSubscriptionRequest *)createSpotDatafeedSubscriptionRequest;
+
+
+/**
+ *
+ * @param describeConversionTasksRequest Container for the necessary
+ *           parameters to execute the DescribeConversionTasks service method on
+ *           AmazonEC2.
+ *
+ * @return The response from the DescribeConversionTasks service method,
+ *         as returned by AmazonEC2.
+ *
+ *
+ * @throws AmazonClientException
+ *             If any internal errors are encountered inside the client while
+ *             attempting to make the request or handle the response.  For example
+ *             if a network connection is not available.
+ * @throws AmazonServiceException
+ *             If an error response is returned by AmazonEC2 indicating
+ *             either a problem with the data in the request, or a server side issue.
+ */
+-(EC2DescribeConversionTasksResponse *)describeConversionTasks:(EC2DescribeConversionTasksRequest *)describeConversionTasksRequest;
 
 
 /**
@@ -1927,6 +2044,31 @@
 
 /**
  * <p>
+ * The DescribeImageAttribute operation returns information about an
+ * attribute of an AMI. Only one attribute can be specified per call.
+ * </p>
+ *
+ * @param describeImageAttributeRequest Container for the necessary
+ *           parameters to execute the DescribeImageAttribute service method on
+ *           AmazonEC2.
+ *
+ * @return The response from the DescribeImageAttribute service method,
+ *         as returned by AmazonEC2.
+ *
+ *
+ * @throws AmazonClientException
+ *             If any internal errors are encountered inside the client while
+ *             attempting to make the request or handle the response.  For example
+ *             if a network connection is not available.
+ * @throws AmazonServiceException
+ *             If an error response is returned by AmazonEC2 indicating
+ *             either a problem with the data in the request, or a server side issue.
+ */
+-(EC2DescribeImageAttributeResponse *)describeImageAttribute:(EC2DescribeImageAttributeRequest *)describeImageAttributeRequest;
+
+
+/**
+ * <p>
  * The DescribeKeyPairs operation returns information about key pairs
  * available to you. If you specify key pairs, information about those
  * key pairs is returned. Otherwise, information for all registered key
@@ -1949,31 +2091,6 @@
  *             either a problem with the data in the request, or a server side issue.
  */
 -(EC2DescribeKeyPairsResponse *)describeKeyPairs:(EC2DescribeKeyPairsRequest *)describeKeyPairsRequest;
-
-
-/**
- * <p>
- * The DescribeImageAttribute operation returns information about an
- * attribute of an AMI. Only one attribute can be specified per call.
- * </p>
- *
- * @param describeImageAttributeRequest Container for the necessary
- *           parameters to execute the DescribeImageAttribute service method on
- *           AmazonEC2.
- *
- * @return The response from the DescribeImageAttribute service method,
- *         as returned by AmazonEC2.
- *
- *
- * @throws AmazonClientException
- *             If any internal errors are encountered inside the client while
- *             attempting to make the request or handle the response.  For example
- *             if a network connection is not available.
- * @throws AmazonServiceException
- *             If an error response is returned by AmazonEC2 indicating
- *             either a problem with the data in the request, or a server side issue.
- */
--(EC2DescribeImageAttributeResponse *)describeImageAttribute:(EC2DescribeImageAttributeRequest *)describeImageAttributeRequest;
 
 
 /**

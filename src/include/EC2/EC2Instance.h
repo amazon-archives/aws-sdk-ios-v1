@@ -22,6 +22,7 @@
 #import "EC2InstanceLicense.h"
 #import "EC2Tag.h"
 #import "EC2GroupIdentifier.h"
+#import "EC2InstanceNetworkInterface.h"
 
 
 
@@ -69,6 +70,7 @@
     bool               sourceDestCheck;
     bool               sourceDestCheckIsSet;
     NSString           *hypervisor;
+    NSMutableArray     *networkInterfaces;
 }
 
 
@@ -275,6 +277,11 @@
 @property (nonatomic, retain) NSString *hypervisor;
 
 /**
+ * The value of the NetworkInterfaces property for this object.
+ */
+@property (nonatomic, retain) NSMutableArray *networkInterfaces;
+
+/**
  * Adds a single object to productCodes.
  * This function will alloc and init productCodes if not already done.
  */
@@ -297,6 +304,12 @@
  * This function will alloc and init securityGroups if not already done.
  */
 -(void)addSecurityGroup:(EC2GroupIdentifier *)securityGroupObject;
+
+/**
+ * Adds a single object to networkInterfaces.
+ * This function will alloc and init networkInterfaces if not already done.
+ */
+-(void)addNetworkInterface:(EC2InstanceNetworkInterface *)networkInterfaceObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

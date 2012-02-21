@@ -70,7 +70,7 @@
 
 /**
  * The latest scheduled start time to return. If scheduled action names
- * are provided, this field will be ignored.
+ * are provided, this field is ignored.
  */
 @property (nonatomic, retain) NSDate *endTime;
 

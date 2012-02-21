@@ -39,7 +39,10 @@
 -(id)init;
 
 /**
- * The value of the ReadCapacityUnits property for this object.
+ * ReadCapacityUnits are in terms of strictly consistent reads, assuming
+ * items of 1KB. 2KB items require twice the ReadCapacityUnits.
+ * Eventually consistent reads only require half the ReadCapacityUnits of
+ * stirctly consistent reads.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Range: </b>1 - <br/>
@@ -47,7 +50,8 @@
 @property (nonatomic, retain) NSNumber *readCapacityUnits;
 
 /**
- * The value of the WriteCapacityUnits property for this object.
+ * WriteCapacityUnits are in terms of strictly consistent reads, assuming
+ * items of 1KB. 2KB items require twice the WriteCapacityUnits.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Range: </b>1 - <br/>

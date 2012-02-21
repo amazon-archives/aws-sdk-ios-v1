@@ -142,6 +142,11 @@
     return (S3DeleteObjectResponse *)[self invoke:deleteObjectRequest];
 }
 
+-(S3DeleteObjectsResponse *)deleteObjects:(S3DeleteObjectsRequest *)deleteObjectsRequest
+{
+    return (S3DeleteObjectsResponse *)[self invoke:deleteObjectsRequest];
+}
+
 -(S3DeleteObjectResponse *)deleteObjectWithKey:(NSString *)theKey withBucket:(NSString *)theBucket
 {
     S3DeleteObjectRequest *request = [[S3DeleteObjectRequest alloc] init];
@@ -208,6 +213,37 @@
     return (S3SetBucketVersioningConfigurationResponse *)[self invoke:setBucketVersioningConfigurationRequest];
 }
 
+-(S3SetBucketWebsiteConfigurationResponse *)setBucketWebsiteConfiguration:(S3SetBucketWebsiteConfigurationRequest *)setBucketWebsiteConfigurationRequest
+{
+    return (S3SetBucketWebsiteConfigurationResponse *)[self invoke:setBucketWebsiteConfigurationRequest];
+}
+
+-(S3GetBucketWebsiteConfigurationResponse *)getBucketWebsiteConfiguration:(S3GetBucketWebsiteConfigurationRequest *)getBucketWebsiteConfigurationRequest
+{
+    return (S3GetBucketWebsiteConfigurationResponse *)[self invoke:getBucketWebsiteConfigurationRequest];
+}
+
+-(S3DeleteBucketWebsiteConfigurationResponse *)deleteBucketWebsiteConfiguration:(S3DeleteBucketWebsiteConfigurationRequest *)deleteBucketWebsiteConfigurationRequest
+{
+    return (S3DeleteBucketWebsiteConfigurationResponse *)[self invoke:deleteBucketWebsiteConfigurationRequest];
+}
+
+-(S3SetBucketLifecycleConfigurationResponse *)setBucketLifecycleConfiguration:(S3SetBucketLifecycleConfigurationRequest *)setBucketLifecycleConfigurationRequest
+{
+    return (S3SetBucketLifecycleConfigurationResponse *)[self invoke:setBucketLifecycleConfigurationRequest];
+}
+
+-(S3GetBucketLifecycleConfigurationResponse *)getBucketLifecycleConfiguration:(S3GetBucketLifecycleConfigurationRequest *)getBucketLifecycleConfigurationRequest
+{
+    return (S3GetBucketLifecycleConfigurationResponse *)[self invoke:getBucketLifecycleConfigurationRequest];
+}
+
+-(S3DeleteBucketLifecycleConfigurationResponse *)deleteBucketLifecycleConfiguration:(S3DeleteBucketLifecycleConfigurationRequest *)deleteBucketLifecycleConfigurationRequest
+{
+    return (S3DeleteBucketLifecycleConfigurationResponse *)[self invoke:deleteBucketLifecycleConfigurationRequest];
+}
+
+
 -(S3DeleteVersionResponse *)deleteVersion:(S3DeleteVersionRequest *)deleteVersionRequest
 {
     return (S3DeleteVersionResponse *)[self invoke:deleteVersionRequest];
@@ -231,6 +267,10 @@
 
     if (preSignedURLRequest.endpoint == nil) {
         [preSignedURLRequest setEndpoint:self.endpoint];
+    }
+
+    if (preSignedURLRequest.securityToken == nil && credentials != nil && credentials.securityToken != nil) {
+        preSignedURLRequest.securityToken = credentials.securityToken;
     }
 
 
@@ -534,6 +574,9 @@
     [S3SetBucketPolicyResponse class];
     [S3SetBucketVersioningConfigurationResponse class];
     [S3UploadPartResponse class];
+    [S3GetBucketLifecycleConfigurationResponse class];
+    [S3SetBucketLifecycleConfigurationResponse class];
+    [S3DeleteBucketLifecycleConfigurationResponse class];
 }
 
 

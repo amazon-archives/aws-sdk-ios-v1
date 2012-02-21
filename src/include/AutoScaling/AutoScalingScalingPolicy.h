@@ -64,15 +64,15 @@
 @property (nonatomic, retain) NSString *policyName;
 
 /**
- * The number associated with the specified AdjustmentType. A positive
+ * The number associated with the specified adjustment type. A positive
  * value adds to the current capacity and a negative value removes from
  * the current capacity.
  */
 @property (nonatomic, retain) NSNumber *scalingAdjustment;
 
 /**
- * Specifies whether the ScalingAdjustment is an absolute number or a
- * percentage of the current capacity. Valid values are
+ * Specifies whether the <code>ScalingAdjustment</code> is an absolute
+ * number or a percentage of the current capacity. Valid values are
  * <code>ChangeInCapacity</code>, <code>ExactCapacity</code>, and
  * <code>PercentOfCapacity</code>.
  * <p>
