@@ -14,8 +14,8 @@
  */
 
 #import "S3UploaderAppDelegate.h"
-
 #import "S3UploaderViewController.h"
+#import <AWSiOSSDK/AmazonLogger.h>
 
 @implementation S3UploaderAppDelegate
 
@@ -30,6 +30,14 @@
 
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+    
+    // Logging Control - Do NOT use logging for non-development builds.
+#ifdef DEBUG
+    [AmazonLogger verboseLogging];
+#else
+    [AmazonLogger turnLoggingOff];
+#endif
+    
     return YES;
 }
 

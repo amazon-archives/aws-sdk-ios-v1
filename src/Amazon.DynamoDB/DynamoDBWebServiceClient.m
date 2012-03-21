@@ -17,8 +17,6 @@
 
 @implementation DynamoDBWebServiceClient
 
-@synthesize endpoint, maxRetries, timeout, userAgent, delay;
-
 -(id)initWithCredentials:(AmazonCredentials *)theCredentials
 {
     if (self = [self init]) {
@@ -29,20 +27,6 @@
         userAgent   = [[AmazonSDKUtil userAgentString] retain];
     }
     return self;
-}
-
-+(id)constructResponseFromRequest:(AmazonServiceRequest *)request
-{
-    NSString *requestClassName  = NSStringFromClass([request class]);
-    NSString *responseClassName = [[requestClassName substringToIndex:[requestClassName length] - 7] stringByAppendingFormat:@"Response"];
-
-    id       response = [[NSClassFromString(responseClassName) alloc] init];
-
-    if (nil == response) {
-        response = [[DynamoDBResponse alloc] init];
-    }
-
-    return [response autorelease];
 }
 
 -(AmazonServiceResponse *)invoke:(AmazonServiceRequest *)generatedRequest rawRequest:(AmazonServiceRequestConfig *)originalRequest unmarshallerDelegate:(Class)unmarshallerDelegate
@@ -80,7 +64,7 @@
     while (retries < self.maxRetries) {
         AMZLogDebug(@"Begin Request: %@:%d", NSStringFromClass([generatedRequest class]), retries);
 
-        response = [DynamoDBWebServiceClient constructResponseFromRequest:generatedRequest];
+        response = (DynamoDBResponse *)[DynamoDBWebServiceClient constructResponseFromRequest:generatedRequest];
         [response setRequest:generatedRequest];
         response.unmarshallerDelegate = unmarshallerDelegate;
 
@@ -143,47 +127,6 @@
             return nil; //TODO: Throw an exception here AmazonClientException
         }
     }
-}
-
--(bool)shouldRetry:(DynamoDBResponse *)response exception:(NSException *)theException
-{
-    AmazonServiceException *exception = (AmazonServiceException *)theException;
-
-    if (response.didTimeout || response.httpStatusCode == 500 || response.httpStatusCode == 503) {
-        return YES;
-    }
-    else if (exception == nil) {
-        return NO;
-    }
-    else if ( [exception.errorCode isEqualToString:@"ProvisionedThroughputExceededException"]) {
-        return YES;
-    }
-    else if (exception.reason != nil && [exception.reason rangeOfString:@"Throttling"].location != NSNotFound) {
-        return YES;
-    }
-
-    return NO;
-}
-
--(void)pauseExponentially:(int)tryCount
-{
-    NSTimeInterval pause = self.delay * (pow(2, tryCount));
-
-    [NSThread sleepForTimeInterval:pause];
-}
-
--(void)setUserAgent:(NSString *)newUserAgent
-{
-    userAgent = [[NSString stringWithFormat:@"%@, %@", newUserAgent, [AmazonSDKUtil userAgentString]] retain];
-}
-
--(void)dealloc
-{
-    [credentials release];
-    [endpoint release];
-    [userAgent release];
-
-    [super dealloc];
 }
 
 @end

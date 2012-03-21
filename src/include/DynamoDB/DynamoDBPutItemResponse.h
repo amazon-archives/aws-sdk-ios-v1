@@ -50,15 +50,19 @@
 
 /**
  * Attribute values before the put operation, but only if the
- * ReturnValues parameter is specified as ALL_OLD in the request.
+ * <code>ReturnValues</code> parameter is specified as
+ * <code>ALL_OLD</code> in the request.
  */
 @property (nonatomic, retain) NSMutableDictionary *attributes;
 
 /**
  * The number of Capacity Units of the provisioned throughput of the
- * table consumed during the operation. GetItem, BatchGetItem, Query, and
- * Scan operations consume Read Capacity Units, while PutItem,
- * UpdateItem, and DeleteItem operations consume Write Capacity Units.
+ * table consumed during the operation. <code>GetItem</code>,
+ * <code>BatchGetItem</code>, <code>Query</code>, and <code>Scan</code>
+ * operations consume <code>ReadCapacityUnits</code>, while
+ * <code>PutItem</code>, <code>UpdateItem</code>, and
+ * <code>DeleteItem</code> operations consume
+ * <code>WriteCapacityUnits</code>.
  */
 @property (nonatomic, retain) NSNumber *consumedCapacityUnits;
 

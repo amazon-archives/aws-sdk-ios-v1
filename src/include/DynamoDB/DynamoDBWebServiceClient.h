@@ -27,65 +27,18 @@
 #import "../AmazonURLRequest.h"
 #import "../AmazonCredentials.h"
 #import "../AmazonRequestDelegate.h"
+#import "../AmazonAbstractWebServiceClient.h"
 
-@interface DynamoDBWebServiceClient:NSObject
+@interface DynamoDBWebServiceClient:AmazonAbstractWebServiceClient
 {
-    AmazonCredentials *credentials;
-    NSString          *endpoint;
-    int               maxRetries;
-    NSTimeInterval    timeout;
-    NSTimeInterval    delay;
-    NSString          *userAgent;
 }
 
-/** The service endpoint to which requests should be sent. */
-@property (nonatomic, retain) NSString *endpoint;
-
-/** The maximum number of retry attempts for failed retryable requests
- * (ex: 5xx error responses from a service).
- *
- * Default is 10.
- */
-@property int maxRetries;
-
-/** The amount of time to wait (in milliseconds) for data to be transfered over
- * an established, open connection before the connection times out and is closed.
- *
- * Default is 30 seconds.
- */
-@property NSTimeInterval timeout;
-
-/**
- * The amount of time to pause between retries.  The pause time will grow exponentially
- * for each retry on a single request.
- * Default is 0.05 seconds.
- */
-@property NSTimeInterval delay;
-
-/** The HTTP user agent header to send with all requests. */
-@property (nonatomic, retain) NSString *userAgent;
-
-/** Inits the client the given credentials. */
--(id)initWithCredentials:(AmazonCredentials *)theCredentials;
-
-/** Constructs an empty response object of the appropriate type to match the given request
- * object.
- * @param request An instance of a subclass of AmazonServiceRequest.
- * @return An instance of the appropriate subclass of AmazonServiceResponse, or
- *         an instance of AmazonServiceResponse if there is no response class to
- *         match the instance passed in.
- */
-+(DynamoDBResponse *)constructResponseFromRequest:(AmazonServiceRequest *)request;
-
-/** Utility method that sends the raw S3 Request to be processed.
+/** Utility method that sends the AmazonServiceRequest to be processed.
  *
  * @param request An AmazonServiceRequest describing the parameters of a request.
  * @return The response from the service.
  */
 -(AmazonServiceResponse *)invoke:(AmazonServiceRequest *)generatedRequest rawRequest:(AmazonServiceRequestConfig *)originalRequest unmarshallerDelegate:(Class)unmarshallerDelegate;
-
--(void)pauseExponentially:(int)tryCount;
--(bool)shouldRetry:(DynamoDBResponse *)response exception:(NSException *)theException;
 
 @end
 

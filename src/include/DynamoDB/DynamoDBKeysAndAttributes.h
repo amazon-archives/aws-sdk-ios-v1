@@ -48,9 +48,9 @@
 @property (nonatomic, retain) NSMutableArray *keys;
 
 /**
- * Array of Attribute names. If attribute names are not specified then
- * all attributes will be returned. If some attributes are not found,
- * they will not appear in the result.
+ * List of <code>Attribute</code> names. If attribute names are not
+ * specified then all attributes will be returned. If some attributes are
+ * not found, they will not appear in the result.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - <br/>

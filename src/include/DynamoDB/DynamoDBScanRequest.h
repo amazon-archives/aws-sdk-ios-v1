@@ -41,7 +41,10 @@
 
 
 /**
- * The value of the TableName property for this object.
+ * The name of the table in which you want to scan. Allowed characters
+ * are <code>a-z</code>, <code>A-Z</code>, <code>0-9</code>,
+ * <code>_</code> (underscore), <code>-</code> (hyphen) and
+ * <code>.</code> (period).
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>3 - 255<br/>
@@ -50,9 +53,9 @@
 @property (nonatomic, retain) NSString *tableName;
 
 /**
- * Array of Attribute names. If attribute names are not specified then
- * all attributes will be returned. If some attributes are not found,
- * they will not appear in the result.
+ * List of <code>Attribute</code> names. If attribute names are not
+ * specified then all attributes will be returned. If some attributes are
+ * not found, they will not appear in the result.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - <br/>
@@ -62,12 +65,12 @@
 /**
  * The maximum number of items to return. If Amazon DynamoDB hits this
  * limit while scanning the table, it stops the scan and returns the
- * matching values up to the limit, and a LastEvaluatedKey to apply in a
- * subsequent operation to continue the scan. Also, if the scanned data
- * set size exceeds 1MB before Amazon DynamoDB hits this limit, it stops
- * the scan and returns the matching values up to the limit, and a
- * LastEvaluatedKey to apply in a subsequent operation to continue the
- * scan.
+ * matching values up to the limit, and a <code>LastEvaluatedKey</code>
+ * to apply in a subsequent operation to continue the scan. Also, if the
+ * scanned data set size exceeds 1 MB before Amazon DynamoDB hits this
+ * limit, it stops the scan and returns the matching values up to the
+ * limit, and a <code>LastEvaluatedKey</code> to apply in a subsequent
+ * operation to continue the scan.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Range: </b>1 - <br/>
@@ -75,11 +78,12 @@
 @property (nonatomic, retain) NSNumber *limit;
 
 /**
- * If set to true, Amazon DynamoDB returns a total number of items for
- * the Scan operation, even if the operation has no matching items for
- * the assigned filter. Do not set Count to true while providing a list
- * of AttributesToGet, otherwise Amazon DynamoDB returns a validation
- * error.
+ * If set to <code>true</code>, Amazon DynamoDB returns a total number of
+ * items for the <code>Scan</code> operation, even if the operation has
+ * no matching items for the assigned filter. Do not set
+ * <code>Count</code> to <code>true</code> while providing a list of
+ * <code>AttributesToGet</code>, otherwise Amazon DynamoDB returns a
+ * validation error.
  */
 @property (nonatomic) bool           count;
 
@@ -94,9 +98,9 @@
  * Primary key of the item from which to continue an earlier scan. An
  * earlier scan might provide this value if that scan operation was
  * interrupted before scanning the entire table; either because of the
- * result set size or the Limit parameter. The LastEvaluatedKey can be
- * passed back in a new scan request to continue the operation from that
- * point.
+ * result set size or the <code>Limit</code> parameter. The
+ * <code>LastEvaluatedKey</code> can be passed back in a new scan request
+ * to continue the operation from that point.
  */
 @property (nonatomic, retain) DynamoDBKey *exclusiveStartKey;
 
@@ -111,7 +115,10 @@
  * Constructs a new ScanRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theTableName
+ * @param theTableName The name of the table in which you want to scan.
+ * Allowed characters are <code>a-z</code>, <code>A-Z</code>,
+ * <code>0-9</code>, <code>_</code> (underscore), <code>-</code> (hyphen)
+ * and <code>.</code> (period).
  */
 -(id)initWithTableName:(NSString *)theTableName;
 

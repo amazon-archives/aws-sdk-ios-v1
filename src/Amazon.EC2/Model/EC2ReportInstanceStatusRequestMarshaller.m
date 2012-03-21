@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"ReportInstanceStatus"           forKey:@"Action"];
-    [request setParameterValue:@"2011-12-15"   forKey:@"Version"];
+    [request setParameterValue:@"2012-03-01"   forKey:@"Version"];
 
     [request setDelegate:[reportInstanceStatusRequest delegate]];
     [request setCredentials:[reportInstanceStatusRequest credentials]];
@@ -34,7 +34,7 @@
         int instancesListIndex = 1;
         for (NSString *instancesListValue in reportInstanceStatusRequest.instances) {
             if (instancesListValue != nil) {
-                [request setParameterValue:[NSString stringWithFormat:@"%@", instancesListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"InstancesSet", instancesListIndex]];
+                [request setParameterValue:[NSString stringWithFormat:@"%@", instancesListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"InstanceId", instancesListIndex]];
             }
 
             instancesListIndex++;
@@ -58,11 +58,9 @@
 
     if (reportInstanceStatusRequest != nil) {
         int reasonCodesListIndex = 1;
-        for (EC2ReasonCode *reasonCodesListValue in reportInstanceStatusRequest.reasonCodes) {
+        for (NSString *reasonCodesListValue in reportInstanceStatusRequest.reasonCodes) {
             if (reasonCodesListValue != nil) {
-                if (reasonCodesListValue.reasonCode != nil) {
-                    [request setParameterValue:[NSString stringWithFormat:@"%@", reasonCodesListValue.reasonCode] forKey:[NSString stringWithFormat:@"%@.%d.%@", @"ReasonCodesSet", reasonCodesListIndex, @"ReasonCode"]];
-                }
+                [request setParameterValue:[NSString stringWithFormat:@"%@", reasonCodesListValue] forKey:[NSString stringWithFormat:@"%@.%d", @"ReasonCode", reasonCodesListIndex]];
             }
 
             reasonCodesListIndex++;

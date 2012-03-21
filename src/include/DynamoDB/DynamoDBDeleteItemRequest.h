@@ -38,7 +38,10 @@
 
 
 /**
- * The value of the TableName property for this object.
+ * The name of the table in which you want to delete an item. Allowed
+ * characters are <code>a-z</code>, <code>A-Z</code>, <code>0-9</code>,
+ * <code>_</code> (underscore), <code>-</code> (hyphen) and
+ * <code>.</code> (period).
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>3 - 255<br/>
@@ -54,25 +57,29 @@
 @property (nonatomic, retain) DynamoDBKey *key;
 
 /**
- * Designates an attribute for a conditional modification. The Expected
- * parameter allows you to provide an attribute name, and whether or not
- * Amazon DynamoDB should check to see if the attribute has a particular
- * value before modifying it.
+ * Designates an attribute for a conditional modification. The
+ * <code>Expected</code> parameter allows you to provide an attribute
+ * name, and whether or not Amazon DynamoDB should check to see if the
+ * attribute has a particular value before modifying it.
  */
 @property (nonatomic, retain) NSMutableDictionary *expected;
 
 /**
  * Use this parameter if you want to get the attribute name-value pairs
- * before or after they are modified. For put operations, the possible
- * parameter values are NONE (default) or ALL_OLD. For update operations,
- * the possible parameter values are NONE (default) or ALL_OLD,
- * UPDATED_OLD, ALL_NEW or UPDATED_NEW. NONE : Nothing is returned.
- * ALL_OLD : Returns the attributes of the item as they were before the
- * operation. UPDATED_OLD : Returns the values of the updated attributes,
- * only, as they were before the operation. ALL_NEW : Returns all the
- * attributes and their new values after the operation. UPDATED_NEW :
- * Returns the values of the updated attributes, only, as they are after
- * the operation.
+ * before or after they are modified. For <code>PUT</code> operations,
+ * the possible parameter values are <code>NONE</code> (default) or
+ * <code>ALL_OLD</code>. For update operations, the possible parameter
+ * values are <code>NONE</code> (default) or <code>ALL_OLD</code>,
+ * <code>UPDATED_OLD</code>, <code>ALL_NEW</code> or
+ * <code>UPDATED_NEW</code>. <ul> <li><code>NONE</code>: Nothing is
+ * returned.</li> <li><code>ALL_OLD</code>: Returns the attributes of the
+ * item as they were before the operation.</li>
+ * <li><code>UPDATED_OLD</code>: Returns the values of the updated
+ * attributes, only, as they were before the operation.</li>
+ * <li><code>ALL_NEW</code>: Returns all the attributes and their new
+ * values after the operation.</li> <li><code>UPDATED_NEW</code>: Returns
+ * the values of the updated attributes, only, as they are after the
+ * operation.</li> </ul>
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Allowed Values: </b>NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW
@@ -90,7 +97,10 @@
  * Constructs a new DeleteItemRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theTableName
+ * @param theTableName The name of the table in which you want to delete
+ * an item. Allowed characters are <code>a-z</code>, <code>A-Z</code>,
+ * <code>0-9</code>, <code>_</code> (underscore), <code>-</code> (hyphen)
+ * and <code>.</code> (period).
  * @param theKey The primary key that uniquely identifies each item in a
  * table. A primary key can be a one attribute (hash) primary key or a
  * two attribute (hash-and-range) primary key.

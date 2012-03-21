@@ -66,6 +66,7 @@
     [super configureURLRequest];
 
     [urlRequest setHTTPMethod:kHttpMethodGet];
+    [self.urlRequest setHTTPBody:nil];
 
     if (nil != self.ifModifiedSince) {
         [urlRequest setValue:[self.ifModifiedSince requestFormat] forHTTPHeaderField:kHttpHdrIfModified];

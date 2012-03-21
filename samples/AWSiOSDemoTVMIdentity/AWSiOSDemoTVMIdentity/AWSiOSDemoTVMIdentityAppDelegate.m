@@ -29,8 +29,12 @@
     [window addSubview:viewController.view];
     [window makeKeyAndVisible];
 
-    // Comment the line below to stop some of the logging.
+    // Logging Control - Do NOT use logging for non-development builds.
+#ifdef DEBUG
     [AmazonLogger verboseLogging];
+#else
+    [AmazonLogger turnLoggingOff];
+#endif
 
     return YES;
 }

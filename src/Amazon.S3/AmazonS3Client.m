@@ -349,11 +349,17 @@
 
 
 
-
-    if (request.securityToken == nil && credentials != nil && credentials.securityToken != nil) {
-        request.securityToken = credentials.securityToken;
+    if (request.securityToken == nil)
+    {
+        if(request.credentials == nil && credentials.securityToken != nil)
+        {
+            request.securityToken = credentials.securityToken;
+        }
+        else if(request.credentials.securityToken != nil)
+        {
+            request.securityToken = request.credentials.securityToken;
+        }
     }
-
 
     AMZLogDebug(@"Begin Request: %@", NSStringFromClass([request class]));
 

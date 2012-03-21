@@ -3,6 +3,7 @@
 #import "../AmazonServiceRequest.h"
 #import "../AmazonAuthUtils.h"
 
+//#define SIGV4 1
 
 @interface DynamoDBRequest:AmazonServiceRequest {
     NSString            *content;
@@ -15,13 +16,9 @@
 
 -(NSArray *)headersToSign;
 -(void)addValue:(NSString *)theValue forHeader:(NSString *)theHeader;
--(NSString *)generateAuthorization;
+-(NSString *)generateAuthorization3;
 -(NSString *)generateSignature;
 -(NSString *)generateStringToSign;
 -(NSArray *)headersToSign;
--(NSString *)getHostFromEndpoint;
-
-+(NSData *)hash:(NSData *)data;
-
 
 @end

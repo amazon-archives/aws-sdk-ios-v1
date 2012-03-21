@@ -29,6 +29,9 @@
     id<AmazonServiceRequestDelegate> delegate;
     NSString                         *httpMethod;
     NSString                         *endpoint;
+    NSString                         *serviceName;
+    NSString                         *regionName;
+    NSString                         *hostName;
     NSString                         *userAgent;
     AmazonCredentials                *credentials;
     NSURLConnection                  *urlConnection;
@@ -58,6 +61,9 @@
 
 @property (nonatomic, retain) NSMutableDictionary *parameters;
 @property (nonatomic, retain) NSString            *endpoint;
+@property (nonatomic, retain) NSString            *serviceName;
+@property (nonatomic, retain) NSString            *regionName;
+@property (nonatomic, retain) NSString            *hostName;
 @property (nonatomic, retain) NSString            *userAgent;
 
 /**

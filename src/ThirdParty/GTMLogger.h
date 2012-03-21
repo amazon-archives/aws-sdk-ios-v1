@@ -209,11 +209,15 @@
 // that).
 //
 @interface GTMLogger : NSObject {
+    bool isLoggingOn;
+    
 @private
 	id<GTMLogWriter> writer_;
 	id<GTMLogFormatter> formatter_;
 	id<GTMLogFilter> filter_;
 }
+
+
 
 //
 // Accessors for the shared logger instance
@@ -257,6 +261,10 @@
 // does not do any special log formatting; this is the difference between a
 // "regular" logger and a "standard" logger.
 + (id)logger;
+
+
+-(void)turnLoggerOff;
+-(void)turnLoggerOn;
 
 // Designated initializer. This method returns a GTMLogger initialized with the
 // specified |writer|, |formatter|, and |filter|. See the setter methods below

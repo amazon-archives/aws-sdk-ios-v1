@@ -62,17 +62,20 @@
 /**
  * Primary key of the item where the query operation stopped, inclusive
  * of the previous result set. Use this value to start a new operation
- * excluding this value in the new request. The LastEvaluatedKey is null
- * when the entire query result set is complete (i.e. the operation
- * processed the "last page").
+ * excluding this value in the new request. The
+ * <code>LastEvaluatedKey</code> is null when the entire query result set
+ * is complete (i.e. the operation processed the "last page").
  */
 @property (nonatomic, retain) DynamoDBKey *lastEvaluatedKey;
 
 /**
  * The number of Capacity Units of the provisioned throughput of the
- * table consumed during the operation. GetItem, BatchGetItem, Query, and
- * Scan operations consume Read Capacity Units, while PutItem,
- * UpdateItem, and DeleteItem operations consume Write Capacity Units.
+ * table consumed during the operation. <code>GetItem</code>,
+ * <code>BatchGetItem</code>, <code>Query</code>, and <code>Scan</code>
+ * operations consume <code>ReadCapacityUnits</code>, while
+ * <code>PutItem</code>, <code>UpdateItem</code>, and
+ * <code>DeleteItem</code> operations consume
+ * <code>WriteCapacityUnits</code>.
  */
 @property (nonatomic, retain) NSNumber *consumedCapacityUnits;
 

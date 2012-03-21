@@ -36,15 +36,17 @@
 /**
  * A hash key element is treated as the primary key, and can be a string
  * or a number. Single attribute primary keys have one index value. The
- * value can be String, Number, StringSet, NumberSet.
+ * value can be <code>String</code>, <code>Number</code>,
+ * <code>StringSet</code>, <code>NumberSet</code>.
  */
 @property (nonatomic, retain) DynamoDBAttributeValue *hashKeyElement;
 
 /**
  * A range key element is treated as a secondary key (used in conjunction
  * with the primary key), and can be a string or a number, and is only
- * used for hash-and-range primary keys. The value can be String, Number,
- * StringSet, NumberSet.
+ * used for hash-and-range primary keys. The value can be
+ * <code>String</code>, <code>Number</code>, <code>StringSet</code>,
+ * <code>NumberSet</code>.
  */
 @property (nonatomic, retain) DynamoDBAttributeValue *rangeKeyElement;
 
@@ -61,8 +63,8 @@
  *
  * @param theHashKeyElement A hash key element is treated as the primary
  * key, and can be a string or a number. Single attribute primary keys
- * have one index value. The value can be String, Number, StringSet,
- * NumberSet.
+ * have one index value. The value can be <code>String</code>,
+ * <code>Number</code>, <code>StringSet</code>, <code>NumberSet</code>.
  */
 -(id)initWithHashKeyElement:(DynamoDBAttributeValue *)theHashKeyElement;
 
@@ -72,12 +74,13 @@
  *
  * @param theHashKeyElement A hash key element is treated as the primary
  * key, and can be a string or a number. Single attribute primary keys
- * have one index value. The value can be String, Number, StringSet,
- * NumberSet.
+ * have one index value. The value can be <code>String</code>,
+ * <code>Number</code>, <code>StringSet</code>, <code>NumberSet</code>.
  * @param theRangeKeyElement A range key element is treated as a
  * secondary key (used in conjunction with the primary key), and can be a
  * string or a number, and is only used for hash-and-range primary keys.
- * The value can be String, Number, StringSet, NumberSet.
+ * The value can be <code>String</code>, <code>Number</code>,
+ * <code>StringSet</code>, <code>NumberSet</code>.
  */
 -(id)initWithHashKeyElement:(DynamoDBAttributeValue *)theHashKeyElement andRangeKeyElement:(DynamoDBAttributeValue *)theRangeKeyElement;
 

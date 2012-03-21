@@ -33,7 +33,9 @@
 
 
 /**
- * The value of the TableName property for this object.
+ * The name of the table you want to describe. Allowed characters are
+ * <code>a-z</code>, <code>A-Z</code>, <code>0-9</code>, <code>_</code>
+ * (underscore), <code>-</code> (hyphen) and <code>.</code> (period).
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>3 - 255<br/>
@@ -52,7 +54,10 @@
  * Constructs a new DescribeTableRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theTableName
+ * @param theTableName The name of the table you want to describe.
+ * Allowed characters are <code>a-z</code>, <code>A-Z</code>,
+ * <code>0-9</code>, <code>_</code> (underscore), <code>-</code> (hyphen)
+ * and <code>.</code> (period).
  */
 -(id)initWithTableName:(NSString *)theTableName;
 

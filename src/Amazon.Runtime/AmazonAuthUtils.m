@@ -31,6 +31,37 @@
     return [AmazonAuthUtils HMACSign:[theSts dataUsingEncoding:NSUTF8StringEncoding] withKey:credentials.secretKey usingAlgorithm:kCCHmacAlgSHA256];
 }
 
++(NSString *)signRequestV4:(AmazonServiceRequest *)serviceRequest headers:(NSMutableDictionary *)headers payload:(NSString *)payload credentials:(AmazonCredentials *)credentials
+{
+    NSDate *date = [NSDate date];
+    
+    NSString *dateStamp = [date dateStamp];
+    NSString *dateTime  = [date dateTime];
+    
+    // TODO: This needs to be generalized for non-Dynamo calls (path and query)
+    NSString *canonicalRequest = [AmazonAuthUtils getCanonicalizedRequest:serviceRequest.urlRequest.HTTPMethod path:@"/" query:@"" headers:headers payload:payload];    
+    
+    AMZLogDebug(@"AWS4 Canonical Request: [%@]", canonicalRequest);
+    
+    NSString *scope              = [NSString stringWithFormat:@"%@/%@/%@/%@", dateStamp, serviceRequest.regionName, serviceRequest.serviceName, SIGV4_TERMINATOR];
+    NSString *signingCredentials = [NSString stringWithFormat:@"%@/%@", credentials.accessKey, scope];
+    NSString *stringToSign       = [NSString stringWithFormat:@"%@\n%@\n%@\n%@", SIGV4_ALGORITHM, dateTime, scope, [AmazonSDKUtil hexEncode:[AmazonAuthUtils hashString:canonicalRequest]]];
+    
+    AMZLogDebug(@"AWS4 String to Sign: [%@]", stringToSign);
+    
+    NSData *kSigning  = [AmazonAuthUtils getV4DerivedKey:credentials.secretKey date:dateStamp region:serviceRequest.regionName service:serviceRequest.serviceName];
+    NSData *signature = [AmazonAuthUtils sha256HMacWithData:[stringToSign dataUsingEncoding:NSUTF8StringEncoding] withKey:kSigning];
+    
+    NSString *credentialsAuthorizationHeader   = [NSString stringWithFormat:@"Credential=%@", signingCredentials];
+    NSString *signedHeadersAuthorizationHeader = [NSString stringWithFormat:@"SignedHeaders=%@", [AmazonAuthUtils getSignedHeadersString:headers]];
+    NSString *signatureAuthorizationHeader     = [NSString stringWithFormat:@"Signature=%@", [AmazonSDKUtil hexEncode:[[NSString alloc] initWithData:signature encoding:NSASCIIStringEncoding]]];
+    
+    // Now add date header
+    [headers setObject:dateTime forKey:@"X-Amz-Date"];
+    
+    return [NSString stringWithFormat:@"%@ %@, %@, %@", SIGV4_ALGORITHM, credentialsAuthorizationHeader, signedHeadersAuthorizationHeader, signatureAuthorizationHeader];
+}
+
 +(NSString *)getV2StringToSign:(NSURL *)theEndpoint request:(AmazonServiceRequest *)serviceRequest
 {
     NSString *host = [theEndpoint host];
@@ -148,6 +179,81 @@
     CC_SHA256(cStr, [dataToHash length], result);
 
     return [[[NSData alloc] initWithBytes:result length:CC_SHA256_DIGEST_LENGTH] autorelease];
+}
+
++(NSData *)getV4DerivedKey:(NSString *)secret date:(NSString *)dateStamp region:(NSString *)regionName service:(NSString *)serviceName
+{
+    // AWS4 uses a series of derived keys, formed by hashing different pieces of data
+    NSString *kSecret   = [NSString stringWithFormat:@"%@%@", SIGV4_MARKER, secret];
+    NSData   *kDate     = [AmazonAuthUtils sha256HMacWithData:[dateStamp dataUsingEncoding:NSUTF8StringEncoding] withKey:[kSecret dataUsingEncoding:NSUTF8StringEncoding]];
+    NSData   *kRegion   = [AmazonAuthUtils sha256HMacWithData:[regionName dataUsingEncoding:NSASCIIStringEncoding] withKey:kDate];
+    NSData   *kService  = [AmazonAuthUtils sha256HMacWithData:[serviceName dataUsingEncoding:NSUTF8StringEncoding] withKey:kRegion];
+    NSData   *kSigning  = [AmazonAuthUtils sha256HMacWithData:[SIGV4_TERMINATOR dataUsingEncoding:NSUTF8StringEncoding] withKey:kService];
+    
+    
+    //TODO: cache this derived key?
+    return kSigning;
+}
+
++(NSString *)getCanonicalizedRequest:(NSString *)method path:(NSString *)path query:(NSString *)query headers:(NSMutableDictionary *)headers payload:(NSString *)payload
+{
+    NSMutableString *canonicalRequest = [[NSMutableString alloc] init];
+    [canonicalRequest appendString:method];
+    [canonicalRequest appendString:@"\n"];
+    [canonicalRequest appendString:path]; // Canonicalized resource path
+    [canonicalRequest appendString:@"\n"];
+    
+    [canonicalRequest appendString:query]; // Canonicalized Query String
+    [canonicalRequest appendString:@"\n"];
+    
+    [canonicalRequest appendString:[AmazonAuthUtils getCanonicalizedHeaderString:headers]];
+    [canonicalRequest appendString:@"\n"];
+    
+    [canonicalRequest appendString:[AmazonAuthUtils getSignedHeadersString:headers]];
+    [canonicalRequest appendString:@"\n"];
+    
+    AMZLogDebug(@"AWS4 Content to Hash: [%@]", payload);
+    
+    NSString* hashString = [AmazonSDKUtil hexEncode:[AmazonAuthUtils hashString:payload]];
+    
+    [canonicalRequest appendString:[NSString stringWithFormat:@"%@", hashString]];
+    
+    return canonicalRequest;
+}
+
+
++(NSString *)getCanonicalizedHeaderString:(NSMutableDictionary *)theHeaders
+{
+    NSMutableArray *sortedHeaders = [[[NSMutableArray alloc] initWithArray:[theHeaders allKeys]] autorelease];
+    
+    [sortedHeaders sortUsingSelector:@selector(caseInsensitiveCompare:)];
+    
+    NSMutableString *headerString = [[[NSMutableString alloc] init] autorelease];
+    for (NSString *header in sortedHeaders) {
+        [headerString appendString:[header lowercaseString]];
+        [headerString appendString:@":"];
+        [headerString appendString:[theHeaders valueForKey:header]];
+        [headerString appendString:@"\n"];
+    }
+    
+    return headerString;
+}
+
++(NSString *)getSignedHeadersString:(NSMutableDictionary *)theHeaders
+{
+    NSMutableArray *sortedHeaders = [[[NSMutableArray alloc] initWithArray:[theHeaders allKeys]] autorelease];
+    
+    [sortedHeaders sortUsingSelector:@selector(caseInsensitiveCompare:)];
+    
+    NSMutableString *headerString = [[[NSMutableString alloc] init] autorelease];
+    for (NSString *header in sortedHeaders) {
+        if ( [headerString length] > 0) {
+            [headerString appendString:@";"];
+        }
+        [headerString appendString:[header lowercaseString]];
+    }
+    
+    return headerString;
 }
 
 @end

@@ -88,7 +88,7 @@ static AmazonTVMClient      *tvm = nil;
         ableToGetToken = [[AmazonClientManager tvm] getToken];
     }
 
-    if ( [ableToGetToken wasSuccessful] && (sdb == nil) || (s3 == nil) || (sqs == nil) || (sns == nil)) {
+    if ( ([ableToGetToken wasSuccessful] && (sdb == nil)) || (s3 == nil) || (sqs == nil) || (sns == nil)) {
         [AmazonClientManager clearCredentials];
 
         AmazonCredentials *credentials = [[AmazonKeyChainWrapper getCredentialsFromKeyChain] autorelease];

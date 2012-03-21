@@ -38,7 +38,10 @@
 
 
 /**
- * The value of the TableName property for this object.
+ * The name of the table in which you want to get an item. Allowed
+ * characters are <code>a-z</code>, <code>A-Z</code>, <code>0-9</code>,
+ * <code>_</code> (underscore), <code>-</code> (hyphen) and
+ * <code>.</code> (period).
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>3 - 255<br/>
@@ -54,9 +57,9 @@
 @property (nonatomic, retain) DynamoDBKey *key;
 
 /**
- * Array of Attribute names. If attribute names are not specified then
- * all attributes will be returned. If some attributes are not found,
- * they will not appear in the result.
+ * List of <code>Attribute</code> names. If attribute names are not
+ * specified then all attributes will be returned. If some attributes are
+ * not found, they will not appear in the result.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - <br/>
@@ -64,8 +67,8 @@
 @property (nonatomic, retain) NSMutableArray *attributesToGet;
 
 /**
- * If set to true, then a consistent read is issued, otherwise eventually
- * consistent is used.
+ * If set to <code>true</code>, then a consistent read is issued.
+ * Otherwise eventually-consistent is used.
  */
 @property (nonatomic) bool           consistentRead;
 
@@ -82,7 +85,10 @@
  * Constructs a new GetItemRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theTableName
+ * @param theTableName The name of the table in which you want to get an
+ * item. Allowed characters are <code>a-z</code>, <code>A-Z</code>,
+ * <code>0-9</code>, <code>_</code> (underscore), <code>-</code> (hyphen)
+ * and <code>.</code> (period).
  * @param theKey The primary key that uniquely identifies each item in a
  * table. A primary key can be a one attribute (hash) primary key or a
  * two attribute (hash-and-range) primary key.

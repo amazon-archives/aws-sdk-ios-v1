@@ -15,6 +15,7 @@
 
 #import "AppDelegate.h"
 #import "WelcomeViewController.h"
+#import <AWSiOSSDK/AmazonLogger.h>
 
 @implementation AppDelegate
 
@@ -41,6 +42,14 @@
     [welcome_view release];
 
     [self.window makeKeyAndVisible];
+        
+    // Logging Control - Do NOT use logging for non-development builds.
+#ifdef DEBUG
+    [AmazonLogger verboseLogging];
+#else
+    [AmazonLogger turnLoggingOff];
+#endif
+    
     return YES;
 }
 

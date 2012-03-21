@@ -17,6 +17,7 @@
 #import "Message_BoardAppDelegate.h"
 #import "Message_BoardViewController.h"
 #import "MessageBoard.h"
+#import <AWSiOSSDK/AmazonLogger.h>
 
 @implementation Message_BoardAppDelegate
 
@@ -32,6 +33,14 @@
 
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+    
+    // Logging Control - Do NOT use logging for non-development builds.
+#ifdef DEBUG
+    [AmazonLogger verboseLogging];
+#else
+    [AmazonLogger turnLoggingOff];
+#endif
+    
     return YES;
 }
 

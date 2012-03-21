@@ -49,12 +49,25 @@ static GTMLogger *gSharedLogger = nil;
 
 @implementation GTMLogger
 
+
+-(void)turnLoggerOff
+{
+    isLoggingOn = NO;
+}
+
+-(void)turnLoggerOn
+{
+    isLoggingOn = YES;
+}
+
+
 // Returns a pointer to the shared logger instance. If none exists, a standard 
 // logger is created and returned.
 + (id)sharedLogger {
 	@synchronized(self) {
 		if (gSharedLogger == nil) {
 			gSharedLogger = [[self standardLogger] retain];
+            [((GTMLogger*)gSharedLogger) turnLoggerOn];
 		}
 		GTMLOGGER_ASSERT(gSharedLogger != nil);
 	}
@@ -117,6 +130,7 @@ static GTMLogger *gSharedLogger = nil;
 		GTMLOGGER_ASSERT(filter_ != nil);
 		GTMLOGGER_ASSERT(writer_ != nil);
 	}
+    isLoggingOn = NO;
 	return self;
 }
 
@@ -179,31 +193,39 @@ static GTMLogger *gSharedLogger = nil;
 }
 
 - (void)logDebug:(NSString *)fmt, ... {
-	va_list args;
-	va_start(args, fmt);
-	[self logInternalFunc:NULL format:fmt valist:args level:kGTMLoggerLevelDebug];
-	va_end(args);
+    if ( isLoggingOn ) {
+        va_list args;
+        va_start(args, fmt);
+        [self logInternalFunc:NULL format:fmt valist:args level:kGTMLoggerLevelDebug];
+        va_end(args);
+    }
 }
 
 - (void)logInfo:(NSString *)fmt, ... {
-	va_list args;
-	va_start(args, fmt);
-	[self logInternalFunc:NULL format:fmt valist:args level:kGTMLoggerLevelInfo];
-	va_end(args);
+    if ( isLoggingOn ) {
+        va_list args;
+        va_start(args, fmt);
+        [self logInternalFunc:NULL format:fmt valist:args level:kGTMLoggerLevelInfo];
+        va_end(args);
+    }
 }
 
 - (void)logError:(NSString *)fmt, ... {
-	va_list args;
-	va_start(args, fmt);
-	[self logInternalFunc:NULL format:fmt valist:args level:kGTMLoggerLevelError];
-	va_end(args);
+    if ( isLoggingOn ) {
+        va_list args;
+        va_start(args, fmt);
+        [self logInternalFunc:NULL format:fmt valist:args level:kGTMLoggerLevelError];
+        va_end(args);
+    }
 }
 
 - (void)logAssert:(NSString *)fmt, ... {
-	va_list args;
-	va_start(args, fmt);
-	[self logInternalFunc:NULL format:fmt valist:args level:kGTMLoggerLevelAssert];
-	va_end(args);
+    if ( isLoggingOn ) {
+        va_list args;
+        va_start(args, fmt);
+        [self logInternalFunc:NULL format:fmt valist:args level:kGTMLoggerLevelAssert];
+        va_end(args);
+    }
 }
 
 @end  // GTMLogger
@@ -212,31 +234,39 @@ static GTMLogger *gSharedLogger = nil;
 @implementation GTMLogger (GTMLoggerMacroHelpers)
 
 - (void)logFuncDebug:(const char *)func msg:(NSString *)fmt, ... {
-	va_list args;
-	va_start(args, fmt);
-	[self logInternalFunc:func format:fmt valist:args level:kGTMLoggerLevelDebug];
-	va_end(args);
+    if ( isLoggingOn ) {
+        va_list args;
+        va_start(args, fmt);
+        [self logInternalFunc:func format:fmt valist:args level:kGTMLoggerLevelDebug];
+        va_end(args);
+    }
 }
 
 - (void)logFuncInfo:(const char *)func msg:(NSString *)fmt, ... {
-	va_list args;
-	va_start(args, fmt);
-	[self logInternalFunc:func format:fmt valist:args level:kGTMLoggerLevelInfo];
-	va_end(args);
+    if ( isLoggingOn ) {
+        va_list args;
+        va_start(args, fmt);
+        [self logInternalFunc:func format:fmt valist:args level:kGTMLoggerLevelInfo];
+        va_end(args);
+    }
 }
 
 - (void)logFuncError:(const char *)func msg:(NSString *)fmt, ... {
-	va_list args;
-	va_start(args, fmt);
-	[self logInternalFunc:func format:fmt valist:args level:kGTMLoggerLevelError];
-	va_end(args);
+    if ( isLoggingOn ) {
+        va_list args;
+        va_start(args, fmt);
+        [self logInternalFunc:func format:fmt valist:args level:kGTMLoggerLevelError];
+        va_end(args);
+    }
 }
 
 - (void)logFuncAssert:(const char *)func msg:(NSString *)fmt, ... {
-	va_list args;
-	va_start(args, fmt);
-	[self logInternalFunc:func format:fmt valist:args level:kGTMLoggerLevelAssert];
-	va_end(args);
+    if ( isLoggingOn ) {
+        va_list args;
+        va_start(args, fmt);
+        [self logInternalFunc:func format:fmt valist:args level:kGTMLoggerLevelAssert];
+        va_end(args);
+    }
 }
 
 @end  // GTMLoggerMacroHelpers

@@ -37,7 +37,9 @@
 
 
 /**
- * The value of the TableName property for this object.
+ * The name of the table you want to create. Allowed characters are
+ * <code>a-z</code>, <code>A-Z</code>, <code>0-9</code>, <code>_</code>
+ * (underscore), <code>-</code> (hyphen) and <code>.</code> (period).
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>3 - 255<br/>
@@ -46,23 +48,25 @@
 @property (nonatomic, retain) NSString *tableName;
 
 /**
- * KeySchema: The KeySchema identifies the primary key as a one attribute
- * primary key (hash) or a composite two attribute (hash-and-range)
- * primary key. Single attribute primary keys have one index value: a
- * HashKeyElement. A composite hash-and-range primary key contains two
- * attribute values: a HashKeyElement and a RangeKeyElement.
+ * The KeySchema identifies the primary key as a one attribute primary
+ * key (hash) or a composite two attribute (hash-and-range) primary key.
+ * Single attribute primary keys have one index value: a
+ * <code>HashKeyElement</code>. A composite hash-and-range primary key
+ * contains two attribute values: a <code>HashKeyElement</code> and a
+ * <code>RangeKeyElement</code>.
  */
 @property (nonatomic, retain) DynamoDBKeySchema *keySchema;
 
 /**
  * Provisioned throughput reserves the required read and write resources
- * for your table in terms of ReadCapacityUnits and WriteCapacityUnits.
- * Values for provisioned throughput depend upon your expected read/write
- * rates, item size, and consistency. Provide the expected number of read
- * and write operations, assuming an item size of 1KB and strictly
- * consistent reads. For 2KB item size, double the value, 3KB, triple the
- * value, etc. Eventually consistent reads consume half the resources of
- * strictly consistent reads.
+ * for your table in terms of <code>ReadCapacityUnits</code> and
+ * <code>WriteCapacityUnits</code>. Values for provisioned throughput
+ * depend upon your expected read/write rates, item size, and
+ * consistency. Provide the expected number of read and write operations,
+ * assuming an item size of 1k and strictly consistent reads. For 2k item
+ * size, double the value. For 3k, triple the value, etc.
+ * Eventually-consistent reads consume half the resources of strictly
+ * consistent reads.
  */
 @property (nonatomic, retain) DynamoDBProvisionedThroughput *provisionedThroughput;
 
@@ -77,12 +81,16 @@
  * Constructs a new CreateTableRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theTableName
- * @param theKeySchema KeySchema: The KeySchema identifies the primary
- * key as a one attribute primary key (hash) or a composite two attribute
+ * @param theTableName The name of the table you want to create. Allowed
+ * characters are <code>a-z</code>, <code>A-Z</code>, <code>0-9</code>,
+ * <code>_</code> (underscore), <code>-</code> (hyphen) and
+ * <code>.</code> (period).
+ * @param theKeySchema The KeySchema identifies the primary key as a one
+ * attribute primary key (hash) or a composite two attribute
  * (hash-and-range) primary key. Single attribute primary keys have one
- * index value: a HashKeyElement. A composite hash-and-range primary key
- * contains two attribute values: a HashKeyElement and a RangeKeyElement.
+ * index value: a <code>HashKeyElement</code>. A composite hash-and-range
+ * primary key contains two attribute values: a
+ * <code>HashKeyElement</code> and a <code>RangeKeyElement</code>.
  */
 -(id)initWithTableName:(NSString *)theTableName andKeySchema:(DynamoDBKeySchema *)theKeySchema;
 
@@ -90,21 +98,25 @@
  * Constructs a new CreateTableRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theTableName
- * @param theKeySchema KeySchema: The KeySchema identifies the primary
- * key as a one attribute primary key (hash) or a composite two attribute
+ * @param theTableName The name of the table you want to create. Allowed
+ * characters are <code>a-z</code>, <code>A-Z</code>, <code>0-9</code>,
+ * <code>_</code> (underscore), <code>-</code> (hyphen) and
+ * <code>.</code> (period).
+ * @param theKeySchema The KeySchema identifies the primary key as a one
+ * attribute primary key (hash) or a composite two attribute
  * (hash-and-range) primary key. Single attribute primary keys have one
- * index value: a HashKeyElement. A composite hash-and-range primary key
- * contains two attribute values: a HashKeyElement and a RangeKeyElement.
+ * index value: a <code>HashKeyElement</code>. A composite hash-and-range
+ * primary key contains two attribute values: a
+ * <code>HashKeyElement</code> and a <code>RangeKeyElement</code>.
  * @param theProvisionedThroughput Provisioned throughput reserves the
  * required read and write resources for your table in terms of
- * ReadCapacityUnits and WriteCapacityUnits. Values for provisioned
- * throughput depend upon your expected read/write rates, item size, and
- * consistency. Provide the expected number of read and write operations,
- * assuming an item size of 1KB and strictly consistent reads. For 2KB
- * item size, double the value, 3KB, triple the value, etc. Eventually
- * consistent reads consume half the resources of strictly consistent
- * reads.
+ * <code>ReadCapacityUnits</code> and <code>WriteCapacityUnits</code>.
+ * Values for provisioned throughput depend upon your expected read/write
+ * rates, item size, and consistency. Provide the expected number of read
+ * and write operations, assuming an item size of 1k and strictly
+ * consistent reads. For 2k item size, double the value. For 3k, triple
+ * the value, etc. Eventually-consistent reads consume half the resources
+ * of strictly consistent reads.
  */
 -(id)initWithTableName:(NSString *)theTableName andKeySchema:(DynamoDBKeySchema *)theKeySchema andProvisionedThroughput:(DynamoDBProvisionedThroughput *)theProvisionedThroughput;
 

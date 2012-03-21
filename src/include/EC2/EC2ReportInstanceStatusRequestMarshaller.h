@@ -18,8 +18,6 @@
 
 #import "EC2Request.h"
 #import "EC2ReportInstanceStatusRequest.h"
-#import "EC2ReasonCode.h"
-#import "EC2ReasonCode.h"
 
 
 /**

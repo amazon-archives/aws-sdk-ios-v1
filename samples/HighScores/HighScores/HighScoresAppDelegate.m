@@ -14,8 +14,9 @@
  */
 
 #import "HighScoresAppDelegate.h"
-
 #import "HighScoresViewController.h"
+#import <AWSiOSSDK/AmazonLogger.h>
+
 
 @implementation HighScoresAppDelegate
 
@@ -26,6 +27,13 @@
 
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Logging Control - Do NOT use logging for non-development builds.
+#ifdef DEBUG
+    [AmazonLogger verboseLogging];
+#else
+    [AmazonLogger turnLoggingOff];
+#endif
+
     // Override point for customization after application launch.
 
     self.window.rootViewController = self.viewController;

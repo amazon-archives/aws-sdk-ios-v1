@@ -28,9 +28,13 @@
     [window addSubview:viewController.view];
     [window makeKeyAndVisible];
 
-    //  Uncomment the line below to see more logging.
+    // Logging Control - Do NOT use logging for non-development builds.
+#ifdef DEBUG
     [AmazonLogger verboseLogging];
-
+#else
+    [AmazonLogger turnLoggingOff];
+#endif
+    
     return YES;
 }
 

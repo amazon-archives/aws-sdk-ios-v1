@@ -36,6 +36,7 @@
 @interface AmazonLogger:NSObject {
 }
 
++(void)turnLoggingOff;
 +(void)verboseLogging;
 +(void)consoleLogger;
 +(void)aslLogger;

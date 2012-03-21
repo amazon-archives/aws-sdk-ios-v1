@@ -92,6 +92,10 @@
 #import "EC2DeleteTagsResponseUnmarshaller.h"
 #import "EC2DeleteTagsRequest.h"
 #import "EC2DeleteTagsRequestMarshaller.h"
+#import "EC2EnableVolumeIOResponse.h"
+#import "EC2EnableVolumeIOResponseUnmarshaller.h"
+#import "EC2EnableVolumeIORequest.h"
+#import "EC2EnableVolumeIORequestMarshaller.h"
 #import "EC2AttachVolumeResponse.h"
 #import "EC2AttachVolumeResponseUnmarshaller.h"
 #import "EC2AttachVolumeRequest.h"
@@ -100,6 +104,10 @@
 #import "EC2DescribeLicensesResponseUnmarshaller.h"
 #import "EC2DescribeLicensesRequest.h"
 #import "EC2DescribeLicensesRequestMarshaller.h"
+#import "EC2DescribeVolumeStatusResponse.h"
+#import "EC2DescribeVolumeStatusResponseUnmarshaller.h"
+#import "EC2DescribeVolumeStatusRequest.h"
+#import "EC2DescribeVolumeStatusRequestMarshaller.h"
 #import "EC2ActivateLicenseResponse.h"
 #import "EC2ActivateLicenseResponseUnmarshaller.h"
 #import "EC2ActivateLicenseRequest.h"
@@ -184,6 +192,10 @@
 #import "EC2DescribeInstancesResponseUnmarshaller.h"
 #import "EC2DescribeInstancesRequest.h"
 #import "EC2DescribeInstancesRequestMarshaller.h"
+#import "EC2ModifyVolumeAttributeResponse.h"
+#import "EC2ModifyVolumeAttributeResponseUnmarshaller.h"
+#import "EC2ModifyVolumeAttributeRequest.h"
+#import "EC2ModifyVolumeAttributeRequestMarshaller.h"
 #import "EC2DescribeImagesResponse.h"
 #import "EC2DescribeImagesResponseUnmarshaller.h"
 #import "EC2DescribeImagesRequest.h"
@@ -212,6 +224,10 @@
 #import "EC2CreateTagsResponseUnmarshaller.h"
 #import "EC2CreateTagsRequest.h"
 #import "EC2CreateTagsRequestMarshaller.h"
+#import "EC2DescribeVolumeAttributeResponse.h"
+#import "EC2DescribeVolumeAttributeResponseUnmarshaller.h"
+#import "EC2DescribeVolumeAttributeRequest.h"
+#import "EC2DescribeVolumeAttributeRequestMarshaller.h"
 #import "EC2DescribeTagsResponse.h"
 #import "EC2DescribeTagsResponseUnmarshaller.h"
 #import "EC2DescribeTagsRequest.h"
@@ -904,6 +920,26 @@
 
 /**
  * <p>
+ * Enable IO on the volume after an event has occured.
+ * </p>
+ *
+ * @param enableVolumeIORequest Container for the necessary parameters to
+ *           execute the EnableVolumeIO service method on AmazonEC2.
+ *
+ *
+ * @throws AmazonClientException
+ *             If any internal errors are encountered inside the client while
+ *             attempting to make the request or handle the response.  For example
+ *             if a network connection is not available.
+ * @throws AmazonServiceException
+ *             If an error response is returned by AmazonEC2 indicating
+ *             either a problem with the data in the request, or a server side issue.
+ */
+-(EC2EnableVolumeIOResponse *)enableVolumeIO:(EC2EnableVolumeIORequest *)enableVolumeIORequest;
+
+
+/**
+ * <p>
  * Attach a previously created volume to a running instance.
  * </p>
  *
@@ -948,6 +984,30 @@
  *             either a problem with the data in the request, or a server side issue.
  */
 -(EC2DescribeLicensesResponse *)describeLicenses:(EC2DescribeLicensesRequest *)describeLicensesRequest;
+
+
+/**
+ * <p>
+ * Describes the status of a volume.
+ * </p>
+ *
+ * @param describeVolumeStatusRequest Container for the necessary
+ *           parameters to execute the DescribeVolumeStatus service method on
+ *           AmazonEC2.
+ *
+ * @return The response from the DescribeVolumeStatus service method, as
+ *         returned by AmazonEC2.
+ *
+ *
+ * @throws AmazonClientException
+ *             If any internal errors are encountered inside the client while
+ *             attempting to make the request or handle the response.  For example
+ *             if a network connection is not available.
+ * @throws AmazonServiceException
+ *             If an error response is returned by AmazonEC2 indicating
+ *             either a problem with the data in the request, or a server side issue.
+ */
+-(EC2DescribeVolumeStatusResponse *)describeVolumeStatus:(EC2DescribeVolumeStatusRequest *)describeVolumeStatusRequest;
 
 
 /**
@@ -1529,6 +1589,24 @@
 
 
 /**
+ *
+ * @param modifyVolumeAttributeRequest Container for the necessary
+ *           parameters to execute the ModifyVolumeAttribute service method on
+ *           AmazonEC2.
+ *
+ *
+ * @throws AmazonClientException
+ *             If any internal errors are encountered inside the client while
+ *             attempting to make the request or handle the response.  For example
+ *             if a network connection is not available.
+ * @throws AmazonServiceException
+ *             If an error response is returned by AmazonEC2 indicating
+ *             either a problem with the data in the request, or a server side issue.
+ */
+-(EC2ModifyVolumeAttributeResponse *)modifyVolumeAttribute:(EC2ModifyVolumeAttributeRequest *)modifyVolumeAttributeRequest;
+
+
+/**
  * <p>
  * The DescribeImages operation returns information about AMIs, AKIs,
  * and ARIs available to the user. Information returned includes image
@@ -1799,6 +1877,27 @@
  *             either a problem with the data in the request, or a server side issue.
  */
 -(EC2CreateTagsResponse *)createTags:(EC2CreateTagsRequest *)createTagsRequest;
+
+
+/**
+ *
+ * @param describeVolumeAttributeRequest Container for the necessary
+ *           parameters to execute the DescribeVolumeAttribute service method on
+ *           AmazonEC2.
+ *
+ * @return The response from the DescribeVolumeAttribute service method,
+ *         as returned by AmazonEC2.
+ *
+ *
+ * @throws AmazonClientException
+ *             If any internal errors are encountered inside the client while
+ *             attempting to make the request or handle the response.  For example
+ *             if a network connection is not available.
+ * @throws AmazonServiceException
+ *             If an error response is returned by AmazonEC2 indicating
+ *             either a problem with the data in the request, or a server side issue.
+ */
+-(EC2DescribeVolumeAttributeResponse *)describeVolumeAttribute:(EC2DescribeVolumeAttributeRequest *)describeVolumeAttributeRequest;
 
 
 /**

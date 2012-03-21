@@ -20,8 +20,8 @@
 
 /**
  * <p>
- * This exception is thrown when the service has a problem when trying
- * to process the request
+ * This exception is thrown when the service has a problem when trying to
+ * process the request.
  * </p>
  *
  * \ingroup DynamoDB

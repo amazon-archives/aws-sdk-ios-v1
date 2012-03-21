@@ -33,7 +33,8 @@
 
 
 /**
- * AttributeValue can be String, Number, StringSet, NumberSet.
+ * AttributeValue can be <code>String</code>, <code>Number</code>,
+ * <code>StringSet</code>, <code>NumberSet</code>.
  */
 @property (nonatomic, retain) DynamoDBAttributeValue *value;
 
@@ -63,8 +64,8 @@
  * Constructs a new AttributeValueUpdate object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theValue AttributeValue can be String, Number, StringSet,
- * NumberSet.
+ * @param theValue AttributeValue can be <code>String</code>,
+ * <code>Number</code>, <code>StringSet</code>, <code>NumberSet</code>.
  * @param theAction The type of action for an item update operation. Only
  * use the add action for numbers or sets; the specified value is added
  * to the existing value. If a set of values is specified, the values are

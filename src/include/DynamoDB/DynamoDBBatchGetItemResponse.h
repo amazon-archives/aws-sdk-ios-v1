@@ -56,10 +56,11 @@
 /**
  * Contains a map of tables and their respective keys that were not
  * processed with the current response, possibly due to reaching a limit
- * on the response size. The UnprocessedKeys value is in the same form as
- * a RequestItems parameter (so the value can be provided directly to a
- * subsequent BatchGetItem operation). For more information, see the
- * above RequestItems parameter.
+ * on the response size. The <code>UnprocessedKeys</code> value is in the
+ * same form as a <code>RequestItems</code> parameter (so the value can
+ * be provided directly to a subsequent <code>BatchGetItem</code>
+ * operation). For more information, see the above
+ * <code>RequestItems</code> parameter.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 100<br/>

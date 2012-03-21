@@ -35,7 +35,9 @@
 
 
 /**
- * The value of the TableName property for this object.
+ * The name of the table you want to update. Allowed characters are
+ * <code>a-z</code>, <code>A-Z</code>, <code>0-9</code>, <code>_</code>
+ * (underscore), <code>-</code> (hyphen) and <code>.</code> (period).
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>3 - 255<br/>
@@ -45,13 +47,14 @@
 
 /**
  * Provisioned throughput reserves the required read and write resources
- * for your table in terms of ReadCapacityUnits and WriteCapacityUnits.
- * Values for provisioned throughput depend upon your expected read/write
- * rates, item size, and consistency. Provide the expected number of read
- * and write operations, assuming an item size of 1KB and strictly
- * consistent reads. For 2KB item size, double the value, 3KB, triple the
- * value, etc. Eventually consistent reads consume half the resources of
- * strictly consistent reads.
+ * for your table in terms of <code>ReadCapacityUnits</code> and
+ * <code>WriteCapacityUnits</code>. Values for provisioned throughput
+ * depend upon your expected read/write rates, item size, and
+ * consistency. Provide the expected number of read and write operations,
+ * assuming an item size of 1k and strictly consistent reads. For 2k item
+ * size, double the value. For 3k, triple the value, etc.
+ * Eventually-consistent reads consume half the resources of strictly
+ * consistent reads.
  */
 @property (nonatomic, retain) DynamoDBProvisionedThroughput *provisionedThroughput;
 
@@ -66,16 +69,19 @@
  * Constructs a new UpdateTableRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theTableName
+ * @param theTableName The name of the table you want to update. Allowed
+ * characters are <code>a-z</code>, <code>A-Z</code>, <code>0-9</code>,
+ * <code>_</code> (underscore), <code>-</code> (hyphen) and
+ * <code>.</code> (period).
  * @param theProvisionedThroughput Provisioned throughput reserves the
  * required read and write resources for your table in terms of
- * ReadCapacityUnits and WriteCapacityUnits. Values for provisioned
- * throughput depend upon your expected read/write rates, item size, and
- * consistency. Provide the expected number of read and write operations,
- * assuming an item size of 1KB and strictly consistent reads. For 2KB
- * item size, double the value, 3KB, triple the value, etc. Eventually
- * consistent reads consume half the resources of strictly consistent
- * reads.
+ * <code>ReadCapacityUnits</code> and <code>WriteCapacityUnits</code>.
+ * Values for provisioned throughput depend upon your expected read/write
+ * rates, item size, and consistency. Provide the expected number of read
+ * and write operations, assuming an item size of 1k and strictly
+ * consistent reads. For 2k item size, double the value. For 3k, triple
+ * the value, etc. Eventually-consistent reads consume half the resources
+ * of strictly consistent reads.
  */
 -(id)initWithTableName:(NSString *)theTableName andProvisionedThroughput:(DynamoDBProvisionedThroughput *)theProvisionedThroughput;
 

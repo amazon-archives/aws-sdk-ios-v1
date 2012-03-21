@@ -31,7 +31,7 @@
 
 @property (nonatomic, retain) NSString *nextToken;
 
-
+-(id)initWithSortMethod:(int)theSortMethod;
 -(int)highScoreCount;
 -(NSArray *)getHighScores;
 -(NSArray *)getNextPageOfScores;

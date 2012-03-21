@@ -42,8 +42,9 @@
 
 /**
  * The name of the table that starts the list. If you already ran a
- * ListTables operation and recieved a LastEvaluatedTableName value in
- * the response, use that value here to continue the list.
+ * <code>ListTables</code> operation and received a
+ * <code>LastEvaluatedTableName</code> value in the response, use that
+ * value here to continue the list.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>3 - 255<br/>

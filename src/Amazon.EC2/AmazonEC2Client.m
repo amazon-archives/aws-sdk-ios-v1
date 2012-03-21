@@ -175,6 +175,13 @@
     return (EC2DeleteTagsResponse *)[self invoke:request rawRequest:deleteTagsRequest unmarshallerDelegate:[EC2DeleteTagsResponseUnmarshaller class]];
 }
 
+-(EC2EnableVolumeIOResponse *)enableVolumeIO:(EC2EnableVolumeIORequest *)enableVolumeIORequest
+{
+    AmazonServiceRequest *request = [EC2EnableVolumeIORequestMarshaller createRequest:enableVolumeIORequest];
+
+    return (EC2EnableVolumeIOResponse *)[self invoke:request rawRequest:enableVolumeIORequest unmarshallerDelegate:[EC2EnableVolumeIOResponseUnmarshaller class]];
+}
+
 -(EC2AttachVolumeResponse *)attachVolume:(EC2AttachVolumeRequest *)attachVolumeRequest
 {
     AmazonServiceRequest *request = [EC2AttachVolumeRequestMarshaller createRequest:attachVolumeRequest];
@@ -187,6 +194,13 @@
     AmazonServiceRequest *request = [EC2DescribeLicensesRequestMarshaller createRequest:describeLicensesRequest];
 
     return (EC2DescribeLicensesResponse *)[self invoke:request rawRequest:describeLicensesRequest unmarshallerDelegate:[EC2DescribeLicensesResponseUnmarshaller class]];
+}
+
+-(EC2DescribeVolumeStatusResponse *)describeVolumeStatus:(EC2DescribeVolumeStatusRequest *)describeVolumeStatusRequest
+{
+    AmazonServiceRequest *request = [EC2DescribeVolumeStatusRequestMarshaller createRequest:describeVolumeStatusRequest];
+
+    return (EC2DescribeVolumeStatusResponse *)[self invoke:request rawRequest:describeVolumeStatusRequest unmarshallerDelegate:[EC2DescribeVolumeStatusResponseUnmarshaller class]];
 }
 
 -(EC2ActivateLicenseResponse *)activateLicense:(EC2ActivateLicenseRequest *)activateLicenseRequest
@@ -336,6 +350,13 @@
     return (EC2DescribeInstancesResponse *)[self invoke:request rawRequest:describeInstancesRequest unmarshallerDelegate:[EC2DescribeInstancesResponseUnmarshaller class]];
 }
 
+-(EC2ModifyVolumeAttributeResponse *)modifyVolumeAttribute:(EC2ModifyVolumeAttributeRequest *)modifyVolumeAttributeRequest
+{
+    AmazonServiceRequest *request = [EC2ModifyVolumeAttributeRequestMarshaller createRequest:modifyVolumeAttributeRequest];
+
+    return (EC2ModifyVolumeAttributeResponse *)[self invoke:request rawRequest:modifyVolumeAttributeRequest unmarshallerDelegate:[EC2ModifyVolumeAttributeResponseUnmarshaller class]];
+}
+
 -(EC2DescribeImagesResponse *)describeImages:(EC2DescribeImagesRequest *)describeImagesRequest
 {
     AmazonServiceRequest *request = [EC2DescribeImagesRequestMarshaller createRequest:describeImagesRequest];
@@ -383,6 +404,13 @@
     AmazonServiceRequest *request = [EC2CreateTagsRequestMarshaller createRequest:createTagsRequest];
 
     return (EC2CreateTagsResponse *)[self invoke:request rawRequest:createTagsRequest unmarshallerDelegate:[EC2CreateTagsResponseUnmarshaller class]];
+}
+
+-(EC2DescribeVolumeAttributeResponse *)describeVolumeAttribute:(EC2DescribeVolumeAttributeRequest *)describeVolumeAttributeRequest
+{
+    AmazonServiceRequest *request = [EC2DescribeVolumeAttributeRequestMarshaller createRequest:describeVolumeAttributeRequest];
+
+    return (EC2DescribeVolumeAttributeResponse *)[self invoke:request rawRequest:describeVolumeAttributeRequest unmarshallerDelegate:[EC2DescribeVolumeAttributeResponseUnmarshaller class]];
 }
 
 -(EC2DescribeTagsResponse *)describeTags:(EC2DescribeTagsRequest *)describeTagsRequest

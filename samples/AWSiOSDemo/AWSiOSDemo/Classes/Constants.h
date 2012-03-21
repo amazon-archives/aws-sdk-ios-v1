@@ -22,8 +22,8 @@
 // to devices securely.
 // http://aws.amazon.com/articles/Mobile/4611615499399490
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-#define ACCESS_KEY_ID                @"CHANGE ME"
-#define SECRET_KEY                   @"CHANGE ME"
+#define ACCESS_KEY_ID                @"xCHANGE ME"
+#define SECRET_KEY                   @"xCHANGE ME"
 #define CREDENTIALS_ALERT_MESSAGE    @"Please update the Constants.h file with your credentials or Token Vending Machine URL."
 
 

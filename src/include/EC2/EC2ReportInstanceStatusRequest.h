@@ -13,7 +13,6 @@
  * permissions and limitations under the License.
  */
 
-#import "EC2ReasonCode.h"
 
 #import "../AmazonServiceRequestConfig.h"
 
@@ -85,7 +84,7 @@
  * Adds a single object to reasonCodes.
  * This function will alloc and init reasonCodes if not already done.
  */
--(void)addReasonCode:(EC2ReasonCode *)reasonCodeObject;
+-(void)addReasonCode:(NSString *)reasonCodeObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

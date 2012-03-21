@@ -23,15 +23,6 @@
 
 @implementation DynamoDBResponse
 
--(id)init
-{
-    self = [super init];
-    if (self != nil) {
-    }
-
-    return self;
-}
-
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
     [super connection:connection didReceiveResponse:response];
@@ -53,7 +44,7 @@
     }
     else {
         NSMutableDictionary   *jsonObject = [AmazonJSON JSONValue:jsonString];
-        AmazonServiceResponse *response   = [unmarshallerDelegate unmarshall:jsonObject];
+        AmazonServiceResponse *response   = [unmarshallerDelegate performSelector:@selector(unmarshall:) withObject:jsonObject];
 
         if (response.exception) {
             ((AmazonServiceException *)response.exception).requestId = self.requestId;

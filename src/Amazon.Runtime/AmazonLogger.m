@@ -19,11 +19,18 @@
 
 @implementation AmazonLogger
 
++(void)turnLoggingOff
+{
+    char *envValue = "GTMVerboseLogging=0\0";    
+    putenv(envValue);    
+    [[GTMLogger sharedLogger] turnLoggerOff];    
+}
+
 +(void)verboseLogging
 {
     char *envValue = "GTMVerboseLogging=1\0";
-
     putenv(envValue);
+    [[GTMLogger sharedLogger] turnLoggerOn];
 }
 
 +(void)consoleLogger

@@ -62,24 +62,29 @@
 
 /**
  * Number of items in the complete scan before any filters are applied. A
- * high ScannedCount value with few, or no, Count results indicates an
- * inefficient Scan operation.
+ * high <code>ScannedCount</code> value with few, or no,
+ * <code>Count</code> results indicates an inefficient <code>Scan</code>
+ * operation.
  */
 @property (nonatomic, retain) NSNumber *scannedCount;
 
 /**
  * Primary key of the item where the scan operation stopped. Provide this
  * value in a subsequent scan operation to continue the operation from
- * that point. The LastEvaluatedKey is null when the entire scan result
- * set is complete (i.e. the operation processed the "last page").
+ * that point. The <code>LastEvaluatedKey</code> is null when the entire
+ * scan result set is complete (i.e. the operation processed the "last
+ * page").
  */
 @property (nonatomic, retain) DynamoDBKey *lastEvaluatedKey;
 
 /**
  * The number of Capacity Units of the provisioned throughput of the
- * table consumed during the operation. GetItem, BatchGetItem, Query, and
- * Scan operations consume Read Capacity Units, while PutItem,
- * UpdateItem, and DeleteItem operations consume Write Capacity Units.
+ * table consumed during the operation. <code>GetItem</code>,
+ * <code>BatchGetItem</code>, <code>Query</code>, and <code>Scan</code>
+ * operations consume <code>ReadCapacityUnits</code>, while
+ * <code>PutItem</code>, <code>UpdateItem</code>, and
+ * <code>DeleteItem</code> operations consume
+ * <code>WriteCapacityUnits</code>.
  */
 @property (nonatomic, retain) NSNumber *consumedCapacityUnits;
 

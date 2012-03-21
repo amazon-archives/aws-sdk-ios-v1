@@ -47,7 +47,10 @@
 
 
 /**
- * The value of the TableName property for this object.
+ * The name of the table in which you want to query. Allowed characters
+ * are <code>a-z</code>, <code>A-Z</code>, <code>0-9</code>,
+ * <code>_</code> (underscore), <code>-</code> (hyphen) and
+ * <code>.</code> (period).
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>3 - 255<br/>
@@ -56,9 +59,9 @@
 @property (nonatomic, retain) NSString *tableName;
 
 /**
- * Array of Attribute names. If attribute names are not specified then
- * all attributes will be returned. If some attributes are not found,
- * they will not appear in the result.
+ * List of <code>Attribute</code> names. If attribute names are not
+ * specified then all attributes will be returned. If some attributes are
+ * not found, they will not appear in the result.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - <br/>
@@ -68,11 +71,12 @@
 /**
  * The maximum number of items to return. If Amazon DynamoDB hits this
  * limit while querying the table, it stops the query and returns the
- * matching values up to the limit, and a LastEvaluatedKey to apply in a
- * subsequent operation to continue the query. Also, if the result set
- * size exceeds 1MB before Amazon DynamoDB hits this limit, it stops the
- * query and returns the matching values, and a LastEvaluatedKey to apply
- * in a subsequent operation to continue the query.
+ * matching values up to the limit, and a <code>LastEvaluatedKey</code>
+ * to apply in a subsequent operation to continue the query. Also, if the
+ * result set size exceeds 1MB before Amazon DynamoDB hits this limit, it
+ * stops the query and returns the matching values, and a
+ * <code>LastEvaluatedKey</code> to apply in a subsequent operation to
+ * continue the query.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Range: </b>1 - <br/>
@@ -80,19 +84,20 @@
 @property (nonatomic, retain) NSNumber *limit;
 
 /**
- * If set to true, then a consistent read is issued, otherwise eventually
- * consistent is used.
+ * If set to <code>true</code>, then a consistent read is issued.
+ * Otherwise eventually-consistent is used.
  */
 @property (nonatomic) bool           consistentRead;
 
 @property (nonatomic, readonly) bool consistentReadIsSet;
 
 /**
- * If set to true, Amazon DynamoDB returns a total number of items that
- * match the query parameters, instead of a list of the matching items
- * and their attributes. Do not set Count to true while providing a list
- * of AttributesToGet, otherwise Amazon DynamoDB returns a validation
- * error.
+ * If set to <code>true</code>, Amazon DynamoDB returns a total number of
+ * items that match the query parameters, instead of a list of the
+ * matching items and their attributes. Do not set <code>Count</code> to
+ * <code>true</code> while providing a list of
+ * <code>AttributesToGet</code>, otherwise Amazon DynamoDB returns a
+ * validation error.
  */
 @property (nonatomic) bool           count;
 
@@ -112,7 +117,7 @@
 /**
  * Specifies forward or backward traversal of the index. Amazon DynamoDB
  * returns results reflecting the requested order, determined by the
- * range key. Default is true (forward).
+ * range key. The default value is <code>true</code> (forward).
  */
 @property (nonatomic) bool           scanIndexForward;
 
@@ -120,11 +125,12 @@
 
 /**
  * Primary key of the item from which to continue an earlier query. An
- * earlier query might provide this value as the LastEvaluatedKey if that
- * query operation was interrupted before completing the query; either
- * because of the result set size or the Limit parameter. The
- * LastEvaluatedKey can be passed back in a new query request to continue
- * the operation from that point.
+ * earlier query might provide this value as the
+ * <code>LastEvaluatedKey</code> if that query operation was interrupted
+ * before completing the query; either because of the result set size or
+ * the <code>Limit</code> parameter. The <code>LastEvaluatedKey</code>
+ * can be passed back in a new query request to continue the operation
+ * from that point.
  */
 @property (nonatomic, retain) DynamoDBKey *exclusiveStartKey;
 
@@ -139,7 +145,10 @@
  * Constructs a new QueryRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theTableName
+ * @param theTableName The name of the table in which you want to query.
+ * Allowed characters are <code>a-z</code>, <code>A-Z</code>,
+ * <code>0-9</code>, <code>_</code> (underscore), <code>-</code> (hyphen)
+ * and <code>.</code> (period).
  * @param theHashKeyValue Attribute value of the hash component of the
  * composite primary key.
  */

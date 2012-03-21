@@ -50,7 +50,7 @@
     [instances addObject:instanceObject];
 }
 
--(void)addReasonCode:(EC2ReasonCode *)reasonCodeObject
+-(void)addReasonCode:(NSString *)reasonCodeObject
 {
     if (reasonCodes == nil) {
         reasonCodes = [[NSMutableArray alloc] initWithCapacity:1];

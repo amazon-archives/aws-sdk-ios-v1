@@ -26,6 +26,9 @@
 @synthesize credentials;
 @synthesize urlConnection;
 @synthesize requestTag;
+@synthesize serviceName;
+@synthesize regionName;
+@synthesize hostName;
 
 
 -(void)sign
@@ -81,6 +84,102 @@
     return [buffer autorelease];
 }
 
+-(void)setHostName:(NSString *)theHostName 
+{
+    [hostName release];
+    hostName = theHostName;
+    [hostName retain];
+}
+
+-(NSString *)hostName
+{
+    // hostName was explicitly set
+    if (hostName != nil) {
+        return hostName;
+    }
+    
+    NSRange startOfHost = [self.endpoint rangeOfString:@"://"];
+    
+    return [self.endpoint substringFromIndex:(startOfHost.location + 3)];
+}
+
+-(void)setRegionName:(NSString *)theRegionName 
+{
+    [regionName release];
+    regionName = theRegionName;
+    [regionName retain];
+}
+
+-(NSString *)regionName
+{
+    // regionName was explicitly set
+    if (regionName != nil) {
+        return regionName;
+    }
+    // If we don't recognize the domain, just return the default
+    if (![self.hostName hasSuffix:@".amazonaws.com"]) {
+        return @"us-east-1";
+    }
+    else {
+        NSRange  range             = [self.hostName rangeOfString:@".amazonaws.com"];
+        NSString *serviceAndRegion = [self.hostName substringToIndex:range.location];
+        
+        NSString *separator = @".";
+        if ( [serviceAndRegion hasPrefix:@"s3"]) {
+            separator = @"-";
+        }
+        
+        if ( [serviceAndRegion rangeOfString:separator].location == NSNotFound) {
+            return @"us-east-1";
+        }
+        
+        NSRange  index   = [serviceAndRegion rangeOfString:separator];
+        NSString *region = [serviceAndRegion substringFromIndex:(index.location + 1)];
+        if ( [region isEqualToString:@"us-gov"]) {
+            return @"us-gov-west-1";
+        }
+        else {
+            return region;
+        }
+    }
+}
+
+-(void)setServiceName:(NSString *)theServiceName
+{
+    [serviceName release];
+    serviceName = theServiceName;
+    [serviceName retain];
+}
+
+//TODO: this needs to be fleshed out to handle all cases
+-(NSString *)serviceName
+{
+    // serviceName was explicitly set
+    if (serviceName != nil) {
+        return serviceName;
+    }
+    // If we don't recognize the domain, just return nil
+    if (![self.hostName hasSuffix:@".amazonaws.com"]) {
+        return nil;
+    }
+    else {
+        NSRange  range             = [self.hostName rangeOfString:@".amazonaws.com"];
+        NSString *serviceAndRegion = [self.hostName substringToIndex:range.location];
+        
+        NSString *separator = @".";
+        if ( [serviceAndRegion hasPrefix:@"s3"]) {
+            return @"s3";
+        }
+        
+        if ( [serviceAndRegion rangeOfString:separator].location == NSNotFound) {
+            return @"nil";
+        }
+        
+        NSRange index = [serviceAndRegion rangeOfString:separator];
+        return [serviceAndRegion substringToIndex:index.location];
+    }
+}
+
 -(AmazonURLRequest *)urlRequest
 {
     if (nil == urlRequest) {
@@ -133,6 +232,9 @@
     [userAgent release];
     [urlConnection release];
     [requestTag release];
+    [serviceName release];
+    [regionName release];
+    [hostName release];
 
     [super dealloc];
 }

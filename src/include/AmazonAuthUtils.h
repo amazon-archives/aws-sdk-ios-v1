@@ -23,6 +23,9 @@
 
 #define kError_Invalid_Hash_Alg     @"Invalid hash algorithm"
 #define kReason_Invalid_Hash_Alg    @"Only SHA1 and SHA256 are supported"
+#define SIGV4_MARKER        @"AWS4"
+#define SIGV4_ALGORITHM     @"AWS4-HMAC-SHA256"
+#define SIGV4_TERMINATOR    @"aws4_request"
 
 /** Utilities for signing requests */
 @interface AmazonAuthUtils:NSObject {
@@ -30,6 +33,7 @@
 
 +(void)signRequest:(AmazonServiceRequest *)serviceRequest endpoint:(NSString *)theEndpoint credentials:(AmazonCredentials *)credentials;
 +(NSString *)signRequestV3:(AmazonServiceRequest *)serviceRequest sts:(NSString *)theSts credentials:(AmazonCredentials *)credentials;
++(NSString *)signRequestV4:(AmazonServiceRequest *)serviceRequest headers:(NSMutableDictionary *)headers payload:(NSString *)payload credentials:(AmazonCredentials *)credentials;
 +(NSString *)getV2StringToSign:(NSURL *)theEndpoint request:(AmazonServiceRequest *)serviceRequest;
 +(NSString *)getV3StringToSign:(NSString *)rfc822Date nonce:(NSString *)theNonce;
 +(NSString *)nonce;
@@ -49,5 +53,9 @@
 +(NSData *)hash:(NSData *)data;
 +(NSData *)sha256HMacWithData:(NSData *)data withKey:(NSData *)key;
 
++(NSData *)getV4DerivedKey:(NSString *)secret date:(NSString *)dateStamp region:(NSString *)regionName service:(NSString *)serviceName;
++(NSString *)getCanonicalizedRequest:(NSString *)method path:(NSString *)path query:(NSString *)query headers:(NSMutableDictionary *)headers payload:(NSString *)payload;
++(NSString *)getCanonicalizedHeaderString:(NSMutableDictionary *)theHeaders;
++(NSString *)getSignedHeadersString:(NSMutableDictionary *)theHeaders;
 
 @end

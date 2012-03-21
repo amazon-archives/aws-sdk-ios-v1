@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"ImportVolume"           forKey:@"Action"];
-    [request setParameterValue:@"2011-12-15"   forKey:@"Version"];
+    [request setParameterValue:@"2012-03-01"   forKey:@"Version"];
 
     [request setDelegate:[importVolumeRequest delegate]];
     [request setCredentials:[importVolumeRequest credentials]];

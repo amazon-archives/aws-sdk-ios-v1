@@ -24,12 +24,22 @@
 {
     [self.urlRequest setHTTPMethod:@"POST"];
 
+    [self addValue:self.hostName forHeader:@"Host"];
+#ifdef SIGV4
+    // TODO: Change when Dynamo changes
+    self.serviceName = @"dynamodb";
+    if (self.credentials.securityToken != nil) {
+        [self addValue:self.credentials.securityToken forHeader:@"x-amz-security-token"];
+    }
+    NSString *authorizaiton = [AmazonAuthUtils signRequestV4:self headers:headers payload:self.content credentials:self.credentials];
+    [self addValue:authorizaiton     forHeader:@"Authorization"];
+#else
     NSString *rfc822Date = [[NSDate date] stringWithRFC822Format];
     [self addValue:rfc822Date forHeader:@"Date"];
     [self addValue:rfc822Date forHeader:@"X-Amz-Date"];
-    [self addValue:[self getHostFromEndpoint]       forHeader:@"Host"];
     [self addValue:self.credentials.securityToken forHeader:@"x-amz-security-token"];
-    [self addValue:[self generateAuthorization]     forHeader:@"X-Amzn-Authorization"];
+    [self addValue:[self generateAuthorization3]     forHeader:@"X-Amzn-Authorization"];
+#endif
     [self addValue:self.userAgent forHeader:@"User-Agent"];
     for (NSString *header in headers) {
         [self.urlRequest setValue:[headers valueForKey:header] forHTTPHeaderField:header];
@@ -43,7 +53,7 @@
     return self.urlRequest;
 }
 
--(NSString *)generateAuthorization
+-(NSString *)generateAuthorization3
 {
     NSMutableString *buffer = [[[NSMutableString alloc] initWithCapacity:256] autorelease];
 
@@ -69,7 +79,7 @@
 -(NSString *)generateSignature
 {
     NSString *stringToSign = [self generateStringToSign];
-    NSData   *dataToSign   = [DynamoDBRequest hash:[stringToSign dataUsingEncoding:NSUTF8StringEncoding]];
+    NSData   *dataToSign   = [AmazonAuthUtils hash:[stringToSign dataUsingEncoding:NSUTF8StringEncoding]];
 
     return [AmazonAuthUtils HMACSign:dataToSign withKey:self.credentials.secretKey usingAlgorithm:kCCHmacAlgSHA256];
 }
@@ -115,23 +125,6 @@
         headers = [[NSMutableDictionary alloc] initWithCapacity:1];
     }
     [headers setValue:theValue forKey:theHeader];
-}
-
-+(NSData *)hash:(NSData *)dataToHash
-{
-    const void    *cStr = [dataToHash bytes];
-    unsigned char result[CC_SHA256_DIGEST_LENGTH];
-
-    CC_SHA256(cStr, [dataToHash length], result);
-
-    return [[[NSData alloc] initWithBytes:result length:CC_SHA256_DIGEST_LENGTH] autorelease];
-}
-
--(NSString *)getHostFromEndpoint
-{
-    NSRange startOfHost = [self.endpoint rangeOfString:@"://"];
-
-    return [self.endpoint substringFromIndex:(startOfHost.location + 3)];
 }
 
 -(void)dealloc

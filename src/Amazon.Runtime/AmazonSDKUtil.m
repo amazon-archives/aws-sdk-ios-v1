@@ -316,6 +316,7 @@ static const short base64DecodingTable[] =
 
     [dateFormatter setDateFormat:dateFormat];
     [dateFormatter setLocale:[AmazonSDKUtil timestampLocale]];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
 
     NSDate *parsed = [dateFormatter dateFromString:string];
 

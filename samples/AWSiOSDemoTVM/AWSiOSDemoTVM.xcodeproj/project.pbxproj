@@ -393,6 +393,9 @@
 /* Begin PBXProject section */
 		D00F7D2A13E737B900C72263 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = D00F7D2D13E737B900C72263 /* Build configuration list for PBXProject "AWSiOSDemoTVM" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -560,6 +563,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AWSiOSDemoTVM/AWSiOSDemoTVM-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "AWSiOSDemoTVM/AWSiOSDemoTVM-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -581,6 +585,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AWSiOSDemoTVM/AWSiOSDemoTVM-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "AWSiOSDemoTVM/AWSiOSDemoTVM-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -411,6 +411,9 @@
 /* Begin PBXProject section */
 		D02B6C4B13E8783D000A4055 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = D02B6C4E13E8783D000A4055 /* Build configuration list for PBXProject "AWSiOSDemoTVMIdentity" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -579,6 +582,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AWSiOSDemoTVMIdentity/AWSiOSDemoTVMIdentity-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "AWSiOSDemoTVMIdentity/AWSiOSDemoTVMIdentity-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -596,6 +600,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AWSiOSDemoTVMIdentity/AWSiOSDemoTVMIdentity-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "AWSiOSDemoTVMIdentity/AWSiOSDemoTVMIdentity-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
