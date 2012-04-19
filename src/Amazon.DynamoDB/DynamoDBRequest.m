@@ -31,8 +31,7 @@
     if (self.credentials.securityToken != nil) {
         [self addValue:self.credentials.securityToken forHeader:@"x-amz-security-token"];
     }
-    NSString *authorizaiton = [AmazonAuthUtils signRequestV4:self headers:headers payload:self.content credentials:self.credentials];
-    [self addValue:authorizaiton     forHeader:@"Authorization"];
+    [AmazonAuthUtils signRequestV4:self headers:headers payload:self.content credentials:self.credentials];
 #else
     NSString *rfc822Date = [[NSDate date] stringWithRFC822Format];
     [self addValue:rfc822Date forHeader:@"Date"];

@@ -130,11 +130,9 @@
         NSMutableDictionary *expectedJson = [[[NSMutableDictionary alloc] init] autorelease];
         [json setValue:expectedJson forKey:@"Expected"];
         for (NSString *expectedListValue in deleteItemRequest.expected) {
-            NSMutableDictionary *expectedListValueJson = [[[NSMutableDictionary alloc] init] autorelease];
+            NSMutableDictionary            *expectedListValueJson = [[[NSMutableDictionary alloc] init] autorelease];
             [expectedJson setValue:expectedListValueJson forKey:expectedListValue];
-
             DynamoDBExpectedAttributeValue *expectedListValueValue = [deleteItemRequest.expected valueForKey:expectedListValue];
-
             if (expectedListValueValue != nil) {
                 DynamoDBAttributeValue *value = expectedListValueValue.value;
                 if (value != nil) {

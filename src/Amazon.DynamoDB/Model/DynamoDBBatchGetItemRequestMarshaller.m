@@ -38,11 +38,9 @@
         NSMutableDictionary *requestItemsJson = [[[NSMutableDictionary alloc] init] autorelease];
         [json setValue:requestItemsJson forKey:@"RequestItems"];
         for (NSString *requestItemsListValue in batchGetItemRequest.requestItems) {
-            NSMutableDictionary *requestItemsListValueJson = [[[NSMutableDictionary alloc] init] autorelease];
+            NSMutableDictionary       *requestItemsListValueJson = [[[NSMutableDictionary alloc] init] autorelease];
             [requestItemsJson setValue:requestItemsListValueJson forKey:requestItemsListValue];
-
             DynamoDBKeysAndAttributes *requestItemsListValueValue = [batchGetItemRequest.requestItems valueForKey:requestItemsListValue];
-
 
 
             if (requestItemsListValueValue != nil) {

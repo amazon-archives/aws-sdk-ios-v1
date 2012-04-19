@@ -83,6 +83,7 @@
 #import "S3Region.h"
 #import "S3Request.h"
 #import "S3Response.h"
+#import "S3UploadInputStream.h"
 #import "S3ServiceModel.h"
 #import "S3ServiceTransform.h"
 #import "S3SetACLRequest.h"

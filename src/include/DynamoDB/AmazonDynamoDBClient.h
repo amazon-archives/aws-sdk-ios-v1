@@ -12,14 +12,6 @@
  * express or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-#import "DynamoDBScanResponse.h"
-#import "DynamoDBScanResponseUnmarshaller.h"
-#import "DynamoDBScanRequest.h"
-#import "DynamoDBScanRequestMarshaller.h"
-#import "DynamoDBCreateTableResponse.h"
-#import "DynamoDBCreateTableResponseUnmarshaller.h"
-#import "DynamoDBCreateTableRequest.h"
-#import "DynamoDBCreateTableRequestMarshaller.h"
 #import "DynamoDBListTablesResponse.h"
 #import "DynamoDBListTablesResponseUnmarshaller.h"
 #import "DynamoDBListTablesRequest.h"
@@ -28,18 +20,34 @@
 #import "DynamoDBQueryResponseUnmarshaller.h"
 #import "DynamoDBQueryRequest.h"
 #import "DynamoDBQueryRequestMarshaller.h"
+#import "DynamoDBBatchWriteItemResponse.h"
+#import "DynamoDBBatchWriteItemResponseUnmarshaller.h"
+#import "DynamoDBBatchWriteItemRequest.h"
+#import "DynamoDBBatchWriteItemRequestMarshaller.h"
 #import "DynamoDBUpdateItemResponse.h"
 #import "DynamoDBUpdateItemResponseUnmarshaller.h"
 #import "DynamoDBUpdateItemRequest.h"
 #import "DynamoDBUpdateItemRequestMarshaller.h"
-#import "DynamoDBUpdateTableResponse.h"
-#import "DynamoDBUpdateTableResponseUnmarshaller.h"
-#import "DynamoDBUpdateTableRequest.h"
-#import "DynamoDBUpdateTableRequestMarshaller.h"
 #import "DynamoDBPutItemResponse.h"
 #import "DynamoDBPutItemResponseUnmarshaller.h"
 #import "DynamoDBPutItemRequest.h"
 #import "DynamoDBPutItemRequestMarshaller.h"
+#import "DynamoDBDescribeTableResponse.h"
+#import "DynamoDBDescribeTableResponseUnmarshaller.h"
+#import "DynamoDBDescribeTableRequest.h"
+#import "DynamoDBDescribeTableRequestMarshaller.h"
+#import "DynamoDBScanResponse.h"
+#import "DynamoDBScanResponseUnmarshaller.h"
+#import "DynamoDBScanRequest.h"
+#import "DynamoDBScanRequestMarshaller.h"
+#import "DynamoDBCreateTableResponse.h"
+#import "DynamoDBCreateTableResponseUnmarshaller.h"
+#import "DynamoDBCreateTableRequest.h"
+#import "DynamoDBCreateTableRequestMarshaller.h"
+#import "DynamoDBUpdateTableResponse.h"
+#import "DynamoDBUpdateTableResponseUnmarshaller.h"
+#import "DynamoDBUpdateTableRequest.h"
+#import "DynamoDBUpdateTableRequestMarshaller.h"
 #import "DynamoDBDeleteTableResponse.h"
 #import "DynamoDBDeleteTableResponseUnmarshaller.h"
 #import "DynamoDBDeleteTableRequest.h"
@@ -48,10 +56,6 @@
 #import "DynamoDBDeleteItemResponseUnmarshaller.h"
 #import "DynamoDBDeleteItemRequest.h"
 #import "DynamoDBDeleteItemRequestMarshaller.h"
-#import "DynamoDBDescribeTableResponse.h"
-#import "DynamoDBDescribeTableResponseUnmarshaller.h"
-#import "DynamoDBDescribeTableRequest.h"
-#import "DynamoDBDescribeTableRequestMarshaller.h"
 #import "DynamoDBGetItemResponse.h"
 #import "DynamoDBGetItemResponseUnmarshaller.h"
 #import "DynamoDBGetItemRequest.h"
@@ -83,6 +87,192 @@
 @interface AmazonDynamoDBClient:DynamoDBWebServiceClient
 {
 }
+
+
+/**
+ * <p>
+ * Retrieves a paginated list of table names created by the AWS Account
+ * of the caller in the AWS Region (e.g. <code>us-east-1</code> ).
+ * </p>
+ *
+ * @param listTablesRequest Container for the necessary parameters to
+ *           execute the ListTables service method on AmazonDynamoDB.
+ *
+ * @return The response from the ListTables service method, as returned
+ *         by AmazonDynamoDB.
+ *
+ * @throws DynamoDBInternalServerErrorException
+ *
+ * @throws AmazonClientException
+ *             If any internal errors are encountered inside the client while
+ *             attempting to make the request or handle the response.  For example
+ *             if a network connection is not available.
+ * @throws AmazonServiceException
+ *             If an error response is returned by AmazonDynamoDB indicating
+ *             either a problem with the data in the request, or a server side issue.
+ */
+-(DynamoDBListTablesResponse *)listTables:(DynamoDBListTablesRequest *)listTablesRequest;
+
+
+/**
+ * <p>
+ * Gets the values of one or more items and its attributes by primary key
+ * (composite primary key, only).
+ * </p>
+ * <p>
+ * Narrow the scope of the query using comparison operators on the
+ * <code>RangeKeyValue</code> of the composite key. Use the
+ * <code>ScanIndexForward</code> parameter to get results in forward or
+ * reverse order by range key.
+ * </p>
+ *
+ * @param queryRequest Container for the necessary parameters to execute
+ *           the Query service method on AmazonDynamoDB.
+ *
+ * @return The response from the Query service method, as returned by
+ *         AmazonDynamoDB.
+ *
+ * @throws DynamoDBProvisionedThroughputExceededException
+ * @throws DynamoDBInternalServerErrorException
+ * @throws DynamoDBResourceNotFoundException
+ *
+ * @throws AmazonClientException
+ *             If any internal errors are encountered inside the client while
+ *             attempting to make the request or handle the response.  For example
+ *             if a network connection is not available.
+ * @throws AmazonServiceException
+ *             If an error response is returned by AmazonDynamoDB indicating
+ *             either a problem with the data in the request, or a server side issue.
+ */
+-(DynamoDBQueryResponse *)query:(DynamoDBQueryRequest *)queryRequest;
+
+
+/**
+ * <p>
+ * Allows to execute a batch of Put and/or Delete Requests for many
+ * tables in a single call. A total of 25 requests are allowed.
+ * </p>
+ * <p>
+ * There are no transaction guarantees provided by this API. It does not
+ * allow conditional puts nor does it support return values.
+ * </p>
+ *
+ * @param batchWriteItemRequest Container for the necessary parameters to
+ *           execute the BatchWriteItem service method on AmazonDynamoDB.
+ *
+ * @return The response from the BatchWriteItem service method, as
+ *         returned by AmazonDynamoDB.
+ *
+ * @throws DynamoDBProvisionedThroughputExceededException
+ * @throws DynamoDBInternalServerErrorException
+ * @throws DynamoDBResourceNotFoundException
+ *
+ * @throws AmazonClientException
+ *             If any internal errors are encountered inside the client while
+ *             attempting to make the request or handle the response.  For example
+ *             if a network connection is not available.
+ * @throws AmazonServiceException
+ *             If an error response is returned by AmazonDynamoDB indicating
+ *             either a problem with the data in the request, or a server side issue.
+ */
+-(DynamoDBBatchWriteItemResponse *)batchWriteItem:(DynamoDBBatchWriteItemRequest *)batchWriteItemRequest;
+
+
+/**
+ * <p>
+ * Edits an existing item's attributes.
+ * </p>
+ * <p>
+ * You can perform a conditional update (insert a new attribute
+ * name-value pair if it doesn't exist, or replace an existing name-value
+ * pair if it has certain expected attribute values).
+ * </p>
+ *
+ * @param updateItemRequest Container for the necessary parameters to
+ *           execute the UpdateItem service method on AmazonDynamoDB.
+ *
+ * @return The response from the UpdateItem service method, as returned
+ *         by AmazonDynamoDB.
+ *
+ * @throws DynamoDBProvisionedThroughputExceededException
+ * @throws DynamoDBConditionalCheckFailedException
+ * @throws DynamoDBInternalServerErrorException
+ * @throws DynamoDBResourceNotFoundException
+ *
+ * @throws AmazonClientException
+ *             If any internal errors are encountered inside the client while
+ *             attempting to make the request or handle the response.  For example
+ *             if a network connection is not available.
+ * @throws AmazonServiceException
+ *             If an error response is returned by AmazonDynamoDB indicating
+ *             either a problem with the data in the request, or a server side issue.
+ */
+-(DynamoDBUpdateItemResponse *)updateItem:(DynamoDBUpdateItemRequest *)updateItemRequest;
+
+
+/**
+ * <p>
+ * Creates a new item, or replaces an old item with a new item (including
+ * all the attributes).
+ * </p>
+ * <p>
+ * If an item already exists in the specified table with the same primary
+ * key, the new item completely replaces the existing item. You can
+ * perform a conditional put (insert a new item if one with the specified
+ * primary key doesn't exist), or replace an existing item if it has
+ * certain attribute values.
+ * </p>
+ *
+ * @param putItemRequest Container for the necessary parameters to
+ *           execute the PutItem service method on AmazonDynamoDB.
+ *
+ * @return The response from the PutItem service method, as returned by
+ *         AmazonDynamoDB.
+ *
+ * @throws DynamoDBProvisionedThroughputExceededException
+ * @throws DynamoDBConditionalCheckFailedException
+ * @throws DynamoDBInternalServerErrorException
+ * @throws DynamoDBResourceNotFoundException
+ *
+ * @throws AmazonClientException
+ *             If any internal errors are encountered inside the client while
+ *             attempting to make the request or handle the response.  For example
+ *             if a network connection is not available.
+ * @throws AmazonServiceException
+ *             If an error response is returned by AmazonDynamoDB indicating
+ *             either a problem with the data in the request, or a server side issue.
+ */
+-(DynamoDBPutItemResponse *)putItem:(DynamoDBPutItemRequest *)putItemRequest;
+
+
+/**
+ * <p>
+ * Retrieves information about the table, including the current status of
+ * the table, the primary key schema and when the table was created.
+ * </p>
+ * <p>
+ * If the table does not exist, Amazon DynamoDB returns a
+ * <code>ResourceNotFoundException</code> .
+ * </p>
+ *
+ * @param describeTableRequest Container for the necessary parameters to
+ *           execute the DescribeTable service method on AmazonDynamoDB.
+ *
+ * @return The response from the DescribeTable service method, as
+ *         returned by AmazonDynamoDB.
+ *
+ * @throws DynamoDBInternalServerErrorException
+ * @throws DynamoDBResourceNotFoundException
+ *
+ * @throws AmazonClientException
+ *             If any internal errors are encountered inside the client while
+ *             attempting to make the request or handle the response.  For example
+ *             if a network connection is not available.
+ * @throws AmazonServiceException
+ *             If an error response is returned by AmazonDynamoDB indicating
+ *             either a problem with the data in the request, or a server side issue.
+ */
+-(DynamoDBDescribeTableResponse *)describeTable:(DynamoDBDescribeTableRequest *)describeTableRequest;
 
 
 /**
@@ -155,96 +345,6 @@
 
 /**
  * <p>
- * Retrieves a paginated list of table names created by the AWS Account
- * of the caller in the AWS Region (e.g. <code>us-east-1</code> ).
- * </p>
- *
- * @param listTablesRequest Container for the necessary parameters to
- *           execute the ListTables service method on AmazonDynamoDB.
- *
- * @return The response from the ListTables service method, as returned
- *         by AmazonDynamoDB.
- *
- * @throws DynamoDBInternalServerErrorException
- *
- * @throws AmazonClientException
- *             If any internal errors are encountered inside the client while
- *             attempting to make the request or handle the response.  For example
- *             if a network connection is not available.
- * @throws AmazonServiceException
- *             If an error response is returned by AmazonDynamoDB indicating
- *             either a problem with the data in the request, or a server side issue.
- */
--(DynamoDBListTablesResponse *)listTables:(DynamoDBListTablesRequest *)listTablesRequest;
-
-
-/**
- * <p>
- * Gets the values of one or more items and its attributes by primary key
- * (composite primary key, only).
- * </p>
- * <p>
- * Narrow the scope of the query using comparison operators on the
- * <code>RangeKeyValue</code> of the composite key. Use the
- * <code>ScanIndexForward</code> parameter to get results in forward or
- * reverse order by range key.
- * </p>
- *
- * @param queryRequest Container for the necessary parameters to execute
- *           the Query service method on AmazonDynamoDB.
- *
- * @return The response from the Query service method, as returned by
- *         AmazonDynamoDB.
- *
- * @throws DynamoDBProvisionedThroughputExceededException
- * @throws DynamoDBInternalServerErrorException
- * @throws DynamoDBResourceNotFoundException
- *
- * @throws AmazonClientException
- *             If any internal errors are encountered inside the client while
- *             attempting to make the request or handle the response.  For example
- *             if a network connection is not available.
- * @throws AmazonServiceException
- *             If an error response is returned by AmazonDynamoDB indicating
- *             either a problem with the data in the request, or a server side issue.
- */
--(DynamoDBQueryResponse *)query:(DynamoDBQueryRequest *)queryRequest;
-
-
-/**
- * <p>
- * Edits an existing item's attributes.
- * </p>
- * <p>
- * You can perform a conditional update (insert a new attribute
- * name-value pair if it doesn't exist, or replace an existing name-value
- * pair if it has certain expected attribute values).
- * </p>
- *
- * @param updateItemRequest Container for the necessary parameters to
- *           execute the UpdateItem service method on AmazonDynamoDB.
- *
- * @return The response from the UpdateItem service method, as returned
- *         by AmazonDynamoDB.
- *
- * @throws DynamoDBProvisionedThroughputExceededException
- * @throws DynamoDBConditionalCheckFailedException
- * @throws DynamoDBInternalServerErrorException
- * @throws DynamoDBResourceNotFoundException
- *
- * @throws AmazonClientException
- *             If any internal errors are encountered inside the client while
- *             attempting to make the request or handle the response.  For example
- *             if a network connection is not available.
- * @throws AmazonServiceException
- *             If an error response is returned by AmazonDynamoDB indicating
- *             either a problem with the data in the request, or a server side issue.
- */
--(DynamoDBUpdateItemResponse *)updateItem:(DynamoDBUpdateItemRequest *)updateItemRequest;
-
-
-/**
- * <p>
  * Updates the provisioned throughput for the given table.
  * </p>
  * <p>
@@ -272,41 +372,6 @@
  *             either a problem with the data in the request, or a server side issue.
  */
 -(DynamoDBUpdateTableResponse *)updateTable:(DynamoDBUpdateTableRequest *)updateTableRequest;
-
-
-/**
- * <p>
- * Creates a new item, or replaces an old item with a new item (including
- * all the attributes).
- * </p>
- * <p>
- * If an item already exists in the specified table with the same primary
- * key, the new item completely replaces the existing item. You can
- * perform a conditional put (insert a new item if one with the specified
- * primary key doesn't exist), or replace an existing item if it has
- * certain attribute values.
- * </p>
- *
- * @param putItemRequest Container for the necessary parameters to
- *           execute the PutItem service method on AmazonDynamoDB.
- *
- * @return The response from the PutItem service method, as returned by
- *         AmazonDynamoDB.
- *
- * @throws DynamoDBProvisionedThroughputExceededException
- * @throws DynamoDBConditionalCheckFailedException
- * @throws DynamoDBInternalServerErrorException
- * @throws DynamoDBResourceNotFoundException
- *
- * @throws AmazonClientException
- *             If any internal errors are encountered inside the client while
- *             attempting to make the request or handle the response.  For example
- *             if a network connection is not available.
- * @throws AmazonServiceException
- *             If an error response is returned by AmazonDynamoDB indicating
- *             either a problem with the data in the request, or a server side issue.
- */
--(DynamoDBPutItemResponse *)putItem:(DynamoDBPutItemRequest *)putItemRequest;
 
 
 /**
@@ -372,36 +437,6 @@
  *             either a problem with the data in the request, or a server side issue.
  */
 -(DynamoDBDeleteItemResponse *)deleteItem:(DynamoDBDeleteItemRequest *)deleteItemRequest;
-
-
-/**
- * <p>
- * Retrieves information about the table, including the current status of
- * the table, the primary key schema and when the table was created.
- * </p>
- * <p>
- * If the table does not exist, Amazon DynamoDB returns a
- * <code>ResourceNotFoundException</code> .
- * </p>
- *
- * @param describeTableRequest Container for the necessary parameters to
- *           execute the DescribeTable service method on AmazonDynamoDB.
- *
- * @return The response from the DescribeTable service method, as
- *         returned by AmazonDynamoDB.
- *
- * @throws DynamoDBInternalServerErrorException
- * @throws DynamoDBResourceNotFoundException
- *
- * @throws AmazonClientException
- *             If any internal errors are encountered inside the client while
- *             attempting to make the request or handle the response.  For example
- *             if a network connection is not available.
- * @throws AmazonServiceException
- *             If an error response is returned by AmazonDynamoDB indicating
- *             either a problem with the data in the request, or a server side issue.
- */
--(DynamoDBDescribeTableResponse *)describeTable:(DynamoDBDescribeTableRequest *)describeTableRequest;
 
 
 /**

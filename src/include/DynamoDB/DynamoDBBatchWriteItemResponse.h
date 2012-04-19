@@ -13,28 +13,28 @@
  * permissions and limitations under the License.
  */
 
-#import "DynamoDBAttributeValue.h"
+#import "DynamoDBBatchWriteResponse.h"
+#import "DynamoDBWriteRequest.h"
 
 #import "DynamoDBResponse.h"
 #import "../AmazonServiceExceptionUnmarshaller.h"
 
 #import "DynamoDBProvisionedThroughputExceededException.h"
-#import "DynamoDBConditionalCheckFailedException.h"
 #import "DynamoDBInternalServerErrorException.h"
 #import "DynamoDBResourceNotFoundException.h"
 
 
 /**
- * Put Item Result
+ * Batch Write Item Result
  *
  * \ingroup DynamoDB
  */
 
-@interface DynamoDBPutItemResponse:DynamoDBResponse
+@interface DynamoDBBatchWriteItemResponse:DynamoDBResponse
 
 {
-    NSMutableDictionary *attributes;
-    NSNumber            *consumedCapacityUnits;
+    NSMutableDictionary *responses;
+    NSMutableDictionary *unprocessedItems;
 }
 
 
@@ -49,27 +49,31 @@
 -(id)init;
 
 /**
- * Attribute values before the put operation, but only if the
- * <code>ReturnValues</code> parameter is specified as
- * <code>ALL_OLD</code> in the request.
+ * The response object as a result of <code>BatchWriteItem</code> call.
+ * This is essentially a map of table name to
+ * <code>ConsumedCapacityUnits</code>.
  */
-@property (nonatomic, retain) NSMutableDictionary *attributes;
+@property (nonatomic, retain) NSMutableDictionary *responses;
 
 /**
- * The number of Capacity Units of the provisioned throughput of the
- * table consumed during the operation. <code>GetItem</code>,
- * <code>BatchGetItem</code>, <code>BatchWriteItem</code>,
- * <code>Query</code>, and <code>Scan</code> operations consume
- * <code>ReadCapacityUnits</code>, while <code>PutItem</code>,
- * <code>UpdateItem</code>, and <code>DeleteItem</code> operations
- * consume <code>WriteCapacityUnits</code>.
+ * The Items which we could not successfully process in a
+ * <code>BatchWriteItem</code> call is returned as
+ * <code>UnprocessedItems</code>
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Length: </b>1 - 25<br/>
  */
-@property (nonatomic, retain) NSNumber *consumedCapacityUnits;
+@property (nonatomic, retain) NSMutableDictionary *unprocessedItems;
 
 /**
- * Returns a value from the attributes dictionary for the specified key.
+ * Returns a value from the responses dictionary for the specified key.
  */
--(DynamoDBAttributeValue *)attributesValueForKey:(NSString *)theKey;
+-(DynamoDBBatchWriteResponse *)responsesValueForKey:(NSString *)theKey;
+
+/**
+ * Returns a value from the unprocessedItems dictionary for the specified key.
+ */
+-(NSArray *)unprocessedItemsValueForKey:(NSString *)theKey;
 
 /**
  * Returns a string representation of this object; useful for testing and

@@ -31,13 +31,17 @@
     return [AmazonAuthUtils HMACSign:[theSts dataUsingEncoding:NSUTF8StringEncoding] withKey:credentials.secretKey usingAlgorithm:kCCHmacAlgSHA256];
 }
 
-+(NSString *)signRequestV4:(AmazonServiceRequest *)serviceRequest headers:(NSMutableDictionary *)headers payload:(NSString *)payload credentials:(AmazonCredentials *)credentials
++(void)signRequestV4:(AmazonServiceRequest *)serviceRequest headers:(NSMutableDictionary *)headers payload:(NSString *)payload credentials:(AmazonCredentials *)credentials
 {
     NSDate *date = [NSDate date];
     
     NSString *dateStamp = [date dateStamp];
     NSString *dateTime  = [date dateTime];
     
+    // add date header (done here for consistency in timestamp)
+    [headers setObject:dateTime forKey:@"X-Amz-Date"];
+    [serviceRequest.urlRequest setValue:dateTime forHTTPHeaderField:@"X-Amz-Date"]; 
+        
     // TODO: This needs to be generalized for non-Dynamo calls (path and query)
     NSString *canonicalRequest = [AmazonAuthUtils getCanonicalizedRequest:serviceRequest.urlRequest.HTTPMethod path:@"/" query:@"" headers:headers payload:payload];    
     
@@ -56,10 +60,8 @@
     NSString *signedHeadersAuthorizationHeader = [NSString stringWithFormat:@"SignedHeaders=%@", [AmazonAuthUtils getSignedHeadersString:headers]];
     NSString *signatureAuthorizationHeader     = [NSString stringWithFormat:@"Signature=%@", [AmazonSDKUtil hexEncode:[[NSString alloc] initWithData:signature encoding:NSASCIIStringEncoding]]];
     
-    // Now add date header
-    [headers setObject:dateTime forKey:@"X-Amz-Date"];
-    
-    return [NSString stringWithFormat:@"%@ %@, %@, %@", SIGV4_ALGORITHM, credentialsAuthorizationHeader, signedHeadersAuthorizationHeader, signatureAuthorizationHeader];
+    NSString *authorization = [NSString stringWithFormat:@"%@ %@, %@, %@", SIGV4_ALGORITHM, credentialsAuthorizationHeader, signedHeadersAuthorizationHeader, signatureAuthorizationHeader];
+    [serviceRequest.urlRequest setValue:authorization     forHTTPHeaderField:@"Authorization"];
 }
 
 +(NSString *)getV2StringToSign:(NSURL *)theEndpoint request:(AmazonServiceRequest *)serviceRequest

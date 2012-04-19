@@ -172,7 +172,7 @@
         }
         
         if ( [serviceAndRegion rangeOfString:separator].location == NSNotFound) {
-            return @"nil";
+            return serviceAndRegion;
         }
         
         NSRange index = [serviceAndRegion rangeOfString:separator];

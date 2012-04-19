@@ -201,6 +201,17 @@
     return nil;
 }
 
+// FOR TESTING ONLY - disables SSL cert checks
+//- (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace {
+//    return [protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust];
+//}
+
+//- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
+//    [challenge.sender useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust] forAuthenticationChallenge:challenge];
+//    
+//    [challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
+//}
+
 #pragma mark memory management
 
 -(void)dealloc

@@ -42,11 +42,9 @@
         NSMutableDictionary *itemJson = [[[NSMutableDictionary alloc] init] autorelease];
         [json setValue:itemJson forKey:@"Item"];
         for (NSString *itemListValue in putItemRequest.item) {
-            NSMutableDictionary *itemListValueJson = [[[NSMutableDictionary alloc] init] autorelease];
+            NSMutableDictionary    *itemListValueJson = [[[NSMutableDictionary alloc] init] autorelease];
             [itemJson setValue:itemListValueJson forKey:itemListValue];
-
             DynamoDBAttributeValue *itemListValueValue = [putItemRequest.item valueForKey:itemListValue];
-
 
             if (itemListValueValue.s != nil) {
                 [itemListValueJson setValue:itemListValueValue.s forKey:@"S"];
@@ -85,11 +83,9 @@
         NSMutableDictionary *expectedJson = [[[NSMutableDictionary alloc] init] autorelease];
         [json setValue:expectedJson forKey:@"Expected"];
         for (NSString *expectedListValue in putItemRequest.expected) {
-            NSMutableDictionary *expectedListValueJson = [[[NSMutableDictionary alloc] init] autorelease];
+            NSMutableDictionary            *expectedListValueJson = [[[NSMutableDictionary alloc] init] autorelease];
             [expectedJson setValue:expectedListValueJson forKey:expectedListValue];
-
             DynamoDBExpectedAttributeValue *expectedListValueValue = [putItemRequest.expected valueForKey:expectedListValue];
-
             if (expectedListValueValue != nil) {
                 DynamoDBAttributeValue *value = expectedListValueValue.value;
                 if (value != nil) {

@@ -26,6 +26,7 @@
     NSString *uploadId;
     NSString *contentMD5;
     NSData   *data;
+    NSInputStream *stream;
 }
 
 /** Identifies which part this is. */
@@ -40,8 +41,20 @@
 /** The uploadId of the multipart upload that this part is for. */
 @property (nonatomic, retain) NSString *uploadId;
 
-/** The data for the part. */
+/** The data for the part.
+ * <p>
+ * Use one of <code>data</code>, <code>stream</code>.
+ * </p>
+ */
 @property (nonatomic, retain) NSData *data;
+
+/** The stream from which to read the data for the part.
+ * <b>To use the stream you must explicitly set the content length.<b/>
+ * <p>
+ * Use one of <code>data</code> or <code>stream</code>.
+ * </p>
+ */
+@property (nonatomic, retain) NSInputStream *stream;
 
 /** Initializes the instance with the bucket, key, and uploadId from an S3MultipartUpload instance returned in an S3MultipartUploadResponse. */
 -(id)initWithMultipartUpload:(S3MultipartUpload *)multipartUpload;

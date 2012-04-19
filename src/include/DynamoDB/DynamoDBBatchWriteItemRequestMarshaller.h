@@ -13,18 +13,22 @@
  * permissions and limitations under the License.
  */
 
-#import "SecurityTokenServiceRequest.h"
-#import "AmazonAuthUtils.h"
 
-@implementation SecurityTokenServiceRequest
+#import "../AmazonServiceRequest.h"
 
--(void)sign {
-    self.serviceName = @"sts";
-    // headers to sign
-    NSMutableDictionary *headers = [NSMutableDictionary dictionary];
-    [headers setObject:self.hostName forKey:@"Host"];
+#import "DynamoDBRequest.h"
+#import "DynamoDBBatchWriteItemRequest.h"
 
-    [AmazonAuthUtils signRequestV4:self headers:headers payload:[self queryString] credentials:self.credentials];
+
+/**
+ * Batch Write Item Request Marshaller
+ */
+@interface DynamoDBBatchWriteItemRequestMarshaller:NSObject {
 }
 
+
++(AmazonServiceRequest *)createRequest:(DynamoDBBatchWriteItemRequest *)batchWriteItemRequest;
+
+
 @end
+

@@ -13,14 +13,45 @@
  * permissions and limitations under the License.
  */
 
-#import <Foundation/Foundation.h>
-#import "../AmazonServiceRequest.h"
+#import "DynamoDBDeleteRequest.h"
 
-@interface SecurityTokenServiceRequest:AmazonServiceRequest
+
+@implementation DynamoDBDeleteRequest
+
+@synthesize key;
+
+
+-(id)init
 {
+    if (self = [super init]) {
+        key = nil;
+    }
+
+    return self;
 }
 
-// override super (for V4)
--(void)sign;
+
+
+-(NSString *)description
+{
+    NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
+
+    [buffer appendString:@"{"];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Key: %@,", key] autorelease]];
+    [buffer appendString:[super description]];
+    [buffer appendString:@"}"];
+
+    return [buffer autorelease];
+}
+
+
+
+-(void)dealloc
+{
+    [key release];
+
+    [super dealloc];
+}
+
 
 @end

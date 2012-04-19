@@ -96,5 +96,7 @@
 // Server Side Encryption
 #define kS3ServerSideEnryptionAES256         @"AES256"
 
+// Put Speed
+#define kS3UploadInputStreamChunkSize	1024
 
 

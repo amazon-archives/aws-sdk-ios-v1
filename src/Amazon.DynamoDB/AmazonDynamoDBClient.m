@@ -27,20 +27,6 @@
     return self;
 }
 
--(DynamoDBScanResponse *)scan:(DynamoDBScanRequest *)scanRequest
-{
-    AmazonServiceRequest *request = [DynamoDBScanRequestMarshaller createRequest:scanRequest];
-
-    return (DynamoDBScanResponse *)[self invoke:request rawRequest:scanRequest unmarshallerDelegate:[DynamoDBScanResponseUnmarshaller class]];
-}
-
--(DynamoDBCreateTableResponse *)createTable:(DynamoDBCreateTableRequest *)createTableRequest
-{
-    AmazonServiceRequest *request = [DynamoDBCreateTableRequestMarshaller createRequest:createTableRequest];
-
-    return (DynamoDBCreateTableResponse *)[self invoke:request rawRequest:createTableRequest unmarshallerDelegate:[DynamoDBCreateTableResponseUnmarshaller class]];
-}
-
 -(DynamoDBListTablesResponse *)listTables:(DynamoDBListTablesRequest *)listTablesRequest
 {
     AmazonServiceRequest *request = [DynamoDBListTablesRequestMarshaller createRequest:listTablesRequest];
@@ -55,6 +41,13 @@
     return (DynamoDBQueryResponse *)[self invoke:request rawRequest:queryRequest unmarshallerDelegate:[DynamoDBQueryResponseUnmarshaller class]];
 }
 
+-(DynamoDBBatchWriteItemResponse *)batchWriteItem:(DynamoDBBatchWriteItemRequest *)batchWriteItemRequest
+{
+    AmazonServiceRequest *request = [DynamoDBBatchWriteItemRequestMarshaller createRequest:batchWriteItemRequest];
+
+    return (DynamoDBBatchWriteItemResponse *)[self invoke:request rawRequest:batchWriteItemRequest unmarshallerDelegate:[DynamoDBBatchWriteItemResponseUnmarshaller class]];
+}
+
 -(DynamoDBUpdateItemResponse *)updateItem:(DynamoDBUpdateItemRequest *)updateItemRequest
 {
     AmazonServiceRequest *request = [DynamoDBUpdateItemRequestMarshaller createRequest:updateItemRequest];
@@ -62,18 +55,39 @@
     return (DynamoDBUpdateItemResponse *)[self invoke:request rawRequest:updateItemRequest unmarshallerDelegate:[DynamoDBUpdateItemResponseUnmarshaller class]];
 }
 
--(DynamoDBUpdateTableResponse *)updateTable:(DynamoDBUpdateTableRequest *)updateTableRequest
-{
-    AmazonServiceRequest *request = [DynamoDBUpdateTableRequestMarshaller createRequest:updateTableRequest];
-
-    return (DynamoDBUpdateTableResponse *)[self invoke:request rawRequest:updateTableRequest unmarshallerDelegate:[DynamoDBUpdateTableResponseUnmarshaller class]];
-}
-
 -(DynamoDBPutItemResponse *)putItem:(DynamoDBPutItemRequest *)putItemRequest
 {
     AmazonServiceRequest *request = [DynamoDBPutItemRequestMarshaller createRequest:putItemRequest];
 
     return (DynamoDBPutItemResponse *)[self invoke:request rawRequest:putItemRequest unmarshallerDelegate:[DynamoDBPutItemResponseUnmarshaller class]];
+}
+
+-(DynamoDBDescribeTableResponse *)describeTable:(DynamoDBDescribeTableRequest *)describeTableRequest
+{
+    AmazonServiceRequest *request = [DynamoDBDescribeTableRequestMarshaller createRequest:describeTableRequest];
+
+    return (DynamoDBDescribeTableResponse *)[self invoke:request rawRequest:describeTableRequest unmarshallerDelegate:[DynamoDBDescribeTableResponseUnmarshaller class]];
+}
+
+-(DynamoDBScanResponse *)scan:(DynamoDBScanRequest *)scanRequest
+{
+    AmazonServiceRequest *request = [DynamoDBScanRequestMarshaller createRequest:scanRequest];
+
+    return (DynamoDBScanResponse *)[self invoke:request rawRequest:scanRequest unmarshallerDelegate:[DynamoDBScanResponseUnmarshaller class]];
+}
+
+-(DynamoDBCreateTableResponse *)createTable:(DynamoDBCreateTableRequest *)createTableRequest
+{
+    AmazonServiceRequest *request = [DynamoDBCreateTableRequestMarshaller createRequest:createTableRequest];
+
+    return (DynamoDBCreateTableResponse *)[self invoke:request rawRequest:createTableRequest unmarshallerDelegate:[DynamoDBCreateTableResponseUnmarshaller class]];
+}
+
+-(DynamoDBUpdateTableResponse *)updateTable:(DynamoDBUpdateTableRequest *)updateTableRequest
+{
+    AmazonServiceRequest *request = [DynamoDBUpdateTableRequestMarshaller createRequest:updateTableRequest];
+
+    return (DynamoDBUpdateTableResponse *)[self invoke:request rawRequest:updateTableRequest unmarshallerDelegate:[DynamoDBUpdateTableResponseUnmarshaller class]];
 }
 
 -(DynamoDBDeleteTableResponse *)deleteTable:(DynamoDBDeleteTableRequest *)deleteTableRequest
@@ -88,13 +102,6 @@
     AmazonServiceRequest *request = [DynamoDBDeleteItemRequestMarshaller createRequest:deleteItemRequest];
 
     return (DynamoDBDeleteItemResponse *)[self invoke:request rawRequest:deleteItemRequest unmarshallerDelegate:[DynamoDBDeleteItemResponseUnmarshaller class]];
-}
-
--(DynamoDBDescribeTableResponse *)describeTable:(DynamoDBDescribeTableRequest *)describeTableRequest
-{
-    AmazonServiceRequest *request = [DynamoDBDescribeTableRequestMarshaller createRequest:describeTableRequest];
-
-    return (DynamoDBDescribeTableResponse *)[self invoke:request rawRequest:describeTableRequest unmarshallerDelegate:[DynamoDBDescribeTableResponseUnmarshaller class]];
 }
 
 -(DynamoDBGetItemResponse *)getItem:(DynamoDBGetItemRequest *)getItemRequest

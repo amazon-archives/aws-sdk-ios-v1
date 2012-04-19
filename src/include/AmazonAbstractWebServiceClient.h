@@ -48,10 +48,10 @@
  */
 @property (nonatomic, assign) int maxRetries;
 
-/** The amount of time to wait (in milliseconds) for data to be transfered over
+/** The amount of time to wait (in seconds) for data to be transfered over
  * an established, open connection before the connection times out and is closed.
  *
- * Default is 30 seconds.
+ * Default is 240 seconds.
  */
 @property (nonatomic, assign) NSTimeInterval timeout;
 

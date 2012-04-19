@@ -64,9 +64,7 @@
         for (NSString *scanFilterListValue in scanRequest.scanFilter) {
             NSMutableDictionary *scanFilterListValueJson = [[[NSMutableDictionary alloc] init] autorelease];
             [scanFilterJson setValue:scanFilterListValueJson forKey:scanFilterListValue];
-
-            DynamoDBCondition *scanFilterListValueValue = [scanRequest.scanFilter valueForKey:scanFilterListValue];
-
+            DynamoDBCondition   *scanFilterListValueValue = [scanRequest.scanFilter valueForKey:scanFilterListValue];
 
 
             if (scanFilterListValueValue != nil) {

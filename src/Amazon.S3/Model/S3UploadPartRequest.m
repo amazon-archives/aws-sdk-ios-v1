@@ -22,6 +22,8 @@
 @synthesize uploadId;
 @synthesize partNumber;
 @synthesize data;
+@synthesize stream;
+
 
 -(id)initWithMultipartUpload:(S3MultipartUpload *)multipartUpload
 {
@@ -42,7 +44,12 @@
     }
     [super configureURLRequest];
 
-    [self.urlRequest setHTTPBody:self.data];
+    if (self.stream != nil) {
+        [self.urlRequest setHTTPBodyStream:self.stream];
+    }
+    else {
+        [self.urlRequest setHTTPBody:self.data];
+    }
     if (nil != self.contentMD5) {
         [self.urlRequest setValue:self.contentMD5 forHTTPHeaderField:kHttpHdrContentMD5];
     }

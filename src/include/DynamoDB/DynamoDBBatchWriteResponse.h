@@ -20,16 +20,15 @@
 
 
 /**
- * Batch Response
+ * Batch Write Response
  *
  * \ingroup DynamoDB
  */
 
-@interface DynamoDBBatchResponse:DynamoDBResponse
+@interface DynamoDBBatchWriteResponse:DynamoDBResponse
 
 {
-    NSMutableArray *items;
-    NSNumber       *consumedCapacityUnits;
+    NSNumber *consumedCapacityUnits;
 }
 
 
@@ -44,11 +43,6 @@
 -(id)init;
 
 /**
- * The value of the Items property for this object.
- */
-@property (nonatomic, retain) NSMutableArray *items;
-
-/**
  * The number of Capacity Units of the provisioned throughput of the
  * table consumed during the operation. <code>GetItem</code>,
  * <code>BatchGetItem</code>, <code>BatchWriteItem</code>,
@@ -58,13 +52,6 @@
  * consume <code>WriteCapacityUnits</code>.
  */
 @property (nonatomic, retain) NSNumber *consumedCapacityUnits;
-
-
-
-/**
- * Returns a value from the items array for the specified index
- */
--(NSDictionary *)itemsObjectAtIndex:(int)index;
 
 /**
  * Returns a string representation of this object; useful for testing and

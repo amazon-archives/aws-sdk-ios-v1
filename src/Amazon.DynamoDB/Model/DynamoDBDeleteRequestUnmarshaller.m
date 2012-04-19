@@ -13,18 +13,26 @@
  * permissions and limitations under the License.
  */
 
-#import "SecurityTokenServiceRequest.h"
-#import "AmazonAuthUtils.h"
+#import "DynamoDBDeleteRequestUnmarshaller.h"
+#import "DynamoDBExceptionUnmarshaller.h"
+#import "../AmazonSDKUtil.h"
+#import "DynamoDBKeyUnmarshaller.h"
 
-@implementation SecurityTokenServiceRequest
 
--(void)sign {
-    self.serviceName = @"sts";
-    // headers to sign
-    NSMutableDictionary *headers = [NSMutableDictionary dictionary];
-    [headers setObject:self.hostName forKey:@"Host"];
+@implementation DynamoDBDeleteRequestUnmarshaller
 
-    [AmazonAuthUtils signRequestV4:self headers:headers payload:[self queryString] credentials:self.credentials];
+
++(DynamoDBDeleteRequest *)unmarshall:(NSDictionary *)jsonObject
+{
+    DynamoDBDeleteRequest *deleteRequest = [[[DynamoDBDeleteRequest alloc] init] autorelease];
+
+
+
+    if ([jsonObject valueForKey:@"Key"] != nil) {
+        deleteRequest.key = [DynamoDBKeyUnmarshaller unmarshall:[jsonObject valueForKey:@"Key"]];
+    }
+
+    return deleteRequest;
 }
 
 @end

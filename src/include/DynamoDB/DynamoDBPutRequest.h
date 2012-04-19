@@ -15,30 +15,23 @@
 
 #import "DynamoDBAttributeValue.h"
 
-#import "DynamoDBResponse.h"
-#import "../AmazonServiceExceptionUnmarshaller.h"
+#import "../AmazonServiceRequestConfig.h"
 
-#import "DynamoDBProvisionedThroughputExceededException.h"
-#import "DynamoDBInternalServerErrorException.h"
-#import "DynamoDBResourceNotFoundException.h"
 
 
 /**
- * Get Item Result
+ * Put Request
  *
  * \ingroup DynamoDB
  */
 
-@interface DynamoDBGetItemResponse:DynamoDBResponse
+@interface DynamoDBPutRequest:AmazonServiceRequestConfig
 
 {
     NSMutableDictionary *item;
-    NSNumber            *consumedCapacityUnits;
 }
 
 
-
--(void)setException:(AmazonServiceException *)theException;
 
 
 /**
@@ -48,25 +41,16 @@
 -(id)init;
 
 /**
- * Contains the requested attributes.
+ * The item to put
  */
 @property (nonatomic, retain) NSMutableDictionary *item;
 
-/**
- * The number of Capacity Units of the provisioned throughput of the
- * table consumed during the operation. <code>GetItem</code>,
- * <code>BatchGetItem</code>, <code>BatchWriteItem</code>,
- * <code>Query</code>, and <code>Scan</code> operations consume
- * <code>ReadCapacityUnits</code>, while <code>PutItem</code>,
- * <code>UpdateItem</code>, and <code>DeleteItem</code> operations
- * consume <code>WriteCapacityUnits</code>.
- */
-@property (nonatomic, retain) NSNumber *consumedCapacityUnits;
 
 /**
- * Returns a value from the item dictionary for the specified key.
+ * Set a value in the dictionary item for the specified key.
+ * This function will alloc and init item if not already done.
  */
--(DynamoDBAttributeValue *)itemValueForKey:(NSString *)theKey;
+-(void)setItemValue:(DynamoDBAttributeValue *)theValue forKey:(NSString *)theKey;
 
 /**
  * Returns a string representation of this object; useful for testing and
