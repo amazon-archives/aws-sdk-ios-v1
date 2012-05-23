@@ -24,8 +24,6 @@
 
 /**
  * Deregister Instances From Load Balancer Result
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingDeregisterInstancesFromLoadBalancerResponse:ElasticLoadBalancingResponse

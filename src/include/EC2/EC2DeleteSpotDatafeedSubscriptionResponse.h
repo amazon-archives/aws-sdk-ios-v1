@@ -20,8 +20,6 @@
 
 /**
  * Delete Spot Datafeed Subscription
- *
- * \ingroup EC2
  */
 @interface EC2DeleteSpotDatafeedSubscriptionResponse:EC2Response
 {

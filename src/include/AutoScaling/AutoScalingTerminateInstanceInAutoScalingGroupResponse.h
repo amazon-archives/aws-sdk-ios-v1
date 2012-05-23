@@ -23,8 +23,6 @@
 
 /**
  * Terminate Instance In Auto Scaling Group Result
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingTerminateInstanceInAutoScalingGroupResponse:AutoScalingResponse

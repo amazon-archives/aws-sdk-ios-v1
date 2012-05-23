@@ -21,8 +21,6 @@
 
 /**
  * Associate Address Response
- *
- * \ingroup EC2
  */
 
 @interface EC2AssociateAddressResponse:EC2Response

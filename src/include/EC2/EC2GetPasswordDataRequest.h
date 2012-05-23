@@ -20,8 +20,6 @@
 
 /**
  * Get Password Data Request
- *
- * \ingroup EC2
  */
 
 @interface EC2GetPasswordDataRequest:AmazonServiceRequestConfig

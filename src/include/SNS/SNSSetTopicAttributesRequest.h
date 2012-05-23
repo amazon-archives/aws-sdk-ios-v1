@@ -20,8 +20,6 @@
 
 /**
  * Set Topic Attributes Request
- *
- * \ingroup SNS
  */
 
 @interface SNSSetTopicAttributesRequest:AmazonServiceRequestConfig

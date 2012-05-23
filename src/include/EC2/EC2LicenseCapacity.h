@@ -18,8 +18,6 @@
 
 /**
  * License Capacity
- *
- * \ingroup EC2
  */
 
 @interface EC2LicenseCapacity:NSObject

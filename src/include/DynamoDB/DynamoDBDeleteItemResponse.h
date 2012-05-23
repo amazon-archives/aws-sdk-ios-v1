@@ -26,8 +26,6 @@
 
 /**
  * Delete Item Result
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBDeleteItemResponse:DynamoDBResponse

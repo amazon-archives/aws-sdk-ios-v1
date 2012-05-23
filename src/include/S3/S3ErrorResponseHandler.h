@@ -20,7 +20,6 @@
 /** Parse an error response from Amazon S3 and construct the corresponding
  * AWSServiceException object.
  *
- * \ingroup S3
  */
 @interface S3ErrorResponseHandler:AmazonUnmarshallerXMLParserDelegate {
     AmazonServiceException *exception;

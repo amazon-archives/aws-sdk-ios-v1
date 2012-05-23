@@ -18,8 +18,6 @@
 
 /**
  * Key Pair Info
- *
- * \ingroup EC2
  */
 
 @interface EC2KeyPairInfo:NSObject

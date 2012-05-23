@@ -22,8 +22,6 @@
  * <p>
  * The message contains characters outside the allowed set.
  * </p>
- *
- * \ingroup SQS
  */
 @interface SQSInvalidMessageContentsException:AmazonServiceException
 {

@@ -22,8 +22,6 @@
 
 /**
  * Write Request
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBWriteRequest:AmazonServiceRequestConfig

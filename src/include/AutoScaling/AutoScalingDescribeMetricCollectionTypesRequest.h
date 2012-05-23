@@ -20,8 +20,6 @@
 
 /**
  * Describe Metric Collection Types Request
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingDescribeMetricCollectionTypesRequest:AmazonServiceRequestConfig

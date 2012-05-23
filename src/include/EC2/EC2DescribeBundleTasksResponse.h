@@ -22,8 +22,6 @@
 
 /**
  * Describe Bundle Tasks Response
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeBundleTasksResponse:EC2Response

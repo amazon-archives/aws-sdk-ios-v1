@@ -22,8 +22,6 @@
 
 /**
  * Instance Status
- *
- * \ingroup EC2
  */
 
 @interface EC2InstanceStatus:NSObject

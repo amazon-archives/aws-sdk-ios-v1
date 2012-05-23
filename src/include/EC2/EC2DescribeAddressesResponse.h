@@ -22,8 +22,6 @@
 
 /**
  * Describe Addresses Response
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeAddressesResponse:EC2Response

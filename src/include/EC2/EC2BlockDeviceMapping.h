@@ -19,8 +19,6 @@
 
 /**
  * Block Device Mapping
- *
- * \ingroup EC2
  */
 
 @interface EC2BlockDeviceMapping:NSObject

@@ -19,7 +19,6 @@
 /** The result of an initiateMultipartUpload request. The uploadId is used in all subsequent
  * interactions for this multipart upload.
  *
- * \ingroup S3
  */
 @interface S3MultipartUpload:NSObject {
     NSString *key;

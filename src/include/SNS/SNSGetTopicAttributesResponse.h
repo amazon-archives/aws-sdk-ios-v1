@@ -25,8 +25,6 @@
 
 /**
  * Get Topic Attributes Result
- *
- * \ingroup SNS
  */
 
 @interface SNSGetTopicAttributesResponse:SNSResponse

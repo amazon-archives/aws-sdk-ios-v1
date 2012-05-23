@@ -19,8 +19,6 @@
 
 /**
  * Reserved Instances Offering
- *
- * \ingroup EC2
  */
 
 @interface EC2ReservedInstancesOffering:NSObject

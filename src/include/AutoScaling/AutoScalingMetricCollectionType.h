@@ -18,8 +18,6 @@
 
 /**
  * Metric Collection Type
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingMetricCollectionType:NSObject

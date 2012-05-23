@@ -25,7 +25,6 @@
  * <br />Required Parameters: bucket, acl
  * <br />Optional Parameters: key
  *
- * \ingroup S3
  */
 @interface S3SetACLRequest:S3Request {
     S3AccessControlList *acl;

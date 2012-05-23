@@ -22,8 +22,6 @@
 
 /**
  * Create Table Request
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBCreateTableRequest:AmazonServiceRequestConfig

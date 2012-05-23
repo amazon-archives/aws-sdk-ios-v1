@@ -21,8 +21,6 @@
 
 /**
  * Modify Snapshot Attribute Request
- *
- * \ingroup EC2
  */
 
 @interface EC2ModifySnapshotAttributeRequest:AmazonServiceRequestConfig
@@ -46,6 +44,9 @@
 /**
  * The name of the attribute being modified. <p> Available attribute
  * names: <code>createVolumePermission</code>
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>productCodes, createVolumePermission
  */
 @property (nonatomic, retain) NSString *attribute;
 

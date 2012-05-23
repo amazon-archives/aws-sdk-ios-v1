@@ -20,8 +20,6 @@
 
 /**
  * Create Volume Permission Modifications
- *
- * \ingroup EC2
  */
 
 @interface EC2CreateVolumePermissionModifications:NSObject

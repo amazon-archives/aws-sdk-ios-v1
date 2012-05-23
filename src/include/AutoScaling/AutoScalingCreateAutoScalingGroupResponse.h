@@ -22,8 +22,6 @@
 
 /**
  * Create Auto Scaling Group
- *
- * \ingroup AutoScaling
  */
 @interface AutoScalingCreateAutoScalingGroupResponse:AutoScalingResponse
 {

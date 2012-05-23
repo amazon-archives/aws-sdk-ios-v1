@@ -19,7 +19,6 @@
 
 /** Contains the parameters used for the uploadPart operation.
  *
- * \ingroup S3
  */
 @interface S3UploadPartRequest:S3Request {
     int      partNumber;

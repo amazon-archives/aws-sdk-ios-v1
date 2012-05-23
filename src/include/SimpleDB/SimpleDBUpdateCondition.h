@@ -18,8 +18,6 @@
 
 /**
  * Update Condition
- *
- * \ingroup SimpleDB
  */
 
 @interface SimpleDBUpdateCondition:NSObject

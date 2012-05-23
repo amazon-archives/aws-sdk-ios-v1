@@ -20,8 +20,6 @@
 
 /**
  * Deactivate License
- *
- * \ingroup EC2
  */
 @interface EC2DeactivateLicenseResponse:EC2Response
 {

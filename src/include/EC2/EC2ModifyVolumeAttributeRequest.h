@@ -20,8 +20,6 @@
 
 /**
  * Modify Volume Attribute Request
- *
- * \ingroup EC2
  */
 
 @interface EC2ModifyVolumeAttributeRequest:AmazonServiceRequestConfig

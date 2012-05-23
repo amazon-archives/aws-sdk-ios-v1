@@ -18,8 +18,6 @@
 
 /**
  * Placement Group
- *
- * \ingroup EC2
  */
 
 @interface EC2PlacementGroup:NSObject

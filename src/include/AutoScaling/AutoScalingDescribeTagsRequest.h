@@ -21,8 +21,6 @@
 
 /**
  * Describe Tags Request
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingDescribeTagsRequest:AmazonServiceRequestConfig

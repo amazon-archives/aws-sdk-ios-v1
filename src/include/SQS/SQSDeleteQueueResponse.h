@@ -20,8 +20,6 @@
 
 /**
  * Delete Queue
- *
- * \ingroup SQS
  */
 @interface SQSDeleteQueueResponse:SQSResponse
 {

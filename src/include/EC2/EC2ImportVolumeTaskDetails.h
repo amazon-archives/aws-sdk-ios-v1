@@ -20,8 +20,6 @@
 
 /**
  * Import Volume Task Details
- *
- * \ingroup EC2
  */
 
 @interface EC2ImportVolumeTaskDetails:NSObject

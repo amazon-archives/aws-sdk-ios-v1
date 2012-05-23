@@ -20,8 +20,6 @@
 
 /**
  * Describe Alarms Request
- *
- * \ingroup CloudWatch
  */
 
 @interface CloudWatchDescribeAlarmsRequest:AmazonServiceRequestConfig

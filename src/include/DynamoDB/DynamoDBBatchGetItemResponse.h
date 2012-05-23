@@ -26,8 +26,6 @@
 
 /**
  * Batch Get Item Result
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBBatchGetItemResponse:DynamoDBResponse

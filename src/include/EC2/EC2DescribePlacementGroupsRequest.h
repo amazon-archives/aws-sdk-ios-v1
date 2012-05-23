@@ -21,8 +21,6 @@
 
 /**
  * Describe Placement Groups Request
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribePlacementGroupsRequest:AmazonServiceRequestConfig

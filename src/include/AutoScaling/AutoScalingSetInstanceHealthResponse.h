@@ -20,8 +20,6 @@
 
 /**
  * Set Instance Health
- *
- * \ingroup AutoScaling
  */
 @interface AutoScalingSetInstanceHealthResponse:AutoScalingResponse
 {

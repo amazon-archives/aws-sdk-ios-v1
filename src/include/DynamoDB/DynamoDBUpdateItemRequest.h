@@ -23,8 +23,6 @@
 
 /**
  * Update Item Request
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBUpdateItemRequest:AmazonServiceRequestConfig

@@ -24,8 +24,6 @@
 
 /**
  * Apply Security Groups To Load Balancer Result
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingApplySecurityGroupsToLoadBalancerResponse:ElasticLoadBalancingResponse

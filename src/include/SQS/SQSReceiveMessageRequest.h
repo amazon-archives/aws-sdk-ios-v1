@@ -20,8 +20,6 @@
 
 /**
  * Receive Message Request
- *
- * \ingroup SQS
  */
 
 @interface SQSReceiveMessageRequest:AmazonServiceRequestConfig

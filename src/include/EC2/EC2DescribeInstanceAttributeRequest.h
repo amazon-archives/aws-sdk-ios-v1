@@ -20,8 +20,6 @@
 
 /**
  * Describe Instance Attribute Request
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeInstanceAttributeRequest:AmazonServiceRequestConfig
@@ -44,6 +42,9 @@
  * <code>userData</code>, <code>disableApiTermination</code>,
  * <code>instanceInitiatedShutdownBehavior</code>,
  * <code>rootDeviceName</code>, <code>blockDeviceMapping</code>
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>instanceType, kernel, ramdisk, userData, disableApiTermination, instanceInitiatedShutdownBehavior, rootDeviceName, blockDeviceMapping, productCodes, sourceDestCheck, groupSet
  */
 @property (nonatomic, retain) NSString *attribute;
 

@@ -22,8 +22,6 @@
  * <p>
  * The quota for alarms for this customer has already been reached.
  * </p>
- *
- * \ingroup CloudWatch
  */
 @interface CloudWatchLimitExceededException:AmazonServiceException
 {

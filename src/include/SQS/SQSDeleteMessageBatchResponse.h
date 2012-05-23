@@ -27,8 +27,6 @@
 
 /**
  * Delete Message Batch Result
- *
- * \ingroup SQS
  */
 
 @interface SQSDeleteMessageBatchResponse:SQSResponse

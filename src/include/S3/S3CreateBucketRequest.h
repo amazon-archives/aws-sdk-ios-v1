@@ -25,7 +25,6 @@
 
 /** Contains the parameters used for the createBucket operation.
  *
- * \ingroup S3
  */
 @interface S3CreateBucketRequest:S3Request {
     S3Region    *region;

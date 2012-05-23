@@ -20,8 +20,6 @@
 
 /**
  * Create Volume Request
- *
- * \ingroup EC2
  */
 
 @interface EC2CreateVolumeRequest:AmazonServiceRequestConfig

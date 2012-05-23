@@ -22,8 +22,6 @@
 
 /**
  * Describe Availability Zones Response
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeAvailabilityZonesResponse:EC2Response

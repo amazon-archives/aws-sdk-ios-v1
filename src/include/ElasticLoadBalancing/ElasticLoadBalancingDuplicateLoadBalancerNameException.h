@@ -23,8 +23,6 @@
  * LoadBalancer name already exists for this account. Please choose
  * another name.
  * </p>
- *
- * \ingroup ElasticLoadBalancing
  */
 @interface ElasticLoadBalancingDuplicateLoadBalancerNameException:AmazonServiceException
 {

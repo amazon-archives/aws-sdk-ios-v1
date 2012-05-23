@@ -23,8 +23,6 @@
 
 /**
  * List Domains Result
- *
- * \ingroup SimpleDB
  */
 
 @interface SimpleDBListDomainsResponse:SimpleDBResponse

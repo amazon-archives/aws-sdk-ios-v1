@@ -22,8 +22,6 @@
  * <p>
  * The next token specified is invalid.
  * </p>
- *
- * \ingroup CloudWatch
  */
 @interface CloudWatchInvalidNextTokenException:AmazonServiceException
 {

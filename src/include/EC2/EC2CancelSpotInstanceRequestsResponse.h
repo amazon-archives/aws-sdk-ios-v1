@@ -24,8 +24,6 @@
 
 /**
  * Cancel Spot Instance Requests Response
- *
- * \ingroup EC2
  */
 
 @interface EC2CancelSpotInstanceRequestsResponse:EC2Response

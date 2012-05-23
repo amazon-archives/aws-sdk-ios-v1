@@ -23,8 +23,6 @@
  * Quota for number of policies for this LoadBalancer has already been
  * reached.
  * </p>
- *
- * \ingroup ElasticLoadBalancing
  */
 @interface ElasticLoadBalancingTooManyPoliciesException:AmazonServiceException
 {

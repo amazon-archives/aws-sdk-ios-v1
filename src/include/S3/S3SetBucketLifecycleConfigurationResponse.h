@@ -17,8 +17,6 @@
 #import "S3Response.h"
 
 /** Contains all the information about the setBucketLifecycleConfigurationResponse operation.
- *
- * \ingroup S3
  */
 @interface S3SetBucketLifecycleConfigurationResponse:S3Response
 

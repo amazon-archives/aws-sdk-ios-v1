@@ -20,8 +20,6 @@
 
 /**
  * Launch Configuration
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingLaunchConfiguration:NSObject

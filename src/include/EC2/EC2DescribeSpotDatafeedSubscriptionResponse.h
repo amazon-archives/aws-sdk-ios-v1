@@ -22,8 +22,6 @@
 
 /**
  * Describe Spot Datafeed Subscription Response
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeSpotDatafeedSubscriptionResponse:EC2Response

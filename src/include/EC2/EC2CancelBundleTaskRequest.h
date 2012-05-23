@@ -20,8 +20,6 @@
 
 /**
  * Cancel Bundle Task Request
- *
- * \ingroup EC2
  */
 
 @interface EC2CancelBundleTaskRequest:AmazonServiceRequestConfig

@@ -20,8 +20,6 @@
 
 /**
  * Create Security Group Request
- *
- * \ingroup EC2
  */
 
 @interface EC2CreateSecurityGroupRequest:AmazonServiceRequestConfig

@@ -21,8 +21,6 @@
 
 /**
  * Set Queue Attributes
- *
- * \ingroup SQS
  */
 @interface SQSSetQueueAttributesResponse:SQSResponse
 {

@@ -22,8 +22,6 @@
  * <p>
  * Too many attributes in this domain.
  * </p>
- *
- * \ingroup SimpleDB
  */
 @interface SimpleDBNumberDomainAttributesExceededException:AmazonServiceException
 {

@@ -24,8 +24,6 @@
 
 /**
  * Set Subscription Attributes
- *
- * \ingroup SNS
  */
 @interface SNSSetSubscriptionAttributesResponse:SNSResponse
 {

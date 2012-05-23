@@ -20,8 +20,6 @@
 
 /**
  * Modify Snapshot Attribute
- *
- * \ingroup EC2
  */
 @interface EC2ModifySnapshotAttributeResponse:EC2Response
 {

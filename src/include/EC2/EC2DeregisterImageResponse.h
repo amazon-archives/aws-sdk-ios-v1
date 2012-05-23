@@ -20,8 +20,6 @@
 
 /**
  * Deregister Image
- *
- * \ingroup EC2
  */
 @interface EC2DeregisterImageResponse:EC2Response
 {

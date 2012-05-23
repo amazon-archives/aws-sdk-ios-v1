@@ -22,8 +22,6 @@
 
 /**
  * Create Volume Response
- *
- * \ingroup EC2
  */
 
 @interface EC2CreateVolumeResponse:EC2Response

@@ -19,7 +19,6 @@
 
 /** Contains the parameters used for the listBuckets operation.
  *
- * \ingroup S3
  */
 @interface S3ListBucketsRequest:S3Request {
 }

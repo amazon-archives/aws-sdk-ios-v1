@@ -20,8 +20,6 @@
 
 /**
  * Get Console Output Request
- *
- * \ingroup EC2
  */
 
 @interface EC2GetConsoleOutputRequest:AmazonServiceRequestConfig

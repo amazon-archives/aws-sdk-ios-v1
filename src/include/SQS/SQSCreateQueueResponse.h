@@ -23,8 +23,6 @@
 
 /**
  * Create Queue Result
- *
- * \ingroup SQS
  */
 
 @interface SQSCreateQueueResponse:SQSResponse

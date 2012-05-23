@@ -23,7 +23,6 @@
 
 /** response headers that are common to Amazon S3 responses.
  *
- * \ingroup S3
  */
 @interface S3Response:AmazonServiceResponse {
     int                 contentLength;

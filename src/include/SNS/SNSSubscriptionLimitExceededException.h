@@ -23,8 +23,6 @@
  * Indicates that the customer already owns the maximum allowed number of
  * subscriptions.
  * </p>
- *
- * \ingroup SNS
  */
 @interface SNSSubscriptionLimitExceededException:AmazonServiceException
 {

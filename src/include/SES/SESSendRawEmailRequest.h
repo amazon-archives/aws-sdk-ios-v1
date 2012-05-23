@@ -21,8 +21,6 @@
 
 /**
  * Send Raw Email Request
- *
- * \ingroup SES
  */
 
 @interface SESSendRawEmailRequest:AmazonServiceRequestConfig
@@ -43,7 +41,11 @@
 -(id)init;
 
 /**
- * The sender's email address.
+ * The identity's email address. <note>If you specify the
+ * <code>Source</code> parameter, then bounce notifications and
+ * complaints will be sent to this email address. This takes precedence
+ * over any <i>Return-Path</i> header that you might include in the raw
+ * text of the message. </note>
  */
 @property (nonatomic, retain) NSString *source;
 
@@ -60,7 +62,7 @@
  * formatted properly.</li> <li>MIME content types must be among those
  * supported by Amazon SES. Refer to the <a
  * f="http://docs.amazonwebservices.com/ses/latest/DeveloperGuide">Amazon
- * SES Developer Guide</a> for more details.</li> <li>Content must be
+ * SES Developer Guide</a> for more details. </li> <li>Content must be
  * base64-encoded, if MIME requires it.</li> </ul>
  */
 @property (nonatomic, retain) SESRawMessage *rawMessage;

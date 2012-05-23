@@ -22,8 +22,6 @@
 
 /**
  * Import Volume Request
- *
- * \ingroup EC2
  */
 
 @interface EC2ImportVolumeRequest:AmazonServiceRequestConfig

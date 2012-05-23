@@ -28,7 +28,6 @@
  * response from a GetObject request.  These values override any headers that were set
  * when the object was uploaded to S3.
  *
- * \ingroup S3
  */
 @interface S3ResponseHeaderOverrides:NSObject {
     NSString *contentType;

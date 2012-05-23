@@ -71,12 +71,6 @@
     }
 
 
-#ifdef GHUNIT_CLI
-    if ( [generatedRequest.endpoint hasPrefix:@"https://"]) {
-        generatedRequest.endpoint = [generatedRequest.endpoint stringByReplacingOccurrencesOfString:@"https://" withString:@"http://"];
-    }
-#endif
-
     NSMutableURLRequest *urlRequest = [generatedRequest configureURLRequest];
     [generatedRequest sign];
     [urlRequest setHTTPBody:[[generatedRequest queryString] dataUsingEncoding:NSUTF8StringEncoding]];

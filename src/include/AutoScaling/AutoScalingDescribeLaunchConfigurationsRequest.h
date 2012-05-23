@@ -20,8 +20,6 @@
 
 /**
  * Describe Launch Configurations Request
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingDescribeLaunchConfigurationsRequest:AmazonServiceRequestConfig

@@ -20,8 +20,6 @@
 
 /**
  * List Domains Request
- *
- * \ingroup SimpleDB
  */
 
 @interface SimpleDBListDomainsRequest:AmazonServiceRequestConfig

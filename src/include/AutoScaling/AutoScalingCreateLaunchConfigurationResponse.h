@@ -22,8 +22,6 @@
 
 /**
  * Create Launch Configuration
- *
- * \ingroup AutoScaling
  */
 @interface AutoScalingCreateLaunchConfigurationResponse:AutoScalingResponse
 {

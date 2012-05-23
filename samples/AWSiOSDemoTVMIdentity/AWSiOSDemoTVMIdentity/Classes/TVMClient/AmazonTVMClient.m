@@ -97,20 +97,20 @@
 
     do {
         AMZLogDebug(@"Request URL: %@", [request buildRequestUrl]);
-
-        NSURL        *url        = [[[NSURL alloc] initWithString:[request buildRequestUrl]] autorelease];
-        NSURLRequest *theRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
-        [[NSURLConnection alloc] initWithRequest:theRequest delegate:delegate];
-
-        while (!delegate.failed && !delegate.done) {
-            [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[[NSDate date] dateByAddingTimeInterval:1]];
-        }
-
-        if (!delegate.failed) {
-            return [handler handleResponse:200 body:delegate.responseBody];
+        
+        NSURL             *url        = [[[NSURL alloc] initWithString:[request buildRequestUrl]] autorelease];
+        NSURLRequest      *theRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
+        NSError           *error      = nil;
+        NSHTTPURLResponse *response   = nil;
+        
+        NSData            *data       = [NSURLConnection sendSynchronousRequest:theRequest returningResponse:&response error:&error];
+        
+        if (error == nil)
+        {
+            return [handler handleResponse:response.statusCode body:[[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease]];
         }
     } while (delegate.failed && retries-- > 0);
-
+    
     return [[[Response alloc] initWithCode:500 andMessage:delegate.responseBody] autorelease];
 }
 

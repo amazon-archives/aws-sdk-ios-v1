@@ -24,8 +24,6 @@
 
 /**
  * Set Topic Attributes
- *
- * \ingroup SNS
  */
 @interface SNSSetTopicAttributesResponse:SNSResponse
 {

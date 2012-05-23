@@ -28,8 +28,6 @@
 
 /**
  * Create Load Balancer Result
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingCreateLoadBalancerResponse:ElasticLoadBalancingResponse

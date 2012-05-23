@@ -19,8 +19,6 @@
 
 /**
  * Attribute Value Update
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBAttributeValueUpdate:NSObject

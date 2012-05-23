@@ -23,8 +23,6 @@
 
 /**
  * Create Domain
- *
- * \ingroup SimpleDB
  */
 @interface SimpleDBCreateDomainResponse:SimpleDBResponse
 {

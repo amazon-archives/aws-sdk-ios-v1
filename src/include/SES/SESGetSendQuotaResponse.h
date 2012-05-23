@@ -21,8 +21,6 @@
 
 /**
  * Get Send Quota Result
- *
- * \ingroup SES
  */
 
 @interface SESGetSendQuotaResponse:SESResponse

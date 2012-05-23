@@ -22,8 +22,6 @@
  * <p>
  * The named Auto Scaling group or launch configuration already exists.
  * </p>
- *
- * \ingroup AutoScaling
  */
 @interface AutoScalingAlreadyExistsException:AmazonServiceException
 {

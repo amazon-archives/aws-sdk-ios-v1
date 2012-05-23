@@ -22,8 +22,6 @@
 
 /**
  * List Tables Result
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBListTablesResponse:DynamoDBResponse

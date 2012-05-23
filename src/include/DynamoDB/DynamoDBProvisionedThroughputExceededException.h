@@ -23,8 +23,6 @@
  * This exception is thrown when the level of provisioned throughput
  * defined for the table is exceeded.
  * </p>
- *
- * \ingroup DynamoDB
  */
 @interface DynamoDBProvisionedThroughputExceededException:AmazonServiceException
 {

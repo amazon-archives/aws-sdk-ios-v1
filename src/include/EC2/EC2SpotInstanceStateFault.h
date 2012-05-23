@@ -18,8 +18,6 @@
 
 /**
  * Spot Instance State Fault
- *
- * \ingroup EC2
  */
 
 @interface EC2SpotInstanceStateFault:NSObject

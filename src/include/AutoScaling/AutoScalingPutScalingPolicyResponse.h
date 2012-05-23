@@ -22,8 +22,6 @@
 
 /**
  * Put Scaling Policy Result
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingPutScalingPolicyResponse:AutoScalingResponse

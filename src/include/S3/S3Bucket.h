@@ -19,7 +19,6 @@
  * Contains a Bucket Name which is the name of the S3 Bucket.
  * And a Creation Date which is the date that the S3 Bucket was created.
  *
- * \ingroup S3
  */
 @interface S3Bucket:NSObject {
     NSString *name;

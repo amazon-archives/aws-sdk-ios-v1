@@ -23,8 +23,6 @@
 
 /**
  * Delete Load Balancer Policy Result
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingDeleteLoadBalancerPolicyResponse:ElasticLoadBalancingResponse

@@ -18,7 +18,6 @@
 
 /** Contains all the information about the setACL operation.
  *
- * \ingroup S3
  */
 @interface S3SetACLResponse:S3Response {
 }

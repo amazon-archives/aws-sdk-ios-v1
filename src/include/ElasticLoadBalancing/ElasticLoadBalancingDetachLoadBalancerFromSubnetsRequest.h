@@ -20,8 +20,6 @@
 
 /**
  * Detach Load Balancer From Subnets Request
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingDetachLoadBalancerFromSubnetsRequest:AmazonServiceRequestConfig

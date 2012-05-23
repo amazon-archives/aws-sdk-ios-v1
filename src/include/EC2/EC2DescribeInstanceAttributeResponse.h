@@ -22,8 +22,6 @@
 
 /**
  * Describe Instance Attribute Response
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeInstanceAttributeResponse:EC2Response

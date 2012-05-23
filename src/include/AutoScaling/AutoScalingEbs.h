@@ -18,8 +18,6 @@
 
 /**
  * Ebs
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingEbs:NSObject

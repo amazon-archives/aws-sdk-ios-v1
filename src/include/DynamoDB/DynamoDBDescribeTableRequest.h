@@ -20,8 +20,6 @@
 
 /**
  * Describe Table Request
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBDescribeTableRequest:AmazonServiceRequestConfig

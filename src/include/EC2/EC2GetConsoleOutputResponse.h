@@ -21,8 +21,6 @@
 
 /**
  * Get Console Output Response
- *
- * \ingroup EC2
  */
 
 @interface EC2GetConsoleOutputResponse:EC2Response

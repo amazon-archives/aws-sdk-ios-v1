@@ -21,8 +21,6 @@
 
 /**
  * Batch Get Item Request
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBBatchGetItemRequest:AmazonServiceRequestConfig

@@ -20,7 +20,6 @@
 /** Contains the summary of a version stored in an Amazon S3 bucket.
  * This object doesn't contain the version's full metadata or any of its contents.
  *
- * \ingroup S3
  */
 @interface S3VersionSummary:S3ObjectSummary {
     NSString *versionId;

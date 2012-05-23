@@ -22,8 +22,6 @@
  * <p>
  * The message referred to is not in flight.
  * </p>
- *
- * \ingroup SQS
  */
 @interface SQSMessageNotInflightException:AmazonServiceException
 {

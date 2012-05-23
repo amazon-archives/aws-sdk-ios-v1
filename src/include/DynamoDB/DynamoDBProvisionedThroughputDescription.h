@@ -18,8 +18,6 @@
 
 /**
  * Provisioned Throughput Description
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBProvisionedThroughputDescription:NSObject

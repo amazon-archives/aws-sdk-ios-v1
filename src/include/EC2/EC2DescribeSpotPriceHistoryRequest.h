@@ -21,8 +21,6 @@
 
 /**
  * Describe Spot Price History Request
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeSpotPriceHistoryRequest:AmazonServiceRequestConfig

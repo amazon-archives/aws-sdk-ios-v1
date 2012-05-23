@@ -22,8 +22,6 @@
 
 /**
  * Delete Attributes Request
- *
- * \ingroup SimpleDB
  */
 
 @interface SimpleDBDeleteAttributesRequest:AmazonServiceRequestConfig

@@ -20,8 +20,6 @@
 
 /**
  * Describe Snapshot Attribute Request
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeSnapshotAttributeRequest:AmazonServiceRequestConfig
@@ -41,6 +39,9 @@
 /**
  * The name of the EBS attribute to describe. <p> Available attribute
  * names: createVolumePermission
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>productCodes, createVolumePermission
  */
 @property (nonatomic, retain) NSString *attribute;
 

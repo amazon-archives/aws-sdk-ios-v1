@@ -20,8 +20,6 @@
 
 /**
  * Cancel Conversion Task
- *
- * \ingroup EC2
  */
 @interface EC2CancelConversionTaskResponse:EC2Response
 {

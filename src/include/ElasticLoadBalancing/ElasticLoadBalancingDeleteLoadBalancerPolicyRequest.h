@@ -20,8 +20,6 @@
 
 /**
  * Delete Load Balancer Policy Request
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingDeleteLoadBalancerPolicyRequest:AmazonServiceRequestConfig

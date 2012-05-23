@@ -20,8 +20,6 @@
 
 /**
  * Volume
- *
- * \ingroup EC2
  */
 
 @interface EC2Volume:NSObject

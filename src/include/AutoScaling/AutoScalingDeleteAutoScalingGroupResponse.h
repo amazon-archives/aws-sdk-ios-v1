@@ -22,8 +22,6 @@
 
 /**
  * Delete Auto Scaling Group
- *
- * \ingroup AutoScaling
  */
 @interface AutoScalingDeleteAutoScalingGroupResponse:AutoScalingResponse
 {

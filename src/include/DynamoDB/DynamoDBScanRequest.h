@@ -22,8 +22,6 @@
 
 /**
  * Scan Request
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBScanRequest:AmazonServiceRequestConfig

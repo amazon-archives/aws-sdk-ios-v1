@@ -25,8 +25,6 @@
 
 /**
  * Get Attributes Result
- *
- * \ingroup SimpleDB
  */
 
 @interface SimpleDBGetAttributesResponse:SimpleDBResponse

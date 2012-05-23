@@ -18,8 +18,6 @@
 
 /**
  * Disk Image Detail
- *
- * \ingroup EC2
  */
 
 @interface EC2DiskImageDetail:NSObject

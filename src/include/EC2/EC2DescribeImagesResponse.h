@@ -22,8 +22,6 @@
 
 /**
  * Describe Images Response
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeImagesResponse:EC2Response

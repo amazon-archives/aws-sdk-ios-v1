@@ -24,8 +24,6 @@
 
 /**
  * Create Load Balancer Listeners
- *
- * \ingroup ElasticLoadBalancing
  */
 @interface ElasticLoadBalancingCreateLoadBalancerListenersResponse:ElasticLoadBalancingResponse
 {

@@ -20,8 +20,6 @@
 
 /**
  * Delete Auto Scaling Group Request
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingDeleteAutoScalingGroupRequest:AmazonServiceRequestConfig

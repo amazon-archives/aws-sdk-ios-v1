@@ -20,8 +20,6 @@
 
 /**
  * List Verified Email Addresses Request
- *
- * \ingroup SES
  */
 
 @interface SESListVerifiedEmailAddressesRequest:AmazonServiceRequestConfig

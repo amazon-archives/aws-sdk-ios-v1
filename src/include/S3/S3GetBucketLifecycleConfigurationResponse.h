@@ -19,7 +19,6 @@
 
 /** Contains all the information about the getBucketLifecycleConfigurationResponse operation.
  *
- * \ingroup S3
  */
 @interface S3GetBucketLifecycleConfigurationResponse:S3Response
 {

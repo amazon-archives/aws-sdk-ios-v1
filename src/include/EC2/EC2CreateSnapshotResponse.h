@@ -22,8 +22,6 @@
 
 /**
  * Create Snapshot Response
- *
- * \ingroup EC2
  */
 
 @interface EC2CreateSnapshotResponse:EC2Response

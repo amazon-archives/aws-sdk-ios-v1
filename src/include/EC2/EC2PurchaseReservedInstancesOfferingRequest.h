@@ -20,8 +20,6 @@
 
 /**
  * Purchase Reserved Instances Offering Request
- *
- * \ingroup EC2
  */
 
 @interface EC2PurchaseReservedInstancesOfferingRequest:AmazonServiceRequestConfig

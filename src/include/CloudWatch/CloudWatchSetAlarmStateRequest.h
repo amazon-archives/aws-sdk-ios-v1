@@ -20,8 +20,6 @@
 
 /**
  * Set Alarm State Request
- *
- * \ingroup CloudWatch
  */
 
 @interface CloudWatchSetAlarmStateRequest:AmazonServiceRequestConfig

@@ -22,8 +22,6 @@
 
 /**
  * Create Key Pair Response
- *
- * \ingroup EC2
  */
 
 @interface EC2CreateKeyPairResponse:EC2Response

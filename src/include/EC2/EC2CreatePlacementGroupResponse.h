@@ -20,8 +20,6 @@
 
 /**
  * Create Placement Group
- *
- * \ingroup EC2
  */
 @interface EC2CreatePlacementGroupResponse:EC2Response
 {

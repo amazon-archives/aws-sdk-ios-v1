@@ -21,8 +21,6 @@
 
 /**
  * Batch Result Error Entry
- *
- * \ingroup SQS
  */
 
 @interface SQSBatchResponseErrorEntry:SQSResponse

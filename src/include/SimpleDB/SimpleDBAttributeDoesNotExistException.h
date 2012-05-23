@@ -22,8 +22,6 @@
  * <p>
  * The specified attribute does not exist.
  * </p>
- *
- * \ingroup SimpleDB
  */
 @interface SimpleDBAttributeDoesNotExistException:AmazonServiceException
 {

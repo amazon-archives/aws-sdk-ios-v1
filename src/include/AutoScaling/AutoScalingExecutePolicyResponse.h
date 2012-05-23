@@ -21,8 +21,6 @@
 
 /**
  * Execute Policy
- *
- * \ingroup AutoScaling
  */
 @interface AutoScalingExecutePolicyResponse:AutoScalingResponse
 {

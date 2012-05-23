@@ -21,8 +21,6 @@
 
 /**
  * Describe Snapshots Request
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeSnapshotsRequest:AmazonServiceRequestConfig

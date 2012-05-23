@@ -21,8 +21,6 @@
 
 /**
  * Instance Network Interface
- *
- * \ingroup EC2
  */
 
 @interface EC2InstanceNetworkInterface:NSObject

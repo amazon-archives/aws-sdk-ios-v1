@@ -18,8 +18,6 @@
 
 /**
  * Ebs Instance Block Device
- *
- * \ingroup EC2
  */
 
 @interface EC2EbsInstanceBlockDevice:NSObject

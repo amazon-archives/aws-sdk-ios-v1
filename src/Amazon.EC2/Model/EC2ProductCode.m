@@ -19,12 +19,14 @@
 @implementation EC2ProductCode
 
 @synthesize productCodeId;
+@synthesize productCodeType;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        productCodeId = nil;
+        productCodeId   = nil;
+        productCodeType = nil;
     }
 
     return self;
@@ -38,6 +40,7 @@
 
     [buffer appendString:@"{"];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ProductCodeId: %@,", productCodeId] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"ProductCodeType: %@,", productCodeType] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -49,6 +52,7 @@
 -(void)dealloc
 {
     [productCodeId release];
+    [productCodeType release];
 
     [super dealloc];
 }

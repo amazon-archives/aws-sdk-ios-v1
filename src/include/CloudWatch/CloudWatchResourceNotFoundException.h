@@ -22,8 +22,6 @@
  * <p>
  * The named resource does not exist.
  * </p>
- *
- * \ingroup CloudWatch
  */
 @interface CloudWatchResourceNotFoundException:AmazonServiceException
 {

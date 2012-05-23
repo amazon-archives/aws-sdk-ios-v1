@@ -20,8 +20,6 @@
 
 /**
  * Disable Availability Zones For Load Balancer Request
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingDisableAvailabilityZonesForLoadBalancerRequest:AmazonServiceRequestConfig

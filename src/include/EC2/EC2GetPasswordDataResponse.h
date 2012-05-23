@@ -21,8 +21,6 @@
 
 /**
  * Get Password Data Response
- *
- * \ingroup EC2
  */
 
 @interface EC2GetPasswordDataResponse:EC2Response

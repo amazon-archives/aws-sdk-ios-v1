@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribeVolumeStatus"           forKey:@"Action"];
-    [request setParameterValue:@"2012-03-01"   forKey:@"Version"];
+    [request setParameterValue:@"2012-04-01"   forKey:@"Version"];
 
     [request setDelegate:[describeVolumeStatusRequest delegate]];
     [request setCredentials:[describeVolumeStatusRequest credentials]];

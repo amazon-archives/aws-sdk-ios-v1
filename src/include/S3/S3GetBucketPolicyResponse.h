@@ -19,7 +19,6 @@
 
 /** Contains all the information about the getBucketPolicy operation.
  *
- * \ingroup S3
  */
 @interface S3GetBucketPolicyResponse:S3Response {
     S3BucketPolicy *policy;

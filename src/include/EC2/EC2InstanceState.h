@@ -18,8 +18,6 @@
 
 /**
  * Instance State
- *
- * \ingroup EC2
  */
 
 @interface EC2InstanceState:NSObject

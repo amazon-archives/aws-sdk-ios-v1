@@ -18,8 +18,6 @@
 
 /**
  * Notification Configuration
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingNotificationConfiguration:NSObject

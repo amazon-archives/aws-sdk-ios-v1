@@ -18,8 +18,6 @@
 
 /**
  * Disk Image Volume Description
- *
- * \ingroup EC2
  */
 
 @interface EC2DiskImageVolumeDescription:NSObject

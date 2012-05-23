@@ -17,7 +17,6 @@
 
 /** Represents the response body from a copyObject response
  *
- * \ingroup S3
  */
 @interface S3CopyObjectResult:NSObject {
     NSString *lastModified;

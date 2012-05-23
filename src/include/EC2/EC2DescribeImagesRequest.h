@@ -21,8 +21,6 @@
 
 /**
  * Describe Images Request
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeImagesRequest:AmazonServiceRequestConfig

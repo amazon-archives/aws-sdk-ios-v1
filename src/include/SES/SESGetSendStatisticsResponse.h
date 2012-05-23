@@ -22,8 +22,6 @@
 
 /**
  * Get Send Statistics Result
- *
- * \ingroup SES
  */
 
 @interface SESGetSendStatisticsResponse:SESResponse

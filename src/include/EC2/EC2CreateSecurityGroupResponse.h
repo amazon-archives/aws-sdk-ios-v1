@@ -21,8 +21,6 @@
 
 /**
  * Create Security Group Response
- *
- * \ingroup EC2
  */
 
 @interface EC2CreateSecurityGroupResponse:EC2Response

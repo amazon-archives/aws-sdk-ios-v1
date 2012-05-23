@@ -21,8 +21,6 @@
 
 /**
  * Describe Tags Request
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeTagsRequest:AmazonServiceRequestConfig

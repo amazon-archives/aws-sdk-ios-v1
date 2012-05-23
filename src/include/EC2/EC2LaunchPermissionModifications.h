@@ -20,8 +20,6 @@
 
 /**
  * Launch Permission Modifications
- *
- * \ingroup EC2
  */
 
 @interface EC2LaunchPermissionModifications:NSObject

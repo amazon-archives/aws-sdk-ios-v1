@@ -19,8 +19,6 @@
 
 /**
  * Item
- *
- * \ingroup SimpleDB
  */
 
 @interface SimpleDBItem:NSObject

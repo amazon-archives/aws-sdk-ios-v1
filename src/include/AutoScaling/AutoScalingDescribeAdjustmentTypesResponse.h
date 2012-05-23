@@ -22,8 +22,6 @@
 
 /**
  * Describe Adjustment Types Result
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingDescribeAdjustmentTypesResponse:AutoScalingResponse

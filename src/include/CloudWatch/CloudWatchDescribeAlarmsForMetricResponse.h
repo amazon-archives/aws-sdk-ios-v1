@@ -22,8 +22,6 @@
 
 /**
  * Describe Alarms For Metric Result
- *
- * \ingroup CloudWatch
  */
 
 @interface CloudWatchDescribeAlarmsForMetricResponse:CloudWatchResponse

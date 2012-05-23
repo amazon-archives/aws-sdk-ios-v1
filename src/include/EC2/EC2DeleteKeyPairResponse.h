@@ -20,8 +20,6 @@
 
 /**
  * Delete Key Pair
- *
- * \ingroup EC2
  */
 @interface EC2DeleteKeyPairResponse:EC2Response
 {

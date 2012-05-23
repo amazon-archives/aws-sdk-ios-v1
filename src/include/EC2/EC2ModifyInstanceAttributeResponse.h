@@ -20,8 +20,6 @@
 
 /**
  * Modify Instance Attribute
- *
- * \ingroup EC2
  */
 @interface EC2ModifyInstanceAttributeResponse:EC2Response
 {

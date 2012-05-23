@@ -22,8 +22,6 @@
 
 /**
  * Describe Tags Response
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeTagsResponse:EC2Response

@@ -23,8 +23,6 @@
 
 /**
  * Describe Launch Configurations Result
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingDescribeLaunchConfigurationsResponse:AutoScalingResponse

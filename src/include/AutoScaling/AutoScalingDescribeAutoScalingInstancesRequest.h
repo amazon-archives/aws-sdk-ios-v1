@@ -20,8 +20,6 @@
 
 /**
  * Describe Auto Scaling Instances Request
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingDescribeAutoScalingInstancesRequest:AmazonServiceRequestConfig

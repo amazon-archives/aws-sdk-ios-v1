@@ -33,7 +33,6 @@
  *
  * <br />Required Parameters: bucket, policy
  *
- * \ingroup S3
  */
 @interface S3SetBucketPolicyRequest:S3Request {
     S3BucketPolicy *policy;

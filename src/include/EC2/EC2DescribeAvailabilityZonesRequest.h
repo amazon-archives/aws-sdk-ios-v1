@@ -21,8 +21,6 @@
 
 /**
  * Describe Availability Zones Request
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeAvailabilityZonesRequest:AmazonServiceRequestConfig

@@ -20,8 +20,6 @@
 
 /**
  * Verify Email Address
- *
- * \ingroup SES
  */
 @interface SESVerifyEmailAddressResponse:SESResponse
 {

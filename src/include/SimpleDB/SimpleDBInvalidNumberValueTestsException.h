@@ -22,8 +22,6 @@
  * <p>
  * Too many predicates exist in the query expression.
  * </p>
- *
- * \ingroup SimpleDB
  */
 @interface SimpleDBInvalidNumberValueTestsException:AmazonServiceException
 {

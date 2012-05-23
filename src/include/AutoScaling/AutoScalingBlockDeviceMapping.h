@@ -19,8 +19,6 @@
 
 /**
  * Block Device Mapping
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingBlockDeviceMapping:NSObject

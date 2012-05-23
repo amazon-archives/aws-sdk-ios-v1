@@ -20,8 +20,6 @@
 
 /**
  * Batch Delete Attributes
- *
- * \ingroup SimpleDB
  */
 @interface SimpleDBBatchDeleteAttributesResponse:SimpleDBResponse
 {

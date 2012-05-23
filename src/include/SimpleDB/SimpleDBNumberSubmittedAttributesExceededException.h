@@ -22,8 +22,6 @@
  * <p>
  * Too many attributes exist in a single call.
  * </p>
- *
- * \ingroup SimpleDB
  */
 @interface SimpleDBNumberSubmittedAttributesExceededException:AmazonServiceException
 {

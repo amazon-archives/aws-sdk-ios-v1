@@ -21,8 +21,6 @@
 
 /**
  * Describe Addresses Request
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeAddressesRequest:AmazonServiceRequestConfig

@@ -23,8 +23,6 @@
 
 /**
  * Describe Alarms Result
- *
- * \ingroup CloudWatch
  */
 
 @interface CloudWatchDescribeAlarmsResponse:CloudWatchResponse

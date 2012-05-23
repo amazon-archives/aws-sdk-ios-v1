@@ -25,8 +25,6 @@
 
 /**
  * Get Subscription Attributes Result
- *
- * \ingroup SNS
  */
 
 @interface SNSGetSubscriptionAttributesResponse:SNSResponse

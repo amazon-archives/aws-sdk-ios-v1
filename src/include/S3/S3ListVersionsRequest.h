@@ -27,7 +27,6 @@
  *
  * <br />Required Parameters: bucket
  *
- * \ingroup S3
  */
 @interface S3ListVersionsRequest:S3Request {
     NSString  *prefix;

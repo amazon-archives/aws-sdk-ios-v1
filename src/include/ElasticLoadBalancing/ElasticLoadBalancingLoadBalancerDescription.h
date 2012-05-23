@@ -24,8 +24,6 @@
 
 /**
  * Load Balancer Description
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingLoadBalancerDescription:NSObject

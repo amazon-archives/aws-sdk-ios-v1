@@ -21,8 +21,6 @@
 
 /**
  * Allocate Address Response
- *
- * \ingroup EC2
  */
 
 @interface EC2AllocateAddressResponse:EC2Response

@@ -20,8 +20,6 @@
 
 /**
  * Delete Queue Request
- *
- * \ingroup SQS
  */
 
 @interface SQSDeleteQueueRequest:AmazonServiceRequestConfig

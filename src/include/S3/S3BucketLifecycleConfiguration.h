@@ -17,6 +17,9 @@
 
 #import "S3BucketLifecycleConfigurationRule.h"
 
+/**
+ *
+ */
 @interface S3BucketLifecycleConfiguration:NSObject {
     NSArray *rules;
 }

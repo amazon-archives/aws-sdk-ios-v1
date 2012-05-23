@@ -26,8 +26,6 @@
 
 /**
  * Put Item Result
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBPutItemResponse:DynamoDBResponse

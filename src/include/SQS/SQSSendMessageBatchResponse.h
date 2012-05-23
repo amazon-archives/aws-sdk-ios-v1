@@ -28,8 +28,6 @@
 
 /**
  * Send Message Batch Result
- *
- * \ingroup SQS
  */
 
 @interface SQSSendMessageBatchResponse:SQSResponse

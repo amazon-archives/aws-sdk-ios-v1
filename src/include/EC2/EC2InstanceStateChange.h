@@ -20,8 +20,6 @@
 
 /**
  * Instance State Change
- *
- * \ingroup EC2
  */
 
 @interface EC2InstanceStateChange:NSObject

@@ -18,8 +18,6 @@
 
 /**
  * Dimension
- *
- * \ingroup CloudWatch
  */
 
 @interface CloudWatchDimension:NSObject

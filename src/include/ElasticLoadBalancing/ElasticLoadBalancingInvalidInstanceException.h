@@ -22,8 +22,6 @@
  * <p>
  * The specified EndPoint is not valid.
  * </p>
- *
- * \ingroup ElasticLoadBalancing
  */
 @interface ElasticLoadBalancingInvalidInstanceException:AmazonServiceException
 {

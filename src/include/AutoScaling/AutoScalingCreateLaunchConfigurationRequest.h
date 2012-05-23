@@ -22,8 +22,6 @@
 
 /**
  * Create Launch Configuration Request
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingCreateLaunchConfigurationRequest:AmazonServiceRequestConfig

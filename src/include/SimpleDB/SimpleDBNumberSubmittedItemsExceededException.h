@@ -22,8 +22,6 @@
  * <p>
  * Too many items exist in a single call.
  * </p>
- *
- * \ingroup SimpleDB
  */
 @interface SimpleDBNumberSubmittedItemsExceededException:AmazonServiceException
 {

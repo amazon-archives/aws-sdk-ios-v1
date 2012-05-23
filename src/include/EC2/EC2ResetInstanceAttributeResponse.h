@@ -20,8 +20,6 @@
 
 /**
  * Reset Instance Attribute
- *
- * \ingroup EC2
  */
 @interface EC2ResetInstanceAttributeResponse:EC2Response
 {

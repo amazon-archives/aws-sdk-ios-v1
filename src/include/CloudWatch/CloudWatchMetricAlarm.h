@@ -19,8 +19,6 @@
 
 /**
  * Metric Alarm
- *
- * \ingroup CloudWatch
  */
 
 @interface CloudWatchMetricAlarm:NSObject

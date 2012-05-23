@@ -19,7 +19,6 @@
 /**
  * Contains the parameters used for the getBucketWebsiteConfiguration operation.
  *
- * \ingroup S3
  */
 @interface S3GetBucketWebsiteConfigurationRequest:S3Request
 {

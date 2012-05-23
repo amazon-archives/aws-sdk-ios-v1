@@ -20,8 +20,6 @@
 
 /**
  * Terminate Instance In Auto Scaling Group Request
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingTerminateInstanceInAutoScalingGroupRequest:AmazonServiceRequestConfig

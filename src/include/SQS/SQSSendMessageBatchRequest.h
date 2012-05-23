@@ -21,8 +21,6 @@
 
 /**
  * Send Message Batch Request
- *
- * \ingroup SQS
  */
 
 @interface SQSSendMessageBatchRequest:AmazonServiceRequestConfig

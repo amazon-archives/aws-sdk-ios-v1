@@ -25,8 +25,6 @@
 
 /**
  * Publish Result
- *
- * \ingroup SNS
  */
 
 @interface SNSPublishResponse:SNSResponse

@@ -22,8 +22,6 @@
  * <p>
  * The queue referred to does not exist.
  * </p>
- *
- * \ingroup SQS
  */
 @interface SQSQueueDoesNotExistException:AmazonServiceException
 {

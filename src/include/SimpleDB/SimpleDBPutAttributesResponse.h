@@ -27,8 +27,6 @@
 
 /**
  * Put Attributes
- *
- * \ingroup SimpleDB
  */
 @interface SimpleDBPutAttributesResponse:SimpleDBResponse
 {

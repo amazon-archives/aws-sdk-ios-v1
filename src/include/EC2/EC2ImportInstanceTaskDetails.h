@@ -19,8 +19,6 @@
 
 /**
  * Import Instance Task Details
- *
- * \ingroup EC2
  */
 
 @interface EC2ImportInstanceTaskDetails:NSObject

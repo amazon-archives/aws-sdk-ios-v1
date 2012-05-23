@@ -34,7 +34,6 @@
  *
  * <br />Required Parameters: bucket, key
  *
- * \ingroup S3
  */
 @interface S3DeleteVersionRequest:S3Request {
     NSString                    *versionId;

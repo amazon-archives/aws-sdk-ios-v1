@@ -22,8 +22,6 @@
 
 /**
  * Import Instance Request
- *
- * \ingroup EC2
  */
 
 @interface EC2ImportInstanceRequest:AmazonServiceRequestConfig

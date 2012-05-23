@@ -22,8 +22,6 @@
 
 /**
  * Launch Specification
- *
- * \ingroup EC2
  */
 
 @interface EC2LaunchSpecification:NSObject

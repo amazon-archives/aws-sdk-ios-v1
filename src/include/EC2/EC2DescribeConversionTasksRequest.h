@@ -21,8 +21,6 @@
 
 /**
  * Describe Conversion Tasks Request
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeConversionTasksRequest:AmazonServiceRequestConfig

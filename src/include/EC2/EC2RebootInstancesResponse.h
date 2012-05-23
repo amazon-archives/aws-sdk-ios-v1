@@ -20,8 +20,6 @@
 
 /**
  * Reboot Instances
- *
- * \ingroup EC2
  */
 @interface EC2RebootInstancesResponse:EC2Response
 {

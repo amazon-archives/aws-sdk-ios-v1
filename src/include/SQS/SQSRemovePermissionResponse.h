@@ -20,8 +20,6 @@
 
 /**
  * Remove Permission
- *
- * \ingroup SQS
  */
 @interface SQSRemovePermissionResponse:SQSResponse
 {

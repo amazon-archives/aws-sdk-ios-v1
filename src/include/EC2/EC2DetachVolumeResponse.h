@@ -22,8 +22,6 @@
 
 /**
  * Detach Volume Response
- *
- * \ingroup EC2
  */
 
 @interface EC2DetachVolumeResponse:EC2Response

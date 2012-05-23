@@ -24,8 +24,6 @@
  * the request includes attributes whose values differ from those of the
  * existing queue.
  * </p>
- *
- * \ingroup SQS
  */
 @interface SQSQueueNameExistsException:AmazonServiceException
 {

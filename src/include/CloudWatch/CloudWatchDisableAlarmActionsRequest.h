@@ -20,8 +20,6 @@
 
 /**
  * Disable Alarm Actions Request
- *
- * \ingroup CloudWatch
  */
 
 @interface CloudWatchDisableAlarmActionsRequest:AmazonServiceRequestConfig

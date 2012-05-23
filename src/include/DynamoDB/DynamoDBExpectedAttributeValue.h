@@ -19,8 +19,6 @@
 
 /**
  * Expected Attribute Value
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBExpectedAttributeValue:NSObject

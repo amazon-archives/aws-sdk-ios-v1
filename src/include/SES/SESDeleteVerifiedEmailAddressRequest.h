@@ -20,8 +20,6 @@
 
 /**
  * Delete Verified Email Address Request
- *
- * \ingroup SES
  */
 
 @interface SESDeleteVerifiedEmailAddressRequest:AmazonServiceRequestConfig
@@ -40,7 +38,7 @@
 -(id)init;
 
 /**
- * An email address to be removed from the list of verified addreses.
+ * An email address to be removed from the list of verified addresses.
  */
 @property (nonatomic, retain) NSString *emailAddress;
 

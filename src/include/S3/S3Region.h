@@ -36,7 +36,6 @@
  * transfered to another region.
  * </p>
  *
- * \ingroup S3
  */
 @interface S3Region:NSObject {
     NSString *stringValue;

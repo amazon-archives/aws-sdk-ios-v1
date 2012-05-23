@@ -22,8 +22,6 @@
  * <p>
  * Indicates that the requested resource does not exist.
  * </p>
- *
- * \ingroup SNS
  */
 @interface SNSNotFoundException:AmazonServiceException
 {

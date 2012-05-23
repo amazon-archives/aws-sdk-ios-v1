@@ -24,8 +24,6 @@
 
 /**
  * Unsubscribe
- *
- * \ingroup SNS
  */
 @interface SNSUnsubscribeResponse:SNSResponse
 {

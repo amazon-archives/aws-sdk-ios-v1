@@ -20,7 +20,6 @@
 
 /** Contains all the information about the getACL operation.
  *
- * \ingroup S3
  */
 @interface S3GetACLResponse:S3Response {
     S3AccessControlList *acl;

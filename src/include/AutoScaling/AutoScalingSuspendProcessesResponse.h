@@ -20,8 +20,6 @@
 
 /**
  * Suspend Processes
- *
- * \ingroup AutoScaling
  */
 @interface AutoScalingSuspendProcessesResponse:AutoScalingResponse
 {

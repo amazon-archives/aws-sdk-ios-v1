@@ -26,8 +26,6 @@
 
 /**
  * Create Load Balancer Policy Result
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingCreateLoadBalancerPolicyResponse:ElasticLoadBalancingResponse

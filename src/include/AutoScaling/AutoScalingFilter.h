@@ -18,8 +18,6 @@
 
 /**
  * Filter
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingFilter:NSObject

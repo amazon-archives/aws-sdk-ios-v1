@@ -22,8 +22,6 @@
 
 /**
  * Describe Instances Response
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeInstancesResponse:EC2Response

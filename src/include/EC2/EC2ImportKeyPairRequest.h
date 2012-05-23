@@ -20,8 +20,6 @@
 
 /**
  * Import Key Pair Request
- *
- * \ingroup EC2
  */
 
 @interface EC2ImportKeyPairRequest:AmazonServiceRequestConfig

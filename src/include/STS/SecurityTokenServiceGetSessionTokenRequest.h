@@ -20,8 +20,6 @@
 
 /**
  * Get Session Token Request
- *
- * \ingroup SecurityTokenService
  */
 
 @interface SecurityTokenServiceGetSessionTokenRequest:AmazonServiceRequestConfig

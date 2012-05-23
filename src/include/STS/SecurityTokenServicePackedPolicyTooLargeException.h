@@ -24,8 +24,6 @@
  * The error message describes how big the policy document is, in packed
  * form, as a percentage of what the API allows.
  * </p>
- *
- * \ingroup SecurityTokenService
  */
 @interface SecurityTokenServicePackedPolicyTooLargeException:AmazonServiceException
 {

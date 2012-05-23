@@ -20,8 +20,6 @@
 
 /**
  * Activate License
- *
- * \ingroup EC2
  */
 @interface EC2ActivateLicenseResponse:EC2Response
 {

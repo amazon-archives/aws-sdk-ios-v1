@@ -18,7 +18,6 @@
 
 /** Contains the response from a uploadPart operation.
  *
- * \ingroup S3
  */
 @interface S3UploadPartResponse:S3Response {
 }

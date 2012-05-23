@@ -21,8 +21,6 @@
 
 /**
  * Get Item Request
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBGetItemRequest:AmazonServiceRequestConfig

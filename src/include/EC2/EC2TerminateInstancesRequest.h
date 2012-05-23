@@ -20,8 +20,6 @@
 
 /**
  * Terminate Instances Request
- *
- * \ingroup EC2
  */
 
 @interface EC2TerminateInstancesRequest:AmazonServiceRequestConfig

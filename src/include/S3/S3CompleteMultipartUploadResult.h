@@ -17,7 +17,6 @@
 
 /** The S3CompleteMultipartUploadResult contains all the information about the completeMultipartUploadResult method.
  *
- * \ingroup s3
  */
 @interface S3CompleteMultipartUploadResult:NSObject {
     NSString *location;

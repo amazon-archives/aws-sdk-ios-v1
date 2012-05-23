@@ -18,8 +18,6 @@
 
 /**
  * Metric Granularity Type
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingMetricGranularityType:NSObject

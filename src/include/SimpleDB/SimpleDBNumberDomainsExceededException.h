@@ -22,8 +22,6 @@
  * <p>
  * Too many domains exist per this account.
  * </p>
- *
- * \ingroup SimpleDB
  */
 @interface SimpleDBNumberDomainsExceededException:AmazonServiceException
 {

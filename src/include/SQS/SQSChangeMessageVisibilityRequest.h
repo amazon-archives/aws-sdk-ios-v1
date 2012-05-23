@@ -20,8 +20,6 @@
 
 /**
  * Change Message Visibility Request
- *
- * \ingroup SQS
  */
 
 @interface SQSChangeMessageVisibilityRequest:AmazonServiceRequestConfig

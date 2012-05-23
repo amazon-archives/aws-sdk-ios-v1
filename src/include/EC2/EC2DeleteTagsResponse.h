@@ -20,8 +20,6 @@
 
 /**
  * Delete Tags
- *
- * \ingroup EC2
  */
 @interface EC2DeleteTagsResponse:EC2Response
 {

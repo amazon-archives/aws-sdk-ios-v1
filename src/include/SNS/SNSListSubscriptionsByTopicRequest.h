@@ -20,8 +20,6 @@
 
 /**
  * List Subscriptions By Topic Request
- *
- * \ingroup SNS
  */
 
 @interface SNSListSubscriptionsByTopicRequest:AmazonServiceRequestConfig

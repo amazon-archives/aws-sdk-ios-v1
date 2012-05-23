@@ -22,7 +22,6 @@
  * <br />Required Parameters: bucket
  * <br />Optional Parameters: key
  *
- * \ingroup S3
  */
 @interface S3GetACLRequest:S3Request {
 }

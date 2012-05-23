@@ -22,8 +22,6 @@
  * <p>
  * One or more subnets were not found.
  * </p>
- *
- * \ingroup ElasticLoadBalancing
  */
 @interface ElasticLoadBalancingSubnetNotFoundException:AmazonServiceException
 {

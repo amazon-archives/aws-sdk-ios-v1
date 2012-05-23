@@ -22,8 +22,6 @@
 
 /**
  * Describe Key Pairs Response
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeKeyPairsResponse:EC2Response

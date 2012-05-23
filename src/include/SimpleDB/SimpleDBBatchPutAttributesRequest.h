@@ -21,8 +21,6 @@
 
 /**
  * Batch Put Attributes Request
- *
- * \ingroup SimpleDB
  */
 
 @interface SimpleDBBatchPutAttributesRequest:AmazonServiceRequestConfig

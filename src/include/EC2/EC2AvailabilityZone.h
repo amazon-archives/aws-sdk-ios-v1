@@ -19,8 +19,6 @@
 
 /**
  * Availability Zone
- *
- * \ingroup EC2
  */
 
 @interface EC2AvailabilityZone:NSObject

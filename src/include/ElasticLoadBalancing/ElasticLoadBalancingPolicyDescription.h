@@ -19,8 +19,6 @@
 
 /**
  * Policy Description
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingPolicyDescription:NSObject

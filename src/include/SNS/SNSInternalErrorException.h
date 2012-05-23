@@ -22,8 +22,6 @@
  * <p>
  * Indicates an internal service error.
  * </p>
- *
- * \ingroup SNS
  */
 @interface SNSInternalErrorException:AmazonServiceException
 {

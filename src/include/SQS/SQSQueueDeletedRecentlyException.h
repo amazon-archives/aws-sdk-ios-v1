@@ -23,8 +23,6 @@
  * You must wait 60 seconds after deleting a queue before you can create
  * another with the same name.
  * </p>
- *
- * \ingroup SQS
  */
 @interface SQSQueueDeletedRecentlyException:AmazonServiceException
 {

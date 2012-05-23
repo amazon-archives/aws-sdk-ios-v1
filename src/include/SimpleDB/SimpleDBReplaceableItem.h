@@ -19,8 +19,6 @@
 
 /**
  * Replaceable Item
- *
- * \ingroup SimpleDB
  */
 
 @interface SimpleDBReplaceableItem:NSObject

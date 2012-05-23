@@ -22,8 +22,6 @@
  * <p>
  * Too many attributes in this item.
  * </p>
- *
- * \ingroup SimpleDB
  */
 @interface SimpleDBNumberItemAttributesExceededException:AmazonServiceException
 {

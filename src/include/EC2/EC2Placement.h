@@ -18,8 +18,6 @@
 
 /**
  * Placement
- *
- * \ingroup EC2
  */
 
 @interface EC2Placement:NSObject
@@ -48,7 +46,9 @@
 /**
  * The allowed tenancy of instances launched into the VPC. A value of
  * default means instances can be launched with any tenancy; a value of
- * dedicated means instances must be launched with tenancy as dedicated.
+ * dedicated means all instances launched into the VPC will be launched
+ * as dedicated tenancy regardless of the tenancy assigned to the
+ * instance at launch.
  */
 @property (nonatomic, retain) NSString *tenancy;
 

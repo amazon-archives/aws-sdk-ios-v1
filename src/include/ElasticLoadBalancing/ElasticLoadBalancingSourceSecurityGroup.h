@@ -18,8 +18,6 @@
 
 /**
  * Source Security Group
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingSourceSecurityGroup:NSObject

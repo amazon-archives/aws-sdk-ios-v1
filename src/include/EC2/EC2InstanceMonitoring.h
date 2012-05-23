@@ -19,8 +19,6 @@
 
 /**
  * Instance Monitoring
- *
- * \ingroup EC2
  */
 
 @interface EC2InstanceMonitoring:NSObject

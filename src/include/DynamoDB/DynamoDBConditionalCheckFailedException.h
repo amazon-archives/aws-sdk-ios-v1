@@ -23,8 +23,6 @@
  * This exception is thrown when an expected value does not match what
  * was found in the system.
  * </p>
- *
- * \ingroup DynamoDB
  */
 @interface DynamoDBConditionalCheckFailedException:AmazonServiceException
 {

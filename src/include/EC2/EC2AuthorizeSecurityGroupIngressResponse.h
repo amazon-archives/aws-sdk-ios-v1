@@ -20,8 +20,6 @@
 
 /**
  * Authorize Security Group Ingress
- *
- * \ingroup EC2
  */
 @interface EC2AuthorizeSecurityGroupIngressResponse:EC2Response
 {

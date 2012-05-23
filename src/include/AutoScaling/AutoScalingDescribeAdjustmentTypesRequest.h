@@ -20,8 +20,6 @@
 
 /**
  * Describe Adjustment Types Request
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingDescribeAdjustmentTypesRequest:AmazonServiceRequestConfig

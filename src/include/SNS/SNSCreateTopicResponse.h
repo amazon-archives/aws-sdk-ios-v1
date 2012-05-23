@@ -25,8 +25,6 @@
 
 /**
  * Create Topic Result
- *
- * \ingroup SNS
  */
 
 @interface SNSCreateTopicResponse:SNSResponse

@@ -21,8 +21,6 @@
 
 /**
  * Delete Alarms
- *
- * \ingroup CloudWatch
  */
 @interface CloudWatchDeleteAlarmsResponse:CloudWatchResponse
 {

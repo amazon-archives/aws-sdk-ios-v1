@@ -25,8 +25,6 @@
 
 /**
  * List Subscriptions Result
- *
- * \ingroup SNS
  */
 
 @interface SNSListSubscriptionsResponse:SNSResponse

@@ -26,8 +26,6 @@
 
 /**
  * Confirm Subscription Result
- *
- * \ingroup SNS
  */
 
 @interface SNSConfirmSubscriptionResponse:SNSResponse

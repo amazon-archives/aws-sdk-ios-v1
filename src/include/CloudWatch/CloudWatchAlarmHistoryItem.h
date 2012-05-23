@@ -18,8 +18,6 @@
 
 /**
  * Alarm History Item
- *
- * \ingroup CloudWatch
  */
 
 @interface CloudWatchAlarmHistoryItem:NSObject

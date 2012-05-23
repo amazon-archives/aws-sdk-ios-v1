@@ -20,8 +20,6 @@
 
 /**
  * Create Domain Request
- *
- * \ingroup SimpleDB
  */
 
 @interface SimpleDBCreateDomainRequest:AmazonServiceRequestConfig

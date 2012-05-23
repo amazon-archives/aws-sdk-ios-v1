@@ -23,8 +23,6 @@
  * The specified SSL ID does not refer to a valid SSL certificate in the
  * AWS Identity and Access Management Service.
  * </p>
- *
- * \ingroup ElasticLoadBalancing
  */
 @interface ElasticLoadBalancingCertificateNotFoundException:AmazonServiceException
 {

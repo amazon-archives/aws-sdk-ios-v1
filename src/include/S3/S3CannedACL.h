@@ -26,7 +26,6 @@
  * for S3 Buckets or S3 Objects.
  * @see http://docs.amazonwebservices.com/AmazonS3/latest/RESTAccessPolicy.html#RESTCannedAccessPolicies
  *
- * \ingroup S3
  */
 @interface S3CannedACL:NSObject {
     NSString *stringValue;

@@ -20,8 +20,6 @@
 
 /**
  * Reservation
- *
- * \ingroup EC2
  */
 
 @interface EC2Reservation:NSObject

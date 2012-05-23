@@ -20,8 +20,6 @@
 
 /**
  * Delete Spot Datafeed Subscription Request
- *
- * \ingroup EC2
  */
 
 @interface EC2DeleteSpotDatafeedSubscriptionRequest:AmazonServiceRequestConfig

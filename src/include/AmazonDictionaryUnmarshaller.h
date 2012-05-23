@@ -21,9 +21,12 @@
     NSString            *keyXpathElement;
     NSString            *valueXpathElement;
     NSString            *entryEndElement;
+    NSString            *dictionaryEndElement;
 
     NSString            *key;
     NSString            *value;
+    
+    id                  delegateClass;
 
     NSMutableDictionary *dictionary;
 }
@@ -33,9 +36,12 @@
 
 @property (nonatomic, retain) NSMutableDictionary *dictionary;
 
+@property (nonatomic, retain) id                  delegateClass;
+
 @property (nonatomic, retain) NSString            *keyXpathElement;
 @property (nonatomic, retain) NSString            *valueXpathElement;
 @property (nonatomic, retain) NSString            *entryEndElement;
+@property (nonatomic, retain) NSString            *dictionaryEndElement;
 
 
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict;

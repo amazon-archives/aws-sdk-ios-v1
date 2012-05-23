@@ -22,8 +22,6 @@
 
 /**
  * Run Instances Response
- *
- * \ingroup EC2
  */
 
 @interface EC2RunInstancesResponse:EC2Response

@@ -22,8 +22,6 @@
 
 /**
  * Unmonitor Instances Response
- *
- * \ingroup EC2
  */
 
 @interface EC2UnmonitorInstancesResponse:EC2Response

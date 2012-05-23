@@ -21,8 +21,6 @@
 
 /**
  * Register Image Response
- *
- * \ingroup EC2
  */
 
 @interface EC2RegisterImageResponse:EC2Response

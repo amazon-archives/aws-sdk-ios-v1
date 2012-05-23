@@ -20,8 +20,6 @@
 
 /**
  * Metric Datum
- *
- * \ingroup CloudWatch
  */
 
 @interface CloudWatchMetricDatum:NSObject

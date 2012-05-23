@@ -20,8 +20,6 @@
 
 /**
  * Associate Address Request
- *
- * \ingroup EC2
  */
 
 @interface EC2AssociateAddressRequest:AmazonServiceRequestConfig

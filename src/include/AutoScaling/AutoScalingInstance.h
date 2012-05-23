@@ -18,8 +18,6 @@
 
 /**
  * Instance
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingInstance:NSObject

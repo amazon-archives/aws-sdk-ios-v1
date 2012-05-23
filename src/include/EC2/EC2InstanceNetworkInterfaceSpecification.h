@@ -18,8 +18,6 @@
 
 /**
  * Instance Network Interface Specification
- *
- * \ingroup EC2
  */
 
 @interface EC2InstanceNetworkInterfaceSpecification:NSObject

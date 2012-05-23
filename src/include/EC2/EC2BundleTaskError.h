@@ -18,8 +18,6 @@
 
 /**
  * Bundle Task Error
- *
- * \ingroup EC2
  */
 
 @interface EC2BundleTaskError:NSObject

@@ -22,8 +22,6 @@
 
 /**
  * Set Alarm State
- *
- * \ingroup CloudWatch
  */
 @interface CloudWatchSetAlarmStateResponse:CloudWatchResponse
 {

@@ -20,8 +20,6 @@
 
 /**
  * Set Load Balancer Listener S S L Certificate Request
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingSetLoadBalancerListenerSSLCertificateRequest:AmazonServiceRequestConfig

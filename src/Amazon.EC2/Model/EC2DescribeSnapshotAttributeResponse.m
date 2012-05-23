@@ -20,6 +20,7 @@
 
 @synthesize snapshotId;
 @synthesize createVolumePermissions;
+@synthesize productCodes;
 
 
 -(id)init
@@ -27,6 +28,7 @@
     if (self = [super init]) {
         snapshotId              = nil;
         createVolumePermissions = [[NSMutableArray alloc] initWithCapacity:1];
+        productCodes            = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
     return self;
@@ -56,6 +58,12 @@
 }
 
 
+-(EC2ProductCode *)productCodesObjectAtIndex:(int)index
+{
+    return (EC2ProductCode *)[productCodes objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
@@ -63,6 +71,7 @@
     [buffer appendString:@"{"];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"SnapshotId: %@,", snapshotId] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"CreateVolumePermissions: %@,", createVolumePermissions] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"ProductCodes: %@,", productCodes] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -75,6 +84,7 @@
 {
     [snapshotId release];
     [createVolumePermissions release];
+    [productCodes release];
 
     [super dealloc];
 }

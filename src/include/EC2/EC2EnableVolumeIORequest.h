@@ -20,8 +20,6 @@
 
 /**
  * Enable Volume I O Request
- *
- * \ingroup EC2
  */
 
 @interface EC2EnableVolumeIORequest:AmazonServiceRequestConfig

@@ -22,8 +22,6 @@
 
 /**
  * Describe Volumes Response
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeVolumesResponse:EC2Response

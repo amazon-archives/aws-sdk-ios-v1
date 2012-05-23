@@ -20,8 +20,6 @@
 
 /**
  * Attach Load Balancer To Subnets Request
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingAttachLoadBalancerToSubnetsRequest:AmazonServiceRequestConfig

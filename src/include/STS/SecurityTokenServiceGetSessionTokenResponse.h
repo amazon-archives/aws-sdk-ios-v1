@@ -22,8 +22,6 @@
 
 /**
  * Get Session Token Result
- *
- * \ingroup SecurityTokenService
  */
 
 @interface SecurityTokenServiceGetSessionTokenResponse:SecurityTokenServiceResponse

@@ -21,8 +21,6 @@
 
 /**
  * Register Image Request
- *
- * \ingroup EC2
  */
 
 @interface EC2RegisterImageRequest:AmazonServiceRequestConfig

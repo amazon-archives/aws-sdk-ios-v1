@@ -21,8 +21,6 @@
 
 /**
  * List Metrics Request
- *
- * \ingroup CloudWatch
  */
 
 @interface CloudWatchListMetricsRequest:AmazonServiceRequestConfig

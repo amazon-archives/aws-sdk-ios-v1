@@ -20,7 +20,6 @@
 /**
  * Contains the parameters used for the setBucketWebsiteConfiguration operation.
  *
- * \ingroup S3
  */
 @interface S3SetBucketWebsiteConfigurationRequest:S3Request
 {

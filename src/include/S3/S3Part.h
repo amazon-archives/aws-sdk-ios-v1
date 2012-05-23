@@ -17,7 +17,6 @@
 
 /** a container for elements related to a particular part of a multipart upload.
  *
- * \ingroup s3
  */
 @interface S3Part:NSObject {
     NSString  *etag;

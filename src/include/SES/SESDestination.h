@@ -18,8 +18,6 @@
 
 /**
  * Destination
- *
- * \ingroup SES
  */
 
 @interface SESDestination:NSObject

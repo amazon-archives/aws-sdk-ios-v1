@@ -18,8 +18,6 @@
 
 /**
  * Adjustment Type
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingAdjustmentType:NSObject

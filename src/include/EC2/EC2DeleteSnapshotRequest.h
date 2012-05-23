@@ -20,8 +20,6 @@
 
 /**
  * Delete Snapshot Request
- *
- * \ingroup EC2
  */
 
 @interface EC2DeleteSnapshotRequest:AmazonServiceRequestConfig

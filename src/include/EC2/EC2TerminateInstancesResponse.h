@@ -22,8 +22,6 @@
 
 /**
  * Terminate Instances Response
- *
- * \ingroup EC2
  */
 
 @interface EC2TerminateInstancesResponse:EC2Response

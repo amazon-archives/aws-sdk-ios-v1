@@ -20,7 +20,6 @@
 /**
  * Contains the parameters used for the setBucketLifecycleConfiguration operation.
  *
- * \ingroup S3
  */
 @interface S3SetBucketLifecycleConfigurationRequest:S3Request
 {

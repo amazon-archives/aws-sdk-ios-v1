@@ -18,8 +18,6 @@
 
 /**
  * Instance Monitoring
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingInstanceMonitoring:NSObject

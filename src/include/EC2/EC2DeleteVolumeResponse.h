@@ -20,8 +20,6 @@
 
 /**
  * Delete Volume
- *
- * \ingroup EC2
  */
 @interface EC2DeleteVolumeResponse:EC2Response
 {

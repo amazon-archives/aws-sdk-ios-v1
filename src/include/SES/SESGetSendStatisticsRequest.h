@@ -20,8 +20,6 @@
 
 /**
  * Get Send Statistics Request
- *
- * \ingroup SES
  */
 
 @interface SESGetSendStatisticsRequest:AmazonServiceRequestConfig

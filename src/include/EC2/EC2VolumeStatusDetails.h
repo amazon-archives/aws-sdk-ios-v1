@@ -18,8 +18,6 @@
 
 /**
  * Volume Status Details
- *
- * \ingroup EC2
  */
 
 @interface EC2VolumeStatusDetails:NSObject

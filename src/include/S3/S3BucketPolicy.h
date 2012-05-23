@@ -24,7 +24,6 @@
  * Requesting the bucket policy for a newly created bucket will return a
  * policy object with <code>null</code> policy text.
  *
- * \ingroup S3
  */
 @interface S3BucketPolicy:NSObject {
     NSString *policyText;

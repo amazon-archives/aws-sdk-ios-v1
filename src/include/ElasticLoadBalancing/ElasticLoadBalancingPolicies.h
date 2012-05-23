@@ -20,8 +20,6 @@
 
 /**
  * Policies
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingPolicies:NSObject

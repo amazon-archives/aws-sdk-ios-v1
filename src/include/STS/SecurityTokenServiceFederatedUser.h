@@ -18,8 +18,6 @@
 
 /**
  * Federated User
- *
- * \ingroup SecurityTokenService
  */
 
 @interface SecurityTokenServiceFederatedUser:NSObject

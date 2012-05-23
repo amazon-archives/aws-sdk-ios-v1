@@ -23,8 +23,6 @@
 
 /**
  * Domain Metadata Result
- *
- * \ingroup SimpleDB
  */
 
 @interface SimpleDBDomainMetadataResponse:SimpleDBResponse

@@ -21,8 +21,6 @@
 
 /**
  * Describe Bundle Tasks Request
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeBundleTasksRequest:AmazonServiceRequestConfig

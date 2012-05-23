@@ -20,8 +20,6 @@
 
 /**
  * Create Tags
- *
- * \ingroup EC2
  */
 @interface EC2CreateTagsResponse:EC2Response
 {

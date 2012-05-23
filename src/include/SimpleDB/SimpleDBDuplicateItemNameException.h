@@ -22,8 +22,6 @@
  * <p>
  * The item name was specified more than once.
  * </p>
- *
- * \ingroup SimpleDB
  */
 @interface SimpleDBDuplicateItemNameException:AmazonServiceException
 {

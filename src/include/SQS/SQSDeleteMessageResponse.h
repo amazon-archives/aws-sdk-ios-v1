@@ -22,8 +22,6 @@
 
 /**
  * Delete Message
- *
- * \ingroup SQS
  */
 @interface SQSDeleteMessageResponse:SQSResponse
 {

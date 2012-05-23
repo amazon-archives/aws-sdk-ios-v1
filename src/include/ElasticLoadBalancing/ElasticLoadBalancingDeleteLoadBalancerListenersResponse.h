@@ -21,8 +21,6 @@
 
 /**
  * Delete Load Balancer Listeners
- *
- * \ingroup ElasticLoadBalancing
  */
 @interface ElasticLoadBalancingDeleteLoadBalancerListenersResponse:ElasticLoadBalancingResponse
 {

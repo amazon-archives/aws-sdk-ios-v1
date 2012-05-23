@@ -22,8 +22,6 @@
 
 /**
  * Enable Availability Zones For Load Balancer Result
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerResponse:ElasticLoadBalancingResponse

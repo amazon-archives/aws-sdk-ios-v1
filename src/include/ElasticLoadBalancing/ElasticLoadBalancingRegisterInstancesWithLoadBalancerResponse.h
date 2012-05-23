@@ -24,8 +24,6 @@
 
 /**
  * Register Instances With Load Balancer Result
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingRegisterInstancesWithLoadBalancerResponse:ElasticLoadBalancingResponse

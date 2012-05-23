@@ -23,8 +23,6 @@
  * This is returned when you cannot delete a launch configuration or
  * Auto Scaling group because it is being used.
  * </p>
- *
- * \ingroup AutoScaling
  */
 @interface AutoScalingResourceInUseException:AmazonServiceException
 {

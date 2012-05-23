@@ -18,7 +18,6 @@
 
 /** Contains the parameters used for the initiateMultipartUpload operation.
  *
- * \ingroup S3
  */
 @interface S3InitiateMultipartUploadRequest:S3AbstractPutRequest {
     NSString *cacheControl;

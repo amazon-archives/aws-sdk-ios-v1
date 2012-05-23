@@ -18,7 +18,6 @@
 
 /** Contains the response from a getObjectMetadata operation
  *
- * \ingroup S3
  */
 @interface S3GetObjectMetadataResponse:S3GetObjectResponse {
     int missingMeta;

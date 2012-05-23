@@ -21,7 +21,6 @@
 
 /** Request object for DeleteObjects.
  *
- * \ingroup S3
  */
 @interface S3DeleteObjectsRequest:S3Request
 {

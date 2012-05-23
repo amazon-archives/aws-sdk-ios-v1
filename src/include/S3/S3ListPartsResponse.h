@@ -21,7 +21,6 @@
 
 /** Contains the response from a listParts operation.
  *
- * \ingroup S3
  */
 @interface S3ListPartsResponse:S3Response {
     S3ListPartsResult *listPartsResult;

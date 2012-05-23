@@ -22,8 +22,6 @@
 
 /**
  * Bundle Instance Response
- *
- * \ingroup EC2
  */
 
 @interface EC2BundleInstanceResponse:EC2Response

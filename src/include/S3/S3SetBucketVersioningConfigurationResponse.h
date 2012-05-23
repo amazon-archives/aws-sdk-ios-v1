@@ -18,7 +18,6 @@
 
 /** Result of setting a bucket's versioning configuration.
  *
- * \ingroup S3
  */
 @interface S3SetBucketVersioningConfigurationResponse:S3Response {
 }

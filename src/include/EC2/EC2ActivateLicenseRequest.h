@@ -20,8 +20,6 @@
 
 /**
  * Activate License Request
- *
- * \ingroup EC2
  */
 
 @interface EC2ActivateLicenseRequest:AmazonServiceRequestConfig

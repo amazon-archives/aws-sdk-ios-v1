@@ -20,8 +20,6 @@
 
 /**
  * Delete Snapshot
- *
- * \ingroup EC2
  */
 @interface EC2DeleteSnapshotResponse:EC2Response
 {

@@ -21,8 +21,6 @@
 
 /**
  * Revoke Security Group Ingress Request
- *
- * \ingroup EC2
  */
 
 @interface EC2RevokeSecurityGroupIngressRequest:AmazonServiceRequestConfig

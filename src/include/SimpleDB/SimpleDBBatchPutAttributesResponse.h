@@ -29,8 +29,6 @@
 
 /**
  * Batch Put Attributes
- *
- * \ingroup SimpleDB
  */
 @interface SimpleDBBatchPutAttributesResponse:SimpleDBResponse
 {

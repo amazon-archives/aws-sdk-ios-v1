@@ -20,8 +20,6 @@
 
 /**
  * Disable Metrics Collection Request
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingDisableMetricsCollectionRequest:AmazonServiceRequestConfig

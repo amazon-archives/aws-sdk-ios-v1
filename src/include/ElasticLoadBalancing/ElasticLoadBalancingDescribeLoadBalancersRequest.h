@@ -20,8 +20,6 @@
 
 /**
  * Describe Load Balancers Request
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingDescribeLoadBalancersRequest:AmazonServiceRequestConfig

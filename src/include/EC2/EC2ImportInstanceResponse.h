@@ -22,8 +22,6 @@
 
 /**
  * Import Instance Response
- *
- * \ingroup EC2
  */
 
 @interface EC2ImportInstanceResponse:EC2Response

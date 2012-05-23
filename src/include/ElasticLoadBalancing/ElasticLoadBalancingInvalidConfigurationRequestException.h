@@ -22,8 +22,6 @@
  * <p>
  * Requested configuration change is invalid.
  * </p>
- *
- * \ingroup ElasticLoadBalancing
  */
 @interface ElasticLoadBalancingInvalidConfigurationRequestException:AmazonServiceException
 {

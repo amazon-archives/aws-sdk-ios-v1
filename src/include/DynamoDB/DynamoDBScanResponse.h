@@ -25,8 +25,6 @@
 
 /**
  * Scan Result
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBScanResponse:DynamoDBResponse

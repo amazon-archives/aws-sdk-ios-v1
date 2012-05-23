@@ -22,8 +22,6 @@
 
 /**
  * Send Email Result
- *
- * \ingroup SES
  */
 
 @interface SESSendEmailResponse:SESResponse

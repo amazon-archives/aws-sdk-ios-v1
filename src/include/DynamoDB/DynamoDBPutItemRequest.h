@@ -22,8 +22,6 @@
 
 /**
  * Put Item Request
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBPutItemRequest:AmazonServiceRequestConfig

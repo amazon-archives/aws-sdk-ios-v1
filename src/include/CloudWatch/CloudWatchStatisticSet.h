@@ -18,8 +18,6 @@
 
 /**
  * Statistic Set
- *
- * \ingroup CloudWatch
  */
 
 @interface CloudWatchStatisticSet:NSObject

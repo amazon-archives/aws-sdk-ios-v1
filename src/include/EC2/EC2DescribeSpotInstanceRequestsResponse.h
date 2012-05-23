@@ -24,8 +24,6 @@
 
 /**
  * Describe Spot Instance Requests Response
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeSpotInstanceRequestsResponse:EC2Response

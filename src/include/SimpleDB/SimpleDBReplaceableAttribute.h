@@ -18,8 +18,6 @@
 
 /**
  * Replaceable Attribute
- *
- * \ingroup SimpleDB
  */
 
 @interface SimpleDBReplaceableAttribute:NSObject

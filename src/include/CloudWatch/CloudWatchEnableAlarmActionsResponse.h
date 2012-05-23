@@ -20,8 +20,6 @@
 
 /**
  * Enable Alarm Actions
- *
- * \ingroup CloudWatch
  */
 @interface CloudWatchEnableAlarmActionsResponse:CloudWatchResponse
 {

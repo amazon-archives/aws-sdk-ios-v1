@@ -21,8 +21,6 @@
 
 /**
  * Describe Reserved Instances Request
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeReservedInstancesRequest:AmazonServiceRequestConfig

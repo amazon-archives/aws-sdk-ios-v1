@@ -20,8 +20,6 @@
 
 /**
  * Delete Table Request
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBDeleteTableRequest:AmazonServiceRequestConfig

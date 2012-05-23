@@ -23,8 +23,6 @@
 
 /**
  * Configure Health Check Result
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingConfigureHealthCheckResponse:ElasticLoadBalancingResponse

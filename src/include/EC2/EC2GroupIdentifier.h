@@ -18,8 +18,6 @@
 
 /**
  * Group Identifier
- *
- * \ingroup EC2
  */
 
 @interface EC2GroupIdentifier:NSObject

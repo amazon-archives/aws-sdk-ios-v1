@@ -21,8 +21,6 @@
 
 /**
  * Batch Write Response
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBBatchWriteResponse:DynamoDBResponse

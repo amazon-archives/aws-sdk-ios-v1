@@ -16,6 +16,9 @@
 #import <Foundation/Foundation.h>
 #import "../AmazonServiceResponse.h"
 
+/**
+ *
+ */
 @interface SimpleDBResponse:AmazonServiceResponse {
     double boxUsage;
 }

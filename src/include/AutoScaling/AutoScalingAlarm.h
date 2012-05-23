@@ -18,8 +18,6 @@
 
 /**
  * Alarm
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingAlarm:NSObject

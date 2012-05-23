@@ -22,8 +22,6 @@
  * <p>
  * Too many attributes requested.
  * </p>
- *
- * \ingroup SimpleDB
  */
 @interface SimpleDBTooManyRequestedAttributesException:AmazonServiceException
 {

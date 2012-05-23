@@ -22,7 +22,6 @@
 
 /** Contains the parameters used for the CopyObject operation.
  *
- * \ingroup S3
  */
 @interface S3CopyObjectRequest:S3AbstractPutRequest {
     NSString *sourceKey;

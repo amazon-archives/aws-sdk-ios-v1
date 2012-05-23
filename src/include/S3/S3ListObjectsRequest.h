@@ -20,7 +20,6 @@
 
 /** Request Object for Listing the Objects in the specified bucket.
  *
- * \ingroup S3
  */
 @interface S3ListObjectsRequest:S3Request {
     NSString  *prefix;

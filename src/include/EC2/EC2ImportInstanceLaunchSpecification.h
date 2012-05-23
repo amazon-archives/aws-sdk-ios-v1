@@ -20,8 +20,6 @@
 
 /**
  * Import Instance Launch Specification
- *
- * \ingroup EC2
  */
 
 @interface EC2ImportInstanceLaunchSpecification:NSObject

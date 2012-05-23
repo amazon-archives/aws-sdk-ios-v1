@@ -25,8 +25,6 @@
 
 /**
  * Create Table Result
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBCreateTableResponse:DynamoDBResponse

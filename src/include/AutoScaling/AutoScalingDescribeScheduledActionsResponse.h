@@ -23,8 +23,6 @@
 
 /**
  * Describe Scheduled Actions Result
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingDescribeScheduledActionsResponse:AutoScalingResponse

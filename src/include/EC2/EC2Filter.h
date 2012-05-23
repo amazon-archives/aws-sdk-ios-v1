@@ -18,8 +18,6 @@
 
 /**
  * Filter
- *
- * \ingroup EC2
  */
 
 @interface EC2Filter:NSObject

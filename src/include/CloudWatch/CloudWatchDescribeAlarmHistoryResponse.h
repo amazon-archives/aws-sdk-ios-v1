@@ -23,8 +23,6 @@
 
 /**
  * Describe Alarm History Result
- *
- * \ingroup CloudWatch
  */
 
 @interface CloudWatchDescribeAlarmHistoryResponse:CloudWatchResponse

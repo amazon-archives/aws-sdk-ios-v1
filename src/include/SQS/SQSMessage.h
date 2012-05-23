@@ -18,8 +18,6 @@
 
 /**
  * Message
- *
- * \ingroup SQS
  */
 
 @interface SQSMessage:NSObject

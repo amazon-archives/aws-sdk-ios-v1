@@ -20,8 +20,6 @@
 
 /**
  * Delete Policy Request
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingDeletePolicyRequest:AmazonServiceRequestConfig

@@ -18,8 +18,6 @@
 
 /**
  * Policy Attribute
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingPolicyAttribute:NSObject

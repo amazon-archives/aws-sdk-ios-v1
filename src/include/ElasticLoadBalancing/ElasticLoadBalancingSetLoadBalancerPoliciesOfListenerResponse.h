@@ -25,8 +25,6 @@
 
 /**
  * Set Load Balancer Policies Of Listener Result
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingSetLoadBalancerPoliciesOfListenerResponse:ElasticLoadBalancingResponse

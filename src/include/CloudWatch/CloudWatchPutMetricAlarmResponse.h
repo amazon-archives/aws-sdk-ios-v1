@@ -21,8 +21,6 @@
 
 /**
  * Put Metric Alarm
- *
- * \ingroup CloudWatch
  */
 @interface CloudWatchPutMetricAlarmResponse:CloudWatchResponse
 {

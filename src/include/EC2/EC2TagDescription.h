@@ -18,8 +18,6 @@
 
 /**
  * Tag Description
- *
- * \ingroup EC2
  */
 
 @interface EC2TagDescription:NSObject

@@ -18,8 +18,6 @@
 
 /**
  * State Reason
- *
- * \ingroup EC2
  */
 
 @interface EC2StateReason:NSObject

@@ -24,8 +24,6 @@
 
 /**
  * Describe Instance Health Result
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingDescribeInstanceHealthResponse:ElasticLoadBalancingResponse

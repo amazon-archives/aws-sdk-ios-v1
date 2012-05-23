@@ -20,8 +20,6 @@
 
 /**
  * Bundle Task
- *
- * \ingroup EC2
  */
 
 @interface EC2BundleTask:NSObject

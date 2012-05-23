@@ -21,8 +21,6 @@
 
 /**
  * Delete Tags Request
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingDeleteTagsRequest:AmazonServiceRequestConfig

@@ -20,8 +20,6 @@
 
 /**
  * Resume Processes Request
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingResumeProcessesRequest:AmazonServiceRequestConfig

@@ -18,8 +18,6 @@
 
 /**
  * Scheduled Update Group Action
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingScheduledUpdateGroupAction:NSObject

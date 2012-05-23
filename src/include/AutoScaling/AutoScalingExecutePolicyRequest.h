@@ -20,8 +20,6 @@
 
 /**
  * Execute Policy Request
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingExecutePolicyRequest:AmazonServiceRequestConfig

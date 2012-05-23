@@ -22,8 +22,6 @@
 
 /**
  * Stop Instances Response
- *
- * \ingroup EC2
  */
 
 @interface EC2StopInstancesResponse:EC2Response

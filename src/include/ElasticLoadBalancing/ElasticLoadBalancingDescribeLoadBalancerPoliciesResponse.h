@@ -24,8 +24,6 @@
 
 /**
  * Describe Load Balancer Policies Result
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingDescribeLoadBalancerPoliciesResponse:ElasticLoadBalancingResponse

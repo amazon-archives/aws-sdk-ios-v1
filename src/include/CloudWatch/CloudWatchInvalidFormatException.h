@@ -22,8 +22,6 @@
  * <p>
  * Data was not syntactically valid JSON.
  * </p>
- *
- * \ingroup CloudWatch
  */
 @interface CloudWatchInvalidFormatException:AmazonServiceException
 {

@@ -21,8 +21,6 @@
 
 /**
  * Confirm Product Instance Response
- *
- * \ingroup EC2
  */
 
 @interface EC2ConfirmProductInstanceResponse:EC2Response

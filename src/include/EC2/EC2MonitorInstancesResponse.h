@@ -22,8 +22,6 @@
 
 /**
  * Monitor Instances Response
- *
- * \ingroup EC2
  */
 
 @interface EC2MonitorInstancesResponse:EC2Response

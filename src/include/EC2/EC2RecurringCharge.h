@@ -18,8 +18,6 @@
 
 /**
  * Recurring Charge
- *
- * \ingroup EC2
  */
 
 @interface EC2RecurringCharge:NSObject

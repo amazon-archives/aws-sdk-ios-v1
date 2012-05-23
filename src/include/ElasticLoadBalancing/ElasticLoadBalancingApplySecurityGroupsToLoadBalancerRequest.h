@@ -20,8 +20,6 @@
 
 /**
  * Apply Security Groups To Load Balancer Request
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingApplySecurityGroupsToLoadBalancerRequest:AmazonServiceRequestConfig

@@ -20,8 +20,6 @@
 
 /**
  * Put Scheduled Update Group Action Request
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingPutScheduledUpdateGroupActionRequest:AmazonServiceRequestConfig

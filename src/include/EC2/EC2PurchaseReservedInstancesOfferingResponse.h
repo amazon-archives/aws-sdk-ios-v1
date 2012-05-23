@@ -21,8 +21,6 @@
 
 /**
  * Purchase Reserved Instances Offering Response
- *
- * \ingroup EC2
  */
 
 @interface EC2PurchaseReservedInstancesOfferingResponse:EC2Response

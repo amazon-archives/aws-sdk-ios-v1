@@ -22,8 +22,6 @@
  * <p>
  * The request must contain the specified missing parameter.
  * </p>
- *
- * \ingroup SimpleDB
  */
 @interface SimpleDBMissingParameterException:AmazonServiceException
 {

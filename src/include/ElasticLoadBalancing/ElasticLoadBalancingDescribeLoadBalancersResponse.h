@@ -23,8 +23,6 @@
 
 /**
  * Describe Load Balancers Result
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingDescribeLoadBalancersResponse:ElasticLoadBalancingResponse

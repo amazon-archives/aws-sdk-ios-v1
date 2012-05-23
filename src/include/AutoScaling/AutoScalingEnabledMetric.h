@@ -18,8 +18,6 @@
 
 /**
  * Enabled Metric
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingEnabledMetric:NSObject

@@ -28,8 +28,6 @@
 
 /**
  * Instance
- *
- * \ingroup EC2
  */
 
 @interface EC2Instance:NSObject

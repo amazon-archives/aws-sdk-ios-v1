@@ -20,8 +20,6 @@
 
 /**
  * Cancel Spot Instance Requests Request
- *
- * \ingroup EC2
  */
 
 @interface EC2CancelSpotInstanceRequestsRequest:AmazonServiceRequestConfig

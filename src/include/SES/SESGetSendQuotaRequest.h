@@ -20,8 +20,6 @@
 
 /**
  * Get Send Quota Request
- *
- * \ingroup SES
  */
 
 @interface SESGetSendQuotaRequest:AmazonServiceRequestConfig

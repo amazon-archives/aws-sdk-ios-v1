@@ -21,8 +21,6 @@
 
 /**
  * Describe Regions Request
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeRegionsRequest:AmazonServiceRequestConfig

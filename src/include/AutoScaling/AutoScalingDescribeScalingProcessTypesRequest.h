@@ -20,8 +20,6 @@
 
 /**
  * Describe Scaling Process Types Request
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingDescribeScalingProcessTypesRequest:AmazonServiceRequestConfig

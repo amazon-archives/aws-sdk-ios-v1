@@ -25,8 +25,6 @@
 
 /**
  * Create L B Cookie Stickiness Policy Result
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingCreateLBCookieStickinessPolicyResponse:ElasticLoadBalancingResponse

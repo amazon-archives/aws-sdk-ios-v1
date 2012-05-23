@@ -18,7 +18,6 @@
 
 /** Contains all the information about the deleteBucketLifecycleConfigurationResponse operation.
  *
- * \ingroup S3
  */
 @interface S3DeleteBucketLifecycleConfigurationResponse:S3Response
 {

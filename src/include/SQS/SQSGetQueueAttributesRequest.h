@@ -20,8 +20,6 @@
 
 /**
  * Get Queue Attributes Request
- *
- * \ingroup SQS
  */
 
 @interface SQSGetQueueAttributesRequest:AmazonServiceRequestConfig

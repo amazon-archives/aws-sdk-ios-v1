@@ -25,8 +25,6 @@
 
 /**
  * Get Federation Token Result
- *
- * \ingroup SecurityTokenService
  */
 
 @interface SecurityTokenServiceGetFederationTokenResponse:SecurityTokenServiceResponse

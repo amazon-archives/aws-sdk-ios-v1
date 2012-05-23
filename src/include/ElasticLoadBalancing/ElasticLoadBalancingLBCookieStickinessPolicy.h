@@ -18,8 +18,6 @@
 
 /**
  * L B Cookie Stickiness Policy
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingLBCookieStickinessPolicy:NSObject

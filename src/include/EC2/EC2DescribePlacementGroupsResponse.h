@@ -22,8 +22,6 @@
 
 /**
  * Describe Placement Groups Response
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribePlacementGroupsResponse:EC2Response

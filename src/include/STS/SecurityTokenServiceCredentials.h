@@ -18,8 +18,6 @@
 
 /**
  * Credentials
- *
- * \ingroup SecurityTokenService
  */
 
 @interface SecurityTokenServiceCredentials:NSObject

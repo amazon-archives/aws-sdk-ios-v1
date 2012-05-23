@@ -20,8 +20,6 @@
 
 /**
  * Delete Scheduled Action Request
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingDeleteScheduledActionRequest:AmazonServiceRequestConfig

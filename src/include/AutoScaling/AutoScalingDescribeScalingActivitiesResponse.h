@@ -23,8 +23,6 @@
 
 /**
  * Describe Scaling Activities Result
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingDescribeScalingActivitiesResponse:AutoScalingResponse

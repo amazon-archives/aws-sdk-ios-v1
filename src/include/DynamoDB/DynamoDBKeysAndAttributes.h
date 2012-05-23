@@ -19,8 +19,6 @@
 
 /**
  * Keys And Attributes
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBKeysAndAttributes:NSObject

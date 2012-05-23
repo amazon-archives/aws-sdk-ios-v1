@@ -23,8 +23,6 @@
  * The quota for capacity groups or launch configurations for this
  * customer has already been reached.
  * </p>
- *
- * \ingroup AutoScaling
  */
 @interface AutoScalingLimitExceededException:AmazonServiceException
 {

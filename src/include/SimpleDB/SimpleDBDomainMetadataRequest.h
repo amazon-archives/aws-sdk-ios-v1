@@ -20,8 +20,6 @@
 
 /**
  * Domain Metadata Request
- *
- * \ingroup SimpleDB
  */
 
 @interface SimpleDBDomainMetadataRequest:AmazonServiceRequestConfig

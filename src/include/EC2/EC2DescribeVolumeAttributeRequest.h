@@ -20,8 +20,6 @@
 
 /**
  * Describe Volume Attribute Request
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeVolumeAttributeRequest:AmazonServiceRequestConfig
@@ -47,6 +45,9 @@
 
 /**
  * The value of the Attribute property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>autoEnableIO, productCodes
  */
 @property (nonatomic, retain) NSString *attribute;
 

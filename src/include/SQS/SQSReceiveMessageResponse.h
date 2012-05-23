@@ -23,8 +23,6 @@
 
 /**
  * Receive Message Result
- *
- * \ingroup SQS
  */
 
 @interface SQSReceiveMessageResponse:SQSResponse

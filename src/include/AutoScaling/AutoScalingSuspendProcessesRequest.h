@@ -20,8 +20,6 @@
 
 /**
  * Suspend Processes Request
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingSuspendProcessesRequest:AmazonServiceRequestConfig

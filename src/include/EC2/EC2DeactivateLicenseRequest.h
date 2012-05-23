@@ -20,8 +20,6 @@
 
 /**
  * Deactivate License Request
- *
- * \ingroup EC2
  */
 
 @interface EC2DeactivateLicenseRequest:AmazonServiceRequestConfig

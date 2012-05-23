@@ -20,8 +20,6 @@
 
 /**
  * Unmonitor Instances Request
- *
- * \ingroup EC2
  */
 
 @interface EC2UnmonitorInstancesRequest:AmazonServiceRequestConfig

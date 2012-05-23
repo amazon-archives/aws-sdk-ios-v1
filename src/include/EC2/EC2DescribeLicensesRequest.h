@@ -21,8 +21,6 @@
 
 /**
  * Describe Licenses Request
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeLicensesRequest:AmazonServiceRequestConfig

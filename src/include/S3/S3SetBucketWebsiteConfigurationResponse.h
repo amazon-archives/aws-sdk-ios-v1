@@ -18,7 +18,6 @@
 
 /** Contains all the information about the setBucketWebsiteConfigurationResponse operation.
  *
- * \ingroup S3
  */
 @interface S3SetBucketWebsiteConfigurationResponse:S3Response
 

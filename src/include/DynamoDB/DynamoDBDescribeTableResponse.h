@@ -24,8 +24,6 @@
 
 /**
  * Describe Table Result
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBDescribeTableResponse:DynamoDBResponse

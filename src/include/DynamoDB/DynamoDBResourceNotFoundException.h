@@ -23,8 +23,6 @@
  * This exception is thrown when the resource which is being attempted to
  * be changed is in use.
  * </p>
- *
- * \ingroup DynamoDB
  */
 @interface DynamoDBResourceNotFoundException:AmazonServiceException
 {

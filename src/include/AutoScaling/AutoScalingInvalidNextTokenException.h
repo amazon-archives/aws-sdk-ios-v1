@@ -22,8 +22,6 @@
  * <p>
  * The <code>NextToken</code> value is invalid.
  * </p>
- *
- * \ingroup AutoScaling
  */
 @interface AutoScalingInvalidNextTokenException:AmazonServiceException
 {

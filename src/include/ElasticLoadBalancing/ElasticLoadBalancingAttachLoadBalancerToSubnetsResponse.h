@@ -25,8 +25,6 @@
 
 /**
  * Attach Load Balancer To Subnets Result
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingAttachLoadBalancerToSubnetsResponse:ElasticLoadBalancingResponse

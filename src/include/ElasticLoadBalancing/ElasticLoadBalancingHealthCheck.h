@@ -18,8 +18,6 @@
 
 /**
  * Health Check
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingHealthCheck:NSObject

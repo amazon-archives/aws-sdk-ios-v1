@@ -22,8 +22,6 @@
 
 /**
  * Image
- *
- * \ingroup EC2
  */
 
 @interface EC2Image:NSObject

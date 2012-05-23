@@ -26,8 +26,6 @@
 
 /**
  * List Subscriptions By Topic Result
- *
- * \ingroup SNS
  */
 
 @interface SNSListSubscriptionsByTopicResponse:SNSResponse

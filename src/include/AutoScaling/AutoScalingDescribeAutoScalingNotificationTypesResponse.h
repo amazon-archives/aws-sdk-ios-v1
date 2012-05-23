@@ -21,8 +21,6 @@
 
 /**
  * Describe Auto Scaling Notification Types Result
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingDescribeAutoScalingNotificationTypesResponse:AutoScalingResponse

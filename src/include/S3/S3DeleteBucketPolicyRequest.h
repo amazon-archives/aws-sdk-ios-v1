@@ -32,7 +32,6 @@
  *
  * <br />Required Parameters: bucket
  *
- * \ingroup S3
  */
 @interface S3DeleteBucketPolicyRequest:S3Request {
 }

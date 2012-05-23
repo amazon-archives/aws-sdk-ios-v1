@@ -21,8 +21,6 @@
 
 /**
  * Put Metric Data Request
- *
- * \ingroup CloudWatch
  */
 
 @interface CloudWatchPutMetricDataRequest:AmazonServiceRequestConfig

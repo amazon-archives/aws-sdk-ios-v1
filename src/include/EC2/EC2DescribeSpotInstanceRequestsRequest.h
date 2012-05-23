@@ -21,8 +21,6 @@
 
 /**
  * Describe Spot Instance Requests Request
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeSpotInstanceRequestsRequest:AmazonServiceRequestConfig

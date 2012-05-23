@@ -21,7 +21,6 @@
 
 /** Contains the owner and list of buckets returned by a listBuckets request
  *
- * \ingroup S3
  */
 @interface S3ListBucketsResult:NSObject {
     S3Owner        *owner;

@@ -23,8 +23,6 @@
  * The <code>Id</code> of a batch entry in a batch request does not abide
  * by the specification.
  * </p>
- *
- * \ingroup SQS
  */
 @interface SQSInvalidBatchEntryIdException:AmazonServiceException
 {

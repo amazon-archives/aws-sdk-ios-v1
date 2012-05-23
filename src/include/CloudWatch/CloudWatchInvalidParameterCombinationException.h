@@ -22,8 +22,6 @@
  * <p>
  * Parameters that must not be used together were used together.
  * </p>
- *
- * \ingroup CloudWatch
  */
 @interface CloudWatchInvalidParameterCombinationException:AmazonServiceException
 {

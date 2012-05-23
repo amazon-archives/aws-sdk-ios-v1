@@ -19,8 +19,6 @@
 
 /**
  * Storage
- *
- * \ingroup EC2
  */
 
 @interface EC2Storage:NSObject

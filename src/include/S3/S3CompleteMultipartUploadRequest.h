@@ -19,7 +19,6 @@
 
 /** Contains the parameters used for the completeMultipartUpload operation.
  *
- * \ingroup S3
  */
 @interface S3CompleteMultipartUploadRequest:S3Request {
     NSMutableDictionary *parts;

@@ -19,8 +19,6 @@
 
 /**
  * Raw Message
- *
- * \ingroup SES
  */
 
 @interface SESRawMessage:NSObject
@@ -42,7 +40,7 @@
  * The raw data of the message. The client must ensure that the message
  * format complies with Internet email standards regarding email header
  * fields, MIME types, MIME encoding, and base64 encoding (if necessary).
- * <p>For more information, go to the <a
+ * <p>For more information, go to the<a
  * f="http://docs.amazonwebservices.com/ses/latest/DeveloperGuide">Amazon
  * SES Developer Guide</a>.
  */

@@ -24,8 +24,6 @@
 
 /**
  * Remove Permission
- *
- * \ingroup SNS
  */
 @interface SNSRemovePermissionResponse:SNSResponse
 {

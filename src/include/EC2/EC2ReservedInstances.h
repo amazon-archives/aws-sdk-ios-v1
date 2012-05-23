@@ -20,8 +20,6 @@
 
 /**
  * Reserved Instances
- *
- * \ingroup EC2
  */
 
 @interface EC2ReservedInstances:NSObject

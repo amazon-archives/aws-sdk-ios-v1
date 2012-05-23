@@ -20,8 +20,6 @@
 
 /**
  * Delete Notification Configuration Request
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingDeleteNotificationConfigurationRequest:AmazonServiceRequestConfig

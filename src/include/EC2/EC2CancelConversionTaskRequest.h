@@ -20,8 +20,6 @@
 
 /**
  * Cancel Conversion Task Request
- *
- * \ingroup EC2
  */
 
 @interface EC2CancelConversionTaskRequest:AmazonServiceRequestConfig

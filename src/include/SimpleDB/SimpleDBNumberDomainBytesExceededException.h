@@ -22,8 +22,6 @@
  * <p>
  * Too many bytes in this domain.
  * </p>
- *
- * \ingroup SimpleDB
  */
 @interface SimpleDBNumberDomainBytesExceededException:AmazonServiceException
 {

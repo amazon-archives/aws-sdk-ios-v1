@@ -20,8 +20,6 @@
 
 /**
  * Delete Alarms Request
- *
- * \ingroup CloudWatch
  */
 
 @interface CloudWatchDeleteAlarmsRequest:AmazonServiceRequestConfig

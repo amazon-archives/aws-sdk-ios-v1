@@ -22,8 +22,6 @@
 
 /**
  * Describe Reserved Instances Offerings Response
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeReservedInstancesOfferingsResponse:EC2Response

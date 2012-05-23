@@ -22,8 +22,6 @@
  * <p>
  * The receipt handle is not valid for the current version.
  * </p>
- *
- * \ingroup SQS
  */
 @interface SQSInvalidIdFormatException:AmazonServiceException
 {

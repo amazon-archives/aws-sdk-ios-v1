@@ -20,8 +20,6 @@
 
 /**
  * Release Address
- *
- * \ingroup EC2
  */
 @interface EC2ReleaseAddressResponse:EC2Response
 {

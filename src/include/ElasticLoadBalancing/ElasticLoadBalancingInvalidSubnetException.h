@@ -22,8 +22,6 @@
  * <p>
  * The VPC has no Internet gateway.
  * </p>
- *
- * \ingroup ElasticLoadBalancing
  */
 @interface ElasticLoadBalancingInvalidSubnetException:AmazonServiceException
 {

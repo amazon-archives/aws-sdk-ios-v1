@@ -20,8 +20,6 @@
 
 /**
  * Create Spot Datafeed Subscription Request
- *
- * \ingroup EC2
  */
 
 @interface EC2CreateSpotDatafeedSubscriptionRequest:AmazonServiceRequestConfig

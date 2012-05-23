@@ -20,8 +20,6 @@
 
 /**
  * Set Subscription Attributes Request
- *
- * \ingroup SNS
  */
 
 @interface SNSSetSubscriptionAttributesRequest:AmazonServiceRequestConfig

@@ -22,8 +22,6 @@
 
 /**
  * Describe Scaling Process Types Result
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingDescribeScalingProcessTypesResponse:AutoScalingResponse

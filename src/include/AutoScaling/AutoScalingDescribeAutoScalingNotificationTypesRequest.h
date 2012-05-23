@@ -20,8 +20,6 @@
 
 /**
  * Describe Auto Scaling Notification Types Request
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingDescribeAutoScalingNotificationTypesRequest:AmazonServiceRequestConfig

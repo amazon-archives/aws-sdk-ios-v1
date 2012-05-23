@@ -22,8 +22,6 @@
  * <p>
  * The specified domain does not exist.
  * </p>
- *
- * \ingroup SimpleDB
  */
 @interface SimpleDBNoSuchDomainException:AmazonServiceException
 {

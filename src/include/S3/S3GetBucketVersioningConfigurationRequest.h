@@ -21,7 +21,6 @@
  *
  * <br />Required Parameters: bucket
  *
- * \ingroup S3
  */
 @interface S3GetBucketVersioningConfigurationRequest:S3Request {
 }

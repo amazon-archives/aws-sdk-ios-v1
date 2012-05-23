@@ -18,8 +18,6 @@
 
 /**
  * User Id Group Pair
- *
- * \ingroup EC2
  */
 
 @interface EC2UserIdGroupPair:NSObject

@@ -21,8 +21,6 @@
 
 /**
  * Import Key Pair Response
- *
- * \ingroup EC2
  */
 
 @interface EC2ImportKeyPairResponse:EC2Response

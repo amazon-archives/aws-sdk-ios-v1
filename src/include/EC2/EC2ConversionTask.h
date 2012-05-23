@@ -21,8 +21,6 @@
 
 /**
  * Conversion Task
- *
- * \ingroup EC2
  */
 
 @interface EC2ConversionTask:NSObject

@@ -22,8 +22,6 @@
  * <p>
  * The value for a parameter is invalid.
  * </p>
- *
- * \ingroup SimpleDB
  */
 @interface SimpleDBInvalidParameterValueException:AmazonServiceException
 {

@@ -18,7 +18,6 @@
 
 /** Contains the response from an abortMultipartUpload operation.
  *
- * \ingroup S3
  */
 @interface S3AbortMultipartUploadResponse:S3Response {
 }

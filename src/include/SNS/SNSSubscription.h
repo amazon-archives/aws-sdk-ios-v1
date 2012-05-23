@@ -18,8 +18,6 @@
 
 /**
  * Subscription
- *
- * \ingroup SNS
  */
 
 @interface SNSSubscription:NSObject

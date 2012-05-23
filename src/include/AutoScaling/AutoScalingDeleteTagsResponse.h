@@ -20,8 +20,6 @@
 
 /**
  * Delete Tags
- *
- * \ingroup AutoScaling
  */
 @interface AutoScalingDeleteTagsResponse:AutoScalingResponse
 {

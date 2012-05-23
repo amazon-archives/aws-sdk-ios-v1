@@ -22,8 +22,6 @@
 
 /**
  * Create Or Update Tags
- *
- * \ingroup AutoScaling
  */
 @interface AutoScalingCreateOrUpdateTagsResponse:AutoScalingResponse
 {

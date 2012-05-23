@@ -23,7 +23,6 @@
 
 /** Contains the parameters common to Amazon S3 operations.
  *
- * \ingroup S3
  */
 @interface S3Request:AmazonServiceRequest {
     NSString *authorization;

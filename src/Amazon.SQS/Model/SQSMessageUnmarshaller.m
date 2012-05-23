@@ -25,18 +25,9 @@
 
     if ([elementName isEqualToString:@"Attribute"]) {
         AmazonDictionaryUnmarshaller *dictionaryUnmarshaller = [[[AmazonDictionaryUnmarshaller alloc] initWithCaller:self withParentObject:self.response.attributes withSetter:@selector(addEntriesFromDictionary:)] autorelease];
-        dictionaryUnmarshaller.keyXpathElement   = @"Name";
-        dictionaryUnmarshaller.valueXpathElement = @"Value";
-        dictionaryUnmarshaller.entryEndElement   = @"Attribute";
-
-        [parser setDelegate:dictionaryUnmarshaller];
-    }
-
-    if ([elementName isEqualToString:@"Attribute"]) {
-        AmazonDictionaryUnmarshaller *dictionaryUnmarshaller = [[[AmazonDictionaryUnmarshaller alloc] initWithCaller:self withParentObject:self.response.attributes withSetter:@selector(addEntriesFromDictionary:)] autorelease];
-        dictionaryUnmarshaller.keyXpathElement   = @"Name";
-        dictionaryUnmarshaller.valueXpathElement = @"Value";
-        dictionaryUnmarshaller.entryEndElement   = @"Attribute";
+        dictionaryUnmarshaller.keyXpathElement      = @"Name";
+        dictionaryUnmarshaller.valueXpathElement    = @"Value";
+        dictionaryUnmarshaller.dictionaryEndElement = @"Attribute";
 
         [parser setDelegate:dictionaryUnmarshaller];
     }

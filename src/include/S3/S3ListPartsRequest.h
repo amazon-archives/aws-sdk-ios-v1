@@ -19,7 +19,6 @@
 
 /** Contains the parameters used for the listParts operation.
  *
- * \ingroup S3
  */
 @interface S3ListPartsRequest:S3Request {
     NSString *uploadId;

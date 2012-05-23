@@ -18,8 +18,6 @@
 
 /**
  * Instance Network Interface Association
- *
- * \ingroup EC2
  */
 
 @interface EC2InstanceNetworkInterfaceAssociation:NSObject

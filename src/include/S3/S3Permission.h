@@ -24,7 +24,6 @@
 /** An enumeration of all ACL permissions. For more information, refer:
  * @see http://docs.amazonwebservices.com/AmazonS3/latest/S3_ACLs.html#S3_ACLs_Permissions
  *
- * \ingroup S3
  */
 @interface S3Permission:NSObject {
     NSString *xmlValue;

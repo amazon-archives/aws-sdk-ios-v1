@@ -22,8 +22,6 @@
  * <p>
  * The specified query expression syntax is not valid.
  * </p>
- *
- * \ingroup SimpleDB
  */
 @interface SimpleDBInvalidQueryExpressionException:AmazonServiceException
 {

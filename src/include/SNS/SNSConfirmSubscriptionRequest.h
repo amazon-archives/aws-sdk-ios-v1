@@ -20,8 +20,6 @@
 
 /**
  * Confirm Subscription Request
- *
- * \ingroup SNS
  */
 
 @interface SNSConfirmSubscriptionRequest:AmazonServiceRequestConfig

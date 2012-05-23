@@ -20,8 +20,6 @@
 
 /**
  * Set Load Balancer Policies Of Listener Request
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingSetLoadBalancerPoliciesOfListenerRequest:AmazonServiceRequestConfig

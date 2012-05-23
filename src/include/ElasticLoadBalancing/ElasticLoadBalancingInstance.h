@@ -18,8 +18,6 @@
 
 /**
  * Instance
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingInstance:NSObject

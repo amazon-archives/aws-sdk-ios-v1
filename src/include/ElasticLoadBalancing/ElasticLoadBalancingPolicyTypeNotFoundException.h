@@ -22,8 +22,6 @@
  * <p>
  * One or more of the specified policy types do not exist.
  * </p>
- *
- * \ingroup ElasticLoadBalancing
  */
 @interface ElasticLoadBalancingPolicyTypeNotFoundException:AmazonServiceException
 {

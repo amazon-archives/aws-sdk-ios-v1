@@ -21,7 +21,6 @@
  * information describing if this is a complete or partial listing, and the
  * original request parameters.
  *
- * \ingroup S3
  */
 @interface S3ListVersionsResult:NSObject {
     NSMutableArray *versionSummaries;

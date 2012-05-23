@@ -23,8 +23,6 @@
 
 /**
  * Query Request
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBQueryRequest:AmazonServiceRequestConfig

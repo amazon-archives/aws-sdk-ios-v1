@@ -19,8 +19,6 @@
 
 /**
  * Instance Status Summary
- *
- * \ingroup EC2
  */
 
 @interface EC2InstanceStatusSummary:NSObject

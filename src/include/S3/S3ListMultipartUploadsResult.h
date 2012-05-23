@@ -16,7 +16,6 @@
 #import <Foundation/Foundation.h>
 
 /** Contains all the information about the listMultipartUploads method.
- * \ingroup s3
  */
 @interface S3ListMultipartUploadsResult:NSObject {
     NSString       *bucket;

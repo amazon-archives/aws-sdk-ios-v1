@@ -20,8 +20,6 @@
 
 /**
  * Delete Launch Configuration Request
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingDeleteLaunchConfigurationRequest:AmazonServiceRequestConfig

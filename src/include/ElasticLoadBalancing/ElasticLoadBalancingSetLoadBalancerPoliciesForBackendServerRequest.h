@@ -20,8 +20,6 @@
 
 /**
  * Set Load Balancer Policies For Backend Server Request
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerRequest:AmazonServiceRequestConfig

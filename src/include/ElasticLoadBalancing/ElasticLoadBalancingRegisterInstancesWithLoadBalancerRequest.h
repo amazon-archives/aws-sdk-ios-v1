@@ -21,8 +21,6 @@
 
 /**
  * Register Instances With Load Balancer Request
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingRegisterInstancesWithLoadBalancerRequest:AmazonServiceRequestConfig

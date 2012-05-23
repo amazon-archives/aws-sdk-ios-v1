@@ -20,8 +20,6 @@
 
 /**
  * Revoke Security Group Ingress
- *
- * \ingroup EC2
  */
 @interface EC2RevokeSecurityGroupIngressResponse:EC2Response
 {

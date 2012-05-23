@@ -20,8 +20,6 @@
 
 /**
  * List Tables Request
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBListTablesRequest:AmazonServiceRequestConfig

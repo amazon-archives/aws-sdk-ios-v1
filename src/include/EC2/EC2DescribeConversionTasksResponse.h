@@ -22,8 +22,6 @@
 
 /**
  * Describe Conversion Tasks Response
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeConversionTasksResponse:EC2Response

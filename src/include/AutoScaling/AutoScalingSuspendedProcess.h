@@ -18,8 +18,6 @@
 
 /**
  * Suspended Process
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingSuspendedProcess:NSObject

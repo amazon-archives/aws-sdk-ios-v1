@@ -25,8 +25,6 @@
 
 /**
  * List Topics Result
- *
- * \ingroup SNS
  */
 
 @interface SNSListTopicsResponse:SNSResponse

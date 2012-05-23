@@ -19,7 +19,6 @@
 
 /** Request Object for Deleting the specified buckets.
  *
- * \ingroup S3
  */
 @interface S3DeleteBucketRequest:S3Request {
 }

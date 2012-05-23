@@ -20,8 +20,6 @@
 
 /**
  * Delete Scheduled Action
- *
- * \ingroup AutoScaling
  */
 @interface AutoScalingDeleteScheduledActionResponse:AutoScalingResponse
 {

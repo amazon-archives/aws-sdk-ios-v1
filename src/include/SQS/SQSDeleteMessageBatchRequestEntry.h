@@ -20,8 +20,6 @@
 
 /**
  * Delete Message Batch Request Entry
- *
- * \ingroup SQS
  */
 
 @interface SQSDeleteMessageBatchRequestEntry:AmazonServiceRequestConfig

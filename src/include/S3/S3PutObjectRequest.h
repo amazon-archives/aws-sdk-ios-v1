@@ -24,7 +24,6 @@
  *
  * Required parameters: bucket, key.
  *
- * \ingroup S3
  */
 @interface S3PutObjectRequest:S3AbstractPutRequest {
     NSString      *cacheControl;

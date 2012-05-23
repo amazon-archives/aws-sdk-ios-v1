@@ -19,8 +19,6 @@
 
 /**
  * Condition
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBCondition:NSObject

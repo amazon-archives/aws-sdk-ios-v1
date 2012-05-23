@@ -27,8 +27,6 @@
 
 /**
  * Change Message Visibility Batch Result
- *
- * \ingroup SQS
  */
 
 @interface SQSChangeMessageVisibilityBatchResponse:SQSResponse

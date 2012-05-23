@@ -20,8 +20,6 @@
 
 /**
  * List Subscriptions Request
- *
- * \ingroup SNS
  */
 
 @interface SNSListSubscriptionsRequest:AmazonServiceRequestConfig

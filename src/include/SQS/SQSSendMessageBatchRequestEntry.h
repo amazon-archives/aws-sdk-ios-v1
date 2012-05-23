@@ -20,8 +20,6 @@
 
 /**
  * Send Message Batch Request Entry
- *
- * \ingroup SQS
  */
 
 @interface SQSSendMessageBatchRequestEntry:AmazonServiceRequestConfig

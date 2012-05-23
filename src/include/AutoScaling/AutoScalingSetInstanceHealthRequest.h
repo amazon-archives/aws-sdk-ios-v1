@@ -20,8 +20,6 @@
 
 /**
  * Set Instance Health Request
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingSetInstanceHealthRequest:AmazonServiceRequestConfig

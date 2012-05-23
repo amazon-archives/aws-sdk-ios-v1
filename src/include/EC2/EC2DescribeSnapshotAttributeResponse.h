@@ -14,6 +14,7 @@
  */
 
 #import "EC2CreateVolumePermission.h"
+#import "EC2ProductCode.h"
 
 #import "EC2Response.h"
 #import "../AmazonServiceExceptionUnmarshaller.h"
@@ -22,8 +23,6 @@
 
 /**
  * Describe Snapshot Attribute Response
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeSnapshotAttributeResponse:EC2Response
@@ -31,6 +30,7 @@
 {
     NSString       *snapshotId;
     NSMutableArray *createVolumePermissions;
+    NSMutableArray *productCodes;
 }
 
 
@@ -56,12 +56,24 @@
  */
 @property (nonatomic, retain) NSMutableArray *createVolumePermissions;
 
+/**
+ * The value of the ProductCodes property for this object.
+ */
+@property (nonatomic, retain) NSMutableArray *productCodes;
+
 
 
 /**
  * Returns a value from the createVolumePermissions array for the specified index
  */
 -(EC2CreateVolumePermission *)createVolumePermissionsObjectAtIndex:(int)index;
+
+
+
+/**
+ * Returns a value from the productCodes array for the specified index
+ */
+-(EC2ProductCode *)productCodesObjectAtIndex:(int)index;
 
 /**
  * Returns a string representation of this object; useful for testing and

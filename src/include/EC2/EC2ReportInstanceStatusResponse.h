@@ -20,8 +20,6 @@
 
 /**
  * Report Instance Status
- *
- * \ingroup EC2
  */
 @interface EC2ReportInstanceStatusResponse:EC2Response
 {

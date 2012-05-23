@@ -23,8 +23,6 @@
  * Indicates that the user has been denied access to the requested
  * resource.
  * </p>
- *
- * \ingroup SNS
  */
 @interface SNSAuthorizationErrorException:AmazonServiceException
 {

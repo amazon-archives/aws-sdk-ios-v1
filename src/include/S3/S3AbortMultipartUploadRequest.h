@@ -21,7 +21,6 @@
 
 /** Contains the parameters used for the abortMultipartUpload operation.
  *
- * \ingroup S3
  */
 @interface S3AbortMultipartUploadRequest:S3Request {
     NSString *uploadId;

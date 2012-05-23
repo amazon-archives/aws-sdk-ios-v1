@@ -21,8 +21,6 @@
 
 /**
  * Set Desired Capacity
- *
- * \ingroup AutoScaling
  */
 @interface AutoScalingSetDesiredCapacityResponse:AutoScalingResponse
 {

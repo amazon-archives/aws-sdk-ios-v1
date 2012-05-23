@@ -20,8 +20,6 @@
 
 /**
  * Create Placement Group Request
- *
- * \ingroup EC2
  */
 
 @interface EC2CreatePlacementGroupRequest:AmazonServiceRequestConfig

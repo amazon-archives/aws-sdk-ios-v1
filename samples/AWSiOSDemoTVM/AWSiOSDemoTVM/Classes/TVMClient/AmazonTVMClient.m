@@ -16,7 +16,7 @@
 #import "AmazonTVMClient.h"
 #import "AmazonKeyChainWrapper.h"
 #import <AWSiOSSDK/AmazonLogger.h>
-#import <AWSiOSSDk/AmazonAuthUtils.h>
+#import <AWSiOSSDK/AmazonAuthUtils.h>
 
 #import "RequestDelegate.h"
 
@@ -30,8 +30,7 @@
 
 @implementation AmazonTVMClient
 
-@synthesize endpoint;
-@synthesize useSSL;
+@synthesize endpoint, useSSL;
 
 -(id)initWithEndpoint:(NSString *)theEndpoint useSSL:(bool)usingSSL;
 {
@@ -94,16 +93,16 @@
     do {
         AMZLogDebug(@"Request URL: %@", [request buildRequestUrl]);
 
-        NSURL        *url        = [[[NSURL alloc] initWithString:[request buildRequestUrl]] autorelease];
-        NSURLRequest *theRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
-        [[NSURLConnection alloc] initWithRequest:theRequest delegate:delegate];
+        NSURL             *url        = [[[NSURL alloc] initWithString:[request buildRequestUrl]] autorelease];
+        NSURLRequest      *theRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
+        NSError           *error      = nil;
+        NSHTTPURLResponse *response   = nil;
 
-        while (!delegate.failed && !delegate.done) {
-            [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[[NSDate date] dateByAddingTimeInterval:1]];
-        }
+        NSData            *data       = [NSURLConnection sendSynchronousRequest:theRequest returningResponse:&response error:&error];
 
-        if (!delegate.failed) {
-            return [handler handleResponse:200 body:delegate.responseBody];
+        if (error == nil)
+        {
+            return [handler handleResponse:response.statusCode body:[[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease]];
         }
     } while (delegate.failed && retries-- > 0);
 

@@ -21,8 +21,6 @@
 
 /**
  * Add Permission
- *
- * \ingroup SQS
  */
 @interface SQSAddPermissionResponse:SQSResponse
 {

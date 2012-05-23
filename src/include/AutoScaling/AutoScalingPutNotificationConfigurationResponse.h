@@ -21,8 +21,6 @@
 
 /**
  * Put Notification Configuration
- *
- * \ingroup AutoScaling
  */
 @interface AutoScalingPutNotificationConfigurationResponse:AutoScalingResponse
 {

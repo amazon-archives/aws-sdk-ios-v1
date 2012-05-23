@@ -18,8 +18,6 @@
 
 /**
  * Backend Server Description
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingBackendServerDescription:NSObject

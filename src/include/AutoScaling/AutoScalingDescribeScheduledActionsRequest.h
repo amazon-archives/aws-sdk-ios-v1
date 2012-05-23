@@ -20,8 +20,6 @@
 
 /**
  * Describe Scheduled Actions Request
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingDescribeScheduledActionsRequest:AmazonServiceRequestConfig

@@ -28,8 +28,6 @@
  * or <code>SSLCertificateId</code> .
  *
  * </p>
- *
- * \ingroup ElasticLoadBalancing
  */
 @interface ElasticLoadBalancingDuplicateListenerException:AmazonServiceException
 {

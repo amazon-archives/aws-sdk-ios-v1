@@ -22,8 +22,6 @@
 
 /**
  * Describe Licenses Response
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeLicensesResponse:EC2Response

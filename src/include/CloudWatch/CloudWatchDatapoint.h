@@ -18,8 +18,6 @@
 
 /**
  * Datapoint
- *
- * \ingroup CloudWatch
  */
 
 @interface CloudWatchDatapoint:NSObject

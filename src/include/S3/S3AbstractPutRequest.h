@@ -20,7 +20,6 @@
 
 /** Class with code common to Put* requests. Do not instantiate directly
  *
- * \ingroup S3
  */
 @interface S3AbstractPutRequest:S3Request {
     S3CannedACL         *cannedACL;

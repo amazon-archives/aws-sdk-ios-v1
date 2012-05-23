@@ -20,8 +20,6 @@
 
 /**
  * Delete Domain Request
- *
- * \ingroup SimpleDB
  */
 
 @interface SimpleDBDeleteDomainRequest:AmazonServiceRequestConfig

@@ -20,8 +20,6 @@
 
 /**
  * Disassociate Address Request
- *
- * \ingroup EC2
  */
 
 @interface EC2DisassociateAddressRequest:AmazonServiceRequestConfig

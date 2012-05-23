@@ -20,8 +20,6 @@
 
 /**
  * Get Federation Token Request
- *
- * \ingroup SecurityTokenService
  */
 
 @interface SecurityTokenServiceGetFederationTokenRequest:AmazonServiceRequestConfig

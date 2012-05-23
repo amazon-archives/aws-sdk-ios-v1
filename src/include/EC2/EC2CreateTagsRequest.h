@@ -21,8 +21,6 @@
 
 /**
  * Create Tags Request
- *
- * \ingroup EC2
  */
 
 @interface EC2CreateTagsRequest:AmazonServiceRequestConfig

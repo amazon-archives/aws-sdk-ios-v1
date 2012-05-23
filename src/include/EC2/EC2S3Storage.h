@@ -18,8 +18,6 @@
 
 /**
  * S3 Storage
- *
- * \ingroup EC2
  */
 
 @interface EC2S3Storage:NSObject

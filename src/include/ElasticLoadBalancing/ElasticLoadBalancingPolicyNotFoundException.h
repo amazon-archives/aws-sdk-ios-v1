@@ -22,8 +22,6 @@
  * <p>
  * One or more specified policies were not found.
  * </p>
- *
- * \ingroup ElasticLoadBalancing
  */
 @interface ElasticLoadBalancingPolicyNotFoundException:AmazonServiceException
 {

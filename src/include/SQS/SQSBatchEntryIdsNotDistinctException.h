@@ -23,8 +23,6 @@
  * Two or more batch entries have the same <code>Id</code> in the
  * request.
  * </p>
- *
- * \ingroup SQS
  */
 @interface SQSBatchEntryIdsNotDistinctException:AmazonServiceException
 {

@@ -20,12 +20,12 @@
 
 
 @interface AmazonTVMClient:NSObject {
-    NSString *endpoint;
-    bool     useSSL;
+    NSString        *endpoint;
+    bool            useSSL;
 }
 
-@property (nonatomic, retain) NSString *endpoint;
-@property (nonatomic) bool             useSSL;
+@property (nonatomic, retain) NSString        *endpoint;
+@property (nonatomic) bool                    useSSL;
 
 -(id)initWithEndpoint:(NSString *)endpoint useSSL:(bool)useSSL;
 -(Response *)anonymousRegister;

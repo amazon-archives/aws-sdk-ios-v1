@@ -20,8 +20,6 @@
 
 /**
  * License
- *
- * \ingroup EC2
  */
 
 @interface EC2License:NSObject

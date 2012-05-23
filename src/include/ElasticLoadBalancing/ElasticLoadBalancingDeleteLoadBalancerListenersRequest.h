@@ -20,8 +20,6 @@
 
 /**
  * Delete Load Balancer Listeners Request
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingDeleteLoadBalancerListenersRequest:AmazonServiceRequestConfig

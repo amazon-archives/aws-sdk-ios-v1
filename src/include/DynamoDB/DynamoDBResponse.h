@@ -15,6 +15,9 @@
 
 #import "../AmazonServiceResponse.h"
 
+/**
+ *
+ */
 @interface DynamoDBResponse:AmazonServiceResponse {
 }
 

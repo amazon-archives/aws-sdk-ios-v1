@@ -22,8 +22,6 @@
 
 /**
  * Auto Scaling Group
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingAutoScalingGroup:NSObject

@@ -23,8 +23,6 @@
 
 /**
  * Describe Tags Result
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingDescribeTagsResponse:AutoScalingResponse

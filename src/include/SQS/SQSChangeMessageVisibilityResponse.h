@@ -22,8 +22,6 @@
 
 /**
  * Change Message Visibility
- *
- * \ingroup SQS
  */
 @interface SQSChangeMessageVisibilityResponse:SQSResponse
 {

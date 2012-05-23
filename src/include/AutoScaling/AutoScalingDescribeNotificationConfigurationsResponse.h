@@ -23,8 +23,6 @@
 
 /**
  * Describe Notification Configurations Result
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingDescribeNotificationConfigurationsResponse:AutoScalingResponse

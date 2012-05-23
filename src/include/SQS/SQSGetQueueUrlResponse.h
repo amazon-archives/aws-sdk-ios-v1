@@ -22,8 +22,6 @@
 
 /**
  * Get Queue Url Result
- *
- * \ingroup SQS
  */
 
 @interface SQSGetQueueUrlResponse:SQSResponse

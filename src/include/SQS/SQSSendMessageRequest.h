@@ -20,8 +20,6 @@
 
 /**
  * Send Message Request
- *
- * \ingroup SQS
  */
 
 @interface SQSSendMessageRequest:AmazonServiceRequestConfig

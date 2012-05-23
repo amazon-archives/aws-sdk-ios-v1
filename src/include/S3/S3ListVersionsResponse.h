@@ -20,7 +20,6 @@
 
 /** Contains the response from a list versions operation.
  *
- * \ingroup S3
  */
 @interface S3ListVersionsResponse:S3Response {
     S3ListVersionsResult *listVersionsResult;

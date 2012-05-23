@@ -20,8 +20,6 @@
 
 /**
  * Delete Security Group Request
- *
- * \ingroup EC2
  */
 
 @interface EC2DeleteSecurityGroupRequest:AmazonServiceRequestConfig

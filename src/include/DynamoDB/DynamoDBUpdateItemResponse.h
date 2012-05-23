@@ -26,8 +26,6 @@
 
 /**
  * Update Item Result
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBUpdateItemResponse:DynamoDBResponse

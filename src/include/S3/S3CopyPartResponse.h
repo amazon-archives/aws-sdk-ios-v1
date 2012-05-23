@@ -19,7 +19,6 @@
 
 /** Contains the response from a uploadPart operation.
  *
- * \ingroup S3
  */
 @interface S3CopyPartResponse:S3Response {
     NSDate *lastModified;

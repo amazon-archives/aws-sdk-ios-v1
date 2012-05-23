@@ -20,8 +20,6 @@
 
 /**
  * Table Description
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBTableDescription:NSObject

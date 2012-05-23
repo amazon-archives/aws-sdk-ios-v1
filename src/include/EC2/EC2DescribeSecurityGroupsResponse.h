@@ -22,8 +22,6 @@
 
 /**
  * Describe Security Groups Response
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeSecurityGroupsResponse:EC2Response

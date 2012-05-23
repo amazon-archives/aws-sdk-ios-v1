@@ -22,8 +22,6 @@
 
 /**
  * Put Scheduled Update Group Action
- *
- * \ingroup AutoScaling
  */
 @interface AutoScalingPutScheduledUpdateGroupActionResponse:AutoScalingResponse
 {

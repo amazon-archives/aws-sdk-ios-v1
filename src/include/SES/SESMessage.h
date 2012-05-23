@@ -20,8 +20,6 @@
 
 /**
  * Message
- *
- * \ingroup SES
  */
 
 @interface SESMessage:NSObject

@@ -21,8 +21,6 @@
 
 /**
  * Create Or Update Tags Request
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingCreateOrUpdateTagsRequest:AmazonServiceRequestConfig

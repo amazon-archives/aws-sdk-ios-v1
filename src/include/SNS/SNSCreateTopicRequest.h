@@ -20,8 +20,6 @@
 
 /**
  * Create Topic Request
- *
- * \ingroup SNS
  */
 
 @interface SNSCreateTopicRequest:AmazonServiceRequestConfig

@@ -18,8 +18,6 @@
 
 /**
  * Region
- *
- * \ingroup EC2
  */
 
 @interface EC2Region:NSObject

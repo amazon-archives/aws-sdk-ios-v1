@@ -46,6 +46,11 @@
         return;
     }
 
+    if ([elementName isEqualToString:@"type"]) {
+        self.response.productCodeType = self.currentText;
+        return;
+    }
+
     if ([elementName isEqualToString:@"productCode"]) {
         if (caller != nil) {
             [parser setDelegate:caller];

@@ -18,8 +18,6 @@
 
 /**
  * Process Type
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingProcessType:NSObject

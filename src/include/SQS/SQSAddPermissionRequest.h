@@ -20,8 +20,6 @@
 
 /**
  * Add Permission Request
- *
- * \ingroup SQS
  */
 
 @interface SQSAddPermissionRequest:AmazonServiceRequestConfig

@@ -21,7 +21,6 @@
 
 /** Contains the response from a listObjects operation.
  *
- * \ingroup S3
  */
 @interface S3ListObjectsResponse:S3Response {
     S3ListObjectsResult *listObjectsResult;

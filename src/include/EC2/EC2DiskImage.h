@@ -20,8 +20,6 @@
 
 /**
  * Disk Image
- *
- * \ingroup EC2
  */
 
 @interface EC2DiskImage:NSObject

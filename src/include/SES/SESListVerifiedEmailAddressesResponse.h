@@ -21,8 +21,6 @@
 
 /**
  * List Verified Email Addresses Result
- *
- * \ingroup SES
  */
 
 @interface SESListVerifiedEmailAddressesResponse:SESResponse

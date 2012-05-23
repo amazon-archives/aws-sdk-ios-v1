@@ -19,8 +19,6 @@
 
 /**
  * Ip Permission
- *
- * \ingroup EC2
  */
 
 @interface EC2IpPermission:NSObject

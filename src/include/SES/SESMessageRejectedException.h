@@ -24,8 +24,6 @@
  * Check the error stack for more information about what caused the
  * error.
  * </p>
- *
- * \ingroup SES
  */
 @interface SESMessageRejectedException:AmazonServiceException
 {

@@ -23,20 +23,12 @@
     [super parser:parser didStartElement:elementName namespaceURI:namespaceURI qualifiedName:qName attributes:attributeDict];
 
 
-    if ([elementName isEqualToString:@"entry"]) {
+    if ([elementName isEqualToString:@"Attributes"]) {
         AmazonDictionaryUnmarshaller *dictionaryUnmarshaller = [[[AmazonDictionaryUnmarshaller alloc] initWithCaller:self withParentObject:self.response.attributes withSetter:@selector(addEntriesFromDictionary:)] autorelease];
-        dictionaryUnmarshaller.keyXpathElement   = @"key";
-        dictionaryUnmarshaller.valueXpathElement = @"value";
-        dictionaryUnmarshaller.entryEndElement   = @"entry";
-
-        [parser setDelegate:dictionaryUnmarshaller];
-    }
-
-    if ([elementName isEqualToString:@"entry"]) {
-        AmazonDictionaryUnmarshaller *dictionaryUnmarshaller = [[[AmazonDictionaryUnmarshaller alloc] initWithCaller:self withParentObject:self.response.attributes withSetter:@selector(addEntriesFromDictionary:)] autorelease];
-        dictionaryUnmarshaller.keyXpathElement   = @"key";
-        dictionaryUnmarshaller.valueXpathElement = @"value";
-        dictionaryUnmarshaller.entryEndElement   = @"entry";
+        dictionaryUnmarshaller.keyXpathElement      = @"key";
+        dictionaryUnmarshaller.valueXpathElement    = @"value";
+        dictionaryUnmarshaller.dictionaryEndElement = @"Attributes";
+        dictionaryUnmarshaller.entryEndElement      = @"entry";
 
         [parser setDelegate:dictionaryUnmarshaller];
     }

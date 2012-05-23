@@ -24,8 +24,6 @@
 
 /**
  * List Metrics Result
- *
- * \ingroup CloudWatch
  */
 
 @interface CloudWatchListMetricsResponse:CloudWatchResponse

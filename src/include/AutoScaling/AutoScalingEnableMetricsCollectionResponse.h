@@ -20,8 +20,6 @@
 
 /**
  * Enable Metrics Collection
- *
- * \ingroup AutoScaling
  */
 @interface AutoScalingEnableMetricsCollectionResponse:AutoScalingResponse
 {

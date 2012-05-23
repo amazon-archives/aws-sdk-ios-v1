@@ -18,8 +18,6 @@
 
 /**
  * Spot Price
- *
- * \ingroup EC2
  */
 
 @interface EC2SpotPrice:NSObject

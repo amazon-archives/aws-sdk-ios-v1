@@ -18,7 +18,6 @@
 
 /** Contains the response from a delete version operation.
  *
- * \ingroup S3
  */
 @interface S3DeleteVersionResponse:S3Response {
 }

@@ -20,8 +20,6 @@
 
 /**
  * Confirm Product Instance Request
- *
- * \ingroup EC2
  */
 
 @interface EC2ConfirmProductInstanceRequest:AmazonServiceRequestConfig

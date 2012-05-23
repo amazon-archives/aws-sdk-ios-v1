@@ -18,8 +18,6 @@
 
 /**
  * Topic
- *
- * \ingroup SNS
  */
 
 @interface SNSTopic:NSObject

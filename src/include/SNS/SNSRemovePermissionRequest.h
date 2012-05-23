@@ -20,8 +20,6 @@
 
 /**
  * Remove Permission Request
- *
- * \ingroup SNS
  */
 
 @interface SNSRemovePermissionRequest:AmazonServiceRequestConfig

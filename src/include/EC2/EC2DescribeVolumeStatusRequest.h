@@ -21,8 +21,6 @@
 
 /**
  * Describe Volume Status Request
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeVolumeStatusRequest:AmazonServiceRequestConfig

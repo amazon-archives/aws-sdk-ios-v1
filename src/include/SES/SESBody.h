@@ -20,8 +20,6 @@
 
 /**
  * Body
- *
- * \ingroup SES
  */
 
 @interface SESBody:NSObject

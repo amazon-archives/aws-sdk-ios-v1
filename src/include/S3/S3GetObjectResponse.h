@@ -18,7 +18,6 @@
 
 /** Contains the response from a getObject operation.
  *
- * \ingroup S3
  */
 @interface S3GetObjectResponse:S3Response {
     NSMutableDictionary *metadata;

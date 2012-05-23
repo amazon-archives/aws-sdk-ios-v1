@@ -18,7 +18,6 @@
 
 /** Contains the response from a deleteObject operation.
  *
- * \ingroup S3
  */
 @interface S3DeleteObjectsResponse:S3Response
 {

@@ -22,8 +22,6 @@
 
 /**
  * Import Volume Response
- *
- * \ingroup EC2
  */
 
 @interface EC2ImportVolumeResponse:EC2Response

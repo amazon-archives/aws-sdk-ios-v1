@@ -18,8 +18,6 @@
 
 /**
  * Listener
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingListener:NSObject

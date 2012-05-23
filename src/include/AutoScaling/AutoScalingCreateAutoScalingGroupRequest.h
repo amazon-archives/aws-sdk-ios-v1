@@ -21,8 +21,6 @@
 
 /**
  * Create Auto Scaling Group Request
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingCreateAutoScalingGroupRequest:AmazonServiceRequestConfig

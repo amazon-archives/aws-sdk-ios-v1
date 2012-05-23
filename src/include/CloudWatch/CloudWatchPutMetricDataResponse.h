@@ -24,8 +24,6 @@
 
 /**
  * Put Metric Data
- *
- * \ingroup CloudWatch
  */
 @interface CloudWatchPutMetricDataResponse:CloudWatchResponse
 {

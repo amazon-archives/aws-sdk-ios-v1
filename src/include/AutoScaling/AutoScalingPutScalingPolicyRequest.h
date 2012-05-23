@@ -20,8 +20,6 @@
 
 /**
  * Put Scaling Policy Request
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingPutScalingPolicyRequest:AmazonServiceRequestConfig

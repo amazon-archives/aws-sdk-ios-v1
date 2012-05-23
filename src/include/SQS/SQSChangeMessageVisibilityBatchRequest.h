@@ -21,8 +21,6 @@
 
 /**
  * Change Message Visibility Batch Request
- *
- * \ingroup SQS
  */
 
 @interface SQSChangeMessageVisibilityBatchRequest:AmazonServiceRequestConfig

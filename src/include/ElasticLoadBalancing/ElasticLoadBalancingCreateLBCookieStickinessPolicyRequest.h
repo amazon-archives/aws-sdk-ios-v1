@@ -20,8 +20,6 @@
 
 /**
  * Create L B Cookie Stickiness Policy Request
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingCreateLBCookieStickinessPolicyRequest:AmazonServiceRequestConfig

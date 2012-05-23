@@ -20,8 +20,6 @@
 
 /**
  * Create Key Pair Request
- *
- * \ingroup EC2
  */
 
 @interface EC2CreateKeyPairRequest:AmazonServiceRequestConfig

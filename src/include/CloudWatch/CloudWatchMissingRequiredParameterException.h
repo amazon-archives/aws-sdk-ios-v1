@@ -23,8 +23,6 @@
  * An input parameter that is mandatory for processing the request is
  * not supplied.
  * </p>
- *
- * \ingroup CloudWatch
  */
 @interface CloudWatchMissingRequiredParameterException:AmazonServiceException
 {

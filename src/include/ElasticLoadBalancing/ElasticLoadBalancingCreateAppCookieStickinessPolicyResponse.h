@@ -25,8 +25,6 @@
 
 /**
  * Create App Cookie Stickiness Policy Result
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingCreateAppCookieStickinessPolicyResponse:ElasticLoadBalancingResponse

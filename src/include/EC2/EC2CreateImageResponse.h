@@ -21,8 +21,6 @@
 
 /**
  * Create Image Response
- *
- * \ingroup EC2
  */
 
 @interface EC2CreateImageResponse:EC2Response

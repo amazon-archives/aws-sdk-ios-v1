@@ -23,8 +23,6 @@
  * Policy with the same name exists for this LoadBalancer. Please choose
  * another name.
  * </p>
- *
- * \ingroup ElasticLoadBalancing
  */
 @interface ElasticLoadBalancingDuplicatePolicyNameException:AmazonServiceException
 {

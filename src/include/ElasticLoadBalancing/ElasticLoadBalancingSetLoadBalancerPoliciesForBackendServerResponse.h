@@ -24,8 +24,6 @@
 
 /**
  * Set Load Balancer Policies For Backend Server Result
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerResponse:ElasticLoadBalancingResponse

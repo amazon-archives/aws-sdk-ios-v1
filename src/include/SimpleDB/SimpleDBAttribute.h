@@ -18,8 +18,6 @@
 
 /**
  * Attribute
- *
- * \ingroup SimpleDB
  */
 
 @interface SimpleDBAttribute:NSObject

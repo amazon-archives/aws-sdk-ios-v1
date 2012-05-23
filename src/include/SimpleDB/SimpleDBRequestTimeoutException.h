@@ -23,8 +23,6 @@
  * A timeout occurred when attempting to query the specified domain with
  * specified query expression.
  * </p>
- *
- * \ingroup SimpleDB
  */
 @interface SimpleDBRequestTimeoutException:AmazonServiceException
 {

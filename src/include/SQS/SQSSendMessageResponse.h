@@ -22,8 +22,6 @@
 
 /**
  * Send Message Result
- *
- * \ingroup SQS
  */
 
 @interface SQSSendMessageResponse:SQSResponse

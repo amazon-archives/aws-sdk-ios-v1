@@ -21,8 +21,6 @@
 
 /**
  * Delete Request
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBDeleteRequest:AmazonServiceRequestConfig

@@ -18,8 +18,6 @@
 
 /**
  * Tag
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingTag:NSObject

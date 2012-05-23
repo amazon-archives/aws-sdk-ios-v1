@@ -22,8 +22,6 @@
 
 /**
  * Send Email Request
- *
- * \ingroup SES
  */
 
 @interface SESSendEmailRequest:AmazonServiceRequestConfig
@@ -46,13 +44,12 @@
 -(id)init;
 
 /**
- * The sender's email address.
+ * The identity's email address.
  */
 @property (nonatomic, retain) NSString *source;
 
 /**
- * The destination for this email, composed of To:, From:, and CC:
- * fields.
+ * The destination for this email, composed of To:, CC:, and BCC: fields.
  */
 @property (nonatomic, retain) SESDestination *destination;
 

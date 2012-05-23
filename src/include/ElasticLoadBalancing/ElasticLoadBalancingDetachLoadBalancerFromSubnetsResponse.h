@@ -23,8 +23,6 @@
 
 /**
  * Detach Load Balancer From Subnets Result
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingDetachLoadBalancerFromSubnetsResponse:ElasticLoadBalancingResponse

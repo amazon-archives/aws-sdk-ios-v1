@@ -20,8 +20,6 @@
 
 /**
  * Deregister Image Request
- *
- * \ingroup EC2
  */
 
 @interface EC2DeregisterImageRequest:AmazonServiceRequestConfig

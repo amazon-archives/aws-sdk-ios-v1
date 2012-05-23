@@ -24,8 +24,6 @@
 
 /**
  * Delete Topic
- *
- * \ingroup SNS
  */
 @interface SNSDeleteTopicResponse:SNSResponse
 {

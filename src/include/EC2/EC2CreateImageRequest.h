@@ -20,8 +20,6 @@
 
 /**
  * Create Image Request
- *
- * \ingroup EC2
  */
 
 @interface EC2CreateImageRequest:AmazonServiceRequestConfig

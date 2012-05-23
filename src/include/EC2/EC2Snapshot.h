@@ -19,8 +19,6 @@
 
 /**
  * Snapshot
- *
- * \ingroup EC2
  */
 
 @interface EC2Snapshot:NSObject

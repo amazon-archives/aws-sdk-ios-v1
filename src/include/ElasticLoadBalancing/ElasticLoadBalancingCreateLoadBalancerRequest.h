@@ -21,8 +21,6 @@
 
 /**
  * Create Load Balancer Request
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingCreateLoadBalancerRequest:AmazonServiceRequestConfig

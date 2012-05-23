@@ -20,6 +20,8 @@
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
 #import "EC2InstanceBlockDeviceMappingUnmarshaller.h"
+#import "../AmazonListUnmarshaller.h"
+#import "EC2ProductCodeUnmarshaller.h"
 
 
 /**

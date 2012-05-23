@@ -21,8 +21,6 @@
 
 /**
  * Delete Domain
- *
- * \ingroup SimpleDB
  */
 @interface SimpleDBDeleteDomainResponse:SimpleDBResponse
 {

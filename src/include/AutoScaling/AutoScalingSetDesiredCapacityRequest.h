@@ -20,8 +20,6 @@
 
 /**
  * Set Desired Capacity Request
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingSetDesiredCapacityRequest:AmazonServiceRequestConfig

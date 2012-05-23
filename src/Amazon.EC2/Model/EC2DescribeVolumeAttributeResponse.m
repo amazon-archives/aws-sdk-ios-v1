@@ -21,6 +21,7 @@
 @synthesize volumeId;
 @synthesize autoEnableIO;
 @synthesize autoEnableIOIsSet;
+@synthesize productCodes;
 
 
 -(id)init
@@ -29,6 +30,7 @@
         volumeId          = nil;
         autoEnableIO      = NO;
         autoEnableIOIsSet = NO;
+        productCodes      = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
     return self;
@@ -52,6 +54,12 @@
 
 
 
+-(EC2ProductCode *)productCodesObjectAtIndex:(int)index
+{
+    return (EC2ProductCode *)[productCodes objectAtIndex:index];
+}
+
+
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
@@ -59,6 +67,7 @@
     [buffer appendString:@"{"];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"VolumeId: %@,", volumeId] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"AutoEnableIO: %d,", autoEnableIO] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"ProductCodes: %@,", productCodes] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -76,6 +85,7 @@
 -(void)dealloc
 {
     [volumeId release];
+    [productCodes release];
 
     [super dealloc];
 }

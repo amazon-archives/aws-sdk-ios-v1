@@ -22,8 +22,6 @@
  * <p>
  * Bad or out-of-range value was supplied for the input parameter.
  * </p>
- *
- * \ingroup CloudWatch
  */
 @interface CloudWatchInvalidParameterValueException:AmazonServiceException
 {

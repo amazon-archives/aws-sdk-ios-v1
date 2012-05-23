@@ -18,8 +18,6 @@
 
 /**
  * Send Data Point
- *
- * \ingroup SES
  */
 
 @interface SESSendDataPoint:NSObject

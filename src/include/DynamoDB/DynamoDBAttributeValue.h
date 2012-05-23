@@ -18,8 +18,6 @@
 
 /**
  * Attribute Value
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBAttributeValue:NSObject

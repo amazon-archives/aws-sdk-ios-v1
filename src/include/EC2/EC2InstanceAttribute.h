@@ -14,13 +14,12 @@
  */
 
 #import "EC2InstanceBlockDeviceMapping.h"
+#import "EC2ProductCode.h"
 
 
 
 /**
  * Instance Attribute
- *
- * \ingroup EC2
  */
 
 @interface EC2InstanceAttribute:NSObject
@@ -36,6 +35,7 @@
     NSString       *instanceInitiatedShutdownBehavior;
     NSString       *rootDeviceName;
     NSMutableArray *blockDeviceMappings;
+    NSMutableArray *productCodes;
 }
 
 
@@ -99,10 +99,21 @@
 @property (nonatomic, retain) NSMutableArray *blockDeviceMappings;
 
 /**
+ * The value of the ProductCodes property for this object.
+ */
+@property (nonatomic, retain) NSMutableArray *productCodes;
+
+/**
  * Adds a single object to blockDeviceMappings.
  * This function will alloc and init blockDeviceMappings if not already done.
  */
 -(void)addBlockDeviceMapping:(EC2InstanceBlockDeviceMapping *)blockDeviceMappingObject;
+
+/**
+ * Adds a single object to productCodes.
+ * This function will alloc and init productCodes if not already done.
+ */
+-(void)addProductCode:(EC2ProductCode *)productCodeObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

@@ -19,8 +19,6 @@
 
 /**
  * Deletable Item
- *
- * \ingroup SimpleDB
  */
 
 @interface SimpleDBDeletableItem:NSObject

@@ -18,8 +18,6 @@
 
 /**
  * Content
- *
- * \ingroup SES
  */
 
 @interface SESContent:NSObject

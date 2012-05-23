@@ -22,8 +22,6 @@
  * <p>
  * LoadBalancer does not have a listener configured at the given port.
  * </p>
- *
- * \ingroup ElasticLoadBalancing
  */
 @interface ElasticLoadBalancingListenerNotFoundException:AmazonServiceException
 {

@@ -18,8 +18,6 @@
 
 /**
  * Activity
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingActivity:NSObject

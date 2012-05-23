@@ -20,8 +20,6 @@
 
 /**
  * Remove Permission Request
- *
- * \ingroup SQS
  */
 
 @interface SQSRemovePermissionRequest:AmazonServiceRequestConfig

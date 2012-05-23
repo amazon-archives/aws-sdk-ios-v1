@@ -26,8 +26,6 @@
 
 /**
  * Get Metric Statistics Result
- *
- * \ingroup CloudWatch
  */
 
 @interface CloudWatchGetMetricStatisticsResponse:CloudWatchResponse

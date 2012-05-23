@@ -19,7 +19,6 @@
 
 /** Request parameters for GetObjectMetadata request.
  *
- * \ingroup S3
  */
 @interface S3GetObjectMetadataRequest:S3GetObjectRequest {}
 

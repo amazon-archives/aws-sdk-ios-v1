@@ -18,8 +18,6 @@
 
 /**
  * Instance Network Interface Attachment
- *
- * \ingroup EC2
  */
 
 @interface EC2InstanceNetworkInterfaceAttachment:NSObject

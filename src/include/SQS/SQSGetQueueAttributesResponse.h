@@ -22,8 +22,6 @@
 
 /**
  * Get Queue Attributes Result
- *
- * \ingroup SQS
  */
 
 @interface SQSGetQueueAttributesResponse:SQSResponse

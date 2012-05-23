@@ -20,8 +20,6 @@
 
 /**
  * Publish Request
- *
- * \ingroup SNS
  */
 
 @interface SNSPublishRequest:AmazonServiceRequestConfig

@@ -22,8 +22,6 @@
 
 /**
  * Attach Volume Response
- *
- * \ingroup EC2
  */
 
 @interface EC2AttachVolumeResponse:EC2Response

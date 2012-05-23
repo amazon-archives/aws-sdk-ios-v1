@@ -21,8 +21,6 @@
 
 /**
  * Describe Instance Health Request
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingDescribeInstanceHealthRequest:AmazonServiceRequestConfig

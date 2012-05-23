@@ -20,8 +20,6 @@
 
 /**
  * Delete Load Balancer
- *
- * \ingroup ElasticLoadBalancing
  */
 @interface ElasticLoadBalancingDeleteLoadBalancerResponse:ElasticLoadBalancingResponse
 {

@@ -31,8 +31,6 @@
 
 /**
  * Select Result
- *
- * \ingroup SimpleDB
  */
 
 @interface SimpleDBSelectResponse:SimpleDBResponse

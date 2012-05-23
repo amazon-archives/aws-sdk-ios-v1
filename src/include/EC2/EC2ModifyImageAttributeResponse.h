@@ -20,8 +20,6 @@
 
 /**
  * Modify Image Attribute
- *
- * \ingroup EC2
  */
 @interface EC2ModifyImageAttributeResponse:EC2Response
 {

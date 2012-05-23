@@ -18,8 +18,6 @@
 
 /**
  * Instance State
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingInstanceState:NSObject

@@ -20,8 +20,6 @@
 
 /**
  * Put Notification Configuration Request
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingPutNotificationConfigurationRequest:AmazonServiceRequestConfig

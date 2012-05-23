@@ -20,7 +20,6 @@
 
 /** Contains the bucket versioning configuration.
  *
- * \ingroup S3
  */
 @interface S3GetBucketVersioningConfigurationResponse:S3Response {
     S3BucketVersioningConfiguration *versioningConfiguration;

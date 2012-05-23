@@ -18,6 +18,9 @@
 #define S3_BUCKET_LIFECYCLE_RULE_ENABLED @"Enabled"
 #define S3_BUCKET_LIFECYCLE_RULE_DISABLED @"Disabled"
 
+/**
+ *
+ */
 @interface S3BucketLifecycleConfigurationRule:NSObject {
     NSString  *ruleId;
     NSString  *status;

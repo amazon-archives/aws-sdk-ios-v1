@@ -24,8 +24,6 @@
 
 /**
  * Delete Attributes
- *
- * \ingroup SimpleDB
  */
 @interface SimpleDBDeleteAttributesResponse:SimpleDBResponse
 {

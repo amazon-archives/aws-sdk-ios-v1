@@ -20,8 +20,6 @@
 
 /**
  * Reset Snapshot Attribute Request
- *
- * \ingroup EC2
  */
 
 @interface EC2ResetSnapshotAttributeRequest:AmazonServiceRequestConfig
@@ -41,6 +39,9 @@
 /**
  * The name of the attribute being reset. <p> Available attribute names:
  * <code>createVolumePermission</code>
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>productCodes, createVolumePermission
  */
 @property (nonatomic, retain) NSString *attribute;
 

@@ -20,8 +20,6 @@
 
 /**
  * Get Attributes Request
- *
- * \ingroup SimpleDB
  */
 
 @interface SimpleDBGetAttributesRequest:AmazonServiceRequestConfig

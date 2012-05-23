@@ -20,8 +20,6 @@
 
 /**
  * Key
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBKey:NSObject

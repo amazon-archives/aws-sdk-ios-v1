@@ -22,8 +22,6 @@
  * <p>
  * One or more specified security groups do not exist.
  * </p>
- *
- * \ingroup ElasticLoadBalancing
  */
 @interface ElasticLoadBalancingInvalidSecurityGroupException:AmazonServiceException
 {

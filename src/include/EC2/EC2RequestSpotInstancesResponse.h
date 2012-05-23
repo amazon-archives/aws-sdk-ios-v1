@@ -24,8 +24,6 @@
 
 /**
  * Request Spot Instances Response
- *
- * \ingroup EC2
  */
 
 @interface EC2RequestSpotInstancesResponse:EC2Response

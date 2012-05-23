@@ -18,8 +18,6 @@
 
 /**
  * Dimension Filter
- *
- * \ingroup CloudWatch
  */
 
 @interface CloudWatchDimensionFilter:NSObject

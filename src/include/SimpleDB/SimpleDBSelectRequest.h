@@ -20,8 +20,6 @@
 
 /**
  * Select Request
- *
- * \ingroup SimpleDB
  */
 
 @interface SimpleDBSelectRequest:AmazonServiceRequestConfig

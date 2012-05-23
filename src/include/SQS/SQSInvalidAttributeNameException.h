@@ -22,8 +22,6 @@
  * <p>
  * The attribute referred to does not exist.
  * </p>
- *
- * \ingroup SQS
  */
 @interface SQSInvalidAttributeNameException:AmazonServiceException
 {

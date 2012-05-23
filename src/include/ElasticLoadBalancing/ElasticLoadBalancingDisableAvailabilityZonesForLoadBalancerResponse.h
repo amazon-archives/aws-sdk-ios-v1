@@ -23,8 +23,6 @@
 
 /**
  * Disable Availability Zones For Load Balancer Result
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingDisableAvailabilityZonesForLoadBalancerResponse:ElasticLoadBalancingResponse

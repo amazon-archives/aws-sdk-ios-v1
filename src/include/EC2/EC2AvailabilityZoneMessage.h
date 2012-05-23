@@ -18,8 +18,6 @@
 
 /**
  * Availability Zone Message
- *
- * \ingroup EC2
  */
 
 @interface EC2AvailabilityZoneMessage:NSObject

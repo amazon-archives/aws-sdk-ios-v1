@@ -20,8 +20,6 @@
 
 /**
  * Delete Topic Request
- *
- * \ingroup SNS
  */
 
 @interface SNSDeleteTopicRequest:AmazonServiceRequestConfig

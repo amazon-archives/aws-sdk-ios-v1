@@ -23,8 +23,6 @@
  * Indicates that a request parameter does not comply with the associated
  * constraints.
  * </p>
- *
- * \ingroup SNS
  */
 @interface SNSInvalidParameterException:AmazonServiceException
 {

@@ -25,8 +25,6 @@
 
 /**
  * Query Result
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBQueryResponse:DynamoDBResponse

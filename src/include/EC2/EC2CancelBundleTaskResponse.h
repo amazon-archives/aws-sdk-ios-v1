@@ -22,8 +22,6 @@
 
 /**
  * Cancel Bundle Task Response
- *
- * \ingroup EC2
  */
 
 @interface EC2CancelBundleTaskResponse:EC2Response

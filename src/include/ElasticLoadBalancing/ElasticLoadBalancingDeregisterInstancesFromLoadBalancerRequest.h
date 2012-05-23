@@ -21,8 +21,6 @@
 
 /**
  * Deregister Instances From Load Balancer Request
- *
- * \ingroup ElasticLoadBalancing
  */
 
 @interface ElasticLoadBalancingDeregisterInstancesFromLoadBalancerRequest:AmazonServiceRequestConfig

@@ -22,8 +22,6 @@
  * <p>
  * The specified NextToken is not valid.
  * </p>
- *
- * \ingroup SimpleDB
  */
 @interface SimpleDBInvalidNextTokenException:AmazonServiceException
 {

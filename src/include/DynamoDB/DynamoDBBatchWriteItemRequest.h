@@ -21,8 +21,6 @@
 
 /**
  * Batch Write Item Request
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBBatchWriteItemRequest:AmazonServiceRequestConfig

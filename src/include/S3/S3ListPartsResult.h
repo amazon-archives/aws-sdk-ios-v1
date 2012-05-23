@@ -18,7 +18,6 @@
 
 /** The S3ListPartsResult contains all the information about the listParts method.
  *
- * \ingroup s3
  */
 @interface S3ListPartsResult:NSObject {
     NSString       *bucket;

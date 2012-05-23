@@ -21,8 +21,6 @@
 
 /**
  * Update Table Request
- *
- * \ingroup DynamoDB
  */
 
 @interface DynamoDBUpdateTableRequest:AmazonServiceRequestConfig

@@ -19,8 +19,6 @@
 
 /**
  * Metric
- *
- * \ingroup CloudWatch
  */
 
 @interface CloudWatchMetric:NSObject

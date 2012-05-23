@@ -18,8 +18,6 @@
 
 /**
  * Address
- *
- * \ingroup EC2
  */
 
 @interface EC2Address:NSObject

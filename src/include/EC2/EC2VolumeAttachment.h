@@ -18,8 +18,6 @@
 
 /**
  * Volume Attachment
- *
- * \ingroup EC2
  */
 
 @interface EC2VolumeAttachment:NSObject

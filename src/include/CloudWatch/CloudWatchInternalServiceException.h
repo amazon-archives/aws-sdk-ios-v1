@@ -23,8 +23,6 @@
  * Indicates that the request processing has failed due to some unknown
  * error, exception, or failure.
  * </p>
- *
- * \ingroup CloudWatch
  */
 @interface CloudWatchInternalServiceException:AmazonServiceException
 {

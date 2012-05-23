@@ -91,7 +91,7 @@ static AmazonTVMClient      *tvm = nil;
     if ( ([ableToGetToken wasSuccessful] && (sdb == nil)) || (s3 == nil) || (sqs == nil) || (sns == nil)) {
         [AmazonClientManager clearCredentials];
 
-        AmazonCredentials *credentials = [[AmazonKeyChainWrapper getCredentialsFromKeyChain] autorelease];
+        AmazonCredentials *credentials = [AmazonKeyChainWrapper getCredentialsFromKeyChain];
         s3  = [[AmazonS3Client alloc] initWithCredentials:credentials];
         sdb = [[AmazonSimpleDBClient alloc] initWithCredentials:credentials];
         sqs = [[AmazonSQSClient alloc] initWithCredentials:credentials];

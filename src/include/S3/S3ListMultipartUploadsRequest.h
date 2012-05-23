@@ -19,7 +19,6 @@
 
 /** Contains the parameters used for the listMultipartUploads operation.
  *
- * \ingroup S3
  */
 @interface S3ListMultipartUploadsRequest:S3Request {
     NSString *delimiter;

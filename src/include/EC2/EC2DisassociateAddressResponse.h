@@ -20,8 +20,6 @@
 
 /**
  * Disassociate Address
- *
- * \ingroup EC2
  */
 @interface EC2DisassociateAddressResponse:EC2Response
 {

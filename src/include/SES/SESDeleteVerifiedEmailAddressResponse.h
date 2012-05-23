@@ -20,8 +20,6 @@
 
 /**
  * Delete Verified Email Address
- *
- * \ingroup SES
  */
 @interface SESDeleteVerifiedEmailAddressResponse:SESResponse
 {

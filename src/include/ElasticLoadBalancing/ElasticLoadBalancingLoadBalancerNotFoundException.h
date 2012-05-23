@@ -22,8 +22,6 @@
  * <p>
  * The specified LoadBalancer could not be found.
  * </p>
- *
- * \ingroup ElasticLoadBalancing
  */
 @interface ElasticLoadBalancingLoadBalancerNotFoundException:AmazonServiceException
 {

@@ -28,6 +28,7 @@
 @synthesize instanceInitiatedShutdownBehavior;
 @synthesize rootDeviceName;
 @synthesize blockDeviceMappings;
+@synthesize productCodes;
 
 
 -(id)init
@@ -43,6 +44,7 @@
         instanceInitiatedShutdownBehavior = nil;
         rootDeviceName                    = nil;
         blockDeviceMappings               = [[NSMutableArray alloc] initWithCapacity:1];
+        productCodes                      = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
     return self;
@@ -56,6 +58,15 @@
     }
 
     [blockDeviceMappings addObject:blockDeviceMappingObject];
+}
+
+-(void)addProductCode:(EC2ProductCode *)productCodeObject
+{
+    if (productCodes == nil) {
+        productCodes = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [productCodes addObject:productCodeObject];
 }
 
 
@@ -73,6 +84,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"InstanceInitiatedShutdownBehavior: %@,", instanceInitiatedShutdownBehavior] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"RootDeviceName: %@,", rootDeviceName] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"BlockDeviceMappings: %@,", blockDeviceMappings] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"ProductCodes: %@,", productCodes] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -97,6 +109,7 @@
     [instanceInitiatedShutdownBehavior release];
     [rootDeviceName release];
     [blockDeviceMappings release];
+    [productCodes release];
 
     [super dealloc];
 }

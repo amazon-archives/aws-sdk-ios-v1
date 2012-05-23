@@ -18,7 +18,6 @@
 
 /** Contains all the information about the deleteBucketWebsiteConfigurationResponse operation.
  *
- * \ingroup S3
  */
 @interface S3DeleteBucketWebsiteConfigurationResponse:S3Response
 {

@@ -22,8 +22,6 @@
  * <p>
  * Batch request contains more number of entries than permissible.
  * </p>
- *
- * \ingroup SQS
  */
 @interface SQSTooManyEntriesInBatchRequestException:AmazonServiceException
 {

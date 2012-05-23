@@ -13,6 +13,7 @@
  * permissions and limitations under the License.
  */
 
+#import "EC2ProductCode.h"
 
 #import "EC2Response.h"
 #import "../AmazonServiceExceptionUnmarshaller.h"
@@ -21,16 +22,15 @@
 
 /**
  * Describe Volume Attribute Response
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeVolumeAttributeResponse:EC2Response
 
 {
-    NSString *volumeId;
-    bool     autoEnableIO;
-    bool     autoEnableIOIsSet;
+    NSString       *volumeId;
+    bool           autoEnableIO;
+    bool           autoEnableIOIsSet;
+    NSMutableArray *productCodes;
 }
 
 
@@ -55,6 +55,18 @@
 @property (nonatomic) bool           autoEnableIO;
 
 @property (nonatomic, readonly) bool autoEnableIOIsSet;
+
+/**
+ * The value of the ProductCodes property for this object.
+ */
+@property (nonatomic, retain) NSMutableArray *productCodes;
+
+
+
+/**
+ * Returns a value from the productCodes array for the specified index
+ */
+-(EC2ProductCode *)productCodesObjectAtIndex:(int)index;
 
 /**
  * Returns a string representation of this object; useful for testing and

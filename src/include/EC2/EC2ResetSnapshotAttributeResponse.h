@@ -20,8 +20,6 @@
 
 /**
  * Reset Snapshot Attribute
- *
- * \ingroup EC2
  */
 @interface EC2ResetSnapshotAttributeResponse:EC2Response
 {

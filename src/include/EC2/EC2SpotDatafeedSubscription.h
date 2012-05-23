@@ -19,8 +19,6 @@
 
 /**
  * Spot Datafeed Subscription
- *
- * \ingroup EC2
  */
 
 @interface EC2SpotDatafeedSubscription:NSObject

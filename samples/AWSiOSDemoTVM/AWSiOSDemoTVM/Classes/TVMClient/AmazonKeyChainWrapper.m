@@ -17,16 +17,29 @@
 #import <AWSiOSSDK/AmazonLogger.h>
 
 
-static NSString *kKeychainAccessKeyIdentifier      = @"AWSiOSDemoTVM.com.amazon.aws.demo.AWSAccessKey";
-static NSString *kKeychainSecretKeyIdentifier      = @"AWSiOSDemoTVM.com.amazon.aws.demo.AWSSecretKey";
-static NSString *kKeychainSecrutiyTokenIdentifier  = @"AWSiOSDemoTVM.com.amazon.aws.demo.AWSSecurityToken";
-static NSString *kKeychainExpirationDateIdentifier = @"AWSiOSDemoTVM.com.amazon.aws.demo.AWSExpirationDate";
 
-static NSString *kKeychainUidIdentifier = @"AWSiOSDemoTVM.com.amazon.aws.demo.UID";
-static NSString *kKeychainKeyIdentifier = @"AWSiOSDemoTVM.com.amazon.aws.demo.KEY";
+
+NSString *kKeychainAccessKeyIdentifier;
+NSString *kKeychainSecretKeyIdentifier;
+NSString *kKeychainSecrutiyTokenIdentifier;
+NSString *kKeychainExpirationDateIdentifier;
+
+NSString *kKeychainUidIdentifier;
+NSString *kKeychainKeyIdentifier;
 
 
 @implementation AmazonKeyChainWrapper
+
++(void)initialize {
+    NSString *bundleID = [NSBundle mainBundle].bundleIdentifier;
+    kKeychainAccessKeyIdentifier = [[NSString stringWithFormat:@"%@.AWSAccessKey", bundleID] retain];
+    kKeychainSecretKeyIdentifier= [[NSString stringWithFormat:@"%@.AWSSecretKey", bundleID] retain];
+    kKeychainSecrutiyTokenIdentifier  = [[NSString stringWithFormat:@"%@.AWSSecurityToken", bundleID] retain];
+    kKeychainExpirationDateIdentifier = [[NSString stringWithFormat:@"%@.AWSExpirationDate", bundleID] retain];
+    
+    kKeychainUidIdentifier = [[NSString stringWithFormat:@"%@.UID", bundleID] retain]; 
+    kKeychainKeyIdentifier = [[NSString stringWithFormat:@"%@.KEY", bundleID] retain];
+}
 
 +(bool)areCredentialsExpired
 {
@@ -37,7 +50,7 @@ static NSString *kKeychainKeyIdentifier = @"AWSiOSDemoTVM.com.amazon.aws.demo.KE
         return YES;
     }
     else {
-        NSDate *expirationDate = [[AmazonKeyChainWrapper convertStringToDate:expiration] autorelease];
+        NSDate *expirationDate = [AmazonKeyChainWrapper convertStringToDate:expiration];
 
         AMZLog(@"expirationDate : %@, %@", expiration, expirationDate);
 
@@ -69,7 +82,7 @@ static NSString *kKeychainKeyIdentifier = @"AWSiOSDemoTVM.com.amazon.aws.demo.KE
 
     if ((accessKey != nil) && (secretKey != nil) && (securityToken != nil)) {
         if (![AmazonKeyChainWrapper areCredentialsExpired]) {
-            AmazonCredentials *credentials = [[AmazonCredentials alloc] initWithAccessKey:accessKey withSecretKey:secretKey];
+            AmazonCredentials *credentials = [[[AmazonCredentials alloc] initWithAccessKey:accessKey withSecretKey:secretKey] autorelease];
             credentials.securityToken = securityToken;
 
             return credentials;
@@ -101,11 +114,13 @@ static NSString *kKeychainKeyIdentifier = @"AWSiOSDemoTVM.com.amazon.aws.demo.KE
 
 +(NSDate *)convertStringToDate:(NSString *)expiration
 {
-    if (expiration != nil) {
+    if (expiration != nil)
+    {
         long long exactSecondOfExpiration = (long long)([expiration longLongValue] / 1000);
-        return [[NSDate alloc] initWithTimeIntervalSince1970:exactSecondOfExpiration];
+        return [[[NSDate alloc] initWithTimeIntervalSince1970:exactSecondOfExpiration] autorelease];
     }
-    else {
+    else
+    {
         return nil;
     }
 }
@@ -157,20 +172,38 @@ static NSString *kKeychainKeyIdentifier = @"AWSiOSDemoTVM.com.amazon.aws.demo.KE
 {
     OSStatus keychainError = SecItemDelete((CFDictionaryRef)[AmazonKeyChainWrapper createKeychainDictionaryForKey : kKeychainAccessKeyIdentifier]);
 
+    AMZLogDebug(@"Keychain Key: kKeychainAccessKeyIdentifier, Error Code: %ld", keychainError);
+
     keychainError = SecItemDelete((CFDictionaryRef)[AmazonKeyChainWrapper createKeychainDictionaryForKey : kKeychainSecretKeyIdentifier]);
+    AMZLogDebug(@"Keychain Key: kKeychainSecretKeyIdentifier, Error Code: %ld", keychainError);
+
     keychainError = SecItemDelete((CFDictionaryRef)[AmazonKeyChainWrapper createKeychainDictionaryForKey : kKeychainSecrutiyTokenIdentifier]);
+    AMZLogDebug(@"Keychain Key: kKeychainSecrutiyTokenIdentifier, Error Code: %ld", keychainError);
+
     keychainError = SecItemDelete((CFDictionaryRef)[AmazonKeyChainWrapper createKeychainDictionaryForKey : kKeychainExpirationDateIdentifier]);
+    AMZLogDebug(@"Keychain Key: kKeychainExpirationDateIdentifier, Error Code: %ld", keychainError);
+
     keychainError = SecItemDelete((CFDictionaryRef)[AmazonKeyChainWrapper createKeychainDictionaryForKey : kKeychainUidIdentifier]);
+    AMZLogDebug(@"Keychain Key: kKeychainUidIdentifier, Error Code: %ld", keychainError);
+
     keychainError = SecItemDelete((CFDictionaryRef)[AmazonKeyChainWrapper createKeychainDictionaryForKey : kKeychainKeyIdentifier]);
+    AMZLogDebug(@"Keychain Key: kKeychainKeyIdentifier, Error Code: %ld", keychainError);
 }
 
 +(void)wipeCredentialsFromKeyChain
 {
     OSStatus keychainError = SecItemDelete((CFDictionaryRef)[AmazonKeyChainWrapper createKeychainDictionaryForKey : kKeychainAccessKeyIdentifier]);
 
+    AMZLogDebug(@"Keychain Key: kKeychainAccessKeyIdentifier, Error Code: %ld", keychainError);
+
     keychainError = SecItemDelete((CFDictionaryRef)[AmazonKeyChainWrapper createKeychainDictionaryForKey : kKeychainSecretKeyIdentifier]);
+    AMZLogDebug(@"Keychain Key: kKeychainSecretKeyIdentifier, Error Code: %ld", keychainError);
+
     keychainError = SecItemDelete((CFDictionaryRef)[AmazonKeyChainWrapper createKeychainDictionaryForKey : kKeychainSecrutiyTokenIdentifier]);
+    AMZLogDebug(@"Keychain Key: kKeychainSecrutiyTokenIdentifier, Error Code: %ld", keychainError);
+
     keychainError = SecItemDelete((CFDictionaryRef)[AmazonKeyChainWrapper createKeychainDictionaryForKey : kKeychainExpirationDateIdentifier]);
+    AMZLogDebug(@"Keychain Key: kKeychainExpirationDateIdentifier, Error Code: %ld", keychainError);
 }
 
 +(NSMutableDictionary *)createKeychainDictionaryForKey:(NSString *)key

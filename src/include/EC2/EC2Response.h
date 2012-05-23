@@ -19,6 +19,9 @@
 #import "EC2Reservation.h"
 #import "EC2SpotInstanceRequest.h"
 
+/**
+ *
+ */
 @interface EC2Response:AmazonServiceResponse {
 }
 

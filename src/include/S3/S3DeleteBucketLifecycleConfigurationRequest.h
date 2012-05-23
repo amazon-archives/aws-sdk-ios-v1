@@ -19,7 +19,6 @@
 /**
  * Contains the parameters used for the deleteBucketLifecycleConfigurationRequest operation.
  *
- * \ingroup S3
  */
 @interface S3DeleteBucketLifecycleConfigurationRequest:S3Request
 {

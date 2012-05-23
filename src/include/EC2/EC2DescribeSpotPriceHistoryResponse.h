@@ -22,8 +22,6 @@
 
 /**
  * Describe Spot Price History Response
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeSpotPriceHistoryResponse:EC2Response

@@ -22,8 +22,6 @@
 
 /**
  * Describe Regions Response
- *
- * \ingroup EC2
  */
 
 @interface EC2DescribeRegionsResponse:EC2Response

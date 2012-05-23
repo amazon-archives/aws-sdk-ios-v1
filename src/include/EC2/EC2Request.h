@@ -18,6 +18,9 @@
 #import "../AmazonAuthUtils.h"
 
 
+/**
+ *
+ */
 @interface EC2Request:AmazonServiceRequest {
 }
 

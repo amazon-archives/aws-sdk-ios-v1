@@ -20,8 +20,6 @@
 
 /**
  * Allocate Address Request
- *
- * \ingroup EC2
  */
 
 @interface EC2AllocateAddressRequest:AmazonServiceRequestConfig

@@ -20,8 +20,6 @@
 
 /**
  * Import Instance Volume Detail Item
- *
- * \ingroup EC2
  */
 
 @interface EC2ImportInstanceVolumeDetailItem:NSObject

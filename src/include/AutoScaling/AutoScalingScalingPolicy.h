@@ -19,8 +19,6 @@
 
 /**
  * Scaling Policy
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingScalingPolicy:NSObject

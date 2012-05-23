@@ -19,7 +19,6 @@
 /**
  * Contains the parameters used for the deleteBucketWebsiteConfigurationRequest operation.
  *
- * \ingroup S3
  */
 @interface S3DeleteBucketWebsiteConfigurationRequest:S3Request
 {

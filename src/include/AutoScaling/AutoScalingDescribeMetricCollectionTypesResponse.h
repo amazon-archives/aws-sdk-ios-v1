@@ -23,8 +23,6 @@
 
 /**
  * Describe Metric Collection Types Result
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingDescribeMetricCollectionTypesResponse:AutoScalingResponse

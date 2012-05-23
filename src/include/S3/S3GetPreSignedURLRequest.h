@@ -21,7 +21,6 @@
  * a pre signed URL.
  * @see http://docs.amazonwebservices.com/AmazonS3/latest/S3_QSAuth.html
  *
- * \ingroup S3
  */
 @interface S3GetPreSignedURLRequest:S3Request {
     NSDate                    *expires;

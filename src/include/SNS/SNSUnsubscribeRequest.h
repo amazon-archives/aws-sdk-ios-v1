@@ -20,8 +20,6 @@
 
 /**
  * Unsubscribe Request
- *
- * \ingroup SNS
  */
 
 @interface SNSUnsubscribeRequest:AmazonServiceRequestConfig

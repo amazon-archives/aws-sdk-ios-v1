@@ -21,8 +21,6 @@
 
 /**
  * Security Group
- *
- * \ingroup EC2
  */
 
 @interface EC2SecurityGroup:NSObject

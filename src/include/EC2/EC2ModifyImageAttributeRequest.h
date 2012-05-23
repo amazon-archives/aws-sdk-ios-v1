@@ -21,8 +21,6 @@
 
 /**
  * Modify Image Attribute Request
- *
- * \ingroup EC2
  */
 
 @interface EC2ModifyImageAttributeRequest:AmazonServiceRequestConfig

@@ -15,7 +15,6 @@
 
 #import <Foundation/Foundation.h>
 
-/** \ingroup S3 */
 @interface S3ListObjectsResult:NSObject {
     NSMutableArray *objectSummaries;
     NSString       *bucketName;

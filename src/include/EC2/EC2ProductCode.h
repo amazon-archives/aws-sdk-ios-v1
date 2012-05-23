@@ -18,14 +18,13 @@
 
 /**
  * Product Code
- *
- * \ingroup EC2
  */
 
 @interface EC2ProductCode:NSObject
 
 {
     NSString *productCodeId;
+    NSString *productCodeType;
 }
 
 
@@ -41,6 +40,11 @@
  * The unique ID of an AWS DevPay product code.
  */
 @property (nonatomic, retain) NSString *productCodeId;
+
+/**
+ * The value of the ProductCodeType property for this object.
+ */
+@property (nonatomic, retain) NSString *productCodeType;
 
 /**
  * Returns a string representation of this object; useful for testing and

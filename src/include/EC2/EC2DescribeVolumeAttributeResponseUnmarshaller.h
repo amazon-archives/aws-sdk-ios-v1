@@ -18,6 +18,8 @@
 #import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
+#import "../AmazonListUnmarshaller.h"
+#import "EC2ProductCodeUnmarshaller.h"
 
 
 /**

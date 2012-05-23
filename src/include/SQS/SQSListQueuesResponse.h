@@ -21,8 +21,6 @@
 
 /**
  * List Queues Result
- *
- * \ingroup SQS
  */
 
 @interface SQSListQueuesResponse:SQSResponse

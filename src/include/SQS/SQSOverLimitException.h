@@ -26,8 +26,6 @@
  * the maximum number of permissions for the queue has already been
  * reached.
  * </p>
- *
- * \ingroup SQS
  */
 @interface SQSOverLimitException:AmazonServiceException
 {

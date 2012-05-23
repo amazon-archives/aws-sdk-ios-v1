@@ -20,8 +20,6 @@
 
 /**
  * Start Instances Request
- *
- * \ingroup EC2
  */
 
 @interface EC2StartInstancesRequest:AmazonServiceRequestConfig

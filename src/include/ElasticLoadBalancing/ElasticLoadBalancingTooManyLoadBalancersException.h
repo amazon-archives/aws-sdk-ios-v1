@@ -22,8 +22,6 @@
  * <p>
  * The quota for the number of LoadBalancers has already been reached.
  * </p>
- *
- * \ingroup ElasticLoadBalancing
  */
 @interface ElasticLoadBalancingTooManyLoadBalancersException:AmazonServiceException
 {

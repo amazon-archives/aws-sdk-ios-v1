@@ -18,7 +18,6 @@
 
 /** Represents an S3 Object Summary.
  *
- * \ingroup S3
  */
 @interface S3ObjectSummary:NSObject {
     NSString  *key;

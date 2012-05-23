@@ -20,8 +20,6 @@
 
 /**
  * Create Queue Request
- *
- * \ingroup SQS
  */
 
 @interface SQSCreateQueueRequest:AmazonServiceRequestConfig

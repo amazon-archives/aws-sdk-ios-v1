@@ -22,8 +22,6 @@
  * <p>
  * Batch request does not contain an entry.
  * </p>
- *
- * \ingroup SQS
  */
 @interface SQSEmptyBatchRequestException:AmazonServiceException
 {

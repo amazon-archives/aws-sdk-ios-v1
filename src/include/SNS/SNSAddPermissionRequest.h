@@ -20,8 +20,6 @@
 
 /**
  * Add Permission Request
- *
- * \ingroup SNS
  */
 
 @interface SNSAddPermissionRequest:AmazonServiceRequestConfig

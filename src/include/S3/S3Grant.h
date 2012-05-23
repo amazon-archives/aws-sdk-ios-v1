@@ -24,7 +24,6 @@
  * @see http://docs.amazonwebservices.com/AmazonS3/latest/index.html?RESTAuthentication.html
  * </p>
  *
- * \ingroup S3
  */
 @interface S3Grant:NSObject {
     S3Grantee    *grantee;

@@ -24,8 +24,6 @@
 
 /**
  * Run Instances Request
- *
- * \ingroup EC2
  */
 
 @interface EC2RunInstancesRequest:AmazonServiceRequestConfig

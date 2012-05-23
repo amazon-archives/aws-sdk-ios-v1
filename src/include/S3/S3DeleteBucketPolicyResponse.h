@@ -18,7 +18,6 @@
 
 /** Contains all the information about the deleteBucketPolicy operation.
  *
- * \ingroup S3
  */
 @interface S3DeleteBucketPolicyResponse:S3Response {
 }

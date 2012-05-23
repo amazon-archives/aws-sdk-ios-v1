@@ -24,8 +24,6 @@
 
 /**
  * Add Permission
- *
- * \ingroup SNS
  */
 @interface SNSAddPermissionResponse:SNSResponse
 {

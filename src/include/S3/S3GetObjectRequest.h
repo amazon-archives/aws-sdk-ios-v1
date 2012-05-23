@@ -23,7 +23,6 @@
 
 /** contains the parameters used for the getObject operation.
  *
- * \ingroup S3
  */
 @interface S3GetObjectRequest:S3Request {
     int                       rangeStart, rangeEnd;

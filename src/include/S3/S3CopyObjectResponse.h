@@ -20,7 +20,6 @@
 
 /** Contains the response from a putObject operation.
  *
- * \ingroup S3
  */
 @interface S3CopyObjectResponse:S3Response {
     NSDate *lastModified;

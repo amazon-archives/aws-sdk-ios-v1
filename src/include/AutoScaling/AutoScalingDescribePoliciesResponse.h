@@ -23,8 +23,6 @@
 
 /**
  * Describe Policies Result
- *
- * \ingroup AutoScaling
  */
 
 @interface AutoScalingDescribePoliciesResponse:AutoScalingResponse
