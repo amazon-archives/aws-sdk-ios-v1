@@ -277,6 +277,7 @@ static const short base64DecodingTable[] =
                        @"video/x-m4v", @"m4v",
                        @"video/webm", @"webm",
                        @"video/ogv", @"ogv",
+                       @"audio/mp4a-latm", @"m4a",
                        nil];
     }
     NSString *mimetype = (NSString *)[lookupTable objectForKey:extension];

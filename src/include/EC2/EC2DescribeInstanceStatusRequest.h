@@ -30,6 +30,8 @@
     NSMutableArray *filters;
     NSString       *nextToken;
     NSNumber       *maxResults;
+    bool           includeAllInstances;
+    bool           includeAllInstancesIsSet;
 }
 
 
@@ -61,6 +63,13 @@
  * The maximum number of paginated instance items per response.
  */
 @property (nonatomic, retain) NSNumber *maxResults;
+
+/**
+ * The value of the IncludeAllInstances property for this object.
+ */
+@property (nonatomic) bool           includeAllInstances;
+
+@property (nonatomic, readonly) bool includeAllInstancesIsSet;
 
 /**
  * Adds a single object to instanceIds.

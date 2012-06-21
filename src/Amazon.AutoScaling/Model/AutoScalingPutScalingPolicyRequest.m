@@ -23,6 +23,7 @@
 @synthesize scalingAdjustment;
 @synthesize adjustmentType;
 @synthesize cooldown;
+@synthesize minAdjustmentStep;
 
 
 -(id)init
@@ -33,6 +34,7 @@
         scalingAdjustment    = nil;
         adjustmentType       = nil;
         cooldown             = nil;
+        minAdjustmentStep    = nil;
     }
 
     return self;
@@ -50,6 +52,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ScalingAdjustment: %@,", scalingAdjustment] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"AdjustmentType: %@,", adjustmentType] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Cooldown: %@,", cooldown] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"MinAdjustmentStep: %@,", minAdjustmentStep] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -65,6 +68,7 @@
     [scalingAdjustment release];
     [adjustmentType release];
     [cooldown release];
+    [minAdjustmentStep release];
 
     [super dealloc];
 }

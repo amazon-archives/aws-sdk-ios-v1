@@ -20,6 +20,7 @@
 #import "EC2RequestSpotInstancesRequest.h"
 #import "EC2LaunchSpecification.h"
 #import "EC2SpotPlacement.h"
+#import "EC2IamInstanceProfileSpecification.h"
 #import "EC2GroupIdentifier.h"
 #import "EC2EbsBlockDevice.h"
 #import "EC2BlockDeviceMapping.h"

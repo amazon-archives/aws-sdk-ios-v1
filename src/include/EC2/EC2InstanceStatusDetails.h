@@ -25,6 +25,7 @@
 {
     NSString *name;
     NSString *status;
+    NSDate   *impairedSince;
 }
 
 
@@ -45,6 +46,11 @@
  * The value of the Status property for this object.
  */
 @property (nonatomic, retain) NSString *status;
+
+/**
+ * The value of the ImpairedSince property for this object.
+ */
+@property (nonatomic, retain) NSDate *impairedSince;
 
 /**
  * Returns a string representation of this object; useful for testing and

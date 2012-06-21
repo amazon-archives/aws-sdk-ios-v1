@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribeInstanceStatus"           forKey:@"Action"];
-    [request setParameterValue:@"2012-04-01"   forKey:@"Version"];
+    [request setParameterValue:@"2012-06-01"   forKey:@"Version"];
 
     [request setDelegate:[describeInstanceStatusRequest delegate]];
     [request setCredentials:[describeInstanceStatusRequest credentials]];
@@ -72,6 +72,11 @@
     if (describeInstanceStatusRequest != nil) {
         if (describeInstanceStatusRequest.maxResults != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", describeInstanceStatusRequest.maxResults] forKey:[NSString stringWithFormat:@"%@", @"MaxResults"]];
+        }
+    }
+    if (describeInstanceStatusRequest != nil) {
+        if (describeInstanceStatusRequest.includeAllInstancesIsSet) {
+            [request setParameterValue:(describeInstanceStatusRequest.includeAllInstances ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"IncludeAllInstances"]];
         }
     }
 

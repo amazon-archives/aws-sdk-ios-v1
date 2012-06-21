@@ -22,15 +22,19 @@
 @synthesize filters;
 @synthesize nextToken;
 @synthesize maxResults;
+@synthesize includeAllInstances;
+@synthesize includeAllInstancesIsSet;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        instanceIds = [[NSMutableArray alloc] initWithCapacity:1];
-        filters     = [[NSMutableArray alloc] initWithCapacity:1];
-        nextToken   = nil;
-        maxResults  = nil;
+        instanceIds              = [[NSMutableArray alloc] initWithCapacity:1];
+        filters                  = [[NSMutableArray alloc] initWithCapacity:1];
+        nextToken                = nil;
+        maxResults               = nil;
+        includeAllInstances      = NO;
+        includeAllInstancesIsSet = NO;
     }
 
     return self;
@@ -65,12 +69,19 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Filters: %@,", filters] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"NextToken: %@,", nextToken] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"MaxResults: %@,", maxResults] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"IncludeAllInstances: %d,", includeAllInstances] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
     return [buffer autorelease];
 }
 
+
+-(void)setIncludeAllInstances:(bool)theValue
+{
+    includeAllInstances      = theValue;
+    includeAllInstancesIsSet = YES;
+}
 
 
 -(void)dealloc

@@ -23,6 +23,7 @@
 #import "EC2Tag.h"
 #import "EC2GroupIdentifier.h"
 #import "EC2InstanceNetworkInterface.h"
+#import "EC2IamInstanceProfile.h"
 
 
 
@@ -33,42 +34,43 @@
 @interface EC2Instance:NSObject
 
 {
-    NSString           *instanceId;
-    NSString           *imageId;
-    EC2InstanceState   *state;
-    NSString           *privateDnsName;
-    NSString           *publicDnsName;
-    NSString           *stateTransitionReason;
-    NSString           *keyName;
-    NSNumber           *amiLaunchIndex;
-    NSMutableArray     *productCodes;
-    NSString           *instanceType;
-    NSDate             *launchTime;
-    EC2Placement       *placement;
-    NSString           *kernelId;
-    NSString           *ramdiskId;
-    NSString           *platform;
-    EC2Monitoring      *monitoring;
-    NSString           *subnetId;
-    NSString           *vpcId;
-    NSString           *privateIpAddress;
-    NSString           *publicIpAddress;
-    EC2StateReason     *stateReason;
-    NSString           *architecture;
-    NSString           *rootDeviceType;
-    NSString           *rootDeviceName;
-    NSMutableArray     *blockDeviceMappings;
-    NSString           *virtualizationType;
-    NSString           *instanceLifecycle;
-    NSString           *spotInstanceRequestId;
-    EC2InstanceLicense *license;
-    NSString           *clientToken;
-    NSMutableArray     *tags;
-    NSMutableArray     *securityGroups;
-    bool               sourceDestCheck;
-    bool               sourceDestCheckIsSet;
-    NSString           *hypervisor;
-    NSMutableArray     *networkInterfaces;
+    NSString              *instanceId;
+    NSString              *imageId;
+    EC2InstanceState      *state;
+    NSString              *privateDnsName;
+    NSString              *publicDnsName;
+    NSString              *stateTransitionReason;
+    NSString              *keyName;
+    NSNumber              *amiLaunchIndex;
+    NSMutableArray        *productCodes;
+    NSString              *instanceType;
+    NSDate                *launchTime;
+    EC2Placement          *placement;
+    NSString              *kernelId;
+    NSString              *ramdiskId;
+    NSString              *platform;
+    EC2Monitoring         *monitoring;
+    NSString              *subnetId;
+    NSString              *vpcId;
+    NSString              *privateIpAddress;
+    NSString              *publicIpAddress;
+    EC2StateReason        *stateReason;
+    NSString              *architecture;
+    NSString              *rootDeviceType;
+    NSString              *rootDeviceName;
+    NSMutableArray        *blockDeviceMappings;
+    NSString              *virtualizationType;
+    NSString              *instanceLifecycle;
+    NSString              *spotInstanceRequestId;
+    EC2InstanceLicense    *license;
+    NSString              *clientToken;
+    NSMutableArray        *tags;
+    NSMutableArray        *securityGroups;
+    bool                  sourceDestCheck;
+    bool                  sourceDestCheckIsSet;
+    NSString              *hypervisor;
+    NSMutableArray        *networkInterfaces;
+    EC2IamInstanceProfile *iamInstanceProfile;
 }
 
 
@@ -278,6 +280,11 @@
  * The value of the NetworkInterfaces property for this object.
  */
 @property (nonatomic, retain) NSMutableArray *networkInterfaces;
+
+/**
+ * The value of the IamInstanceProfile property for this object.
+ */
+@property (nonatomic, retain) EC2IamInstanceProfile *iamInstanceProfile;
 
 /**
  * Adds a single object to productCodes.

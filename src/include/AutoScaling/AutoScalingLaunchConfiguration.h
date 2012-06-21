@@ -36,6 +36,8 @@
     NSString                      *ramdiskId;
     NSMutableArray                *blockDeviceMappings;
     AutoScalingInstanceMonitoring *instanceMonitoring;
+    NSString                      *spotPrice;
+    NSString                      *iamInstanceProfile;
     NSDate                        *createdTime;
 }
 
@@ -138,6 +140,25 @@
  * monitoring or not.
  */
 @property (nonatomic, retain) AutoScalingInstanceMonitoring *instanceMonitoring;
+
+/**
+ * Specifies the bid price for the Spot Instance.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Length: </b>1 - 255<br/>
+ */
+@property (nonatomic, retain) NSString *spotPrice;
+
+/**
+ * Provides the name or the full ARN of the instance profile associated
+ * with the IAM role for the instance. The instance profile is the
+ * container for the IAM role.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Length: </b>1 - 1600<br/>
+ * <b>Pattern: </b>[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*<br/>
+ */
+@property (nonatomic, retain) NSString *iamInstanceProfile;
 
 /**
  * Provides the creation date and time for this launch configuration.

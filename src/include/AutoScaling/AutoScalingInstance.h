@@ -61,8 +61,7 @@
  * Contains a description of the current <i>lifecycle</i> state.
  * <p>
  * <b>Constraints:</b><br/>
- * <b>Length: </b>1 - 32<br/>
- * <b>Pattern: </b>[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*<br/>
+ * <b>Allowed Values: </b>Pending, Quarantined, InService, Terminating, Terminated
  */
 @property (nonatomic, retain) NSString *lifecycleState;
 

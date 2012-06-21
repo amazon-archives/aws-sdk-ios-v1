@@ -42,6 +42,7 @@
 @synthesize clientToken;
 @synthesize additionalInfo;
 @synthesize networkInterfaces;
+@synthesize iamInstanceProfile;
 
 
 -(id)init
@@ -71,6 +72,7 @@
         clientToken                       = nil;
         additionalInfo                    = nil;
         networkInterfaces                 = [[NSMutableArray alloc] initWithCapacity:1];
+        iamInstanceProfile                = nil;
     }
 
     return self;
@@ -152,6 +154,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ClientToken: %@,", clientToken] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"AdditionalInfo: %@,", additionalInfo] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"NetworkInterfaces: %@,", networkInterfaces] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"IamInstanceProfile: %@,", iamInstanceProfile] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -194,6 +197,7 @@
     [clientToken release];
     [additionalInfo release];
     [networkInterfaces release];
+    [iamInstanceProfile release];
 
     [super dealloc];
 }

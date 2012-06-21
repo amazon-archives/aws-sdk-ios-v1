@@ -61,4 +61,7 @@
 /** Returns the XML represenation of the ACL */
 -(NSString *)toXml;
 
+/** Returns x-amz header representation of the ACL */
+-(NSDictionary *)toHeaders;
+
 @end

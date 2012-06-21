@@ -19,6 +19,7 @@
 #import "EC2RunInstancesRequest.h"
 #import "EC2Placement.h"
 #import "EC2InstanceLicenseSpecification.h"
+#import "EC2IamInstanceProfileSpecification.h"
 #import "EC2BlockDeviceMapping.h"
 #import "EC2EbsBlockDevice.h"
 #import "EC2InstanceNetworkInterfaceSpecification.h"

@@ -99,6 +99,16 @@
         return;
     }
 
+    if ([elementName isEqualToString:@"SpotPrice"]) {
+        self.response.spotPrice = self.currentText;
+        return;
+    }
+
+    if ([elementName isEqualToString:@"IamInstanceProfile"]) {
+        self.response.iamInstanceProfile = self.currentText;
+        return;
+    }
+
     if ([elementName isEqualToString:@"CreatedTime"]) {
         self.response.createdTime = [AmazonSDKUtil convertStringToDate:self.currentText];
         return;

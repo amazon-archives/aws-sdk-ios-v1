@@ -346,9 +346,6 @@
         [request setEndpoint:self.endpoint];
     }
 
-
-
-
     if (request.securityToken == nil)
     {
         if(request.credentials == nil && credentials.securityToken != nil)

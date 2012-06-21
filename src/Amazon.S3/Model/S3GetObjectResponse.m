@@ -74,8 +74,14 @@
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     if (outputStream) {
-        [super connection:connection didReceiveData:data];
+        
+        //[super connection:connection didReceiveData:data];
         [outputStream write:(uint8_t *)[data bytes] maxLength:[data length]];
+        
+        // skip super's data handling, go directly to delegate
+        if ([(NSObject *)self.request.delegate respondsToSelector:@selector(request:didReceiveData:)]) {
+            [self.request.delegate request:self.request didReceiveData:data];
+        }
     }
     else {
         [super connection:connection didReceiveData:data];

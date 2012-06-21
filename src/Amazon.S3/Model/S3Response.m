@@ -14,6 +14,7 @@
  */
 
 #import "S3Response.h"
+#import "S3GetObjectResponse.h"
 #import "AmazonLogger.h"
 
 @implementation S3Response
@@ -193,10 +194,13 @@
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     NSDate   *startDate = [NSDate date];
-    NSString *tmp       = [[NSString alloc] initWithData:self.body encoding:NSUTF8StringEncoding];
-
-    AMZLogDebug(@"Response:\n%@", tmp);
-    [tmp release];
+    
+    if (![self isMemberOfClass:[S3GetObjectResponse class]]) {
+        NSString *tmp       = [[NSString alloc] initWithData:self.body encoding:NSUTF8StringEncoding];
+        
+        AMZLogDebug(@"Response:\n%@", tmp);
+        [tmp release];
+    }
 
     if (self.httpStatusCode >= 400) {
         NSXMLParser            *parser       = [[NSXMLParser alloc] initWithData:self.body];

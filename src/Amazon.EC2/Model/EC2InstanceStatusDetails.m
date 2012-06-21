@@ -20,13 +20,15 @@
 
 @synthesize name;
 @synthesize status;
+@synthesize impairedSince;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        name   = nil;
-        status = nil;
+        name          = nil;
+        status        = nil;
+        impairedSince = nil;
     }
 
     return self;
@@ -41,6 +43,7 @@
     [buffer appendString:@"{"];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Name: %@,", name] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Status: %@,", status] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"ImpairedSince: %@,", impairedSince] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -53,6 +56,7 @@
 {
     [name release];
     [status release];
+    [impairedSince release];
 
     [super dealloc];
 }

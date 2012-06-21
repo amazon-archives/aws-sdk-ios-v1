@@ -22,13 +22,15 @@
 #import "S3Constants.h"
 #import "S3CannedACL.h"
 #import "S3Region.h"
+#import "S3AccessControlList.h"
 
 /** Contains the parameters used for the createBucket operation.
  *
  */
 @interface S3CreateBucketRequest:S3Request {
-    S3Region    *region;
-    S3CannedACL *cannedACL;
+    S3Region            *region;
+    S3CannedACL         *cannedACL;
+    S3AccessControlList *fullACL;
 }
 
 /** Region where the bucket should be created. */
@@ -39,6 +41,9 @@
 
 /** The canned access control list to apply to the bucket */
 @property (nonatomic, retain) S3CannedACL *cannedACL;
+
+/** A full access control list to apply to the bucket */
+@property (nonatomic, retain) S3AccessControlList *fullACL;
 
 /** Initializes the request with a bucket name.
  *

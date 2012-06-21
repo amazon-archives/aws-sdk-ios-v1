@@ -17,12 +17,14 @@
 #import "S3Request.h"
 #import "S3Constants.h"
 #import "S3CannedACL.h"
+#import "S3AccessControlList.h"
 
 /** Class with code common to Put* requests. Do not instantiate directly
  *
  */
 @interface S3AbstractPutRequest:S3Request {
     S3CannedACL         *cannedACL;
+    S3AccessControlList *fullACL;
     NSString            *storageClass;
     NSString            *serverSideEncryption;
 
@@ -35,6 +37,10 @@
  * 'bucket-owner-full-control'.
  */
 @property (nonatomic, retain) S3CannedACL *cannedACL;
+
+/** A full access control list to apply to the bucket */
+@property (nonatomic, retain) S3AccessControlList *fullACL;
+
 /** The storage class for the object.
  * Valid values are 'STANDARD', 'REDUCED_REDUNDANCY'
  */
@@ -54,5 +60,6 @@
  *  @returns the metadata dictionary.
  */
 -(NSMutableDictionary *)metadata;
+
 
 @end

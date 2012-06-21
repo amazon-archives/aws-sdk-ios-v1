@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DeletePlacementGroup"           forKey:@"Action"];
-    [request setParameterValue:@"2012-04-01"   forKey:@"Version"];
+    [request setParameterValue:@"2012-06-01"   forKey:@"Version"];
 
     [request setDelegate:[deletePlacementGroupRequest delegate]];
     [request setCredentials:[deletePlacementGroupRequest credentials]];

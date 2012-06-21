@@ -33,6 +33,7 @@
 #import "EC2GroupIdentifierUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
 #import "EC2InstanceNetworkInterfaceUnmarshaller.h"
+#import "EC2IamInstanceProfileUnmarshaller.h"
 #import "../AmazonSDKUtil.h"
 
 

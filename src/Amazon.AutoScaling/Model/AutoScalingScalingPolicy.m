@@ -25,6 +25,7 @@
 @synthesize cooldown;
 @synthesize policyARN;
 @synthesize alarms;
+@synthesize minAdjustmentStep;
 
 
 -(id)init
@@ -37,6 +38,7 @@
         cooldown             = nil;
         policyARN            = nil;
         alarms               = [[NSMutableArray alloc] initWithCapacity:1];
+        minAdjustmentStep    = nil;
     }
 
     return self;
@@ -65,6 +67,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Cooldown: %@,", cooldown] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"PolicyARN: %@,", policyARN] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Alarms: %@,", alarms] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"MinAdjustmentStep: %@,", minAdjustmentStep] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -82,6 +85,7 @@
     [cooldown release];
     [policyARN release];
     [alarms release];
+    [minAdjustmentStep release];
 
     [super dealloc];
 }

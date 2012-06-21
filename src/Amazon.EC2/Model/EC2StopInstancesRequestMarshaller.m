@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"StopInstances"           forKey:@"Action"];
-    [request setParameterValue:@"2012-04-01"   forKey:@"Version"];
+    [request setParameterValue:@"2012-06-01"   forKey:@"Version"];
 
     [request setDelegate:[stopInstancesRequest delegate]];
     [request setCredentials:[stopInstancesRequest credentials]];

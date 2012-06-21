@@ -33,6 +33,7 @@
 @synthesize monitoringEnabledIsSet;
 @synthesize subnetId;
 @synthesize networkInterfaces;
+@synthesize iamInstanceProfile;
 
 
 -(id)init
@@ -53,6 +54,7 @@
         monitoringEnabledIsSet = NO;
         subnetId               = nil;
         networkInterfaces      = [[NSMutableArray alloc] initWithCapacity:1];
+        iamInstanceProfile     = nil;
     }
 
     return self;
@@ -115,6 +117,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"MonitoringEnabled: %d,", monitoringEnabled] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"SubnetId: %@,", subnetId] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"NetworkInterfaces: %@,", networkInterfaces] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"IamInstanceProfile: %@,", iamInstanceProfile] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -144,6 +147,7 @@
     [blockDeviceMappings release];
     [subnetId release];
     [networkInterfaces release];
+    [iamInstanceProfile release];
 
     [super dealloc];
 }

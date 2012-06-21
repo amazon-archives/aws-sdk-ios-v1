@@ -54,6 +54,11 @@
             [request setParameterValue:[NSString stringWithFormat:@"%@", putScalingPolicyRequest.cooldown] forKey:[NSString stringWithFormat:@"%@", @"Cooldown"]];
         }
     }
+    if (putScalingPolicyRequest != nil) {
+        if (putScalingPolicyRequest.minAdjustmentStep != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", putScalingPolicyRequest.minAdjustmentStep] forKey:[NSString stringWithFormat:@"%@", @"MinAdjustmentStep"]];
+        }
+    }
 
 
     return [request autorelease];

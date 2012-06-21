@@ -114,6 +114,16 @@
             }
         }
     }
+    if (createLaunchConfigurationRequest != nil) {
+        if (createLaunchConfigurationRequest.spotPrice != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", createLaunchConfigurationRequest.spotPrice] forKey:[NSString stringWithFormat:@"%@", @"SpotPrice"]];
+        }
+    }
+    if (createLaunchConfigurationRequest != nil) {
+        if (createLaunchConfigurationRequest.iamInstanceProfile != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", createLaunchConfigurationRequest.iamInstanceProfile] forKey:[NSString stringWithFormat:@"%@", @"IamInstanceProfile"]];
+        }
+    }
 
 
     return [request autorelease];

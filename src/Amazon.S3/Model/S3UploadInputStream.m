@@ -16,7 +16,7 @@
 
 #import "S3UploadInputStream.h"
 #import "S3Constants.h"
-#import "Constants.h"
+#import "AmazonLogger.h"
 
 @implementation S3UploadInputStream
 

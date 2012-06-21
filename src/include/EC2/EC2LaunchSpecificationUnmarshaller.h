@@ -26,6 +26,7 @@
 #import "EC2BlockDeviceMappingUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
 #import "EC2InstanceNetworkInterfaceSpecificationUnmarshaller.h"
+#import "EC2IamInstanceProfileSpecificationUnmarshaller.h"
 
 
 /**

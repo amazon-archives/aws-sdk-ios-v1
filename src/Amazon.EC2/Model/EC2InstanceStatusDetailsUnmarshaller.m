@@ -51,6 +51,11 @@
         return;
     }
 
+    if ([elementName isEqualToString:@"impairedSince"]) {
+        self.response.impairedSince = [AmazonSDKUtil convertStringToDate:self.currentText];
+        return;
+    }
+
     if ([elementName isEqualToString:@"instanceStatusDetails"]) {
         if (caller != nil) {
             [parser setDelegate:caller];

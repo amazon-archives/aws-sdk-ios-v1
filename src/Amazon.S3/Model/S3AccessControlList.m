@@ -14,6 +14,7 @@
  */
 
 #import "S3AccessControlList.h"
+#import "S3Constants.h"
 
 
 @implementation S3AccessControlList
@@ -63,6 +64,89 @@
     [xml release];
 
     return retval;
+}
+
+-(NSDictionary *)toHeaders
+{
+    NSMutableString *rPerm    = nil;
+    NSMutableString *wPerm    = nil;
+    NSMutableString *racpPerm = nil;
+    NSMutableString *wacpPerm = nil;
+    NSMutableString *fPerm    = nil;
+    
+    for (S3Grant *g in grantList)
+    {
+        NSString *grantee;
+        if (!((g.grantee.ID == nil) || [g.grantee.ID isEqualToString:@""])) {
+            grantee = [NSString stringWithFormat:@"id=%@", g.grantee.ID];
+        }
+        else if (!((g.grantee.URI == nil) || [g.grantee.URI isEqualToString:@""])) {
+            grantee = [NSString stringWithFormat:@"uri=%@", g.grantee.URI];
+        }
+        else if (!((g.grantee.emailAddress == nil) || [g.grantee.emailAddress isEqualToString:@""])) {
+            grantee = [NSString stringWithFormat:@"emailaddress=%@", g.grantee.emailAddress];
+        }
+        
+        if ( g.permission == [S3Permission readPermission] ) {
+            if ( rPerm == nil ) {
+                rPerm = [NSMutableString stringWithString:grantee];
+            }
+            else {
+                [rPerm appendFormat:@", %@", grantee];
+            }
+        }
+        else if (g.permission == [S3Permission writePermission] ) {
+            if ( wPerm == nil ) {
+                wPerm = [NSMutableString stringWithString:grantee];
+            }
+            else {
+                [wPerm appendFormat:@", %@", grantee];
+            }
+        }
+        else if (g.permission == [S3Permission readAcpPermission] ) {
+            if ( racpPerm == nil ) {
+                racpPerm = [NSMutableString stringWithString:grantee];
+            }
+            else {
+                [racpPerm appendFormat:@", %@", grantee];
+            }
+        }
+        else if (g.permission == [S3Permission writeAcpPermission] ) {
+            if ( rPerm == nil ) {
+                rPerm = [NSMutableString stringWithString:grantee];
+            }
+            else {
+                [racpPerm appendFormat:@", %@", grantee];
+            }
+        }
+        else if (g.permission == [S3Permission fullControlPermission] ) {
+            if ( fPerm == nil ) {
+                fPerm = [NSMutableString stringWithString:grantee];
+            }
+            else {
+                [fPerm appendFormat:@", %@", grantee];
+            }
+        }
+    }
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:5];
+    if (rPerm != nil) {
+        [dict setValue:rPerm forKey:kHttpHdrAmzGrantRead];
+    }
+    if (wPerm != nil) {
+        [dict setValue:wPerm forKey:kHttpHdrAmzGrantWrite];
+    }
+    if (racpPerm != nil) {
+        [dict setValue:racpPerm forKey:kHttpHdrAmzGrantReadAcp];
+    }
+    if (wacpPerm != nil) {
+        [dict setValue:wacpPerm forKey:kHttpHdrAmzGrantWriteAcp];
+    }
+    if (fPerm != nil) {
+        [dict setValue:fPerm forKey:kHttpHdrAmzGrantFullControl];
+    }
+    
+    return dict;
 }
 
 -(void)dealloc

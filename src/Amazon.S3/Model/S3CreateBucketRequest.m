@@ -20,6 +20,7 @@
 
 @synthesize region;
 @synthesize cannedACL;
+@synthesize fullACL;
 
 -(NSMutableURLRequest *)configureURLRequest
 {
@@ -33,6 +34,12 @@
     }
     if (nil != self.cannedACL) {
         [self.urlRequest setValue:[self.cannedACL description] forHTTPHeaderField:kHttpHdrAmzAcl];
+    }
+    if (nil != self.fullACL) {
+        NSDictionary *aclHeaders = [self.fullACL toHeaders];
+        for (NSString *headerName in [aclHeaders allKeys]) {
+            [self.urlRequest setValue:[aclHeaders valueForKey:headerName] forHTTPHeaderField:headerName];
+        }
     }
 
     return self.urlRequest;
@@ -72,6 +79,7 @@
 {
     [region release];
     [cannedACL release];
+    [fullACL release];
 
     [super dealloc];
 }

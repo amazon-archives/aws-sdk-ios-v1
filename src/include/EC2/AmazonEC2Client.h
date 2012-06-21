@@ -44,6 +44,10 @@
 #import "EC2DeleteSecurityGroupResponseUnmarshaller.h"
 #import "EC2DeleteSecurityGroupRequest.h"
 #import "EC2DeleteSecurityGroupRequestMarshaller.h"
+#import "EC2CreateInstanceExportTaskResponse.h"
+#import "EC2CreateInstanceExportTaskResponseUnmarshaller.h"
+#import "EC2CreateInstanceExportTaskRequest.h"
+#import "EC2CreateInstanceExportTaskRequestMarshaller.h"
 #import "EC2GetPasswordDataResponse.h"
 #import "EC2GetPasswordDataResponseUnmarshaller.h"
 #import "EC2GetPasswordDataRequest.h"
@@ -136,6 +140,10 @@
 #import "EC2CancelConversionTaskResponseUnmarshaller.h"
 #import "EC2CancelConversionTaskRequest.h"
 #import "EC2CancelConversionTaskRequestMarshaller.h"
+#import "EC2DescribeExportTasksResponse.h"
+#import "EC2DescribeExportTasksResponseUnmarshaller.h"
+#import "EC2DescribeExportTasksRequest.h"
+#import "EC2DescribeExportTasksRequestMarshaller.h"
 #import "EC2DescribeVolumesResponse.h"
 #import "EC2DescribeVolumesResponseUnmarshaller.h"
 #import "EC2DescribeVolumesRequest.h"
@@ -216,6 +224,10 @@
 #import "EC2DescribeSpotInstanceRequestsResponseUnmarshaller.h"
 #import "EC2DescribeSpotInstanceRequestsRequest.h"
 #import "EC2DescribeSpotInstanceRequestsRequestMarshaller.h"
+#import "EC2CancelExportTaskResponse.h"
+#import "EC2CancelExportTaskResponseUnmarshaller.h"
+#import "EC2CancelExportTaskRequest.h"
+#import "EC2CancelExportTaskRequestMarshaller.h"
 #import "EC2RequestSpotInstancesResponse.h"
 #import "EC2RequestSpotInstancesResponseUnmarshaller.h"
 #import "EC2RequestSpotInstancesRequest.h"
@@ -550,6 +562,26 @@
  * @see EC2DeleteSecurityGroupResponse
  */
 -(EC2DeleteSecurityGroupResponse *)deleteSecurityGroup:(EC2DeleteSecurityGroupRequest *)deleteSecurityGroupRequest;
+
+
+/**
+ *
+ * @param createInstanceExportTaskRequest Container for the necessary parameters to execute the CreateInstanceExportTask
+ *           service method on AmazonEC2.
+ *
+ * @return The response from the CreateInstanceExportTask service method, as returned by AmazonEC2.
+ *
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonEC2 indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see EC2CreateInstanceExportTaskRequest
+ * @see EC2CreateInstanceExportTaskResponse
+ */
+-(EC2CreateInstanceExportTaskResponse *)createInstanceExportTask:(EC2CreateInstanceExportTaskRequest *)createInstanceExportTaskRequest;
 
 
 /**
@@ -1127,6 +1159,26 @@
 
 
 /**
+ *
+ * @param describeExportTasksRequest Container for the necessary parameters to execute the DescribeExportTasks service
+ *           method on AmazonEC2.
+ *
+ * @return The response from the DescribeExportTasks service method, as returned by AmazonEC2.
+ *
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonEC2 indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see EC2DescribeExportTasksRequest
+ * @see EC2DescribeExportTasksResponse
+ */
+-(EC2DescribeExportTasksResponse *)describeExportTasks:(EC2DescribeExportTasksRequest *)describeExportTasksRequest;
+
+
+/**
  * <p>
  * Describes the status of the indicated volume or, in lieu of any specified, all volumes belonging to the caller. Volumes
  * that have been deleted are not described.
@@ -1697,6 +1749,24 @@
  * @see EC2DescribeSpotInstanceRequestsResponse
  */
 -(EC2DescribeSpotInstanceRequestsResponse *)describeSpotInstanceRequests:(EC2DescribeSpotInstanceRequestsRequest *)describeSpotInstanceRequestsRequest;
+
+
+/**
+ *
+ * @param cancelExportTaskRequest Container for the necessary parameters to execute the CancelExportTask service method on
+ *           AmazonEC2.
+ *
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonEC2 indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see EC2CancelExportTaskRequest
+ * @see EC2CancelExportTaskResponse
+ */
+-(EC2CancelExportTaskResponse *)cancelExportTask:(EC2CancelExportTaskRequest *)cancelExportTaskRequest;
 
 
 /**

@@ -44,13 +44,6 @@
         [generatedRequest setCredentials:credentials];
     }
 
-
-#ifdef GHUNIT_CLI
-    if ( [generatedRequest.endpoint hasPrefix:@"https://"]) {
-        generatedRequest.endpoint = [generatedRequest.endpoint stringByReplacingOccurrencesOfString:@"https://" withString:@"http://"];
-    }
-#endif
-
     NSMutableURLRequest *urlRequest = [generatedRequest configureURLRequest];
 
     AMZLogDebug(@"%@ %@", [urlRequest HTTPMethod], [urlRequest URL]);

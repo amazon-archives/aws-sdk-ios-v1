@@ -81,6 +81,12 @@
         [parser setDelegate:listUnmarshaller];
     }
 
+    if ([elementName isEqualToString:@"iamInstanceProfile"]) {
+        EC2IamInstanceProfileSpecificationUnmarshaller *unmarshaller = [[[EC2IamInstanceProfileSpecificationUnmarshaller alloc] initWithCaller:self withParentObject:self.response withSetter:@selector(setIamInstanceProfile:)] autorelease];
+        unmarshaller.endElementTagName = @"iamInstanceProfile";
+        [parser setDelegate:unmarshaller];
+    }
+
 
 
     if ([elementName isEqualToString:@"Error"]) {

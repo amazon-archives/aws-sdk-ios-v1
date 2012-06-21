@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"RequestSpotInstances"           forKey:@"Action"];
-    [request setParameterValue:@"2012-04-01"   forKey:@"Version"];
+    [request setParameterValue:@"2012-06-01"   forKey:@"Version"];
 
     [request setDelegate:[requestSpotInstancesRequest delegate]];
     [request setCredentials:[requestSpotInstancesRequest credentials]];
@@ -239,6 +239,19 @@
                 }
 
                 networkInterfacesListIndex++;
+            }
+        }
+        if (launchSpecification != nil) {
+            EC2IamInstanceProfileSpecification *iamInstanceProfile = launchSpecification.iamInstanceProfile;
+            if (iamInstanceProfile != nil) {
+                if (iamInstanceProfile.arn != nil) {
+                    [request setParameterValue:[NSString stringWithFormat:@"%@", iamInstanceProfile.arn] forKey:[NSString stringWithFormat:@"%@.%@.%@", @"LaunchSpecification", @"IamInstanceProfile", @"Arn"]];
+                }
+            }
+            if (iamInstanceProfile != nil) {
+                if (iamInstanceProfile.name != nil) {
+                    [request setParameterValue:[NSString stringWithFormat:@"%@", iamInstanceProfile.name] forKey:[NSString stringWithFormat:@"%@.%@.%@", @"LaunchSpecification", @"IamInstanceProfile", @"Name"]];
+                }
             }
         }
     }

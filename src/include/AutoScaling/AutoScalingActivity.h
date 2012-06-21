@@ -92,7 +92,7 @@
  * Contains the current status of the activity.
  * <p>
  * <b>Constraints:</b><br/>
- * <b>Pattern: </b>[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*<br/>
+ * <b>Allowed Values: </b>WaitingForSpotInstanceRequestId, WaitingForSpotInstanceId, WaitingForInstanceId, PreInService, InProgress, Successful, Failed, Cancelled
  */
 @property (nonatomic, retain) NSString *statusCode;
 

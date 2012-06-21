@@ -38,8 +38,8 @@
 
 /**
  * The name of the filter. Valid Name values are:
- * <code>auto-scaling-group</code>, <code>key</code>, <code>value</code>,
- * and <code>propagate-at-launch</code>.
+ * <code>"auto-scaling-group"</code>, <code>"key"</code>,
+ * <code>"value"</code>, and <code>"propagate-at-launch"</code>.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Pattern: </b>[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*<br/>

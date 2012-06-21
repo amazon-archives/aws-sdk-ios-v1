@@ -17,6 +17,7 @@
 #import "EC2SpotPlacement.h"
 #import "EC2BlockDeviceMapping.h"
 #import "EC2InstanceNetworkInterfaceSpecification.h"
+#import "EC2IamInstanceProfileSpecification.h"
 
 
 
@@ -27,21 +28,22 @@
 @interface EC2LaunchSpecification:NSObject
 
 {
-    NSString         *imageId;
-    NSString         *keyName;
-    NSMutableArray   *allSecurityGroups;
-    NSMutableArray   *securityGroups;
-    NSString         *userData;
-    NSString         *addressingType;
-    NSString         *instanceType;
-    EC2SpotPlacement *placement;
-    NSString         *kernelId;
-    NSString         *ramdiskId;
-    NSMutableArray   *blockDeviceMappings;
-    bool             monitoringEnabled;
-    bool             monitoringEnabledIsSet;
-    NSString         *subnetId;
-    NSMutableArray   *networkInterfaces;
+    NSString                           *imageId;
+    NSString                           *keyName;
+    NSMutableArray                     *allSecurityGroups;
+    NSMutableArray                     *securityGroups;
+    NSString                           *userData;
+    NSString                           *addressingType;
+    NSString                           *instanceType;
+    EC2SpotPlacement                   *placement;
+    NSString                           *kernelId;
+    NSString                           *ramdiskId;
+    NSMutableArray                     *blockDeviceMappings;
+    bool                               monitoringEnabled;
+    bool                               monitoringEnabledIsSet;
+    NSString                           *subnetId;
+    NSMutableArray                     *networkInterfaces;
+    EC2IamInstanceProfileSpecification *iamInstanceProfile;
 }
 
 
@@ -135,6 +137,11 @@
  * The value of the NetworkInterfaces property for this object.
  */
 @property (nonatomic, retain) NSMutableArray *networkInterfaces;
+
+/**
+ * The value of the IamInstanceProfile property for this object.
+ */
+@property (nonatomic, retain) EC2IamInstanceProfileSpecification *iamInstanceProfile;
 
 /**
  * Adds a single object to allSecurityGroups.

@@ -1,0 +1,291 @@
+<html>
+<head>
+    <title>Using the AWS Persistence Framework for Core Data</title>
+    <style type="text/css">
+        table.sample {
+	        border-width: 2px;
+	        border-spacing: 5px;
+	        border-style: dashed;
+	        border-color: cornflowerblue;
+        }
+        table.sample td {
+	        padding: 5px;
+        }        
+        table.sample tr {
+	        padding: 5px;
+        }        
+    </style>    
+</head>
+<body style="padding: 10px">
+    <h1>Using the AWS Persistence Framework for Core Data</h1>
+
+    <p>The Apple Core Data Framework provides generalized and automated solutions to
+            common tasks associated with object life-cycle and object graph management, including
+            persistence. You can read more about Core Data in the Apple documentation <a
+                href="https://developer.apple.com/library/ios/#documentation/DataManagement/Conceptual/iPhoneCoreData01/Introduction/Introduction.html"
+                >here</a>
+        </p>
+
+    <p><a href="http://aws.amazon.com/dynamodb/">Amazon DynamoDB</a> is a fast, highly scalable,
+            highly available, cost-effective, non-relational database service. Amazon DynamoDB
+            removes traditional scalability limitations on data storage while maintaining low
+            latency and predictable performance. </p>
+
+    <p>
+    The AWS Persistence Framework for Core Data bring these two
+    technologies together to allow iOS developers to write Core Data
+    applications that use Amazon DynamoDB as a persistence backend.
+    </p>
+
+    <h2>Adding the AWS Persistence Framework for Core Data to Your
+    Project</h2>
+
+    <p>
+    The AWS Persistence Framework for Core Data is compatible with iOS versions
+    5.0 and later.
+    </p>
+
+    <p>
+    Adding the AWS Persistence Framework for Core Data to your project is
+    no different than adding any other framework to your project.
+    After creating your Core Data enabled application, navigate
+    to your project properties and go to the <i>Build Phases</i> tab.  Select
+    <i>Link Binary With Libraries</i> and hit the plus button to add
+    both of the following frameworks:
+    </p>
+    <ul>
+      <li>AWSiOSSDK.framework</li>
+      <li>AWSPersistence.framework</li>
+    </ul>
+    
+    <h2>Configuring the AWS Persistence Framework for Core Data</h2>
+    <p>
+    After creating your Entity/Relationship model and generating your
+    NSManagedObject subclasses, you will need to configure the
+    persistence store in your application.
+    </p>
+
+    <p>
+    You will need to have an object that implements the
+    <i>AWSPersistenceDynamoDBIncrementalStoreDelegate</i> protocol, which
+    requires a single selector be implemented:
+    </p>
+
+    </p>
+    <p style="padding-left:2cm;">
+    <table class="sample"><tr><td align="left" >
+    <pre>
+- (AmazonCredentials *)credentials
+{
+    return [AmazonClientManager credentials];
+}
+    </pre>
+    </pre></td></tr>
+    </table>
+    </p>
+
+    <p>
+    <b>Note:</b> This selector is called every time the framework
+    requires a connection to Amazon DynamoDB; it should return valid
+    credentials. The supplied sample uses TVM to gather these credentials.
+    </p>
+
+    <p>
+    Your application will need to register that it will use Amazon DynamoDB
+    as its backend store.  This can all be placed in the AppDelegate,
+    as part of the <i>persistentStoreCoordinator</i> selector.
+    </p>
+    <p style="padding-left:2cm;">
+    <table class="sample"><tr><td align="left" >
+    <pre>
+[NSPersistentStoreCoordinator registerStoreClass:[AWSPersistenceDynamoDBIncrementalStore class] forStoreType:AWSPersistenceDynamoDBIncrementalStoreType];
+    
+persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+    </pre>
+    </pre></td></tr>
+    </table>
+    </p>
+
+    <p>
+    Your application will need to create a number of mappings to allow the Framework to
+    understand how to handle its managed objects.  These include:
+    <ul>
+      <li>Hashkeys for each table in Amazon DynamoDB that is being
+    used to represent an entity.
+<p style="padding-left:1cm;">
+<table class="sample"><tr><td align="left" >
+<pre>
+NSDictionary *hashKeys = [NSDictionary dictionaryWithObjectsAndKeys:
+                          @"hashkeyAttributeName1", @"Entity1", 
+                          @"hashkeyAttributeName2", @"Entity2", nil];
+</pre>
+</pre></td></tr>
+</table>
+</p>
+      </li>
+      <li>Attribute to use in each table to represent the
+    <i>version</i> of the object being stored.
+<p style="padding-left:1cm;">
+<table class="sample"><tr><td align="left" >
+<pre>
+NSDictionary *versions = [NSDictionary dictionaryWithObjectsAndKeys:
+                          @"versionAttribute1", @"Entity1", 
+                          @"versionAttribute2", @"Entity2", nil];
+</pre>
+</pre></td></tr>
+</table>
+<p style="padding-left:1cm;">
+      </li>
+      <li>(Optionally) Table name to use for entities.  By default the
+    entity name will be used.  You can make use of this feature to have
+    test and development versions of your Amazon DynamoDB tables.
+<p style="padding-left:1cm;">
+<table class="sample"><tr><td align="left" >
+<pre>
+NSDictionary *tableMapper = [NSDictionary dictionaryWithObjectsAndKeys:
+                             @"tableName1", @"Entity1",
+                             @"tableName2", @"Entity2", nil];
+</pre>
+</pre></td></tr>
+</table>
+</p>
+      </li>
+    </ul>
+    </p>
+<p>
+With the mappings created, your application will need to create a larger options dictionary and
+include the delegate for the object manager.
+</p>
+    <p style="padding-left:2cm;">
+    <table class="sample"><tr><td align="left" >
+    <pre>
+NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+                         hashKeys, AWSPersistenceDynamoDBHashKey, 
+                         versions, AWSPersistenceDynamoDBVersionKey,
+                         delegate, AWSPersistenceDynamoDBDelegate,
+                         tableMapper, AWSPersistenceDynamoDBTableMapper, nil];
+    </pre>
+    </pre></td></tr>
+    </table>
+    </p>
+
+    <p>
+    Finally your application will need to pass this options dictionary
+    to the persistance store and check for error.
+    </p>
+    <p style="padding-left:2cm;">
+    <table class="sample"><tr><td align="left" >
+    <pre>
+    
+    
+if(![persistentStoreCoordinator addPersistentStoreWithType:AWSPersistenceDynamoDBIncrementalStoreType 
+                                             configuration:nil 
+                                                       URL:nil 
+                                                   options:options 
+                                                     error:&error])
+{
+    // Handle the error.
+    NSLog(@"error: %@", error);
+}
+    </pre>
+    </pre></td></tr>
+    </table>
+    </p>
+    
+    <h2>Conflict Management</h2>
+    
+    <p>When using the AWS Persistence Framework for Core Data on multiple threads or devices, you
+            may encounter a situation where you need to resolve inconsistencies between data on
+            Amazon DynamoDB tables and your local copy in memory. When the conflicts are detected,
+            <code>NSManagedObjectContext</code> returns an <code>NSError</code> object and your 
+            change will not be persisted. You can change this behavior by setting a merge policy 
+            to your <code>NSManagedObjectContext</code>:</p>
+    <table
+    class="sample"><tr><td align="left"
+                    ><pre>managedObjectContext.mergePolicy = [[[NSMergePolicy alloc] initWithMergeType:NSMergeByPropertyStoreTrumpMergePolicyType] autorelease];</pre>
+                </td></tr></table>
+    
+    <p>There are five NSMergePolicyTypes available: <code>NSErrorMergePolicyType</code>
+        (default), <code>NSMergeByPropertyStoreTrumpMergePolicyType</code>,
+        <code>NSMergeByPropertyObjectTrumpMergePolicyType</code>, <code>NSOverwriteMergePolicyType</code>, and
+        <code>NSRollbackMergePolicyType</code>. The AWS Persistence Framework for Core Data can
+    handle all five merge policy types. For more information about
+    <code>NSMergePolicy</code>, please read <a href="http://developer.apple.com/library/ios/#documentation/CoreData/Reference/NSMergePolicy_Class/Reference/Reference.html">NSMergePolicy Class Reference</a>.</p>
+
+    <p>Because <code>NSManagedObject</code> instances returned by Core Data are lazily loaded, it is
+            possible that when you access an attribute of an object, the actual row in the Amazon
+            DynamoDB table has been already deleted. In this situation, the AWS Persistence
+            Framework for Core Data will return an empty <code>NSManagedObject</code> (the accessor
+            will return nil) and sends out
+                <code>AWSPersistenceDynamoDBObjectDeletedNotification</code>. You can register to
+            observe <code>AWSPersistenceDynamoDBObjectDeletedNotification</code> by calling the
+            following method: </p>
+<table class="sample"><tr><td align="left"
+                    ><pre>[[NSNotificationCenter defaultCenter] addObserver:self
+	selector:@selector(mergeDeletedObject:)
+	name:AWSPersistenceDynamoDBObjectDeletedNotification
+	object:nil];</pre>
+                </td></tr>
+    </table>
+    <p>When you receive the notification, you should remove any invalid objects from local cache and
+            refresh the <code>NSManagedObject</code> instance as necessary. The notification object
+            has a <code>userInfo</code> dictionary, which you can use to identify the deleted
+            object, containing: </p>
+    <ul>
+        <li>Hash key of the deleted object with <code>AWSPersistenceDynamoDBObjectDeletedNotificationHashKey</code> key</li>
+        <li>Entity name of the deleted object with <code>AWSPersistenceDynamoDBObjectDeletedNotificationEntityName</code> key</li>
+        <li><code>NSManagedObjectID</code> of the deleted object with <code>AWSPersistenceDynamoDBObjectDeletedNotificationObjectID</code> key</li>
+    </ul>
+    <p>The following line shows how to refresh an <code>NSManagedObject</code>. Please note that
+            refreshing an <code>NSManagedObject</code> will send a getItem request to the Amazon
+            DynamoDB. </p>
+    <table class="sample"><tr><td align="left"><pre>[managedObjectContext refreshObject:managedObject mergeChanges:YES];</pre>
+                </td></tr>
+    </table>
+    <p>Under heavily concurrent environments, periodically calling the <code>refreshObject</code>
+            method may reduce inconsistent states. Also, calling the <code>refreshObject</code>
+            method before saving the change will minimize inconsistent states to be persisted to the
+            Amazon DynamoDB tables. </p>
+
+    <h2>Limitations</h2>
+    <p>Although the AWS Persistence Framework for Core Data was developed to meet the widest use
+            case possible, it does have certain limitations. </p>
+    <ul>
+      <li>iOS versions prior to 5.0 are not supported by the AWS Persistence Framework for Core Data.</li>
+      <li>You cannot modify the hash key attribute once the object has been
+      persisted to the Amazon DynamoDB table. Please delete the object and
+      insert a new object instead of changing the hash key. When hash key
+      attributes are modified, the save operation will fail and return an
+      <code>NSError</code> object.</li>
+      <li>Primitives are not supported as properties for entities. When
+      generating your <code>NSManagedObject</code> subclasses, make sure this
+      option is not enabled.</li>
+      <li>For properties that are mapped to hash keys for the entities, only
+    string and numeric (Integer 16/32/64, Decimal, Double, and Float) types are supported.</li>
+      <li>For all other properties, it is possible to use Date and
+    Boolean types as well as the already mentioned string and numeric
+    types.</li>
+      <li>Only 1-to-1 and 1-to-many relationships between entities are supported.</li>
+      <li>The framework handles creating, modifying, and deleting rows
+    in the underlying Amazon DynamoDB tables, but it does not manage the tables
+    themselves. You must create tables using primitives provided by
+    the AWS SDK for iOS or via the AWS Management Console.</li>
+      <li>When fetching objects without a predicate, the framework
+    will potentially do multiple scan operations against Amazon DynamoDB, which will use large
+    amounts of your provisioned read throughput.  Using a predicate when
+    fetching uses a get request against Amazon DynamoDB, which
+    uses only the throughput necessary to load the single object.</li>
+      <li>With the current version of the framework, <code>NSPredicates</code> are
+    limited to only the properties that are mapped to hash keys.</li>
+      <li>Save operations are not guaranteed to be transactional. You should check the errors that
+                Core Data returns and formulate your handling strategies assuming partial data might
+                have been persisted to DynamoDB tables.</li>
+      <li>When doing fetches of all objects in a table, the AWS Persistence Framework for Core Data
+                cannot guarantee that recent objects inserts and deletes will be reflected due to
+                inconsistent read status. </li>
+    </ul>
+    
+    <h2>Questions?</h2>
+    <p>Please feel free to ask questions or provide comments in the <a href="https://forums.aws.amazon.com/forum.jspa?forumID=88">Mobile Development Forum</a>.</p>
+</body>
+</html>

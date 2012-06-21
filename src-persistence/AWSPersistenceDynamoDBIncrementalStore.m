@@ -698,22 +698,25 @@ NSString *const AWSPersistenceDynamoDBUserAgentPrefix = @"Persistence Framework"
             DynamoDBAttributeValueUpdate *attributeValueUpdate = nil;
             
             for(NSString *key in [managedObject changedValues])
-            {                
+            {
                 // If not a hash key
                 if(![[self hashKeyForEntityName:managedObject.entity.name] isEqualToString:key])
                 {
-                    if([managedObject valueForKey:key] != nil
-                       && ![[[managedObject valueForKey:key] description] isEqualToString:@""])
+                    if([[managedObject.entity relationshipsByName] objectForKey:key] == nil)
                     {
-                        attributeValue = [self attributeValueFromObject:[[managedObject changedValues] valueForKey:key]];
-                        attributeValueUpdate = [[DynamoDBAttributeValueUpdate alloc] initWithValue:attributeValue andAction:@"PUT"];
-                        [userDic setValue:attributeValueUpdate forKey:key];
-                    }
-                    else
-                    {
-                        attributeValueUpdate = [DynamoDBAttributeValueUpdate new];
-                        attributeValueUpdate.action = @"DELETE";
-                        [userDic setValue:attributeValueUpdate forKey:key];
+                        if([managedObject valueForKey:key] != nil
+                           && ![[[managedObject valueForKey:key] description] isEqualToString:@""])
+                        {
+                            attributeValue = [self attributeValueFromObject:[[managedObject changedValues] valueForKey:key]];
+                            attributeValueUpdate = [[DynamoDBAttributeValueUpdate alloc] initWithValue:attributeValue andAction:@"PUT"];
+                            [userDic setValue:attributeValueUpdate forKey:key];
+                        }
+                        else
+                        {
+                            attributeValueUpdate = [DynamoDBAttributeValueUpdate new];
+                            attributeValueUpdate.action = @"DELETE";
+                            [userDic setValue:attributeValueUpdate forKey:key];
+                        }
                     }
                 }
                 else

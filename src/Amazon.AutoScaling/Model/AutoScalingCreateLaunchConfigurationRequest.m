@@ -28,6 +28,8 @@
 @synthesize ramdiskId;
 @synthesize blockDeviceMappings;
 @synthesize instanceMonitoring;
+@synthesize spotPrice;
+@synthesize iamInstanceProfile;
 
 
 -(id)init
@@ -43,6 +45,8 @@
         ramdiskId               = nil;
         blockDeviceMappings     = [[NSMutableArray alloc] initWithCapacity:1];
         instanceMonitoring      = nil;
+        spotPrice               = nil;
+        iamInstanceProfile      = nil;
     }
 
     return self;
@@ -83,6 +87,8 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"RamdiskId: %@,", ramdiskId] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"BlockDeviceMappings: %@,", blockDeviceMappings] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"InstanceMonitoring: %@,", instanceMonitoring] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"SpotPrice: %@,", spotPrice] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"IamInstanceProfile: %@,", iamInstanceProfile] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -103,6 +109,8 @@
     [ramdiskId release];
     [blockDeviceMappings release];
     [instanceMonitoring release];
+    [spotPrice release];
+    [iamInstanceProfile release];
 
     [super dealloc];
 }

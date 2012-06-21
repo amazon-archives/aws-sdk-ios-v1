@@ -17,6 +17,7 @@
 #import "EC2BlockDeviceMapping.h"
 #import "EC2InstanceLicenseSpecification.h"
 #import "EC2InstanceNetworkInterfaceSpecification.h"
+#import "EC2IamInstanceProfileSpecification.h"
 
 #import "../AmazonServiceRequestConfig.h"
 
@@ -29,30 +30,31 @@
 @interface EC2RunInstancesRequest:AmazonServiceRequestConfig
 
 {
-    NSString                        *imageId;
-    NSNumber                        *minCount;
-    NSNumber                        *maxCount;
-    NSString                        *keyName;
-    NSMutableArray                  *securityGroups;
-    NSMutableArray                  *securityGroupIds;
-    NSString                        *userData;
-    NSString                        *addressingType;
-    NSString                        *instanceType;
-    EC2Placement                    *placement;
-    NSString                        *kernelId;
-    NSString                        *ramdiskId;
-    NSMutableArray                  *blockDeviceMappings;
-    bool                            monitoring;
-    bool                            monitoringIsSet;
-    NSString                        *subnetId;
-    bool                            disableApiTermination;
-    bool                            disableApiTerminationIsSet;
-    NSString                        *instanceInitiatedShutdownBehavior;
-    EC2InstanceLicenseSpecification *license;
-    NSString                        *privateIpAddress;
-    NSString                        *clientToken;
-    NSString                        *additionalInfo;
-    NSMutableArray                  *networkInterfaces;
+    NSString                           *imageId;
+    NSNumber                           *minCount;
+    NSNumber                           *maxCount;
+    NSString                           *keyName;
+    NSMutableArray                     *securityGroups;
+    NSMutableArray                     *securityGroupIds;
+    NSString                           *userData;
+    NSString                           *addressingType;
+    NSString                           *instanceType;
+    EC2Placement                       *placement;
+    NSString                           *kernelId;
+    NSString                           *ramdiskId;
+    NSMutableArray                     *blockDeviceMappings;
+    bool                               monitoring;
+    bool                               monitoringIsSet;
+    NSString                           *subnetId;
+    bool                               disableApiTermination;
+    bool                               disableApiTerminationIsSet;
+    NSString                           *instanceInitiatedShutdownBehavior;
+    EC2InstanceLicenseSpecification    *license;
+    NSString                           *privateIpAddress;
+    NSString                           *clientToken;
+    NSString                           *additionalInfo;
+    NSMutableArray                     *networkInterfaces;
+    EC2IamInstanceProfileSpecification *iamInstanceProfile;
 }
 
 
@@ -193,6 +195,11 @@
  * The value of the NetworkInterfaces property for this object.
  */
 @property (nonatomic, retain) NSMutableArray *networkInterfaces;
+
+/**
+ * The value of the IamInstanceProfile property for this object.
+ */
+@property (nonatomic, retain) EC2IamInstanceProfileSpecification *iamInstanceProfile;
 
 
 /**

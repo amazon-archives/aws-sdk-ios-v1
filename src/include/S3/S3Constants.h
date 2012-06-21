@@ -55,6 +55,11 @@
 #define kHttpHdrAmzCopySourceIfModified      @"x-amz-copy-source-if-modified-since"
 #define kHttpHdrAmzCopySourceIfUnmodified    @"x-amz-copy-source-if-unmodified-since"
 #define kHttpHdrAmzServerSideEncryption      @"x-amz-server-side-encryption"
+#define kHttpHdrAmzGrantRead                 @"x-amz-grant-read"
+#define kHttpHdrAmzGrantWrite                @"x-amz-grant-write"
+#define kHttpHdrAmzGrantReadAcp              @"x-amz-grant-read-acp"
+#define kHttpHdrAmzGrantWriteAcp             @"x-amz-grant-write-acp"
+#define kHttpHdrAmzGrantFullControl          @"x-amz-grant-full-control"
 
 #define kS3DateFormat                        @"EEE, dd MMM yyyy HH:mm:ss z"
 

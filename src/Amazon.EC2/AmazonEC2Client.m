@@ -91,6 +91,13 @@
     return (EC2DeleteSecurityGroupResponse *)[self invoke:request rawRequest:deleteSecurityGroupRequest unmarshallerDelegate:[EC2DeleteSecurityGroupResponseUnmarshaller class]];
 }
 
+-(EC2CreateInstanceExportTaskResponse *)createInstanceExportTask:(EC2CreateInstanceExportTaskRequest *)createInstanceExportTaskRequest
+{
+    AmazonServiceRequest *request = [EC2CreateInstanceExportTaskRequestMarshaller createRequest:createInstanceExportTaskRequest];
+
+    return (EC2CreateInstanceExportTaskResponse *)[self invoke:request rawRequest:createInstanceExportTaskRequest unmarshallerDelegate:[EC2CreateInstanceExportTaskResponseUnmarshaller class]];
+}
+
 -(EC2GetPasswordDataResponse *)getPasswordData:(EC2GetPasswordDataRequest *)getPasswordDataRequest
 {
     AmazonServiceRequest *request = [EC2GetPasswordDataRequestMarshaller createRequest:getPasswordDataRequest];
@@ -252,6 +259,13 @@
     return (EC2CancelConversionTaskResponse *)[self invoke:request rawRequest:cancelConversionTaskRequest unmarshallerDelegate:[EC2CancelConversionTaskResponseUnmarshaller class]];
 }
 
+-(EC2DescribeExportTasksResponse *)describeExportTasks:(EC2DescribeExportTasksRequest *)describeExportTasksRequest
+{
+    AmazonServiceRequest *request = [EC2DescribeExportTasksRequestMarshaller createRequest:describeExportTasksRequest];
+
+    return (EC2DescribeExportTasksResponse *)[self invoke:request rawRequest:describeExportTasksRequest unmarshallerDelegate:[EC2DescribeExportTasksResponseUnmarshaller class]];
+}
+
 -(EC2DescribeVolumesResponse *)describeVolumes:(EC2DescribeVolumesRequest *)describeVolumesRequest
 {
     AmazonServiceRequest *request = [EC2DescribeVolumesRequestMarshaller createRequest:describeVolumesRequest];
@@ -390,6 +404,13 @@
     AmazonServiceRequest *request = [EC2DescribeSpotInstanceRequestsRequestMarshaller createRequest:describeSpotInstanceRequestsRequest];
 
     return (EC2DescribeSpotInstanceRequestsResponse *)[self invoke:request rawRequest:describeSpotInstanceRequestsRequest unmarshallerDelegate:[EC2DescribeSpotInstanceRequestsResponseUnmarshaller class]];
+}
+
+-(EC2CancelExportTaskResponse *)cancelExportTask:(EC2CancelExportTaskRequest *)cancelExportTaskRequest
+{
+    AmazonServiceRequest *request = [EC2CancelExportTaskRequestMarshaller createRequest:cancelExportTaskRequest];
+
+    return (EC2CancelExportTaskResponse *)[self invoke:request rawRequest:cancelExportTaskRequest unmarshallerDelegate:[EC2CancelExportTaskResponseUnmarshaller class]];
 }
 
 -(EC2RequestSpotInstancesResponse *)requestSpotInstances:(EC2RequestSpotInstancesRequest *)requestSpotInstancesRequest

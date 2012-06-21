@@ -54,6 +54,7 @@
 @synthesize sourceDestCheckIsSet;
 @synthesize hypervisor;
 @synthesize networkInterfaces;
+@synthesize iamInstanceProfile;
 
 
 -(id)init
@@ -95,6 +96,7 @@
         sourceDestCheckIsSet  = NO;
         hypervisor            = nil;
         networkInterfaces     = [[NSMutableArray alloc] initWithCapacity:1];
+        iamInstanceProfile    = nil;
     }
 
     return self;
@@ -187,6 +189,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"SourceDestCheck: %d,", sourceDestCheck] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Hypervisor: %@,", hypervisor] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"NetworkInterfaces: %@,", networkInterfaces] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"IamInstanceProfile: %@,", iamInstanceProfile] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -237,6 +240,7 @@
     [securityGroups release];
     [hypervisor release];
     [networkInterfaces release];
+    [iamInstanceProfile release];
 
     [super dealloc];
 }

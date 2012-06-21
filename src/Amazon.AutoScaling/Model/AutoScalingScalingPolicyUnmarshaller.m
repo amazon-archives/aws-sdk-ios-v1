@@ -74,6 +74,11 @@
         return;
     }
 
+    if ([elementName isEqualToString:@"MinAdjustmentStep"]) {
+        self.response.minAdjustmentStep = [AmazonSDKUtil convertStringToNumber:self.currentText];
+        return;
+    }
+
     if ([elementName isEqualToString:@"ScalingPolicy"]) {
         if (caller != nil) {
             [parser setDelegate:caller];

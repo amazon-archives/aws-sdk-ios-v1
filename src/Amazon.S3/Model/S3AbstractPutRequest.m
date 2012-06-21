@@ -20,6 +20,7 @@
 @synthesize cannedACL;
 @synthesize storageClass;
 @synthesize serverSideEncryption;
+@synthesize fullACL;
 
 -(NSMutableURLRequest *)configureURLRequest
 {
@@ -36,6 +37,12 @@
     }
     for (id k in [self metadata]) {
         [self.urlRequest setValue:[[self metadata] objectForKey:k] forHTTPHeaderField:[NSString stringWithFormat:kHttpHdrAmzMetaFormat, [k description]]];
+    }
+    if (nil != self.fullACL) {
+        NSDictionary *aclHeaders = [self.fullACL toHeaders];
+        for (NSString *headerName in [aclHeaders allKeys]) {
+            [self.urlRequest setValue:[aclHeaders valueForKey:headerName] forHTTPHeaderField:headerName];
+        }
     }
 
     return urlRequest;
@@ -60,6 +67,7 @@
     [storageClass release];
     [metadata release];
     [serverSideEncryption release];
+    [fullACL release];
 
     [super dealloc];
 }
