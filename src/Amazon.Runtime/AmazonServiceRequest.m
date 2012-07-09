@@ -100,7 +100,13 @@
     
     NSRange startOfHost = [self.endpoint rangeOfString:@"://"];
     
-    return [self.endpoint substringFromIndex:(startOfHost.location + 3)];
+    NSString *trimmed = [self.endpoint substringFromIndex:(startOfHost.location + 3)];
+    NSRange endOfHost = [trimmed rangeOfString:@"/"];
+    if (endOfHost.location == NSNotFound) {
+        return trimmed;
+    }
+
+    return [trimmed substringToIndex:(endOfHost.location)];
 }
 
 -(void)setRegionName:(NSString *)theRegionName 
@@ -158,6 +164,7 @@
     if (serviceName != nil) {
         return serviceName;
     }
+    
     // If we don't recognize the domain, just return nil
     if (![self.hostName hasSuffix:@".amazonaws.com"]) {
         return nil;

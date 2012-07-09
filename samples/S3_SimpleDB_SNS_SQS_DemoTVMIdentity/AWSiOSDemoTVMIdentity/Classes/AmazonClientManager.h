@@ -39,7 +39,7 @@
 +(Response *)login:(NSString *)username password:(NSString *)password;
 +(bool)hasCredentials;
 +(Response *)validateCredentials;
-+(void)clearCredentials;
 +(void)wipeAllCredentials;
++(BOOL)wipeCredentialsOnAuthError:(NSException *)exception;
 
 @end

@@ -47,6 +47,7 @@
     }
     @catch (NSException *exception)
     {
+        [AmazonClientManager wipeCredentialsOnAuthError:exception];
         NSLog(@"Exception: %@", exception);
     }
 }
@@ -65,6 +66,11 @@
     }
     @catch (DynamoDBResourceNotFoundException *ex) {
         return nil;
+    }
+    @catch (NSException *exception)
+    {
+        [AmazonClientManager wipeCredentialsOnAuthError:exception];
+        NSLog(@"Exception: %@", exception);
     }
 }
 
@@ -90,6 +96,7 @@
     }
     @catch (NSException *exception)
     {
+        [AmazonClientManager wipeCredentialsOnAuthError:exception];
         NSLog(@"Exception: %@", exception);
     }
 }
@@ -108,6 +115,7 @@
     }
     @catch (NSException *exception)
     {
+        [AmazonClientManager wipeCredentialsOnAuthError:exception];
         NSLog(@"Exception: %@", exception);
         return nil;
     }
@@ -129,6 +137,7 @@
     }
     @catch (NSException *exception)
     {
+        [AmazonClientManager wipeCredentialsOnAuthError:exception];
         NSLog(@"Exception: %@", exception);
         return nil;
     }
@@ -151,6 +160,7 @@
     }
     @catch (NSException *exception)
     {
+        [AmazonClientManager wipeCredentialsOnAuthError:exception];
         NSLog(@"Exception: %@", exception);
     }
 }
@@ -168,6 +178,7 @@
     }
     @catch (NSException *exception)
     {
+        [AmazonClientManager wipeCredentialsOnAuthError:exception];
         NSLog(@"Exception: %@", exception);
     }
 }
@@ -184,6 +195,7 @@
     }
     @catch (NSException *exception)
     {
+        [AmazonClientManager wipeCredentialsOnAuthError:exception];
         NSLog(@"Exception: %@", exception);
     }
 }

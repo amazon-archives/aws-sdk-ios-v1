@@ -82,42 +82,135 @@ static AmazonTVMClient      *tvm = nil;
 +(Response *)validateCredentials
 {
     Response *ableToGetToken = [[[Response alloc] initWithCode:200 andMessage:@"OK"] autorelease];
-
-    if ( [AmazonKeyChainWrapper areCredentialsExpired]) {
-        [AmazonClientManager clearCredentials];
-        ableToGetToken = [[AmazonClientManager tvm] getToken];
+    
+    if ([AmazonKeyChainWrapper areCredentialsExpired])
+    {
+        @synchronized(self)
+        {
+            if ([AmazonKeyChainWrapper areCredentialsExpired])
+            {
+                ableToGetToken = [[AmazonClientManager tvm] getToken];
+                
+                if ( [ableToGetToken wasSuccessful])
+                {
+                    [AmazonClientManager initClients];
+                }
+            }
+        }
     }
-
-    if ( ([ableToGetToken wasSuccessful] && (sdb == nil)) || (s3 == nil) || (sqs == nil) || (sns == nil)) {
-        [AmazonClientManager clearCredentials];
-
-        AmazonCredentials *credentials = [AmazonKeyChainWrapper getCredentialsFromKeyChain];
-        s3  = [[AmazonS3Client alloc] initWithCredentials:credentials];
-        sdb = [[AmazonSimpleDBClient alloc] initWithCredentials:credentials];
-        sqs = [[AmazonSQSClient alloc] initWithCredentials:credentials];
-        sns = [[AmazonSNSClient alloc] initWithCredentials:credentials];
+    else if ((sdb == nil) || (s3 == nil) || (sqs == nil) || (sns == nil))
+    {
+        @synchronized(self)
+        {
+            if ((sdb == nil) || (s3 == nil) || (sqs == nil) || (sns == nil))
+            {
+                [AmazonClientManager initClients];
+            }
+        }
     }
-
+    
     return ableToGetToken;
 }
 
-+(void)clearCredentials
++(void)initClients
 {
+    AmazonCredentials *credentials = [AmazonKeyChainWrapper getCredentialsFromKeyChain];
+    
     [s3 release];
+    s3  = [[AmazonS3Client alloc] initWithCredentials:credentials];
+    
     [sdb release];
-    [sns release];
+    sdb = [[AmazonSimpleDBClient alloc] initWithCredentials:credentials];
+    
     [sqs release];
-
-    s3  = nil;
-    sdb = nil;
-    sqs = nil;
-    sns = nil;
+    sqs = [[AmazonSQSClient alloc] initWithCredentials:credentials];
+    
+    [sns release];
+    sns = [[AmazonSNSClient alloc] initWithCredentials:credentials];
 }
 
 +(void)wipeAllCredentials
 {
-    [AmazonClientManager clearCredentials];
-    [AmazonKeyChainWrapper wipeCredentialsFromKeyChain];
+    @synchronized(self)
+    {
+        [AmazonKeyChainWrapper wipeCredentialsFromKeyChain];
+        
+        [s3 release];
+        [sdb release];
+        [sns release];
+        [sqs release];
+        
+        s3  = nil;
+        sdb = nil;
+        sqs = nil;
+        sns = nil;
+    }
+}
+
++ (BOOL)wipeCredentialsOnAuthError:(NSException *)exception
+{
+    if([exception isKindOfClass:[AmazonServiceException class]])
+    {
+        AmazonServiceException *e = (AmazonServiceException *)exception;
+        
+        if(
+           // STS http://docs.amazonwebservices.com/STS/latest/APIReference/CommonErrors.html
+           [e.errorCode isEqualToString:@"IncompleteSignature"]
+           || [e.errorCode isEqualToString:@"InternalFailure"]
+           || [e.errorCode isEqualToString:@"InvalidClientTokenId"]
+           || [e.errorCode isEqualToString:@"OptInRequired"]
+           || [e.errorCode isEqualToString:@"RequestExpired"]
+           || [e.errorCode isEqualToString:@"ServiceUnavailable"]
+           
+           // For S3 http://docs.amazonwebservices.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList
+           || [e.errorCode isEqualToString:@"AccessDenied"]
+           || [e.errorCode isEqualToString:@"BadDigest"]
+           || [e.errorCode isEqualToString:@"CredentialsNotSupported"]
+           || [e.errorCode isEqualToString:@"ExpiredToken"]
+           || [e.errorCode isEqualToString:@"InternalError"]
+           || [e.errorCode isEqualToString:@"InvalidAccessKeyId"]
+           || [e.errorCode isEqualToString:@"InvalidPolicyDocument"]
+           || [e.errorCode isEqualToString:@"InvalidToken"]
+           || [e.errorCode isEqualToString:@"NotSignedUp"]
+           || [e.errorCode isEqualToString:@"RequestTimeTooSkewed"]
+           || [e.errorCode isEqualToString:@"SignatureDoesNotMatch"]
+           || [e.errorCode isEqualToString:@"TokenRefreshRequired"]
+           
+           // SimpleDB http://docs.amazonwebservices.com/AmazonSimpleDB/latest/DeveloperGuide/APIError.html
+           || [e.errorCode isEqualToString:@"AccessFailure"]
+           || [e.errorCode isEqualToString:@"AuthFailure"]
+           || [e.errorCode isEqualToString:@"AuthMissingFailure"]
+           || [e.errorCode isEqualToString:@"InternalError"]
+           || [e.errorCode isEqualToString:@"RequestExpired"]
+           
+           // SNS http://docs.amazonwebservices.com/sns/latest/api/CommonErrors.html
+           || [e.errorCode isEqualToString:@"IncompleteSignature"]
+           || [e.errorCode isEqualToString:@"InternalFailure"]
+           || [e.errorCode isEqualToString:@"InvalidClientTokenId"]
+           || [e.errorCode isEqualToString:@"RequestExpired"]
+           
+           // SQS http://docs.amazonwebservices.com/AWSSimpleQueueService/2011-10-01/APIReference/Query_QueryErrors.html#list-of-errors
+           || [e.errorCode isEqualToString:@"AccessDenied"]
+           || [e.errorCode isEqualToString:@"AuthFailure"]
+           || [e.errorCode isEqualToString:@"AWS.SimpleQueueService.InternalError"]
+           || [e.errorCode isEqualToString:@"InternalError"]
+           || [e.errorCode isEqualToString:@"InvalidAccessKeyId"]
+           || [e.errorCode isEqualToString:@"InvalidSecurity"]
+           || [e.errorCode isEqualToString:@"InvalidSecurityToken"]
+           || [e.errorCode isEqualToString:@"MissingClientTokenId"]
+           || [e.errorCode isEqualToString:@"MissingCredentials"]
+           || [e.errorCode isEqualToString:@"NotAuthorizedToUseVersion"]
+           || [e.errorCode isEqualToString:@"RequestExpired"]
+           || [e.errorCode isEqualToString:@"X509ParseError"]
+           )
+        {
+            [AmazonClientManager wipeAllCredentials];
+            
+            return YES;
+        }
+    }
+    
+    return NO;
 }
 
 @end

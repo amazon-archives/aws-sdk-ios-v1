@@ -169,6 +169,11 @@
     return [AmazonClientManager credentials];
 }
 
+- (void)handleAuthenticationFailure
+{
+    [AmazonClientManager wipeAllCredentials];
+}
+
 #pragma mark - Memory management
 
 

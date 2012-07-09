@@ -45,7 +45,7 @@ extern NSString *const AWSPersistenceDynamoDBObjectDeletedNotificationObjectID;
 
 @end
 
-@protocol AWSPersistenceDynamoDBIncrementalStoreDelegate
+@protocol AWSPersistenceDynamoDBIncrementalStoreDelegate <NSObject>
 
 @required
 
@@ -54,5 +54,13 @@ extern NSString *const AWSPersistenceDynamoDBObjectDeletedNotificationObjectID;
  it calls this method to obtain a valid and non-expired credentials.
  */
 - (AmazonCredentials *)credentials;
+
+@optional
+
+/*
+ When AWSPersistenceDynamoDBIncrementalStore receives authentication related exceptions from the AWS services,
+ it calls this method. The delegate should wipe out the locally stored credentials.
+ */
+- (void)handleAuthenticationFailure;
 
 @end

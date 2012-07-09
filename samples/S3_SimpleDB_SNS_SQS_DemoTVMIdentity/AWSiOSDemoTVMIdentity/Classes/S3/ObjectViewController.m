@@ -40,13 +40,13 @@
         self.objectNameLabel.text = self.objectName;
         self.objectDataLabel.text = [[NSString alloc] initWithData:getObjectResponse.body encoding:NSUTF8StringEncoding];
     }
-    @catch (AmazonServiceException *exception) {
-        if ( [exception.errorCode isEqualToString:@"ExpiredToken"]) {
+    @catch (AmazonClientException *exception)
+    {
+        if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
+        {
             [[Constants expiredCredentialsAlert] show];
-            [AmazonClientManager wipeAllCredentials];
         }
-    }
-    @catch (AmazonClientException *exception) {
+        
         NSLog(@"Exception = %@", exception);
     }
 }

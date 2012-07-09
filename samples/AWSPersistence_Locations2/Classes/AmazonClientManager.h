@@ -24,9 +24,6 @@
 
 +(AmazonDynamoDBClient *)ddb;
 +(AmazonCredentials *)credentials;
-+(bool)hasCredentials;
-+(Response *)validateCredentials;
-+(void)clearCredentials;
 +(void)wipeAllCredentials;
 
 @end

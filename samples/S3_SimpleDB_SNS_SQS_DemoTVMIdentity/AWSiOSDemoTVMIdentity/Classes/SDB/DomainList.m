@@ -42,13 +42,13 @@
 
         [domains sortUsingSelector:@selector(compare:)];
     }
-    @catch (AmazonServiceException *exception) {
-        if ( [exception.errorCode isEqualToString:@"InvalidClientTokenId"]) {
+    @catch (AmazonClientException *exception)
+    {
+        if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
+        {
             [[Constants expiredCredentialsAlert] show];
-            [AmazonClientManager wipeAllCredentials];
         }
-    }
-    @catch (AmazonClientException *exception) {
+        
         NSLog(@"Exception = %@", exception);
     }
 

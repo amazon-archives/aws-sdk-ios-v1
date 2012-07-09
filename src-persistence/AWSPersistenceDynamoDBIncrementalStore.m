@@ -1100,6 +1100,29 @@ NSString *const AWSPersistenceDynamoDBUserAgentPrefix = @"Persistence Framework"
     
     NSDictionary *userInfo = [NSDictionary dictionaryWithDictionary:exception.additionalFields];
     
+    if([delegate respondsToSelector:@selector(handleAuthenticationFailure)])
+    {
+        if(
+           // STS http://docs.amazonwebservices.com/STS/latest/APIReference/CommonErrors.html
+           [exception.errorCode isEqualToString:@"IncompleteSignature"]
+           || [exception.errorCode isEqualToString:@"InternalFailure"]
+           || [exception.errorCode isEqualToString:@"InvalidClientTokenId"]
+           || [exception.errorCode isEqualToString:@"OptInRequired"]
+           || [exception.errorCode isEqualToString:@"RequestExpired"]
+           || [exception.errorCode isEqualToString:@"ServiceUnavailable"]
+           
+           // DynamoDB http://docs.amazonwebservices.com/amazondynamodb/latest/developerguide/ErrorHandling.html#APIErrorTypes
+           || [exception.errorCode isEqualToString:@"AccessDeniedException"]
+           || [exception.errorCode isEqualToString:@"IncompleteSignatureException"]
+           || [exception.errorCode isEqualToString:@"MissingAuthenticationTokenException"]
+           || [exception.errorCode isEqualToString:@"ValidationException"]
+           || [exception.errorCode isEqualToString:@"InternalFailure"]
+           || [exception.errorCode isEqualToString:@"InternalServerError"])
+        {
+            [delegate handleAuthenticationFailure];
+        }
+    }
+    
     return [NSError errorWithDomain:AWSPersistenceDynamoDBServiceErrorDomain code:exception.statusCode userInfo:userInfo];
 }
 

@@ -243,10 +243,10 @@
 		D02A9F9913E762850007810F /* TVMClient */ = {
 			isa = PBXGroup;
 			children = (
-				D02A9F9A13E762850007810F /* AmazonKeyChainWrapper.h */,
-				D02A9F9B13E762850007810F /* AmazonKeyChainWrapper.m */,
 				D02A9F9C13E762850007810F /* AmazonTVMClient.h */,
 				D02A9F9D13E762850007810F /* AmazonTVMClient.m */,
+				D02A9F9A13E762850007810F /* AmazonKeyChainWrapper.h */,
+				D02A9F9B13E762850007810F /* AmazonKeyChainWrapper.m */,
 				D02A9F9E13E762850007810F /* Crypto.h */,
 				D02A9F9F13E762850007810F /* Crypto.m */,
 				D02A9FA013E762850007810F /* GetTokenRequest.h */,

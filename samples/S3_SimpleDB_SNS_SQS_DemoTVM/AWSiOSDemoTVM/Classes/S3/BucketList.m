@@ -45,13 +45,13 @@
 
         [buckets sortUsingSelector:@selector(compare:)];
     }
-    @catch (AmazonServiceException *exception) {
-        if ( [exception.errorCode isEqualToString:@"ExpiredToken"]) {
+    @catch (AmazonClientException *exception)
+    {
+        if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
+        {
             [[Constants expiredCredentialsAlert] show];
-            [AmazonClientManager wipeAllCredentials];
         }
-    }
-    @catch (AmazonClientException *exception) {
+        
         NSLog(@"Exception = %@", exception);
     }
 
@@ -115,13 +115,13 @@
             [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
             [tableView endUpdates];
         }
-        @catch (AmazonServiceException *exception) {
-            if ( [exception.errorCode isEqualToString:@"ExpiredToken"]) {
+        @catch (AmazonClientException *exception)
+        {
+            if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
+            {
                 [[Constants expiredCredentialsAlert] show];
-                [AmazonClientManager wipeAllCredentials];
             }
-        }
-        @catch (AmazonClientException *exception) {
+            
             NSLog(@"Exception = %@", exception);
         }
     }
@@ -129,13 +129,24 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ObjectListing *objectList = [[ObjectListing alloc] init];
-
-    objectList.bucket               = [buckets objectAtIndex:indexPath.row];
-    objectList.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-
-    [self presentModalViewController:objectList animated:YES];
-    [objectList release];
+    @try {
+        ObjectListing *objectList = [[ObjectListing alloc] init];
+        
+        objectList.bucket               = [buckets objectAtIndex:indexPath.row];
+        objectList.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        
+        [self presentModalViewController:objectList animated:YES];
+        [objectList release];
+    }
+    @catch (AmazonClientException *exception)
+    {
+        if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
+        {
+            [[Constants expiredCredentialsAlert] show];
+        }
+        
+        NSLog(@"Exception = %@", exception);
+    }
 }
 
 -(void)dealloc

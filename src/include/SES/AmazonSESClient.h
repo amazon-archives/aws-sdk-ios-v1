@@ -12,10 +12,6 @@
  * express or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-#import "SESGetSendQuotaResponse.h"
-#import "SESGetSendQuotaResponseUnmarshaller.h"
-#import "SESGetSendQuotaRequest.h"
-#import "SESGetSendQuotaRequestMarshaller.h"
 #import "SESDeleteIdentityResponse.h"
 #import "SESDeleteIdentityResponseUnmarshaller.h"
 #import "SESDeleteIdentityRequest.h"
@@ -32,18 +28,10 @@
 #import "SESVerifyEmailIdentityResponseUnmarshaller.h"
 #import "SESVerifyEmailIdentityRequest.h"
 #import "SESVerifyEmailIdentityRequestMarshaller.h"
-#import "SESSendEmailResponse.h"
-#import "SESSendEmailResponseUnmarshaller.h"
-#import "SESSendEmailRequest.h"
-#import "SESSendEmailRequestMarshaller.h"
-#import "SESVerifyDomainIdentityResponse.h"
-#import "SESVerifyDomainIdentityResponseUnmarshaller.h"
-#import "SESVerifyDomainIdentityRequest.h"
-#import "SESVerifyDomainIdentityRequestMarshaller.h"
-#import "SESDeleteVerifiedEmailAddressResponse.h"
-#import "SESDeleteVerifiedEmailAddressResponseUnmarshaller.h"
-#import "SESDeleteVerifiedEmailAddressRequest.h"
-#import "SESDeleteVerifiedEmailAddressRequestMarshaller.h"
+#import "SESGetIdentityNotificationAttributesResponse.h"
+#import "SESGetIdentityNotificationAttributesResponseUnmarshaller.h"
+#import "SESGetIdentityNotificationAttributesRequest.h"
+#import "SESGetIdentityNotificationAttributesRequestMarshaller.h"
 #import "SESVerifyEmailAddressResponse.h"
 #import "SESVerifyEmailAddressResponseUnmarshaller.h"
 #import "SESVerifyEmailAddressRequest.h"
@@ -60,6 +48,30 @@
 #import "SESGetIdentityVerificationAttributesResponseUnmarshaller.h"
 #import "SESGetIdentityVerificationAttributesRequest.h"
 #import "SESGetIdentityVerificationAttributesRequestMarshaller.h"
+#import "SESGetSendQuotaResponse.h"
+#import "SESGetSendQuotaResponseUnmarshaller.h"
+#import "SESGetSendQuotaRequest.h"
+#import "SESGetSendQuotaRequestMarshaller.h"
+#import "SESSetIdentityFeedbackForwardingEnabledResponse.h"
+#import "SESSetIdentityFeedbackForwardingEnabledResponseUnmarshaller.h"
+#import "SESSetIdentityFeedbackForwardingEnabledRequest.h"
+#import "SESSetIdentityFeedbackForwardingEnabledRequestMarshaller.h"
+#import "SESSendEmailResponse.h"
+#import "SESSendEmailResponseUnmarshaller.h"
+#import "SESSendEmailRequest.h"
+#import "SESSendEmailRequestMarshaller.h"
+#import "SESVerifyDomainIdentityResponse.h"
+#import "SESVerifyDomainIdentityResponseUnmarshaller.h"
+#import "SESVerifyDomainIdentityRequest.h"
+#import "SESVerifyDomainIdentityRequestMarshaller.h"
+#import "SESSetIdentityNotificationTopicResponse.h"
+#import "SESSetIdentityNotificationTopicResponseUnmarshaller.h"
+#import "SESSetIdentityNotificationTopicRequest.h"
+#import "SESSetIdentityNotificationTopicRequestMarshaller.h"
+#import "SESDeleteVerifiedEmailAddressResponse.h"
+#import "SESDeleteVerifiedEmailAddressResponseUnmarshaller.h"
+#import "SESDeleteVerifiedEmailAddressRequest.h"
+#import "SESDeleteVerifiedEmailAddressRequestMarshaller.h"
 
 #import "../AmazonWebServiceClient.h"
 
@@ -75,29 +87,6 @@
 @interface AmazonSESClient:AmazonWebServiceClient
 {
 }
-
-
-/**
- * <p>
- * Returns the user's current sending limits.
- * </p>
- *
- * @param getSendQuotaRequest Container for the necessary parameters to execute the GetSendQuota service method on
- *           AmazonSES.
- *
- * @return The response from the GetSendQuota service method, as returned by AmazonSES.
- *
- *
- * @exception AmazonClientException If any internal errors are encountered inside the client while
- * attempting to make the request or handle the response.  For example
- * if a network connection is not available.  For more information see <AmazonClientException>.
- * @exception AmazonServiceException If an error response is returned by AmazonSES indicating
- * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
- *
- * @see SESGetSendQuotaRequest
- * @see SESGetSendQuotaResponse
- */
--(SESGetSendQuotaResponse *)getSendQuota:(SESGetSendQuotaRequest *)getSendQuotaRequest;
 
 
 /**
@@ -202,54 +191,15 @@
 
 /**
  * <p>
- * Composes an email message based on input data, and then immediately queues the message for sending.
- * </p>
- * <p>
- * <b>IMPORTANT:</b>If you have not yet requested production access to Amazon SES, then you will only be able to send email
- * to and from verified email addresses and domains. For more information, go to the Amazon SES Developer Guide.
- * </p>
- * <p>
- * The total size of the message cannot exceed 10 MB.
- * </p>
- * <p>
- * Amazon SES has a limit on the total number of recipients per message: The combined number of To:, CC: and BCC: email
- * addresses cannot exceed 50. If you need to send an email message to a larger audience, you can divide your recipient
- * list into groups of 50 or fewer, and then call Amazon SES repeatedly to send the message to each group.
- * </p>
- * <p>
- * For every message that you send, the total number of recipients (To:, CC: and BCC:) is counted against your <i>sending
- * quota</i> - the maximum number of emails you can send in a 24-hour period. For information about your sending quota, go
- * to the "Managing Your Sending Activity" section of the<a
+ * Given a list of verified identities (email addresses and/or domains), returns a structure describing identity
+ * notification attributes. For more information about feedback notification, see the <a
  * href="http://docs.amazonwebservices.com/ses/latest/DeveloperGuide"> Amazon SES Developer Guide </a> .
  * </p>
  *
- * @param sendEmailRequest Container for the necessary parameters to execute the SendEmail service method on AmazonSES.
+ * @param getIdentityNotificationAttributesRequest Container for the necessary parameters to execute the
+ *           GetIdentityNotificationAttributes service method on AmazonSES.
  *
- * @return The response from the SendEmail service method, as returned by AmazonSES.
- *
- * @exception SESMessageRejectedException For more information see <SESMessageRejectedException>
- *
- * @exception AmazonClientException If any internal errors are encountered inside the client while
- * attempting to make the request or handle the response.  For example
- * if a network connection is not available.  For more information see <AmazonClientException>.
- * @exception AmazonServiceException If an error response is returned by AmazonSES indicating
- * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
- *
- * @see SESSendEmailRequest
- * @see SESSendEmailResponse
- */
--(SESSendEmailResponse *)sendEmail:(SESSendEmailRequest *)sendEmailRequest;
-
-
-/**
- * <p>
- * Verifies a domain.
- * </p>
- *
- * @param verifyDomainIdentityRequest Container for the necessary parameters to execute the VerifyDomainIdentity service
- *           method on AmazonSES.
- *
- * @return The response from the VerifyDomainIdentity service method, as returned by AmazonSES.
+ * @return The response from the GetIdentityNotificationAttributes service method, as returned by AmazonSES.
  *
  *
  * @exception AmazonClientException If any internal errors are encountered inside the client while
@@ -258,35 +208,10 @@
  * @exception AmazonServiceException If an error response is returned by AmazonSES indicating
  * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
  *
- * @see SESVerifyDomainIdentityRequest
- * @see SESVerifyDomainIdentityResponse
+ * @see SESGetIdentityNotificationAttributesRequest
+ * @see SESGetIdentityNotificationAttributesResponse
  */
--(SESVerifyDomainIdentityResponse *)verifyDomainIdentity:(SESVerifyDomainIdentityRequest *)verifyDomainIdentityRequest;
-
-
-/**
- * <p>
- * Deletes the specified email address from the list of verified addresses.
- * </p>
- * <p>
- * <b>IMPORTANT:</b>The DeleteVerifiedEmailAddress action is deprecated as of the May 15, 2012 release of Domain
- * Verification. The DeleteIdentity action is now preferred.
- * </p>
- *
- * @param deleteVerifiedEmailAddressRequest Container for the necessary parameters to execute the
- *           DeleteVerifiedEmailAddress service method on AmazonSES.
- *
- *
- * @exception AmazonClientException If any internal errors are encountered inside the client while
- * attempting to make the request or handle the response.  For example
- * if a network connection is not available.  For more information see <AmazonClientException>.
- * @exception AmazonServiceException If an error response is returned by AmazonSES indicating
- * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
- *
- * @see SESDeleteVerifiedEmailAddressRequest
- * @see SESDeleteVerifiedEmailAddressResponse
- */
--(SESDeleteVerifiedEmailAddressResponse *)deleteVerifiedEmailAddress:(SESDeleteVerifiedEmailAddressRequest *)deleteVerifiedEmailAddressRequest;
+-(SESGetIdentityNotificationAttributesResponse *)getIdentityNotificationAttributes:(SESGetIdentityNotificationAttributesRequest *)getIdentityNotificationAttributesRequest;
 
 
 /**
@@ -404,6 +329,171 @@
  * @see SESGetIdentityVerificationAttributesResponse
  */
 -(SESGetIdentityVerificationAttributesResponse *)getIdentityVerificationAttributes:(SESGetIdentityVerificationAttributesRequest *)getIdentityVerificationAttributesRequest;
+
+
+/**
+ * <p>
+ * Returns the user's current sending limits.
+ * </p>
+ *
+ * @param getSendQuotaRequest Container for the necessary parameters to execute the GetSendQuota service method on
+ *           AmazonSES.
+ *
+ * @return The response from the GetSendQuota service method, as returned by AmazonSES.
+ *
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonSES indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see SESGetSendQuotaRequest
+ * @see SESGetSendQuotaResponse
+ */
+-(SESGetSendQuotaResponse *)getSendQuota:(SESGetSendQuotaRequest *)getSendQuotaRequest;
+
+
+/**
+ * <p>
+ * Given an identity (email address or domain), enables or disables whether Amazon SES forwards feedback notifications as
+ * email. Feedback forwarding may only be disabled when both complaint and bounce topics are set. For more information
+ * about feedback notification, see the <a href="http://docs.amazonwebservices.com/ses/latest/DeveloperGuide"> Amazon SES
+ * Developer Guide </a> .
+ * </p>
+ *
+ * @param setIdentityFeedbackForwardingEnabledRequest Container for the necessary parameters to execute the
+ *           SetIdentityFeedbackForwardingEnabled service method on AmazonSES.
+ *
+ * @return The response from the SetIdentityFeedbackForwardingEnabled service method, as returned by AmazonSES.
+ *
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonSES indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see SESSetIdentityFeedbackForwardingEnabledRequest
+ * @see SESSetIdentityFeedbackForwardingEnabledResponse
+ */
+-(SESSetIdentityFeedbackForwardingEnabledResponse *)setIdentityFeedbackForwardingEnabled:(SESSetIdentityFeedbackForwardingEnabledRequest *)setIdentityFeedbackForwardingEnabledRequest;
+
+
+/**
+ * <p>
+ * Composes an email message based on input data, and then immediately queues the message for sending.
+ * </p>
+ * <p>
+ * <b>IMPORTANT:</b>If you have not yet requested production access to Amazon SES, then you will only be able to send email
+ * to and from verified email addresses and domains. For more information, go to the Amazon SES Developer Guide.
+ * </p>
+ * <p>
+ * The total size of the message cannot exceed 10 MB.
+ * </p>
+ * <p>
+ * Amazon SES has a limit on the total number of recipients per message: The combined number of To:, CC: and BCC: email
+ * addresses cannot exceed 50. If you need to send an email message to a larger audience, you can divide your recipient
+ * list into groups of 50 or fewer, and then call Amazon SES repeatedly to send the message to each group.
+ * </p>
+ * <p>
+ * For every message that you send, the total number of recipients (To:, CC: and BCC:) is counted against your <i>sending
+ * quota</i> - the maximum number of emails you can send in a 24-hour period. For information about your sending quota, go
+ * to the "Managing Your Sending Activity" section of the<a
+ * href="http://docs.amazonwebservices.com/ses/latest/DeveloperGuide"> Amazon SES Developer Guide </a> .
+ * </p>
+ *
+ * @param sendEmailRequest Container for the necessary parameters to execute the SendEmail service method on AmazonSES.
+ *
+ * @return The response from the SendEmail service method, as returned by AmazonSES.
+ *
+ * @exception SESMessageRejectedException For more information see <SESMessageRejectedException>
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonSES indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see SESSendEmailRequest
+ * @see SESSendEmailResponse
+ */
+-(SESSendEmailResponse *)sendEmail:(SESSendEmailRequest *)sendEmailRequest;
+
+
+/**
+ * <p>
+ * Verifies a domain.
+ * </p>
+ *
+ * @param verifyDomainIdentityRequest Container for the necessary parameters to execute the VerifyDomainIdentity service
+ *           method on AmazonSES.
+ *
+ * @return The response from the VerifyDomainIdentity service method, as returned by AmazonSES.
+ *
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonSES indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see SESVerifyDomainIdentityRequest
+ * @see SESVerifyDomainIdentityResponse
+ */
+-(SESVerifyDomainIdentityResponse *)verifyDomainIdentity:(SESVerifyDomainIdentityRequest *)verifyDomainIdentityRequest;
+
+
+/**
+ * <p>
+ * Given an identity (email address or domain), sets the Amazon SNS topic to which Amazon SES will publish bounce and
+ * complaint notifications for emails sent with that identity as the Source .
+ * Publishing to topics may only be disabled when feedback forwarding is enabled. For more information about
+ * feedback notification, see the <a href="http://docs.amazonwebservices.com/ses/latest/DeveloperGuide"> Amazon SES
+ * Developer Guide </a> .
+ * </p>
+ *
+ * @param setIdentityNotificationTopicRequest Container for the necessary parameters to execute the
+ *           SetIdentityNotificationTopic service method on AmazonSES.
+ *
+ * @return The response from the SetIdentityNotificationTopic service method, as returned by AmazonSES.
+ *
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonSES indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see SESSetIdentityNotificationTopicRequest
+ * @see SESSetIdentityNotificationTopicResponse
+ */
+-(SESSetIdentityNotificationTopicResponse *)setIdentityNotificationTopic:(SESSetIdentityNotificationTopicRequest *)setIdentityNotificationTopicRequest;
+
+
+/**
+ * <p>
+ * Deletes the specified email address from the list of verified addresses.
+ * </p>
+ * <p>
+ * <b>IMPORTANT:</b>The DeleteVerifiedEmailAddress action is deprecated as of the May 15, 2012 release of Domain
+ * Verification. The DeleteIdentity action is now preferred.
+ * </p>
+ *
+ * @param deleteVerifiedEmailAddressRequest Container for the necessary parameters to execute the
+ *           DeleteVerifiedEmailAddress service method on AmazonSES.
+ *
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonSES indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see SESDeleteVerifiedEmailAddressRequest
+ * @see SESDeleteVerifiedEmailAddressResponse
+ */
+-(SESDeleteVerifiedEmailAddressResponse *)deleteVerifiedEmailAddress:(SESDeleteVerifiedEmailAddressRequest *)deleteVerifiedEmailAddressRequest;
 
 
 

@@ -45,13 +45,13 @@
 
         [buckets sortUsingSelector:@selector(compare:)];
     }
-    @catch (AmazonServiceException *exception) {
-        if ( [exception.errorCode isEqualToString:@"ExpiredToken"]) {
+    @catch (AmazonClientException *exception)
+    {
+        if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
+        {
             [[Constants expiredCredentialsAlert] show];
-            [AmazonClientManager wipeAllCredentials];
         }
-    }
-    @catch (AmazonClientException *exception) {
+        
         NSLog(@"Exception = %@", exception);
     }
 
@@ -115,13 +115,13 @@
             [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
             [tableView endUpdates];
         }
-        @catch (AmazonServiceException *exception) {
-            if ( [exception.errorCode isEqualToString:@"ExpiredToken"]) {
+        @catch (AmazonClientException *exception)
+        {
+            if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
+            {
                 [[Constants expiredCredentialsAlert] show];
-                [AmazonClientManager wipeAllCredentials];
             }
-        }
-        @catch (AmazonClientException *exception) {
+            
             NSLog(@"Exception = %@", exception);
         }
     }

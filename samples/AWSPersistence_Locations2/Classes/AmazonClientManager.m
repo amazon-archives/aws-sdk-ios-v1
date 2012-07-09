@@ -70,45 +70,55 @@ static AmazonTVMClient      *tvm         = nil;
 
 +(Response *)validateCredentials
 {
-    Response *ableToGetToken = nil;
-
+    Response *ableToGetToken = [[Response alloc] initWithCode:200 andMessage:@"OK"];
+    
     if ([AmazonKeyChainWrapper areCredentialsExpired]) {
-        [AmazonClientManager clearCredentials];
-
-        ableToGetToken = [[AmazonClientManager tvm] anonymousRegister];
-
-        if ( [ableToGetToken wasSuccessful])
+        
+        @synchronized(self)
         {
-            ableToGetToken = [[AmazonClientManager tvm] getToken];
+            if ([AmazonKeyChainWrapper areCredentialsExpired]) {
+                
+                ableToGetToken = [[AmazonClientManager tvm] anonymousRegister];
+                
+                if ( [ableToGetToken wasSuccessful])
+                {
+                    ableToGetToken = [[AmazonClientManager tvm] getToken];
+                    
+                    if ( [ableToGetToken wasSuccessful])
+                    {
+                        [AmazonClientManager initClients];
+                    }
+                }
+            }
         }
     }
-    else
+    else if (ddb == nil)
     {
-        ableToGetToken = [[Response alloc] initWithCode:200 andMessage:@"OK"];
+        @synchronized(self)
+        {
+            if (ddb == nil)
+            {
+                [AmazonClientManager initClients];
+            }
+        }
     }
-
-    if ( [ableToGetToken wasSuccessful] && credentials == nil)
-    {
-        [AmazonClientManager clearCredentials];
-
-        credentials = [AmazonKeyChainWrapper getCredentialsFromKeyChain];
-        
-        ddb = [[AmazonDynamoDBClient alloc] initWithCredentials:credentials];
-    }
-
+    
     return ableToGetToken;
 }
 
-+(void)clearCredentials
++(void)initClients
 {
-    ddb = nil;
-    credentials = nil;
+    credentials = [AmazonKeyChainWrapper getCredentialsFromKeyChain];
+    ddb = [[AmazonDynamoDBClient alloc] initWithCredentials:credentials];
 }
 
 +(void)wipeAllCredentials
 {
-    [AmazonClientManager clearCredentials];
-    [AmazonKeyChainWrapper wipeCredentialsFromKeyChain];
+    @synchronized(self)
+    {
+        [AmazonKeyChainWrapper wipeCredentialsFromKeyChain];
+        ddb = nil;
+    }
 }
 
 @end

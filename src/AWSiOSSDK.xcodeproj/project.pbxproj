@@ -657,6 +657,158 @@
 		382F08E114DB655D00BD3AB4 /* AutoScalingUpdateAutoScalingGroupResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 382F082C14DB655D00BD3AB4 /* AutoScalingUpdateAutoScalingGroupResponse.m */; };
 		382F08E214DB655D00BD3AB4 /* AutoScalingUpdateAutoScalingGroupResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 382F082D14DB655D00BD3AB4 /* AutoScalingUpdateAutoScalingGroupResponseUnmarshaller.m */; };
 		3846C388152D0DAA00AE6D72 /* AmazonDynamoDBClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3846C387152D0DAA00AE6D72 /* AmazonDynamoDBClient.m */; };
+		3885D6241595236B0038BDC6 /* AmazonSESClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5D61595236B0038BDC6 /* AmazonSESClient.m */; };
+		3885D6251595236B0038BDC6 /* SESBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5D81595236B0038BDC6 /* SESBody.m */; };
+		3885D6261595236B0038BDC6 /* SESContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5D91595236B0038BDC6 /* SESContent.m */; };
+		3885D6271595236B0038BDC6 /* SESDeleteIdentityRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5DA1595236B0038BDC6 /* SESDeleteIdentityRequest.m */; };
+		3885D6281595236B0038BDC6 /* SESDeleteIdentityRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5DB1595236B0038BDC6 /* SESDeleteIdentityRequestMarshaller.m */; };
+		3885D6291595236B0038BDC6 /* SESDeleteIdentityResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5DC1595236B0038BDC6 /* SESDeleteIdentityResponse.m */; };
+		3885D62A1595236B0038BDC6 /* SESDeleteIdentityResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5DD1595236B0038BDC6 /* SESDeleteIdentityResponseUnmarshaller.m */; };
+		3885D62B1595236B0038BDC6 /* SESDeleteVerifiedEmailAddressRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5DE1595236B0038BDC6 /* SESDeleteVerifiedEmailAddressRequest.m */; };
+		3885D62C1595236B0038BDC6 /* SESDeleteVerifiedEmailAddressRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5DF1595236B0038BDC6 /* SESDeleteVerifiedEmailAddressRequestMarshaller.m */; };
+		3885D62D1595236B0038BDC6 /* SESDeleteVerifiedEmailAddressResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5E01595236B0038BDC6 /* SESDeleteVerifiedEmailAddressResponse.m */; };
+		3885D62E1595236B0038BDC6 /* SESDeleteVerifiedEmailAddressResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5E11595236B0038BDC6 /* SESDeleteVerifiedEmailAddressResponseUnmarshaller.m */; };
+		3885D62F1595236B0038BDC6 /* SESDestination.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5E21595236B0038BDC6 /* SESDestination.m */; };
+		3885D6301595236B0038BDC6 /* SESGetIdentityNotificationAttributesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5E31595236B0038BDC6 /* SESGetIdentityNotificationAttributesRequest.m */; };
+		3885D6311595236B0038BDC6 /* SESGetIdentityNotificationAttributesRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5E41595236B0038BDC6 /* SESGetIdentityNotificationAttributesRequestMarshaller.m */; };
+		3885D6321595236B0038BDC6 /* SESGetIdentityNotificationAttributesResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5E51595236B0038BDC6 /* SESGetIdentityNotificationAttributesResponse.m */; };
+		3885D6331595236B0038BDC6 /* SESGetIdentityNotificationAttributesResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5E61595236B0038BDC6 /* SESGetIdentityNotificationAttributesResponseUnmarshaller.m */; };
+		3885D6341595236B0038BDC6 /* SESGetIdentityVerificationAttributesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5E71595236B0038BDC6 /* SESGetIdentityVerificationAttributesRequest.m */; };
+		3885D6351595236B0038BDC6 /* SESGetIdentityVerificationAttributesRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5E81595236B0038BDC6 /* SESGetIdentityVerificationAttributesRequestMarshaller.m */; };
+		3885D6361595236B0038BDC6 /* SESGetIdentityVerificationAttributesResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5E91595236B0038BDC6 /* SESGetIdentityVerificationAttributesResponse.m */; };
+		3885D6371595236B0038BDC6 /* SESGetIdentityVerificationAttributesResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5EA1595236B0038BDC6 /* SESGetIdentityVerificationAttributesResponseUnmarshaller.m */; };
+		3885D6381595236B0038BDC6 /* SESGetSendQuotaRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5EB1595236B0038BDC6 /* SESGetSendQuotaRequest.m */; };
+		3885D6391595236B0038BDC6 /* SESGetSendQuotaRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5EC1595236B0038BDC6 /* SESGetSendQuotaRequestMarshaller.m */; };
+		3885D63A1595236B0038BDC6 /* SESGetSendQuotaResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5ED1595236B0038BDC6 /* SESGetSendQuotaResponse.m */; };
+		3885D63B1595236B0038BDC6 /* SESGetSendQuotaResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5EE1595236B0038BDC6 /* SESGetSendQuotaResponseUnmarshaller.m */; };
+		3885D63C1595236B0038BDC6 /* SESGetSendStatisticsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5EF1595236B0038BDC6 /* SESGetSendStatisticsRequest.m */; };
+		3885D63D1595236B0038BDC6 /* SESGetSendStatisticsRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5F01595236B0038BDC6 /* SESGetSendStatisticsRequestMarshaller.m */; };
+		3885D63E1595236B0038BDC6 /* SESGetSendStatisticsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5F11595236B0038BDC6 /* SESGetSendStatisticsResponse.m */; };
+		3885D63F1595236B0038BDC6 /* SESGetSendStatisticsResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5F21595236B0038BDC6 /* SESGetSendStatisticsResponseUnmarshaller.m */; };
+		3885D6401595236B0038BDC6 /* SESIdentityNotificationAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5F31595236B0038BDC6 /* SESIdentityNotificationAttributes.m */; };
+		3885D6411595236B0038BDC6 /* SESIdentityNotificationAttributesUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5F41595236B0038BDC6 /* SESIdentityNotificationAttributesUnmarshaller.m */; };
+		3885D6421595236B0038BDC6 /* SESIdentityVerificationAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5F51595236B0038BDC6 /* SESIdentityVerificationAttributes.m */; };
+		3885D6431595236B0038BDC6 /* SESIdentityVerificationAttributesUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5F61595236B0038BDC6 /* SESIdentityVerificationAttributesUnmarshaller.m */; };
+		3885D6441595236B0038BDC6 /* SESListIdentitiesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5F71595236B0038BDC6 /* SESListIdentitiesRequest.m */; };
+		3885D6451595236B0038BDC6 /* SESListIdentitiesRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5F81595236B0038BDC6 /* SESListIdentitiesRequestMarshaller.m */; };
+		3885D6461595236B0038BDC6 /* SESListIdentitiesResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5F91595236B0038BDC6 /* SESListIdentitiesResponse.m */; };
+		3885D6471595236B0038BDC6 /* SESListIdentitiesResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5FA1595236B0038BDC6 /* SESListIdentitiesResponseUnmarshaller.m */; };
+		3885D6481595236B0038BDC6 /* SESListVerifiedEmailAddressesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5FB1595236B0038BDC6 /* SESListVerifiedEmailAddressesRequest.m */; };
+		3885D6491595236B0038BDC6 /* SESListVerifiedEmailAddressesRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5FC1595236B0038BDC6 /* SESListVerifiedEmailAddressesRequestMarshaller.m */; };
+		3885D64A1595236B0038BDC6 /* SESListVerifiedEmailAddressesResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5FD1595236B0038BDC6 /* SESListVerifiedEmailAddressesResponse.m */; };
+		3885D64B1595236B0038BDC6 /* SESListVerifiedEmailAddressesResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5FE1595236B0038BDC6 /* SESListVerifiedEmailAddressesResponseUnmarshaller.m */; };
+		3885D64C1595236B0038BDC6 /* SESMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D5FF1595236B0038BDC6 /* SESMessage.m */; };
+		3885D64D1595236B0038BDC6 /* SESMessageRejectedException.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D6001595236B0038BDC6 /* SESMessageRejectedException.m */; };
+		3885D64E1595236B0038BDC6 /* SESRawMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D6011595236B0038BDC6 /* SESRawMessage.m */; };
+		3885D64F1595236B0038BDC6 /* SESSendDataPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D6021595236B0038BDC6 /* SESSendDataPoint.m */; };
+		3885D6501595236B0038BDC6 /* SESSendDataPointUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D6031595236B0038BDC6 /* SESSendDataPointUnmarshaller.m */; };
+		3885D6511595236B0038BDC6 /* SESSendEmailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D6041595236B0038BDC6 /* SESSendEmailRequest.m */; };
+		3885D6521595236B0038BDC6 /* SESSendEmailRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D6051595236B0038BDC6 /* SESSendEmailRequestMarshaller.m */; };
+		3885D6531595236B0038BDC6 /* SESSendEmailResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D6061595236B0038BDC6 /* SESSendEmailResponse.m */; };
+		3885D6541595236B0038BDC6 /* SESSendEmailResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D6071595236B0038BDC6 /* SESSendEmailResponseUnmarshaller.m */; };
+		3885D6551595236B0038BDC6 /* SESSendRawEmailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D6081595236B0038BDC6 /* SESSendRawEmailRequest.m */; };
+		3885D6561595236B0038BDC6 /* SESSendRawEmailRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D6091595236B0038BDC6 /* SESSendRawEmailRequestMarshaller.m */; };
+		3885D6571595236B0038BDC6 /* SESSendRawEmailResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D60A1595236B0038BDC6 /* SESSendRawEmailResponse.m */; };
+		3885D6581595236B0038BDC6 /* SESSendRawEmailResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D60B1595236B0038BDC6 /* SESSendRawEmailResponseUnmarshaller.m */; };
+		3885D6591595236B0038BDC6 /* SESSetIdentityFeedbackForwardingEnabledRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D60C1595236B0038BDC6 /* SESSetIdentityFeedbackForwardingEnabledRequest.m */; };
+		3885D65A1595236B0038BDC6 /* SESSetIdentityFeedbackForwardingEnabledRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D60D1595236B0038BDC6 /* SESSetIdentityFeedbackForwardingEnabledRequestMarshaller.m */; };
+		3885D65B1595236B0038BDC6 /* SESSetIdentityFeedbackForwardingEnabledResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D60E1595236B0038BDC6 /* SESSetIdentityFeedbackForwardingEnabledResponse.m */; };
+		3885D65C1595236B0038BDC6 /* SESSetIdentityFeedbackForwardingEnabledResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D60F1595236B0038BDC6 /* SESSetIdentityFeedbackForwardingEnabledResponseUnmarshaller.m */; };
+		3885D65D1595236B0038BDC6 /* SESSetIdentityNotificationTopicRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D6101595236B0038BDC6 /* SESSetIdentityNotificationTopicRequest.m */; };
+		3885D65E1595236B0038BDC6 /* SESSetIdentityNotificationTopicRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D6111595236B0038BDC6 /* SESSetIdentityNotificationTopicRequestMarshaller.m */; };
+		3885D65F1595236B0038BDC6 /* SESSetIdentityNotificationTopicResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D6121595236B0038BDC6 /* SESSetIdentityNotificationTopicResponse.m */; };
+		3885D6601595236B0038BDC6 /* SESSetIdentityNotificationTopicResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D6131595236B0038BDC6 /* SESSetIdentityNotificationTopicResponseUnmarshaller.m */; };
+		3885D6611595236B0038BDC6 /* SESVerifyDomainIdentityRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D6141595236B0038BDC6 /* SESVerifyDomainIdentityRequest.m */; };
+		3885D6621595236B0038BDC6 /* SESVerifyDomainIdentityRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D6151595236B0038BDC6 /* SESVerifyDomainIdentityRequestMarshaller.m */; };
+		3885D6631595236B0038BDC6 /* SESVerifyDomainIdentityResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D6161595236B0038BDC6 /* SESVerifyDomainIdentityResponse.m */; };
+		3885D6641595236B0038BDC6 /* SESVerifyDomainIdentityResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D6171595236B0038BDC6 /* SESVerifyDomainIdentityResponseUnmarshaller.m */; };
+		3885D6651595236B0038BDC6 /* SESVerifyEmailAddressRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D6181595236B0038BDC6 /* SESVerifyEmailAddressRequest.m */; };
+		3885D6661595236B0038BDC6 /* SESVerifyEmailAddressRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D6191595236B0038BDC6 /* SESVerifyEmailAddressRequestMarshaller.m */; };
+		3885D6671595236B0038BDC6 /* SESVerifyEmailAddressResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D61A1595236B0038BDC6 /* SESVerifyEmailAddressResponse.m */; };
+		3885D6681595236B0038BDC6 /* SESVerifyEmailAddressResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D61B1595236B0038BDC6 /* SESVerifyEmailAddressResponseUnmarshaller.m */; };
+		3885D6691595236B0038BDC6 /* SESVerifyEmailIdentityRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D61C1595236B0038BDC6 /* SESVerifyEmailIdentityRequest.m */; };
+		3885D66A1595236B0038BDC6 /* SESVerifyEmailIdentityRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D61D1595236B0038BDC6 /* SESVerifyEmailIdentityRequestMarshaller.m */; };
+		3885D66B1595236B0038BDC6 /* SESVerifyEmailIdentityResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D61E1595236B0038BDC6 /* SESVerifyEmailIdentityResponse.m */; };
+		3885D66C1595236B0038BDC6 /* SESVerifyEmailIdentityResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D61F1595236B0038BDC6 /* SESVerifyEmailIdentityResponseUnmarshaller.m */; };
+		3885D66D1595236B0038BDC6 /* SESRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D6201595236B0038BDC6 /* SESRequest.m */; };
+		3885D66E1595236B0038BDC6 /* SESResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D6221595236B0038BDC6 /* SESResponse.m */; };
+		3885D66F1595236B0038BDC6 /* SESResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3885D6231595236B0038BDC6 /* SESResponseUnmarshaller.m */; };
+		3885D6BD159523870038BDC6 /* AmazonSESClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D671159523870038BDC6 /* AmazonSESClient.h */; };
+		3885D6BE159523870038BDC6 /* SESBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D672159523870038BDC6 /* SESBody.h */; };
+		3885D6BF159523870038BDC6 /* SESContent.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D673159523870038BDC6 /* SESContent.h */; };
+		3885D6C0159523870038BDC6 /* SESDeleteIdentityRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D674159523870038BDC6 /* SESDeleteIdentityRequest.h */; };
+		3885D6C1159523870038BDC6 /* SESDeleteIdentityRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D675159523870038BDC6 /* SESDeleteIdentityRequestMarshaller.h */; };
+		3885D6C2159523870038BDC6 /* SESDeleteIdentityResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D676159523870038BDC6 /* SESDeleteIdentityResponse.h */; };
+		3885D6C3159523870038BDC6 /* SESDeleteIdentityResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D677159523870038BDC6 /* SESDeleteIdentityResponseUnmarshaller.h */; };
+		3885D6C4159523870038BDC6 /* SESDeleteVerifiedEmailAddressRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D678159523870038BDC6 /* SESDeleteVerifiedEmailAddressRequest.h */; };
+		3885D6C5159523870038BDC6 /* SESDeleteVerifiedEmailAddressRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D679159523870038BDC6 /* SESDeleteVerifiedEmailAddressRequestMarshaller.h */; };
+		3885D6C6159523870038BDC6 /* SESDeleteVerifiedEmailAddressResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D67A159523870038BDC6 /* SESDeleteVerifiedEmailAddressResponse.h */; };
+		3885D6C7159523870038BDC6 /* SESDeleteVerifiedEmailAddressResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D67B159523870038BDC6 /* SESDeleteVerifiedEmailAddressResponseUnmarshaller.h */; };
+		3885D6C8159523870038BDC6 /* SESDestination.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D67C159523870038BDC6 /* SESDestination.h */; };
+		3885D6C9159523870038BDC6 /* SESGetIdentityNotificationAttributesRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D67D159523870038BDC6 /* SESGetIdentityNotificationAttributesRequest.h */; };
+		3885D6CA159523870038BDC6 /* SESGetIdentityNotificationAttributesRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D67E159523870038BDC6 /* SESGetIdentityNotificationAttributesRequestMarshaller.h */; };
+		3885D6CB159523870038BDC6 /* SESGetIdentityNotificationAttributesResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D67F159523870038BDC6 /* SESGetIdentityNotificationAttributesResponse.h */; };
+		3885D6CC159523870038BDC6 /* SESGetIdentityNotificationAttributesResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D680159523870038BDC6 /* SESGetIdentityNotificationAttributesResponseUnmarshaller.h */; };
+		3885D6CD159523870038BDC6 /* SESGetIdentityVerificationAttributesRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D681159523870038BDC6 /* SESGetIdentityVerificationAttributesRequest.h */; };
+		3885D6CE159523870038BDC6 /* SESGetIdentityVerificationAttributesRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D682159523870038BDC6 /* SESGetIdentityVerificationAttributesRequestMarshaller.h */; };
+		3885D6CF159523870038BDC6 /* SESGetIdentityVerificationAttributesResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D683159523870038BDC6 /* SESGetIdentityVerificationAttributesResponse.h */; };
+		3885D6D0159523870038BDC6 /* SESGetIdentityVerificationAttributesResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D684159523870038BDC6 /* SESGetIdentityVerificationAttributesResponseUnmarshaller.h */; };
+		3885D6D1159523870038BDC6 /* SESGetSendQuotaRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D685159523870038BDC6 /* SESGetSendQuotaRequest.h */; };
+		3885D6D2159523870038BDC6 /* SESGetSendQuotaRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D686159523870038BDC6 /* SESGetSendQuotaRequestMarshaller.h */; };
+		3885D6D3159523870038BDC6 /* SESGetSendQuotaResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D687159523870038BDC6 /* SESGetSendQuotaResponse.h */; };
+		3885D6D4159523870038BDC6 /* SESGetSendQuotaResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D688159523870038BDC6 /* SESGetSendQuotaResponseUnmarshaller.h */; };
+		3885D6D5159523870038BDC6 /* SESGetSendStatisticsRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D689159523870038BDC6 /* SESGetSendStatisticsRequest.h */; };
+		3885D6D6159523870038BDC6 /* SESGetSendStatisticsRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D68A159523870038BDC6 /* SESGetSendStatisticsRequestMarshaller.h */; };
+		3885D6D7159523870038BDC6 /* SESGetSendStatisticsResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D68B159523870038BDC6 /* SESGetSendStatisticsResponse.h */; };
+		3885D6D8159523870038BDC6 /* SESGetSendStatisticsResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D68C159523870038BDC6 /* SESGetSendStatisticsResponseUnmarshaller.h */; };
+		3885D6D9159523870038BDC6 /* SESIdentityNotificationAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D68D159523870038BDC6 /* SESIdentityNotificationAttributes.h */; };
+		3885D6DA159523870038BDC6 /* SESIdentityNotificationAttributesUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D68E159523870038BDC6 /* SESIdentityNotificationAttributesUnmarshaller.h */; };
+		3885D6DB159523870038BDC6 /* SESIdentityVerificationAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D68F159523870038BDC6 /* SESIdentityVerificationAttributes.h */; };
+		3885D6DC159523880038BDC6 /* SESIdentityVerificationAttributesUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D690159523870038BDC6 /* SESIdentityVerificationAttributesUnmarshaller.h */; };
+		3885D6DD159523880038BDC6 /* SESListIdentitiesRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D691159523870038BDC6 /* SESListIdentitiesRequest.h */; };
+		3885D6DE159523880038BDC6 /* SESListIdentitiesRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D692159523870038BDC6 /* SESListIdentitiesRequestMarshaller.h */; };
+		3885D6DF159523880038BDC6 /* SESListIdentitiesResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D693159523870038BDC6 /* SESListIdentitiesResponse.h */; };
+		3885D6E0159523880038BDC6 /* SESListIdentitiesResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D694159523870038BDC6 /* SESListIdentitiesResponseUnmarshaller.h */; };
+		3885D6E1159523880038BDC6 /* SESListVerifiedEmailAddressesRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D695159523870038BDC6 /* SESListVerifiedEmailAddressesRequest.h */; };
+		3885D6E2159523880038BDC6 /* SESListVerifiedEmailAddressesRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D696159523870038BDC6 /* SESListVerifiedEmailAddressesRequestMarshaller.h */; };
+		3885D6E3159523880038BDC6 /* SESListVerifiedEmailAddressesResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D697159523870038BDC6 /* SESListVerifiedEmailAddressesResponse.h */; };
+		3885D6E4159523880038BDC6 /* SESListVerifiedEmailAddressesResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D698159523870038BDC6 /* SESListVerifiedEmailAddressesResponseUnmarshaller.h */; };
+		3885D6E5159523880038BDC6 /* SESMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D699159523870038BDC6 /* SESMessage.h */; };
+		3885D6E6159523880038BDC6 /* SESMessageRejectedException.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D69A159523870038BDC6 /* SESMessageRejectedException.h */; };
+		3885D6E7159523880038BDC6 /* SESRawMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D69B159523870038BDC6 /* SESRawMessage.h */; };
+		3885D6E8159523880038BDC6 /* SESRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D69C159523870038BDC6 /* SESRequest.h */; };
+		3885D6E9159523880038BDC6 /* SESResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D69D159523870038BDC6 /* SESResponse.h */; };
+		3885D6EA159523880038BDC6 /* SESResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D69E159523870038BDC6 /* SESResponseUnmarshaller.h */; };
+		3885D6EB159523880038BDC6 /* SESSendDataPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D69F159523870038BDC6 /* SESSendDataPoint.h */; };
+		3885D6EC159523880038BDC6 /* SESSendDataPointUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D6A0159523870038BDC6 /* SESSendDataPointUnmarshaller.h */; };
+		3885D6ED159523880038BDC6 /* SESSendEmailRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D6A1159523870038BDC6 /* SESSendEmailRequest.h */; };
+		3885D6EE159523880038BDC6 /* SESSendEmailRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D6A2159523870038BDC6 /* SESSendEmailRequestMarshaller.h */; };
+		3885D6EF159523880038BDC6 /* SESSendEmailResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D6A3159523870038BDC6 /* SESSendEmailResponse.h */; };
+		3885D6F0159523880038BDC6 /* SESSendEmailResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D6A4159523870038BDC6 /* SESSendEmailResponseUnmarshaller.h */; };
+		3885D6F1159523880038BDC6 /* SESSendRawEmailRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D6A5159523870038BDC6 /* SESSendRawEmailRequest.h */; };
+		3885D6F2159523880038BDC6 /* SESSendRawEmailRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D6A6159523870038BDC6 /* SESSendRawEmailRequestMarshaller.h */; };
+		3885D6F3159523880038BDC6 /* SESSendRawEmailResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D6A7159523870038BDC6 /* SESSendRawEmailResponse.h */; };
+		3885D6F4159523880038BDC6 /* SESSendRawEmailResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D6A8159523870038BDC6 /* SESSendRawEmailResponseUnmarshaller.h */; };
+		3885D6F5159523880038BDC6 /* SESSetIdentityFeedbackForwardingEnabledRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D6A9159523870038BDC6 /* SESSetIdentityFeedbackForwardingEnabledRequest.h */; };
+		3885D6F6159523880038BDC6 /* SESSetIdentityFeedbackForwardingEnabledRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D6AA159523870038BDC6 /* SESSetIdentityFeedbackForwardingEnabledRequestMarshaller.h */; };
+		3885D6F7159523880038BDC6 /* SESSetIdentityFeedbackForwardingEnabledResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D6AB159523870038BDC6 /* SESSetIdentityFeedbackForwardingEnabledResponse.h */; };
+		3885D6F8159523880038BDC6 /* SESSetIdentityFeedbackForwardingEnabledResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D6AC159523870038BDC6 /* SESSetIdentityFeedbackForwardingEnabledResponseUnmarshaller.h */; };
+		3885D6F9159523880038BDC6 /* SESSetIdentityNotificationTopicRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D6AD159523870038BDC6 /* SESSetIdentityNotificationTopicRequest.h */; };
+		3885D6FA159523880038BDC6 /* SESSetIdentityNotificationTopicRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D6AE159523870038BDC6 /* SESSetIdentityNotificationTopicRequestMarshaller.h */; };
+		3885D6FB159523880038BDC6 /* SESSetIdentityNotificationTopicResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D6AF159523870038BDC6 /* SESSetIdentityNotificationTopicResponse.h */; };
+		3885D6FC159523880038BDC6 /* SESSetIdentityNotificationTopicResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D6B0159523870038BDC6 /* SESSetIdentityNotificationTopicResponseUnmarshaller.h */; };
+		3885D6FD159523880038BDC6 /* SESVerifyDomainIdentityRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D6B1159523870038BDC6 /* SESVerifyDomainIdentityRequest.h */; };
+		3885D6FE159523880038BDC6 /* SESVerifyDomainIdentityRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D6B2159523870038BDC6 /* SESVerifyDomainIdentityRequestMarshaller.h */; };
+		3885D6FF159523880038BDC6 /* SESVerifyDomainIdentityResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D6B3159523870038BDC6 /* SESVerifyDomainIdentityResponse.h */; };
+		3885D700159523880038BDC6 /* SESVerifyDomainIdentityResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D6B4159523870038BDC6 /* SESVerifyDomainIdentityResponseUnmarshaller.h */; };
+		3885D701159523880038BDC6 /* SESVerifyEmailAddressRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D6B5159523870038BDC6 /* SESVerifyEmailAddressRequest.h */; };
+		3885D702159523880038BDC6 /* SESVerifyEmailAddressRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D6B6159523870038BDC6 /* SESVerifyEmailAddressRequestMarshaller.h */; };
+		3885D703159523880038BDC6 /* SESVerifyEmailAddressResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D6B7159523870038BDC6 /* SESVerifyEmailAddressResponse.h */; };
+		3885D704159523880038BDC6 /* SESVerifyEmailAddressResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D6B8159523870038BDC6 /* SESVerifyEmailAddressResponseUnmarshaller.h */; };
+		3885D705159523880038BDC6 /* SESVerifyEmailIdentityRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D6B9159523870038BDC6 /* SESVerifyEmailIdentityRequest.h */; };
+		3885D706159523880038BDC6 /* SESVerifyEmailIdentityRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D6BA159523870038BDC6 /* SESVerifyEmailIdentityRequestMarshaller.h */; };
+		3885D707159523880038BDC6 /* SESVerifyEmailIdentityResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D6BB159523870038BDC6 /* SESVerifyEmailIdentityResponse.h */; };
+		3885D708159523880038BDC6 /* SESVerifyEmailIdentityResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 3885D6BC159523870038BDC6 /* SESVerifyEmailIdentityResponseUnmarshaller.h */; };
 		38A566A2158929FD005D30F8 /* AmazonEC2Client.h in Headers */ = {isa = PBXBuildFile; fileRef = 38A564B0158929FD005D30F8 /* AmazonEC2Client.h */; };
 		38A566A3158929FD005D30F8 /* EC2ActivateLicenseRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38A564B1158929FD005D30F8 /* EC2ActivateLicenseRequest.h */; };
 		38A566A4158929FD005D30F8 /* EC2ActivateLicenseRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38A564B2158929FD005D30F8 /* EC2ActivateLicenseRequestMarshaller.h */; };
@@ -1672,130 +1824,6 @@
 		38A9F0A114D8651A00E9F0C3 /* S3DeleteBucketLifecycleConfigurationRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38A9F09F14D8651A00E9F0C3 /* S3DeleteBucketLifecycleConfigurationRequest.h */; };
 		38A9F0A414D8655D00E9F0C3 /* S3DeleteBucketLifecycleConfigurationResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A9F0A214D8655D00E9F0C3 /* S3DeleteBucketLifecycleConfigurationResponse.m */; };
 		38A9F0A514D8655D00E9F0C3 /* S3DeleteBucketLifecycleConfigurationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A9F0A314D8655D00E9F0C3 /* S3DeleteBucketLifecycleConfigurationRequest.m */; };
-		38AC5702155C552200B0D7ED /* AmazonSESClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56C3155C552200B0D7ED /* AmazonSESClient.m */; };
-		38AC5703155C552200B0D7ED /* SESBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56C5155C552200B0D7ED /* SESBody.m */; };
-		38AC5704155C552200B0D7ED /* SESContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56C6155C552200B0D7ED /* SESContent.m */; };
-		38AC5705155C552200B0D7ED /* SESDeleteIdentityRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56C7155C552200B0D7ED /* SESDeleteIdentityRequest.m */; };
-		38AC5706155C552200B0D7ED /* SESDeleteIdentityRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56C8155C552200B0D7ED /* SESDeleteIdentityRequestMarshaller.m */; };
-		38AC5707155C552200B0D7ED /* SESDeleteIdentityResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56C9155C552200B0D7ED /* SESDeleteIdentityResponse.m */; };
-		38AC5708155C552200B0D7ED /* SESDeleteIdentityResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56CA155C552200B0D7ED /* SESDeleteIdentityResponseUnmarshaller.m */; };
-		38AC5709155C552200B0D7ED /* SESDeleteVerifiedEmailAddressRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56CB155C552200B0D7ED /* SESDeleteVerifiedEmailAddressRequest.m */; };
-		38AC570A155C552200B0D7ED /* SESDeleteVerifiedEmailAddressRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56CC155C552200B0D7ED /* SESDeleteVerifiedEmailAddressRequestMarshaller.m */; };
-		38AC570B155C552200B0D7ED /* SESDeleteVerifiedEmailAddressResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56CD155C552200B0D7ED /* SESDeleteVerifiedEmailAddressResponse.m */; };
-		38AC570C155C552200B0D7ED /* SESDeleteVerifiedEmailAddressResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56CE155C552200B0D7ED /* SESDeleteVerifiedEmailAddressResponseUnmarshaller.m */; };
-		38AC570D155C552200B0D7ED /* SESDestination.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56CF155C552200B0D7ED /* SESDestination.m */; };
-		38AC570E155C552200B0D7ED /* SESGetIdentityVerificationAttributesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56D0155C552200B0D7ED /* SESGetIdentityVerificationAttributesRequest.m */; };
-		38AC570F155C552200B0D7ED /* SESGetIdentityVerificationAttributesRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56D1155C552200B0D7ED /* SESGetIdentityVerificationAttributesRequestMarshaller.m */; };
-		38AC5710155C552200B0D7ED /* SESGetIdentityVerificationAttributesResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56D2155C552200B0D7ED /* SESGetIdentityVerificationAttributesResponse.m */; };
-		38AC5711155C552200B0D7ED /* SESGetIdentityVerificationAttributesResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56D3155C552200B0D7ED /* SESGetIdentityVerificationAttributesResponseUnmarshaller.m */; };
-		38AC5712155C552200B0D7ED /* SESGetSendQuotaRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56D4155C552200B0D7ED /* SESGetSendQuotaRequest.m */; };
-		38AC5713155C552200B0D7ED /* SESGetSendQuotaRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56D5155C552200B0D7ED /* SESGetSendQuotaRequestMarshaller.m */; };
-		38AC5714155C552200B0D7ED /* SESGetSendQuotaResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56D6155C552200B0D7ED /* SESGetSendQuotaResponse.m */; };
-		38AC5715155C552200B0D7ED /* SESGetSendQuotaResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56D7155C552200B0D7ED /* SESGetSendQuotaResponseUnmarshaller.m */; };
-		38AC5716155C552200B0D7ED /* SESGetSendStatisticsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56D8155C552200B0D7ED /* SESGetSendStatisticsRequest.m */; };
-		38AC5717155C552200B0D7ED /* SESGetSendStatisticsRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56D9155C552200B0D7ED /* SESGetSendStatisticsRequestMarshaller.m */; };
-		38AC5718155C552200B0D7ED /* SESGetSendStatisticsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56DA155C552200B0D7ED /* SESGetSendStatisticsResponse.m */; };
-		38AC5719155C552200B0D7ED /* SESGetSendStatisticsResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56DB155C552200B0D7ED /* SESGetSendStatisticsResponseUnmarshaller.m */; };
-		38AC571A155C552200B0D7ED /* SESIdentityVerificationAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56DC155C552200B0D7ED /* SESIdentityVerificationAttributes.m */; };
-		38AC571B155C552200B0D7ED /* SESIdentityVerificationAttributesUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56DD155C552200B0D7ED /* SESIdentityVerificationAttributesUnmarshaller.m */; };
-		38AC571C155C552200B0D7ED /* SESListIdentitiesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56DE155C552200B0D7ED /* SESListIdentitiesRequest.m */; };
-		38AC571D155C552200B0D7ED /* SESListIdentitiesRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56DF155C552200B0D7ED /* SESListIdentitiesRequestMarshaller.m */; };
-		38AC571E155C552200B0D7ED /* SESListIdentitiesResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56E0155C552200B0D7ED /* SESListIdentitiesResponse.m */; };
-		38AC571F155C552200B0D7ED /* SESListIdentitiesResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56E1155C552200B0D7ED /* SESListIdentitiesResponseUnmarshaller.m */; };
-		38AC5720155C552200B0D7ED /* SESListVerifiedEmailAddressesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56E2155C552200B0D7ED /* SESListVerifiedEmailAddressesRequest.m */; };
-		38AC5721155C552200B0D7ED /* SESListVerifiedEmailAddressesRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56E3155C552200B0D7ED /* SESListVerifiedEmailAddressesRequestMarshaller.m */; };
-		38AC5722155C552200B0D7ED /* SESListVerifiedEmailAddressesResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56E4155C552200B0D7ED /* SESListVerifiedEmailAddressesResponse.m */; };
-		38AC5723155C552200B0D7ED /* SESListVerifiedEmailAddressesResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56E5155C552200B0D7ED /* SESListVerifiedEmailAddressesResponseUnmarshaller.m */; };
-		38AC5724155C552200B0D7ED /* SESMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56E6155C552200B0D7ED /* SESMessage.m */; };
-		38AC5725155C552200B0D7ED /* SESMessageRejectedException.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56E7155C552200B0D7ED /* SESMessageRejectedException.m */; };
-		38AC5726155C552200B0D7ED /* SESRawMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56E8155C552200B0D7ED /* SESRawMessage.m */; };
-		38AC5727155C552200B0D7ED /* SESSendDataPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56E9155C552200B0D7ED /* SESSendDataPoint.m */; };
-		38AC5728155C552200B0D7ED /* SESSendDataPointUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56EA155C552200B0D7ED /* SESSendDataPointUnmarshaller.m */; };
-		38AC5729155C552200B0D7ED /* SESSendEmailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56EB155C552200B0D7ED /* SESSendEmailRequest.m */; };
-		38AC572A155C552200B0D7ED /* SESSendEmailRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56EC155C552200B0D7ED /* SESSendEmailRequestMarshaller.m */; };
-		38AC572B155C552200B0D7ED /* SESSendEmailResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56ED155C552200B0D7ED /* SESSendEmailResponse.m */; };
-		38AC572C155C552200B0D7ED /* SESSendEmailResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56EE155C552200B0D7ED /* SESSendEmailResponseUnmarshaller.m */; };
-		38AC572D155C552200B0D7ED /* SESSendRawEmailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56EF155C552200B0D7ED /* SESSendRawEmailRequest.m */; };
-		38AC572E155C552200B0D7ED /* SESSendRawEmailRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56F0155C552200B0D7ED /* SESSendRawEmailRequestMarshaller.m */; };
-		38AC572F155C552200B0D7ED /* SESSendRawEmailResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56F1155C552200B0D7ED /* SESSendRawEmailResponse.m */; };
-		38AC5730155C552200B0D7ED /* SESSendRawEmailResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56F2155C552200B0D7ED /* SESSendRawEmailResponseUnmarshaller.m */; };
-		38AC5731155C552200B0D7ED /* SESVerifyDomainIdentityRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56F3155C552200B0D7ED /* SESVerifyDomainIdentityRequest.m */; };
-		38AC5732155C552200B0D7ED /* SESVerifyDomainIdentityRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56F4155C552200B0D7ED /* SESVerifyDomainIdentityRequestMarshaller.m */; };
-		38AC5733155C552200B0D7ED /* SESVerifyDomainIdentityResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56F5155C552200B0D7ED /* SESVerifyDomainIdentityResponse.m */; };
-		38AC5734155C552200B0D7ED /* SESVerifyDomainIdentityResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56F6155C552200B0D7ED /* SESVerifyDomainIdentityResponseUnmarshaller.m */; };
-		38AC5735155C552200B0D7ED /* SESVerifyEmailAddressRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56F7155C552200B0D7ED /* SESVerifyEmailAddressRequest.m */; };
-		38AC5736155C552200B0D7ED /* SESVerifyEmailAddressRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56F8155C552200B0D7ED /* SESVerifyEmailAddressRequestMarshaller.m */; };
-		38AC5737155C552200B0D7ED /* SESVerifyEmailAddressResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56F9155C552200B0D7ED /* SESVerifyEmailAddressResponse.m */; };
-		38AC5738155C552200B0D7ED /* SESVerifyEmailAddressResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56FA155C552200B0D7ED /* SESVerifyEmailAddressResponseUnmarshaller.m */; };
-		38AC5739155C552200B0D7ED /* SESVerifyEmailIdentityRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56FB155C552200B0D7ED /* SESVerifyEmailIdentityRequest.m */; };
-		38AC573A155C552200B0D7ED /* SESVerifyEmailIdentityRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56FC155C552200B0D7ED /* SESVerifyEmailIdentityRequestMarshaller.m */; };
-		38AC573B155C552200B0D7ED /* SESVerifyEmailIdentityResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56FD155C552200B0D7ED /* SESVerifyEmailIdentityResponse.m */; };
-		38AC573C155C552200B0D7ED /* SESVerifyEmailIdentityResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56FE155C552200B0D7ED /* SESVerifyEmailIdentityResponseUnmarshaller.m */; };
-		38AC573D155C552200B0D7ED /* SESRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC56FF155C552200B0D7ED /* SESRequest.m */; };
-		38AC573E155C552200B0D7ED /* SESResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC5700155C552200B0D7ED /* SESResponse.m */; };
-		38AC573F155C552200B0D7ED /* SESResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC5701155C552200B0D7ED /* SESResponseUnmarshaller.m */; };
-		38AC577F155C553D00B0D7ED /* AmazonSESClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5741155C553D00B0D7ED /* AmazonSESClient.h */; };
-		38AC5780155C553D00B0D7ED /* SESBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5742155C553D00B0D7ED /* SESBody.h */; };
-		38AC5781155C553D00B0D7ED /* SESContent.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5743155C553D00B0D7ED /* SESContent.h */; };
-		38AC5782155C553D00B0D7ED /* SESDeleteIdentityRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5744155C553D00B0D7ED /* SESDeleteIdentityRequest.h */; };
-		38AC5783155C553D00B0D7ED /* SESDeleteIdentityRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5745155C553D00B0D7ED /* SESDeleteIdentityRequestMarshaller.h */; };
-		38AC5784155C553D00B0D7ED /* SESDeleteIdentityResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5746155C553D00B0D7ED /* SESDeleteIdentityResponse.h */; };
-		38AC5785155C553D00B0D7ED /* SESDeleteIdentityResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5747155C553D00B0D7ED /* SESDeleteIdentityResponseUnmarshaller.h */; };
-		38AC5786155C553D00B0D7ED /* SESDeleteVerifiedEmailAddressRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5748155C553D00B0D7ED /* SESDeleteVerifiedEmailAddressRequest.h */; };
-		38AC5787155C553D00B0D7ED /* SESDeleteVerifiedEmailAddressRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5749155C553D00B0D7ED /* SESDeleteVerifiedEmailAddressRequestMarshaller.h */; };
-		38AC5788155C553D00B0D7ED /* SESDeleteVerifiedEmailAddressResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC574A155C553D00B0D7ED /* SESDeleteVerifiedEmailAddressResponse.h */; };
-		38AC5789155C553D00B0D7ED /* SESDeleteVerifiedEmailAddressResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC574B155C553D00B0D7ED /* SESDeleteVerifiedEmailAddressResponseUnmarshaller.h */; };
-		38AC578A155C553D00B0D7ED /* SESDestination.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC574C155C553D00B0D7ED /* SESDestination.h */; };
-		38AC578B155C553D00B0D7ED /* SESGetIdentityVerificationAttributesRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC574D155C553D00B0D7ED /* SESGetIdentityVerificationAttributesRequest.h */; };
-		38AC578C155C553D00B0D7ED /* SESGetIdentityVerificationAttributesRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC574E155C553D00B0D7ED /* SESGetIdentityVerificationAttributesRequestMarshaller.h */; };
-		38AC578D155C553D00B0D7ED /* SESGetIdentityVerificationAttributesResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC574F155C553D00B0D7ED /* SESGetIdentityVerificationAttributesResponse.h */; };
-		38AC578E155C553D00B0D7ED /* SESGetIdentityVerificationAttributesResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5750155C553D00B0D7ED /* SESGetIdentityVerificationAttributesResponseUnmarshaller.h */; };
-		38AC578F155C553D00B0D7ED /* SESGetSendQuotaRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5751155C553D00B0D7ED /* SESGetSendQuotaRequest.h */; };
-		38AC5790155C553D00B0D7ED /* SESGetSendQuotaRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5752155C553D00B0D7ED /* SESGetSendQuotaRequestMarshaller.h */; };
-		38AC5791155C553D00B0D7ED /* SESGetSendQuotaResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5753155C553D00B0D7ED /* SESGetSendQuotaResponse.h */; };
-		38AC5792155C553D00B0D7ED /* SESGetSendQuotaResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5754155C553D00B0D7ED /* SESGetSendQuotaResponseUnmarshaller.h */; };
-		38AC5793155C553D00B0D7ED /* SESGetSendStatisticsRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5755155C553D00B0D7ED /* SESGetSendStatisticsRequest.h */; };
-		38AC5794155C553D00B0D7ED /* SESGetSendStatisticsRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5756155C553D00B0D7ED /* SESGetSendStatisticsRequestMarshaller.h */; };
-		38AC5795155C553D00B0D7ED /* SESGetSendStatisticsResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5757155C553D00B0D7ED /* SESGetSendStatisticsResponse.h */; };
-		38AC5796155C553D00B0D7ED /* SESGetSendStatisticsResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5758155C553D00B0D7ED /* SESGetSendStatisticsResponseUnmarshaller.h */; };
-		38AC5797155C553D00B0D7ED /* SESIdentityVerificationAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5759155C553D00B0D7ED /* SESIdentityVerificationAttributes.h */; };
-		38AC5798155C553D00B0D7ED /* SESIdentityVerificationAttributesUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC575A155C553D00B0D7ED /* SESIdentityVerificationAttributesUnmarshaller.h */; };
-		38AC5799155C553D00B0D7ED /* SESListIdentitiesRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC575B155C553D00B0D7ED /* SESListIdentitiesRequest.h */; };
-		38AC579A155C553D00B0D7ED /* SESListIdentitiesRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC575C155C553D00B0D7ED /* SESListIdentitiesRequestMarshaller.h */; };
-		38AC579B155C553D00B0D7ED /* SESListIdentitiesResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC575D155C553D00B0D7ED /* SESListIdentitiesResponse.h */; };
-		38AC579C155C553D00B0D7ED /* SESListIdentitiesResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC575E155C553D00B0D7ED /* SESListIdentitiesResponseUnmarshaller.h */; };
-		38AC579D155C553D00B0D7ED /* SESListVerifiedEmailAddressesRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC575F155C553D00B0D7ED /* SESListVerifiedEmailAddressesRequest.h */; };
-		38AC579E155C553D00B0D7ED /* SESListVerifiedEmailAddressesRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5760155C553D00B0D7ED /* SESListVerifiedEmailAddressesRequestMarshaller.h */; };
-		38AC579F155C553D00B0D7ED /* SESListVerifiedEmailAddressesResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5761155C553D00B0D7ED /* SESListVerifiedEmailAddressesResponse.h */; };
-		38AC57A0155C553D00B0D7ED /* SESListVerifiedEmailAddressesResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5762155C553D00B0D7ED /* SESListVerifiedEmailAddressesResponseUnmarshaller.h */; };
-		38AC57A1155C553D00B0D7ED /* SESMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5763155C553D00B0D7ED /* SESMessage.h */; };
-		38AC57A2155C553D00B0D7ED /* SESMessageRejectedException.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5764155C553D00B0D7ED /* SESMessageRejectedException.h */; };
-		38AC57A3155C553D00B0D7ED /* SESRawMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5765155C553D00B0D7ED /* SESRawMessage.h */; };
-		38AC57A4155C553D00B0D7ED /* SESRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5766155C553D00B0D7ED /* SESRequest.h */; };
-		38AC57A5155C553D00B0D7ED /* SESResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5767155C553D00B0D7ED /* SESResponse.h */; };
-		38AC57A6155C553D00B0D7ED /* SESResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5768155C553D00B0D7ED /* SESResponseUnmarshaller.h */; };
-		38AC57A7155C553D00B0D7ED /* SESSendDataPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5769155C553D00B0D7ED /* SESSendDataPoint.h */; };
-		38AC57A8155C553D00B0D7ED /* SESSendDataPointUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC576A155C553D00B0D7ED /* SESSendDataPointUnmarshaller.h */; };
-		38AC57A9155C553D00B0D7ED /* SESSendEmailRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC576B155C553D00B0D7ED /* SESSendEmailRequest.h */; };
-		38AC57AA155C553D00B0D7ED /* SESSendEmailRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC576C155C553D00B0D7ED /* SESSendEmailRequestMarshaller.h */; };
-		38AC57AB155C553D00B0D7ED /* SESSendEmailResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC576D155C553D00B0D7ED /* SESSendEmailResponse.h */; };
-		38AC57AC155C553D00B0D7ED /* SESSendEmailResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC576E155C553D00B0D7ED /* SESSendEmailResponseUnmarshaller.h */; };
-		38AC57AD155C553D00B0D7ED /* SESSendRawEmailRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC576F155C553D00B0D7ED /* SESSendRawEmailRequest.h */; };
-		38AC57AE155C553D00B0D7ED /* SESSendRawEmailRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5770155C553D00B0D7ED /* SESSendRawEmailRequestMarshaller.h */; };
-		38AC57AF155C553D00B0D7ED /* SESSendRawEmailResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5771155C553D00B0D7ED /* SESSendRawEmailResponse.h */; };
-		38AC57B0155C553D00B0D7ED /* SESSendRawEmailResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5772155C553D00B0D7ED /* SESSendRawEmailResponseUnmarshaller.h */; };
-		38AC57B1155C553D00B0D7ED /* SESVerifyDomainIdentityRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5773155C553D00B0D7ED /* SESVerifyDomainIdentityRequest.h */; };
-		38AC57B2155C553D00B0D7ED /* SESVerifyDomainIdentityRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5774155C553D00B0D7ED /* SESVerifyDomainIdentityRequestMarshaller.h */; };
-		38AC57B3155C553D00B0D7ED /* SESVerifyDomainIdentityResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5775155C553D00B0D7ED /* SESVerifyDomainIdentityResponse.h */; };
-		38AC57B4155C553D00B0D7ED /* SESVerifyDomainIdentityResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5776155C553D00B0D7ED /* SESVerifyDomainIdentityResponseUnmarshaller.h */; };
-		38AC57B5155C553D00B0D7ED /* SESVerifyEmailAddressRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5777155C553D00B0D7ED /* SESVerifyEmailAddressRequest.h */; };
-		38AC57B6155C553D00B0D7ED /* SESVerifyEmailAddressRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5778155C553D00B0D7ED /* SESVerifyEmailAddressRequestMarshaller.h */; };
-		38AC57B7155C553D00B0D7ED /* SESVerifyEmailAddressResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC5779155C553D00B0D7ED /* SESVerifyEmailAddressResponse.h */; };
-		38AC57B8155C553D00B0D7ED /* SESVerifyEmailAddressResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC577A155C553D00B0D7ED /* SESVerifyEmailAddressResponseUnmarshaller.h */; };
-		38AC57B9155C553D00B0D7ED /* SESVerifyEmailIdentityRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC577B155C553D00B0D7ED /* SESVerifyEmailIdentityRequest.h */; };
-		38AC57BA155C553D00B0D7ED /* SESVerifyEmailIdentityRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC577C155C553D00B0D7ED /* SESVerifyEmailIdentityRequestMarshaller.h */; };
-		38AC57BB155C553D00B0D7ED /* SESVerifyEmailIdentityResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC577D155C553D00B0D7ED /* SESVerifyEmailIdentityResponse.h */; };
-		38AC57BC155C553D00B0D7ED /* SESVerifyEmailIdentityResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AC577E155C553D00B0D7ED /* SESVerifyEmailIdentityResponseUnmarshaller.h */; };
 		38C3257614D88D800000DC67 /* S3SetBucketLifecycleConfigurationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A9F08F14D85F7000E9F0C3 /* S3SetBucketLifecycleConfigurationRequest.m */; };
 		38F71C6414DB660600FF274D /* AmazonAutoScalingClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 38F71BAF14DB660500FF274D /* AmazonAutoScalingClient.h */; };
 		38F71C6514DB660600FF274D /* AutoScalingActivity.h in Headers */ = {isa = PBXBuildFile; fileRef = 38F71BB014DB660500FF274D /* AutoScalingActivity.h */; };
@@ -2021,6 +2049,7 @@
 		CE73C04114C8158E0081B530 /* S3DeleteObjectsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = CE73C03F14C8158E0081B530 /* S3DeleteObjectsResponse.m */; };
 		CE73C04514C8AA600081B530 /* S3KeyVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = CE73C04314C8AA5F0081B530 /* S3KeyVersion.m */; };
 		CE73C04914CA49930081B530 /* S3DeleteObjectsResultUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = CE73C04714CA498D0081B530 /* S3DeleteObjectsResultUnmarshaller.m */; };
+		CE96C1B7158BD58A0084D3CB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE96C1A9158BC2A70084D3CB /* MobileCoreServices.framework */; };
 		CEA4FEE214D0E27400B0B33A /* BucketWebsiteConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = CEA4FED814D0E27400B0B33A /* BucketWebsiteConfiguration.h */; };
 		CEA4FEE314D0E27400B0B33A /* S3DeleteBucketWebsiteConfigurationRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CEA4FED914D0E27400B0B33A /* S3DeleteBucketWebsiteConfigurationRequest.h */; };
 		CEA4FEE414D0E27400B0B33A /* S3DeleteBucketWebsiteConfigurationResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CEA4FEDA14D0E27400B0B33A /* S3DeleteBucketWebsiteConfigurationResponse.h */; };
@@ -3590,6 +3619,158 @@
 		382F082C14DB655D00BD3AB4 /* AutoScalingUpdateAutoScalingGroupResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoScalingUpdateAutoScalingGroupResponse.m; sourceTree = "<group>"; };
 		382F082D14DB655D00BD3AB4 /* AutoScalingUpdateAutoScalingGroupResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoScalingUpdateAutoScalingGroupResponseUnmarshaller.m; sourceTree = "<group>"; };
 		3846C387152D0DAA00AE6D72 /* AmazonDynamoDBClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonDynamoDBClient.m; sourceTree = "<group>"; };
+		3885D5D61595236B0038BDC6 /* AmazonSESClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonSESClient.m; sourceTree = "<group>"; };
+		3885D5D81595236B0038BDC6 /* SESBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESBody.m; sourceTree = "<group>"; };
+		3885D5D91595236B0038BDC6 /* SESContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESContent.m; sourceTree = "<group>"; };
+		3885D5DA1595236B0038BDC6 /* SESDeleteIdentityRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESDeleteIdentityRequest.m; sourceTree = "<group>"; };
+		3885D5DB1595236B0038BDC6 /* SESDeleteIdentityRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESDeleteIdentityRequestMarshaller.m; sourceTree = "<group>"; };
+		3885D5DC1595236B0038BDC6 /* SESDeleteIdentityResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESDeleteIdentityResponse.m; sourceTree = "<group>"; };
+		3885D5DD1595236B0038BDC6 /* SESDeleteIdentityResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESDeleteIdentityResponseUnmarshaller.m; sourceTree = "<group>"; };
+		3885D5DE1595236B0038BDC6 /* SESDeleteVerifiedEmailAddressRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESDeleteVerifiedEmailAddressRequest.m; sourceTree = "<group>"; };
+		3885D5DF1595236B0038BDC6 /* SESDeleteVerifiedEmailAddressRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESDeleteVerifiedEmailAddressRequestMarshaller.m; sourceTree = "<group>"; };
+		3885D5E01595236B0038BDC6 /* SESDeleteVerifiedEmailAddressResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESDeleteVerifiedEmailAddressResponse.m; sourceTree = "<group>"; };
+		3885D5E11595236B0038BDC6 /* SESDeleteVerifiedEmailAddressResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESDeleteVerifiedEmailAddressResponseUnmarshaller.m; sourceTree = "<group>"; };
+		3885D5E21595236B0038BDC6 /* SESDestination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESDestination.m; sourceTree = "<group>"; };
+		3885D5E31595236B0038BDC6 /* SESGetIdentityNotificationAttributesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESGetIdentityNotificationAttributesRequest.m; sourceTree = "<group>"; };
+		3885D5E41595236B0038BDC6 /* SESGetIdentityNotificationAttributesRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESGetIdentityNotificationAttributesRequestMarshaller.m; sourceTree = "<group>"; };
+		3885D5E51595236B0038BDC6 /* SESGetIdentityNotificationAttributesResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESGetIdentityNotificationAttributesResponse.m; sourceTree = "<group>"; };
+		3885D5E61595236B0038BDC6 /* SESGetIdentityNotificationAttributesResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESGetIdentityNotificationAttributesResponseUnmarshaller.m; sourceTree = "<group>"; };
+		3885D5E71595236B0038BDC6 /* SESGetIdentityVerificationAttributesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESGetIdentityVerificationAttributesRequest.m; sourceTree = "<group>"; };
+		3885D5E81595236B0038BDC6 /* SESGetIdentityVerificationAttributesRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESGetIdentityVerificationAttributesRequestMarshaller.m; sourceTree = "<group>"; };
+		3885D5E91595236B0038BDC6 /* SESGetIdentityVerificationAttributesResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESGetIdentityVerificationAttributesResponse.m; sourceTree = "<group>"; };
+		3885D5EA1595236B0038BDC6 /* SESGetIdentityVerificationAttributesResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESGetIdentityVerificationAttributesResponseUnmarshaller.m; sourceTree = "<group>"; };
+		3885D5EB1595236B0038BDC6 /* SESGetSendQuotaRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESGetSendQuotaRequest.m; sourceTree = "<group>"; };
+		3885D5EC1595236B0038BDC6 /* SESGetSendQuotaRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESGetSendQuotaRequestMarshaller.m; sourceTree = "<group>"; };
+		3885D5ED1595236B0038BDC6 /* SESGetSendQuotaResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESGetSendQuotaResponse.m; sourceTree = "<group>"; };
+		3885D5EE1595236B0038BDC6 /* SESGetSendQuotaResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESGetSendQuotaResponseUnmarshaller.m; sourceTree = "<group>"; };
+		3885D5EF1595236B0038BDC6 /* SESGetSendStatisticsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESGetSendStatisticsRequest.m; sourceTree = "<group>"; };
+		3885D5F01595236B0038BDC6 /* SESGetSendStatisticsRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESGetSendStatisticsRequestMarshaller.m; sourceTree = "<group>"; };
+		3885D5F11595236B0038BDC6 /* SESGetSendStatisticsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESGetSendStatisticsResponse.m; sourceTree = "<group>"; };
+		3885D5F21595236B0038BDC6 /* SESGetSendStatisticsResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESGetSendStatisticsResponseUnmarshaller.m; sourceTree = "<group>"; };
+		3885D5F31595236B0038BDC6 /* SESIdentityNotificationAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESIdentityNotificationAttributes.m; sourceTree = "<group>"; };
+		3885D5F41595236B0038BDC6 /* SESIdentityNotificationAttributesUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESIdentityNotificationAttributesUnmarshaller.m; sourceTree = "<group>"; };
+		3885D5F51595236B0038BDC6 /* SESIdentityVerificationAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESIdentityVerificationAttributes.m; sourceTree = "<group>"; };
+		3885D5F61595236B0038BDC6 /* SESIdentityVerificationAttributesUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESIdentityVerificationAttributesUnmarshaller.m; sourceTree = "<group>"; };
+		3885D5F71595236B0038BDC6 /* SESListIdentitiesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESListIdentitiesRequest.m; sourceTree = "<group>"; };
+		3885D5F81595236B0038BDC6 /* SESListIdentitiesRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESListIdentitiesRequestMarshaller.m; sourceTree = "<group>"; };
+		3885D5F91595236B0038BDC6 /* SESListIdentitiesResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESListIdentitiesResponse.m; sourceTree = "<group>"; };
+		3885D5FA1595236B0038BDC6 /* SESListIdentitiesResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESListIdentitiesResponseUnmarshaller.m; sourceTree = "<group>"; };
+		3885D5FB1595236B0038BDC6 /* SESListVerifiedEmailAddressesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESListVerifiedEmailAddressesRequest.m; sourceTree = "<group>"; };
+		3885D5FC1595236B0038BDC6 /* SESListVerifiedEmailAddressesRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESListVerifiedEmailAddressesRequestMarshaller.m; sourceTree = "<group>"; };
+		3885D5FD1595236B0038BDC6 /* SESListVerifiedEmailAddressesResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESListVerifiedEmailAddressesResponse.m; sourceTree = "<group>"; };
+		3885D5FE1595236B0038BDC6 /* SESListVerifiedEmailAddressesResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESListVerifiedEmailAddressesResponseUnmarshaller.m; sourceTree = "<group>"; };
+		3885D5FF1595236B0038BDC6 /* SESMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESMessage.m; sourceTree = "<group>"; };
+		3885D6001595236B0038BDC6 /* SESMessageRejectedException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESMessageRejectedException.m; sourceTree = "<group>"; };
+		3885D6011595236B0038BDC6 /* SESRawMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESRawMessage.m; sourceTree = "<group>"; };
+		3885D6021595236B0038BDC6 /* SESSendDataPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESSendDataPoint.m; sourceTree = "<group>"; };
+		3885D6031595236B0038BDC6 /* SESSendDataPointUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESSendDataPointUnmarshaller.m; sourceTree = "<group>"; };
+		3885D6041595236B0038BDC6 /* SESSendEmailRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESSendEmailRequest.m; sourceTree = "<group>"; };
+		3885D6051595236B0038BDC6 /* SESSendEmailRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESSendEmailRequestMarshaller.m; sourceTree = "<group>"; };
+		3885D6061595236B0038BDC6 /* SESSendEmailResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESSendEmailResponse.m; sourceTree = "<group>"; };
+		3885D6071595236B0038BDC6 /* SESSendEmailResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESSendEmailResponseUnmarshaller.m; sourceTree = "<group>"; };
+		3885D6081595236B0038BDC6 /* SESSendRawEmailRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESSendRawEmailRequest.m; sourceTree = "<group>"; };
+		3885D6091595236B0038BDC6 /* SESSendRawEmailRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESSendRawEmailRequestMarshaller.m; sourceTree = "<group>"; };
+		3885D60A1595236B0038BDC6 /* SESSendRawEmailResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESSendRawEmailResponse.m; sourceTree = "<group>"; };
+		3885D60B1595236B0038BDC6 /* SESSendRawEmailResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESSendRawEmailResponseUnmarshaller.m; sourceTree = "<group>"; };
+		3885D60C1595236B0038BDC6 /* SESSetIdentityFeedbackForwardingEnabledRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESSetIdentityFeedbackForwardingEnabledRequest.m; sourceTree = "<group>"; };
+		3885D60D1595236B0038BDC6 /* SESSetIdentityFeedbackForwardingEnabledRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESSetIdentityFeedbackForwardingEnabledRequestMarshaller.m; sourceTree = "<group>"; };
+		3885D60E1595236B0038BDC6 /* SESSetIdentityFeedbackForwardingEnabledResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESSetIdentityFeedbackForwardingEnabledResponse.m; sourceTree = "<group>"; };
+		3885D60F1595236B0038BDC6 /* SESSetIdentityFeedbackForwardingEnabledResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESSetIdentityFeedbackForwardingEnabledResponseUnmarshaller.m; sourceTree = "<group>"; };
+		3885D6101595236B0038BDC6 /* SESSetIdentityNotificationTopicRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESSetIdentityNotificationTopicRequest.m; sourceTree = "<group>"; };
+		3885D6111595236B0038BDC6 /* SESSetIdentityNotificationTopicRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESSetIdentityNotificationTopicRequestMarshaller.m; sourceTree = "<group>"; };
+		3885D6121595236B0038BDC6 /* SESSetIdentityNotificationTopicResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESSetIdentityNotificationTopicResponse.m; sourceTree = "<group>"; };
+		3885D6131595236B0038BDC6 /* SESSetIdentityNotificationTopicResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESSetIdentityNotificationTopicResponseUnmarshaller.m; sourceTree = "<group>"; };
+		3885D6141595236B0038BDC6 /* SESVerifyDomainIdentityRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESVerifyDomainIdentityRequest.m; sourceTree = "<group>"; };
+		3885D6151595236B0038BDC6 /* SESVerifyDomainIdentityRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESVerifyDomainIdentityRequestMarshaller.m; sourceTree = "<group>"; };
+		3885D6161595236B0038BDC6 /* SESVerifyDomainIdentityResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESVerifyDomainIdentityResponse.m; sourceTree = "<group>"; };
+		3885D6171595236B0038BDC6 /* SESVerifyDomainIdentityResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESVerifyDomainIdentityResponseUnmarshaller.m; sourceTree = "<group>"; };
+		3885D6181595236B0038BDC6 /* SESVerifyEmailAddressRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESVerifyEmailAddressRequest.m; sourceTree = "<group>"; };
+		3885D6191595236B0038BDC6 /* SESVerifyEmailAddressRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESVerifyEmailAddressRequestMarshaller.m; sourceTree = "<group>"; };
+		3885D61A1595236B0038BDC6 /* SESVerifyEmailAddressResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESVerifyEmailAddressResponse.m; sourceTree = "<group>"; };
+		3885D61B1595236B0038BDC6 /* SESVerifyEmailAddressResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESVerifyEmailAddressResponseUnmarshaller.m; sourceTree = "<group>"; };
+		3885D61C1595236B0038BDC6 /* SESVerifyEmailIdentityRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESVerifyEmailIdentityRequest.m; sourceTree = "<group>"; };
+		3885D61D1595236B0038BDC6 /* SESVerifyEmailIdentityRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESVerifyEmailIdentityRequestMarshaller.m; sourceTree = "<group>"; };
+		3885D61E1595236B0038BDC6 /* SESVerifyEmailIdentityResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESVerifyEmailIdentityResponse.m; sourceTree = "<group>"; };
+		3885D61F1595236B0038BDC6 /* SESVerifyEmailIdentityResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESVerifyEmailIdentityResponseUnmarshaller.m; sourceTree = "<group>"; };
+		3885D6201595236B0038BDC6 /* SESRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESRequest.m; sourceTree = "<group>"; };
+		3885D6221595236B0038BDC6 /* SESResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESResponse.m; sourceTree = "<group>"; };
+		3885D6231595236B0038BDC6 /* SESResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESResponseUnmarshaller.m; sourceTree = "<group>"; };
+		3885D671159523870038BDC6 /* AmazonSESClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonSESClient.h; sourceTree = "<group>"; };
+		3885D672159523870038BDC6 /* SESBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESBody.h; sourceTree = "<group>"; };
+		3885D673159523870038BDC6 /* SESContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESContent.h; sourceTree = "<group>"; };
+		3885D674159523870038BDC6 /* SESDeleteIdentityRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESDeleteIdentityRequest.h; sourceTree = "<group>"; };
+		3885D675159523870038BDC6 /* SESDeleteIdentityRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESDeleteIdentityRequestMarshaller.h; sourceTree = "<group>"; };
+		3885D676159523870038BDC6 /* SESDeleteIdentityResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESDeleteIdentityResponse.h; sourceTree = "<group>"; };
+		3885D677159523870038BDC6 /* SESDeleteIdentityResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESDeleteIdentityResponseUnmarshaller.h; sourceTree = "<group>"; };
+		3885D678159523870038BDC6 /* SESDeleteVerifiedEmailAddressRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESDeleteVerifiedEmailAddressRequest.h; sourceTree = "<group>"; };
+		3885D679159523870038BDC6 /* SESDeleteVerifiedEmailAddressRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESDeleteVerifiedEmailAddressRequestMarshaller.h; sourceTree = "<group>"; };
+		3885D67A159523870038BDC6 /* SESDeleteVerifiedEmailAddressResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESDeleteVerifiedEmailAddressResponse.h; sourceTree = "<group>"; };
+		3885D67B159523870038BDC6 /* SESDeleteVerifiedEmailAddressResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESDeleteVerifiedEmailAddressResponseUnmarshaller.h; sourceTree = "<group>"; };
+		3885D67C159523870038BDC6 /* SESDestination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESDestination.h; sourceTree = "<group>"; };
+		3885D67D159523870038BDC6 /* SESGetIdentityNotificationAttributesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESGetIdentityNotificationAttributesRequest.h; sourceTree = "<group>"; };
+		3885D67E159523870038BDC6 /* SESGetIdentityNotificationAttributesRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESGetIdentityNotificationAttributesRequestMarshaller.h; sourceTree = "<group>"; };
+		3885D67F159523870038BDC6 /* SESGetIdentityNotificationAttributesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESGetIdentityNotificationAttributesResponse.h; sourceTree = "<group>"; };
+		3885D680159523870038BDC6 /* SESGetIdentityNotificationAttributesResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESGetIdentityNotificationAttributesResponseUnmarshaller.h; sourceTree = "<group>"; };
+		3885D681159523870038BDC6 /* SESGetIdentityVerificationAttributesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESGetIdentityVerificationAttributesRequest.h; sourceTree = "<group>"; };
+		3885D682159523870038BDC6 /* SESGetIdentityVerificationAttributesRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESGetIdentityVerificationAttributesRequestMarshaller.h; sourceTree = "<group>"; };
+		3885D683159523870038BDC6 /* SESGetIdentityVerificationAttributesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESGetIdentityVerificationAttributesResponse.h; sourceTree = "<group>"; };
+		3885D684159523870038BDC6 /* SESGetIdentityVerificationAttributesResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESGetIdentityVerificationAttributesResponseUnmarshaller.h; sourceTree = "<group>"; };
+		3885D685159523870038BDC6 /* SESGetSendQuotaRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESGetSendQuotaRequest.h; sourceTree = "<group>"; };
+		3885D686159523870038BDC6 /* SESGetSendQuotaRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESGetSendQuotaRequestMarshaller.h; sourceTree = "<group>"; };
+		3885D687159523870038BDC6 /* SESGetSendQuotaResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESGetSendQuotaResponse.h; sourceTree = "<group>"; };
+		3885D688159523870038BDC6 /* SESGetSendQuotaResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESGetSendQuotaResponseUnmarshaller.h; sourceTree = "<group>"; };
+		3885D689159523870038BDC6 /* SESGetSendStatisticsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESGetSendStatisticsRequest.h; sourceTree = "<group>"; };
+		3885D68A159523870038BDC6 /* SESGetSendStatisticsRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESGetSendStatisticsRequestMarshaller.h; sourceTree = "<group>"; };
+		3885D68B159523870038BDC6 /* SESGetSendStatisticsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESGetSendStatisticsResponse.h; sourceTree = "<group>"; };
+		3885D68C159523870038BDC6 /* SESGetSendStatisticsResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESGetSendStatisticsResponseUnmarshaller.h; sourceTree = "<group>"; };
+		3885D68D159523870038BDC6 /* SESIdentityNotificationAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESIdentityNotificationAttributes.h; sourceTree = "<group>"; };
+		3885D68E159523870038BDC6 /* SESIdentityNotificationAttributesUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESIdentityNotificationAttributesUnmarshaller.h; sourceTree = "<group>"; };
+		3885D68F159523870038BDC6 /* SESIdentityVerificationAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESIdentityVerificationAttributes.h; sourceTree = "<group>"; };
+		3885D690159523870038BDC6 /* SESIdentityVerificationAttributesUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESIdentityVerificationAttributesUnmarshaller.h; sourceTree = "<group>"; };
+		3885D691159523870038BDC6 /* SESListIdentitiesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESListIdentitiesRequest.h; sourceTree = "<group>"; };
+		3885D692159523870038BDC6 /* SESListIdentitiesRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESListIdentitiesRequestMarshaller.h; sourceTree = "<group>"; };
+		3885D693159523870038BDC6 /* SESListIdentitiesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESListIdentitiesResponse.h; sourceTree = "<group>"; };
+		3885D694159523870038BDC6 /* SESListIdentitiesResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESListIdentitiesResponseUnmarshaller.h; sourceTree = "<group>"; };
+		3885D695159523870038BDC6 /* SESListVerifiedEmailAddressesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESListVerifiedEmailAddressesRequest.h; sourceTree = "<group>"; };
+		3885D696159523870038BDC6 /* SESListVerifiedEmailAddressesRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESListVerifiedEmailAddressesRequestMarshaller.h; sourceTree = "<group>"; };
+		3885D697159523870038BDC6 /* SESListVerifiedEmailAddressesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESListVerifiedEmailAddressesResponse.h; sourceTree = "<group>"; };
+		3885D698159523870038BDC6 /* SESListVerifiedEmailAddressesResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESListVerifiedEmailAddressesResponseUnmarshaller.h; sourceTree = "<group>"; };
+		3885D699159523870038BDC6 /* SESMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESMessage.h; sourceTree = "<group>"; };
+		3885D69A159523870038BDC6 /* SESMessageRejectedException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESMessageRejectedException.h; sourceTree = "<group>"; };
+		3885D69B159523870038BDC6 /* SESRawMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESRawMessage.h; sourceTree = "<group>"; };
+		3885D69C159523870038BDC6 /* SESRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESRequest.h; sourceTree = "<group>"; };
+		3885D69D159523870038BDC6 /* SESResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESResponse.h; sourceTree = "<group>"; };
+		3885D69E159523870038BDC6 /* SESResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESResponseUnmarshaller.h; sourceTree = "<group>"; };
+		3885D69F159523870038BDC6 /* SESSendDataPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESSendDataPoint.h; sourceTree = "<group>"; };
+		3885D6A0159523870038BDC6 /* SESSendDataPointUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESSendDataPointUnmarshaller.h; sourceTree = "<group>"; };
+		3885D6A1159523870038BDC6 /* SESSendEmailRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESSendEmailRequest.h; sourceTree = "<group>"; };
+		3885D6A2159523870038BDC6 /* SESSendEmailRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESSendEmailRequestMarshaller.h; sourceTree = "<group>"; };
+		3885D6A3159523870038BDC6 /* SESSendEmailResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESSendEmailResponse.h; sourceTree = "<group>"; };
+		3885D6A4159523870038BDC6 /* SESSendEmailResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESSendEmailResponseUnmarshaller.h; sourceTree = "<group>"; };
+		3885D6A5159523870038BDC6 /* SESSendRawEmailRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESSendRawEmailRequest.h; sourceTree = "<group>"; };
+		3885D6A6159523870038BDC6 /* SESSendRawEmailRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESSendRawEmailRequestMarshaller.h; sourceTree = "<group>"; };
+		3885D6A7159523870038BDC6 /* SESSendRawEmailResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESSendRawEmailResponse.h; sourceTree = "<group>"; };
+		3885D6A8159523870038BDC6 /* SESSendRawEmailResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESSendRawEmailResponseUnmarshaller.h; sourceTree = "<group>"; };
+		3885D6A9159523870038BDC6 /* SESSetIdentityFeedbackForwardingEnabledRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESSetIdentityFeedbackForwardingEnabledRequest.h; sourceTree = "<group>"; };
+		3885D6AA159523870038BDC6 /* SESSetIdentityFeedbackForwardingEnabledRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESSetIdentityFeedbackForwardingEnabledRequestMarshaller.h; sourceTree = "<group>"; };
+		3885D6AB159523870038BDC6 /* SESSetIdentityFeedbackForwardingEnabledResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESSetIdentityFeedbackForwardingEnabledResponse.h; sourceTree = "<group>"; };
+		3885D6AC159523870038BDC6 /* SESSetIdentityFeedbackForwardingEnabledResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESSetIdentityFeedbackForwardingEnabledResponseUnmarshaller.h; sourceTree = "<group>"; };
+		3885D6AD159523870038BDC6 /* SESSetIdentityNotificationTopicRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESSetIdentityNotificationTopicRequest.h; sourceTree = "<group>"; };
+		3885D6AE159523870038BDC6 /* SESSetIdentityNotificationTopicRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESSetIdentityNotificationTopicRequestMarshaller.h; sourceTree = "<group>"; };
+		3885D6AF159523870038BDC6 /* SESSetIdentityNotificationTopicResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESSetIdentityNotificationTopicResponse.h; sourceTree = "<group>"; };
+		3885D6B0159523870038BDC6 /* SESSetIdentityNotificationTopicResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESSetIdentityNotificationTopicResponseUnmarshaller.h; sourceTree = "<group>"; };
+		3885D6B1159523870038BDC6 /* SESVerifyDomainIdentityRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESVerifyDomainIdentityRequest.h; sourceTree = "<group>"; };
+		3885D6B2159523870038BDC6 /* SESVerifyDomainIdentityRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESVerifyDomainIdentityRequestMarshaller.h; sourceTree = "<group>"; };
+		3885D6B3159523870038BDC6 /* SESVerifyDomainIdentityResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESVerifyDomainIdentityResponse.h; sourceTree = "<group>"; };
+		3885D6B4159523870038BDC6 /* SESVerifyDomainIdentityResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESVerifyDomainIdentityResponseUnmarshaller.h; sourceTree = "<group>"; };
+		3885D6B5159523870038BDC6 /* SESVerifyEmailAddressRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESVerifyEmailAddressRequest.h; sourceTree = "<group>"; };
+		3885D6B6159523870038BDC6 /* SESVerifyEmailAddressRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESVerifyEmailAddressRequestMarshaller.h; sourceTree = "<group>"; };
+		3885D6B7159523870038BDC6 /* SESVerifyEmailAddressResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESVerifyEmailAddressResponse.h; sourceTree = "<group>"; };
+		3885D6B8159523870038BDC6 /* SESVerifyEmailAddressResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESVerifyEmailAddressResponseUnmarshaller.h; sourceTree = "<group>"; };
+		3885D6B9159523870038BDC6 /* SESVerifyEmailIdentityRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESVerifyEmailIdentityRequest.h; sourceTree = "<group>"; };
+		3885D6BA159523870038BDC6 /* SESVerifyEmailIdentityRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESVerifyEmailIdentityRequestMarshaller.h; sourceTree = "<group>"; };
+		3885D6BB159523870038BDC6 /* SESVerifyEmailIdentityResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESVerifyEmailIdentityResponse.h; sourceTree = "<group>"; };
+		3885D6BC159523870038BDC6 /* SESVerifyEmailIdentityResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESVerifyEmailIdentityResponseUnmarshaller.h; sourceTree = "<group>"; };
 		38A564B0158929FD005D30F8 /* AmazonEC2Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonEC2Client.h; sourceTree = "<group>"; };
 		38A564B1158929FD005D30F8 /* EC2ActivateLicenseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2ActivateLicenseRequest.h; sourceTree = "<group>"; };
 		38A564B2158929FD005D30F8 /* EC2ActivateLicenseRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2ActivateLicenseRequestMarshaller.h; sourceTree = "<group>"; };
@@ -4606,130 +4787,6 @@
 		38A9F09F14D8651A00E9F0C3 /* S3DeleteBucketLifecycleConfigurationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3DeleteBucketLifecycleConfigurationRequest.h; sourceTree = "<group>"; };
 		38A9F0A214D8655D00E9F0C3 /* S3DeleteBucketLifecycleConfigurationResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3DeleteBucketLifecycleConfigurationResponse.m; sourceTree = "<group>"; };
 		38A9F0A314D8655D00E9F0C3 /* S3DeleteBucketLifecycleConfigurationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3DeleteBucketLifecycleConfigurationRequest.m; sourceTree = "<group>"; };
-		38AC56C3155C552200B0D7ED /* AmazonSESClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonSESClient.m; sourceTree = "<group>"; };
-		38AC56C5155C552200B0D7ED /* SESBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESBody.m; sourceTree = "<group>"; };
-		38AC56C6155C552200B0D7ED /* SESContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESContent.m; sourceTree = "<group>"; };
-		38AC56C7155C552200B0D7ED /* SESDeleteIdentityRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESDeleteIdentityRequest.m; sourceTree = "<group>"; };
-		38AC56C8155C552200B0D7ED /* SESDeleteIdentityRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESDeleteIdentityRequestMarshaller.m; sourceTree = "<group>"; };
-		38AC56C9155C552200B0D7ED /* SESDeleteIdentityResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESDeleteIdentityResponse.m; sourceTree = "<group>"; };
-		38AC56CA155C552200B0D7ED /* SESDeleteIdentityResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESDeleteIdentityResponseUnmarshaller.m; sourceTree = "<group>"; };
-		38AC56CB155C552200B0D7ED /* SESDeleteVerifiedEmailAddressRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESDeleteVerifiedEmailAddressRequest.m; sourceTree = "<group>"; };
-		38AC56CC155C552200B0D7ED /* SESDeleteVerifiedEmailAddressRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESDeleteVerifiedEmailAddressRequestMarshaller.m; sourceTree = "<group>"; };
-		38AC56CD155C552200B0D7ED /* SESDeleteVerifiedEmailAddressResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESDeleteVerifiedEmailAddressResponse.m; sourceTree = "<group>"; };
-		38AC56CE155C552200B0D7ED /* SESDeleteVerifiedEmailAddressResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESDeleteVerifiedEmailAddressResponseUnmarshaller.m; sourceTree = "<group>"; };
-		38AC56CF155C552200B0D7ED /* SESDestination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESDestination.m; sourceTree = "<group>"; };
-		38AC56D0155C552200B0D7ED /* SESGetIdentityVerificationAttributesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESGetIdentityVerificationAttributesRequest.m; sourceTree = "<group>"; };
-		38AC56D1155C552200B0D7ED /* SESGetIdentityVerificationAttributesRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESGetIdentityVerificationAttributesRequestMarshaller.m; sourceTree = "<group>"; };
-		38AC56D2155C552200B0D7ED /* SESGetIdentityVerificationAttributesResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESGetIdentityVerificationAttributesResponse.m; sourceTree = "<group>"; };
-		38AC56D3155C552200B0D7ED /* SESGetIdentityVerificationAttributesResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESGetIdentityVerificationAttributesResponseUnmarshaller.m; sourceTree = "<group>"; };
-		38AC56D4155C552200B0D7ED /* SESGetSendQuotaRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESGetSendQuotaRequest.m; sourceTree = "<group>"; };
-		38AC56D5155C552200B0D7ED /* SESGetSendQuotaRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESGetSendQuotaRequestMarshaller.m; sourceTree = "<group>"; };
-		38AC56D6155C552200B0D7ED /* SESGetSendQuotaResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESGetSendQuotaResponse.m; sourceTree = "<group>"; };
-		38AC56D7155C552200B0D7ED /* SESGetSendQuotaResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESGetSendQuotaResponseUnmarshaller.m; sourceTree = "<group>"; };
-		38AC56D8155C552200B0D7ED /* SESGetSendStatisticsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESGetSendStatisticsRequest.m; sourceTree = "<group>"; };
-		38AC56D9155C552200B0D7ED /* SESGetSendStatisticsRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESGetSendStatisticsRequestMarshaller.m; sourceTree = "<group>"; };
-		38AC56DA155C552200B0D7ED /* SESGetSendStatisticsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESGetSendStatisticsResponse.m; sourceTree = "<group>"; };
-		38AC56DB155C552200B0D7ED /* SESGetSendStatisticsResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESGetSendStatisticsResponseUnmarshaller.m; sourceTree = "<group>"; };
-		38AC56DC155C552200B0D7ED /* SESIdentityVerificationAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESIdentityVerificationAttributes.m; sourceTree = "<group>"; };
-		38AC56DD155C552200B0D7ED /* SESIdentityVerificationAttributesUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESIdentityVerificationAttributesUnmarshaller.m; sourceTree = "<group>"; };
-		38AC56DE155C552200B0D7ED /* SESListIdentitiesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESListIdentitiesRequest.m; sourceTree = "<group>"; };
-		38AC56DF155C552200B0D7ED /* SESListIdentitiesRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESListIdentitiesRequestMarshaller.m; sourceTree = "<group>"; };
-		38AC56E0155C552200B0D7ED /* SESListIdentitiesResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESListIdentitiesResponse.m; sourceTree = "<group>"; };
-		38AC56E1155C552200B0D7ED /* SESListIdentitiesResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESListIdentitiesResponseUnmarshaller.m; sourceTree = "<group>"; };
-		38AC56E2155C552200B0D7ED /* SESListVerifiedEmailAddressesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESListVerifiedEmailAddressesRequest.m; sourceTree = "<group>"; };
-		38AC56E3155C552200B0D7ED /* SESListVerifiedEmailAddressesRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESListVerifiedEmailAddressesRequestMarshaller.m; sourceTree = "<group>"; };
-		38AC56E4155C552200B0D7ED /* SESListVerifiedEmailAddressesResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESListVerifiedEmailAddressesResponse.m; sourceTree = "<group>"; };
-		38AC56E5155C552200B0D7ED /* SESListVerifiedEmailAddressesResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESListVerifiedEmailAddressesResponseUnmarshaller.m; sourceTree = "<group>"; };
-		38AC56E6155C552200B0D7ED /* SESMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESMessage.m; sourceTree = "<group>"; };
-		38AC56E7155C552200B0D7ED /* SESMessageRejectedException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESMessageRejectedException.m; sourceTree = "<group>"; };
-		38AC56E8155C552200B0D7ED /* SESRawMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESRawMessage.m; sourceTree = "<group>"; };
-		38AC56E9155C552200B0D7ED /* SESSendDataPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESSendDataPoint.m; sourceTree = "<group>"; };
-		38AC56EA155C552200B0D7ED /* SESSendDataPointUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESSendDataPointUnmarshaller.m; sourceTree = "<group>"; };
-		38AC56EB155C552200B0D7ED /* SESSendEmailRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESSendEmailRequest.m; sourceTree = "<group>"; };
-		38AC56EC155C552200B0D7ED /* SESSendEmailRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESSendEmailRequestMarshaller.m; sourceTree = "<group>"; };
-		38AC56ED155C552200B0D7ED /* SESSendEmailResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESSendEmailResponse.m; sourceTree = "<group>"; };
-		38AC56EE155C552200B0D7ED /* SESSendEmailResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESSendEmailResponseUnmarshaller.m; sourceTree = "<group>"; };
-		38AC56EF155C552200B0D7ED /* SESSendRawEmailRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESSendRawEmailRequest.m; sourceTree = "<group>"; };
-		38AC56F0155C552200B0D7ED /* SESSendRawEmailRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESSendRawEmailRequestMarshaller.m; sourceTree = "<group>"; };
-		38AC56F1155C552200B0D7ED /* SESSendRawEmailResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESSendRawEmailResponse.m; sourceTree = "<group>"; };
-		38AC56F2155C552200B0D7ED /* SESSendRawEmailResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESSendRawEmailResponseUnmarshaller.m; sourceTree = "<group>"; };
-		38AC56F3155C552200B0D7ED /* SESVerifyDomainIdentityRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESVerifyDomainIdentityRequest.m; sourceTree = "<group>"; };
-		38AC56F4155C552200B0D7ED /* SESVerifyDomainIdentityRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESVerifyDomainIdentityRequestMarshaller.m; sourceTree = "<group>"; };
-		38AC56F5155C552200B0D7ED /* SESVerifyDomainIdentityResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESVerifyDomainIdentityResponse.m; sourceTree = "<group>"; };
-		38AC56F6155C552200B0D7ED /* SESVerifyDomainIdentityResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESVerifyDomainIdentityResponseUnmarshaller.m; sourceTree = "<group>"; };
-		38AC56F7155C552200B0D7ED /* SESVerifyEmailAddressRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESVerifyEmailAddressRequest.m; sourceTree = "<group>"; };
-		38AC56F8155C552200B0D7ED /* SESVerifyEmailAddressRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESVerifyEmailAddressRequestMarshaller.m; sourceTree = "<group>"; };
-		38AC56F9155C552200B0D7ED /* SESVerifyEmailAddressResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESVerifyEmailAddressResponse.m; sourceTree = "<group>"; };
-		38AC56FA155C552200B0D7ED /* SESVerifyEmailAddressResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESVerifyEmailAddressResponseUnmarshaller.m; sourceTree = "<group>"; };
-		38AC56FB155C552200B0D7ED /* SESVerifyEmailIdentityRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESVerifyEmailIdentityRequest.m; sourceTree = "<group>"; };
-		38AC56FC155C552200B0D7ED /* SESVerifyEmailIdentityRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESVerifyEmailIdentityRequestMarshaller.m; sourceTree = "<group>"; };
-		38AC56FD155C552200B0D7ED /* SESVerifyEmailIdentityResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESVerifyEmailIdentityResponse.m; sourceTree = "<group>"; };
-		38AC56FE155C552200B0D7ED /* SESVerifyEmailIdentityResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESVerifyEmailIdentityResponseUnmarshaller.m; sourceTree = "<group>"; };
-		38AC56FF155C552200B0D7ED /* SESRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESRequest.m; sourceTree = "<group>"; };
-		38AC5700155C552200B0D7ED /* SESResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESResponse.m; sourceTree = "<group>"; };
-		38AC5701155C552200B0D7ED /* SESResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESResponseUnmarshaller.m; sourceTree = "<group>"; };
-		38AC5741155C553D00B0D7ED /* AmazonSESClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonSESClient.h; sourceTree = "<group>"; };
-		38AC5742155C553D00B0D7ED /* SESBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESBody.h; sourceTree = "<group>"; };
-		38AC5743155C553D00B0D7ED /* SESContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESContent.h; sourceTree = "<group>"; };
-		38AC5744155C553D00B0D7ED /* SESDeleteIdentityRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESDeleteIdentityRequest.h; sourceTree = "<group>"; };
-		38AC5745155C553D00B0D7ED /* SESDeleteIdentityRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESDeleteIdentityRequestMarshaller.h; sourceTree = "<group>"; };
-		38AC5746155C553D00B0D7ED /* SESDeleteIdentityResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESDeleteIdentityResponse.h; sourceTree = "<group>"; };
-		38AC5747155C553D00B0D7ED /* SESDeleteIdentityResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESDeleteIdentityResponseUnmarshaller.h; sourceTree = "<group>"; };
-		38AC5748155C553D00B0D7ED /* SESDeleteVerifiedEmailAddressRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESDeleteVerifiedEmailAddressRequest.h; sourceTree = "<group>"; };
-		38AC5749155C553D00B0D7ED /* SESDeleteVerifiedEmailAddressRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESDeleteVerifiedEmailAddressRequestMarshaller.h; sourceTree = "<group>"; };
-		38AC574A155C553D00B0D7ED /* SESDeleteVerifiedEmailAddressResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESDeleteVerifiedEmailAddressResponse.h; sourceTree = "<group>"; };
-		38AC574B155C553D00B0D7ED /* SESDeleteVerifiedEmailAddressResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESDeleteVerifiedEmailAddressResponseUnmarshaller.h; sourceTree = "<group>"; };
-		38AC574C155C553D00B0D7ED /* SESDestination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESDestination.h; sourceTree = "<group>"; };
-		38AC574D155C553D00B0D7ED /* SESGetIdentityVerificationAttributesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESGetIdentityVerificationAttributesRequest.h; sourceTree = "<group>"; };
-		38AC574E155C553D00B0D7ED /* SESGetIdentityVerificationAttributesRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESGetIdentityVerificationAttributesRequestMarshaller.h; sourceTree = "<group>"; };
-		38AC574F155C553D00B0D7ED /* SESGetIdentityVerificationAttributesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESGetIdentityVerificationAttributesResponse.h; sourceTree = "<group>"; };
-		38AC5750155C553D00B0D7ED /* SESGetIdentityVerificationAttributesResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESGetIdentityVerificationAttributesResponseUnmarshaller.h; sourceTree = "<group>"; };
-		38AC5751155C553D00B0D7ED /* SESGetSendQuotaRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESGetSendQuotaRequest.h; sourceTree = "<group>"; };
-		38AC5752155C553D00B0D7ED /* SESGetSendQuotaRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESGetSendQuotaRequestMarshaller.h; sourceTree = "<group>"; };
-		38AC5753155C553D00B0D7ED /* SESGetSendQuotaResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESGetSendQuotaResponse.h; sourceTree = "<group>"; };
-		38AC5754155C553D00B0D7ED /* SESGetSendQuotaResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESGetSendQuotaResponseUnmarshaller.h; sourceTree = "<group>"; };
-		38AC5755155C553D00B0D7ED /* SESGetSendStatisticsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESGetSendStatisticsRequest.h; sourceTree = "<group>"; };
-		38AC5756155C553D00B0D7ED /* SESGetSendStatisticsRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESGetSendStatisticsRequestMarshaller.h; sourceTree = "<group>"; };
-		38AC5757155C553D00B0D7ED /* SESGetSendStatisticsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESGetSendStatisticsResponse.h; sourceTree = "<group>"; };
-		38AC5758155C553D00B0D7ED /* SESGetSendStatisticsResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESGetSendStatisticsResponseUnmarshaller.h; sourceTree = "<group>"; };
-		38AC5759155C553D00B0D7ED /* SESIdentityVerificationAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESIdentityVerificationAttributes.h; sourceTree = "<group>"; };
-		38AC575A155C553D00B0D7ED /* SESIdentityVerificationAttributesUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESIdentityVerificationAttributesUnmarshaller.h; sourceTree = "<group>"; };
-		38AC575B155C553D00B0D7ED /* SESListIdentitiesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESListIdentitiesRequest.h; sourceTree = "<group>"; };
-		38AC575C155C553D00B0D7ED /* SESListIdentitiesRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESListIdentitiesRequestMarshaller.h; sourceTree = "<group>"; };
-		38AC575D155C553D00B0D7ED /* SESListIdentitiesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESListIdentitiesResponse.h; sourceTree = "<group>"; };
-		38AC575E155C553D00B0D7ED /* SESListIdentitiesResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESListIdentitiesResponseUnmarshaller.h; sourceTree = "<group>"; };
-		38AC575F155C553D00B0D7ED /* SESListVerifiedEmailAddressesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESListVerifiedEmailAddressesRequest.h; sourceTree = "<group>"; };
-		38AC5760155C553D00B0D7ED /* SESListVerifiedEmailAddressesRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESListVerifiedEmailAddressesRequestMarshaller.h; sourceTree = "<group>"; };
-		38AC5761155C553D00B0D7ED /* SESListVerifiedEmailAddressesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESListVerifiedEmailAddressesResponse.h; sourceTree = "<group>"; };
-		38AC5762155C553D00B0D7ED /* SESListVerifiedEmailAddressesResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESListVerifiedEmailAddressesResponseUnmarshaller.h; sourceTree = "<group>"; };
-		38AC5763155C553D00B0D7ED /* SESMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESMessage.h; sourceTree = "<group>"; };
-		38AC5764155C553D00B0D7ED /* SESMessageRejectedException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESMessageRejectedException.h; sourceTree = "<group>"; };
-		38AC5765155C553D00B0D7ED /* SESRawMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESRawMessage.h; sourceTree = "<group>"; };
-		38AC5766155C553D00B0D7ED /* SESRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESRequest.h; sourceTree = "<group>"; };
-		38AC5767155C553D00B0D7ED /* SESResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESResponse.h; sourceTree = "<group>"; };
-		38AC5768155C553D00B0D7ED /* SESResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESResponseUnmarshaller.h; sourceTree = "<group>"; };
-		38AC5769155C553D00B0D7ED /* SESSendDataPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESSendDataPoint.h; sourceTree = "<group>"; };
-		38AC576A155C553D00B0D7ED /* SESSendDataPointUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESSendDataPointUnmarshaller.h; sourceTree = "<group>"; };
-		38AC576B155C553D00B0D7ED /* SESSendEmailRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESSendEmailRequest.h; sourceTree = "<group>"; };
-		38AC576C155C553D00B0D7ED /* SESSendEmailRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESSendEmailRequestMarshaller.h; sourceTree = "<group>"; };
-		38AC576D155C553D00B0D7ED /* SESSendEmailResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESSendEmailResponse.h; sourceTree = "<group>"; };
-		38AC576E155C553D00B0D7ED /* SESSendEmailResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESSendEmailResponseUnmarshaller.h; sourceTree = "<group>"; };
-		38AC576F155C553D00B0D7ED /* SESSendRawEmailRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESSendRawEmailRequest.h; sourceTree = "<group>"; };
-		38AC5770155C553D00B0D7ED /* SESSendRawEmailRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESSendRawEmailRequestMarshaller.h; sourceTree = "<group>"; };
-		38AC5771155C553D00B0D7ED /* SESSendRawEmailResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESSendRawEmailResponse.h; sourceTree = "<group>"; };
-		38AC5772155C553D00B0D7ED /* SESSendRawEmailResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESSendRawEmailResponseUnmarshaller.h; sourceTree = "<group>"; };
-		38AC5773155C553D00B0D7ED /* SESVerifyDomainIdentityRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESVerifyDomainIdentityRequest.h; sourceTree = "<group>"; };
-		38AC5774155C553D00B0D7ED /* SESVerifyDomainIdentityRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESVerifyDomainIdentityRequestMarshaller.h; sourceTree = "<group>"; };
-		38AC5775155C553D00B0D7ED /* SESVerifyDomainIdentityResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESVerifyDomainIdentityResponse.h; sourceTree = "<group>"; };
-		38AC5776155C553D00B0D7ED /* SESVerifyDomainIdentityResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESVerifyDomainIdentityResponseUnmarshaller.h; sourceTree = "<group>"; };
-		38AC5777155C553D00B0D7ED /* SESVerifyEmailAddressRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESVerifyEmailAddressRequest.h; sourceTree = "<group>"; };
-		38AC5778155C553D00B0D7ED /* SESVerifyEmailAddressRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESVerifyEmailAddressRequestMarshaller.h; sourceTree = "<group>"; };
-		38AC5779155C553D00B0D7ED /* SESVerifyEmailAddressResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESVerifyEmailAddressResponse.h; sourceTree = "<group>"; };
-		38AC577A155C553D00B0D7ED /* SESVerifyEmailAddressResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESVerifyEmailAddressResponseUnmarshaller.h; sourceTree = "<group>"; };
-		38AC577B155C553D00B0D7ED /* SESVerifyEmailIdentityRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESVerifyEmailIdentityRequest.h; sourceTree = "<group>"; };
-		38AC577C155C553D00B0D7ED /* SESVerifyEmailIdentityRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESVerifyEmailIdentityRequestMarshaller.h; sourceTree = "<group>"; };
-		38AC577D155C553D00B0D7ED /* SESVerifyEmailIdentityResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESVerifyEmailIdentityResponse.h; sourceTree = "<group>"; };
-		38AC577E155C553D00B0D7ED /* SESVerifyEmailIdentityResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESVerifyEmailIdentityResponseUnmarshaller.h; sourceTree = "<group>"; };
 		38F71BAF14DB660500FF274D /* AmazonAutoScalingClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonAutoScalingClient.h; sourceTree = "<group>"; };
 		38F71BB014DB660500FF274D /* AutoScalingActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoScalingActivity.h; sourceTree = "<group>"; };
 		38F71BB114DB660500FF274D /* AutoScalingActivityUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoScalingActivityUnmarshaller.h; sourceTree = "<group>"; };
@@ -4955,6 +5012,7 @@
 		CE73C03F14C8158E0081B530 /* S3DeleteObjectsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3DeleteObjectsResponse.m; sourceTree = "<group>"; };
 		CE73C04314C8AA5F0081B530 /* S3KeyVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3KeyVersion.m; sourceTree = "<group>"; };
 		CE73C04714CA498D0081B530 /* S3DeleteObjectsResultUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3DeleteObjectsResultUnmarshaller.m; sourceTree = "<group>"; };
+		CE96C1A9158BC2A70084D3CB /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		CEA4FED814D0E27400B0B33A /* BucketWebsiteConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BucketWebsiteConfiguration.h; sourceTree = "<group>"; };
 		CEA4FED914D0E27400B0B33A /* S3DeleteBucketWebsiteConfigurationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3DeleteBucketWebsiteConfigurationRequest.h; sourceTree = "<group>"; };
 		CEA4FEDA14D0E27400B0B33A /* S3DeleteBucketWebsiteConfigurationResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3DeleteBucketWebsiteConfigurationResponse.h; sourceTree = "<group>"; };
@@ -5882,6 +5940,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE96C1B7158BD58A0084D3CB /* MobileCoreServices.framework in Frameworks */,
 				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -5905,7 +5964,7 @@
 				38A5689415892A0C005D30F8 /* Amazon.EC2 */,
 				D018B55F1358B634002D7716 /* Amazon.ElasticLoadBalancing */,
 				0AE6F15A12E4C0B700465F92 /* Amazon.CloudWatch */,
-				38AC56C2155C552200B0D7ED /* Amazon.SES */,
+				3885D5D51595236B0038BDC6 /* Amazon.SES */,
 				D09F08441294589400376534 /* Amazon.SQS */,
 				D09F07B61294585C00376534 /* Amazon.SNS */,
 				D0C84EB9128C845F00A68AD4 /* Amazon.SimpleDB */,
@@ -5925,6 +5984,7 @@
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE96C1A9158BC2A70084D3CB /* MobileCoreServices.framework */,
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -6321,7 +6381,7 @@
 				D0EA4BFE12C1445C00DA572B /* AmazonMD5Util.h */,
 				D0EB72CD12A5E026001EF2F8 /* AmazonListUnmarshaller.h */,
 				D01F6B0C12A387B7004A312D /* AmazonDictionaryUnmarshaller.h */,
-				38AC5740155C553D00B0D7ED /* SES */,
+				3885D670159523870038BDC6 /* SES */,
 				D09F08B8129458A600376534 /* SNS */,
 				D09F08FE129458A600376534 /* SQS */,
 				D0E0A8B0128DF40600C70564 /* AmazonServiceExceptionUnmarshaller.h */,
@@ -6891,6 +6951,180 @@
 				382F082D14DB655D00BD3AB4 /* AutoScalingUpdateAutoScalingGroupResponseUnmarshaller.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		3885D5D51595236B0038BDC6 /* Amazon.SES */ = {
+			isa = PBXGroup;
+			children = (
+				3885D5D61595236B0038BDC6 /* AmazonSESClient.m */,
+				3885D5D71595236B0038BDC6 /* Model */,
+				3885D6201595236B0038BDC6 /* SESRequest.m */,
+				3885D6221595236B0038BDC6 /* SESResponse.m */,
+				3885D6231595236B0038BDC6 /* SESResponseUnmarshaller.m */,
+			);
+			path = Amazon.SES;
+			sourceTree = "<group>";
+		};
+		3885D5D71595236B0038BDC6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3885D5D81595236B0038BDC6 /* SESBody.m */,
+				3885D5D91595236B0038BDC6 /* SESContent.m */,
+				3885D5DA1595236B0038BDC6 /* SESDeleteIdentityRequest.m */,
+				3885D5DB1595236B0038BDC6 /* SESDeleteIdentityRequestMarshaller.m */,
+				3885D5DC1595236B0038BDC6 /* SESDeleteIdentityResponse.m */,
+				3885D5DD1595236B0038BDC6 /* SESDeleteIdentityResponseUnmarshaller.m */,
+				3885D5DE1595236B0038BDC6 /* SESDeleteVerifiedEmailAddressRequest.m */,
+				3885D5DF1595236B0038BDC6 /* SESDeleteVerifiedEmailAddressRequestMarshaller.m */,
+				3885D5E01595236B0038BDC6 /* SESDeleteVerifiedEmailAddressResponse.m */,
+				3885D5E11595236B0038BDC6 /* SESDeleteVerifiedEmailAddressResponseUnmarshaller.m */,
+				3885D5E21595236B0038BDC6 /* SESDestination.m */,
+				3885D5E31595236B0038BDC6 /* SESGetIdentityNotificationAttributesRequest.m */,
+				3885D5E41595236B0038BDC6 /* SESGetIdentityNotificationAttributesRequestMarshaller.m */,
+				3885D5E51595236B0038BDC6 /* SESGetIdentityNotificationAttributesResponse.m */,
+				3885D5E61595236B0038BDC6 /* SESGetIdentityNotificationAttributesResponseUnmarshaller.m */,
+				3885D5E71595236B0038BDC6 /* SESGetIdentityVerificationAttributesRequest.m */,
+				3885D5E81595236B0038BDC6 /* SESGetIdentityVerificationAttributesRequestMarshaller.m */,
+				3885D5E91595236B0038BDC6 /* SESGetIdentityVerificationAttributesResponse.m */,
+				3885D5EA1595236B0038BDC6 /* SESGetIdentityVerificationAttributesResponseUnmarshaller.m */,
+				3885D5EB1595236B0038BDC6 /* SESGetSendQuotaRequest.m */,
+				3885D5EC1595236B0038BDC6 /* SESGetSendQuotaRequestMarshaller.m */,
+				3885D5ED1595236B0038BDC6 /* SESGetSendQuotaResponse.m */,
+				3885D5EE1595236B0038BDC6 /* SESGetSendQuotaResponseUnmarshaller.m */,
+				3885D5EF1595236B0038BDC6 /* SESGetSendStatisticsRequest.m */,
+				3885D5F01595236B0038BDC6 /* SESGetSendStatisticsRequestMarshaller.m */,
+				3885D5F11595236B0038BDC6 /* SESGetSendStatisticsResponse.m */,
+				3885D5F21595236B0038BDC6 /* SESGetSendStatisticsResponseUnmarshaller.m */,
+				3885D5F31595236B0038BDC6 /* SESIdentityNotificationAttributes.m */,
+				3885D5F41595236B0038BDC6 /* SESIdentityNotificationAttributesUnmarshaller.m */,
+				3885D5F51595236B0038BDC6 /* SESIdentityVerificationAttributes.m */,
+				3885D5F61595236B0038BDC6 /* SESIdentityVerificationAttributesUnmarshaller.m */,
+				3885D5F71595236B0038BDC6 /* SESListIdentitiesRequest.m */,
+				3885D5F81595236B0038BDC6 /* SESListIdentitiesRequestMarshaller.m */,
+				3885D5F91595236B0038BDC6 /* SESListIdentitiesResponse.m */,
+				3885D5FA1595236B0038BDC6 /* SESListIdentitiesResponseUnmarshaller.m */,
+				3885D5FB1595236B0038BDC6 /* SESListVerifiedEmailAddressesRequest.m */,
+				3885D5FC1595236B0038BDC6 /* SESListVerifiedEmailAddressesRequestMarshaller.m */,
+				3885D5FD1595236B0038BDC6 /* SESListVerifiedEmailAddressesResponse.m */,
+				3885D5FE1595236B0038BDC6 /* SESListVerifiedEmailAddressesResponseUnmarshaller.m */,
+				3885D5FF1595236B0038BDC6 /* SESMessage.m */,
+				3885D6001595236B0038BDC6 /* SESMessageRejectedException.m */,
+				3885D6011595236B0038BDC6 /* SESRawMessage.m */,
+				3885D6021595236B0038BDC6 /* SESSendDataPoint.m */,
+				3885D6031595236B0038BDC6 /* SESSendDataPointUnmarshaller.m */,
+				3885D6041595236B0038BDC6 /* SESSendEmailRequest.m */,
+				3885D6051595236B0038BDC6 /* SESSendEmailRequestMarshaller.m */,
+				3885D6061595236B0038BDC6 /* SESSendEmailResponse.m */,
+				3885D6071595236B0038BDC6 /* SESSendEmailResponseUnmarshaller.m */,
+				3885D6081595236B0038BDC6 /* SESSendRawEmailRequest.m */,
+				3885D6091595236B0038BDC6 /* SESSendRawEmailRequestMarshaller.m */,
+				3885D60A1595236B0038BDC6 /* SESSendRawEmailResponse.m */,
+				3885D60B1595236B0038BDC6 /* SESSendRawEmailResponseUnmarshaller.m */,
+				3885D60C1595236B0038BDC6 /* SESSetIdentityFeedbackForwardingEnabledRequest.m */,
+				3885D60D1595236B0038BDC6 /* SESSetIdentityFeedbackForwardingEnabledRequestMarshaller.m */,
+				3885D60E1595236B0038BDC6 /* SESSetIdentityFeedbackForwardingEnabledResponse.m */,
+				3885D60F1595236B0038BDC6 /* SESSetIdentityFeedbackForwardingEnabledResponseUnmarshaller.m */,
+				3885D6101595236B0038BDC6 /* SESSetIdentityNotificationTopicRequest.m */,
+				3885D6111595236B0038BDC6 /* SESSetIdentityNotificationTopicRequestMarshaller.m */,
+				3885D6121595236B0038BDC6 /* SESSetIdentityNotificationTopicResponse.m */,
+				3885D6131595236B0038BDC6 /* SESSetIdentityNotificationTopicResponseUnmarshaller.m */,
+				3885D6141595236B0038BDC6 /* SESVerifyDomainIdentityRequest.m */,
+				3885D6151595236B0038BDC6 /* SESVerifyDomainIdentityRequestMarshaller.m */,
+				3885D6161595236B0038BDC6 /* SESVerifyDomainIdentityResponse.m */,
+				3885D6171595236B0038BDC6 /* SESVerifyDomainIdentityResponseUnmarshaller.m */,
+				3885D6181595236B0038BDC6 /* SESVerifyEmailAddressRequest.m */,
+				3885D6191595236B0038BDC6 /* SESVerifyEmailAddressRequestMarshaller.m */,
+				3885D61A1595236B0038BDC6 /* SESVerifyEmailAddressResponse.m */,
+				3885D61B1595236B0038BDC6 /* SESVerifyEmailAddressResponseUnmarshaller.m */,
+				3885D61C1595236B0038BDC6 /* SESVerifyEmailIdentityRequest.m */,
+				3885D61D1595236B0038BDC6 /* SESVerifyEmailIdentityRequestMarshaller.m */,
+				3885D61E1595236B0038BDC6 /* SESVerifyEmailIdentityResponse.m */,
+				3885D61F1595236B0038BDC6 /* SESVerifyEmailIdentityResponseUnmarshaller.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3885D670159523870038BDC6 /* SES */ = {
+			isa = PBXGroup;
+			children = (
+				3885D671159523870038BDC6 /* AmazonSESClient.h */,
+				3885D672159523870038BDC6 /* SESBody.h */,
+				3885D673159523870038BDC6 /* SESContent.h */,
+				3885D674159523870038BDC6 /* SESDeleteIdentityRequest.h */,
+				3885D675159523870038BDC6 /* SESDeleteIdentityRequestMarshaller.h */,
+				3885D676159523870038BDC6 /* SESDeleteIdentityResponse.h */,
+				3885D677159523870038BDC6 /* SESDeleteIdentityResponseUnmarshaller.h */,
+				3885D678159523870038BDC6 /* SESDeleteVerifiedEmailAddressRequest.h */,
+				3885D679159523870038BDC6 /* SESDeleteVerifiedEmailAddressRequestMarshaller.h */,
+				3885D67A159523870038BDC6 /* SESDeleteVerifiedEmailAddressResponse.h */,
+				3885D67B159523870038BDC6 /* SESDeleteVerifiedEmailAddressResponseUnmarshaller.h */,
+				3885D67C159523870038BDC6 /* SESDestination.h */,
+				3885D67D159523870038BDC6 /* SESGetIdentityNotificationAttributesRequest.h */,
+				3885D67E159523870038BDC6 /* SESGetIdentityNotificationAttributesRequestMarshaller.h */,
+				3885D67F159523870038BDC6 /* SESGetIdentityNotificationAttributesResponse.h */,
+				3885D680159523870038BDC6 /* SESGetIdentityNotificationAttributesResponseUnmarshaller.h */,
+				3885D681159523870038BDC6 /* SESGetIdentityVerificationAttributesRequest.h */,
+				3885D682159523870038BDC6 /* SESGetIdentityVerificationAttributesRequestMarshaller.h */,
+				3885D683159523870038BDC6 /* SESGetIdentityVerificationAttributesResponse.h */,
+				3885D684159523870038BDC6 /* SESGetIdentityVerificationAttributesResponseUnmarshaller.h */,
+				3885D685159523870038BDC6 /* SESGetSendQuotaRequest.h */,
+				3885D686159523870038BDC6 /* SESGetSendQuotaRequestMarshaller.h */,
+				3885D687159523870038BDC6 /* SESGetSendQuotaResponse.h */,
+				3885D688159523870038BDC6 /* SESGetSendQuotaResponseUnmarshaller.h */,
+				3885D689159523870038BDC6 /* SESGetSendStatisticsRequest.h */,
+				3885D68A159523870038BDC6 /* SESGetSendStatisticsRequestMarshaller.h */,
+				3885D68B159523870038BDC6 /* SESGetSendStatisticsResponse.h */,
+				3885D68C159523870038BDC6 /* SESGetSendStatisticsResponseUnmarshaller.h */,
+				3885D68D159523870038BDC6 /* SESIdentityNotificationAttributes.h */,
+				3885D68E159523870038BDC6 /* SESIdentityNotificationAttributesUnmarshaller.h */,
+				3885D68F159523870038BDC6 /* SESIdentityVerificationAttributes.h */,
+				3885D690159523870038BDC6 /* SESIdentityVerificationAttributesUnmarshaller.h */,
+				3885D691159523870038BDC6 /* SESListIdentitiesRequest.h */,
+				3885D692159523870038BDC6 /* SESListIdentitiesRequestMarshaller.h */,
+				3885D693159523870038BDC6 /* SESListIdentitiesResponse.h */,
+				3885D694159523870038BDC6 /* SESListIdentitiesResponseUnmarshaller.h */,
+				3885D695159523870038BDC6 /* SESListVerifiedEmailAddressesRequest.h */,
+				3885D696159523870038BDC6 /* SESListVerifiedEmailAddressesRequestMarshaller.h */,
+				3885D697159523870038BDC6 /* SESListVerifiedEmailAddressesResponse.h */,
+				3885D698159523870038BDC6 /* SESListVerifiedEmailAddressesResponseUnmarshaller.h */,
+				3885D699159523870038BDC6 /* SESMessage.h */,
+				3885D69A159523870038BDC6 /* SESMessageRejectedException.h */,
+				3885D69B159523870038BDC6 /* SESRawMessage.h */,
+				3885D69C159523870038BDC6 /* SESRequest.h */,
+				3885D69D159523870038BDC6 /* SESResponse.h */,
+				3885D69E159523870038BDC6 /* SESResponseUnmarshaller.h */,
+				3885D69F159523870038BDC6 /* SESSendDataPoint.h */,
+				3885D6A0159523870038BDC6 /* SESSendDataPointUnmarshaller.h */,
+				3885D6A1159523870038BDC6 /* SESSendEmailRequest.h */,
+				3885D6A2159523870038BDC6 /* SESSendEmailRequestMarshaller.h */,
+				3885D6A3159523870038BDC6 /* SESSendEmailResponse.h */,
+				3885D6A4159523870038BDC6 /* SESSendEmailResponseUnmarshaller.h */,
+				3885D6A5159523870038BDC6 /* SESSendRawEmailRequest.h */,
+				3885D6A6159523870038BDC6 /* SESSendRawEmailRequestMarshaller.h */,
+				3885D6A7159523870038BDC6 /* SESSendRawEmailResponse.h */,
+				3885D6A8159523870038BDC6 /* SESSendRawEmailResponseUnmarshaller.h */,
+				3885D6A9159523870038BDC6 /* SESSetIdentityFeedbackForwardingEnabledRequest.h */,
+				3885D6AA159523870038BDC6 /* SESSetIdentityFeedbackForwardingEnabledRequestMarshaller.h */,
+				3885D6AB159523870038BDC6 /* SESSetIdentityFeedbackForwardingEnabledResponse.h */,
+				3885D6AC159523870038BDC6 /* SESSetIdentityFeedbackForwardingEnabledResponseUnmarshaller.h */,
+				3885D6AD159523870038BDC6 /* SESSetIdentityNotificationTopicRequest.h */,
+				3885D6AE159523870038BDC6 /* SESSetIdentityNotificationTopicRequestMarshaller.h */,
+				3885D6AF159523870038BDC6 /* SESSetIdentityNotificationTopicResponse.h */,
+				3885D6B0159523870038BDC6 /* SESSetIdentityNotificationTopicResponseUnmarshaller.h */,
+				3885D6B1159523870038BDC6 /* SESVerifyDomainIdentityRequest.h */,
+				3885D6B2159523870038BDC6 /* SESVerifyDomainIdentityRequestMarshaller.h */,
+				3885D6B3159523870038BDC6 /* SESVerifyDomainIdentityResponse.h */,
+				3885D6B4159523870038BDC6 /* SESVerifyDomainIdentityResponseUnmarshaller.h */,
+				3885D6B5159523870038BDC6 /* SESVerifyEmailAddressRequest.h */,
+				3885D6B6159523870038BDC6 /* SESVerifyEmailAddressRequestMarshaller.h */,
+				3885D6B7159523870038BDC6 /* SESVerifyEmailAddressResponse.h */,
+				3885D6B8159523870038BDC6 /* SESVerifyEmailAddressResponseUnmarshaller.h */,
+				3885D6B9159523870038BDC6 /* SESVerifyEmailIdentityRequest.h */,
+				3885D6BA159523870038BDC6 /* SESVerifyEmailIdentityRequestMarshaller.h */,
+				3885D6BB159523870038BDC6 /* SESVerifyEmailIdentityResponse.h */,
+				3885D6BC159523870038BDC6 /* SESVerifyEmailIdentityResponseUnmarshaller.h */,
+			);
+			path = SES;
 			sourceTree = "<group>";
 		};
 		38A564AF158929FC005D30F8 /* EC2 */ = {
@@ -7909,152 +8143,6 @@
 				38A56A8715892A0C005D30F8 /* EC2VolumeUnmarshaller.m */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		38AC56C2155C552200B0D7ED /* Amazon.SES */ = {
-			isa = PBXGroup;
-			children = (
-				38AC56C3155C552200B0D7ED /* AmazonSESClient.m */,
-				38AC56C4155C552200B0D7ED /* Model */,
-				38AC56FF155C552200B0D7ED /* SESRequest.m */,
-				38AC5700155C552200B0D7ED /* SESResponse.m */,
-				38AC5701155C552200B0D7ED /* SESResponseUnmarshaller.m */,
-			);
-			path = Amazon.SES;
-			sourceTree = "<group>";
-		};
-		38AC56C4155C552200B0D7ED /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				38AC56C5155C552200B0D7ED /* SESBody.m */,
-				38AC56C6155C552200B0D7ED /* SESContent.m */,
-				38AC56C7155C552200B0D7ED /* SESDeleteIdentityRequest.m */,
-				38AC56C8155C552200B0D7ED /* SESDeleteIdentityRequestMarshaller.m */,
-				38AC56C9155C552200B0D7ED /* SESDeleteIdentityResponse.m */,
-				38AC56CA155C552200B0D7ED /* SESDeleteIdentityResponseUnmarshaller.m */,
-				38AC56CB155C552200B0D7ED /* SESDeleteVerifiedEmailAddressRequest.m */,
-				38AC56CC155C552200B0D7ED /* SESDeleteVerifiedEmailAddressRequestMarshaller.m */,
-				38AC56CD155C552200B0D7ED /* SESDeleteVerifiedEmailAddressResponse.m */,
-				38AC56CE155C552200B0D7ED /* SESDeleteVerifiedEmailAddressResponseUnmarshaller.m */,
-				38AC56CF155C552200B0D7ED /* SESDestination.m */,
-				38AC56D0155C552200B0D7ED /* SESGetIdentityVerificationAttributesRequest.m */,
-				38AC56D1155C552200B0D7ED /* SESGetIdentityVerificationAttributesRequestMarshaller.m */,
-				38AC56D2155C552200B0D7ED /* SESGetIdentityVerificationAttributesResponse.m */,
-				38AC56D3155C552200B0D7ED /* SESGetIdentityVerificationAttributesResponseUnmarshaller.m */,
-				38AC56D4155C552200B0D7ED /* SESGetSendQuotaRequest.m */,
-				38AC56D5155C552200B0D7ED /* SESGetSendQuotaRequestMarshaller.m */,
-				38AC56D6155C552200B0D7ED /* SESGetSendQuotaResponse.m */,
-				38AC56D7155C552200B0D7ED /* SESGetSendQuotaResponseUnmarshaller.m */,
-				38AC56D8155C552200B0D7ED /* SESGetSendStatisticsRequest.m */,
-				38AC56D9155C552200B0D7ED /* SESGetSendStatisticsRequestMarshaller.m */,
-				38AC56DA155C552200B0D7ED /* SESGetSendStatisticsResponse.m */,
-				38AC56DB155C552200B0D7ED /* SESGetSendStatisticsResponseUnmarshaller.m */,
-				38AC56DC155C552200B0D7ED /* SESIdentityVerificationAttributes.m */,
-				38AC56DD155C552200B0D7ED /* SESIdentityVerificationAttributesUnmarshaller.m */,
-				38AC56DE155C552200B0D7ED /* SESListIdentitiesRequest.m */,
-				38AC56DF155C552200B0D7ED /* SESListIdentitiesRequestMarshaller.m */,
-				38AC56E0155C552200B0D7ED /* SESListIdentitiesResponse.m */,
-				38AC56E1155C552200B0D7ED /* SESListIdentitiesResponseUnmarshaller.m */,
-				38AC56E2155C552200B0D7ED /* SESListVerifiedEmailAddressesRequest.m */,
-				38AC56E3155C552200B0D7ED /* SESListVerifiedEmailAddressesRequestMarshaller.m */,
-				38AC56E4155C552200B0D7ED /* SESListVerifiedEmailAddressesResponse.m */,
-				38AC56E5155C552200B0D7ED /* SESListVerifiedEmailAddressesResponseUnmarshaller.m */,
-				38AC56E6155C552200B0D7ED /* SESMessage.m */,
-				38AC56E7155C552200B0D7ED /* SESMessageRejectedException.m */,
-				38AC56E8155C552200B0D7ED /* SESRawMessage.m */,
-				38AC56E9155C552200B0D7ED /* SESSendDataPoint.m */,
-				38AC56EA155C552200B0D7ED /* SESSendDataPointUnmarshaller.m */,
-				38AC56EB155C552200B0D7ED /* SESSendEmailRequest.m */,
-				38AC56EC155C552200B0D7ED /* SESSendEmailRequestMarshaller.m */,
-				38AC56ED155C552200B0D7ED /* SESSendEmailResponse.m */,
-				38AC56EE155C552200B0D7ED /* SESSendEmailResponseUnmarshaller.m */,
-				38AC56EF155C552200B0D7ED /* SESSendRawEmailRequest.m */,
-				38AC56F0155C552200B0D7ED /* SESSendRawEmailRequestMarshaller.m */,
-				38AC56F1155C552200B0D7ED /* SESSendRawEmailResponse.m */,
-				38AC56F2155C552200B0D7ED /* SESSendRawEmailResponseUnmarshaller.m */,
-				38AC56F3155C552200B0D7ED /* SESVerifyDomainIdentityRequest.m */,
-				38AC56F4155C552200B0D7ED /* SESVerifyDomainIdentityRequestMarshaller.m */,
-				38AC56F5155C552200B0D7ED /* SESVerifyDomainIdentityResponse.m */,
-				38AC56F6155C552200B0D7ED /* SESVerifyDomainIdentityResponseUnmarshaller.m */,
-				38AC56F7155C552200B0D7ED /* SESVerifyEmailAddressRequest.m */,
-				38AC56F8155C552200B0D7ED /* SESVerifyEmailAddressRequestMarshaller.m */,
-				38AC56F9155C552200B0D7ED /* SESVerifyEmailAddressResponse.m */,
-				38AC56FA155C552200B0D7ED /* SESVerifyEmailAddressResponseUnmarshaller.m */,
-				38AC56FB155C552200B0D7ED /* SESVerifyEmailIdentityRequest.m */,
-				38AC56FC155C552200B0D7ED /* SESVerifyEmailIdentityRequestMarshaller.m */,
-				38AC56FD155C552200B0D7ED /* SESVerifyEmailIdentityResponse.m */,
-				38AC56FE155C552200B0D7ED /* SESVerifyEmailIdentityResponseUnmarshaller.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		38AC5740155C553D00B0D7ED /* SES */ = {
-			isa = PBXGroup;
-			children = (
-				38AC5741155C553D00B0D7ED /* AmazonSESClient.h */,
-				38AC5742155C553D00B0D7ED /* SESBody.h */,
-				38AC5743155C553D00B0D7ED /* SESContent.h */,
-				38AC5744155C553D00B0D7ED /* SESDeleteIdentityRequest.h */,
-				38AC5745155C553D00B0D7ED /* SESDeleteIdentityRequestMarshaller.h */,
-				38AC5746155C553D00B0D7ED /* SESDeleteIdentityResponse.h */,
-				38AC5747155C553D00B0D7ED /* SESDeleteIdentityResponseUnmarshaller.h */,
-				38AC5748155C553D00B0D7ED /* SESDeleteVerifiedEmailAddressRequest.h */,
-				38AC5749155C553D00B0D7ED /* SESDeleteVerifiedEmailAddressRequestMarshaller.h */,
-				38AC574A155C553D00B0D7ED /* SESDeleteVerifiedEmailAddressResponse.h */,
-				38AC574B155C553D00B0D7ED /* SESDeleteVerifiedEmailAddressResponseUnmarshaller.h */,
-				38AC574C155C553D00B0D7ED /* SESDestination.h */,
-				38AC574D155C553D00B0D7ED /* SESGetIdentityVerificationAttributesRequest.h */,
-				38AC574E155C553D00B0D7ED /* SESGetIdentityVerificationAttributesRequestMarshaller.h */,
-				38AC574F155C553D00B0D7ED /* SESGetIdentityVerificationAttributesResponse.h */,
-				38AC5750155C553D00B0D7ED /* SESGetIdentityVerificationAttributesResponseUnmarshaller.h */,
-				38AC5751155C553D00B0D7ED /* SESGetSendQuotaRequest.h */,
-				38AC5752155C553D00B0D7ED /* SESGetSendQuotaRequestMarshaller.h */,
-				38AC5753155C553D00B0D7ED /* SESGetSendQuotaResponse.h */,
-				38AC5754155C553D00B0D7ED /* SESGetSendQuotaResponseUnmarshaller.h */,
-				38AC5755155C553D00B0D7ED /* SESGetSendStatisticsRequest.h */,
-				38AC5756155C553D00B0D7ED /* SESGetSendStatisticsRequestMarshaller.h */,
-				38AC5757155C553D00B0D7ED /* SESGetSendStatisticsResponse.h */,
-				38AC5758155C553D00B0D7ED /* SESGetSendStatisticsResponseUnmarshaller.h */,
-				38AC5759155C553D00B0D7ED /* SESIdentityVerificationAttributes.h */,
-				38AC575A155C553D00B0D7ED /* SESIdentityVerificationAttributesUnmarshaller.h */,
-				38AC575B155C553D00B0D7ED /* SESListIdentitiesRequest.h */,
-				38AC575C155C553D00B0D7ED /* SESListIdentitiesRequestMarshaller.h */,
-				38AC575D155C553D00B0D7ED /* SESListIdentitiesResponse.h */,
-				38AC575E155C553D00B0D7ED /* SESListIdentitiesResponseUnmarshaller.h */,
-				38AC575F155C553D00B0D7ED /* SESListVerifiedEmailAddressesRequest.h */,
-				38AC5760155C553D00B0D7ED /* SESListVerifiedEmailAddressesRequestMarshaller.h */,
-				38AC5761155C553D00B0D7ED /* SESListVerifiedEmailAddressesResponse.h */,
-				38AC5762155C553D00B0D7ED /* SESListVerifiedEmailAddressesResponseUnmarshaller.h */,
-				38AC5763155C553D00B0D7ED /* SESMessage.h */,
-				38AC5764155C553D00B0D7ED /* SESMessageRejectedException.h */,
-				38AC5765155C553D00B0D7ED /* SESRawMessage.h */,
-				38AC5766155C553D00B0D7ED /* SESRequest.h */,
-				38AC5767155C553D00B0D7ED /* SESResponse.h */,
-				38AC5768155C553D00B0D7ED /* SESResponseUnmarshaller.h */,
-				38AC5769155C553D00B0D7ED /* SESSendDataPoint.h */,
-				38AC576A155C553D00B0D7ED /* SESSendDataPointUnmarshaller.h */,
-				38AC576B155C553D00B0D7ED /* SESSendEmailRequest.h */,
-				38AC576C155C553D00B0D7ED /* SESSendEmailRequestMarshaller.h */,
-				38AC576D155C553D00B0D7ED /* SESSendEmailResponse.h */,
-				38AC576E155C553D00B0D7ED /* SESSendEmailResponseUnmarshaller.h */,
-				38AC576F155C553D00B0D7ED /* SESSendRawEmailRequest.h */,
-				38AC5770155C553D00B0D7ED /* SESSendRawEmailRequestMarshaller.h */,
-				38AC5771155C553D00B0D7ED /* SESSendRawEmailResponse.h */,
-				38AC5772155C553D00B0D7ED /* SESSendRawEmailResponseUnmarshaller.h */,
-				38AC5773155C553D00B0D7ED /* SESVerifyDomainIdentityRequest.h */,
-				38AC5774155C553D00B0D7ED /* SESVerifyDomainIdentityRequestMarshaller.h */,
-				38AC5775155C553D00B0D7ED /* SESVerifyDomainIdentityResponse.h */,
-				38AC5776155C553D00B0D7ED /* SESVerifyDomainIdentityResponseUnmarshaller.h */,
-				38AC5777155C553D00B0D7ED /* SESVerifyEmailAddressRequest.h */,
-				38AC5778155C553D00B0D7ED /* SESVerifyEmailAddressRequestMarshaller.h */,
-				38AC5779155C553D00B0D7ED /* SESVerifyEmailAddressResponse.h */,
-				38AC577A155C553D00B0D7ED /* SESVerifyEmailAddressResponseUnmarshaller.h */,
-				38AC577B155C553D00B0D7ED /* SESVerifyEmailIdentityRequest.h */,
-				38AC577C155C553D00B0D7ED /* SESVerifyEmailIdentityRequestMarshaller.h */,
-				38AC577D155C553D00B0D7ED /* SESVerifyEmailIdentityResponse.h */,
-				38AC577E155C553D00B0D7ED /* SESVerifyEmailIdentityResponseUnmarshaller.h */,
-			);
-			path = SES;
 			sourceTree = "<group>";
 		};
 		38F71BAE14DB660500FF274D /* AutoScaling */ = {
@@ -10090,68 +10178,6 @@
 				38078E5815262164006F384C /* DynamoDBWriteRequest.h in Headers */,
 				38078E5915262164006F384C /* DynamoDBWriteRequestUnmarshaller.h in Headers */,
 				D0C2DDA915375079001B0D29 /* S3UploadInputStream.h in Headers */,
-				38AC577F155C553D00B0D7ED /* AmazonSESClient.h in Headers */,
-				38AC5780155C553D00B0D7ED /* SESBody.h in Headers */,
-				38AC5781155C553D00B0D7ED /* SESContent.h in Headers */,
-				38AC5782155C553D00B0D7ED /* SESDeleteIdentityRequest.h in Headers */,
-				38AC5783155C553D00B0D7ED /* SESDeleteIdentityRequestMarshaller.h in Headers */,
-				38AC5784155C553D00B0D7ED /* SESDeleteIdentityResponse.h in Headers */,
-				38AC5785155C553D00B0D7ED /* SESDeleteIdentityResponseUnmarshaller.h in Headers */,
-				38AC5786155C553D00B0D7ED /* SESDeleteVerifiedEmailAddressRequest.h in Headers */,
-				38AC5787155C553D00B0D7ED /* SESDeleteVerifiedEmailAddressRequestMarshaller.h in Headers */,
-				38AC5788155C553D00B0D7ED /* SESDeleteVerifiedEmailAddressResponse.h in Headers */,
-				38AC5789155C553D00B0D7ED /* SESDeleteVerifiedEmailAddressResponseUnmarshaller.h in Headers */,
-				38AC578A155C553D00B0D7ED /* SESDestination.h in Headers */,
-				38AC578B155C553D00B0D7ED /* SESGetIdentityVerificationAttributesRequest.h in Headers */,
-				38AC578C155C553D00B0D7ED /* SESGetIdentityVerificationAttributesRequestMarshaller.h in Headers */,
-				38AC578D155C553D00B0D7ED /* SESGetIdentityVerificationAttributesResponse.h in Headers */,
-				38AC578E155C553D00B0D7ED /* SESGetIdentityVerificationAttributesResponseUnmarshaller.h in Headers */,
-				38AC578F155C553D00B0D7ED /* SESGetSendQuotaRequest.h in Headers */,
-				38AC5790155C553D00B0D7ED /* SESGetSendQuotaRequestMarshaller.h in Headers */,
-				38AC5791155C553D00B0D7ED /* SESGetSendQuotaResponse.h in Headers */,
-				38AC5792155C553D00B0D7ED /* SESGetSendQuotaResponseUnmarshaller.h in Headers */,
-				38AC5793155C553D00B0D7ED /* SESGetSendStatisticsRequest.h in Headers */,
-				38AC5794155C553D00B0D7ED /* SESGetSendStatisticsRequestMarshaller.h in Headers */,
-				38AC5795155C553D00B0D7ED /* SESGetSendStatisticsResponse.h in Headers */,
-				38AC5796155C553D00B0D7ED /* SESGetSendStatisticsResponseUnmarshaller.h in Headers */,
-				38AC5797155C553D00B0D7ED /* SESIdentityVerificationAttributes.h in Headers */,
-				38AC5798155C553D00B0D7ED /* SESIdentityVerificationAttributesUnmarshaller.h in Headers */,
-				38AC5799155C553D00B0D7ED /* SESListIdentitiesRequest.h in Headers */,
-				38AC579A155C553D00B0D7ED /* SESListIdentitiesRequestMarshaller.h in Headers */,
-				38AC579B155C553D00B0D7ED /* SESListIdentitiesResponse.h in Headers */,
-				38AC579C155C553D00B0D7ED /* SESListIdentitiesResponseUnmarshaller.h in Headers */,
-				38AC579D155C553D00B0D7ED /* SESListVerifiedEmailAddressesRequest.h in Headers */,
-				38AC579E155C553D00B0D7ED /* SESListVerifiedEmailAddressesRequestMarshaller.h in Headers */,
-				38AC579F155C553D00B0D7ED /* SESListVerifiedEmailAddressesResponse.h in Headers */,
-				38AC57A0155C553D00B0D7ED /* SESListVerifiedEmailAddressesResponseUnmarshaller.h in Headers */,
-				38AC57A1155C553D00B0D7ED /* SESMessage.h in Headers */,
-				38AC57A2155C553D00B0D7ED /* SESMessageRejectedException.h in Headers */,
-				38AC57A3155C553D00B0D7ED /* SESRawMessage.h in Headers */,
-				38AC57A4155C553D00B0D7ED /* SESRequest.h in Headers */,
-				38AC57A5155C553D00B0D7ED /* SESResponse.h in Headers */,
-				38AC57A6155C553D00B0D7ED /* SESResponseUnmarshaller.h in Headers */,
-				38AC57A7155C553D00B0D7ED /* SESSendDataPoint.h in Headers */,
-				38AC57A8155C553D00B0D7ED /* SESSendDataPointUnmarshaller.h in Headers */,
-				38AC57A9155C553D00B0D7ED /* SESSendEmailRequest.h in Headers */,
-				38AC57AA155C553D00B0D7ED /* SESSendEmailRequestMarshaller.h in Headers */,
-				38AC57AB155C553D00B0D7ED /* SESSendEmailResponse.h in Headers */,
-				38AC57AC155C553D00B0D7ED /* SESSendEmailResponseUnmarshaller.h in Headers */,
-				38AC57AD155C553D00B0D7ED /* SESSendRawEmailRequest.h in Headers */,
-				38AC57AE155C553D00B0D7ED /* SESSendRawEmailRequestMarshaller.h in Headers */,
-				38AC57AF155C553D00B0D7ED /* SESSendRawEmailResponse.h in Headers */,
-				38AC57B0155C553D00B0D7ED /* SESSendRawEmailResponseUnmarshaller.h in Headers */,
-				38AC57B1155C553D00B0D7ED /* SESVerifyDomainIdentityRequest.h in Headers */,
-				38AC57B2155C553D00B0D7ED /* SESVerifyDomainIdentityRequestMarshaller.h in Headers */,
-				38AC57B3155C553D00B0D7ED /* SESVerifyDomainIdentityResponse.h in Headers */,
-				38AC57B4155C553D00B0D7ED /* SESVerifyDomainIdentityResponseUnmarshaller.h in Headers */,
-				38AC57B5155C553D00B0D7ED /* SESVerifyEmailAddressRequest.h in Headers */,
-				38AC57B6155C553D00B0D7ED /* SESVerifyEmailAddressRequestMarshaller.h in Headers */,
-				38AC57B7155C553D00B0D7ED /* SESVerifyEmailAddressResponse.h in Headers */,
-				38AC57B8155C553D00B0D7ED /* SESVerifyEmailAddressResponseUnmarshaller.h in Headers */,
-				38AC57B9155C553D00B0D7ED /* SESVerifyEmailIdentityRequest.h in Headers */,
-				38AC57BA155C553D00B0D7ED /* SESVerifyEmailIdentityRequestMarshaller.h in Headers */,
-				38AC57BB155C553D00B0D7ED /* SESVerifyEmailIdentityResponse.h in Headers */,
-				38AC57BC155C553D00B0D7ED /* SESVerifyEmailIdentityResponseUnmarshaller.h in Headers */,
 				38A566A2158929FD005D30F8 /* AmazonEC2Client.h in Headers */,
 				38A566A3158929FD005D30F8 /* EC2ActivateLicenseRequest.h in Headers */,
 				38A566A4158929FD005D30F8 /* EC2ActivateLicenseRequestMarshaller.h in Headers */,
@@ -10650,6 +10676,82 @@
 				38A56891158929FD005D30F8 /* EC2VolumeStatusItem.h in Headers */,
 				38A56892158929FD005D30F8 /* EC2VolumeStatusItemUnmarshaller.h in Headers */,
 				38A56893158929FD005D30F8 /* EC2VolumeUnmarshaller.h in Headers */,
+				3885D6BD159523870038BDC6 /* AmazonSESClient.h in Headers */,
+				3885D6BE159523870038BDC6 /* SESBody.h in Headers */,
+				3885D6BF159523870038BDC6 /* SESContent.h in Headers */,
+				3885D6C0159523870038BDC6 /* SESDeleteIdentityRequest.h in Headers */,
+				3885D6C1159523870038BDC6 /* SESDeleteIdentityRequestMarshaller.h in Headers */,
+				3885D6C2159523870038BDC6 /* SESDeleteIdentityResponse.h in Headers */,
+				3885D6C3159523870038BDC6 /* SESDeleteIdentityResponseUnmarshaller.h in Headers */,
+				3885D6C4159523870038BDC6 /* SESDeleteVerifiedEmailAddressRequest.h in Headers */,
+				3885D6C5159523870038BDC6 /* SESDeleteVerifiedEmailAddressRequestMarshaller.h in Headers */,
+				3885D6C6159523870038BDC6 /* SESDeleteVerifiedEmailAddressResponse.h in Headers */,
+				3885D6C7159523870038BDC6 /* SESDeleteVerifiedEmailAddressResponseUnmarshaller.h in Headers */,
+				3885D6C8159523870038BDC6 /* SESDestination.h in Headers */,
+				3885D6C9159523870038BDC6 /* SESGetIdentityNotificationAttributesRequest.h in Headers */,
+				3885D6CA159523870038BDC6 /* SESGetIdentityNotificationAttributesRequestMarshaller.h in Headers */,
+				3885D6CB159523870038BDC6 /* SESGetIdentityNotificationAttributesResponse.h in Headers */,
+				3885D6CC159523870038BDC6 /* SESGetIdentityNotificationAttributesResponseUnmarshaller.h in Headers */,
+				3885D6CD159523870038BDC6 /* SESGetIdentityVerificationAttributesRequest.h in Headers */,
+				3885D6CE159523870038BDC6 /* SESGetIdentityVerificationAttributesRequestMarshaller.h in Headers */,
+				3885D6CF159523870038BDC6 /* SESGetIdentityVerificationAttributesResponse.h in Headers */,
+				3885D6D0159523870038BDC6 /* SESGetIdentityVerificationAttributesResponseUnmarshaller.h in Headers */,
+				3885D6D1159523870038BDC6 /* SESGetSendQuotaRequest.h in Headers */,
+				3885D6D2159523870038BDC6 /* SESGetSendQuotaRequestMarshaller.h in Headers */,
+				3885D6D3159523870038BDC6 /* SESGetSendQuotaResponse.h in Headers */,
+				3885D6D4159523870038BDC6 /* SESGetSendQuotaResponseUnmarshaller.h in Headers */,
+				3885D6D5159523870038BDC6 /* SESGetSendStatisticsRequest.h in Headers */,
+				3885D6D6159523870038BDC6 /* SESGetSendStatisticsRequestMarshaller.h in Headers */,
+				3885D6D7159523870038BDC6 /* SESGetSendStatisticsResponse.h in Headers */,
+				3885D6D8159523870038BDC6 /* SESGetSendStatisticsResponseUnmarshaller.h in Headers */,
+				3885D6D9159523870038BDC6 /* SESIdentityNotificationAttributes.h in Headers */,
+				3885D6DA159523870038BDC6 /* SESIdentityNotificationAttributesUnmarshaller.h in Headers */,
+				3885D6DB159523870038BDC6 /* SESIdentityVerificationAttributes.h in Headers */,
+				3885D6DC159523880038BDC6 /* SESIdentityVerificationAttributesUnmarshaller.h in Headers */,
+				3885D6DD159523880038BDC6 /* SESListIdentitiesRequest.h in Headers */,
+				3885D6DE159523880038BDC6 /* SESListIdentitiesRequestMarshaller.h in Headers */,
+				3885D6DF159523880038BDC6 /* SESListIdentitiesResponse.h in Headers */,
+				3885D6E0159523880038BDC6 /* SESListIdentitiesResponseUnmarshaller.h in Headers */,
+				3885D6E1159523880038BDC6 /* SESListVerifiedEmailAddressesRequest.h in Headers */,
+				3885D6E2159523880038BDC6 /* SESListVerifiedEmailAddressesRequestMarshaller.h in Headers */,
+				3885D6E3159523880038BDC6 /* SESListVerifiedEmailAddressesResponse.h in Headers */,
+				3885D6E4159523880038BDC6 /* SESListVerifiedEmailAddressesResponseUnmarshaller.h in Headers */,
+				3885D6E5159523880038BDC6 /* SESMessage.h in Headers */,
+				3885D6E6159523880038BDC6 /* SESMessageRejectedException.h in Headers */,
+				3885D6E7159523880038BDC6 /* SESRawMessage.h in Headers */,
+				3885D6E8159523880038BDC6 /* SESRequest.h in Headers */,
+				3885D6E9159523880038BDC6 /* SESResponse.h in Headers */,
+				3885D6EA159523880038BDC6 /* SESResponseUnmarshaller.h in Headers */,
+				3885D6EB159523880038BDC6 /* SESSendDataPoint.h in Headers */,
+				3885D6EC159523880038BDC6 /* SESSendDataPointUnmarshaller.h in Headers */,
+				3885D6ED159523880038BDC6 /* SESSendEmailRequest.h in Headers */,
+				3885D6EE159523880038BDC6 /* SESSendEmailRequestMarshaller.h in Headers */,
+				3885D6EF159523880038BDC6 /* SESSendEmailResponse.h in Headers */,
+				3885D6F0159523880038BDC6 /* SESSendEmailResponseUnmarshaller.h in Headers */,
+				3885D6F1159523880038BDC6 /* SESSendRawEmailRequest.h in Headers */,
+				3885D6F2159523880038BDC6 /* SESSendRawEmailRequestMarshaller.h in Headers */,
+				3885D6F3159523880038BDC6 /* SESSendRawEmailResponse.h in Headers */,
+				3885D6F4159523880038BDC6 /* SESSendRawEmailResponseUnmarshaller.h in Headers */,
+				3885D6F5159523880038BDC6 /* SESSetIdentityFeedbackForwardingEnabledRequest.h in Headers */,
+				3885D6F6159523880038BDC6 /* SESSetIdentityFeedbackForwardingEnabledRequestMarshaller.h in Headers */,
+				3885D6F7159523880038BDC6 /* SESSetIdentityFeedbackForwardingEnabledResponse.h in Headers */,
+				3885D6F8159523880038BDC6 /* SESSetIdentityFeedbackForwardingEnabledResponseUnmarshaller.h in Headers */,
+				3885D6F9159523880038BDC6 /* SESSetIdentityNotificationTopicRequest.h in Headers */,
+				3885D6FA159523880038BDC6 /* SESSetIdentityNotificationTopicRequestMarshaller.h in Headers */,
+				3885D6FB159523880038BDC6 /* SESSetIdentityNotificationTopicResponse.h in Headers */,
+				3885D6FC159523880038BDC6 /* SESSetIdentityNotificationTopicResponseUnmarshaller.h in Headers */,
+				3885D6FD159523880038BDC6 /* SESVerifyDomainIdentityRequest.h in Headers */,
+				3885D6FE159523880038BDC6 /* SESVerifyDomainIdentityRequestMarshaller.h in Headers */,
+				3885D6FF159523880038BDC6 /* SESVerifyDomainIdentityResponse.h in Headers */,
+				3885D700159523880038BDC6 /* SESVerifyDomainIdentityResponseUnmarshaller.h in Headers */,
+				3885D701159523880038BDC6 /* SESVerifyEmailAddressRequest.h in Headers */,
+				3885D702159523880038BDC6 /* SESVerifyEmailAddressRequestMarshaller.h in Headers */,
+				3885D703159523880038BDC6 /* SESVerifyEmailAddressResponse.h in Headers */,
+				3885D704159523880038BDC6 /* SESVerifyEmailAddressResponseUnmarshaller.h in Headers */,
+				3885D705159523880038BDC6 /* SESVerifyEmailIdentityRequest.h in Headers */,
+				3885D706159523880038BDC6 /* SESVerifyEmailIdentityRequestMarshaller.h in Headers */,
+				3885D707159523880038BDC6 /* SESVerifyEmailIdentityResponse.h in Headers */,
+				3885D708159523880038BDC6 /* SESVerifyEmailIdentityResponseUnmarshaller.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -11624,68 +11726,6 @@
 				38078F131526217F006F384C /* DynamoDBWriteRequestUnmarshaller.m in Sources */,
 				3846C388152D0DAA00AE6D72 /* AmazonDynamoDBClient.m in Sources */,
 				D0C2DDA71537506E001B0D29 /* S3UploadInputStream.m in Sources */,
-				38AC5702155C552200B0D7ED /* AmazonSESClient.m in Sources */,
-				38AC5703155C552200B0D7ED /* SESBody.m in Sources */,
-				38AC5704155C552200B0D7ED /* SESContent.m in Sources */,
-				38AC5705155C552200B0D7ED /* SESDeleteIdentityRequest.m in Sources */,
-				38AC5706155C552200B0D7ED /* SESDeleteIdentityRequestMarshaller.m in Sources */,
-				38AC5707155C552200B0D7ED /* SESDeleteIdentityResponse.m in Sources */,
-				38AC5708155C552200B0D7ED /* SESDeleteIdentityResponseUnmarshaller.m in Sources */,
-				38AC5709155C552200B0D7ED /* SESDeleteVerifiedEmailAddressRequest.m in Sources */,
-				38AC570A155C552200B0D7ED /* SESDeleteVerifiedEmailAddressRequestMarshaller.m in Sources */,
-				38AC570B155C552200B0D7ED /* SESDeleteVerifiedEmailAddressResponse.m in Sources */,
-				38AC570C155C552200B0D7ED /* SESDeleteVerifiedEmailAddressResponseUnmarshaller.m in Sources */,
-				38AC570D155C552200B0D7ED /* SESDestination.m in Sources */,
-				38AC570E155C552200B0D7ED /* SESGetIdentityVerificationAttributesRequest.m in Sources */,
-				38AC570F155C552200B0D7ED /* SESGetIdentityVerificationAttributesRequestMarshaller.m in Sources */,
-				38AC5710155C552200B0D7ED /* SESGetIdentityVerificationAttributesResponse.m in Sources */,
-				38AC5711155C552200B0D7ED /* SESGetIdentityVerificationAttributesResponseUnmarshaller.m in Sources */,
-				38AC5712155C552200B0D7ED /* SESGetSendQuotaRequest.m in Sources */,
-				38AC5713155C552200B0D7ED /* SESGetSendQuotaRequestMarshaller.m in Sources */,
-				38AC5714155C552200B0D7ED /* SESGetSendQuotaResponse.m in Sources */,
-				38AC5715155C552200B0D7ED /* SESGetSendQuotaResponseUnmarshaller.m in Sources */,
-				38AC5716155C552200B0D7ED /* SESGetSendStatisticsRequest.m in Sources */,
-				38AC5717155C552200B0D7ED /* SESGetSendStatisticsRequestMarshaller.m in Sources */,
-				38AC5718155C552200B0D7ED /* SESGetSendStatisticsResponse.m in Sources */,
-				38AC5719155C552200B0D7ED /* SESGetSendStatisticsResponseUnmarshaller.m in Sources */,
-				38AC571A155C552200B0D7ED /* SESIdentityVerificationAttributes.m in Sources */,
-				38AC571B155C552200B0D7ED /* SESIdentityVerificationAttributesUnmarshaller.m in Sources */,
-				38AC571C155C552200B0D7ED /* SESListIdentitiesRequest.m in Sources */,
-				38AC571D155C552200B0D7ED /* SESListIdentitiesRequestMarshaller.m in Sources */,
-				38AC571E155C552200B0D7ED /* SESListIdentitiesResponse.m in Sources */,
-				38AC571F155C552200B0D7ED /* SESListIdentitiesResponseUnmarshaller.m in Sources */,
-				38AC5720155C552200B0D7ED /* SESListVerifiedEmailAddressesRequest.m in Sources */,
-				38AC5721155C552200B0D7ED /* SESListVerifiedEmailAddressesRequestMarshaller.m in Sources */,
-				38AC5722155C552200B0D7ED /* SESListVerifiedEmailAddressesResponse.m in Sources */,
-				38AC5723155C552200B0D7ED /* SESListVerifiedEmailAddressesResponseUnmarshaller.m in Sources */,
-				38AC5724155C552200B0D7ED /* SESMessage.m in Sources */,
-				38AC5725155C552200B0D7ED /* SESMessageRejectedException.m in Sources */,
-				38AC5726155C552200B0D7ED /* SESRawMessage.m in Sources */,
-				38AC5727155C552200B0D7ED /* SESSendDataPoint.m in Sources */,
-				38AC5728155C552200B0D7ED /* SESSendDataPointUnmarshaller.m in Sources */,
-				38AC5729155C552200B0D7ED /* SESSendEmailRequest.m in Sources */,
-				38AC572A155C552200B0D7ED /* SESSendEmailRequestMarshaller.m in Sources */,
-				38AC572B155C552200B0D7ED /* SESSendEmailResponse.m in Sources */,
-				38AC572C155C552200B0D7ED /* SESSendEmailResponseUnmarshaller.m in Sources */,
-				38AC572D155C552200B0D7ED /* SESSendRawEmailRequest.m in Sources */,
-				38AC572E155C552200B0D7ED /* SESSendRawEmailRequestMarshaller.m in Sources */,
-				38AC572F155C552200B0D7ED /* SESSendRawEmailResponse.m in Sources */,
-				38AC5730155C552200B0D7ED /* SESSendRawEmailResponseUnmarshaller.m in Sources */,
-				38AC5731155C552200B0D7ED /* SESVerifyDomainIdentityRequest.m in Sources */,
-				38AC5732155C552200B0D7ED /* SESVerifyDomainIdentityRequestMarshaller.m in Sources */,
-				38AC5733155C552200B0D7ED /* SESVerifyDomainIdentityResponse.m in Sources */,
-				38AC5734155C552200B0D7ED /* SESVerifyDomainIdentityResponseUnmarshaller.m in Sources */,
-				38AC5735155C552200B0D7ED /* SESVerifyEmailAddressRequest.m in Sources */,
-				38AC5736155C552200B0D7ED /* SESVerifyEmailAddressRequestMarshaller.m in Sources */,
-				38AC5737155C552200B0D7ED /* SESVerifyEmailAddressResponse.m in Sources */,
-				38AC5738155C552200B0D7ED /* SESVerifyEmailAddressResponseUnmarshaller.m in Sources */,
-				38AC5739155C552200B0D7ED /* SESVerifyEmailIdentityRequest.m in Sources */,
-				38AC573A155C552200B0D7ED /* SESVerifyEmailIdentityRequestMarshaller.m in Sources */,
-				38AC573B155C552200B0D7ED /* SESVerifyEmailIdentityResponse.m in Sources */,
-				38AC573C155C552200B0D7ED /* SESVerifyEmailIdentityResponseUnmarshaller.m in Sources */,
-				38AC573D155C552200B0D7ED /* SESRequest.m in Sources */,
-				38AC573E155C552200B0D7ED /* SESResponse.m in Sources */,
-				38AC573F155C552200B0D7ED /* SESResponseUnmarshaller.m in Sources */,
 				38A56A8815892A0D005D30F8 /* AmazonEC2Client.m in Sources */,
 				38A56A8915892A0D005D30F8 /* EC2Request.m in Sources */,
 				38A56A8A15892A0D005D30F8 /* EC2Response.m in Sources */,
@@ -12184,6 +12224,82 @@
 				38A56C7715892A0D005D30F8 /* EC2VolumeStatusItem.m in Sources */,
 				38A56C7815892A0D005D30F8 /* EC2VolumeStatusItemUnmarshaller.m in Sources */,
 				38A56C7915892A0D005D30F8 /* EC2VolumeUnmarshaller.m in Sources */,
+				3885D6241595236B0038BDC6 /* AmazonSESClient.m in Sources */,
+				3885D6251595236B0038BDC6 /* SESBody.m in Sources */,
+				3885D6261595236B0038BDC6 /* SESContent.m in Sources */,
+				3885D6271595236B0038BDC6 /* SESDeleteIdentityRequest.m in Sources */,
+				3885D6281595236B0038BDC6 /* SESDeleteIdentityRequestMarshaller.m in Sources */,
+				3885D6291595236B0038BDC6 /* SESDeleteIdentityResponse.m in Sources */,
+				3885D62A1595236B0038BDC6 /* SESDeleteIdentityResponseUnmarshaller.m in Sources */,
+				3885D62B1595236B0038BDC6 /* SESDeleteVerifiedEmailAddressRequest.m in Sources */,
+				3885D62C1595236B0038BDC6 /* SESDeleteVerifiedEmailAddressRequestMarshaller.m in Sources */,
+				3885D62D1595236B0038BDC6 /* SESDeleteVerifiedEmailAddressResponse.m in Sources */,
+				3885D62E1595236B0038BDC6 /* SESDeleteVerifiedEmailAddressResponseUnmarshaller.m in Sources */,
+				3885D62F1595236B0038BDC6 /* SESDestination.m in Sources */,
+				3885D6301595236B0038BDC6 /* SESGetIdentityNotificationAttributesRequest.m in Sources */,
+				3885D6311595236B0038BDC6 /* SESGetIdentityNotificationAttributesRequestMarshaller.m in Sources */,
+				3885D6321595236B0038BDC6 /* SESGetIdentityNotificationAttributesResponse.m in Sources */,
+				3885D6331595236B0038BDC6 /* SESGetIdentityNotificationAttributesResponseUnmarshaller.m in Sources */,
+				3885D6341595236B0038BDC6 /* SESGetIdentityVerificationAttributesRequest.m in Sources */,
+				3885D6351595236B0038BDC6 /* SESGetIdentityVerificationAttributesRequestMarshaller.m in Sources */,
+				3885D6361595236B0038BDC6 /* SESGetIdentityVerificationAttributesResponse.m in Sources */,
+				3885D6371595236B0038BDC6 /* SESGetIdentityVerificationAttributesResponseUnmarshaller.m in Sources */,
+				3885D6381595236B0038BDC6 /* SESGetSendQuotaRequest.m in Sources */,
+				3885D6391595236B0038BDC6 /* SESGetSendQuotaRequestMarshaller.m in Sources */,
+				3885D63A1595236B0038BDC6 /* SESGetSendQuotaResponse.m in Sources */,
+				3885D63B1595236B0038BDC6 /* SESGetSendQuotaResponseUnmarshaller.m in Sources */,
+				3885D63C1595236B0038BDC6 /* SESGetSendStatisticsRequest.m in Sources */,
+				3885D63D1595236B0038BDC6 /* SESGetSendStatisticsRequestMarshaller.m in Sources */,
+				3885D63E1595236B0038BDC6 /* SESGetSendStatisticsResponse.m in Sources */,
+				3885D63F1595236B0038BDC6 /* SESGetSendStatisticsResponseUnmarshaller.m in Sources */,
+				3885D6401595236B0038BDC6 /* SESIdentityNotificationAttributes.m in Sources */,
+				3885D6411595236B0038BDC6 /* SESIdentityNotificationAttributesUnmarshaller.m in Sources */,
+				3885D6421595236B0038BDC6 /* SESIdentityVerificationAttributes.m in Sources */,
+				3885D6431595236B0038BDC6 /* SESIdentityVerificationAttributesUnmarshaller.m in Sources */,
+				3885D6441595236B0038BDC6 /* SESListIdentitiesRequest.m in Sources */,
+				3885D6451595236B0038BDC6 /* SESListIdentitiesRequestMarshaller.m in Sources */,
+				3885D6461595236B0038BDC6 /* SESListIdentitiesResponse.m in Sources */,
+				3885D6471595236B0038BDC6 /* SESListIdentitiesResponseUnmarshaller.m in Sources */,
+				3885D6481595236B0038BDC6 /* SESListVerifiedEmailAddressesRequest.m in Sources */,
+				3885D6491595236B0038BDC6 /* SESListVerifiedEmailAddressesRequestMarshaller.m in Sources */,
+				3885D64A1595236B0038BDC6 /* SESListVerifiedEmailAddressesResponse.m in Sources */,
+				3885D64B1595236B0038BDC6 /* SESListVerifiedEmailAddressesResponseUnmarshaller.m in Sources */,
+				3885D64C1595236B0038BDC6 /* SESMessage.m in Sources */,
+				3885D64D1595236B0038BDC6 /* SESMessageRejectedException.m in Sources */,
+				3885D64E1595236B0038BDC6 /* SESRawMessage.m in Sources */,
+				3885D64F1595236B0038BDC6 /* SESSendDataPoint.m in Sources */,
+				3885D6501595236B0038BDC6 /* SESSendDataPointUnmarshaller.m in Sources */,
+				3885D6511595236B0038BDC6 /* SESSendEmailRequest.m in Sources */,
+				3885D6521595236B0038BDC6 /* SESSendEmailRequestMarshaller.m in Sources */,
+				3885D6531595236B0038BDC6 /* SESSendEmailResponse.m in Sources */,
+				3885D6541595236B0038BDC6 /* SESSendEmailResponseUnmarshaller.m in Sources */,
+				3885D6551595236B0038BDC6 /* SESSendRawEmailRequest.m in Sources */,
+				3885D6561595236B0038BDC6 /* SESSendRawEmailRequestMarshaller.m in Sources */,
+				3885D6571595236B0038BDC6 /* SESSendRawEmailResponse.m in Sources */,
+				3885D6581595236B0038BDC6 /* SESSendRawEmailResponseUnmarshaller.m in Sources */,
+				3885D6591595236B0038BDC6 /* SESSetIdentityFeedbackForwardingEnabledRequest.m in Sources */,
+				3885D65A1595236B0038BDC6 /* SESSetIdentityFeedbackForwardingEnabledRequestMarshaller.m in Sources */,
+				3885D65B1595236B0038BDC6 /* SESSetIdentityFeedbackForwardingEnabledResponse.m in Sources */,
+				3885D65C1595236B0038BDC6 /* SESSetIdentityFeedbackForwardingEnabledResponseUnmarshaller.m in Sources */,
+				3885D65D1595236B0038BDC6 /* SESSetIdentityNotificationTopicRequest.m in Sources */,
+				3885D65E1595236B0038BDC6 /* SESSetIdentityNotificationTopicRequestMarshaller.m in Sources */,
+				3885D65F1595236B0038BDC6 /* SESSetIdentityNotificationTopicResponse.m in Sources */,
+				3885D6601595236B0038BDC6 /* SESSetIdentityNotificationTopicResponseUnmarshaller.m in Sources */,
+				3885D6611595236B0038BDC6 /* SESVerifyDomainIdentityRequest.m in Sources */,
+				3885D6621595236B0038BDC6 /* SESVerifyDomainIdentityRequestMarshaller.m in Sources */,
+				3885D6631595236B0038BDC6 /* SESVerifyDomainIdentityResponse.m in Sources */,
+				3885D6641595236B0038BDC6 /* SESVerifyDomainIdentityResponseUnmarshaller.m in Sources */,
+				3885D6651595236B0038BDC6 /* SESVerifyEmailAddressRequest.m in Sources */,
+				3885D6661595236B0038BDC6 /* SESVerifyEmailAddressRequestMarshaller.m in Sources */,
+				3885D6671595236B0038BDC6 /* SESVerifyEmailAddressResponse.m in Sources */,
+				3885D6681595236B0038BDC6 /* SESVerifyEmailAddressResponseUnmarshaller.m in Sources */,
+				3885D6691595236B0038BDC6 /* SESVerifyEmailIdentityRequest.m in Sources */,
+				3885D66A1595236B0038BDC6 /* SESVerifyEmailIdentityRequestMarshaller.m in Sources */,
+				3885D66B1595236B0038BDC6 /* SESVerifyEmailIdentityResponse.m in Sources */,
+				3885D66C1595236B0038BDC6 /* SESVerifyEmailIdentityResponseUnmarshaller.m in Sources */,
+				3885D66D1595236B0038BDC6 /* SESRequest.m in Sources */,
+				3885D66E1595236B0038BDC6 /* SESResponse.m in Sources */,
+				3885D66F1595236B0038BDC6 /* SESResponseUnmarshaller.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

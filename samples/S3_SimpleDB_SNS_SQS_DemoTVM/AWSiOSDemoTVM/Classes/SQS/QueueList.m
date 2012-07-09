@@ -58,13 +58,13 @@
 
         [queues sortUsingSelector:@selector(compare:)];
     }
-    @catch (AmazonServiceException *exception) {
-        if ( [exception.errorCode isEqualToString:@"InvalidAccessKeyId"]) {
+    @catch (AmazonClientException *exception)
+    {
+        if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
+        {
             [[Constants expiredCredentialsAlert] show];
-            [AmazonClientManager wipeAllCredentials];
         }
-    }
-    @catch (AmazonClientException *exception) {
+        
         NSLog(@"Exception = %@", exception);
     }
 
@@ -108,13 +108,13 @@
         [self presentModalViewController:messageList animated:YES];
         [messageList release];
     }
-    @catch (AmazonServiceException *exception) {
-        if ( [exception.errorCode isEqualToString:@"InvalidAccessKeyId"]) {
+    @catch (AmazonClientException *exception)
+    {
+        if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
+        {
             [[Constants expiredCredentialsAlert] show];
-            [AmazonClientManager wipeAllCredentials];
         }
-    }
-    @catch (AmazonClientException *exception) {
+        
         NSLog(@"Exception = %@", exception);
     }
 }
@@ -133,13 +133,13 @@
             [queueTableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
             [queueTableView endUpdates];
         }
-        @catch (AmazonServiceException *exception) {
-            if ( [exception.errorCode isEqualToString:@"InvalidAccessKeyId"]) {
+        @catch (AmazonClientException *exception)
+        {
+            if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
+            {
                 [[Constants expiredCredentialsAlert] show];
-                [AmazonClientManager wipeAllCredentials];
             }
-        }
-        @catch (AmazonClientException *exception) {
+            
             NSLog(@"Exception = %@", exception);
         }
     }

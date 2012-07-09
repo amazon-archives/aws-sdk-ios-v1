@@ -17,8 +17,6 @@
 #import "../AmazonServiceRequest.h"
 #import "../AmazonAuthUtils.h"
 
-//#define SIGV4 1
-
 /**
  *
  */

@@ -69,23 +69,28 @@
     NSString *bucketName = [NSString stringWithFormat:@"testing-async-with-s3-for%@", [ACCESS_KEY_ID lowercaseString]];
     NSString *keyName    = @"asyncTestFile";
     NSString *filename   = [[NSBundle mainBundle] pathForResource:@"temp" ofType:@"txt"];
-
+    
     // Create the Bucket to put the Object.
     @try {
         [[AmazonClientManager s3] createBucketWithName:bucketName];
+        
+        // Put the file as an object in the bucket.
+        putObjectRequest          = [[S3PutObjectRequest alloc] initWithKey:keyName inBucket:bucketName];
+        putObjectRequest.filename = filename;
+        [putObjectRequest setDelegate:s3Delegate];
+        
+        // When using delegates the return is nil.
+        [[AmazonClientManager s3] putObject:putObjectRequest];
     }
-    @catch (NSException *e) {
-        NSLog(@"%@", e);
-        return;
+    @catch (AmazonClientException *exception)
+    {
+        if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
+        {
+            [[Constants expiredCredentialsAlert] show];
+        }
+        
+        NSLog(@"Exception = %@", exception);
     }
-
-    // Put the file as an object in the bucket.
-    putObjectRequest          = [[S3PutObjectRequest alloc] initWithKey:keyName inBucket:bucketName];
-    putObjectRequest.filename = filename;
-    [putObjectRequest setDelegate:s3Delegate];
-
-    // When using delegates the return is nil.
-    [[AmazonClientManager s3] putObject:putObjectRequest];
 }
 
 -(void)getObject

@@ -52,6 +52,8 @@
             [[Constants expiredCredentialsAlert] show];
             [AmazonClientManager wipeAllCredentials];
         }
+        
+        [AmazonClientManager wipeCredentialsOnAuthError:exception];
     }
     @catch (AmazonClientException *exception) {
         NSLog(@"Exception = %@", exception);
@@ -127,6 +129,8 @@
             [[Constants expiredCredentialsAlert] show];
             [AmazonClientManager wipeAllCredentials];
         }
+        
+        [AmazonClientManager wipeCredentialsOnAuthError:exception];
     }
     @catch (AmazonClientException *exception) {
         NSLog(@"Exception = %@", exception);

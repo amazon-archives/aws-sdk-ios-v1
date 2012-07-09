@@ -27,14 +27,14 @@
     @try {
         [[AmazonClientManager s3] createBucket:[[[S3CreateBucketRequest alloc] initWithName:bucketName.text] autorelease]];
     }
-    @catch (AmazonServiceException *exception) {
-        if ( [exception.errorCode isEqualToString:@"ExpiredToken"]) {
+    @catch (AmazonClientException *exception)
+    {
+        if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
+        {
             [[Constants expiredCredentialsAlert] show];
-            [AmazonClientManager wipeAllCredentials];
         }
-    }
-    @catch (AmazonClientException *exception) {
-        NSLog(@"Failed to Creater Bucket [%@]", exception);
+        
+        NSLog(@"Exception = %@", exception);
     }
 
     [self dismissModalViewControllerAnimated:YES];

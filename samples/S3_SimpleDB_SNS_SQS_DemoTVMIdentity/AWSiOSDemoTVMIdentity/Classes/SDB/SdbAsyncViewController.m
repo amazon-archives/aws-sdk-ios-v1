@@ -112,8 +112,14 @@
         [createDomainRequest setDelegate:sdbDelegate];
         [[AmazonClientManager sdb] createDomain:createDomainRequest];
     }
-    @catch (NSException *exception) {
-        NSLog(@"%@", exception);
+    @catch (AmazonClientException *exception)
+    {
+        if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
+        {
+            [[Constants expiredCredentialsAlert] show];
+        }
+        
+        NSLog(@"Exception = %@", exception);
     }
 }
 
@@ -136,8 +142,14 @@
             [[AmazonClientManager sdb] putAttributes:putAttributesRequest];
         }
     }
-    @catch (NSException *exception) {
-        NSLog(@"%@", exception);
+    @catch (AmazonClientException *exception)
+    {
+        if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
+        {
+            [[Constants expiredCredentialsAlert] show];
+        }
+        
+        NSLog(@"Exception = %@", exception);
     }
 }
 
@@ -151,8 +163,14 @@
 
         [[AmazonClientManager sdb] select:selectRequest];
     }
-    @catch (NSException *exception) {
-        NSLog(@"%@", exception);
+    @catch (AmazonClientException *exception)
+    {
+        if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
+        {
+            [[Constants expiredCredentialsAlert] show];
+        }
+        
+        NSLog(@"Exception = %@", exception);
     }
 }
 

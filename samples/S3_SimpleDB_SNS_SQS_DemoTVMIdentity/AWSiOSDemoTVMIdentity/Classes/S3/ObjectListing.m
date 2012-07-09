@@ -47,15 +47,14 @@
         }
         [objects sortUsingSelector:@selector(compare:)];
     }
-    @catch (AmazonServiceException *exception) {
-        if ( [exception.errorCode isEqualToString:@"ExpiredToken"]) {
+    @catch (AmazonClientException *exception)
+    {
+        if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
+        {
             [[Constants expiredCredentialsAlert] show];
-            [AmazonClientManager wipeAllCredentials];
         }
-    }
-    @catch (AmazonClientException *exception) {
+        
         NSLog(@"Exception = %@", exception);
-        [objects addObject:@"Unable to load objects!"];
     }
 
     [objectsTableView reloadData];
@@ -122,13 +121,13 @@
         [self presentModalViewController:objectView animated:YES];
         [objectView release];
     }
-    @catch (AmazonServiceException *exception) {
-        if ( [exception.errorCode isEqualToString:@"ExpiredToken"]) {
+    @catch (AmazonClientException *exception)
+    {
+        if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
+        {
             [[Constants expiredCredentialsAlert] show];
-            [AmazonClientManager wipeAllCredentials];
         }
-    }
-    @catch (AmazonClientException *exception) {
+        
         NSLog(@"Exception = %@", exception);
     }
 }
@@ -150,13 +149,13 @@
             [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
             [tableView endUpdates];
         }
-        @catch (AmazonServiceException *exception) {
-            if ( [exception.errorCode isEqualToString:@"ExpiredToken"]) {
+        @catch (AmazonClientException *exception)
+        {
+            if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
+            {
                 [[Constants expiredCredentialsAlert] show];
-                [AmazonClientManager wipeAllCredentials];
             }
-        }
-        @catch (AmazonClientException *exception) {
+            
             NSLog(@"Exception = %@", exception);
         }
     }

@@ -16,9 +16,6 @@
 #import "AmazonKeyChainWrapper.h"
 #import <AWSiOSSDK/AmazonLogger.h>
 
-
-
-
 NSString *kKeychainAccessKeyIdentifier;
 NSString *kKeychainSecretKeyIdentifier;
 NSString *kKeychainSecrutiyTokenIdentifier;
@@ -27,17 +24,18 @@ NSString *kKeychainExpirationDateIdentifier;
 NSString *kKeychainUidIdentifier;
 NSString *kKeychainKeyIdentifier;
 
-
 @implementation AmazonKeyChainWrapper
 
-+(void)initialize {
++(void)initialize
+{
     NSString *bundleID = [NSBundle mainBundle].bundleIdentifier;
+    
     kKeychainAccessKeyIdentifier = [[NSString stringWithFormat:@"%@.AWSAccessKey", bundleID] retain];
     kKeychainSecretKeyIdentifier= [[NSString stringWithFormat:@"%@.AWSSecretKey", bundleID] retain];
     kKeychainSecrutiyTokenIdentifier  = [[NSString stringWithFormat:@"%@.AWSSecurityToken", bundleID] retain];
     kKeychainExpirationDateIdentifier = [[NSString stringWithFormat:@"%@.AWSExpirationDate", bundleID] retain];
     
-    kKeychainUidIdentifier = [[NSString stringWithFormat:@"%@.UID", bundleID] retain]; 
+    kKeychainUidIdentifier = [[NSString stringWithFormat:@"%@.UID", bundleID] retain];
     kKeychainKeyIdentifier = [[NSString stringWithFormat:@"%@.KEY", bundleID] retain];
 }
 
@@ -168,42 +166,59 @@ NSString *kKeychainKeyIdentifier;
     }
 }
 
-+(void)wipeKeyChain
++(OSStatus)wipeKeyChain
 {
-    OSStatus keychainError = SecItemDelete((CFDictionaryRef)[AmazonKeyChainWrapper createKeychainDictionaryForKey : kKeychainAccessKeyIdentifier]);
+    OSStatus keychainError = [AmazonKeyChainWrapper wipeCredentialsFromKeyChain];
+    
+    if(keychainError != errSecSuccess)
+    {
+        return keychainError;
+    }
 
-    AMZLogDebug(@"Keychain Key: kKeychainAccessKeyIdentifier, Error Code: %ld", keychainError);
-
-    keychainError = SecItemDelete((CFDictionaryRef)[AmazonKeyChainWrapper createKeychainDictionaryForKey : kKeychainSecretKeyIdentifier]);
-    AMZLogDebug(@"Keychain Key: kKeychainSecretKeyIdentifier, Error Code: %ld", keychainError);
-
-    keychainError = SecItemDelete((CFDictionaryRef)[AmazonKeyChainWrapper createKeychainDictionaryForKey : kKeychainSecrutiyTokenIdentifier]);
-    AMZLogDebug(@"Keychain Key: kKeychainSecrutiyTokenIdentifier, Error Code: %ld", keychainError);
-
-    keychainError = SecItemDelete((CFDictionaryRef)[AmazonKeyChainWrapper createKeychainDictionaryForKey : kKeychainExpirationDateIdentifier]);
-    AMZLogDebug(@"Keychain Key: kKeychainExpirationDateIdentifier, Error Code: %ld", keychainError);
-
-    keychainError = SecItemDelete((CFDictionaryRef)[AmazonKeyChainWrapper createKeychainDictionaryForKey : kKeychainUidIdentifier]);
+    keychainError = SecItemDelete((CFDictionaryRef)[AmazonKeyChainWrapper createKeychainDictionaryForKey:kKeychainUidIdentifier]);
     AMZLogDebug(@"Keychain Key: kKeychainUidIdentifier, Error Code: %ld", keychainError);
+    
+    if(keychainError != errSecSuccess)
+    {
+        return keychainError;
+    }
 
     keychainError = SecItemDelete((CFDictionaryRef)[AmazonKeyChainWrapper createKeychainDictionaryForKey : kKeychainKeyIdentifier]);
     AMZLogDebug(@"Keychain Key: kKeychainKeyIdentifier, Error Code: %ld", keychainError);
+    
+    return keychainError;
 }
 
-+(void)wipeCredentialsFromKeyChain
++(OSStatus)wipeCredentialsFromKeyChain
 {
     OSStatus keychainError = SecItemDelete((CFDictionaryRef)[AmazonKeyChainWrapper createKeychainDictionaryForKey : kKeychainAccessKeyIdentifier]);
-
     AMZLogDebug(@"Keychain Key: kKeychainAccessKeyIdentifier, Error Code: %ld", keychainError);
+    
+    if(keychainError != errSecSuccess)
+    {
+        return keychainError;
+    }
 
     keychainError = SecItemDelete((CFDictionaryRef)[AmazonKeyChainWrapper createKeychainDictionaryForKey : kKeychainSecretKeyIdentifier]);
     AMZLogDebug(@"Keychain Key: kKeychainSecretKeyIdentifier, Error Code: %ld", keychainError);
+    
+    if(keychainError != errSecSuccess)
+    {
+        return keychainError;
+    }
 
     keychainError = SecItemDelete((CFDictionaryRef)[AmazonKeyChainWrapper createKeychainDictionaryForKey : kKeychainSecrutiyTokenIdentifier]);
     AMZLogDebug(@"Keychain Key: kKeychainSecrutiyTokenIdentifier, Error Code: %ld", keychainError);
+    
+    if(keychainError != errSecSuccess)
+    {
+        return keychainError;
+    }
 
     keychainError = SecItemDelete((CFDictionaryRef)[AmazonKeyChainWrapper createKeychainDictionaryForKey : kKeychainExpirationDateIdentifier]);
     AMZLogDebug(@"Keychain Key: kKeychainExpirationDateIdentifier, Error Code: %ld", keychainError);
+    
+    return errSecSuccess;
 }
 
 +(NSMutableDictionary *)createKeychainDictionaryForKey:(NSString *)key

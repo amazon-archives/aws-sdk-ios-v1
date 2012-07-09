@@ -14,7 +14,16 @@
  */
 
 #import "CloudWatchRequest.h"
+#import "AmazonAuthUtils.h"
 
 @implementation CloudWatchRequest
+
+-(void)sign {
+    // headers to sign
+    NSMutableDictionary *headers = [NSMutableDictionary dictionary];
+    [headers setObject:self.hostName forKey:@"Host"];
+    
+    [AmazonAuthUtils signRequestV4:self headers:headers payload:[self queryString] credentials:self.credentials];
+}
 
 @end

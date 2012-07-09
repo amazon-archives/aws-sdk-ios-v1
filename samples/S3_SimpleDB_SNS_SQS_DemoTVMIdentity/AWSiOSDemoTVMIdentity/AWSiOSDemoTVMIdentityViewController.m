@@ -167,7 +167,7 @@
 
 -(IBAction)logout:(id)sender
 {
-    [AmazonClientManager clearCredentials];
+    [AmazonClientManager wipeAllCredentials];
     [AmazonKeyChainWrapper wipeKeyChain];
 }
 

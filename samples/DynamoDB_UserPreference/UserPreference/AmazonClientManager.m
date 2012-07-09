@@ -55,45 +55,87 @@ static AmazonTVMClient      *tvm = nil;
 
 +(Response *)validateCredentials
 {
-    Response *ableToGetToken = nil;
+    Response *ableToGetToken = [[[Response alloc] initWithCode:200 andMessage:@"OK"] autorelease];
 
     if ([AmazonKeyChainWrapper areCredentialsExpired]) {
-        [AmazonClientManager clearCredentials];
-
-        ableToGetToken = [[AmazonClientManager tvm] anonymousRegister];
-
-        if ( [ableToGetToken wasSuccessful])
+        
+        @synchronized(self)
         {
-            ableToGetToken = [[AmazonClientManager tvm] getToken];
+            if ([AmazonKeyChainWrapper areCredentialsExpired]) {
+                
+                ableToGetToken = [[AmazonClientManager tvm] anonymousRegister];
+                
+                if ( [ableToGetToken wasSuccessful])
+                {
+                    ableToGetToken = [[AmazonClientManager tvm] getToken];
+                    
+                    if ( [ableToGetToken wasSuccessful])
+                    {
+                        [AmazonClientManager initClients];
+                    }
+                }
+            }
         }
     }
-    else
+    else if (ddb == nil)
     {
-        ableToGetToken = [[[Response alloc] initWithCode:200 andMessage:@"OK"] autorelease];
-    }
-
-    if ( [ableToGetToken wasSuccessful] && ddb == nil)
-    {
-        [AmazonClientManager clearCredentials];
-
-        AmazonCredentials *credentials = [AmazonKeyChainWrapper getCredentialsFromKeyChain];
-
-        ddb = [[AmazonDynamoDBClient alloc] initWithCredentials:credentials];
+        @synchronized(self)
+        {
+            if (ddb == nil)
+            {
+                [AmazonClientManager initClients];
+            }
+        }
     }
 
     return ableToGetToken;
 }
 
-+(void)clearCredentials
++(void)initClients
 {
+    AmazonCredentials *credentials = [AmazonKeyChainWrapper getCredentialsFromKeyChain];
+    
     [ddb release];
-    ddb = nil;
+    ddb = [[AmazonDynamoDBClient alloc] initWithCredentials:credentials];
 }
 
 +(void)wipeAllCredentials
 {
-    [AmazonClientManager clearCredentials];
-    [AmazonKeyChainWrapper wipeCredentialsFromKeyChain];
+    @synchronized(self)
+    {
+        [AmazonKeyChainWrapper wipeCredentialsFromKeyChain];
+        
+        [ddb release];
+        ddb = nil;
+    }
+}
+
++ (void)wipeCredentialsOnAuthError:(NSException *)exception
+{
+    if([exception isKindOfClass:[AmazonServiceException class]])
+    {
+        AmazonServiceException *e = (AmazonServiceException *)exception;
+        
+        if(
+           // STS http://docs.amazonwebservices.com/STS/latest/APIReference/CommonErrors.html
+           [e.errorCode isEqualToString:@"IncompleteSignature"]
+           || [e.errorCode isEqualToString:@"InternalFailure"]
+           || [e.errorCode isEqualToString:@"InvalidClientTokenId"]
+           || [e.errorCode isEqualToString:@"OptInRequired"]
+           || [e.errorCode isEqualToString:@"RequestExpired"]
+           || [e.errorCode isEqualToString:@"ServiceUnavailable"]
+           
+           // DynamoDB http://docs.amazonwebservices.com/amazondynamodb/latest/developerguide/ErrorHandling.html#APIErrorTypes
+           || [e.errorCode isEqualToString:@"AccessDeniedException"]
+           || [e.errorCode isEqualToString:@"IncompleteSignatureException"]
+           || [e.errorCode isEqualToString:@"MissingAuthenticationTokenException"]
+           || [e.errorCode isEqualToString:@"ValidationException"]
+           || [e.errorCode isEqualToString:@"InternalFailure"]
+           || [e.errorCode isEqualToString:@"InternalServerError"])
+        {
+            [AmazonClientManager wipeAllCredentials];
+        }
+    }
 }
 
 @end

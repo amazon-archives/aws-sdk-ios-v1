@@ -32,7 +32,7 @@
 
 +(bool)hasCredentials;
 +(Response *)validateCredentials;
-+(void)clearCredentials;
 +(void)wipeAllCredentials;
++ (BOOL)wipeCredentialsOnAuthError:(NSException *)exception;
 
 @end
