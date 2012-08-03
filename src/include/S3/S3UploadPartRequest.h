@@ -21,15 +21,15 @@
  *
  */
 @interface S3UploadPartRequest:S3Request {
-    int      partNumber;
-    NSString *uploadId;
-    NSString *contentMD5;
-    NSData   *data;
+    NSInteger partNumber;
+    NSString  *uploadId;
+    NSString  *contentMD5;
+    NSData    *data;
     NSInputStream *stream;
 }
 
 /** Identifies which part this is. */
-@property (nonatomic) int partNumber;
+@property (nonatomic) NSInteger partNumber;
 
 /** The base64-encoded 128-bit MD5 digest of the part data.
  * This header can be used as a message integrity check to verify

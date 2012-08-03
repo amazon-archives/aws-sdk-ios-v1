@@ -89,7 +89,7 @@ qualifiedName:(NSString *)qName
     }
 
     if ([elementName isEqualToString:@"MaxKeys"]) {
-        self.listVersionsResult.maxKeys = [self.currentText intValue];
+        self.listVersionsResult.maxKeys = [self.currentText integerValue];
         return;
     }
 

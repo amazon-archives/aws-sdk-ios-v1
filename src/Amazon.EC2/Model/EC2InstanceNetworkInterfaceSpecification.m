@@ -26,19 +26,23 @@
 @synthesize groups;
 @synthesize deleteOnTermination;
 @synthesize deleteOnTerminationIsSet;
+@synthesize privateIpAddresses;
+@synthesize secondaryPrivateIpAddressCount;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        networkInterfaceId       = nil;
-        deviceIndex              = nil;
-        subnetId                 = nil;
-        descriptionValue         = nil;
-        privateIpAddress         = nil;
-        groups                   = [[NSMutableArray alloc] initWithCapacity:1];
-        deleteOnTermination      = NO;
-        deleteOnTerminationIsSet = NO;
+        networkInterfaceId             = nil;
+        deviceIndex                    = nil;
+        subnetId                       = nil;
+        descriptionValue               = nil;
+        privateIpAddress               = nil;
+        groups                         = [[NSMutableArray alloc] initWithCapacity:1];
+        deleteOnTermination            = NO;
+        deleteOnTerminationIsSet       = NO;
+        privateIpAddresses             = [[NSMutableArray alloc] initWithCapacity:1];
+        secondaryPrivateIpAddressCount = nil;
     }
 
     return self;
@@ -54,6 +58,15 @@
     [groups addObject:groupObject];
 }
 
+-(void)addPrivateIpAddresse:(EC2PrivateIpAddressSpecification *)privateIpAddresseObject
+{
+    if (privateIpAddresses == nil) {
+        privateIpAddresses = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [privateIpAddresses addObject:privateIpAddresseObject];
+}
+
 
 -(NSString *)description
 {
@@ -67,6 +80,8 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"PrivateIpAddress: %@,", privateIpAddress] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Groups: %@,", groups] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"DeleteOnTermination: %d,", deleteOnTermination] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"PrivateIpAddresses: %@,", privateIpAddresses] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"SecondaryPrivateIpAddressCount: %@,", secondaryPrivateIpAddressCount] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -89,6 +104,8 @@
     [descriptionValue release];
     [privateIpAddress release];
     [groups release];
+    [privateIpAddresses release];
+    [secondaryPrivateIpAddressCount release];
 
     [super dealloc];
 }

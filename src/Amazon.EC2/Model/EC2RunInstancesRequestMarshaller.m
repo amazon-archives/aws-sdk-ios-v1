@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"RunInstances"           forKey:@"Action"];
-    [request setParameterValue:@"2012-06-01"   forKey:@"Version"];
+    [request setParameterValue:@"2012-06-15"   forKey:@"Version"];
 
     [request setDelegate:[runInstancesRequest delegate]];
     [request setCredentials:[runInstancesRequest credentials]];
@@ -241,6 +241,29 @@
             if (networkInterfacesListValue != nil) {
                 if (networkInterfacesListValue.deleteOnTerminationIsSet) {
                     [request setParameterValue:(networkInterfacesListValue.deleteOnTermination ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@.%d.%@", @"NetworkInterface", networkInterfacesListIndex, @"DeleteOnTermination"]];
+                }
+            }
+
+            if (networkInterfacesListValue != nil) {
+                int privateIpAddressesListIndex = 1;
+                for (EC2PrivateIpAddressSpecification *privateIpAddressesListValue in networkInterfacesListValue.privateIpAddresses) {
+                    if (privateIpAddressesListValue != nil) {
+                        if (privateIpAddressesListValue.privateIpAddress != nil) {
+                            [request setParameterValue:[NSString stringWithFormat:@"%@", privateIpAddressesListValue.privateIpAddress] forKey:[NSString stringWithFormat:@"%@.%d.%@.%d.%@", @"NetworkInterface", networkInterfacesListIndex, @"PrivateIpAddresses", privateIpAddressesListIndex, @"PrivateIpAddress"]];
+                        }
+                    }
+                    if (privateIpAddressesListValue != nil) {
+                        if (privateIpAddressesListValue.primaryIsSet) {
+                            [request setParameterValue:(privateIpAddressesListValue.primary ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@.%d.%@.%d.%@", @"NetworkInterface", networkInterfacesListIndex, @"PrivateIpAddresses", privateIpAddressesListIndex, @"Primary"]];
+                        }
+                    }
+
+                    privateIpAddressesListIndex++;
+                }
+            }
+            if (networkInterfacesListValue != nil) {
+                if (networkInterfacesListValue.secondaryPrivateIpAddressCount != nil) {
+                    [request setParameterValue:[NSString stringWithFormat:@"%@", networkInterfacesListValue.secondaryPrivateIpAddressCount] forKey:[NSString stringWithFormat:@"%@.%d.%@", @"NetworkInterface", networkInterfacesListIndex, @"SecondaryPrivateIpAddressCount"]];
                 }
             }
 

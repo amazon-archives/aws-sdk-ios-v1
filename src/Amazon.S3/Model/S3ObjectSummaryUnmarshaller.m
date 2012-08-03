@@ -51,7 +51,7 @@ qualifiedName:(NSString *)qName
     }
 
     if ([elementName isEqualToString:@"Size"]) {
-        self.summary.size = [self.currentText intValue];
+        self.summary.size = [self.currentText integerValue];
         return;
     }
 

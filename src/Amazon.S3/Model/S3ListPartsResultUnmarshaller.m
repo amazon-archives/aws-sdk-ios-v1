@@ -59,13 +59,13 @@ qualifiedName:(NSString *)qName
         self.listPartsResult.storageClass = self.currentText;
     }
     if ([elementName isEqualToString:@"PartNumberMarker"]) {
-        self.listPartsResult.partNumberMarker = [self.currentText intValue];
+        self.listPartsResult.partNumberMarker = [self.currentText integerValue];
     }
     if ([elementName isEqualToString:@"NextPartNumberMarker"]) {
-        self.listPartsResult.nextPartNumberMarker = [self.currentText intValue];
+        self.listPartsResult.nextPartNumberMarker = [self.currentText integerValue];
     }
     if ([elementName isEqualToString:@"MaxParts"]) {
-        self.listPartsResult.maxParts = [self.currentText intValue];
+        self.listPartsResult.maxParts = [self.currentText integerValue];
     }
     if ([elementName isEqualToString:@"IsTruncated"]) {
         self.listPartsResult.isTruncated = [self.currentText boolValue];

@@ -22,15 +22,21 @@
 @synthesize publicIp;
 @synthesize allocationId;
 @synthesize networkInterfaceId;
+@synthesize privateIpAddress;
+@synthesize allowReassociation;
+@synthesize allowReassociationIsSet;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        instanceId         = nil;
-        publicIp           = nil;
-        allocationId       = nil;
-        networkInterfaceId = nil;
+        instanceId              = nil;
+        publicIp                = nil;
+        allocationId            = nil;
+        networkInterfaceId      = nil;
+        privateIpAddress        = nil;
+        allowReassociation      = NO;
+        allowReassociationIsSet = NO;
     }
 
     return self;
@@ -57,12 +63,20 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"PublicIp: %@,", publicIp] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"AllocationId: %@,", allocationId] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"NetworkInterfaceId: %@,", networkInterfaceId] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"PrivateIpAddress: %@,", privateIpAddress] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"AllowReassociation: %d,", allowReassociation] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
     return [buffer autorelease];
 }
 
+
+-(void)setAllowReassociation:(bool)theValue
+{
+    allowReassociation      = theValue;
+    allowReassociationIsSet = YES;
+}
 
 
 -(void)dealloc
@@ -71,6 +85,7 @@
     [publicIp release];
     [allocationId release];
     [networkInterfaceId release];
+    [privateIpAddress release];
 
     [super dealloc];
 }

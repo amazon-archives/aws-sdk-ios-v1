@@ -34,6 +34,16 @@
             [request setParameterValue:[NSString stringWithFormat:@"%@", getSessionTokenRequest.durationSeconds] forKey:[NSString stringWithFormat:@"%@", @"DurationSeconds"]];
         }
     }
+    if (getSessionTokenRequest != nil) {
+        if (getSessionTokenRequest.serialNumber != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", getSessionTokenRequest.serialNumber] forKey:[NSString stringWithFormat:@"%@", @"SerialNumber"]];
+        }
+    }
+    if (getSessionTokenRequest != nil) {
+        if (getSessionTokenRequest.tokenCode != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", getSessionTokenRequest.tokenCode] forKey:[NSString stringWithFormat:@"%@", @"TokenCode"]];
+        }
+    }
 
 
     return [request autorelease];

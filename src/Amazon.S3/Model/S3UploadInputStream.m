@@ -27,6 +27,7 @@
     if ((self = [super init]) != nil) {
         delay = 0.0;
         packetSize = 32;
+        stream = nil;
     }
     
     return self;    
@@ -34,10 +35,11 @@
 
 +(id)inputStreamWithData:(NSData *)data
 {
-	S3UploadInputStream *uploadStream = [[[S3UploadInputStream alloc] init] autorelease];
-	if (data) {
-		[uploadStream setStream:[NSInputStream inputStreamWithData:data]];
-	}
+	S3UploadInputStream *uploadStream = [[S3UploadInputStream new] autorelease];
+    if(data)
+    {
+        [uploadStream setStream:[NSInputStream inputStreamWithData:data]];
+    }
 	return uploadStream;
 }
 

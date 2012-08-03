@@ -15,7 +15,6 @@
 
 #import "AmazonDynamoDBClient.h"
 #import "../AmazonServiceRequest.h"
-#import "AmazonEndpoints.h"
 
 
 @implementation AmazonDynamoDBClient
@@ -23,7 +22,7 @@
 -(id)initWithCredentials:(AmazonCredentials *)theCredentials
 {
     if (self = [super initWithCredentials:theCredentials]) {
-        self.endpoint = AMAZON_DDB_US_EAST_1_ENDPOINT_SECURE;
+        self.endpoint = @"https://dynamodb.us-east-1.amazonaws.com/";
     }
     return self;
 }

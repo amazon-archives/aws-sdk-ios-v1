@@ -41,8 +41,8 @@
 -(id)init;
 
 /**
- * A value that must be entered into a TXT record in the DNS settings for
- * the domain, in order to complete domain verification.
+ * A TXT record that must be placed in the DNS settings for the domain,
+ * in order to complete domain verification.
  */
 @property (nonatomic, retain) NSString *verificationToken;
 

@@ -19,6 +19,9 @@
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
+#import "../AmazonListUnmarshaller.h"
+#import "EC2PrivateIpAddressSpecificationUnmarshaller.h"
+#import "../AmazonSDKUtil.h"
 
 
 /**

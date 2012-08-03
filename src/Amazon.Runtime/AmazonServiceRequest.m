@@ -68,7 +68,7 @@
 
     NSArray         *keys       = [[self parameters] allKeys];
     NSArray         *sortedKeys = [keys sortedArrayUsingSelector:@selector(compare:)];
-    for (int index = 0; index < [sortedKeys count]; index++) {
+    for (NSInteger index = 0; index < [sortedKeys count]; index++) {
         NSString *key   = [sortedKeys objectAtIndex:index];
         NSString *value = (NSString *)[[self parameters] valueForKey:key];
 

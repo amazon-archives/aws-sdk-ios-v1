@@ -13,6 +13,7 @@
  * permissions and limitations under the License.
  */
 
+#import "EC2PrivateIpAddressSpecification.h"
 
 
 
@@ -31,6 +32,8 @@
     NSMutableArray *groups;
     bool           deleteOnTermination;
     bool           deleteOnTerminationIsSet;
+    NSMutableArray *privateIpAddresses;
+    NSNumber       *secondaryPrivateIpAddressCount;
 }
 
 
@@ -80,10 +83,26 @@
 @property (nonatomic, readonly) bool deleteOnTerminationIsSet;
 
 /**
+ * The value of the PrivateIpAddresses property for this object.
+ */
+@property (nonatomic, retain) NSMutableArray *privateIpAddresses;
+
+/**
+ * The value of the SecondaryPrivateIpAddressCount property for this object.
+ */
+@property (nonatomic, retain) NSNumber *secondaryPrivateIpAddressCount;
+
+/**
  * Adds a single object to groups.
  * This function will alloc and init groups if not already done.
  */
 -(void)addGroup:(NSString *)groupObject;
+
+/**
+ * Adds a single object to privateIpAddresses.
+ * This function will alloc and init privateIpAddresses if not already done.
+ */
+-(void)addPrivateIpAddresse:(EC2PrivateIpAddressSpecification *)privateIpAddresseObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

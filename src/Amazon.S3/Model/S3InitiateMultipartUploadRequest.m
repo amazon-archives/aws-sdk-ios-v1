@@ -30,13 +30,13 @@
     return self;
 }
 
--(void)setExpires:(int)exp
+-(void)setExpires:(NSInteger)exp
 {
     expires    = exp;
     expiresSet = YES;
 }
 
--(int)expires
+-(NSInteger)expires
 {
     return expires;
 }

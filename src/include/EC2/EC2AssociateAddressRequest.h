@@ -29,6 +29,9 @@
     NSString *publicIp;
     NSString *allocationId;
     NSString *networkInterfaceId;
+    NSString *privateIpAddress;
+    bool     allowReassociation;
+    bool     allowReassociationIsSet;
 }
 
 
@@ -53,6 +56,18 @@
  * The value of the NetworkInterfaceId property for this object.
  */
 @property (nonatomic, retain) NSString *networkInterfaceId;
+
+/**
+ * The value of the PrivateIpAddress property for this object.
+ */
+@property (nonatomic, retain) NSString *privateIpAddress;
+
+/**
+ * The value of the AllowReassociation property for this object.
+ */
+@property (nonatomic) bool           allowReassociation;
+
+@property (nonatomic, readonly) bool allowReassociationIsSet;
 
 
 /**

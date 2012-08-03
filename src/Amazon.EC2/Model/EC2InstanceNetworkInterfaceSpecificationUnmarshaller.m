@@ -32,6 +32,15 @@
         [parser setDelegate:listUnmarshaller];
     }
 
+    if ([elementName isEqualToString:@"privateIpAddressesSet"]) {
+        AmazonListUnmarshaller *listUnmarshaller = [[[AmazonListUnmarshaller alloc] initWithCaller:self withParentObject:self.response.privateIpAddresses withSetter:@selector(addObjectsFromArray:)] autorelease];
+        listUnmarshaller.endListElementName = @"privateIpAddressesSet";
+        listUnmarshaller.entryElementName   = @"item";
+        listUnmarshaller.delegateClass      = [EC2PrivateIpAddressSpecificationUnmarshaller class];
+
+        [parser setDelegate:listUnmarshaller];
+    }
+
 
 
     if ([elementName isEqualToString:@"Error"]) {
@@ -77,6 +86,11 @@
 
     if ([elementName isEqualToString:@"deleteOnTermination"]) {
         self.response.deleteOnTermination = [self.currentText boolValue];
+        return;
+    }
+
+    if ([elementName isEqualToString:@"secondaryPrivateIpAddressCount"]) {
+        self.response.secondaryPrivateIpAddressCount = [AmazonSDKUtil convertStringToNumber:self.currentText];
         return;
     }
 

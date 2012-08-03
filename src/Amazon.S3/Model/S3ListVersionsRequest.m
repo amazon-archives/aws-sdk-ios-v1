@@ -33,19 +33,19 @@
     }
 
     if (nil != self.prefix) {
-        [endQueryString appendFormat:@"&%@=%@", kS3QueryParamPrefix, self.prefix];
+        [endQueryString appendFormat:@"&%@=%@", kS3QueryParamPrefix, [AmazonSDKUtil urlEncode:self.prefix]];
     }
 
     if (nil != self.keyMarker) {
-        [endQueryString appendFormat:@"&%@=%@", kS3QueryParamKeyMarker, self.keyMarker];
+        [endQueryString appendFormat:@"&%@=%@", kS3QueryParamKeyMarker, [AmazonSDKUtil urlEncode:self.keyMarker]];
     }
 
     if (nil != self.versionIdMarker) {
-        [endQueryString appendFormat:@"&%@=%@", kS3QueryParamVersionIdMarker, self.versionIdMarker];
+        [endQueryString appendFormat:@"&%@=%@", kS3QueryParamVersionIdMarker, [AmazonSDKUtil urlEncode:self.versionIdMarker]];
     }
 
     if (nil != self.delimiter) {
-        [endQueryString appendFormat:@"&%@=%@", kS3QueryParamDelimiter, self.delimiter];
+        [endQueryString appendFormat:@"&%@=%@", kS3QueryParamDelimiter, [AmazonSDKUtil urlEncode:self.delimiter]];
     }
 
     NSString *queryString = nil;

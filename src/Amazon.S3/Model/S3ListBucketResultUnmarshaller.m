@@ -77,7 +77,7 @@ qualifiedName:(NSString *)qName
     }
 
     if ([elementName isEqualToString:@"MaxKeys"]) {
-        self.objectListing.maxKeys = [self.currentText intValue];
+        self.objectListing.maxKeys = [self.currentText integerValue];
         return;
     }
 

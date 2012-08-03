@@ -31,7 +31,7 @@ qualifiedName:(NSString *)qName
         self.part.etag = self.currentText;
     }
     if ([elementName isEqualToString:@"PartNumber"]) {
-        self.part.partNumber = [self.currentText intValue];
+        self.part.partNumber = [self.currentText integerValue];
     }
     if ([elementName isEqualToString:@"Size"]) {
         self.part.size = [self.currentText longLongValue];

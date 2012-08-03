@@ -58,7 +58,7 @@
     
     NSString *credentialsAuthorizationHeader   = [NSString stringWithFormat:@"Credential=%@", signingCredentials];
     NSString *signedHeadersAuthorizationHeader = [NSString stringWithFormat:@"SignedHeaders=%@", [AmazonAuthUtils getSignedHeadersString:headers]];
-    NSString *signatureAuthorizationHeader     = [NSString stringWithFormat:@"Signature=%@", [AmazonSDKUtil hexEncode:[[NSString alloc] initWithData:signature encoding:NSASCIIStringEncoding]]];
+    NSString *signatureAuthorizationHeader     = [NSString stringWithFormat:@"Signature=%@", [AmazonSDKUtil hexEncode:[[[NSString alloc] initWithData:signature encoding:NSASCIIStringEncoding] autorelease]]];
     
     NSString *authorization = [NSString stringWithFormat:@"%@ %@, %@, %@", SIGV4_ALGORITHM, credentialsAuthorizationHeader, signedHeadersAuthorizationHeader, signatureAuthorizationHeader];
     [serviceRequest.urlRequest setValue:authorization     forHTTPHeaderField:@"Authorization"];
@@ -108,7 +108,7 @@
     // Both SHA1 and SHA256 will fit in here
     unsigned char digestRaw[CC_SHA256_DIGEST_LENGTH];
 
-    int           digestLength;
+    NSInteger           digestLength;
 
     switch (algorithm) {
     case kCCHmacAlgSHA1:
@@ -146,7 +146,7 @@
     CCHmacUpdate(&context, [data bytes], [data length]);
 
     unsigned char digestRaw[CC_SHA256_DIGEST_LENGTH];
-    int           digestLength = CC_SHA256_DIGEST_LENGTH;
+    NSInteger     digestLength = CC_SHA256_DIGEST_LENGTH;
 
     CCHmacFinal(&context, digestRaw);
 
@@ -161,7 +161,7 @@
     CCHmacUpdate(&context, [data bytes], [data length]);
 
     unsigned char digestRaw[CC_SHA256_DIGEST_LENGTH];
-    int           digestLength = CC_SHA256_DIGEST_LENGTH;
+    NSInteger     digestLength = CC_SHA256_DIGEST_LENGTH;
 
     CCHmacFinal(&context, digestRaw);
 
@@ -170,7 +170,7 @@
 
 +(NSString *)hashString:(NSString *)stringToHash
 {
-    return [[NSString alloc] initWithData:[AmazonAuthUtils hash:[stringToHash dataUsingEncoding:NSUTF8StringEncoding]] encoding:NSASCIIStringEncoding];
+    return [[[NSString alloc] initWithData:[AmazonAuthUtils hash:[stringToHash dataUsingEncoding:NSUTF8StringEncoding]] encoding:NSASCIIStringEncoding] autorelease];
 }
 
 +(NSData *)hash:(NSData *)dataToHash
@@ -199,7 +199,7 @@
 
 +(NSString *)getCanonicalizedRequest:(NSString *)method path:(NSString *)path query:(NSString *)query headers:(NSMutableDictionary *)headers payload:(NSString *)payload
 {
-    NSMutableString *canonicalRequest = [[NSMutableString alloc] init];
+    NSMutableString *canonicalRequest = [[NSMutableString new] autorelease];
     [canonicalRequest appendString:method];
     [canonicalRequest appendString:@"\n"];
     [canonicalRequest appendString:path]; // Canonicalized resource path

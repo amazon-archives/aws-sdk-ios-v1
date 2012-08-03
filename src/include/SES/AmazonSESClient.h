@@ -32,6 +32,14 @@
 #import "SESGetIdentityNotificationAttributesResponseUnmarshaller.h"
 #import "SESGetIdentityNotificationAttributesRequest.h"
 #import "SESGetIdentityNotificationAttributesRequestMarshaller.h"
+#import "SESVerifyDomainDkimResponse.h"
+#import "SESVerifyDomainDkimResponseUnmarshaller.h"
+#import "SESVerifyDomainDkimRequest.h"
+#import "SESVerifyDomainDkimRequestMarshaller.h"
+#import "SESGetIdentityDkimAttributesResponse.h"
+#import "SESGetIdentityDkimAttributesResponseUnmarshaller.h"
+#import "SESGetIdentityDkimAttributesRequest.h"
+#import "SESGetIdentityDkimAttributesRequestMarshaller.h"
 #import "SESVerifyEmailAddressResponse.h"
 #import "SESVerifyEmailAddressResponseUnmarshaller.h"
 #import "SESVerifyEmailAddressRequest.h"
@@ -48,6 +56,10 @@
 #import "SESGetIdentityVerificationAttributesResponseUnmarshaller.h"
 #import "SESGetIdentityVerificationAttributesRequest.h"
 #import "SESGetIdentityVerificationAttributesRequestMarshaller.h"
+#import "SESSetIdentityDkimEnabledResponse.h"
+#import "SESSetIdentityDkimEnabledResponseUnmarshaller.h"
+#import "SESSetIdentityDkimEnabledRequest.h"
+#import "SESSetIdentityDkimEnabledRequestMarshaller.h"
 #import "SESGetSendQuotaResponse.h"
 #import "SESGetSendQuotaResponseUnmarshaller.h"
 #import "SESGetSendQuotaRequest.h"
@@ -56,22 +68,22 @@
 #import "SESSetIdentityFeedbackForwardingEnabledResponseUnmarshaller.h"
 #import "SESSetIdentityFeedbackForwardingEnabledRequest.h"
 #import "SESSetIdentityFeedbackForwardingEnabledRequestMarshaller.h"
-#import "SESSendEmailResponse.h"
-#import "SESSendEmailResponseUnmarshaller.h"
-#import "SESSendEmailRequest.h"
-#import "SESSendEmailRequestMarshaller.h"
 #import "SESVerifyDomainIdentityResponse.h"
 #import "SESVerifyDomainIdentityResponseUnmarshaller.h"
 #import "SESVerifyDomainIdentityRequest.h"
 #import "SESVerifyDomainIdentityRequestMarshaller.h"
-#import "SESSetIdentityNotificationTopicResponse.h"
-#import "SESSetIdentityNotificationTopicResponseUnmarshaller.h"
-#import "SESSetIdentityNotificationTopicRequest.h"
-#import "SESSetIdentityNotificationTopicRequestMarshaller.h"
+#import "SESSendEmailResponse.h"
+#import "SESSendEmailResponseUnmarshaller.h"
+#import "SESSendEmailRequest.h"
+#import "SESSendEmailRequestMarshaller.h"
 #import "SESDeleteVerifiedEmailAddressResponse.h"
 #import "SESDeleteVerifiedEmailAddressResponseUnmarshaller.h"
 #import "SESDeleteVerifiedEmailAddressRequest.h"
 #import "SESDeleteVerifiedEmailAddressRequestMarshaller.h"
+#import "SESSetIdentityNotificationTopicResponse.h"
+#import "SESSetIdentityNotificationTopicResponseUnmarshaller.h"
+#import "SESSetIdentityNotificationTopicRequest.h"
+#import "SESSetIdentityNotificationTopicRequestMarshaller.h"
 
 #import "../AmazonWebServiceClient.h"
 
@@ -216,6 +228,80 @@
 
 /**
  * <p>
+ * Returns a set of DNS records, or <i>tokens</i> , that must be published in the domain name's DNS to complete the DKIM
+ * verification process. These tokens are DNS CNAME records that point to DKIM public keys hosted by Amazon SES. To
+ * complete the DKIM verification process, these tokens must be published in the domain's DNS. The tokens must remain
+ * published in order for Easy DKIM signing to function correctly.
+ * </p>
+ * <p>
+ * After the tokens are added to the domain's DNS, Amazon SES will be able to DKIM-sign email originating from that domain.
+ * To enable or disable Easy DKIM signing for a domain, use the SetIdentityDkimEnabled action.
+ * </p>
+ * <p>
+ * For more information about Easy DKIM, go to the <a href="http://docs.amazonwebservices.com/ses/latest/DeveloperGuide">
+ * Amazon SES Developer Guide </a> .
+ * </p>
+ *
+ * @param verifyDomainDkimRequest Container for the necessary parameters to execute the VerifyDomainDkim service method on
+ *           AmazonSES.
+ *
+ * @return The response from the VerifyDomainDkim service method, as returned by AmazonSES.
+ *
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonSES indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see SESVerifyDomainDkimRequest
+ * @see SESVerifyDomainDkimResponse
+ */
+-(SESVerifyDomainDkimResponse *)verifyDomainDkim:(SESVerifyDomainDkimRequest *)verifyDomainDkimRequest;
+
+
+/**
+ * <p>
+ * Returns the DNS records, or <i>tokens</i> , that must be present in order for Easy DKIM to sign outgoing email messages.
+ * </p>
+ * <p>
+ * This action takes a list of verified identities as input. It then returns the following information for each identity:
+ * </p>
+ *
+ * <ul>
+ * <li>Whether Easy DKIM signing is enabled or disabled.</li>
+ * <li>The set of tokens that are required for Easy DKIM signing. These tokens must be published in the domain name's DNS
+ * records in order for DKIM verification to complete, and must remain published in order for Easy DKIM signing to operate
+ * correctly. (This information is only returned for domain name identities, not for email addresses.)</li>
+ * <li>Whether Amazon SES has successfully verified the DKIM tokens published in the domain name's DNS. (This information
+ * is only returned for domain name identities, not for email addresses.)</li>
+ *
+ * </ul>
+ * <p>
+ * For more information about Easy DKIM signing, go to the <a
+ * href="http://docs.amazonwebservices.com/ses/latest/DeveloperGuide"> Amazon SES Developer Guide </a> .
+ * </p>
+ *
+ * @param getIdentityDkimAttributesRequest Container for the necessary parameters to execute the GetIdentityDkimAttributes
+ *           service method on AmazonSES.
+ *
+ * @return The response from the GetIdentityDkimAttributes service method, as returned by AmazonSES.
+ *
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonSES indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see SESGetIdentityDkimAttributesRequest
+ * @see SESGetIdentityDkimAttributesResponse
+ */
+-(SESGetIdentityDkimAttributesResponse *)getIdentityDkimAttributes:(SESGetIdentityDkimAttributesRequest *)getIdentityDkimAttributesRequest;
+
+
+/**
+ * <p>
  * Verifies an email address. This action causes a confirmation email message to be sent to the specified address.
  * </p>
  * <p>
@@ -333,6 +419,45 @@
 
 /**
  * <p>
+ * Enables or disables Easy DKIM signing of email sent from an identity:
+ * </p>
+ *
+ * <ul>
+ * <li>If Easy DKIM signing is enabled for a domain name identity (e.g., example.com ), then Amazon SES will DKIM-sign all
+ * email sent by addresses under that domain name (e.g., user@example.com ).</li>
+ * <li>If Easy DKIM signing is enabled for an email address, then Amazon SES will DKIM-sign all email sent by that email
+ * address.</li>
+ *
+ * </ul>
+ * <p>
+ * For email addresses (e.g., user@example.com ), you can only enable Easy DKIM signing if the corresponding domain (e.g.,
+ * example.com ) has been set up for Easy DKIM using the AWS Console or the VerifyDomainDkim action.
+ * </p>
+ * <p>
+ * For more information about Easy DKIM signing, go to the <a
+ * href="http://docs.amazonwebservices.com/ses/latest/DeveloperGuide"> Amazon SES Developer Guide </a> .
+ * </p>
+ *
+ * @param setIdentityDkimEnabledRequest Container for the necessary parameters to execute the SetIdentityDkimEnabled
+ *           service method on AmazonSES.
+ *
+ * @return The response from the SetIdentityDkimEnabled service method, as returned by AmazonSES.
+ *
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonSES indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see SESSetIdentityDkimEnabledRequest
+ * @see SESSetIdentityDkimEnabledResponse
+ */
+-(SESSetIdentityDkimEnabledResponse *)setIdentityDkimEnabled:(SESSetIdentityDkimEnabledRequest *)setIdentityDkimEnabledRequest;
+
+
+/**
+ * <p>
  * Returns the user's current sending limits.
  * </p>
  *
@@ -382,6 +507,29 @@
 
 /**
  * <p>
+ * Verifies a domain.
+ * </p>
+ *
+ * @param verifyDomainIdentityRequest Container for the necessary parameters to execute the VerifyDomainIdentity service
+ *           method on AmazonSES.
+ *
+ * @return The response from the VerifyDomainIdentity service method, as returned by AmazonSES.
+ *
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonSES indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see SESVerifyDomainIdentityRequest
+ * @see SESVerifyDomainIdentityResponse
+ */
+-(SESVerifyDomainIdentityResponse *)verifyDomainIdentity:(SESVerifyDomainIdentityRequest *)verifyDomainIdentityRequest;
+
+
+/**
+ * <p>
  * Composes an email message based on input data, and then immediately queues the message for sending.
  * </p>
  * <p>
@@ -423,13 +571,15 @@
 
 /**
  * <p>
- * Verifies a domain.
+ * Deletes the specified email address from the list of verified addresses.
+ * </p>
+ * <p>
+ * <b>IMPORTANT:</b>The DeleteVerifiedEmailAddress action is deprecated as of the May 15, 2012 release of Domain
+ * Verification. The DeleteIdentity action is now preferred.
  * </p>
  *
- * @param verifyDomainIdentityRequest Container for the necessary parameters to execute the VerifyDomainIdentity service
- *           method on AmazonSES.
- *
- * @return The response from the VerifyDomainIdentity service method, as returned by AmazonSES.
+ * @param deleteVerifiedEmailAddressRequest Container for the necessary parameters to execute the
+ *           DeleteVerifiedEmailAddress service method on AmazonSES.
  *
  *
  * @exception AmazonClientException If any internal errors are encountered inside the client while
@@ -438,10 +588,10 @@
  * @exception AmazonServiceException If an error response is returned by AmazonSES indicating
  * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
  *
- * @see SESVerifyDomainIdentityRequest
- * @see SESVerifyDomainIdentityResponse
+ * @see SESDeleteVerifiedEmailAddressRequest
+ * @see SESDeleteVerifiedEmailAddressResponse
  */
--(SESVerifyDomainIdentityResponse *)verifyDomainIdentity:(SESVerifyDomainIdentityRequest *)verifyDomainIdentityRequest;
+-(SESDeleteVerifiedEmailAddressResponse *)deleteVerifiedEmailAddress:(SESDeleteVerifiedEmailAddressRequest *)deleteVerifiedEmailAddressRequest;
 
 
 /**
@@ -469,31 +619,6 @@
  * @see SESSetIdentityNotificationTopicResponse
  */
 -(SESSetIdentityNotificationTopicResponse *)setIdentityNotificationTopic:(SESSetIdentityNotificationTopicRequest *)setIdentityNotificationTopicRequest;
-
-
-/**
- * <p>
- * Deletes the specified email address from the list of verified addresses.
- * </p>
- * <p>
- * <b>IMPORTANT:</b>The DeleteVerifiedEmailAddress action is deprecated as of the May 15, 2012 release of Domain
- * Verification. The DeleteIdentity action is now preferred.
- * </p>
- *
- * @param deleteVerifiedEmailAddressRequest Container for the necessary parameters to execute the
- *           DeleteVerifiedEmailAddress service method on AmazonSES.
- *
- *
- * @exception AmazonClientException If any internal errors are encountered inside the client while
- * attempting to make the request or handle the response.  For example
- * if a network connection is not available.  For more information see <AmazonClientException>.
- * @exception AmazonServiceException If an error response is returned by AmazonSES indicating
- * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
- *
- * @see SESDeleteVerifiedEmailAddressRequest
- * @see SESDeleteVerifiedEmailAddressResponse
- */
--(SESDeleteVerifiedEmailAddressResponse *)deleteVerifiedEmailAddress:(SESDeleteVerifiedEmailAddressRequest *)deleteVerifiedEmailAddressRequest;
 
 
 

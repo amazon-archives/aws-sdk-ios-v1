@@ -19,12 +19,14 @@
 @implementation EC2StartInstancesRequest
 
 @synthesize instanceIds;
+@synthesize additionalInfo;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        instanceIds = [[NSMutableArray alloc] initWithCapacity:1];
+        instanceIds    = [[NSMutableArray alloc] initWithCapacity:1];
+        additionalInfo = nil;
     }
 
     return self;
@@ -56,6 +58,7 @@
 
     [buffer appendString:@"{"];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"InstanceIds: %@,", instanceIds] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"AdditionalInfo: %@,", additionalInfo] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -67,6 +70,7 @@
 -(void)dealloc
 {
     [instanceIds release];
+    [additionalInfo release];
 
     [super dealloc];
 }

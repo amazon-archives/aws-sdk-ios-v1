@@ -65,7 +65,7 @@
     NSArray *keys = [[parts allKeys] sortedArrayUsingComparator:comparePartNumbers];
     for (NSNumber *partNumber in keys)
     {
-        [xml appendFormat:@"<Part><PartNumber>%d</PartNumber><ETag>%@</ETag></Part>", [partNumber intValue], [parts objectForKey:partNumber]];
+        [xml appendFormat:@"<Part><PartNumber>%d</PartNumber><ETag>%@</ETag></Part>", [partNumber integerValue], [parts objectForKey:partNumber]];
     }
 
     [xml appendString:@"</CompleteMultipartUpload>"];

@@ -141,13 +141,14 @@ NSString *kKeychainKeyIdentifier;
 
     NSDictionary *returnedDictionary = [[[NSMutableDictionary alloc] init] autorelease];
     OSStatus     keychainError       = SecItemCopyMatching((CFDictionaryRef)queryDictionary, (CFTypeRef *)&returnedDictionary);
-    if (keychainError == noErr)
+    if (keychainError == errSecSuccess)
     {
         NSData *rawData = [returnedDictionary objectForKey:(id)kSecValueData];
         return [[[NSString alloc] initWithBytes:[rawData bytes] length:[rawData length] encoding:NSUTF8StringEncoding] autorelease];
     }
     else
     {
+        AMZLogDebug(@"Unable to fetch value for keychain key '%@', Error Code: %ld", key, keychainError);
         return nil;
     }
 }
@@ -166,7 +167,11 @@ NSString *kKeychainKeyIdentifier;
     OSStatus keychainError = SecItemAdd((CFDictionaryRef)keychainDictionary, NULL);
     if (keychainError == errSecDuplicateItem) {
         SecItemDelete((CFDictionaryRef)keychainDictionary);
-        SecItemAdd((CFDictionaryRef)keychainDictionary, NULL);
+        keychainError = SecItemAdd((CFDictionaryRef)keychainDictionary, NULL);
+    }
+    
+    if (keychainError != errSecSuccess) {
+        AMZLogDebug(@"Error saving value to keychain key '%@', Error Code: %ld", key, keychainError);
     }
 }
 
@@ -180,47 +185,56 @@ NSString *kKeychainKeyIdentifier;
     }
     
     keychainError = SecItemDelete((CFDictionaryRef)[AmazonKeyChainWrapper createKeychainDictionaryForKey:kKeychainUidIdentifier]);
-    AMZLogDebug(@"Keychain Key: kKeychainUidIdentifier, Error Code: %ld", keychainError);
     
-    if(keychainError != errSecSuccess)
+    if(keychainError != errSecSuccess && keychainError != errSecItemNotFound)
     {
+        AMZLogDebug(@"Keychain Key: kKeychainUidIdentifier, Error Code: %ld", keychainError);
         return keychainError;
     }
     
     keychainError = SecItemDelete((CFDictionaryRef)[AmazonKeyChainWrapper createKeychainDictionaryForKey : kKeychainKeyIdentifier]);
-    AMZLogDebug(@"Keychain Key: kKeychainKeyIdentifier, Error Code: %ld", keychainError);
+    if(keychainError != errSecSuccess && keychainError != errSecItemNotFound)
+    {
+        AMZLogDebug(@"Keychain Key: kKeychainKeyIdentifier, Error Code: %ld", keychainError);
+        return keychainError;
+    }
     
-    return keychainError;
+    return errSecSuccess;
 }
 
 +(OSStatus)wipeCredentialsFromKeyChain
 {
     OSStatus keychainError = SecItemDelete((CFDictionaryRef)[AmazonKeyChainWrapper createKeychainDictionaryForKey : kKeychainAccessKeyIdentifier]);
-    AMZLogDebug(@"Keychain Key: kKeychainAccessKeyIdentifier, Error Code: %ld", keychainError);
     
-    if(keychainError != errSecSuccess)
+    if(keychainError != errSecSuccess && keychainError != errSecItemNotFound)
     {
+        AMZLogDebug(@"Keychain Key: kKeychainAccessKeyIdentifier, Error Code: %ld", keychainError);
         return keychainError;
     }
     
     keychainError = SecItemDelete((CFDictionaryRef)[AmazonKeyChainWrapper createKeychainDictionaryForKey : kKeychainSecretKeyIdentifier]);
-    AMZLogDebug(@"Keychain Key: kKeychainSecretKeyIdentifier, Error Code: %ld", keychainError);
     
-    if(keychainError != errSecSuccess)
+    if(keychainError != errSecSuccess && keychainError != errSecItemNotFound)
     {
+        AMZLogDebug(@"Keychain Key: kKeychainSecretKeyIdentifier, Error Code: %ld", keychainError);
         return keychainError;
     }
     
     keychainError = SecItemDelete((CFDictionaryRef)[AmazonKeyChainWrapper createKeychainDictionaryForKey : kKeychainSecrutiyTokenIdentifier]);
-    AMZLogDebug(@"Keychain Key: kKeychainSecrutiyTokenIdentifier, Error Code: %ld", keychainError);
     
-    if(keychainError != errSecSuccess)
+    if(keychainError != errSecSuccess && keychainError != errSecItemNotFound)
     {
+        AMZLogDebug(@"Keychain Key: kKeychainSecrutiyTokenIdentifier, Error Code: %ld", keychainError);
         return keychainError;
     }
     
     keychainError = SecItemDelete((CFDictionaryRef)[AmazonKeyChainWrapper createKeychainDictionaryForKey : kKeychainExpirationDateIdentifier]);
-    AMZLogDebug(@"Keychain Key: kKeychainExpirationDateIdentifier, Error Code: %ld", keychainError);
+    
+    if(keychainError != errSecSuccess && keychainError != errSecItemNotFound) 
+    {
+        AMZLogDebug(@"Keychain Key: kKeychainExpirationDateIdentifier, Error Code: %ld", keychainError);
+        return keychainError;
+    }
     
     return errSecSuccess;
 }

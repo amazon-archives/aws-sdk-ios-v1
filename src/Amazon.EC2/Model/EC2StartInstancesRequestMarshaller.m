@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"StartInstances"           forKey:@"Action"];
-    [request setParameterValue:@"2012-06-01"   forKey:@"Version"];
+    [request setParameterValue:@"2012-06-15"   forKey:@"Version"];
 
     [request setDelegate:[startInstancesRequest delegate]];
     [request setCredentials:[startInstancesRequest credentials]];
@@ -38,6 +38,11 @@
             }
 
             instanceIdsListIndex++;
+        }
+    }
+    if (startInstancesRequest != nil) {
+        if (startInstancesRequest.additionalInfo != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", startInstancesRequest.additionalInfo] forKey:[NSString stringWithFormat:@"%@", @"AdditionalInfo"]];
         }
     }
 

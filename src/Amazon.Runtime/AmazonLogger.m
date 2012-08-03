@@ -15,86 +15,41 @@
 
 #import "AmazonLogger.h"
 
-#define kDebugFileMaxSize    200 * 1024
-
 @implementation AmazonLogger
 
-+(void)turnLoggingOff
-{
-    char *envValue = "GTMVerboseLogging=0\0";    
-    putenv(envValue);    
-    [[GTMLogger sharedLogger] turnLoggerOff];    
+static BOOL isLoggingEnabled = YES;
+static BOOL isVerboseLoggingEnabled = NO;
+
++ (void)turnLoggingOff
+{ 
+    isLoggingEnabled = NO;
 }
 
-+(void)verboseLogging
++ (void)verboseLogging
 {
-    char *envValue = "GTMVerboseLogging=1\0";
-    putenv(envValue);
-    [[GTMLogger sharedLogger] turnLoggerOn];
+    isVerboseLoggingEnabled = YES;
 }
 
-+(void)consoleLogger
++ (void)logInfo:(NSString *)fmt, ...
 {
-    [[GTMLogger sharedLogger] setWriter:[NSFileHandle fileHandleWithStandardOutput]];
-}
-
-+(void)aslLogger
-{
-    [[GTMLogger sharedLogger] setWriter:[[GTMLogASLWriter alloc] init]];
-}
-
-+(void)fileLogger:(NSFileHandle *)file
-{
-    [[GTMLogger sharedLogger] setWriter:file];
-}
-
-+(NSFileHandle *)getFileHandle:(NSString *)filename forPath:(NSString *)path
-{
-    NSString *documentsDirectory = [NSHomeDirectory() stringByAppendingPathComponent:path];
-    NSString *logFilePath        = [NSString stringWithFormat:@"%@/%@", documentsDirectory, filename];
-
-    // Trunicate file kDebugFileMaxSize or create if not found
-    NSFileHandle *file = [NSFileHandle fileHandleForUpdatingAtPath:logFilePath];
-
-    if (file) {
-        unsigned long long maxFileOffset = [file seekToEndOfFile];
-        if (maxFileOffset > kDebugFileMaxSize) {
-            [file seekToFileOffset:maxFileOffset - kDebugFileMaxSize];
-            NSMutableData *data = [NSMutableData dataWithData:[file readDataToEndOfFile]];
-            [file seekToFileOffset:0];
-            [file writeData:data];
-            [file truncateFileAtOffset:kDebugFileMaxSize];
-            [file seekToEndOfFile];
-        }
+    if(isLoggingEnabled)
+    {
+        va_list args;
+        va_start(args, fmt);
+        NSLog(@"%@", [[[NSString alloc] initWithFormat:fmt arguments:args] autorelease]);
+        va_end(args);
     }
-    else {
-        [[NSFileManager defaultManager] createFileAtPath:logFilePath contents:nil attributes:nil];
-        file = [NSFileHandle fileHandleForUpdatingAtPath:logFilePath];
+}
+
++ (void)logDebug:(NSString *)fmt, ...
+{
+    if(isLoggingEnabled && isVerboseLoggingEnabled)
+    {
+        va_list args;
+        va_start(args, fmt);
+        NSLog(@"%@", [[[NSString alloc] initWithFormat:fmt arguments:args] autorelease]);
+        va_end(args);
     }
-
-    return file;
 }
-
-+(void)consoleAslLogger
-{
-    NSArray *writers = [NSArray arrayWithObjects:[NSFileHandle fileHandleWithStandardOutput], [[GTMLogASLWriter alloc] init], nil];
-
-    [[GTMLogger sharedLogger] setWriter:writers];
-}
-
-+(void)consoleFileLogger:(NSFileHandle *)file
-{
-    NSArray *writers = [NSArray arrayWithObjects:file, [[GTMLogASLWriter alloc] init], nil];
-
-    [[GTMLogger sharedLogger] setWriter:writers];
-}
-
-+(void)consoleAslFileLogger:(NSFileHandle *)file
-{
-    NSArray *writers = [NSArray arrayWithObjects:file, [NSFileHandle fileHandleWithStandardOutput], [[GTMLogASLWriter alloc] init], nil];
-
-    [[GTMLogger sharedLogger] setWriter:writers];
-}
-
 
 @end

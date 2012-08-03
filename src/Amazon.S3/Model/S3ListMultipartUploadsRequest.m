@@ -62,13 +62,13 @@
     return urlRequest;
 }
 
--(void)setMaxUploads:(int)max
+-(void)setMaxUploads:(NSInteger)max
 {
     maxUploads      = max;
     maxUploadsIsSet = YES;
 }
 
--(int)maxUploads
+-(NSInteger)maxUploads
 {
     return maxUploads;
 }

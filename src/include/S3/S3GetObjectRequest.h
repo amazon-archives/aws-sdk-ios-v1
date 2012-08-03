@@ -25,7 +25,7 @@
  *
  */
 @interface S3GetObjectRequest:S3Request {
-    int                       rangeStart, rangeEnd;
+    int64_t                   rangeStart, rangeEnd;
     bool                      rangeSet;
     NSDate                    *ifModifiedSince;
     NSDate                    *ifUnmodifiedSince;
@@ -37,10 +37,10 @@
 }
 
 /** Specifies the starting index of the byte range to download */
-@property (nonatomic, readonly) int rangeStart;
+@property (nonatomic, readonly) int64_t rangeStart;
 
 /** Specifies the end index of the byte range to download */
-@property (nonatomic, readonly) int rangeEnd;
+@property (nonatomic, readonly) int64_t rangeEnd;
 
 /** Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified). */
 @property (nonatomic, retain) NSDate *ifModifiedSince;
@@ -78,7 +78,7 @@
 -(S3GetObjectRequest *)initWithKey:(NSString *)key withBucket:(NSString *)bucket withVersionId:(NSString *)versionId;
 
 /** sets the start and end of the range. */
--(void)setRangeStart:(int)start rangeEnd:(int)end;
+-(void)setRangeStart:(int64_t)start rangeEnd:(int64_t)end;
 
 /** returns the range in the form 'bytes=start:end' */
 -(NSString *)getRange;

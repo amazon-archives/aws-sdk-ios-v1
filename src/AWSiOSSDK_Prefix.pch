@@ -4,7 +4,5 @@
 
 #ifdef __OBJC__
     #import <Foundation/Foundation.h>
-	#import "GTMLogger.h"
-	#import "GTMLogger+ASL.h"
 	#import "AmazonLogger.h"
 #endif

@@ -361,7 +361,7 @@
     AMZLogDebug(@"Begin Request: %@", NSStringFromClass([request class]));
 
     S3Response *response = nil;
-    int        retries   = 0;
+    NSInteger  retries   = 0;
     while (retries < self.maxRetries) {
         if (retries > 0) {
             request.date = [NSDate date];

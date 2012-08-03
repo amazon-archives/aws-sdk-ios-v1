@@ -76,7 +76,7 @@
     
     for (S3Grant *g in grantList)
     {
-        NSString *grantee;
+        NSString *grantee = @"";
         if (!((g.grantee.ID == nil) || [g.grantee.ID isEqualToString:@""])) {
             grantee = [NSString stringWithFormat:@"id=%@", g.grantee.ID];
         }

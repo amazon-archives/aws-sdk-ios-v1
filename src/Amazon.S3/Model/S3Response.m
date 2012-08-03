@@ -53,7 +53,7 @@
     NSArray  *parts = [tmp componentsSeparatedByString:@"-"];
 
     NSString *keyName = [(NSString *)[parts objectAtIndex:0] lowercaseString];
-    for (int i = 1; i < [parts count]; i++) {
+    for (NSInteger i = 1; i < [parts count]; i++) {
         keyName = [keyName stringByAppendingString:[[(NSString *)[parts objectAtIndex:i] lowercaseString] capitalizedString]];
     }
 
@@ -68,8 +68,12 @@
         [self setValue:[self parseDateHeader:value] forKey:keyName];
     }
     else if ([typeName isEqualToString:@"Ti"]) {
-        int v = [(NSString *) value intValue];
-        [self setValue:[NSNumber numberWithInt:v] forKey:keyName];
+        NSInteger v = [(NSString *) value integerValue];
+        [self setValue:[NSNumber numberWithInteger:v] forKey:keyName];
+    }
+    else if ([typeName isEqualToString:@"Tq"]) {
+        int64_t foo = [value longLongValue];
+        [self setValue:[NSNumber numberWithLongLong:foo] forKey:keyName];
     }
 }
 
@@ -142,7 +146,7 @@
 
     [buffer appendString:@"{"];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Headers: %d,", headers] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Content-Length: %d,", contentLength] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Content-Length: %lld,", contentLength] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Connection-State: %@,", connectionState] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Date:: %@,", date] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ETag: %@,", etag] autorelease]];

@@ -76,6 +76,11 @@
         return;
     }
 
+    if ([elementName isEqualToString:@"privateIpAddress"]) {
+        self.response.privateIpAddress = self.currentText;
+        return;
+    }
+
     if ([elementName isEqualToString:@"address"]) {
         if (caller != nil) {
             [parser setDelegate:caller];

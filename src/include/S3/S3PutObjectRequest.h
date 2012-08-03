@@ -36,7 +36,7 @@
 
     NSInputStream *stream;
 
-    int           expires;
+    NSInteger     expires;
     bool          expiresSet;
     bool          generateMD5;
 }

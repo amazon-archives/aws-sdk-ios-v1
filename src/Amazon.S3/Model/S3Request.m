@@ -35,7 +35,7 @@
     [super configureURLRequest];
     [self setHttpMethod:kHttpMethodGet];
 
-    [self.urlRequest setValue:[NSString stringWithFormat:@"%d", self.contentLength] forHTTPHeaderField:kHttpHdrContentLength];
+    [self.urlRequest setValue:[NSString stringWithFormat:@"%lld", self.contentLength] forHTTPHeaderField:kHttpHdrContentLength];
 
     [self.urlRequest setValue:self.host forHTTPHeaderField:kHttpHdrHost];
     [self.urlRequest setValue:[self.date requestFormat] forHTTPHeaderField:kHttpHdrDate];

@@ -26,6 +26,7 @@
 
 {
     NSMutableArray *instanceIds;
+    NSString       *additionalInfo;
 }
 
 
@@ -34,6 +35,11 @@
  * The list of Amazon EC2 instances to start.
  */
 @property (nonatomic, retain) NSMutableArray *instanceIds;
+
+/**
+ * The value of the AdditionalInfo property for this object.
+ */
+@property (nonatomic, retain) NSString *additionalInfo;
 
 
 /**

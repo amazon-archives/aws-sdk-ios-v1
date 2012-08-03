@@ -28,21 +28,21 @@
     NSMutableString *queryString = [NSMutableString stringWithCapacity:512];
 
     if (nil != self.prefix) {
-        [queryString appendFormat:@"%@=%@", kS3QueryParamPrefix, self.prefix];
+        [queryString appendFormat:@"%@=%@", kS3QueryParamPrefix, [AmazonSDKUtil urlEncode:self.prefix]];
     }
 
     if (nil != self.marker) {
         if ( [queryString length] > 0) {
             [queryString appendFormat:@"&"];
         }
-        [queryString appendFormat:@"%@=%@", kS3QueryParamMarker, self.marker];
+        [queryString appendFormat:@"%@=%@", kS3QueryParamMarker, [AmazonSDKUtil urlEncode:self.marker]];
     }
 
     if (nil != self.delimiter) {
         if ( [queryString length] > 0) {
             [queryString appendFormat:@"&"];
         }
-        [queryString appendFormat:@"%@=%@", kS3QueryParamDelimiter, self.delimiter];
+        [queryString appendFormat:@"%@=%@", kS3QueryParamDelimiter, [AmazonSDKUtil urlEncode:self.delimiter]];
     }
 
     if (self.maxKeys > 0) {

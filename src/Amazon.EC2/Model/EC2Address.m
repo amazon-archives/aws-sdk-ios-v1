@@ -25,6 +25,7 @@
 @synthesize domain;
 @synthesize networkInterfaceId;
 @synthesize networkInterfaceOwnerId;
+@synthesize privateIpAddress;
 
 
 -(id)init
@@ -37,6 +38,7 @@
         domain                  = nil;
         networkInterfaceId      = nil;
         networkInterfaceOwnerId = nil;
+        privateIpAddress        = nil;
     }
 
     return self;
@@ -56,6 +58,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Domain: %@,", domain] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"NetworkInterfaceId: %@,", networkInterfaceId] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"NetworkInterfaceOwnerId: %@,", networkInterfaceOwnerId] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"PrivateIpAddress: %@,", privateIpAddress] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -73,6 +76,7 @@
     [domain release];
     [networkInterfaceId release];
     [networkInterfaceOwnerId release];
+    [privateIpAddress release];
 
     [super dealloc];
 }

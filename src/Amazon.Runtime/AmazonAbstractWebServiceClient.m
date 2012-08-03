@@ -82,7 +82,7 @@
     [rBody release];
 
     AmazonServiceResponse *response = nil;
-    int                   retries   = 0;
+    NSInteger             retries   = 0;
     while (retries < self.maxRetries) {
         AMZLogDebug(@"Begin Request: %@:%d", NSStringFromClass([generatedRequest class]), retries);
 
@@ -180,7 +180,7 @@
     return NO;
 }
 
--(void)pauseExponentially:(int)tryCount
+-(void)pauseExponentially:(NSInteger)tryCount
 {
     NSTimeInterval pause = self.delay * (pow(2, tryCount));
 

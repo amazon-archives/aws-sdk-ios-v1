@@ -28,9 +28,9 @@
     S3Owner        *owner;
     S3Owner        *initiator;
 
-    int            partNumberMarker;
-    int            nextPartNumberMarker;
-    int            maxParts;
+    NSInteger      partNumberMarker;
+    NSInteger      nextPartNumberMarker;
+    NSInteger      maxParts;
 
     bool           isTruncated;
 

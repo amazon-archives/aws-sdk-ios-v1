@@ -19,12 +19,16 @@
 @implementation SecurityTokenServiceGetSessionTokenRequest
 
 @synthesize durationSeconds;
+@synthesize serialNumber;
+@synthesize tokenCode;
 
 
 -(id)init
 {
     if (self = [super init]) {
         durationSeconds = nil;
+        serialNumber    = nil;
+        tokenCode       = nil;
     }
 
     return self;
@@ -38,6 +42,8 @@
 
     [buffer appendString:@"{"];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"DurationSeconds: %@,", durationSeconds] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"SerialNumber: %@,", serialNumber] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"TokenCode: %@,", tokenCode] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -49,6 +55,8 @@
 -(void)dealloc
 {
     [durationSeconds release];
+    [serialNumber release];
+    [tokenCode release];
 
     [super dealloc];
 }

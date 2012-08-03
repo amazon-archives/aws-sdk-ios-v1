@@ -58,7 +58,7 @@ qualifiedName:(NSString *)qName
         self.listMultipartUploadsResult.nextUploadIdMarker = self.currentText;
     }
     if ([elementName isEqualToString:@"MaxUploads"]) {
-        self.listMultipartUploadsResult.maxUploads = [self.currentText intValue];
+        self.listMultipartUploadsResult.maxUploads = [self.currentText integerValue];
     }
     if ([elementName isEqualToString:@"IsTruncated"]) {
         self.listMultipartUploadsResult.isTruncated = [self.currentText boolValue];

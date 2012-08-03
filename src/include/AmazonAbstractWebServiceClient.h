@@ -32,7 +32,7 @@
 {
     AmazonCredentials *credentials;
     NSString          *endpoint;
-    int               maxRetries;
+    NSInteger         maxRetries;
     NSTimeInterval    timeout;
     NSTimeInterval    delay;
     NSString          *userAgent;

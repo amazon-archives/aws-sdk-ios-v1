@@ -76,7 +76,6 @@ else
 	# header files and the plist file  
 	echo "Framework: Copying assets into current version..."  
 	cp -r include/* $FRAMEWORK_DIR/Headers/  
-	cp ThirdParty/*.h $FRAMEWORK_DIR/Headers/
     cp ThirdParty/JSON/*.h $FRAMEWORK_DIR/Headers/
 	cp Resources/Framework.plist $FRAMEWORK_DIR/Resources/Info.plist  
 	( cd $FRAMEWORK_DIR; rm -rf `find . -name ".svn"` )

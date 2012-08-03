@@ -31,21 +31,39 @@
 {
     @try {
         S3ListObjectsRequest  *listObjectRequest = [[[S3ListObjectsRequest alloc] initWithName:self.bucket] autorelease];
-
+        
         S3ListObjectsResponse *listObjectResponse = [[AmazonClientManager s3] listObjects:listObjectRequest];
         S3ListObjectsResult   *listObjectsResults = listObjectResponse.listObjectsResult;
-
-
+        
+        
         if (objects == nil) {
             objects = [[NSMutableArray alloc] initWithCapacity:[listObjectsResults.objectSummaries count]];
         }
         else {
             [objects removeAllObjects];
         }
+        
+        // By defrault, listObjects will only return 1000 keys
+        // This code will fetch all objects in bucket.
+        // NOTE: This could cause the application to run out of memory
+        NSString *lastKey;
         for (S3ObjectSummary *objectSummary in listObjectsResults.objectSummaries) {
             [objects addObject:[objectSummary key]];
+            lastKey = [objectSummary key];
         }
-        [objects sortUsingSelector:@selector(compare:)];
+        
+        while (listObjectsResults.isTruncated) {
+            listObjectRequest = [[[S3ListObjectsRequest alloc] initWithName:self.bucket] autorelease];
+            listObjectRequest.marker = lastKey;
+            
+            listObjectResponse = [[AmazonClientManager s3] listObjects:listObjectRequest];
+            listObjectsResults = listObjectResponse.listObjectsResult;
+            
+            for (S3ObjectSummary *objectSummary in listObjectsResults.objectSummaries) {
+                [objects addObject:[objectSummary key]];
+                lastKey = [objectSummary key];
+            }
+        }
     }
     @catch (AmazonServiceException *exception) {
         if ( [exception.errorCode isEqualToString:@"ExpiredToken"]) {

@@ -14,37 +14,20 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "GTMLogger.h"
-#import "GTMDefines.h"
-#import "GTMLogger+ASL.h"
 
-#ifdef AMAZON_LOGGER_DEBUG
-#undef NSLog
-#define NSLog    GTMLoggerDebug
-#endif
-
-
-#ifdef AMAZON_LOGGER_RELEASE
-#undef NSLog
-#define NSLog    GTMLoggerInfo
-#endif
-
-#define AMZLog(...)         [[GTMLogger sharedLogger] logInfo : __VA_ARGS__]
-#define AMZLogDebug(...)    [[GTMLogger sharedLogger] logDebug : __VA_ARGS__]
-
+#define AMZLog(fmt, ...)    [AmazonLogger logInfo:(@"%@|%s|%d|" fmt),[[NSString stringWithUTF8String:__FILE__] lastPathComponent], __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__]
+#define AMZLogDebug(fmt, ...)    [AmazonLogger logDebug:(@"%@|%s|%d|" fmt), [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__]
 
 @interface AmazonLogger:NSObject {
 }
 
-+(void)turnLoggingOff;
-+(void)verboseLogging;
-+(void)consoleLogger;
-+(void)aslLogger;
-+(void)fileLogger:(NSFileHandle *)file;
-+(void)consoleAslLogger;
-+(void)consoleFileLogger:(NSFileHandle *)file;
-+(void)consoleAslFileLogger:(NSFileHandle *)file;
++ (void)turnLoggingOff;
++ (void)verboseLogging;
 
-+(NSFileHandle *)getFileHandle:(NSString *)filename forPath:(NSString *)path;
+// Use AMZLog(fmt, ...); instead.
++ (void)logInfo:(NSString *)fmt, ... NS_FORMAT_FUNCTION(1, 2);
+
+// Use AMZLogDebug(fmt, ...); instead.
++ (void)logDebug:(NSString *)fmt, ... NS_FORMAT_FUNCTION(1, 2);
 
 @end

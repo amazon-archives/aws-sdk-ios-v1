@@ -64,7 +64,7 @@
         @throw [AmazonClientException exceptionWithMessage : @"expires must not be nil."];
     }
 
-    int epoch = (int)[self.expires timeIntervalSince1970];
+    NSInteger epoch = (int)[self.expires timeIntervalSince1970];
     [self.urlRequest setValue:[NSString stringWithFormat:@"%d", epoch] forHTTPHeaderField:@"Date"];
 
     return self.urlRequest;
@@ -80,7 +80,7 @@
         [queryString appendFormat:@"%@=%@&", kHttpHdrAmzSecurityToken, [AmazonSDKUtil urlEncode:self.securityToken]];        
     }
 
-    [queryString appendFormat:@"%@=%@", kS3QueryParamAccessKey, self.accessKey];
+    [queryString appendFormat:@"%@=%@", kS3QueryParamAccessKey, [AmazonSDKUtil urlEncode:self.accessKey]];
 
     // HEAD special case
     if ([self.httpVerb isEqualToString:kHttpMethodHead]) {
@@ -92,7 +92,7 @@
         @throw [AmazonClientException exceptionWithMessage : @"expires must not be nil."];
     }
 
-    int epoch = (int)[self.expires timeIntervalSince1970];
+    NSInteger epoch = (int)[self.expires timeIntervalSince1970];
     [queryString appendFormat:@"&%@=%d", kS3QueryParamExpires, epoch];
 
 

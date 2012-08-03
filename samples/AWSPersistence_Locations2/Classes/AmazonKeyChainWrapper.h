@@ -34,8 +34,8 @@
 +(NSDate *)convertStringToDate:(NSString *)expiration;
 +(bool)isExpired:(NSDate *)date;
 
-+(void)wipeKeyChain;
-+(void)wipeCredentialsFromKeyChain;
++(OSStatus)wipeKeyChain;
++(OSStatus)wipeCredentialsFromKeyChain;
 +(NSMutableDictionary *)createKeychainDictionaryForKey:(NSString *)key;
 
 @end

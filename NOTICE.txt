@@ -8,5 +8,5 @@ Amazon Technologies, Inc (http://www.amazon.com/).
 THIRD PARTY COMPONENTS
 **********************
 This software includes third party software subject to the following copyrights:
-- GTMLogger.
+- SBJson.
 

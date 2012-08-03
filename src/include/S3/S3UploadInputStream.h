@@ -18,7 +18,7 @@
 
 @interface S3UploadInputStream : NSInputStream {
 	NSInputStream *stream;
-    int packetSize;
+    NSInteger packetSize;
     double delay;
 }
 
@@ -31,7 +31,7 @@
  * The number of K blocks to upload in each packet.
  * This number should be between 1 and 32.
  */
-@property (atomic) int packetSize;
+@property (atomic) NSInteger packetSize;
 
 /**
  * Delay (in seconds) between packet uploads.

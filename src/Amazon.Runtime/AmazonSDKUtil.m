@@ -62,7 +62,7 @@ static const short base64DecodingTable[] =
     NSMutableData *stringData = [[[NSMutableData alloc] init] autorelease];
     unsigned char whole_byte;
     char          byte_chars[3] = { '\0', '\0', '\0' };
-    int           i;
+    NSInteger     i;
     for (i = 0; i < [hexString length] / 2; i++) {
         byte_chars[0] = [hexString characterAtIndex:i * 2];
         byte_chars[1] = [hexString characterAtIndex:i * 2 + 1];
@@ -308,12 +308,12 @@ static const short base64DecodingTable[] =
 
 +(NSDate *)millisSinceEpochToDate:(NSNumber *)millisSinceEpoch
 {
-    return [NSDate dateWithTimeIntervalSince1970:([millisSinceEpoch longLongValue] / 1000)];
+    return [NSDate dateWithTimeIntervalSince1970:([millisSinceEpoch doubleValue] / 1000)];
 }
 
-+(NSDate *)secondsSinceEpochToDate:(NSNumber *)secondsSinceEpoch;
++(NSDate *)secondsSinceEpochToDate:(NSNumber *)secondsSinceEpoch
 {
-    return [NSDate dateWithTimeIntervalSince1970: [secondsSinceEpoch doubleValue] ];
+    return [NSDate dateWithTimeIntervalSince1970:[secondsSinceEpoch doubleValue]];
 }
 
 +(NSDate *)convertStringToDate:(NSString *)string usingFormat:(NSString *)dateFormat
@@ -419,6 +419,7 @@ static const short base64DecodingTable[] =
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
     [dateFormatter setDateFormat:kISO8061DateFormat];
     [dateFormatter setLocale:[AmazonSDKUtil timestampLocale]];
 
@@ -552,12 +553,12 @@ static const short base64DecodingTable[] =
     const char    *inputPtr;
     unsigned char *buffer;
 
-    int           length;
+    NSInteger     length;
 
     inputPtr = [encodedString cStringUsingEncoding:NSASCIIStringEncoding];
     length   = strlen(inputPtr);
     char ch;
-    int  inputIdx = 0, outputIdx = 0, padIdx;
+    NSInteger inputIdx = 0, outputIdx = 0, padIdx;
 
     buffer = calloc(length, sizeof(char));
 

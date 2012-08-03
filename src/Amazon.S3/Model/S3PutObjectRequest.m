@@ -37,13 +37,13 @@
     return self;
 }
 
--(void)setExpires:(int)exp
+-(void)setExpires:(NSInteger)exp
 {
     expires    = exp;
     expiresSet = YES;
 }
 
--(int)expires
+-(NSInteger)expires
 {
     return expires;
 }
@@ -126,7 +126,7 @@
         @throw [AmazonClientException exceptionWithMessage : @"The specified file cannot be read."];
     }
 
-    self.contentLength = [[[[NSFileManager defaultManager] attributesOfItemAtPath:self.filename error:nil] valueForKey:NSFileSize] intValue];
+    self.contentLength = [[[[NSFileManager defaultManager] attributesOfItemAtPath:self.filename error:nil] valueForKey:NSFileSize] integerValue];
     self.contentType   = [AmazonSDKUtil MIMETypeForExtension:[self.filename pathExtension]];
 
     @try {
