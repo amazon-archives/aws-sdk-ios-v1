@@ -17,8 +17,6 @@
 #import <AWSiOSSDK/AmazonLogger.h>
 
 
-
-
 NSString *kKeychainAccessKeyIdentifier;
 NSString *kKeychainSecretKeyIdentifier;
 NSString *kKeychainSecrutiyTokenIdentifier;

@@ -117,6 +117,12 @@
 #import "S3GetBucketLifecycleConfigurationResponse.h"
 #import "S3DeleteBucketLifecycleConfigurationRequest.h"
 #import "S3DeleteBucketLifecycleConfigurationResponse.h"
+#import "S3SetBucketTaggingRequest.h"
+#import "S3SetBucketTaggingResponse.h"
+#import "S3GetBucketTaggingRequest.h"
+#import "S3GetBucketTaggingResponse.h"
+#import "S3DeleteBucketTaggingRequest.h"
+#import "S3DeleteBucketTaggingResponse.h"
 
 /** \defgroup S3 Amazon S3 */
 
@@ -502,10 +508,8 @@
  * For more informaiton on how to use Bucket Lifecycle/Object Expiration see:
  * <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/ObjectExpiration.html">http://docs.amazonwebservices.com/AmazonS3/latest/dev/ObjectExpiration.html</a>.
  *
- * @param bucketName  The name of the bucket whose lifecycle configuration is being
- *            set.
- * @param configuration  The configuration containing the set of rules for this bucket.
- *
+ * @param setBucketLifecycleConfigurationRequest  The request to process
+ * 
  * @exception AmazonClientException  If any errors are encountered on the client while making the
  *             request or handling the response. For more information see <AmazonClientException>.
  * @exception AmazonServiceException  If any errors occurred in Amazon S3 while processing the
@@ -524,8 +528,7 @@
  * For more informaiton on how to use Bucket Lifecycle/Object Expiration see:
  * <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/ObjectExpiration.html">http://docs.amazonwebservices.com/AmazonS3/latest/dev/ObjectExpiration.html</a>.
  *
- * @param bucketName  The name of the bucket whose lifecycle configuration is being
- *            retrieved.
+ * @param getBucketLifecycleConfigurationRequest The request to process
  *
  * @return The bucket lifecycle configuration for the specified bucket,
  *         otherwise null if there is no Lifecycle configuration set for the
@@ -549,8 +552,7 @@
  * For more informaiton on how to use Bucket Lifecycle/Object Expiration see:
  * <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/ObjectExpiration.html">http://docs.amazonwebservices.com/AmazonS3/latest/dev/ObjectExpiration.html</a>.
  *
- * @param bucketName  The name of the bucket whose lifecycle configuration is being
- *            deleted.
+ * @param deleteBucketLifecycleConfigurationRequest The request to process
  *
  * @exception AmazonClientException  If any errors are encountered on the client while making the
  *             request or handling the response. For more information see <AmazonClientException>.
@@ -560,6 +562,57 @@
  * @see S3DeleteBucketLifecycleConfigurationRequest
  */
 -(S3DeleteBucketLifecycleConfigurationResponse *)deleteBucketLifecycleConfiguration:(S3DeleteBucketLifecycleConfigurationRequest *)deleteBucketLifecycleConfigurationRequest;
+
+/**
+ * Sets the tagging configuration for the specified bucket, or null if no
+ * configuration has been established.
+ Sets the tagging configuration for the specified bucket.  A tagging configuration contains a TagSet.
+ *
+ * @param setBucketTaggingRequest request to process
+ *
+ * @exception AmazonClientException  If any errors are encountered on the client while making the
+ *             request or handling the response. For more information see <AmazonClientException>.
+ * @exception AmazonServiceException  If any errors occurred in Amazon S3 while processing the
+ *             request.  For more information see <AmazonServiceException>.
+ * @see S3SetBucketTaggingResponse
+ * @see S3SetBucketTaggingRequest
+ */
+-(S3SetBucketTaggingResponse *)setBucketTagging:(S3SetBucketTaggingRequest *)setBucketTaggingRequest;
+
+/**
+ * Gets the tagging configuration for the specified bucket, or null if no
+ * configuration has been established.
+ *
+ * @param bucketName  The name of the bucket whose tagging configuration is being
+ *            retrieved.
+ *
+ * @return The bucket lifecycle configuration for the specified bucket,
+ *         otherwise null if there is no Lifecycle configuration set for the
+ *         specified bucket.
+ *
+ * @exception AmazonClientException  If any errors are encountered on the client while making the
+ *             request or handling the response. For more information see <AmazonClientException>.
+ * @exception AmazonServiceException  If any errors occurred in Amazon S3 while processing the
+ *             request.  For more information see <AmazonServiceException>.
+ * @see S3GetBucketTaggingResponse
+ * @see S3GetBucketTaggingRequest
+ */
+-(S3GetBucketTaggingResponse *)getBucketTagging:(S3GetBucketTaggingRequest *)getBucketTaggingRequest;
+
+/**
+ * Deletes the tagging configuration for the specified bucket
+ * 
+ * @param bucketName  The name of the bucket whose tagging configuration is being
+ *            deleted.
+ *
+ * @exception AmazonClientException  If any errors are encountered on the client while making the
+ *             request or handling the response. For more information see <AmazonClientException>.
+ * @exception AmazonServiceException  If any errors occurred in Amazon S3 while processing the
+ *             request.  For more information see <AmazonServiceException>.
+ * @see S3DeleteBucketTaggingResponse
+ * @see S3DeleteBucketTaggingRequest
+ */
+-(S3DeleteBucketTaggingResponse *)deleteBucketTagging:(S3DeleteBucketTaggingRequest *)deleteBucketTaggingRequest;
 
 /** Deletes a specific version of an object in the specified bucket. Once
  * deleted, there is no method to restore or undelete an object version.
@@ -732,6 +785,23 @@
  * @see S3GetPreSignedURLRequest
  */
 -(NSURL *)getPreSignedURL:(S3GetPreSignedURLRequest *)preSignedURLRequest;
+
+/** Creates a signed http request.
+ * Query string authentication is useful for giving HTTP or browser
+ * access to resources that would normally require authentication.
+ * When using query string authentication, you create a query,
+ * specify an expiration time for the query, sign it with your
+ * signature, place the data in an HTTP request, and distribute
+ * the request to a user or embed the request in a web page.
+ * A PreSigned URL can be generated for GET, PUT and HEAD
+ * operations on your bucket, and keys.
+ *
+ * @param preSignedURLRequest The S3GetPreSignedURLRequest that defines the parameters of the operation.
+ * @param error A reference to an NSError object.
+ * @return An signed NSURL for the resource.
+ * @see S3GetPreSignedURLRequest
+ */
+-(NSURL *)getPreSignedURL:(S3GetPreSignedURLRequest *)preSignedURLRequest error:(NSError **)error;
 
 /** Constructs an empty response object of the appropriate type to match the given request
  * object.

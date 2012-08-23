@@ -30,33 +30,33 @@
 -(IBAction)sendMessage:(id)sender
 {
     SendMessage *sendMessage = [[SendMessage alloc] initWithNibName:@"SendMessage" bundle:nil];
-
+    
     sendMessage.queue                = queue;
     sendMessage.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-
+    
     [self presentModalViewController:sendMessage animated:YES];
     [sendMessage release];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    @try {
-        SQSReceiveMessageRequest *messageRequest = [[[SQSReceiveMessageRequest alloc] initWithQueueUrl:queue] autorelease];
-        messageRequest.maxNumberOfMessages = [NSNumber numberWithInt:10];
-        messageRequest.visibilityTimeout   = [NSNumber numberWithInt:0];
-        SQSReceiveMessageResponse *messageResponse = [[AmazonClientManager sqs] receiveMessage:messageRequest];
-        messages = messageResponse.messages;
-    }
-    @catch (AmazonClientException *exception)
+    SQSReceiveMessageRequest *messageRequest = [[[SQSReceiveMessageRequest alloc] initWithQueueUrl:queue] autorelease];
+    messageRequest.maxNumberOfMessages = [NSNumber numberWithInt:10];
+    messageRequest.visibilityTimeout   = [NSNumber numberWithInt:0];
+    
+    SQSReceiveMessageResponse *messageResponse = [[AmazonClientManager sqs] receiveMessage:messageRequest];
+    if(messageResponse.error != nil)
     {
-        if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
+        NSLog(@"Error: %@", messageResponse.error);
+        
+        if ([AmazonClientManager wipeCredentialsOnAuthError:messageResponse.error])
         {
             [[Constants expiredCredentialsAlert] show];
         }
-        
-        NSLog(@"Exception = %@", exception);
     }
-
+    
+    messages = messageResponse.messages;
+    
     [messageTableView reloadData];
 }
 
@@ -78,28 +78,28 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-
+    
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-
+    
     // Configure the cell...
     SQSMessage *message = (SQSMessage *)[messages objectAtIndex:indexPath.row];
     cell.textLabel.text                      = message.messageId;
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
-
+    
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Message *messageView = [[Message alloc] init];
-
+    
     messageView.message              = [messages objectAtIndex:indexPath.row];
     messageView.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-
+    
     [self presentModalViewController:messageView animated:YES];
     [messageView release];
 }
@@ -107,30 +107,26 @@
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        @try {
-            SQSMessage              *selectedMessage      = [messages objectAtIndex:indexPath.row];
-            SQSDeleteMessageRequest *deleteMessageRequest = [[[SQSDeleteMessageRequest alloc] initWithQueueUrl:queue andReceiptHandle:selectedMessage.receiptHandle] autorelease];
-
-            [[AmazonClientManager sqs] deleteMessage:deleteMessageRequest];
-
-            [messages removeObjectAtIndex:indexPath.row];
-
-            NSArray *indexPaths = [NSArray arrayWithObjects:indexPath, nil];
-            [messageTableView beginUpdates];
-            [messageTableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
-            [messageTableView endUpdates];
-        }
-        @catch (AmazonClientException *exception)
+        SQSMessage *selectedMessage = [messages objectAtIndex:indexPath.row];
+        SQSDeleteMessageRequest *deleteMessageRequest = [[[SQSDeleteMessageRequest alloc] initWithQueueUrl:queue andReceiptHandle:selectedMessage.receiptHandle] autorelease];
+        
+        SQSDeleteMessageResponse *deleteMessageResponse = [[AmazonClientManager sqs] deleteMessage:deleteMessageRequest];
+        if(deleteMessageResponse.error != nil)
         {
-            if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
+            NSLog(@"Error: %@", deleteMessageResponse.error);
+            
+            if ([AmazonClientManager wipeCredentialsOnAuthError:deleteMessageResponse.error])
             {
                 [[Constants expiredCredentialsAlert] show];
             }
-            
-            NSLog(@"Exception = %@", exception);
         }
-    }
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        
+        [messages removeObjectAtIndex:indexPath.row];
+        
+        NSArray *indexPaths = [NSArray arrayWithObjects:indexPath, nil];
+        [messageTableView beginUpdates];
+        [messageTableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
+        [messageTableView endUpdates];
     }
 }
 

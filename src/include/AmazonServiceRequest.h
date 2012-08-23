@@ -96,6 +96,12 @@
  */
 -(void)setDelegate:(id<AmazonServiceRequestDelegate> )delegate;
 
+/** This method returns nil if the request object passed the validation.
+ * If not, it will return an exception.
+ * All methods inheriting this method must call [super validate] first to check if it returns any exceptions.
+ */
+- (AmazonClientException *)validate;
+
 @end
 
 
@@ -168,7 +174,7 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite;
  * @param request   The AmazonServiceRequest sending the message.
  * @param exception The AmazonClientException that would have been thrown in the absence of a delegate.
  */
--(void)request:(AmazonServiceRequest *)request didFailWithServiceException:(NSException *)exception;
+-(void)request:(AmazonServiceRequest *)request didFailWithServiceException:(NSException *)exception __OSX_AVAILABLE_BUT_DEPRECATED(__MAC_NA,__MAC_NA,__IPHONE_NA,__IPHONE_NA);
 
 @end
 

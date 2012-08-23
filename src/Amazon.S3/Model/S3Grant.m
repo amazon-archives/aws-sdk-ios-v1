@@ -25,8 +25,8 @@
 {
     self = [self init];
     if (self) {
-        self.grantee    = theGrantee;
-        self.permission = thePermission;
+        grantee    = [theGrantee retain];
+        permission = [thePermission retain];
     }
     return self;
 }

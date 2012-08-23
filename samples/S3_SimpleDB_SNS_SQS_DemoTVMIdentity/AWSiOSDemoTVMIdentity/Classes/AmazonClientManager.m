@@ -147,8 +147,10 @@ static AmazonTVMClient      *tvm = nil;
     }
 }
 
-+ (BOOL)wipeCredentialsOnAuthError:(NSException *)exception
++ (BOOL)wipeCredentialsOnAuthError:(NSError *)error
 {
+    id exception = [error.userInfo objectForKey:@"exception"];
+    
     if([exception isKindOfClass:[AmazonServiceException class]])
     {
         AmazonServiceException *e = (AmazonServiceException *)exception;

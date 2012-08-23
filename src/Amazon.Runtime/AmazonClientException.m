@@ -22,19 +22,36 @@
 
 +(AmazonClientException *)exceptionWithMessage:(NSString *)theMessage
 {
-    AmazonClientException *e = (AmazonClientException *)[AmazonClientException exceptionWithName:@"AmazonClientException" reason:theMessage userInfo:nil];
-
+    AmazonClientException *e = [[AmazonClientException alloc] initWithName:@"AmazonClientException" 
+                                                                    reason:theMessage
+                                                                  userInfo:nil];
+    e.error = nil;
     e.message = theMessage;
-    return e;
+    
+    return [e autorelease];
 }
 
 +(AmazonClientException *)exceptionWithMessage:(NSString *)theMessage andError:(NSError *)theError
 {
-    AmazonClientException *e = (AmazonClientException *)[AmazonClientException exceptionWithName:@"AmazonClientException" reason:theMessage userInfo:nil];
-
+    AmazonClientException *e = [[AmazonClientException alloc] initWithName:@"AmazonClientException"
+                                                                    reason:theMessage
+                                                                  userInfo:nil];
     e.error   = theError;
     e.message = theMessage;
-    return e;
+    
+    return [e autorelease];
+}
+
+- (id)initWithName:(NSString *)name reason:(NSString *)reason userInfo:(NSDictionary *)userInfo
+{
+    self = [super initWithName:name reason:reason userInfo:userInfo];
+    if(self)
+    {
+        message = nil;
+        error = nil;
+    }
+    
+    return self;
 }
 
 -(id)initWithMessage:(NSString *)theMessage
@@ -42,11 +59,11 @@
     self = [super initWithName:@"AmazonClientException" reason:theMessage userInfo:nil];
     if (self != nil) {
         self.message = theMessage;
+        error = nil;
     }
 
     return self;
 }
-
 
 -(void)dealloc
 {
@@ -55,6 +72,5 @@
 
     [super dealloc];
 }
-
 
 @end

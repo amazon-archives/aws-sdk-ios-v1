@@ -30,21 +30,19 @@
 
 -(IBAction)send:(id)sender
 {
-    @try {
-        SQSSendMessageRequest *sendMessageRequest = [[[SQSSendMessageRequest alloc] initWithQueueUrl:queue andMessageBody:message.text] autorelease];
-        [[AmazonClientManager sqs] sendMessage:sendMessageRequest];
-
-        [self dismissModalViewControllerAnimated:YES];
-    }
-    @catch (AmazonClientException *exception)
+    SQSSendMessageRequest *sendMessageRequest = [[[SQSSendMessageRequest alloc] initWithQueueUrl:queue andMessageBody:message.text] autorelease];
+    SQSSendMessageResponse *sendMessageResponse = [[AmazonClientManager sqs] sendMessage:sendMessageRequest];
+    if(sendMessageResponse.error != nil)
     {
-        if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
+        NSLog(@"Error: %@", sendMessageResponse.error);
+        
+        if ([AmazonClientManager wipeCredentialsOnAuthError:sendMessageResponse.error])
         {
             [[Constants expiredCredentialsAlert] show];
         }
-        
-        NSLog(@"Exception = %@", exception);
     }
+    
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 -(IBAction)cancel:(id)sender

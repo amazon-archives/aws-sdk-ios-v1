@@ -103,27 +103,27 @@
     if ([regionName isEqual:@""]) {
         return [S3Region USStandard];
     }
-    if ([regionName isEqual:kS3RegionUSWest1]) {
+    else if ([regionName isEqual:kS3RegionUSWest1]) {
         return [S3Region USWest];
     }
-    if ([regionName isEqual:kS3RegionUSWest2]) {
+    else if ([regionName isEqual:kS3RegionUSWest2]) {
         return [S3Region USWest2];
     }
-    if ([regionName isEqual:kS3RegionEU]) {
+    else if ([regionName isEqual:kS3RegionEU]) {
         return [S3Region EUIreland];
     }
-    if ([regionName isEqual:kS3RegionAPSoutheast1]) {
+    else if ([regionName isEqual:kS3RegionAPSoutheast1]) {
         return [S3Region APSingapore];
     }
-    if ([regionName isEqual:kS3RegionAPNortheast1]) {
+    else if ([regionName isEqual:kS3RegionAPNortheast1]) {
         return [S3Region APJapan];
     }
-    if ([regionName isEqual:kS3RegionSAEast1]) {
+    else if ([regionName isEqual:kS3RegionSAEast1]) {
         return [S3Region SASaoPaulo];
     }
-
-
-    @throw [AmazonClientException exceptionWithMessage : @"Invalid S3 region string."];
+    
+    AMZLog(@"Invalid S3 region name: '%@'. US Standard is used instead.", regionName);
+    return [S3Region USStandard];
 }
 
 -(NSString *)description

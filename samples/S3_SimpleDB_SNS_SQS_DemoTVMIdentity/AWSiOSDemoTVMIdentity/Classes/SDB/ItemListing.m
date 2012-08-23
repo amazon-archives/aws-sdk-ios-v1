@@ -30,32 +30,31 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     NSString *selectExpression = [NSString stringWithFormat:@"select itemName() from `%@`", self.domain];
-
-    @try {
-        SimpleDBSelectRequest  *selectRequest  = [[[SimpleDBSelectRequest alloc] initWithSelectExpression:selectExpression] autorelease];
-        SimpleDBSelectResponse *selectResponse = [[AmazonClientManager sdb] select:selectRequest];
-
-        if (items == nil) {
-            items = [[NSMutableArray alloc] initWithCapacity:[selectResponse.items count]];
-        }
-        else {
-            [items removeAllObjects];
-        }
-        for (SimpleDBItem *item in selectResponse.items) {
-            [items addObject:item.name];
-        }
-        [items sortUsingSelector:@selector(compare:)];
-    }
-    @catch (AmazonClientException *exception)
+    
+    SimpleDBSelectRequest  *selectRequest  = [[[SimpleDBSelectRequest alloc] initWithSelectExpression:selectExpression] autorelease];
+    SimpleDBSelectResponse *selectResponse = [[AmazonClientManager sdb] select:selectRequest];
+    if(selectResponse.error != nil)
     {
-        if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
+        NSLog(@"Error: %@", selectResponse.error);
+        
+        if ([AmazonClientManager wipeCredentialsOnAuthError:selectResponse.error])
         {
             [[Constants expiredCredentialsAlert] show];
         }
-        
-        NSLog(@"Exception = %@", exception);
     }
-
+    
+    if (items == nil) {
+        items = [[NSMutableArray alloc] initWithCapacity:[selectResponse.items count]];
+    }
+    else {
+        [items removeAllObjects];
+    }
+    
+    for (SimpleDBItem *item in selectResponse.items) {
+        [items addObject:item.name];
+    }
+    
+    [items sortUsingSelector:@selector(compare:)];
     [itemsTableView reloadData];
 }
 
@@ -77,16 +76,16 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-
+    
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-
+    
     cell.textLabel.text                      = [items objectAtIndex:indexPath.row];
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
-
+    
     return cell;
 }
 
@@ -98,7 +97,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ItemViewController *itemView = [[ItemViewController alloc] init];
-
+    
     itemView.domain               = self.domain;
     itemView.itemName             = [items objectAtIndex:indexPath.row];
     itemView.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;

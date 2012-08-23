@@ -81,6 +81,7 @@
         response = [self processRequest:request responseHandler:handler];
         if ( [response wasSuccessful]) {
             [AmazonKeyChainWrapper registerDeviceId:uid andKey:((LoginResponse *)response).key];
+            [AmazonKeyChainWrapper storeUsername:username];
         }
         else {
             AMZLogDebug(@"Token Vending Machine responded with Code: [%d] and Messgae: [%@]", response.code, response.message);

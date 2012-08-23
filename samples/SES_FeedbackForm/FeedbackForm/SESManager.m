@@ -24,36 +24,35 @@
  */
 +(BOOL)sendFeedbackEmail:(NSString *)comments name:(NSString *)name rating:(NSInteger)rating
 {
-    SESSendEmailResponse *response;
-    @try {
-        SESContent *messageBody = [[[SESContent alloc] init] autorelease];
-        messageBody.data = [NSString stringWithFormat: @"Rating: %d\nComments:\n%@", rating, comments];
-        
-        SESContent *subject = [[[SESContent alloc] init] autorelease];
-        subject.data = [NSString stringWithFormat: @"Feedback from %@", name];
-        
-        SESBody *body = [[[SESBody alloc] init] autorelease];
-        body.text = messageBody;
-        
-        SESMessage *message = [[[SESMessage alloc] init] autorelease];
-        message.subject = subject;
-        message.body    = body;
-        
-        SESDestination *destination = [[[SESDestination alloc] init] autorelease];
-        [destination.toAddresses addObject:VERIFIED_EMAIL];
-        
-        SESSendEmailRequest *ser = [[[SESSendEmailRequest alloc] init] autorelease];
-        ser.source      = VERIFIED_EMAIL;
-        ser.destination = destination;
-        ser.message     = message;
-        
-        response = [[AmazonClientManager ses] sendEmail:ser];
-        NSLog(@"Message sent, id %@", response.messageId);
-    }
-    @catch (AmazonServiceException *exception) {
-        NSLog(@"Exception: %@", exception);
+    SESContent *messageBody = [[[SESContent alloc] init] autorelease];
+    messageBody.data = [NSString stringWithFormat: @"Rating: %d\nComments:\n%@", rating, comments];
+    
+    SESContent *subject = [[[SESContent alloc] init] autorelease];
+    subject.data = [NSString stringWithFormat: @"Feedback from %@", name];
+    
+    SESBody *body = [[[SESBody alloc] init] autorelease];
+    body.text = messageBody;
+    
+    SESMessage *message = [[[SESMessage alloc] init] autorelease];
+    message.subject = subject;
+    message.body    = body;
+    
+    SESDestination *destination = [[[SESDestination alloc] init] autorelease];
+    [destination.toAddresses addObject:VERIFIED_EMAIL];
+    
+    SESSendEmailRequest *ser = [[[SESSendEmailRequest alloc] init] autorelease];
+    ser.source      = VERIFIED_EMAIL;
+    ser.destination = destination;
+    ser.message     = message;
+    
+    SESSendEmailResponse *response = [[AmazonClientManager ses] sendEmail:ser];
+    if(response.error != nil)
+    {
+        NSLog(@"Error: %@", response.error);
         return NO;
     }
+    
+    NSLog(@"Message sent, id %@", response.messageId);
     
     return YES;
 }

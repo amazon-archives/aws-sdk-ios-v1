@@ -33,22 +33,20 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    @try {
-        S3GetObjectRequest  *getObjectRequest  = [[[S3GetObjectRequest alloc] initWithKey:self.objectName withBucket:self.bucket] autorelease];
-        S3GetObjectResponse *getObjectResponse = [[AmazonClientManager s3] getObject:getObjectRequest];
-
-        self.objectNameLabel.text = self.objectName;
-        self.objectDataLabel.text = [[NSString alloc] initWithData:getObjectResponse.body encoding:NSUTF8StringEncoding];
-    }
-    @catch (AmazonClientException *exception)
+    S3GetObjectRequest *getObjectRequest = [[[S3GetObjectRequest alloc] initWithKey:self.objectName withBucket:self.bucket] autorelease];
+    S3GetObjectResponse *getObjectResponse = [[AmazonClientManager s3] getObject:getObjectRequest];
+    if(getObjectResponse.error != nil)
     {
-        if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
+        NSLog(@"Error: %@", getObjectResponse.error);
+        
+        if ([AmazonClientManager wipeCredentialsOnAuthError:getObjectResponse.error])
         {
             [[Constants expiredCredentialsAlert] show];
         }
-        
-        NSLog(@"Exception = %@", exception);
     }
+    
+    self.objectNameLabel.text = self.objectName;
+    self.objectDataLabel.text = [[NSString alloc] initWithData:getObjectResponse.body encoding:NSUTF8StringEncoding];
 }
 
 -(void)dealloc

@@ -75,6 +75,7 @@
 #define kS3SubResourceDelete                 @"delete"
 #define kS3SubResourceWebsite                @"website"
 #define kS3SubResourceLifecycle              @"lifecycle"
+#define kS3SubResourceTagging                @"tagging"
 
 
 // pre-signed URL query string parameters

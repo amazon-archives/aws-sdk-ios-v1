@@ -27,18 +27,18 @@
     {
         imageNo      = theImageNo;
         progressView = [theProgressView retain];
-
+        
         isExecuting = NO;
         isFinished  = NO;
     }
-
+    
     return self;
 }
 
 -(void)dealloc
 {
     [progressView release];
-
+    
     [super dealloc];
 }
 
@@ -60,32 +60,29 @@
         [self performSelectorOnMainThread:@selector(start) withObject:nil waitUntilDone:NO];
         return;
     }
-
+    
     [self willChangeValueForKey:@"isExecuting"];
     isExecuting = YES;
     [self didChangeValueForKey:@"isExecuting"];
-
+    
     [self performSelectorOnMainThread:@selector(initializeProgressView) withObject:nil waitUntilDone:NO];
-
+    
     NSString *bucketName = [NSString stringWithFormat:@"s3-async-demo2-ios-for-%@", [ACCESS_KEY_ID lowercaseString]];
     NSString *keyName    = [NSString stringWithFormat:@"image%d", imageNo];
     NSString *filename   = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"image%d", imageNo] ofType:@"png"];
-
+    
     // Creates the Bucket to put the Object.
-    @try
+    S3CreateBucketResponse *createBucketResponse = [[AmazonClientManager s3] createBucketWithName:bucketName];
+    if(createBucketResponse.error != nil)
     {
-        [[AmazonClientManager s3] createBucketWithName:bucketName];
+        NSLog(@"Error: %@", createBucketResponse.error);
     }
-    @catch (NSException *e)
-    {
-        NSLog(@"%@", e);
-    }
-
+    
     // Puts the file as an object in the bucket.
     S3PutObjectRequest *putObjectRequest = [[[S3PutObjectRequest alloc] initWithKey:keyName inBucket:bucketName] autorelease];
     putObjectRequest.filename = filename;
     putObjectRequest.delegate = self;
-
+    
     [[AmazonClientManager s3] putObject:putObjectRequest];
 }
 
@@ -109,7 +106,7 @@
 -(void)request:(AmazonServiceRequest *)request didCompleteWithResponse:(AmazonServiceResponse *)response
 {
     [self performSelectorOnMainThread:@selector(hideProgressView) withObject:nil waitUntilDone:NO];
-
+    
     [self finish];
 }
 
@@ -121,14 +118,14 @@
 -(void)request:(AmazonServiceRequest *)request didFailWithError:(NSError *)error
 {
     NSLog(@"%@", error);
-
+    
     [self finish];
 }
 
 -(void)request:(AmazonServiceRequest *)request didFailWithServiceException:(NSException *)exception
 {
     NSLog(@"%@", exception);
-
+    
     [self finish];
 }
 
@@ -138,10 +135,10 @@
 {
     [self willChangeValueForKey:@"isExecuting"];
     [self willChangeValueForKey:@"isFinished"];
-
+    
     isExecuting = NO;
     isFinished  = YES;
-
+    
     [self didChangeValueForKey:@"isExecuting"];
     [self didChangeValueForKey:@"isFinished"];
 }

@@ -28,15 +28,8 @@ static AmazonTVMClient      *tvm = nil;
 
 +(AmazonDynamoDBClient *)ddb
 {
-    @try
-    {
-        [AmazonClientManager validateCredentials];
-        return ddb;
-    }
-    @catch (NSException *exception)
-    {
-        NSLog(@"Exception: %@", exception);
-    }
+    [AmazonClientManager validateCredentials];
+    return ddb;
 }
 
 +(AmazonTVMClient *)tvm
@@ -44,7 +37,7 @@ static AmazonTVMClient      *tvm = nil;
     if (tvm == nil) {
         tvm = [[AmazonTVMClient alloc] initWithEndpoint:TOKEN_VENDING_MACHINE_URL useSSL:USE_SSL];
     }
-
+    
     return tvm;
 }
 
@@ -56,7 +49,7 @@ static AmazonTVMClient      *tvm = nil;
 +(Response *)validateCredentials
 {
     Response *ableToGetToken = [[[Response alloc] initWithCode:200 andMessage:@"OK"] autorelease];
-
+    
     if ([AmazonKeyChainWrapper areCredentialsExpired]) {
         
         @synchronized(self)
@@ -87,7 +80,7 @@ static AmazonTVMClient      *tvm = nil;
             }
         }
     }
-
+    
     return ableToGetToken;
 }
 
@@ -110,8 +103,10 @@ static AmazonTVMClient      *tvm = nil;
     }
 }
 
-+ (void)wipeCredentialsOnAuthError:(NSException *)exception
++ (void)wipeCredentialsOnAuthError:(NSError *)error
 {
+    id exception = [error.userInfo objectForKey:@"exception"];
+    
     if([exception isKindOfClass:[AmazonServiceException class]])
     {
         AmazonServiceException *e = (AmazonServiceException *)exception;

@@ -16,6 +16,7 @@
 
 #import "DynamoDBPutItemRequestMarshaller.h"
 #import "AmazonJSON.h"
+#import "../AmazonSDKUtil.h"
 
 @implementation DynamoDBPutItemRequestMarshaller
 
@@ -53,6 +54,10 @@
             if (itemListValueValue.n != nil) {
                 [itemListValueJson setValue:itemListValueValue.n forKey:@"N"];
             }
+
+            if (itemListValueValue.b != nil) {
+                [itemListValueJson setValue:[itemListValueValue.b base64EncodedString] forKey:@"B"];
+            }
             if (itemListValueValue != nil) {
                 NSArray *sSList = itemListValueValue.sS;
                 if (sSList != nil && [sSList count] > 0) {
@@ -73,6 +78,18 @@
                     for (NSString *nSListValue in nSList) {
                         if (nSListValue != nil) {
                             [nSArray addObject:nSListValue];
+                        }
+                    }
+                }
+            }
+            if (itemListValueValue != nil) {
+                NSArray *bSList = itemListValueValue.bS;
+                if (bSList != nil && [bSList count] > 0) {
+                    NSMutableArray *bSArray = [[[NSMutableArray alloc] init] autorelease];
+                    [itemListValueJson setValue:bSArray forKey:@"BS"];
+                    for (NSData *bSListValue in bSList) {
+                        if (bSListValue != nil) {
+                            [bSArray addObject:[bSListValue base64EncodedString]];
                         }
                     }
                 }
@@ -100,6 +117,10 @@
                     if (value.n != nil) {
                         [valueJson setValue:value.n forKey:@"N"];
                     }
+
+                    if (value.b != nil) {
+                        [valueJson setValue:[value.b base64EncodedString] forKey:@"B"];
+                    }
                     if (value != nil) {
                         NSArray *sSList = value.sS;
                         if (sSList != nil && [sSList count] > 0) {
@@ -120,6 +141,18 @@
                             for (NSString *nSListValue in nSList) {
                                 if (nSListValue != nil) {
                                     [nSArray addObject:nSListValue];
+                                }
+                            }
+                        }
+                    }
+                    if (value != nil) {
+                        NSArray *bSList = value.bS;
+                        if (bSList != nil && [bSList count] > 0) {
+                            NSMutableArray *bSArray = [[[NSMutableArray alloc] init] autorelease];
+                            [valueJson setValue:bSArray forKey:@"BS"];
+                            for (NSData *bSListValue in bSList) {
+                                if (bSListValue != nil) {
+                                    [bSArray addObject:[bSListValue base64EncodedString]];
                                 }
                             }
                         }

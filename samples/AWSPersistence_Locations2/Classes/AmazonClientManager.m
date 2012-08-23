@@ -30,28 +30,14 @@ static AmazonTVMClient      *tvm         = nil;
 
 +(AmazonDynamoDBClient *)ddb
 {
-    @try
-    {
-        [AmazonClientManager validateCredentials];
-        return ddb;
-    }
-    @catch (NSException *exception)
-    {
-        NSLog(@"Exception: %@", exception);
-    }
+    [AmazonClientManager validateCredentials];
+    return ddb;
 }
 
 +(AmazonCredentials *)credentials;
 {
-    @try
-    {
-        [AmazonClientManager validateCredentials];
-        return credentials;
-    }
-    @catch (NSException *exception)
-    {
-        NSLog(@"Exception: %@", exception);
-    }
+    [AmazonClientManager validateCredentials];
+    return credentials;
 }
 
 +(AmazonTVMClient *)tvm
@@ -59,7 +45,7 @@ static AmazonTVMClient      *tvm         = nil;
     if (tvm == nil) {
         tvm = [[AmazonTVMClient alloc] initWithEndpoint:TOKEN_VENDING_MACHINE_URL useSSL:USE_SSL];
     }
-
+    
     return tvm;
 }
 

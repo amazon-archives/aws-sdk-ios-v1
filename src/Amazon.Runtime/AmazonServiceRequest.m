@@ -229,6 +229,11 @@
     return delegate;
 }
 
+- (AmazonClientException *)validate
+{
+    return nil;
+}
+
 -(void)dealloc
 {
     delegate = nil;

@@ -19,6 +19,7 @@
 #import "AmazonLogger.h"
 #import "AmazonJSON.h"
 
+
 #define REQUEST_ID_HEADER    @"X-Amzn-Requestid"
 
 @implementation DynamoDBResponse
@@ -34,41 +35,69 @@
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     NSDate *startDate = [NSDate date];
-
+    
     isFinishedLoading = YES;
-
+    
     NSString *jsonString = [[[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding] autorelease];
     AMZLogDebug(@"Response Body:\n%@", jsonString);
+
     if (self.httpStatusCode == 413) {
-        @throw [AmazonServiceException exceptionWithMessage : @"Request Entity Too Large" withErrorCode : @"RequestEntityTooLarge" withStatusCode : 413 withRequestId : self.requestId];
+        
+        BOOL throwsExceptions = [AmazonErrorHandler throwsExceptions];
+        NSException *requestEntityTooLargeException = [AmazonServiceException exceptionWithMessage:@"Request Entity Too Large"
+                                                                withErrorCode:@"RequestEntityTooLarge"
+                                                               withStatusCode:413
+                                                                withRequestId:self.requestId];
+        
+        if (throwsExceptions == YES
+            && [(NSObject *)request.delegate respondsToSelector:@selector(request:didFailWithServiceException:)]) {
+            [request.delegate request:request didFailWithServiceException:requestEntityTooLargeException];
+        }
+        else if (throwsExceptions == NO
+                 && [(NSObject *)request.delegate respondsToSelector:@selector(request:didFailWithError:)]) {
+            [request.delegate request:request 
+                     didFailWithError:[AmazonErrorHandler errorFromException:requestEntityTooLargeException]];
+        }
     }
     else {
         NSMutableDictionary   *jsonObject = [AmazonJSON JSONValue:jsonString];
         AmazonServiceResponse *response   = [unmarshallerDelegate performSelector:@selector(unmarshall:) withObject:jsonObject];
-
-        if (response.exception) {
-            ((AmazonServiceException *)response.exception).requestId = self.requestId;
-
-            NSException *exceptionFound = [[response.exception copy] autorelease];
-            if ([(NSObject *)request.delegate respondsToSelector:@selector(request:didFailWithServiceException:)]) {
-                [request.delegate request:request didFailWithServiceException:(AmazonServiceException *)exceptionFound];
-                return;
-            }
-            else {
-                @throw exceptionFound;
+        
+        if(response.error)
+        {
+            NSError *errorFound = [[response.error copy] autorelease];
+            
+            if ([(NSObject *)request.delegate respondsToSelector:@selector(request:didFailWithError:)]) {
+                [request.delegate request:request didFailWithError:errorFound];
             }
         }
-        response.requestId = self.requestId;
+        else if (response.exception) {
+            ((AmazonServiceException *)response.exception).requestId = self.requestId;
+            
+            BOOL throwsExceptions = [AmazonErrorHandler throwsExceptions];
+            NSException *exceptionFound = [[response.exception copy] autorelease];
+            
+            if (throwsExceptions == YES
+                && [(NSObject *)request.delegate respondsToSelector:@selector(request:didFailWithServiceException:)]) {
+                [request.delegate request:request didFailWithServiceException:(AmazonServiceException *)exceptionFound];
+            }
+            else if (throwsExceptions == NO
+                     && [(NSObject *)request.delegate respondsToSelector:@selector(request:didFailWithError:)]) {
+                [request.delegate request:request didFailWithError:[AmazonErrorHandler errorFromException:exceptionFound]];
+            }
+        }
+        else {
+            response.requestId = self.requestId;
+            
+            [response postProcess];
+            processingTime          = fabs([startDate timeIntervalSinceNow]);
+            response.processingTime = processingTime;
+            
 
-
-        [response postProcess];
-        processingTime          = fabs([startDate timeIntervalSinceNow]);
-        response.processingTime = processingTime;
-
-
-
-        if ([(NSObject *)request.delegate respondsToSelector:@selector(request:didCompleteWithResponse:)]) {
-            [request.delegate request:request didCompleteWithResponse:response];
+            
+            if ([(NSObject *)request.delegate respondsToSelector:@selector(request:didCompleteWithResponse:)]) {
+                [request.delegate request:request didCompleteWithResponse:response];
+            }
         }
     }
 }

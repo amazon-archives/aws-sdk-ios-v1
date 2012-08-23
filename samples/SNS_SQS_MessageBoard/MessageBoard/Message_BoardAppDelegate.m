@@ -18,6 +18,7 @@
 #import "Message_BoardViewController.h"
 #import "MessageBoard.h"
 #import <AWSiOSSDK/AmazonLogger.h>
+#import <AWSiOSSDK/AmazonErrorHandler.h>
 
 @implementation Message_BoardAppDelegate
 
@@ -44,6 +45,8 @@
 #else
     [AmazonLogger turnLoggingOff];
 #endif
+    
+    [AmazonErrorHandler shouldNotThrowExceptions];
     
     return YES;
 }

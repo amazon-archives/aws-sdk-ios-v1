@@ -33,7 +33,7 @@
     domainName           = @"testing-async-with-sdb";
     selectRequest        = nil;
     putAttributesRequest = nil;
-
+    
     return [super initWithNibName:@"SdbAsyncViewController" bundle:nil];
 }
 
@@ -47,12 +47,12 @@
 {
     bytesIn.text  = @"0";
     bytesOut.text = @"0";
-
+    
     if (timer != nil && [timer isValid]) {
         [timer invalidate];
         timer = nil;
     }
-
+    
     timer   = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(perform) userInfo:nil repeats:YES];
     counter = 0;
 }
@@ -63,13 +63,13 @@
         [timer invalidate];
         timer = nil;
     }
-
+    
     counter = 0;
-
+    
     if (selectRequest != nil) {
         [selectRequest.urlConnection cancel];
     }
-
+    
     if (putAttributesRequest != nil) {
         [putAttributesRequest.urlConnection cancel];
     }
@@ -81,7 +81,7 @@
         [timer invalidate];
         timer = nil;
     }
-
+    
     counter = 0;
     [self dismissModalViewControllerAnimated:YES];
 }
@@ -97,62 +97,61 @@
         if (counter == 0) {
             [self createDomain];
         }
-
+        
         [self putAttributes];
         [self selectAttributes];
-
+        
         counter++;
     }
 }
 
 -(void)createDomain
 {
-    @try {
-        SimpleDBCreateDomainRequest *createDomainRequest = [[[SimpleDBCreateDomainRequest alloc] initWithDomainName:domainName] autorelease];
-        [createDomainRequest setDelegate:sdbDelegate];
-        [[AmazonClientManager sdb] createDomain:createDomainRequest];
-    }
-    @catch (NSException *exception) {
-        NSLog(@"%@", exception);
+    SimpleDBCreateDomainRequest *createDomainRequest = [[[SimpleDBCreateDomainRequest alloc] initWithDomainName:domainName] autorelease];
+    [createDomainRequest setDelegate:sdbDelegate];
+    SimpleDBCreateDomainResponse *createDomainResponse = [[AmazonClientManager sdb] createDomain:createDomainRequest];
+    if(createDomainResponse.error != nil)
+    {
+        NSLog(@"Error: %@", createDomainResponse.error);
     }
 }
 
 -(void)putAttributes
 {
-    @try {
-        NSMutableArray *attributes = [[[NSMutableArray alloc] initWithCapacity:200] autorelease];
-        for (int i = 0; i < 200; i++) {
-            NSString                     *att                 = [NSString stringWithFormat:@"attribute-%d", i];
-            NSString                     *val                 = [NSString stringWithFormat:@"value-%d", i];
-            SimpleDBReplaceableAttribute *replacableAttribute = [[[SimpleDBReplaceableAttribute alloc] initWithName:att andValue:val andReplace:YES] autorelease];
-            [attributes addObject:replacableAttribute];
-        }
-        for (int i = 0; i < 10; i++) {
-            NSString *itemName = [NSString stringWithFormat:@"Item-%d", i];
-
-            putAttributesRequest = [[SimpleDBPutAttributesRequest alloc] initWithDomainName:domainName andItemName:itemName andAttributes:attributes];
-            [putAttributesRequest setDelegate:sdbDelegate];
-
-            [[AmazonClientManager sdb] putAttributes:putAttributesRequest];
-        }
+    NSMutableArray *attributes = [[[NSMutableArray alloc] initWithCapacity:200] autorelease];
+    
+    for (int i = 0; i < 200; i++) {
+        NSString                     *att                 = [NSString stringWithFormat:@"attribute-%d", i];
+        NSString                     *val                 = [NSString stringWithFormat:@"value-%d", i];
+        SimpleDBReplaceableAttribute *replacableAttribute = [[[SimpleDBReplaceableAttribute alloc] initWithName:att andValue:val andReplace:YES] autorelease];
+        [attributes addObject:replacableAttribute];
     }
-    @catch (NSException *exception) {
-        NSLog(@"%@", exception);
+    
+    for (int i = 0; i < 10; i++) {
+        NSString *itemName = [NSString stringWithFormat:@"Item-%d", i];
+        
+        putAttributesRequest = [[SimpleDBPutAttributesRequest alloc] initWithDomainName:domainName andItemName:itemName andAttributes:attributes];
+        [putAttributesRequest setDelegate:sdbDelegate];
+        
+        SimpleDBPutAttributesResponse *putAttributesResponse = [[AmazonClientManager sdb] putAttributes:putAttributesRequest];
+        if(putAttributesResponse.error != nil)
+        {
+            NSLog(@"Error: %@", putAttributesResponse.error);
+        }
     }
 }
 
 -(void)selectAttributes
 {
-    @try {
-        NSString *selectExpression = [NSString stringWithFormat:@"select * from `%@`", domainName];
-        selectRequest = [[SimpleDBSelectRequest alloc] initWithSelectExpression:selectExpression];
-        [selectRequest setDelegate:sdbDelegate];
-        selectRequest.consistentRead = YES;
-
-        [[AmazonClientManager sdb] select:selectRequest];
-    }
-    @catch (NSException *exception) {
-        NSLog(@"%@", exception);
+    NSString *selectExpression = [NSString stringWithFormat:@"select * from `%@`", domainName];
+    selectRequest = [[SimpleDBSelectRequest alloc] initWithSelectExpression:selectExpression];
+    [selectRequest setDelegate:sdbDelegate];
+    selectRequest.consistentRead = YES;
+    
+    SimpleDBSelectResponse *selectResponse = [[AmazonClientManager sdb] select:selectRequest];
+    if(selectResponse.error != nil)
+    {
+        NSLog(@"Error: %@", selectResponse.error);
     }
 }
 
@@ -164,6 +163,5 @@
     [selectRequest release];
     [super dealloc];
 }
-
 
 @end

@@ -23,20 +23,18 @@
 -(IBAction)add:(id)sender
 {
     [bucketName resignFirstResponder];
-
-    @try {
-        [[AmazonClientManager s3] createBucket:[[[S3CreateBucketRequest alloc] initWithName:bucketName.text] autorelease]];
-    }
-    @catch (AmazonClientException *exception)
+    
+    S3CreateBucketResponse *createBucketResponse = [[AmazonClientManager s3] createBucket:[[[S3CreateBucketRequest alloc] initWithName:bucketName.text] autorelease]];
+    if(createBucketResponse.error != nil)
     {
-        if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
+        NSLog(@"Error: %@", createBucketResponse.error);
+        
+        if ([AmazonClientManager wipeCredentialsOnAuthError:createBucketResponse.error])
         {
             [[Constants expiredCredentialsAlert] show];
         }
-        
-        NSLog(@"Exception = %@", exception);
     }
-
+    
     [self dismissModalViewControllerAnimated:YES];
 }
 

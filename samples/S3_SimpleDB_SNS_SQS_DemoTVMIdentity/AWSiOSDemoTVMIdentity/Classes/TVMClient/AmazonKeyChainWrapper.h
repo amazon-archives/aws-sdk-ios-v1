@@ -24,6 +24,9 @@
 +(AmazonCredentials *)getCredentialsFromKeyChain;
 +(void)storeCredentialsInKeyChain:(NSString *)theAccessKey secretKey:(NSString *)theSecretKey securityToken:(NSString *)theSecurityToken expiration:(NSString *)theExpirationDate;
 
++(void)storeUsername:(NSString *)theUsername;
++(NSString *)username;
+
 +(NSString *)getValueFromKeyChain:(NSString *)key;
 +(void)storeValueInKeyChain:(NSString *)value forKey:(NSString *)key;
 

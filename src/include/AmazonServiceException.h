@@ -43,12 +43,6 @@
 /** Other fields in the error response from the service */
 @property (nonatomic, readonly) NSMutableDictionary *additionalFields;
 
-/** Initialize the exeption with a message.
- * @param message The message.
- * @return The exception.
- */
--(id)initWithMessage:(NSString *)message;
-
 /** Return an exception with the given message
  *
  * @param theMessage The user-friendly message
@@ -69,11 +63,18 @@
  * @param theRequestId The request ID assigned by the service.
  * @return The exception.
  */
-+(AmazonServiceException *)exceptionWithMessage:(NSString *)theMessage
-withErrorCode:(NSString *)theErrorCode
-withStatusCode:(NSInteger)theStatusCode
-withRequestId:(NSString *)theRequestId;
++(AmazonServiceException *)exceptionWithMessage:(NSString *)theMessage withErrorCode:(NSString *)theErrorCode withStatusCode:(NSInteger)theStatusCode withRequestId:(NSString *)theRequestId;
+
+/** Initialize the exception with a name, reason and userInfo.
+ *
+ * @param name The name.
+ * @param reason The reason.
+ * @param userInfo The userInfo.
+ */
+- (id)initWithName:(NSString *)name reason:(NSString *)reason userInfo:(NSDictionary *)userInfo;
+
 -(void)setPropertiesWithException:(AmazonServiceException *)theException;
+
 -(NSString *)description;
 
 

@@ -24,7 +24,7 @@
         [AmazonS3Client initializeResponseObjects];
         self.endpoint = @"https://s3.amazonaws.com";
     }
-
+    
     return self;
 }
 
@@ -44,9 +44,9 @@
 {
     S3CreateBucketRequest  *createBucketRequest  = [[S3CreateBucketRequest alloc] initWithName:bucketName];
     S3CreateBucketResponse *createBucketResponse = [self createBucket:createBucketRequest];
-
+    
     [createBucketRequest release];
-
+    
     return createBucketResponse;
 }
 
@@ -59,32 +59,32 @@
 {
     S3DeleteBucketRequest  *deleteBucketRequest  = [[S3DeleteBucketRequest alloc] initWithName:bucketName];
     S3DeleteBucketResponse *deleteBucketResponse = [self deleteBucket:deleteBucketRequest];
-
+    
     [deleteBucketRequest release];
-
+    
     return deleteBucketResponse;
 }
 
 -(S3Region *)getBucketLocation:(NSString *)bucketName
 {
     S3Request *req = [[S3Request alloc] init];
-
+    
     req.bucket      = bucketName;
     req.subResource = @"location";
-
+    
     S3Response                       *res = [self invoke:req];
-
+    
     NSXMLParser                      *parser          = [[NSXMLParser alloc] initWithData:res.body];
     S3LocationConstraintUnmarshaller *locUnmarshaller = [[S3LocationConstraintUnmarshaller alloc] init];
     [parser setDelegate:locUnmarshaller];
     [parser parse];
-
+    
     NSString *location = locUnmarshaller.location;
-
+    
     [req release];
     [parser release];
     [locUnmarshaller release];
-
+    
     return [S3Region regionWithString:location];
 }
 
@@ -92,10 +92,11 @@
 {
     S3ListBucketsRequest  *req      = [[[S3ListBucketsRequest alloc] init] autorelease];
     S3ListBucketsResponse *response = [self listBuckets:req];
-
-    if (response.listBucketsResult != nil && response.listBucketsResult.buckets != nil) {
+    
+    if (response.error == nil && response.listBucketsResult != nil && response.listBucketsResult.buckets != nil) {
         return [NSArray arrayWithArray:response.listBucketsResult.buckets];
     }
+    
     return nil;
 }
 
@@ -113,9 +114,9 @@
 {
     S3ListObjectsRequest  *req = [[S3ListObjectsRequest alloc] initWithName:bucketName];
     S3ListObjectsResponse *res = [self listObjects:req];
-
+    
     [req release];
-
+    
     if (res.listObjectsResult != nil && res.listObjectsResult.objectSummaries != nil) {
         return [NSArray arrayWithArray:res.listObjectsResult.objectSummaries];
     }
@@ -150,14 +151,14 @@
 -(S3DeleteObjectResponse *)deleteObjectWithKey:(NSString *)theKey withBucket:(NSString *)theBucket
 {
     S3DeleteObjectRequest *request = [[S3DeleteObjectRequest alloc] init];
-
+    
     request.key    = theKey;
     request.bucket = theBucket;
-
+    
     S3DeleteObjectResponse *response = (S3DeleteObjectResponse *)[self invoke:request];
-
+    
     [request release];
-
+    
     return response;
 }
 
@@ -179,7 +180,7 @@
 -(S3GetBucketPolicyResponse *)getBucketPolicy:(S3GetBucketPolicyRequest *)getPolicyRequest
 {
     S3GetBucketPolicyResponse *response = nil;
-
+    
     @try {
         response = (S3GetBucketPolicyResponse *)[self invoke:getPolicyRequest];
     }
@@ -189,7 +190,7 @@
             response.policy = [[[S3BucketPolicy alloc] init] autorelease];
         }
     }
-
+    
     return response;
 }
 
@@ -243,6 +244,22 @@
     return (S3DeleteBucketLifecycleConfigurationResponse *)[self invoke:deleteBucketLifecycleConfigurationRequest];
 }
 
+-(S3SetBucketTaggingResponse *)setBucketTagging:(S3SetBucketTaggingRequest *)setBucketTaggingRequest
+{
+    return (S3SetBucketTaggingResponse *)[self invoke:setBucketTaggingRequest];
+}
+
+-(S3GetBucketTaggingResponse *)getBucketTagging:(S3GetBucketTaggingRequest *)getBucketTaggingRequest
+{
+    return (S3GetBucketTaggingResponse *)[self invoke:getBucketTaggingRequest];
+}
+
+-(S3DeleteBucketTaggingResponse *)deleteBucketTagging:(S3DeleteBucketTaggingRequest *)deleteBucketTaggingRequest
+{
+    return (S3DeleteBucketTaggingResponse *)[self invoke:deleteBucketTaggingRequest];
+}
+
+
 
 -(S3DeleteVersionResponse *)deleteVersion:(S3DeleteVersionRequest *)deleteVersionRequest
 {
@@ -256,6 +273,17 @@
 
 -(NSURL *)getPreSignedURL:(S3GetPreSignedURLRequest *)preSignedURLRequest
 {
+    NSError *error = nil;
+    NSURL *url = [self getPreSignedURL:preSignedURLRequest error:&error];
+    if(error != nil)
+    {
+        AMZLogDebug(@"Error: %@", error);
+    }
+    return url;
+}
+
+-(NSURL *)getPreSignedURL:(S3GetPreSignedURLRequest *)preSignedURLRequest error:(NSError **)error
+{
     if (nil == preSignedURLRequest.accessKey) {
         if (nil == preSignedURLRequest.credentials) {
             preSignedURLRequest.accessKey = credentials.accessKey;
@@ -264,26 +292,32 @@
             preSignedURLRequest.accessKey = preSignedURLRequest.credentials.accessKey;
         }
     }
-
+    
     if (preSignedURLRequest.endpoint == nil) {
         [preSignedURLRequest setEndpoint:self.endpoint];
     }
-
+    
     if (preSignedURLRequest.securityToken == nil && credentials != nil && credentials.securityToken != nil) {
         preSignedURLRequest.securityToken = credentials.securityToken;
     }
-
-
+    
     AmazonURLRequest *amazonURLRequest = [preSignedURLRequest configureURLRequest];
     amazonURLRequest.endpointHost = [preSignedURLRequest endpointHost];
     NSURLRequest     *urlRequest  = [self signS3Request:preSignedURLRequest];
     NSString         *auth        = [urlRequest valueForHTTPHeaderField:kHttpHdrAuthorization];
     NSString         *signature   = (NSString *)[[auth componentsSeparatedByString:@":"] objectAtIndex:1];
     NSString         *queryString = [[preSignedURLRequest queryString] stringByAppendingFormat:@"&%@=%@", kS3QueryParamSignature, [AmazonSDKUtil urlEncode:signature]];
-
+    
     [preSignedURLRequest setSubResource:queryString];
-
-    return [AmazonSDKUtil URLWithURL:[preSignedURLRequest url] andProtocol:preSignedURLRequest.protocol];
+    
+    *error = [AmazonErrorHandler errorFromExceptionWithThrowsExceptionOption:[preSignedURLRequest validate]];
+    
+    if(*error != nil) {
+        return nil;
+    }
+    else {
+        return [AmazonSDKUtil URLWithURL:[preSignedURLRequest url] andProtocol:preSignedURLRequest.protocol];
+    }
 }
 
 -(S3InitiateMultipartUploadResponse *)initiateMultipartUpload:(S3InitiateMultipartUploadRequest *)initiateMultipartUploadRequest
@@ -299,12 +333,12 @@
 -(S3MultipartUpload *)initiateMultipartUploadWithKey:(NSString *)theKey withBucket:(NSString *)theBucket
 {
     S3InitiateMultipartUploadRequest *request = [[[S3InitiateMultipartUploadRequest alloc] init] autorelease];
-
+    
     request.key    = theKey;
     request.bucket = theBucket;
-
+    
     S3InitiateMultipartUploadResponse *response = (S3InitiateMultipartUploadResponse *)[self invoke:request];
-
+    
     return response.multipartUpload;
 }
 
@@ -338,14 +372,26 @@
 -(S3Response *)invoke:(S3Request *)request
 {
     if (nil == request) {
-        @throw [AmazonClientException exceptionWithMessage : @"Request cannot be nil."];
+        
+        S3Response *response = [[S3Response new] autorelease];
+        response.error = [AmazonErrorHandler errorFromExceptionWithThrowsExceptionOption:
+                          [AmazonClientException exceptionWithMessage:@"Request cannot be nil."]];
+        return response;
     }
-
+    
+    AmazonClientException *clientException = [request validate];
+    if(clientException != nil)
+    {
+        S3Response *response = [[S3Response new] autorelease];
+        response.error = [AmazonErrorHandler errorFromExceptionWithThrowsExceptionOption:clientException];
+        return response;
+    }
+    
     [request setUserAgent:self.userAgent];
     if (request.endpoint == nil) {
         [request setEndpoint:self.endpoint];
     }
-
+    
     if (request.securityToken == nil)
     {
         if(request.credentials == nil && credentials.securityToken != nil)
@@ -357,49 +403,49 @@
             request.securityToken = request.credentials.securityToken;
         }
     }
-
+    
     AMZLogDebug(@"Begin Request: %@", NSStringFromClass([request class]));
-
+    
     S3Response *response = nil;
     NSInteger  retries   = 0;
     while (retries < self.maxRetries) {
         if (retries > 0) {
             request.date = [NSDate date];
         }
-
+        
         NSURLRequest *urlRequest = [self signS3Request:request];
-
+        
         AMZLogDebug(@"%@ %@", [urlRequest HTTPMethod], [urlRequest URL]);
         AMZLogDebug(@"Request headers: ");
         for (id hKey in [[urlRequest allHTTPHeaderFields] allKeys])
         {
             AMZLogDebug(@"  %@: %@", [hKey description], [[urlRequest allHTTPHeaderFields] valueForKey:hKey]);
         }
-
+        
         response = [AmazonS3Client constructResponseFromRequest:request];
         [response setRequest:request];
-
+        
         NSURLConnection *urlConnection = [NSURLConnection connectionWithRequest:urlRequest delegate:response];
         NSTimer         *timeoutTimer  = [NSTimer scheduledTimerWithTimeInterval:self.timeout target:response selector:@selector(timeout) userInfo:nil repeats:NO];
-
+        
         request.urlConnection = urlConnection;
-
+        
         if ([request delegate] == nil) {
             while (!response.isFinishedLoading && !response.exception && !response.didTimeout) {
                 [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
             }
-
+            
             if (response.didTimeout) {
                 [urlConnection cancel];
             }
             else {
                 [timeoutTimer invalidate];      //  invalidate also releases the object.
             }
-
+            
             AMZLogDebug(@"Response Status Code : %d", response.httpStatusCode);
             if ( [self shouldRetry:response]) {
                 AMZLogDebug(@"Retring Request: %d", retries);
-
+                
                 [self pauseExponentially:retries];
                 retries++;
             }
@@ -409,10 +455,12 @@
                     if ([response.exception isMemberOfClass:[AmazonServiceException class]]) {
                         AMZLogDebug(@"HTTP: %d, S3 Error Code: %@", ((AmazonServiceException *)response.exception).statusCode, ((AmazonServiceException *)response.exception).errorCode);
                     }
-                    AMZLogDebug(@"Reason: ", [response.exception reason]);
-                    @throw response.exception;
+                    AMZLogDebug(@"Reason: %@", [response.exception reason]);
+                    
+                    response.error = [AmazonErrorHandler errorFromExceptionWithThrowsExceptionOption:response.exception];
+                    return response;
                 }
-
+                
                 break;
             }
         }
@@ -420,19 +468,21 @@
             return nil;
         }
     }
-
+    
     if (response.exception) {
         AMZLogDebug(@"Request threw exception: %@", [response.exception description]);
         if ([response.exception isMemberOfClass:[AmazonServiceException class]]) {
             AMZLogDebug(@"HTTP: %d, S3 Error Code: %@", ((AmazonServiceException *)response.exception).statusCode, ((AmazonServiceException *)response.exception).errorCode);
         }
-        AMZLogDebug(@"Reason: ", [response.exception reason]);
-        @throw response.exception;
+        AMZLogDebug(@"Reason: %@", [response.exception reason]);
+        
+        response.error = [AmazonErrorHandler errorFromExceptionWithThrowsExceptionOption:response.exception];
+        return response;
     }
-
+    
     AMZLogDebug(@"Received response from server. RequestId: %@. HTTP: %d. Id2: %@.", response.requestId, response.httpStatusCode, response.id2);
     AMZLogDebug(@"Response [%@]", response);
-
+    
     return response;
 }
 
@@ -440,44 +490,44 @@
 {
     NSString *requestClassName  = NSStringFromClass([request class]);
     NSString *responseClassName = [[requestClassName substringToIndex:[requestClassName length] - 7] stringByAppendingFormat:@"Response"];
-
+    
     id       response = [[NSClassFromString(responseClassName) alloc] init];
-
+    
     if (nil == response) {
         response = [[S3Response alloc] init];
     }
-
+    
     if ([request isMemberOfClass:[S3GetObjectRequest class]] &&
         [response isMemberOfClass:[S3GetObjectResponse class]] &&
         ((S3GetObjectRequest *)request).outputStream != nil) {
         [(S3GetObjectResponse *) response setOutputStream:((S3GetObjectRequest *)request).outputStream];
     }
-
+    
     return [response autorelease];
 }
 
 -(NSURLRequest *)signS3Request:(S3Request *)request
 {
     AmazonURLRequest *urlRequest = [request configureURLRequest];
-
+    
     if ( [urlRequest valueForHTTPHeaderField:@"Content-Type"] == nil && [request class] != [S3GetPreSignedURLRequest class]) {
         // Setting this here and not the AmazonServiceRequest because S3 extends that class and sets its own Content-Type Header.
         [urlRequest addValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     }
-
+    
     NSString *contentMd5  = [urlRequest valueForHTTPHeaderField:@"Content-MD5"];
     NSString *contentType = [urlRequest valueForHTTPHeaderField:@"Content-Type"];
     NSString *timestamp   = [urlRequest valueForHTTPHeaderField:@"Date"];
-
+    
     if (nil == contentMd5) {
         contentMd5 = @"";
     }
     if (nil == contentType) {
         contentType = @"";
     }
-
+    
     NSMutableString *canonicalizedAmzHeaders = [NSMutableString stringWithFormat:@""];
-
+    
     NSArray         *sortedHeaders = [[[urlRequest allHTTPHeaderFields] allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
     for (id key in sortedHeaders)
     {
@@ -486,7 +536,7 @@
             [canonicalizedAmzHeaders appendFormat:@"%@:%@\n", keyName, [urlRequest valueForHTTPHeaderField:(NSString *)key]];
         }
     }
-
+    
     NSString *canonicalizedResource;
     if (nil == [request key] || [[request key] length] < 1) {
         if (nil == [request bucket] || [[request bucket] length] < 1) {
@@ -499,9 +549,9 @@
     else {
         canonicalizedResource = [NSString stringWithFormat:@"/%@/%@", [request bucket], [[request key] stringWithURLEncoding]];
     }
-
+    
     NSString *query = urlRequest.URL.query;
-
+    
     bool     isListObjects          = [request class] == [S3ListObjectsRequest class];
     bool     isListVersions         = [request class] == [S3ListVersionsRequest class];
     bool     isListMultipartUploads = [request class] == [S3ListMultipartUploadsRequest class];
@@ -518,11 +568,11 @@
     if (isListParts) {
         canonicalizedResource = [canonicalizedResource stringByAppendingFormat:@"?%@=%@", kS3QueryParamUploadId, ((S3ListPartsRequest *)request).uploadId];
     }
-
+    
     NSString *stringToSign = [NSString stringWithFormat:@"%@\n%@\n%@\n%@\n%@%@", [urlRequest HTTPMethod], contentMd5, contentType, timestamp, canonicalizedAmzHeaders, canonicalizedResource];
-
+    
     AMZLogDebug(@"In SignURLRequest: String to Sign = [%@]", stringToSign);
-
+    
     NSString *signature = nil;
     if (request.credentials != nil) {
         signature = [AmazonAuthUtils HMACSign:[stringToSign dataUsingEncoding:NSASCIIStringEncoding] withKey:request.credentials.secretKey usingAlgorithm:kCCHmacAlgSHA1];
@@ -532,7 +582,7 @@
         signature = [AmazonAuthUtils HMACSign:[stringToSign dataUsingEncoding:NSASCIIStringEncoding] withKey:credentials.secretKey usingAlgorithm:kCCHmacAlgSHA1];
         [urlRequest setValue:[NSString stringWithFormat:@"AWS %@:%@", credentials.accessKey, signature] forHTTPHeaderField:@"Authorization"];
     }
-
+    
     return urlRequest;
 }
 
@@ -580,6 +630,9 @@
     [S3GetBucketLifecycleConfigurationResponse class];
     [S3SetBucketLifecycleConfigurationResponse class];
     [S3DeleteBucketLifecycleConfigurationResponse class];
+    [S3GetBucketTaggingResponse class];
+    [S3SetBucketTaggingResponse class];
+    [S3DeleteBucketTaggingResponse class];
 }
 
 

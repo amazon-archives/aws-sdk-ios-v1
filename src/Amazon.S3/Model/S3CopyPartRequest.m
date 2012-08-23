@@ -63,7 +63,7 @@
     }
 
     if (nil != self.firstByte && nil != self.lastByte) {
-        NSString *range = [NSString stringWithFormat:@"bytes=%d-%d", [firstByte longValue], [lastByte longValue]];
+        NSString *range = [NSString stringWithFormat:@"bytes=%ld-%ld", [firstByte longValue], [lastByte longValue]];
         [self.urlRequest setValue:range forHTTPHeaderField:kHttpHdrRange];
     }
 

@@ -26,26 +26,24 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    @try {
-        SimpleDBListDomainsRequest  *listDomainsRequest  = [[[SimpleDBListDomainsRequest alloc] init] autorelease];
-        SimpleDBListDomainsResponse *listDomainsResponse = [[AmazonClientManager sdb] listDomains:listDomainsRequest];
-
-        if (domains == nil) {
-            domains = [[NSMutableArray alloc] initWithCapacity:[listDomainsResponse.domainNames count]];
-        }
-        else {
-            [domains removeAllObjects];
-        }
-        for (NSString *name in listDomainsResponse.domainNames) {
-            [domains addObject:name];
-        }
-
-        [domains sortUsingSelector:@selector(compare:)];
+    SimpleDBListDomainsRequest  *listDomainsRequest  = [[[SimpleDBListDomainsRequest alloc] init] autorelease];
+    SimpleDBListDomainsResponse *listDomainsResponse = [[AmazonClientManager sdb] listDomains:listDomainsRequest];
+    if(listDomainsResponse.error != nil)
+    {
+        NSLog(@"Error: %@", listDomainsResponse.error);
     }
-    @catch (AmazonClientException *exception) {
-        NSLog(@"Exception = %@", exception);
+    
+    if (domains == nil) {
+        domains = [[NSMutableArray alloc] initWithCapacity:[listDomainsResponse.domainNames count]];
     }
-
+    else {
+        [domains removeAllObjects];
+    }
+    for (NSString *name in listDomainsResponse.domainNames) {
+        [domains addObject:name];
+    }
+    
+    [domains sortUsingSelector:@selector(compare:)];
     [domainTableView reloadData];
 }
 
@@ -67,24 +65,24 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-
+    
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-
+    
     // Configure the cell...
     cell.textLabel.text                      = [domains objectAtIndex:indexPath.row];
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
-
+    
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ItemListing *itemList = [[ItemListing alloc] init];
-
+    
     itemList.domain               = [domains objectAtIndex:indexPath.row];
     itemList.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentModalViewController:itemList animated:YES];

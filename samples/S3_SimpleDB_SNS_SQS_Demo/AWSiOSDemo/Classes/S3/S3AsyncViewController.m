@@ -29,7 +29,7 @@
     s3ResponseHandler = [[S3ResponseHandler alloc] init];
     putObjectRequest  = nil;
     getObjectRequest  = nil;
-
+    
     return [super initWithNibName:@"S3AsyncViewController" bundle:nil];
 }
 
@@ -43,7 +43,7 @@
 {
     bytesIn.text  = @"0";
     bytesOut.text = @"0";
-
+    
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(putObject) userInfo:nil repeats:NO];
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(getObject) userInfo:nil repeats:NO];
 }
@@ -53,7 +53,7 @@
     if (putObjectRequest != nil) {
         [putObjectRequest.urlConnection cancel];
     }
-
+    
     if (getObjectRequest != nil) {
         [getObjectRequest.urlConnection cancel];
     }
@@ -69,35 +69,36 @@
     NSString *bucketName = [NSString stringWithFormat:@"testing-async-with-s3-for%@", [ACCESS_KEY_ID lowercaseString]];
     NSString *keyName    = @"asyncTestFile";
     NSString *filename   = [[NSBundle mainBundle] pathForResource:@"temp" ofType:@"txt"];
-
+    
     // Create the Bucket to put the Object.
-    @try
+    S3CreateBucketResponse *createBucketResponse = [[AmazonClientManager s3] createBucketWithName:bucketName];
+    if(createBucketResponse.error != nil)
     {
-        [[AmazonClientManager s3] createBucketWithName:bucketName];
+        NSLog(@"Error: %@", createBucketResponse.error);
     }
-    @catch (NSException *e) {
-        NSLog(@"%@", e);
-        return;
-    }
-
+    
     // Put the file as an object in the bucket.
-    putObjectRequest          = [[S3PutObjectRequest alloc] initWithKey:keyName inBucket:bucketName];
+    putObjectRequest = [[S3PutObjectRequest alloc] initWithKey:keyName inBucket:bucketName];
     putObjectRequest.filename = filename;
     [putObjectRequest setDelegate:s3ResponseHandler];
-
+    
     // When using delegates the return is nil.
-    [[AmazonClientManager s3] putObject:putObjectRequest];
+    S3PutObjectResponse *putObjectResponse = [[AmazonClientManager s3] putObject:putObjectRequest];
+    if(putObjectResponse.error != nil)
+    {
+        NSLog(@"Error: %@", putObjectResponse.error);
+    }
 }
 
 -(void)getObject
 {
     NSString *bucketName = [NSString stringWithFormat:@"testing-async-with-s3-for%@", [ACCESS_KEY_ID lowercaseString]];
     NSString *keyName    = @"asyncTestFile";
-
+    
     // Get the object from the bucket.
     getObjectRequest = [[S3GetObjectRequest alloc] initWithKey:keyName withBucket:bucketName];
     [getObjectRequest setDelegate:s3ResponseHandler];
-
+    
     // When using delegates the return is nil.
     [[AmazonClientManager s3] getObject:getObjectRequest];
 }

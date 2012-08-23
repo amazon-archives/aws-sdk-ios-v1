@@ -24,6 +24,7 @@ NSString *kKeychainSecretKeyIdentifier;
 NSString *kKeychainSecrutiyTokenIdentifier;
 NSString *kKeychainExpirationDateIdentifier;
 
+NSString *kKeychainUsernameIdentifier;
 NSString *kKeychainUidIdentifier;
 NSString *kKeychainKeyIdentifier;
 
@@ -39,6 +40,7 @@ NSString *kKeychainKeyIdentifier;
     kKeychainSecrutiyTokenIdentifier  = [[NSString stringWithFormat:@"%@.AWSSecurityToken", bundleID] retain];
     kKeychainExpirationDateIdentifier = [[NSString stringWithFormat:@"%@.AWSExpirationDate", bundleID] retain];
     
+    kKeychainUsernameIdentifier = [[NSString stringWithFormat:@"%@.USERNAME", bundleID] retain]; 
     kKeychainUidIdentifier = [[NSString stringWithFormat:@"%@.UID", bundleID] retain]; 
     kKeychainKeyIdentifier = [[NSString stringWithFormat:@"%@.KEY", bundleID] retain];
 }
@@ -64,6 +66,16 @@ NSString *kKeychainKeyIdentifier;
 {
     [AmazonKeyChainWrapper storeValueInKeyChain:uid forKey:kKeychainUidIdentifier];
     [AmazonKeyChainWrapper storeValueInKeyChain:key forKey:kKeychainKeyIdentifier];
+}
+
++(void)storeUsername:(NSString *)theUsername
+{
+    [AmazonKeyChainWrapper storeValueInKeyChain:theUsername forKey:kKeychainUsernameIdentifier];    
+}
+
++(NSString *)username
+{
+    return [AmazonKeyChainWrapper getValueFromKeyChain:kKeychainUsernameIdentifier];
 }
 
 +(NSString *)getKeyForDevice
@@ -198,6 +210,14 @@ NSString *kKeychainKeyIdentifier;
         AMZLogDebug(@"Keychain Key: kKeychainKeyIdentifier, Error Code: %ld", keychainError);
         return keychainError;
     }
+    
+    keychainError = SecItemDelete((CFDictionaryRef)[AmazonKeyChainWrapper createKeychainDictionaryForKey : kKeychainUsernameIdentifier]);
+    if(keychainError != errSecSuccess && keychainError != errSecItemNotFound)
+    {
+        AMZLogDebug(@"Keychain Key: kKeychainUsernameIdentifier, Error Code: %ld", keychainError);
+        return keychainError;
+    }
+    
     
     return errSecSuccess;
 }

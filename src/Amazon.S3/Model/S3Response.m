@@ -17,6 +17,7 @@
 #import "S3GetObjectResponse.h"
 #import "AmazonLogger.h"
 
+
 @implementation S3Response
 
 @synthesize contentLength;
@@ -118,6 +119,8 @@
 }
 
 // TODO: Make the body property readonly when all operations are converted to the delegate technique.
+// TODO: It seems like nothing in the SDK is calling this method. -Yosuke
+/*
 -(void)setBody:(NSData *)data
 {
     if (nil != body) {
@@ -127,6 +130,7 @@
 
     [self processBody];
 }
+*/
 
 // Override this to perform processing on the body.
 -(void)processBody
@@ -145,7 +149,7 @@
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
 
     [buffer appendString:@"{"];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Headers: %d,", headers] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Headers: %@,", headers] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Content-Length: %lld,", contentLength] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Connection-State: %@,", connectionState] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Date:: %@,", date] autorelease]];
@@ -213,9 +217,15 @@
         [parser parse];
 
         exception = [[errorHandler exception] copy];
+        BOOL throwsExceptions = [AmazonErrorHandler throwsExceptions];
 
-        if ([(NSObject *)self.request.delegate respondsToSelector:@selector(request:didFailWithServiceException:)]) {
+        if (throwsExceptions == YES
+            && [(NSObject *)self.request.delegate respondsToSelector:@selector(request:didFailWithServiceException:)]) {
             [self.request.delegate request:self.request didFailWithServiceException:(AmazonServiceException *)exception];
+        }
+        else if (throwsExceptions == NO
+                 && [(NSObject *)self.request.delegate respondsToSelector:@selector(request:didFailWithError:)]) {
+            [self.request.delegate request:self.request didFailWithError:[AmazonErrorHandler errorFromException:exception]];
         }
 
         [parser release];
@@ -234,18 +244,18 @@
 
 }
 
--(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)theError
 {
-    NSDictionary *info = [error userInfo];
+    NSDictionary *info = [theError userInfo];
     for (id key in info)
     {
         AMZLog(@"UserInfo.%@ = %@", [key description], [[info valueForKey:key] description]);
     }
-    exception = [[AmazonClientException exceptionWithMessage:[error description]] retain];
-    AMZLog(@"An error occured in the request: %@", [error description]);
+    exception = [[AmazonClientException exceptionWithMessage:[theError description]] retain];
+    AMZLog(@"An error occured in the request: %@", [theError description]);
 
     if ([(NSObject *)self.request.delegate respondsToSelector:@selector(request:didFailWithError:)]) {
-        [self.request.delegate request:self.request didFailWithError:error];
+        [self.request.delegate request:self.request didFailWithError:theError];
     }
 }
 

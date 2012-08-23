@@ -124,7 +124,9 @@
         break;
     }
 
-    if (digestLength < 0) {
+    if (digestLength < 0)
+    {
+        // Fatal error. This should not happen.
         @throw [AmazonSignatureException exceptionWithName : kError_Invalid_Hash_Alg
                 reason : kReason_Invalid_Hash_Alg
                 userInfo : nil];

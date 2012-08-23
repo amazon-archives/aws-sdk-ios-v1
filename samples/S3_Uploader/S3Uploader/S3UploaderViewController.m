@@ -31,7 +31,7 @@
 -(IBAction)selectPhoto:(id)sender
 {
     UIImagePickerController *imagePicker = [[[UIImagePickerController alloc] init] autorelease];
-
+    
     imagePicker.delegate = self;
     [self presentModalViewController:imagePicker animated:YES];
 }
@@ -40,27 +40,29 @@
 {
     // Initial the S3 Client.
     AmazonS3Client *s3 = [[[AmazonS3Client alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY] autorelease];
-
-    @try {
-        // Set the content type so that the browser will treat the URL as an image.
-        S3ResponseHeaderOverrides *override = [[[S3ResponseHeaderOverrides alloc] init] autorelease];
-        override.contentType = @"image/jpeg";
-
-        // Request a pre-signed URL to picture that has been uplaoded.
-        S3GetPreSignedURLRequest *gpsur = [[[S3GetPreSignedURLRequest alloc] init] autorelease];
-        gpsur.key                     = PICTURE_NAME;
-        gpsur.bucket                  = [Constants pictureBucket];
-        gpsur.expires                 = [NSDate dateWithTimeIntervalSinceNow:(NSTimeInterval) 3600]; // Added an hour's worth of seconds to the current time.
-        gpsur.responseHeaderOverrides = override;
-
-        // Get the URL
-        NSURL *url = [s3 getPreSignedURL:gpsur];
-
+    
+    // Set the content type so that the browser will treat the URL as an image.
+    S3ResponseHeaderOverrides *override = [[[S3ResponseHeaderOverrides alloc] init] autorelease];
+    override.contentType = @"image/jpeg";
+    
+    // Request a pre-signed URL to picture that has been uplaoded.
+    S3GetPreSignedURLRequest *gpsur = [[[S3GetPreSignedURLRequest alloc] init] autorelease];
+    gpsur.key                     = PICTURE_NAME;
+    gpsur.bucket                  = [Constants pictureBucket];
+    gpsur.expires                 = [NSDate dateWithTimeIntervalSinceNow:(NSTimeInterval) 3600]; // Added an hour's worth of seconds to the current time.
+    gpsur.responseHeaderOverrides = override;
+    
+    // Get the URL
+    NSError *error;
+    NSURL *url = [s3 getPreSignedURL:gpsur error:&error];
+    if(error != nil)
+    {
+        [Constants showAlertMessage:[error.userInfo objectForKey:@"message"] withTitle:@"Browser Error"];
+    }
+    else
+    {
         // Display the URL in Safari
         [[UIApplication sharedApplication] openURL:url];
-    }
-    @catch (AmazonClientException *exception) {
-        [Constants showAlertMessage:exception.message withTitle:@"Browser Error"];
     }
 }
 
@@ -68,29 +70,36 @@
 {
     // Get the selected image.
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-
+    
     // Convert the image to JPEG data.
     NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
-
+    
     // Initial the S3 Client.
     AmazonS3Client *s3 = [[[AmazonS3Client alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY] autorelease];
-
-    @try {
-        // Create the picture bucket.
-        [s3 createBucket:[[[S3CreateBucketRequest alloc] initWithName:[Constants pictureBucket]] autorelease]];
-
-        // Upload image data.  Remember to set the content type.
-        S3PutObjectRequest *por = [[[S3PutObjectRequest alloc] initWithKey:PICTURE_NAME inBucket:[Constants pictureBucket]] autorelease];
-        por.contentType = @"image/jpeg";
-        por.data        = imageData;
-
-        // Put the image data into the specified s3 bucket and object.
-        [s3 putObject:por];
+    
+    // Create the picture bucket.
+    S3CreateBucketResponse *createBucketResponse = [s3 createBucket:[[[S3CreateBucketRequest alloc] initWithName:[Constants pictureBucket]] autorelease]];
+    if(createBucketResponse.error != nil)
+    {
+        NSLog(@"Error: %@", createBucketResponse.error);
+        
+        [Constants showAlertMessage:[createBucketResponse.error.userInfo objectForKey:@"message"] withTitle:@"Upload Error"];
     }
-    @catch (AmazonClientException *exception) {
-        [Constants showAlertMessage:exception.message withTitle:@"Upload Error"];
+    
+    // Upload image data.  Remember to set the content type.
+    S3PutObjectRequest *por = [[[S3PutObjectRequest alloc] initWithKey:PICTURE_NAME inBucket:[Constants pictureBucket]] autorelease];
+    por.contentType = @"image/jpeg";
+    por.data        = imageData;
+    
+    // Put the image data into the specified s3 bucket and object.
+    S3PutObjectResponse *putObjectResponse = [s3 putObject:por];
+    if(putObjectResponse.error != nil)
+    {
+        NSLog(@"Error: %@", putObjectResponse.error);
+        
+        [Constants showAlertMessage:[putObjectResponse.error.userInfo objectForKey:@"message"] withTitle:@"Upload Error"];
     }
-
+    
     [picker dismissModalViewControllerAnimated:YES];
 }
 

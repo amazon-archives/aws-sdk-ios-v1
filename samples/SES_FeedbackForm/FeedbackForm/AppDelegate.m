@@ -16,7 +16,7 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import <AWSiOSSDK/AmazonLogger.h>
-
+#import <AWSiOSSDK/AmazonErrorHandler.h>
 
 @implementation AppDelegate
 
@@ -45,6 +45,7 @@
     [AmazonLogger turnLoggingOff];
 #endif
     
+    [AmazonErrorHandler shouldNotThrowExceptions];
     
     return YES;
 }

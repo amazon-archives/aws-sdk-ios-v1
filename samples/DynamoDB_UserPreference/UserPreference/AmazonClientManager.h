@@ -23,6 +23,6 @@
 }
 
 +(AmazonDynamoDBClient *)ddb;
-+ (void)wipeCredentialsOnAuthError:(NSException *)exception;
++ (void)wipeCredentialsOnAuthError:(NSError *)error;
 
 @end

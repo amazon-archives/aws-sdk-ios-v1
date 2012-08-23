@@ -14,40 +14,41 @@
  */
 
 #import "S3BucketNameUtilities.h"
-#import "AmazonClientException.h"
 
 @implementation S3BucketNameUtilities
 
-+(void)validateBucketName:(NSString *)theBucketName;
++(AmazonClientException *)validateBucketName:(NSString *)theBucketName
 {
     if (theBucketName == nil) {
-        @throw [AmazonClientException exceptionWithMessage : @"Bucket name should not be nil."];
+        return [AmazonClientException exceptionWithMessage : @"Bucket name should not be nil."];
     }
 
     if ( [theBucketName length] < 3 || [theBucketName length] > 63) {
-        @throw [AmazonClientException exceptionWithMessage : @"Bucket name should be between 3 and 63 characters in length."];
+        return [AmazonClientException exceptionWithMessage : @"Bucket name should be between 3 and 63 characters in length."];
     }
 
     if ( [theBucketName hasSuffix:@"-"]) {
-        @throw [AmazonClientException exceptionWithMessage : @"Bucket name should not end with a '-'."];
+        return [AmazonClientException exceptionWithMessage : @"Bucket name should not end with a '-'."];
     }
 
     if ( [S3BucketNameUtilities contains:theBucketName searchString:@".."]) {
-        @throw [AmazonClientException exceptionWithMessage : @"Bucket name should not contain two adjacent periods."];
+        return [AmazonClientException exceptionWithMessage : @"Bucket name should not contain two adjacent periods."];
     }
 
     if ( [S3BucketNameUtilities contains:theBucketName searchString:@"_"]) {
-        @throw [AmazonClientException exceptionWithMessage : @"Bucket name should not contain '_'."];
+        return [AmazonClientException exceptionWithMessage : @"Bucket name should not contain '_'."];
     }
 
     if ( [S3BucketNameUtilities contains:theBucketName searchString:@"-."] ||
          [S3BucketNameUtilities contains:theBucketName searchString:@".-"]) {
-        @throw [AmazonClientException exceptionWithMessage : @"Bucket name should not contain dashes next to periods."];
+        return [AmazonClientException exceptionWithMessage : @"Bucket name should not contain dashes next to periods."];
     }
 
     if ( [[theBucketName lowercaseString] isEqualToString:theBucketName] == NO) {
-        @throw [AmazonClientException exceptionWithMessage : @"Bucket name should not contain upper case characters."];
+        return [AmazonClientException exceptionWithMessage : @"Bucket name should not contain upper case characters."];
     }
+    
+    return nil;
 }
 
 +(bool)isDNSBucketName:(NSString *)theBucketName;

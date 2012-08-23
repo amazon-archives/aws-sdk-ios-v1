@@ -57,7 +57,7 @@
         self.nextToken = nil;
         sortMethod     = NO_SORT;
     }
-
+    
     return self;
 }
 
@@ -71,7 +71,7 @@
         self.nextToken = nil;
         sortMethod     = theSortMethod;
     }
-
+    
     return self;
 }
 
@@ -80,19 +80,19 @@
  */
 -(int)highScoreCount
 {
-    @try {
-        SimpleDBSelectRequest *selectRequest = [[[SimpleDBSelectRequest alloc] initWithSelectExpression:COUNT_QUERY] autorelease];
-        selectRequest.consistentRead = YES;
-
-        SimpleDBSelectResponse *selectResponse = [sdbClient select:selectRequest];
-        SimpleDBItem           *countItem      = [selectResponse.items objectAtIndex:0];
-
-        return [self getIntValueForAttribute:@"Count" fromList:countItem.attributes];
-    }
-    @catch (NSException *exception) {
-        NSLog(@"Exception : [%@]", exception);
+    SimpleDBSelectRequest *selectRequest = [[[SimpleDBSelectRequest alloc] initWithSelectExpression:COUNT_QUERY] autorelease];
+    selectRequest.consistentRead = YES;
+    
+    SimpleDBSelectResponse *selectResponse = [sdbClient select:selectRequest];
+    if(selectResponse.error != nil)
+    {
+        NSLog(@"Error: %@", selectResponse.error);
         return 0;
     }
+    
+    SimpleDBItem *countItem = [selectResponse.items objectAtIndex:0];
+    
+    return [self getIntValueForAttribute:@"Count" fromList:countItem.attributes];
 }
 
 /*
@@ -100,19 +100,18 @@
  */
 -(HighScore *)getPlayer:(NSString *)thePlayer
 {
-    @try {
-        SimpleDBGetAttributesRequest  *gar      = [[SimpleDBGetAttributesRequest alloc] initWithDomainName:HIGH_SCORE_DOMAIN andItemName:thePlayer];
-        SimpleDBGetAttributesResponse *response = [sdbClient getAttributes:gar];
-
-        NSString                      *playerName = [self getStringValueForAttribute:PLAYER_ATTRIBUTE fromList:response.attributes];
-        int                           score       = [self getIntValueForAttribute:SCORE_ATTRIBUTE fromList:response.attributes];
-
-        return [[HighScore alloc] initWithPlayer:playerName andScore:score];
-    }
-    @catch (NSException *exception) {
-        NSLog(@"Exception : [%@]", exception);
+    SimpleDBGetAttributesRequest *gar = [[SimpleDBGetAttributesRequest alloc] initWithDomainName:HIGH_SCORE_DOMAIN andItemName:thePlayer];
+    SimpleDBGetAttributesResponse *response = [sdbClient getAttributes:gar];
+    if(response.error != nil)
+    {
+        NSLog(@"Error: %@", response.error);
         return nil;
     }
+    
+    NSString *playerName = [self getStringValueForAttribute:PLAYER_ATTRIBUTE fromList:response.attributes];
+    int score = [self getIntValueForAttribute:SCORE_ATTRIBUTE fromList:response.attributes];
+    
+    return [[HighScore alloc] initWithPlayer:playerName andScore:score];
 }
 
 /*
@@ -121,39 +120,39 @@
 -(NSArray *)getHighScores
 {
     NSString *query = nil;
-
+    
     switch (sortMethod) {
-    case PLAYER_SORT: {
-        query = PLAYER_SORT_QUERY;
-        break;
-    }
-
-    case SCORE_SORT: {
-        query = SCORE_SORT_QUERY;
-        break;
-    }
-
-    default: {
-        query = NO_SORT_QUERY;
-    }
-    }
-
-    @try {
-        SimpleDBSelectRequest *selectRequest = [[[SimpleDBSelectRequest alloc] initWithSelectExpression:query] autorelease];
-        selectRequest.consistentRead = YES;
-        if (self.nextToken != nil) {
-            selectRequest.nextToken = self.nextToken;
+        case PLAYER_SORT: {
+            query = PLAYER_SORT_QUERY;
+            break;
         }
-
-        SimpleDBSelectResponse *selectResponse = [sdbClient select:selectRequest];
-        self.nextToken = selectResponse.nextToken;
-
-        return [self convertItemsToHighScores:selectResponse.items];
+            
+        case SCORE_SORT: {
+            query = SCORE_SORT_QUERY;
+            break;
+        }
+            
+        default: {
+            query = NO_SORT_QUERY;
+        }
     }
-    @catch (NSException *exception) {
-        NSLog(@"Exception : [%@]", exception);
+    
+    SimpleDBSelectRequest *selectRequest = [[[SimpleDBSelectRequest alloc] initWithSelectExpression:query] autorelease];
+    selectRequest.consistentRead = YES;
+    if (self.nextToken != nil) {
+        selectRequest.nextToken = self.nextToken;
+    }
+    
+    SimpleDBSelectResponse *selectResponse = [sdbClient select:selectRequest];
+    if(selectResponse.error != nil)
+    {
+        NSLog(@"Error: %@", selectResponse.error);
         return [NSArray array];
     }
+    
+    self.nextToken = selectResponse.nextToken;
+    
+    return [self convertItemsToHighScores:selectResponse.items];
 }
 
 /*
@@ -174,22 +173,21 @@
  */
 -(void)addHighScore:(HighScore *)theHighScore
 {
-    @try {
-        NSString                     *paddedScore = [self getPaddedScore:theHighScore.score];
-
-        SimpleDBReplaceableAttribute *playerAttribute = [[[SimpleDBReplaceableAttribute alloc] initWithName:PLAYER_ATTRIBUTE andValue:theHighScore.player andReplace:YES] autorelease];
-        SimpleDBReplaceableAttribute *scoreAttribute  = [[[SimpleDBReplaceableAttribute alloc] initWithName:SCORE_ATTRIBUTE andValue:paddedScore andReplace:YES] autorelease];
-
-        NSMutableArray               *attributes = [[[NSMutableArray alloc] initWithCapacity:1] autorelease];
-        [attributes addObject:playerAttribute];
-        [attributes addObject:scoreAttribute];
-
-        SimpleDBPutAttributesRequest *putAttributesRequest = [[[SimpleDBPutAttributesRequest alloc] initWithDomainName:HIGH_SCORE_DOMAIN andItemName:theHighScore.player andAttributes:attributes] autorelease];
-
-        [sdbClient putAttributes:putAttributesRequest];
-    }
-    @catch (NSException *exception) {
-        NSLog(@"Exception : [%@]", exception);
+    NSString *paddedScore = [self getPaddedScore:theHighScore.score];
+    
+    SimpleDBReplaceableAttribute *playerAttribute = [[[SimpleDBReplaceableAttribute alloc] initWithName:PLAYER_ATTRIBUTE andValue:theHighScore.player andReplace:YES] autorelease];
+    SimpleDBReplaceableAttribute *scoreAttribute  = [[[SimpleDBReplaceableAttribute alloc] initWithName:SCORE_ATTRIBUTE andValue:paddedScore andReplace:YES] autorelease];
+    
+    NSMutableArray *attributes = [[[NSMutableArray alloc] initWithCapacity:1] autorelease];
+    [attributes addObject:playerAttribute];
+    [attributes addObject:scoreAttribute];
+    
+    SimpleDBPutAttributesRequest *putAttributesRequest = [[[SimpleDBPutAttributesRequest alloc] initWithDomainName:HIGH_SCORE_DOMAIN andItemName:theHighScore.player andAttributes:attributes] autorelease];
+    
+    SimpleDBPutAttributesResponse *putAttributesResponse = [sdbClient putAttributes:putAttributesRequest];
+    if(putAttributesResponse.error != nil)
+    {
+        NSLog(@"Error: %@", putAttributesResponse.error);
     }
 }
 
@@ -213,12 +211,11 @@
  */
 -(void)createHighScoresDomain
 {
-    @try {
-        SimpleDBCreateDomainRequest *createDomain = [[[SimpleDBCreateDomainRequest alloc] initWithDomainName:HIGH_SCORE_DOMAIN] autorelease];
-        [sdbClient createDomain:createDomain];
-    }
-    @catch (NSException *exception) {
-        NSLog(@"Exception : [%@]", exception);
+    SimpleDBCreateDomainRequest *createDomain = [[[SimpleDBCreateDomainRequest alloc] initWithDomainName:HIGH_SCORE_DOMAIN] autorelease];
+    SimpleDBCreateDomainResponse *createDomainResponse = [sdbClient createDomain:createDomain];
+    if(createDomainResponse.error != nil)
+    {
+        NSLog(@"Error: %@", createDomainResponse.error);
     }
 }
 
@@ -227,15 +224,18 @@
  */
 -(void)clearHighScores
 {
-    @try {
-        SimpleDBDeleteDomainRequest *deleteDomain = [[[SimpleDBDeleteDomainRequest alloc] initWithDomainName:HIGH_SCORE_DOMAIN] autorelease];
-        [sdbClient deleteDomain:deleteDomain];
-
-        SimpleDBCreateDomainRequest *createDomain = [[[SimpleDBCreateDomainRequest alloc] initWithDomainName:HIGH_SCORE_DOMAIN] autorelease];
-        [sdbClient createDomain:createDomain];
+    SimpleDBDeleteDomainRequest *deleteDomain = [[[SimpleDBDeleteDomainRequest alloc] initWithDomainName:HIGH_SCORE_DOMAIN] autorelease];
+    SimpleDBDeleteDomainResponse *deleteDomainResponse = [sdbClient deleteDomain:deleteDomain];
+    if(deleteDomainResponse.error != nil)
+    {
+        NSLog(@"Error: %@", deleteDomainResponse.error);
     }
-    @catch (NSException *exception) {
-        NSLog(@"Exception : [%@]", exception);
+    
+    SimpleDBCreateDomainRequest *createDomain = [[[SimpleDBCreateDomainRequest alloc] initWithDomainName:HIGH_SCORE_DOMAIN] autorelease];
+    SimpleDBCreateDomainResponse *createDomainResponse = [sdbClient createDomain:createDomain];
+    if(createDomainResponse.error != nil)
+    {
+        NSLog(@"Error: %@", createDomainResponse.error);
     }
 }
 
@@ -248,7 +248,7 @@
     for (SimpleDBItem *item in theItems) {
         [highScores addObject:[self convertSimpleDBItemToHighScore:item]];
     }
-
+    
     return highScores;
 }
 
@@ -287,7 +287,7 @@
             return attribute.value;
         }
     }
-
+    
     return @"";
 }
 
@@ -302,7 +302,7 @@
             return [attribute.value intValue];
         }
     }
-
+    
     return 0;
 }
 
@@ -314,12 +314,12 @@
 {
     NSString *pad        = @"0000000000";
     NSString *scoreValue = [NSString stringWithFormat:@"%d", theScore];
-
+    
     NSRange  range;
-
+    
     range.location = [pad length] - [scoreValue length];
     range.length   = [scoreValue length];
-
+    
     return [pad stringByReplacingCharactersInRange:range withString:scoreValue];
 }
 

@@ -44,7 +44,9 @@
     [unmarshaller release];
 
     if (errDescription != nil) {
-        @throw [AmazonClientException exceptionWithMessage :[NSString stringWithFormat:@"Error parsing XML response: %@", errDescription]];
+        if(exception == nil) {
+            exception = [AmazonClientException exceptionWithMessage :[NSString stringWithFormat:@"Error parsing XML response: %@", errDescription]];
+        }
     }
 }
 

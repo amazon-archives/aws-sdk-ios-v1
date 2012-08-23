@@ -28,33 +28,22 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    @try {
-        NSArray *bucketNames = [[AmazonClientManager s3] listBuckets];
-        if (buckets == nil) {
-            buckets = [[NSMutableArray alloc] initWithCapacity:[bucketNames count]];
-        }
-        else {
-            [buckets removeAllObjects];
-        }
-
-        if (bucketNames != nil) {
-            for (S3Bucket *bucket in bucketNames) {
-                [buckets addObject:[bucket name]];
-            }
-        }
-
-        [buckets sortUsingSelector:@selector(compare:)];
+    NSArray *bucketNames = [[AmazonClientManager s3] listBuckets];
+    
+    if (buckets == nil) {
+        buckets = [[NSMutableArray alloc] initWithCapacity:[bucketNames count]];
     }
-    @catch (AmazonClientException *exception)
-    {
-        if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
-        {
-            [[Constants expiredCredentialsAlert] show];
-        }
-        
-        NSLog(@"Exception = %@", exception);
+    else {
+        [buckets removeAllObjects];
     }
-
+    
+    if (bucketNames != nil) {
+        for (S3Bucket *bucket in bucketNames) {
+            [buckets addObject:[bucket name]];
+        }
+    }
+    
+    [buckets sortUsingSelector:@selector(compare:)];
     [bucketTableView reloadData];
 }
 
@@ -66,9 +55,9 @@
 -(IBAction)add:(id)sender
 {
     AddBucketViewController *addBucketViewController = [[AddBucketViewController alloc] init];
-
+    
     addBucketViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-
+    
     [self presentModalViewController:addBucketViewController animated:YES];
     [addBucketViewController release];
 }
@@ -86,67 +75,55 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-
+    
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-
+    
     // Configure the cell...
     cell.textLabel.text                      = [buckets objectAtIndex:indexPath.row];
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
-
+    
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        @try {
-            S3DeleteBucketRequest *deleteBucketRequest = [[[S3DeleteBucketRequest alloc] initWithName:[buckets objectAtIndex:indexPath.row]] autorelease];
-            [[AmazonClientManager s3] deleteBucket:deleteBucketRequest];
-
-            [buckets removeObjectAtIndex:indexPath.row];
-
-            NSArray *indexPaths = [NSArray arrayWithObjects:indexPath, nil];
-
-            [tableView beginUpdates];
-            [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
-            [tableView endUpdates];
-        }
-        @catch (AmazonClientException *exception)
+        
+        S3DeleteBucketRequest *deleteBucketRequest = [[[S3DeleteBucketRequest alloc] initWithName:[buckets objectAtIndex:indexPath.row]] autorelease];
+        S3DeleteBucketResponse *deleteBucketResponse = [[AmazonClientManager s3] deleteBucket:deleteBucketRequest];
+        if(deleteBucketResponse.error != nil)
         {
-            if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
+            NSLog(@"Error: %@", deleteBucketResponse.error);
+            
+            if ([AmazonClientManager wipeCredentialsOnAuthError:deleteBucketResponse.error])
             {
                 [[Constants expiredCredentialsAlert] show];
             }
-            
-            NSLog(@"Exception = %@", exception);
         }
+        
+        [buckets removeObjectAtIndex:indexPath.row];
+        
+        NSArray *indexPaths = [NSArray arrayWithObjects:indexPath, nil];
+        
+        [tableView beginUpdates];
+        [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
+        [tableView endUpdates];
     }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    @try {
-        ObjectListing *objectList = [[ObjectListing alloc] init];
-        
-        objectList.bucket               = [buckets objectAtIndex:indexPath.row];
-        objectList.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        
-        [self presentModalViewController:objectList animated:YES];
-        [objectList release];
-    }
-    @catch (AmazonClientException *exception)
-    {
-        if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
-        {
-            [[Constants expiredCredentialsAlert] show];
-        }
-        
-        NSLog(@"Exception = %@", exception);
-    }
+    ObjectListing *objectList = [[ObjectListing alloc] init];
+    
+    objectList.bucket = [buckets objectAtIndex:indexPath.row];
+    objectList.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    
+    [self presentModalViewController:objectList animated:YES];
+    [objectList release];
 }
 
 -(void)dealloc

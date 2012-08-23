@@ -32,23 +32,20 @@
  */
 +(void)createTable
 {
-    @try
+    DynamoDBKeySchemaElement      *kse = [[[DynamoDBKeySchemaElement alloc] initWithAttributeName:@"userNo" andAttributeType:@"N"] autorelease];
+    
+    DynamoDBKeySchema             *ks = [[[DynamoDBKeySchema alloc] initWithHashKeyElement:kse] autorelease];
+    
+    DynamoDBProvisionedThroughput *pt = [[[DynamoDBProvisionedThroughput alloc] init] autorelease];
+    pt.readCapacityUnits  = [NSNumber numberWithInt:10];
+    pt.writeCapacityUnits = [NSNumber numberWithInt:5];
+    
+    DynamoDBCreateTableRequest *request = [[[DynamoDBCreateTableRequest alloc] initWithTableName:TEST_TABLE_NAME andKeySchema:ks andProvisionedThroughput:pt] autorelease];
+    DynamoDBCreateTableResponse *response = [[AmazonClientManager ddb] createTable:request];
+    if(response.error != nil)
     {
-        DynamoDBKeySchemaElement      *kse = [[[DynamoDBKeySchemaElement alloc] initWithAttributeName:@"userNo" andAttributeType:@"N"] autorelease];
-
-        DynamoDBKeySchema             *ks = [[[DynamoDBKeySchema alloc] initWithHashKeyElement:kse] autorelease];
-
-        DynamoDBProvisionedThroughput *pt = [[[DynamoDBProvisionedThroughput alloc] init] autorelease];
-        pt.readCapacityUnits  = [NSNumber numberWithInt:10];
-        pt.writeCapacityUnits = [NSNumber numberWithInt:5];
-
-        DynamoDBCreateTableRequest *request = [[[DynamoDBCreateTableRequest alloc] initWithTableName:TEST_TABLE_NAME andKeySchema:ks andProvisionedThroughput:pt] autorelease];
-        [[AmazonClientManager ddb] createTable:request];
-    }
-    @catch (NSException *exception)
-    {
-        [AmazonClientManager wipeCredentialsOnAuthError:exception];
-        NSLog(@"Exception: %@", exception);
+        [AmazonClientManager wipeCredentialsOnAuthError:response.error];
+        NSLog(@"Error: %@", response.error);
     }
 }
 
@@ -57,21 +54,22 @@
  */
 +(NSString *)getTestTableStatus
 {
-    @try
+    DynamoDBDescribeTableRequest  *request  = [[[DynamoDBDescribeTableRequest alloc] initWithTableName:TEST_TABLE_NAME] autorelease];
+    DynamoDBDescribeTableResponse *response = [[AmazonClientManager ddb] describeTable:request];
+    if(response.error != nil)
     {
-        DynamoDBDescribeTableRequest  *request  = [[[DynamoDBDescribeTableRequest alloc] initWithTableName:TEST_TABLE_NAME] autorelease];
-        DynamoDBDescribeTableResponse *response = [[AmazonClientManager ddb] describeTable:request];
-
-        return response.table.tableStatus;
-    }
-    @catch (DynamoDBResourceNotFoundException *ex) {
+        if([[response.error.userInfo objectForKey:@"exception"] isKindOfClass:[DynamoDBResourceNotFoundException class]])
+        {
+            return nil;
+        }
+        
+        [AmazonClientManager wipeCredentialsOnAuthError:response.error];
+        NSLog(@"Error: %@", response.error);
+        
         return nil;
     }
-    @catch (NSException *exception)
-    {
-        [AmazonClientManager wipeCredentialsOnAuthError:exception];
-        NSLog(@"Exception: %@", exception);
-    }
+    
+    return response.table.tableStatus;
 }
 
 /*
@@ -79,25 +77,24 @@
  */
 +(void)insertUsers
 {
-    @try
+    for (int i = 1; i <= 10; i++)
     {
-        for (int i = 1; i <= 10; i++)
+        NSMutableDictionary *userDic =
+        [NSDictionary dictionaryWithObjectsAndKeys:
+         [[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", i]] autorelease], @"userNo",
+         [[[DynamoDBAttributeValue alloc] initWithS:[Constants getRandomName]] autorelease], @"firstName",
+         [[[DynamoDBAttributeValue alloc] initWithS:[Constants getRandomName]] autorelease], @"lastName",
+         nil];
+        
+        DynamoDBPutItemRequest *request = [[[DynamoDBPutItemRequest alloc] initWithTableName:TEST_TABLE_NAME andItem:userDic] autorelease];
+        DynamoDBPutItemResponse *response = [[AmazonClientManager ddb] putItem:request];
+        if(response.error != nil)
         {
-            NSMutableDictionary *userDic =
-                [NSDictionary dictionaryWithObjectsAndKeys:
-                 [[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", i]] autorelease], @"userNo",
-                 [[[DynamoDBAttributeValue alloc] initWithS:[Constants getRandomName]] autorelease], @"firstName",
-                 [[[DynamoDBAttributeValue alloc] initWithS:[Constants getRandomName]] autorelease], @"lastName",
-                 nil];
-
-            DynamoDBPutItemRequest *request = [[[DynamoDBPutItemRequest alloc] initWithTableName:TEST_TABLE_NAME andItem:userDic] autorelease];
-            [[AmazonClientManager ddb] putItem:request];
+            [AmazonClientManager wipeCredentialsOnAuthError:response.error];
+            NSLog(@"Error: %@", response.error);
+            
+            break;
         }
-    }
-    @catch (NSException *exception)
-    {
-        [AmazonClientManager wipeCredentialsOnAuthError:exception];
-        NSLog(@"Exception: %@", exception);
     }
 }
 
@@ -106,19 +103,17 @@
  */
 +(NSMutableArray *)getUserList
 {
-    @try
+    DynamoDBScanRequest  *request  = [[[DynamoDBScanRequest alloc] initWithTableName:TEST_TABLE_NAME] autorelease];
+    DynamoDBScanResponse *response = [[AmazonClientManager ddb] scan:request];
+    if(response.error != nil)
     {
-        DynamoDBScanRequest  *request  = [[[DynamoDBScanRequest alloc] initWithTableName:TEST_TABLE_NAME] autorelease];
-        DynamoDBScanResponse *response = [[AmazonClientManager ddb] scan:request];
-
-        return response.items;
-    }
-    @catch (NSException *exception)
-    {
-        [AmazonClientManager wipeCredentialsOnAuthError:exception];
-        NSLog(@"Exception: %@", exception);
+        [AmazonClientManager wipeCredentialsOnAuthError:response.error];
+        NSLog(@"Error: %@", response.error);
+        
         return nil;
     }
+    
+    return response.items;
 }
 
 /*
@@ -126,21 +121,19 @@
  */
 +(NSMutableDictionary *)getUserInfo:(int)userNo
 {
-    @try
+    DynamoDBGetItemRequest *request = [[[DynamoDBGetItemRequest alloc] initWithTableName:TEST_TABLE_NAME
+                                                                                  andKey:[[[DynamoDBKey alloc] initWithHashKeyElement:
+                                                                                           [[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", userNo]] autorelease]] autorelease]] autorelease];
+    DynamoDBGetItemResponse *response = [[AmazonClientManager ddb] getItem:request];
+    if(response.error != nil)
     {
-        DynamoDBGetItemRequest *request = [[[DynamoDBGetItemRequest alloc] initWithTableName:TEST_TABLE_NAME
-                                            andKey:[[[DynamoDBKey alloc] initWithHashKeyElement:
-                                                     [[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", userNo]] autorelease]] autorelease]] autorelease];
-        DynamoDBGetItemResponse *response = [[AmazonClientManager ddb] getItem:request];
-
-        return response.item;
-    }
-    @catch (NSException *exception)
-    {
-        [AmazonClientManager wipeCredentialsOnAuthError:exception];
-        NSLog(@"Exception: %@", exception);
+        [AmazonClientManager wipeCredentialsOnAuthError:response.error];
+        NSLog(@"Error: %@", response.error);
+        
         return nil;
     }
+    
+    return response.item;
 }
 
 /*
@@ -148,20 +141,17 @@
  */
 +(void)updateAttributeStringValue:(NSString *)aValue forKey:(NSString *)aKey withPrimaryKey:(DynamoDBAttributeValue *)aPrimaryKey
 {
-    @try
+    DynamoDBAttributeValue       *attr       = [[[DynamoDBAttributeValue alloc] initWithS:aValue] autorelease];
+    DynamoDBAttributeValueUpdate *attrUpdate = [[[DynamoDBAttributeValueUpdate alloc] initWithValue:attr andAction:@"PUT"] autorelease];
+    
+    DynamoDBUpdateItemRequest    *request = [[[DynamoDBUpdateItemRequest alloc] initWithTableName:TEST_TABLE_NAME
+                                                                                           andKey:[[[DynamoDBKey alloc] initWithHashKeyElement:aPrimaryKey] autorelease]
+                                                                              andAttributeUpdates:[NSMutableDictionary dictionaryWithObject:attrUpdate forKey:aKey]] autorelease];
+    DynamoDBUpdateItemResponse *response = [[AmazonClientManager ddb] updateItem:request];
+    if(response.error != nil)
     {
-        DynamoDBAttributeValue       *attr       = [[[DynamoDBAttributeValue alloc] initWithS:aValue] autorelease];
-        DynamoDBAttributeValueUpdate *attrUpdate = [[[DynamoDBAttributeValueUpdate alloc] initWithValue:attr andAction:@"PUT"] autorelease];
-
-        DynamoDBUpdateItemRequest    *request = [[[DynamoDBUpdateItemRequest alloc] initWithTableName:TEST_TABLE_NAME
-                                                  andKey:[[[DynamoDBKey alloc] initWithHashKeyElement:aPrimaryKey] autorelease]
-                                                  andAttributeUpdates:[NSMutableDictionary dictionaryWithObject:attrUpdate forKey:aKey]] autorelease];
-        [[AmazonClientManager ddb] updateItem:request];
-    }
-    @catch (NSException *exception)
-    {
-        [AmazonClientManager wipeCredentialsOnAuthError:exception];
-        NSLog(@"Exception: %@", exception);
+        [AmazonClientManager wipeCredentialsOnAuthError:response.error];
+        NSLog(@"Error: %@", response.error);
     }
 }
 
@@ -170,16 +160,13 @@
  */
 +(void)deleteUser:(DynamoDBAttributeValue *)aPrimaryKey
 {
-    @try
+    DynamoDBDeleteItemRequest *request = [[[DynamoDBDeleteItemRequest alloc] initWithTableName:TEST_TABLE_NAME andKey:[[[DynamoDBKey alloc] initWithHashKeyElement:aPrimaryKey] autorelease]] autorelease];
+    
+    DynamoDBDeleteItemResponse *response = [[AmazonClientManager ddb] deleteItem:request];
+    if(response.error != nil)
     {
-        DynamoDBDeleteItemRequest *request = [[[DynamoDBDeleteItemRequest alloc] initWithTableName:TEST_TABLE_NAME andKey:[[[DynamoDBKey alloc] initWithHashKeyElement:aPrimaryKey] autorelease]] autorelease];
-
-        [[AmazonClientManager ddb] deleteItem:request];
-    }
-    @catch (NSException *exception)
-    {
-        [AmazonClientManager wipeCredentialsOnAuthError:exception];
-        NSLog(@"Exception: %@", exception);
+        [AmazonClientManager wipeCredentialsOnAuthError:response.error];
+        NSLog(@"Error: %@", response.error);
     }
 }
 
@@ -188,15 +175,12 @@
  */
 +(void)cleanUp
 {
-    @try
+    DynamoDBDeleteTableRequest *request = [[[DynamoDBDeleteTableRequest alloc] initWithTableName:TEST_TABLE_NAME] autorelease];
+    DynamoDBDeleteTableResponse *response = [[AmazonClientManager ddb] deleteTable:request];
+    if(response.error != nil)
     {
-        DynamoDBDeleteTableRequest *request = [[[DynamoDBDeleteTableRequest alloc] initWithTableName:TEST_TABLE_NAME] autorelease];
-        [[AmazonClientManager ddb] deleteTable:request];
-    }
-    @catch (NSException *exception)
-    {
-        [AmazonClientManager wipeCredentialsOnAuthError:exception];
-        NSLog(@"Exception: %@", exception);
+        [AmazonClientManager wipeCredentialsOnAuthError:response.error];
+        NSLog(@"Error: %@", response.error);
     }
 }
 

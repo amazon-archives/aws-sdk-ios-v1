@@ -37,6 +37,11 @@
     }
 
 
+    if ([jsonObject valueForKey:@"B"] != nil) {
+        attributeValue.b = [NSData dataWithBase64EncodedString:[jsonObject valueForKey:@"B"]];
+    }
+
+
     NSArray *sSArray = [jsonObject valueForKey:@"SS"];
     for (NSString *memberObject in sSArray) {
         [attributeValue.sS addObject:memberObject];
@@ -46,6 +51,12 @@
     NSArray *nSArray = [jsonObject valueForKey:@"NS"];
     for (NSString *memberObject in nSArray) {
         [attributeValue.nS addObject:memberObject];
+    }
+
+
+    NSArray *bSArray = [jsonObject valueForKey:@"BS"];
+    for (NSString *memberObject in bSArray) {
+        [attributeValue.bS addObject:[NSData dataWithBase64EncodedString:memberObject]];
     }
 
     return attributeValue;

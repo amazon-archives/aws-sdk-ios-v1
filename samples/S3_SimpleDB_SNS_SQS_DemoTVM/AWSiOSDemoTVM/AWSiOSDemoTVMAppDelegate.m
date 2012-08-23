@@ -16,7 +16,7 @@
 #import "AWSiOSDemoTVMAppDelegate.h"
 #import "AWSiOSDemoTVMViewController.h"
 #import <AWSiOSSDK/AmazonLogger.h>
-
+#import <AWSiOSSDK/AmazonErrorHandler.h>
 
 @implementation AWSiOSDemoTVMAppDelegate
 
@@ -34,6 +34,8 @@
 #else
     [AmazonLogger turnLoggingOff];
 #endif
+    
+    [AmazonErrorHandler shouldNotThrowExceptions];
 
     return YES;
 }

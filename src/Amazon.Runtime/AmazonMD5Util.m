@@ -47,7 +47,7 @@
             NSInteger result = [inputStream read:buffer maxLength:BUFFER_SIZE];
 
             if (result == -1) {
-                @throw [NSException exceptionWithName : @"StreamException" reason : @"Unable to properly read stream." userInfo : nil];
+                return nil;
             }
 
             CC_MD5_Update(&hashObject, (const void *)buffer, (CC_LONG)result);

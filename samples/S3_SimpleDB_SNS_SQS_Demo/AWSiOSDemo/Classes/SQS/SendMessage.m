@@ -30,15 +30,14 @@
 
 -(IBAction)send:(id)sender
 {
-    @try {
-        SQSSendMessageRequest *sendMessageRequest = [[[SQSSendMessageRequest alloc] initWithQueueUrl:queue andMessageBody:message.text] autorelease];
-        [[AmazonClientManager sqs] sendMessage:sendMessageRequest];
-
-        [self dismissModalViewControllerAnimated:YES];
+    SQSSendMessageRequest *sendMessageRequest = [[[SQSSendMessageRequest alloc] initWithQueueUrl:queue andMessageBody:message.text] autorelease];
+    SQSSendMessageResponse *sendMessageResponse = [[AmazonClientManager sqs] sendMessage:sendMessageRequest];
+    if(sendMessageResponse.error != nil)
+    {
+        NSLog(@"Error: %@", sendMessageResponse.error);
     }
-    @catch (AmazonClientException *exception) {
-        NSLog(@"Exception = %@", exception);
-    }
+    
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 -(IBAction)cancel:(id)sender

@@ -17,6 +17,7 @@
 #import "RootViewController.h"
 #import "AmazonClientManager.h"
 #import <AWSiOSSDK/AmazonLogger.h>
+#import <AWSiOSSDK/AmazonErrorHandler.h>
 
 @implementation LocationsAppDelegate
 
@@ -29,13 +30,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
     // Logging Control - Do NOT use logging for non-development builds.
 #ifdef DEBUG
     [AmazonLogger verboseLogging];
 #else
     [AmazonLogger turnLoggingOff];
 #endif
+    
+    [AmazonErrorHandler shouldNotThrowExceptions];
 		
 	NSManagedObjectContext *context = [self managedObjectContext];
 	if (!context) {

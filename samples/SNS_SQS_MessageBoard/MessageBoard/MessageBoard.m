@@ -46,194 +46,189 @@ static MessageBoard *_instance = nil;
     if (self != nil) {
         snsClient = [[AmazonSNSClient alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY];
         sqsClient = [[AmazonSQSClient alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY];
-
+        
         // Find the Topic for this App or create one.
         topicARN = [[self findTopicArn] retain];
         if (topicARN == nil) {
             topicARN = [[self createTopic] retain];
         }
-
+        
         // Find the Queue for this App or create one.
         queueUrl = [[self findQueueUrl] retain];
         if (queueUrl == nil) {
             queueUrl = [[self createQueue] retain];
-
+            
             // Allow time for the queue to be created.
             [NSThread sleepForTimeInterval:4.0];
-
+            
             [self subscribeQueue];
         }
     }
-
+    
     return self;
 }
 
 -(NSString *)createTopic
 {
-    @try {
-        SNSCreateTopicRequest  *ctr      = [[[SNSCreateTopicRequest alloc] initWithName:TOPIC_NAME] autorelease];
-        SNSCreateTopicResponse *response = [snsClient createTopic:ctr];
-
-        // Adding the DisplayName attribute to the Topic allows for SMS notifications.
-        SNSSetTopicAttributesRequest *st = [[[SNSSetTopicAttributesRequest alloc] initWithTopicArn:response.topicArn andAttributeName:@"DisplayName" andAttributeValue:TOPIC_NAME] autorelease];
-        [snsClient setTopicAttributes:st];
-
-        return response.topicArn;
-    }
-    @catch (NSException *exception) {
-        NSLog(@"Exception : %@", exception);
+    SNSCreateTopicRequest *ctr = [[[SNSCreateTopicRequest alloc] initWithName:TOPIC_NAME] autorelease];
+    SNSCreateTopicResponse *response = [snsClient createTopic:ctr];
+    if(response.error != nil)
+    {
+        NSLog(@"Error: %@", response.error);
         return nil;
     }
+    
+    // Adding the DisplayName attribute to the Topic allows for SMS notifications.
+    SNSSetTopicAttributesRequest *st = [[[SNSSetTopicAttributesRequest alloc] initWithTopicArn:response.topicArn andAttributeName:@"DisplayName" andAttributeValue:TOPIC_NAME] autorelease];
+    SNSSetTopicAttributesResponse *setTopicAttributesResponse = [snsClient setTopicAttributes:st];
+    if(setTopicAttributesResponse.error != nil)
+    {
+        NSLog(@"Error: %@", setTopicAttributesResponse.error);
+        return nil;
+    }
+    
+    return response.topicArn;
 }
 
 -(void)subscribeEmail:(NSString *)emailAddress
 {
-    @try {
-        SNSSubscribeRequest *sr = [[[SNSSubscribeRequest alloc] initWithTopicArn:topicARN andProtocol:@"email" andEndpoint:emailAddress] autorelease];
-        [snsClient subscribe:sr];
-    }
-    @catch (NSException *exception) {
-        NSLog(@"Exception : %@", exception);
+    SNSSubscribeRequest *sr = [[[SNSSubscribeRequest alloc] initWithTopicArn:topicARN andProtocol:@"email" andEndpoint:emailAddress] autorelease];
+    SNSSubscribeResponse *subscribeResponse = [snsClient subscribe:sr];
+    if(subscribeResponse.error != nil)
+    {
+        NSLog(@"Error: %@", subscribeResponse.error);
     }
 }
 
 -(void)subscribeSms:(NSString *)smsNumber
 {
-    @try {
-        SNSSubscribeRequest *sr = [[[SNSSubscribeRequest alloc] initWithTopicArn:topicARN andProtocol:@"sms" andEndpoint:smsNumber] autorelease];
-        [snsClient subscribe:sr];
-    }
-    @catch (NSException *exception) {
-        NSLog(@"Exception : %@", exception);
+    SNSSubscribeRequest *sr = [[[SNSSubscribeRequest alloc] initWithTopicArn:topicARN andProtocol:@"sms" andEndpoint:smsNumber] autorelease];
+    SNSSubscribeResponse *subscribeResponse = [snsClient subscribe:sr];
+    if(subscribeResponse.error != nil)
+    {
+        NSLog(@"Error: %@", subscribeResponse.error);
     }
 }
 
 -(void)subscribeQueue
 {
-    @try {
-        NSString            *queueArn = [self getQueueArn:queueUrl];
-
-        SNSSubscribeRequest *request = [[[SNSSubscribeRequest alloc] initWithTopicArn:topicARN andProtocol:@"sqs" andEndpoint:queueArn] autorelease];
-        [snsClient subscribe:request];
-    }
-    @catch (NSException *exception) {
-        NSLog(@"Exception : %@", exception);
+    NSString *queueArn = [self getQueueArn:queueUrl];
+    
+    SNSSubscribeRequest *request = [[[SNSSubscribeRequest alloc] initWithTopicArn:topicARN andProtocol:@"sqs" andEndpoint:queueArn] autorelease];
+    SNSSubscribeResponse *subscribeResponse = [snsClient subscribe:request];
+    if(subscribeResponse.error != nil)
+    {
+        NSLog(@"Error: %@", subscribeResponse.error);
     }
 }
 
 -(NSMutableArray *)listSubscribers
 {
-    @try {
-        SNSListSubscriptionsByTopicRequest  *ls       = [[[SNSListSubscriptionsByTopicRequest alloc] initWithTopicArn:topicARN] autorelease];
-        SNSListSubscriptionsByTopicResponse *response = [snsClient listSubscriptionsByTopic:ls];
-        return response.subscriptions;
-    }
-    @catch (NSException *exception) {
-        NSLog(@"Exception : %@", exception);
+    SNSListSubscriptionsByTopicRequest  *ls       = [[[SNSListSubscriptionsByTopicRequest alloc] initWithTopicArn:topicARN] autorelease];
+    SNSListSubscriptionsByTopicResponse *response = [snsClient listSubscriptionsByTopic:ls];
+    if(response.error != nil)
+    {
+        NSLog(@"Error: %@", response.error);
         return [NSArray array];
     }
+    
+    return response.subscriptions;
 }
 
 // Unscribe an endpoint from the topic.
 -(void)removeSubscriber:(NSString *)subscriptionArn
 {
-    @try {
-        SNSUnsubscribeRequest *unsubscribeRequest = [[[SNSUnsubscribeRequest alloc] initWithSubscriptionArn:subscriptionArn] autorelease];
-        [snsClient unsubscribe:unsubscribeRequest];
-    }
-    @catch (NSException *exception) {
-        NSLog(@"Exception : %@", exception);
+    SNSUnsubscribeRequest *unsubscribeRequest = [[[SNSUnsubscribeRequest alloc] initWithSubscriptionArn:subscriptionArn] autorelease];
+    SNSUnsubscribeResponse *unsubscribeResponse = [snsClient unsubscribe:unsubscribeRequest];
+    if(unsubscribeResponse.error != nil)
+    {
+        NSLog(@"Error: %@", unsubscribeResponse.error);
     }
 }
 
 // Post a notification to the topic.
 -(void)post:(NSString *)theMessage;
 {
-    @try {
-        if ( [theMessage isEqualToString:@"wipe"]) {
-            [self deleteQueue];
-            [self deleteTopic];
-        }
-        else {
-            SNSPublishRequest *pr = [[[SNSPublishRequest alloc] initWithTopicArn:topicARN andMessage:theMessage] autorelease];
-            [snsClient publish:pr];
-        }
+    if ( [theMessage isEqualToString:@"wipe"]) {
+        [self deleteQueue];
+        [self deleteTopic];
     }
-    @catch (NSException *exception) {
-        NSLog(@"Exception : %@", exception);
+    else {
+        SNSPublishRequest *pr = [[[SNSPublishRequest alloc] initWithTopicArn:topicARN andMessage:theMessage] autorelease];
+        SNSPublishResponse *publishResponse = [snsClient publish:pr];
+        if(publishResponse.error != nil)
+        {
+            NSLog(@"Error: %@", publishResponse.error);
+        }
     }
 }
 
 -(void)deleteTopic
 {
-    @try {
-        SNSDeleteTopicRequest *dtr = [[[SNSDeleteTopicRequest alloc] initWithTopicArn:topicARN] autorelease];
-        [snsClient deleteTopic:dtr];
-    }
-    @catch (NSException *exception) {
-        NSLog(@"Exception : %@", exception);
+    SNSDeleteTopicRequest *dtr = [[[SNSDeleteTopicRequest alloc] initWithTopicArn:topicARN] autorelease];
+    SNSDeleteTopicResponse *deleteTopicResponse = [snsClient deleteTopic:dtr];
+    if(deleteTopicResponse.error != nil)
+    {
+        NSLog(@"Error: %@", deleteTopicResponse.error);
     }
 }
 
 -(void)deleteQueue
 {
-    @try {
-        SQSDeleteQueueRequest *request = [[[SQSDeleteQueueRequest alloc] initWithQueueUrl:queueUrl] autorelease];
-        [sqsClient deleteQueue:request];
-    }
-    @catch (NSException *exception) {
-        NSLog(@"Exception : %@", exception);
+    SQSDeleteQueueRequest *request = [[[SQSDeleteQueueRequest alloc] initWithQueueUrl:queueUrl] autorelease];
+    SQSDeleteQueueResponse *deleteQueueResponse = [sqsClient deleteQueue:request];
+    if(deleteQueueResponse.error != nil)
+    {
+        NSLog(@"Error: %@", deleteQueueResponse.error);
     }
 }
 
 -(NSString *)createQueue
 {
-    @try {
-        SQSCreateQueueRequest  *cqr      = [[[SQSCreateQueueRequest alloc] initWithQueueName:QUEUE_NAME] autorelease];
-        SQSCreateQueueResponse *response = [sqsClient createQueue:cqr];
-
-        NSString               *queueArn = [self getQueueArn:response.queueUrl];
-        [self addPolicyToQueueForTopic:response.queueUrl queueArn:queueArn];
-
-        return response.queueUrl;
-    }
-    @catch (NSException *exception) {
-        NSLog(@"Exception : %@", exception);
+    SQSCreateQueueRequest *cqr = [[[SQSCreateQueueRequest alloc] initWithQueueName:QUEUE_NAME] autorelease];
+    SQSCreateQueueResponse *response = [sqsClient createQueue:cqr];
+    if(response.error != nil)
+    {
+        NSLog(@"Error: %@", response.error);
         return nil;
     }
+    
+    NSString *queueArn = [self getQueueArn:response.queueUrl];
+    [self addPolicyToQueueForTopic:response.queueUrl queueArn:queueArn];
+    
+    return response.queueUrl;
 }
 
 -(NSMutableArray *)getMessagesFromQueue
 {
-    @try {
-        SQSReceiveMessageRequest *rmr = [[[SQSReceiveMessageRequest alloc] initWithQueueUrl:queueUrl] autorelease];
-        rmr.maxNumberOfMessages = [NSNumber numberWithInt:10];
-        rmr.visibilityTimeout   = [NSNumber numberWithInt:30];
-
-        SQSReceiveMessageResponse *response    = nil;
-        NSMutableArray            *allMessages = [NSMutableArray array];
-        do {
-            response = [sqsClient receiveMessage:rmr];
-            [allMessages addObjectsFromArray:response.messages];
-            [NSThread sleepForTimeInterval:1.0];
-        } while ( [response.messages count] != 0);
-
-        return allMessages;
-    }
-    @catch (NSException *exception) {
-        NSLog(@"Exception : %@", exception);
-        return [NSArray array];
-    }
+    SQSReceiveMessageRequest *rmr = [[[SQSReceiveMessageRequest alloc] initWithQueueUrl:queueUrl] autorelease];
+    rmr.maxNumberOfMessages = [NSNumber numberWithInt:10];
+    rmr.visibilityTimeout   = [NSNumber numberWithInt:30];
+    
+    SQSReceiveMessageResponse *response    = nil;
+    NSMutableArray *allMessages = [NSMutableArray array];
+    do {
+        response = [sqsClient receiveMessage:rmr];
+        if(response.error != nil)
+        {
+            NSLog(@"Error: %@", response.error);
+            return [NSArray array];
+        }
+        
+        [allMessages addObjectsFromArray:response.messages];
+        [NSThread sleepForTimeInterval:1.0];
+    } while ( [response.messages count] != 0);
+    
+    return allMessages;
 }
 
 -(void)deleteMessageFromQueue:(SQSMessage *)message
 {
-    @try {
-        SQSDeleteMessageRequest *request = [[[SQSDeleteMessageRequest alloc] initWithQueueUrl:queueUrl andReceiptHandle:message.receiptHandle] autorelease];
-        [sqsClient deleteMessage:request];
-    }
-    @catch (NSException *exception) {
-        NSLog(@"Exception : %@", exception);
+    SQSDeleteMessageRequest *request = [[[SQSDeleteMessageRequest alloc] initWithQueueUrl:queueUrl andReceiptHandle:message.receiptHandle] autorelease];
+    SQSDeleteMessageResponse *deleteMessageResponse = [sqsClient deleteMessage:request];
+    if(deleteMessageResponse.error != nil)
+    {
+        NSLog(@"Error: %@", deleteMessageResponse.error);
     }
 }
 
@@ -241,18 +236,17 @@ static MessageBoard *_instance = nil;
 // that allows for messages from the Amazon SNS Topic.
 -(NSString *)getQueueArn:(NSString *)theQueueUrl
 {
-    @try {
-        SQSGetQueueAttributesRequest *gqar = [[[SQSGetQueueAttributesRequest alloc] initWithQueueUrl:theQueueUrl] autorelease];
-        [gqar.attributeNames addObject:@"QueueArn"];
-
-        SQSGetQueueAttributesResponse *response = [sqsClient getQueueAttributes:gqar];
-
-        return [response.attributes valueForKey:@"QueueArn"];
-    }
-    @catch (NSException *exception) {
-        NSLog(@"Exception : %@", exception);
+    SQSGetQueueAttributesRequest *gqar = [[[SQSGetQueueAttributesRequest alloc] initWithQueueUrl:theQueueUrl] autorelease];
+    [gqar.attributeNames addObject:@"QueueArn"];
+    
+    SQSGetQueueAttributesResponse *response = [sqsClient getQueueAttributes:gqar];
+    if(response.error != nil)
+    {
+        NSLog(@"Error: %@", response.error);
         return nil;
     }
+    
+    return [response.attributes valueForKey:@"QueueArn"];
 }
 
 // Add a policy to a specific queue by setting the queue's Policy attribute.
@@ -260,17 +254,16 @@ static MessageBoard *_instance = nil;
 // http://aws.amazon.com/sns/faqs/#26
 -(void)addPolicyToQueueForTopic:(NSString *)theQueueUrl queueArn:(NSString *)queueArn
 {
-    @try {
-        NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
-        [attributes setValue:[self generateSqsPolicyForTopic:queueArn] forKey:@"Policy"];
-
-        SQSSetQueueAttributesRequest *request = [[[SQSSetQueueAttributesRequest alloc] initWithQueueUrl:theQueueUrl andAttributes:attributes] autorelease];
-        [sqsClient setQueueAttributes:request];
-        // It can take some time for policy to propagate to the queue.
+    NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
+    [attributes setValue:[self generateSqsPolicyForTopic:queueArn] forKey:@"Policy"];
+    
+    SQSSetQueueAttributesRequest *request = [[[SQSSetQueueAttributesRequest alloc] initWithQueueUrl:theQueueUrl andAttributes:attributes] autorelease];
+    SQSSetQueueAttributesResponse *setQueueAttributesResponse = [sqsClient setQueueAttributes:request];
+    if(setQueueAttributesResponse.error != nil)
+    {
+        NSLog(@"Error: %@", setQueueAttributesResponse.error);
     }
-    @catch (NSException *exception) {
-        NSLog(@"Exception : %@", exception);
-    }
+    // It can take some time for policy to propagate to the queue.
 }
 
 // Creates the policy object that is necessary to allow the topic to send message to the queue.  The topic will
@@ -300,50 +293,50 @@ static MessageBoard *_instance = nil;
 // The topic name is assigned in the Constants.h file.
 -(NSString *)findTopicArn
 {
-    @try {
-        NSString *topicNameToFind = [NSString stringWithFormat:@":%@", TOPIC_NAME];
-        NSString *nextToken       = nil;
-        do {
-            SNSListTopicsRequest  *listTopicsRequest = [[[SNSListTopicsRequest alloc] initWithNextToken:nextToken] autorelease];
-            SNSListTopicsResponse *response          = [snsClient listTopics:listTopicsRequest];
-            for (SNSTopic *topic in response.topics) {
-                if ( [topic.topicArn hasSuffix:topicNameToFind]) {
-                    return topic.topicArn;
-                }
+    NSString *topicNameToFind = [NSString stringWithFormat:@":%@", TOPIC_NAME];
+    NSString *nextToken = nil;
+    do {
+        SNSListTopicsRequest *listTopicsRequest = [[[SNSListTopicsRequest alloc] initWithNextToken:nextToken] autorelease];
+        SNSListTopicsResponse *response = [snsClient listTopics:listTopicsRequest];
+        if(response.error != nil)
+        {
+            NSLog(@"Error: %@", response.error);
+            return nil;
+        }
+        
+        for (SNSTopic *topic in response.topics) {
+            if ( [topic.topicArn hasSuffix:topicNameToFind]) {
+                return topic.topicArn;
             }
-
-            nextToken = response.nextToken;
-        } while (nextToken != nil);
-
-        return nil;
-    }
-    @catch (NSException *exception) {
-        NSLog(@"Exception : %@", exception);
-        return nil;
-    }
+        }
+        
+        nextToken = response.nextToken;
+    } while (nextToken != nil);
+    
+    return nil;
 }
 
 // Determine if a queue exists with the given queue name.
 // The queue name is assigned in the Constants.h file.
 -(NSString *)findQueueUrl
 {
-    @try {
-        NSString              *queueNameToFind = [NSString stringWithFormat:@"/%@", QUEUE_NAME];
-
-        SQSListQueuesRequest  *request        = [[SQSListQueuesRequest new] autorelease];
-        SQSListQueuesResponse *queuesResponse = [sqsClient listQueues:request];
-        for (NSString *qUrl in queuesResponse.queueUrls) {
-            if ( [qUrl hasSuffix:queueNameToFind]) {
-                return qUrl;
-            }
+    NSString *queueNameToFind = [NSString stringWithFormat:@"/%@", QUEUE_NAME];
+    
+    SQSListQueuesRequest *request = [[SQSListQueuesRequest new] autorelease];
+    SQSListQueuesResponse *queuesResponse = [sqsClient listQueues:request];
+    if(queuesResponse.error != nil)
+    {
+        NSLog(@"Error: %@", queuesResponse.error);
+        return nil;
+    }
+    
+    for (NSString *qUrl in queuesResponse.queueUrls) {
+        if ( [qUrl hasSuffix:queueNameToFind]) {
+            return qUrl;
         }
-
-        return nil;
     }
-    @catch (NSException *exception) {
-        NSLog(@"Exception : %@", exception);
-        return nil;
-    }
+    
+    return nil;
 }
 
 -(void)dealloc

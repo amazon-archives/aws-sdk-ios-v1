@@ -42,7 +42,7 @@
  * which can be a <code>String</code> or a <code>Number</code>.
  * <p>
  * <b>Constraints:</b><br/>
- * <b>Allowed Values: </b>S, N
+ * <b>Allowed Values: </b>S, N, B
  */
 @property (nonatomic, retain) NSString *attributeType;
 

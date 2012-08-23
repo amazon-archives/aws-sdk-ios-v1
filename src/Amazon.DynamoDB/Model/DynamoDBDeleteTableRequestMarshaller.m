@@ -16,6 +16,7 @@
 
 #import "DynamoDBDeleteTableRequestMarshaller.h"
 #import "AmazonJSON.h"
+#import "../AmazonSDKUtil.h"
 
 @implementation DynamoDBDeleteTableRequestMarshaller
 

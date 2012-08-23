@@ -25,7 +25,6 @@
 -(NSMutableURLRequest *)configureURLRequest
 {
     [super configureURLRequest];
-    [S3BucketNameUtilities validateBucketName:self.bucket];
 
     [self.urlRequest setHTTPMethod:kHttpMethodPut];
 
@@ -73,6 +72,18 @@
     NSString *config = [NSString stringWithFormat:@"<CreateBucketConfiguration xmlns=\"http://s3.amazonaws.com/doc/%@/\"><LocationConstraint>%@</LocationConstraint></CreateBucketConfiguration>", @"2006-03-01", [self.region description]];
 
     return [config dataUsingEncoding:NSUTF8StringEncoding];
+}
+
+- (AmazonClientException *)validate
+{
+    AmazonClientException *clientException = [super validate];
+    
+    if(clientException == nil)
+    {
+        clientException = [S3BucketNameUtilities validateBucketName:self.bucket];
+    }
+    
+    return clientException;
 }
 
 -(void)dealloc

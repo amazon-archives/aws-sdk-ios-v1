@@ -283,6 +283,37 @@ if(![persistentStoreCoordinator addPersistentStoreWithType:AWSPersistenceDynamoD
       <li>When doing fetches of all objects in a table, the AWS Persistence Framework for Core Data
                 cannot guarantee that recent objects inserts and deletes will be reflected due to
                 inconsistent read status. </li>
+      <li>The Persistence Framework does not support sorting because the Amazon
+      DynamoDB scan operation does not sort the result. However, Apple's <a
+      href="https://developer.apple.com/library/ios/#documentation/Cocoa/Reference/CoreDataFramework/Classes/NSManagedObjectContext_Class/NSManagedObjectContext.html">NSManagementObjectContext
+      Class Reference</a> states that "if you fetch some objects, work with
+      them, and then execute a new fetch that includes a superset of those
+      objects, you do not get new instances or update data for the existing
+      objects-you get the existing objects with their current in-memory state."
+      In this situation, Core Data may sort the in-memory objects based on the
+      sort descriptors provided. However, we don't recommend relying on this
+      behavior; instead, you should sort the results in memory when the objects
+      need to be sorted.</li>
+      <li>With the current version of the framework, NSPredicates are limited
+	to only the properties that are mapped to hash keys. Also, when using
+	the framework, your query can specify only one hashKey and only one
+	possible value for that hashKey. Some examples are shown below:
+	    <table style="border-collapse:collapse;border:1px solid black;">
+		<tr>
+		    <td style="border:1px solid black;">
+		"hashKey1=value1"</td>
+		    <td style="border:1px solid black;">
+		supported, one hashKey and one value</td> </tr> <tr>
+		    <td style="border:1px solid black;">
+		"hashKey1 = value1 OR hashkey1 = value2"</td>
+		    <td style="border:1px solid black;">
+		not supported, one haskKey, but two values</td> </tr> <tr>
+		    <td style="border:1px solid black;">
+		"hashKey1 IN (value1, value2)"</td>
+		    <td style="border:1px solid black;">
+		not supported, one haskKey, but two values</td> </tr>
+	    </table>
+      </li>
     </ul>
     
     <h2>Questions?</h2>

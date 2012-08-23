@@ -21,21 +21,19 @@
 
 -(IBAction)create:(id)sender
 {
-    @try {
-        SQSCreateQueueRequest *createQueueRequest = [[[SQSCreateQueueRequest alloc] initWithQueueName:queueName.text] autorelease];
-        [[AmazonClientManager sqs] createQueue:createQueueRequest];
-
-        [self dismissModalViewControllerAnimated:YES];
-    }
-    @catch (AmazonClientException *exception)
+    SQSCreateQueueRequest *createQueueRequest = [[[SQSCreateQueueRequest alloc] initWithQueueName:queueName.text] autorelease];
+    SQSCreateQueueResponse *createQueueResponse = [[AmazonClientManager sqs] createQueue:createQueueRequest];
+    if(createQueueResponse.error != nil)
     {
-        if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
+        NSLog(@"Error: %@", createQueueResponse.error);
+        
+        if ([AmazonClientManager wipeCredentialsOnAuthError:createQueueResponse.error])
         {
             [[Constants expiredCredentialsAlert] show];
         }
-        
-        NSLog(@"Exception = %@", exception);
     }
+    
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 -(IBAction)cancel:(id)sender

@@ -29,13 +29,17 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    @try {
-        S3ListObjectsRequest  *listObjectRequest = [[[S3ListObjectsRequest alloc] initWithName:self.bucket] autorelease];
-
-        S3ListObjectsResponse *listObjectResponse = [[AmazonClientManager s3] listObjects:listObjectRequest];
-        S3ListObjectsResult   *listObjectsResults = listObjectResponse.listObjectsResult;
-
-
+    S3ListObjectsRequest  *listObjectRequest = [[[S3ListObjectsRequest alloc] initWithName:self.bucket] autorelease];
+    S3ListObjectsResponse *listObjectResponse = [[AmazonClientManager s3] listObjects:listObjectRequest];
+    if(listObjectResponse.error != nil)
+    {
+        NSLog(@"Error: %@", listObjectResponse.error);
+        [objects addObject:@"Unable to load objects!"];
+    }
+    else
+    {
+        S3ListObjectsResult *listObjectsResults = listObjectResponse.listObjectsResult;
+        
         if (objects == nil) {
             objects = [[NSMutableArray alloc] initWithCapacity:[listObjectsResults.objectSummaries count]];
         }
@@ -57,6 +61,14 @@
             listObjectRequest.marker = lastKey;
             
             listObjectResponse = [[AmazonClientManager s3] listObjects:listObjectRequest];
+            if(listObjectResponse.error != nil)
+            {
+                NSLog(@"Error: %@", listObjectResponse.error);
+                [objects addObject:@"Unable to load objects!"];
+                
+                break;
+            }
+            
             listObjectsResults = listObjectResponse.listObjectsResult;
             
             for (S3ObjectSummary *objectSummary in listObjectsResults.objectSummaries) {
@@ -65,11 +77,7 @@
             }
         }
     }
-    @catch (AmazonClientException *exception) {
-        NSLog(@"Exception = %@", exception);
-        [objects addObject:@"Unable to load objects!"];
-    }
-
+    
     [objectsTableView reloadData];
 }
 
@@ -81,10 +89,10 @@
 -(IBAction)add:(id)sender
 {
     AddObjectViewController *addObject = [[AddObjectViewController alloc] init];
-
+    
     addObject.bucket               = self.bucket;
     addObject.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-
+    
     [self presentModalViewController:addObject animated:YES];
     [addObject release];
 }
@@ -103,17 +111,17 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-
+    
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-
+    
     // Configure the cell...
     cell.textLabel.text                      = [objects objectAtIndex:indexPath.row];
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
-
+    
     return cell;
 }
 
@@ -125,42 +133,36 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    @try {
-        ObjectViewController *objectView = [[ObjectViewController alloc] init];
-        objectView.bucket               = self.bucket;
-        objectView.objectName           = [objects objectAtIndex:indexPath.row];
-        objectView.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-
-        [self presentModalViewController:objectView animated:YES];
-        [objectView release];
-    }
-    @catch (AmazonClientException *exception) {
-        NSLog(@"Exception = %@", exception);
-    }
+    ObjectViewController *objectView = [[ObjectViewController alloc] init];
+    objectView.bucket = self.bucket;
+    objectView.objectName = [objects objectAtIndex:indexPath.row];
+    objectView.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    
+    [self presentModalViewController:objectView animated:YES];
+    [objectView release];
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        @try {
-            S3DeleteObjectRequest *dor = [[[S3DeleteObjectRequest alloc] init] autorelease];
-            dor.bucket = self.bucket;
-            dor.key    = [objects objectAtIndex:indexPath.row];
-
-            [[AmazonClientManager s3] deleteObject:dor];
-            [objects removeObjectAtIndex:indexPath.row];
-
-            NSArray *indexPaths = [NSArray arrayWithObjects:indexPath, nil];
-
-            [tableView beginUpdates];
-            [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
-            [tableView endUpdates];
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        S3DeleteObjectRequest *dor = [[[S3DeleteObjectRequest alloc] init] autorelease];
+        dor.bucket = self.bucket;
+        dor.key    = [objects objectAtIndex:indexPath.row];
+        
+        S3DeleteObjectResponse *deleteObjectResponse = [[AmazonClientManager s3] deleteObject:dor];
+        if(deleteObjectResponse.error != nil)
+        {
+            NSLog(@"Error: %@", deleteObjectResponse.error);
         }
-        @catch (AmazonClientException *exception) {
-            NSLog(@"Exception = %@", exception);
-        }
-    }
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        
+        [objects removeObjectAtIndex:indexPath.row];
+        
+        NSArray *indexPaths = [NSArray arrayWithObjects:indexPath, nil];
+        
+        [tableView beginUpdates];
+        [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
+        [tableView endUpdates];
     }
 }
 

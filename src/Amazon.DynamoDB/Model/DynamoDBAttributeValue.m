@@ -20,8 +20,10 @@
 
 @synthesize s;
 @synthesize n;
+@synthesize b;
 @synthesize sS;
 @synthesize nS;
+@synthesize bS;
 
 
 -(id)init
@@ -29,8 +31,10 @@
     if (self = [super init]) {
         s  = nil;
         n  = nil;
+        b  = nil;
         sS = [[NSMutableArray alloc] initWithCapacity:1];
         nS = [[NSMutableArray alloc] initWithCapacity:1];
+        bS = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
     return self;
@@ -72,6 +76,24 @@
     return self;
 }
 
+-(id)initWithB:(NSData *)theB
+{
+    if (self = [self init]) {
+        self.b = theB;
+    }
+
+    return self;
+}
+
+-(id)initWithBS:(NSMutableArray *)theBS
+{
+    if (self = [self init]) {
+        self.bS = theBS;
+    }
+
+    return self;
+}
+
 
 -(void)addSS:(NSString *)sSObject
 {
@@ -91,6 +113,15 @@
     [nS addObject:nSObject];
 }
 
+-(void)addBS:(NSData *)bSObject
+{
+    if (bS == nil) {
+        bS = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [bS addObject:bSObject];
+}
+
 
 -(NSString *)description
 {
@@ -99,8 +130,10 @@
     [buffer appendString:@"{"];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"S: %@,", s] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"N: %@,", n] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"B: %@,", b] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"SS: %@,", sS] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"NS: %@,", nS] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"BS: %@,", bS] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -113,8 +146,10 @@
 {
     [s release];
     [n release];
+    [b release];
     [sS release];
     [nS release];
+    [bS release];
 
     [super dealloc];
 }

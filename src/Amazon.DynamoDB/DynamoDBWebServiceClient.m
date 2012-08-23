@@ -15,6 +15,7 @@
 
 #import "DynamoDBWebServiceClient.h"
 
+
 @implementation DynamoDBWebServiceClient
 
 -(id)initWithCredentials:(AmazonCredentials *)theCredentials
@@ -32,7 +33,11 @@
 -(AmazonServiceResponse *)invoke:(AmazonServiceRequest *)generatedRequest rawRequest:(AmazonServiceRequestConfig *)originalRequest unmarshallerDelegate:(Class)unmarshallerDelegate
 {
     if (nil == generatedRequest) {
-        @throw [AmazonClientException exceptionWithMessage : @"Request cannot be nil."];
+        
+        AmazonServiceResponse *response = [[[AmazonServiceResponse alloc] init] autorelease];
+        response.error = [AmazonErrorHandler errorFromExceptionWithThrowsExceptionOption:[AmazonClientException 
+                                                                 exceptionWithMessage:@"Request cannot be nil."]];
+        return response;
     }
 
     [generatedRequest setUserAgent:self.userAgent];
@@ -70,9 +75,11 @@
             AMZLogDebug(@"  %@: %@", [hKey description], [[urlRequest allHTTPHeaderFields] valueForKey:hKey]);
         }
 
-
-        NSURLConnection *urlConnection = [NSURLConnection connectionWithRequest:urlRequest delegate:response];
+        NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest 
+                                                                         delegate:response 
+                                                                 startImmediately:NO];
         originalRequest.urlConnection = urlConnection;
+        [urlConnection start];
 
         if ([generatedRequest delegate] == nil) {
             NSTimer *timeoutTimer = [NSTimer scheduledTimerWithTimeInterval:self.timeout target:response selector:@selector(timeout) userInfo:nil repeats:NO];
@@ -106,20 +113,44 @@
         }
     }
 
-    if (response.exception != nil) {
-        @throw response.exception;
+    if (response.exception != nil)
+    {
+        response.error = [AmazonErrorHandler errorFromExceptionWithThrowsExceptionOption:response.exception];
     }
-    else {
-        if (((AmazonRequestDelegate *)generatedRequest.delegate).exception != nil) {
-            @throw((AmazonRequestDelegate *)generatedRequest.delegate).exception;
+    else if(response.error == nil)
+    {
+        if (((AmazonRequestDelegate *)generatedRequest.delegate).error != nil)
+        {
+            if(response == nil)
+            {
+                response = [[[DynamoDBResponse alloc] init] autorelease];
+            }
+            response.error = ((AmazonRequestDelegate *)generatedRequest.delegate).error;
         }
-        else if (((AmazonRequestDelegate *)generatedRequest.delegate).response != nil) {
+        else if (((AmazonRequestDelegate *)generatedRequest.delegate).exception != nil)
+        {
+            if(response == nil)
+            {
+                response = [[[DynamoDBResponse alloc] init] autorelease];
+            }
+            response.error = [AmazonErrorHandler errorFromExceptionWithThrowsExceptionOption:((AmazonRequestDelegate *)generatedRequest.delegate).exception];
+        }
+        else if (((AmazonRequestDelegate *)generatedRequest.delegate).response != nil)
+        {
             return ((AmazonRequestDelegate *)generatedRequest.delegate).response;
         }
-        else {
-            return nil; //TODO: Throw an exception here AmazonClientException
+        else
+        {
+            if(response == nil)
+            {
+                response = [[[DynamoDBResponse alloc] init] autorelease];
+            }
+            response.error = [AmazonErrorHandler errorFromExceptionWithThrowsExceptionOption:
+                              [AmazonClientException exceptionWithMessage:@"Unknown error occurred."]];
         }
     }
+    
+    return response;
 }
 
 @end

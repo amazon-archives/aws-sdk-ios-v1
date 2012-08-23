@@ -20,29 +20,27 @@
 
 @synthesize bucket;
 
-
 -(IBAction)add:(id)sender
 {
     [objectName resignFirstResponder];
     [objectData resignFirstResponder];
-
+    
     NSData *data = [objectData.text dataUsingEncoding:NSUTF8StringEncoding];
-    @try {
-        S3PutObjectRequest *por = [[[S3PutObjectRequest alloc] initWithKey:objectName.text inBucket:self.bucket] autorelease];
-        por.data = data;
-
-        [[AmazonClientManager s3] putObject:por];
-    }
-    @catch (AmazonClientException *exception)
+    
+    S3PutObjectRequest *por = [[[S3PutObjectRequest alloc] initWithKey:objectName.text inBucket:self.bucket] autorelease];
+    por.data = data;
+    
+    S3PutObjectResponse *putObjectResponse = [[AmazonClientManager s3] putObject:por];
+    if(putObjectResponse.error != nil)
     {
-        if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
+        NSLog(@"Error: %@", putObjectResponse.error);
+        
+        if ([AmazonClientManager wipeCredentialsOnAuthError:putObjectResponse.error])
         {
             [[Constants expiredCredentialsAlert] show];
         }
-        
-        NSLog(@"Exception = %@", exception);
     }
-
+    
     [self dismissModalViewControllerAnimated:YES];
 }
 

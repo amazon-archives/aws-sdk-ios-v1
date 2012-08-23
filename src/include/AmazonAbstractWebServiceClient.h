@@ -27,6 +27,7 @@
 #import "AmazonURLRequest.h"
 #import "AmazonCredentials.h"
 #import "AmazonRequestDelegate.h"
+#import "AmazonErrorHandler.h"
 
 @interface AmazonAbstractWebServiceClient:NSObject
 {

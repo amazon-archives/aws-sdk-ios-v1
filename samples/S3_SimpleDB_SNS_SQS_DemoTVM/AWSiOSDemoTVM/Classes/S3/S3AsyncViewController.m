@@ -29,7 +29,7 @@
     s3Delegate       = [[S3RequestDelegate alloc] init];
     putObjectRequest = nil;
     getObjectRequest = nil;
-
+    
     return [super initWithNibName:@"S3AsyncViewController" bundle:nil];
 }
 
@@ -43,7 +43,7 @@
 {
     bytesIn.text  = @"0";
     bytesOut.text = @"0";
-
+    
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(putObject) userInfo:nil repeats:NO];
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(getObject) userInfo:nil repeats:NO];
 }
@@ -53,7 +53,7 @@
     if (putObjectRequest != nil) {
         [putObjectRequest.urlConnection cancel];
     }
-
+    
     if (getObjectRequest != nil) {
         [getObjectRequest.urlConnection cancel];
     }
@@ -69,52 +69,56 @@
     NSString *bucketName = [NSString stringWithFormat:@"testing-async-with-s3-for%@", [ACCESS_KEY_ID lowercaseString]];
     NSString *keyName    = @"asyncTestFile";
     NSString *filename   = [[NSBundle mainBundle] pathForResource:@"temp" ofType:@"txt"];
-
+    
     // Create the Bucket to put the Object.
-    @try
+    S3CreateBucketResponse *createBucketResponse = [[AmazonClientManager s3] createBucketWithName:bucketName];
+    if(createBucketResponse.error != nil)
     {
-        [[AmazonClientManager s3] createBucketWithName:bucketName];
+        NSLog(@"Error: %@", createBucketResponse.error);
         
-        // Put the file as an object in the bucket.
-        putObjectRequest          = [[S3PutObjectRequest alloc] initWithKey:keyName inBucket:bucketName];
-        putObjectRequest.filename = filename;
-        [putObjectRequest setDelegate:s3Delegate];
-        
-        // When using delegates the return is nil.
-        [[AmazonClientManager s3] putObject:putObjectRequest];
-    }
-    @catch (AmazonClientException *exception)
-    {
-        if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
+        if ([AmazonClientManager wipeCredentialsOnAuthError:createBucketResponse.error])
         {
             [[Constants expiredCredentialsAlert] show];
         }
+    }
+    
+    // Put the file as an object in the bucket.
+    putObjectRequest = [[S3PutObjectRequest alloc] initWithKey:keyName inBucket:bucketName];
+    putObjectRequest.filename = filename;
+    [putObjectRequest setDelegate:s3Delegate];
+    
+    // When using delegates the return is nil.
+    S3PutObjectResponse *putObjectResponse = [[AmazonClientManager s3] putObject:putObjectRequest];
+    if(putObjectResponse.error != nil)
+    {
+        NSLog(@"Error: %@", putObjectResponse.error);
         
-        NSLog(@"Exception = %@", exception);
+        if ([AmazonClientManager wipeCredentialsOnAuthError:putObjectResponse.error])
+        {
+            [[Constants expiredCredentialsAlert] show];
+        }
     }
 }
 
 -(void)getObject
 {
-    @try {
-        NSString *bucketName = [NSString stringWithFormat:@"testing-async-with-s3-for%@", [ACCESS_KEY_ID lowercaseString]];
-        NSString *keyName    = @"asyncTestFile";
-        
-        // Get the object from the bucket.
-        getObjectRequest = [[S3GetObjectRequest alloc] initWithKey:keyName withBucket:bucketName];
-        [getObjectRequest setDelegate:s3Delegate];
-        
-        // When using delegates the return is nil.
-        [[AmazonClientManager s3] getObject:getObjectRequest];
-    }
-    @catch (AmazonClientException *exception)
+    NSString *bucketName = [NSString stringWithFormat:@"testing-async-with-s3-for%@", [ACCESS_KEY_ID lowercaseString]];
+    NSString *keyName = @"asyncTestFile";
+    
+    // Get the object from the bucket.
+    getObjectRequest = [[S3GetObjectRequest alloc] initWithKey:keyName withBucket:bucketName];
+    [getObjectRequest setDelegate:s3Delegate];
+    
+    // When using delegates the return is nil.
+    S3GetObjectResponse *getObjectResponse = [[AmazonClientManager s3] getObject:getObjectRequest];
+    if(getObjectResponse.error != nil)
     {
-        if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
+        NSLog(@"Error: %@", getObjectResponse.error);
+        
+        if ([AmazonClientManager wipeCredentialsOnAuthError:getObjectResponse.error])
         {
             [[Constants expiredCredentialsAlert] show];
         }
-        
-        NSLog(@"Exception = %@", exception);
     }
 }
 

@@ -45,7 +45,7 @@ static const short base64DecodingTable[] =
     NSString *sn  = [[[UIDevice currentDevice] systemName] stringByReplacingOccurrencesOfString:@" " withString:@"-"];
     NSString *sv  = [[UIDevice currentDevice] systemVersion];
     NSString *loc = [[NSLocale currentLocale] localeIdentifier];
-    NSString *ua  = [NSString stringWithFormat: [NSString stringWithString:AWS_SDK_USER_AGENT_FORMAT], [NSString stringWithString:AWS_SDK_VERSION], sn, sv, loc];
+    NSString *ua  = [NSString stringWithFormat:AWS_SDK_USER_AGENT_FORMAT, AWS_SDK_VERSION, sn, sv, loc];
 
     return ua;
 }
@@ -333,7 +333,9 @@ static const short base64DecodingTable[] =
 
 +(NSURL *)URLWithURL:(NSURL *)theURL andProtocol:(NSString *)theProtocol
 {
-    if (!([theProtocol isEqualToString:@"http"] || [theProtocol isEqualToString:@"https"])) {
+    if (!([theProtocol isEqualToString:@"http"] || [theProtocol isEqualToString:@"https"]))
+    {
+        // Fatal error. This should not happen.
         @throw [AmazonClientException exceptionWithMessage : @"protocol must be 'http' or 'https'."];
     }
 

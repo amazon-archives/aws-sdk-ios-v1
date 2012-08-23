@@ -33,16 +33,15 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    @try {
-        S3GetObjectRequest  *getObjectRequest  = [[[S3GetObjectRequest alloc] initWithKey:self.objectName withBucket:self.bucket] autorelease];
-        S3GetObjectResponse *getObjectResponse = [[AmazonClientManager s3] getObject:getObjectRequest];
-
-        self.objectNameLabel.text = self.objectName;
-        self.objectDataLabel.text = [[NSString alloc] initWithData:getObjectResponse.body encoding:NSUTF8StringEncoding];
+    S3GetObjectRequest  *getObjectRequest  = [[[S3GetObjectRequest alloc] initWithKey:self.objectName withBucket:self.bucket] autorelease];
+    S3GetObjectResponse *getObjectResponse = [[AmazonClientManager s3] getObject:getObjectRequest];
+    if(getObjectResponse.error != nil)
+    {
+        NSLog(@"Error: %@", getObjectResponse.error);
     }
-    @catch (AmazonClientException *exception) {
-        NSLog(@"Exception = %@", exception);
-    }
+    
+    self.objectNameLabel.text = self.objectName;
+    self.objectDataLabel.text = [[NSString alloc] initWithData:getObjectResponse.body encoding:NSUTF8StringEncoding];
 }
 
 -(void)dealloc

@@ -18,6 +18,101 @@
 @implementation Utilities
 
 /**
+ * Check for existance of tables and create them if necessary
+ * Returns YES when tables are active
+ * Returns NO if there was an error
+ */
++(BOOL)setupTables 
+{
+    // verify that TVM has been updated
+    if ([TOKEN_VENDING_MACHINE_URL isEqualToString:@"CHANGEME.elasticbeanstalk.com"] || ([AmazonClientManager ddb] == nil) ) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Credentials" message:CREDENTIALS_ALERT_MESSAGE delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return NO;
+    }
+    
+    //Create Table
+    DynamoDBKeySchemaElement *hashKey = [[DynamoDBKeySchemaElement alloc] init];
+    hashKey.attributeName = LOCATIONS_KEY;
+    hashKey.attributeType = @"S";
+    
+    DynamoDBKeySchema *keySchema = [[DynamoDBKeySchema alloc] init];
+    keySchema.hashKeyElement  = hashKey;
+    
+    DynamoDBProvisionedThroughput *provisionedThroughput = [[DynamoDBProvisionedThroughput alloc] init];
+    provisionedThroughput.readCapacityUnits  = [NSNumber numberWithInt:10];
+    provisionedThroughput.writeCapacityUnits = [NSNumber numberWithInt:5];
+    
+    DynamoDBCreateTableRequest *ctr = [[DynamoDBCreateTableRequest alloc] init];
+    ctr.tableName             = LOCATIONS_TABLE;
+    ctr.keySchema             = keySchema;
+    ctr.provisionedThroughput = provisionedThroughput;
+    
+    DynamoDBCreateTableResponse *ctResponse = [[AmazonClientManager ddb] createTable:ctr];
+    if(ctResponse.error == nil)
+    {
+        NSLog(@"Created %@", ctResponse.tableDescription.tableName);
+    }
+    else
+    {
+        NSException *exception = [ctResponse.error.userInfo objectForKey:@"exception"];
+        
+        if([exception isKindOfClass:[DynamoDBResourceInUseException class]])
+        {
+            NSLog(@"Table already created");
+        }
+        else
+        {
+            NSLog(@"Problem creating table, %@", ctResponse.error);
+            return NO;
+        }
+    }
+    
+    //Create Table
+    hashKey = [[DynamoDBKeySchemaElement alloc] init];
+    hashKey.attributeName = CHECKINS_KEY;
+    hashKey.attributeType = @"S";
+    
+    keySchema = [[DynamoDBKeySchema alloc] init];
+    keySchema.hashKeyElement  = hashKey;
+    
+    provisionedThroughput = [[DynamoDBProvisionedThroughput alloc] init];
+    provisionedThroughput.readCapacityUnits  = [NSNumber numberWithInt:10];
+    provisionedThroughput.writeCapacityUnits = [NSNumber numberWithInt:5];
+    
+    ctr = [[DynamoDBCreateTableRequest alloc] init];
+    ctr.tableName             = CHECKINS_TABLE;
+    ctr.keySchema             = keySchema;
+    ctr.provisionedThroughput = provisionedThroughput;
+    
+    ctResponse = [[AmazonClientManager ddb] createTable:ctr];
+    
+    if(ctResponse.error == nil)
+    {
+        NSLog(@"Created %@", ctResponse.tableDescription.tableName);
+    }
+    else
+    {
+        NSException *exception = [ctResponse.error.userInfo objectForKey:@"exception"];
+        
+        if([exception isKindOfClass:[DynamoDBResourceInUseException class]])
+        {
+            NSLog(@"Table already created");
+        }
+        else
+        {
+            NSLog(@"Problem creating table, %@", ctResponse.error);
+            return NO;
+        }
+    }
+    
+    [Utilities waitForTable:LOCATIONS_TABLE toTransitionToStatus:@"ACTIVE"];
+    [Utilities waitForTable:CHECKINS_TABLE toTransitionToStatus:@"ACTIVE"];
+    
+    return YES;
+}
+
+/**
  * Wait for a table to transition to a given state (i.e. ACTIVE)
  */
 +(void)waitForTable:(NSString *)tableName toTransitionToStatus:(NSString *)toStatus
@@ -34,84 +129,6 @@
         status = response.table.tableStatus;
         
     } while (![status isEqualToString:toStatus]);
-}
-
-/**
- * Check for existance of tables and create them if necessary
- * Returns YES when tables are active
- * Returns NO if there was an error
- */
-+(BOOL)setupTables 
-{
-    // verify that TVM has been updated
-    if ([TOKEN_VENDING_MACHINE_URL isEqualToString:@"CHANGEME.elasticbeanstalk.com"] || ([AmazonClientManager ddb] == nil) ) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Credentials" message:CREDENTIALS_ALERT_MESSAGE delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-        return NO;
-    }
-    
-    @try {
-        //Create Table
-        DynamoDBKeySchemaElement *hashKey = [[DynamoDBKeySchemaElement alloc] init];
-        hashKey.attributeName = LOCATIONS_KEY;
-        hashKey.attributeType = @"S";
-        
-        DynamoDBKeySchema *keySchema = [[DynamoDBKeySchema alloc] init];
-        keySchema.hashKeyElement  = hashKey;
-        
-        DynamoDBProvisionedThroughput *provisionedThroughput = [[DynamoDBProvisionedThroughput alloc] init];
-        provisionedThroughput.readCapacityUnits  = [NSNumber numberWithInt:10];
-        provisionedThroughput.writeCapacityUnits = [NSNumber numberWithInt:5];
-        
-        DynamoDBCreateTableRequest *ctr = [[DynamoDBCreateTableRequest alloc] init];
-        ctr.tableName             = LOCATIONS_TABLE;
-        ctr.keySchema             = keySchema;
-        ctr.provisionedThroughput = provisionedThroughput;
-        
-        DynamoDBCreateTableResponse *ctResponse = [[AmazonClientManager ddb] createTable:ctr];
-        NSLog(@"Created %@", ctResponse.tableDescription.tableName);
-    }
-    @catch (DynamoDBResourceInUseException *re) {
-        NSLog(@"Table already created");
-    }
-    @catch (AmazonServiceException *e) {
-        NSLog(@"Problem creating table, %@", e);
-        return NO;
-    }
-    
-    @try {
-        //Create Table
-        DynamoDBKeySchemaElement *hashKey = [[DynamoDBKeySchemaElement alloc] init];
-        hashKey.attributeName = CHECKINS_KEY;
-        hashKey.attributeType = @"S";
-        
-        DynamoDBKeySchema *keySchema = [[DynamoDBKeySchema alloc] init];
-        keySchema.hashKeyElement  = hashKey;
-        
-        DynamoDBProvisionedThroughput *provisionedThroughput = [[DynamoDBProvisionedThroughput alloc] init];
-        provisionedThroughput.readCapacityUnits  = [NSNumber numberWithInt:10];
-        provisionedThroughput.writeCapacityUnits = [NSNumber numberWithInt:5];
-        
-        DynamoDBCreateTableRequest *ctr = [[DynamoDBCreateTableRequest alloc] init];
-        ctr.tableName             = CHECKINS_TABLE;
-        ctr.keySchema             = keySchema;
-        ctr.provisionedThroughput = provisionedThroughput;
-        
-        DynamoDBCreateTableResponse *ctResponse = [[AmazonClientManager ddb] createTable:ctr];
-        NSLog(@"Created %@", ctResponse.tableDescription.tableName);
-    }
-    @catch (DynamoDBResourceInUseException *re) {
-        NSLog(@"Table already created");
-    }
-    @catch (AmazonServiceException *e) {
-        NSLog(@"Problem creating table, %@", e);
-        return NO;
-    }
-        
-    [Utilities waitForTable:LOCATIONS_TABLE toTransitionToStatus:@"ACTIVE"];
-    [Utilities waitForTable:CHECKINS_TABLE toTransitionToStatus:@"ACTIVE"];
-        
-    return YES;
 }
 
 /**

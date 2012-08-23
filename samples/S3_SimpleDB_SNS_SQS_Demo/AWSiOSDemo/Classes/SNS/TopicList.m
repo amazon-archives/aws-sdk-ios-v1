@@ -25,24 +25,25 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    @try {
-        SNSListTopicsRequest  *listTopicsRequest = [[[SNSListTopicsRequest alloc] init] autorelease];
-        SNSListTopicsResponse *response          = [[AmazonClientManager sns] listTopics:listTopicsRequest];
-
-        if (topics == nil) {
-            topics = [[NSMutableArray alloc] initWithCapacity:[response.topics count]];
-        }
-        else {
-            [topics removeAllObjects];
-        }
-        for (SNSTopic *topic in response.topics) {
-            [topics addObject:topic.topicArn];
-        }
-        [topics sortUsingSelector:@selector(compare:)];
+    SNSListTopicsRequest  *listTopicsRequest = [[[SNSListTopicsRequest alloc] init] autorelease];
+    SNSListTopicsResponse *response = [[AmazonClientManager sns] listTopics:listTopicsRequest];
+    if(response.error != nil)
+    {
+        NSLog(@"Error: %@", response.error);
     }
-    @catch (AmazonClientException *exception) {
-        NSLog(@"Exception = %@", exception);
+    
+    if (topics == nil) {
+        topics = [[NSMutableArray alloc] initWithCapacity:[response.topics count]];
     }
+    else {
+        [topics removeAllObjects];
+    }
+    
+    for (SNSTopic *topic in response.topics) {
+        [topics addObject:topic.topicArn];
+    }
+    
+    [topics sortUsingSelector:@selector(compare:)];
     [topicTableView reloadData];
 }
 
@@ -64,17 +65,17 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-
+    
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-
+    
     // Configure the cell...
     cell.textLabel.text                      = [topics objectAtIndex:indexPath.row];
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
-
+    
     return cell;
 }
 

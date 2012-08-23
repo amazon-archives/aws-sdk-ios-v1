@@ -16,6 +16,7 @@
 
 #import "DynamoDBListTablesRequestMarshaller.h"
 #import "AmazonJSON.h"
+#import "../AmazonSDKUtil.h"
 
 @implementation DynamoDBListTablesRequestMarshaller
 

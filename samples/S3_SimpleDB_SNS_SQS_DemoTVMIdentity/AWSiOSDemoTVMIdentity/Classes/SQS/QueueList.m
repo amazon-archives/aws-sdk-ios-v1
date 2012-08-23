@@ -28,9 +28,9 @@
 -(IBAction)add:(id)sender
 {
     AddQueue *addQueue = [[AddQueue alloc] init];
-
+    
     addQueue.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-
+    
     [self presentModalViewController:addQueue animated:YES];
     [addQueue release];
 }
@@ -42,32 +42,30 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    @try {
-        SQSListQueuesRequest  *listQueuesRequest = [[[SQSListQueuesRequest alloc] init] autorelease];
-        SQSListQueuesResponse *response          = [[AmazonClientManager sqs] listQueues:listQueuesRequest];
-
-        if (queues == nil) {
-            queues = [[NSMutableArray alloc] initWithCapacity:[response.queueUrls count]];
-        }
-        else {
-            [queues removeAllObjects];
-        }
-        for (NSString *queueName in response.queueUrls) {
-            [queues addObject:queueName];
-        }
-
-        [queues sortUsingSelector:@selector(compare:)];
-    }
-    @catch (AmazonClientException *exception)
+    SQSListQueuesRequest  *listQueuesRequest = [[[SQSListQueuesRequest alloc] init] autorelease];
+    SQSListQueuesResponse *response = [[AmazonClientManager sqs] listQueues:listQueuesRequest];
+    if(response.error != nil)
     {
-        if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
+        NSLog(@"Error: %@", response.error);
+        
+        if ([AmazonClientManager wipeCredentialsOnAuthError:response.error])
         {
             [[Constants expiredCredentialsAlert] show];
         }
-        
-        NSLog(@"Exception = %@", exception);
     }
-
+    
+    if (queues == nil) {
+        queues = [[NSMutableArray alloc] initWithCapacity:[response.queueUrls count]];
+    }
+    else {
+        [queues removeAllObjects];
+    }
+    for (NSString *queueName in response.queueUrls) {
+        [queues addObject:queueName];
+    }
+    
+    [queues sortUsingSelector:@selector(compare:)];
+    
     [queueTableView reloadData];
 }
 
@@ -84,66 +82,52 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-
+    
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-
+    
     // Configure the cell...
     cell.textLabel.text                      = [queues objectAtIndex:indexPath.row];
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
-
+    
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    @try {
-        MessageList *messageList = [[MessageList alloc] init];
-        messageList.queue                = [queues objectAtIndex:indexPath.row];
-        messageList.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-
-        [self presentModalViewController:messageList animated:YES];
-        [messageList release];
-    }
-    @catch (AmazonClientException *exception)
-    {
-        if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
-        {
-            [[Constants expiredCredentialsAlert] show];
-        }
-        
-        NSLog(@"Exception = %@", exception);
-    }
+    MessageList *messageList = [[MessageList alloc] init];
+    messageList.queue = [queues objectAtIndex:indexPath.row];
+    messageList.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    
+    [self presentModalViewController:messageList animated:YES];
+    [messageList release];
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        @try {
-            SQSDeleteQueueRequest *deleteQueueRequest = [[[SQSDeleteQueueRequest alloc] initWithQueueUrl:[queues objectAtIndex:indexPath.row]] autorelease];
-            [[AmazonClientManager sqs] deleteQueue:deleteQueueRequest];
-
-            [queues removeObjectAtIndex:indexPath.row];
-
-            NSArray *indexPaths = [NSArray arrayWithObjects:indexPath, nil];
-            [queueTableView beginUpdates];
-            [queueTableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
-            [queueTableView endUpdates];
-        }
-        @catch (AmazonClientException *exception)
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        SQSDeleteQueueRequest *deleteQueueRequest = [[[SQSDeleteQueueRequest alloc] initWithQueueUrl:[queues objectAtIndex:indexPath.row]] autorelease];
+        SQSDeleteQueueResponse *deleteQueueResponse = [[AmazonClientManager sqs] deleteQueue:deleteQueueRequest];
+        if(deleteQueueResponse.error != nil)
         {
-            if ([AmazonClientManager wipeCredentialsOnAuthError:exception])
+            NSLog(@"Error: %@", deleteQueueResponse.error);
+            
+            if ([AmazonClientManager wipeCredentialsOnAuthError:deleteQueueResponse.error])
             {
                 [[Constants expiredCredentialsAlert] show];
             }
-            
-            NSLog(@"Exception = %@", exception);
         }
-    }
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        
+        [queues removeObjectAtIndex:indexPath.row];
+        
+        NSArray *indexPaths = [NSArray arrayWithObjects:indexPath, nil];
+        [queueTableView beginUpdates];
+        [queueTableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
+        [queueTableView endUpdates];
     }
 }
 

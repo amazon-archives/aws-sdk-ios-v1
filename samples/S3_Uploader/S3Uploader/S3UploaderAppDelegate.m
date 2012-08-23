@@ -16,6 +16,7 @@
 #import "S3UploaderAppDelegate.h"
 #import "S3UploaderViewController.h"
 #import <AWSiOSSDK/AmazonLogger.h>
+#import <AWSiOSSDK/AmazonErrorHandler.h>
 
 @implementation S3UploaderAppDelegate
 
@@ -37,6 +38,8 @@
 #else
     [AmazonLogger turnLoggingOff];
 #endif
+    
+    [AmazonErrorHandler shouldNotThrowExceptions];
     
     return YES;
 }

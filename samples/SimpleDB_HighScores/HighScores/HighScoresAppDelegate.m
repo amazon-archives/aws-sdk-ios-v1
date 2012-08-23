@@ -16,7 +16,7 @@
 #import "HighScoresAppDelegate.h"
 #import "HighScoresViewController.h"
 #import <AWSiOSSDK/AmazonLogger.h>
-
+#import <AWSiOSSDK/AmazonErrorHandler.h>
 
 @implementation HighScoresAppDelegate
 
@@ -33,6 +33,8 @@
 #else
     [AmazonLogger turnLoggingOff];
 #endif
+    
+    [AmazonErrorHandler shouldNotThrowExceptions];
 
     // Override point for customization after application launch.
 

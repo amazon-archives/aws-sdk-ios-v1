@@ -25,18 +25,18 @@
 {
     [objectName resignFirstResponder];
     [objectData resignFirstResponder];
-
+    
     NSData *data = [objectData.text dataUsingEncoding:NSUTF8StringEncoding];
-    @try {
-        S3PutObjectRequest *por = [[[S3PutObjectRequest alloc] initWithKey:objectName.text inBucket:self.bucket] autorelease];
-        por.data = data;
-
-        [[AmazonClientManager s3] putObject:por];
+    
+    S3PutObjectRequest *request = [[[S3PutObjectRequest alloc] initWithKey:objectName.text inBucket:self.bucket] autorelease];
+    request.data = data;
+    
+    S3PutObjectResponse *response = [[AmazonClientManager s3] putObject:request];
+    if(response.error != nil)
+    {
+        NSLog(@"Error: %@", response.error);
     }
-    @catch (AmazonClientException *exception) {
-        NSLog(@"Failed to Create Object [%@]", exception);
-    }
-
+    
     [self dismissModalViewControllerAnimated:YES];
 }
 

@@ -16,7 +16,7 @@
 #import "AWSiOSDemoAppDelegate.h"
 #import "AWSiOSDemoViewController.h"
 #import <AWSiOSSDK/AmazonLogger.h>
-
+#import <AWSiOSSDK/AmazonErrorHandler.h>
 
 @implementation AWSiOSDemoAppDelegate
 
@@ -34,6 +34,8 @@
 #else
     [AmazonLogger turnLoggingOff];
 #endif
+    
+    [AmazonErrorHandler shouldNotThrowExceptions];
     
     return YES;
 }

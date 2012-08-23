@@ -18,6 +18,7 @@
 #import "AmazonServiceResponseUnmarshaller.h"
 #import "AmazonLogger.h"
 
+
 @implementation AmazonServiceResponse
 
 @synthesize httpStatusCode;
@@ -27,6 +28,7 @@
 @synthesize didTimeout;
 @synthesize unmarshallerDelegate;
 @synthesize processingTime;
+@synthesize error;
 
 -(id)init
 {
@@ -35,6 +37,7 @@
         isFinishedLoading = NO;
         didTimeout        = NO;
         exception         = nil;
+        error = nil;
     }
 
     return self;
@@ -46,6 +49,8 @@
 }
 
 // TODO: Make the body property readonly when all operations are converted to the delegate technique.
+// TODO: It seems like nothing in the SDK is calling this method. -Yosuke
+/*
 -(void)setBody:(NSData *)data
 {
     if (nil != body) {
@@ -54,6 +59,7 @@
     body = [[NSMutableData dataWithData:data] retain];
     [self processBody];
 }
+*/
 
 // Override this to perform processing on the body.
 -(void)processBody
@@ -72,8 +78,18 @@
         didTimeout = YES;
         exception  = [[AmazonClientException exceptionWithMessage:@"Request timed out."] retain];
 
-        if ([(NSObject *)request.delegate respondsToSelector:@selector(request:didFailWithServiceException:)]) {
+        BOOL throwsExceptions = [AmazonErrorHandler throwsExceptions];
+        
+        if (throwsExceptions == YES
+            && [(NSObject *)request.delegate respondsToSelector:@selector(request:didFailWithServiceException:)]) {
+            
             [request.delegate request:request didFailWithServiceException:exception];
+        }
+        else if (throwsExceptions == NO
+                 && [(NSObject *)request.delegate respondsToSelector:@selector(request:didFailWithError:)]) {
+            
+            self.error = [AmazonErrorHandler errorFromException:exception];
+            [request.delegate request:request didFailWithError:self.error];
         }
     }
 }
@@ -132,49 +148,63 @@
     [parser setDelegate:parserDelegate];
     [parser parse];
 
-    AmazonServiceResponse *tmpReq   = [parserDelegate response];
-    AmazonServiceResponse *response = [tmpReq retain];
+    AmazonServiceResponse *response = [[parserDelegate response] retain];
 
     [parser release];
     [parserDelegate release];
 
-    if (response.exception) {
+    if(response.error)
+    {
+        NSError *errorFound = [[response.error copy] autorelease];
+        [response release];
+        
+        if ([(NSObject *)request.delegate respondsToSelector:@selector(request:didFailWithError:)]) {
+            [request.delegate request:request didFailWithError:errorFound];
+        }
+    }
+    else if (response.exception) {
         NSException *exceptionFound = [[response.exception copy] autorelease];
         [response release];
-        if ([(NSObject *)request.delegate respondsToSelector:@selector(request:didFailWithServiceException:)]) {
+        
+        BOOL throwsExceptions = [AmazonErrorHandler throwsExceptions];
+        
+        if(throwsExceptions == YES
+           && [(NSObject *)request.delegate respondsToSelector:@selector(request:didFailWithServiceException:)]) {
             [request.delegate request:request didFailWithServiceException:(AmazonServiceException *)exceptionFound];
-            return;
         }
-        else {
-            @throw exceptionFound;
+        else if(throwsExceptions == NO
+                && [(NSObject *)request.delegate respondsToSelector:@selector(request:didFailWithError:)]) {
+            [request.delegate request:request 
+                     didFailWithError:[AmazonErrorHandler errorFromException:exceptionFound]];
         }
     }
+    else {
+        [response postProcess];
+        processingTime          = fabs([startDate timeIntervalSinceNow]);
+        response.processingTime = processingTime;
+        
 
-    [response postProcess];
-    processingTime          = fabs([startDate timeIntervalSinceNow]);
-    response.processingTime = processingTime;
-
-
-
-    if ([(NSObject *)request.delegate respondsToSelector:@selector(request:didCompleteWithResponse:)]) {
-        [request.delegate request:request didCompleteWithResponse:response];
+        
+        if ([(NSObject *)request.delegate respondsToSelector:@selector(request:didCompleteWithResponse:)]) {
+            [request.delegate request:request didCompleteWithResponse:response];
+        }
+        
+        [response release];
     }
-
-    [response release];
 }
 
--(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)theError
 {
-    NSDictionary *info = [error userInfo];
+    NSDictionary *info = [theError userInfo];
     for (id key in info)
     {
         AMZLogDebug(@"UserInfo.%@ = %@", [key description], [[info valueForKey:key] description]);
     }
-    exception = [[AmazonClientException exceptionWithMessage:[error description] andError:error] retain];
-    AMZLogDebug(@"An error occured in the request: %@", [error description]);
-
+    exception = [[AmazonClientException exceptionWithMessage:[theError description] andError:theError] retain];
+    AMZLogDebug(@"An error occured in the request: %@", [theError description]);
+    
     if ([(NSObject *)self.request.delegate respondsToSelector:@selector(request:didFailWithError:)]) {
-        [self.request.delegate request:self.request didFailWithError:error];
+        [self.request.delegate request:self.request didFailWithError:theError];
     }
 }
 
@@ -220,6 +250,7 @@
     [body release];
     [exception release];
     [request release];
+    [error release];
 
     [super dealloc];
 }

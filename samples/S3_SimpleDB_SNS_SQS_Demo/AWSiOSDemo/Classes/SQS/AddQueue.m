@@ -21,15 +21,14 @@
 
 -(IBAction)create:(id)sender
 {
-    @try {
-        SQSCreateQueueRequest *createQueueRequest = [[[SQSCreateQueueRequest alloc] initWithQueueName:queueName.text] autorelease];
-        [[AmazonClientManager sqs] createQueue:createQueueRequest];
-
-        [self dismissModalViewControllerAnimated:YES];
+    SQSCreateQueueRequest *request = [[[SQSCreateQueueRequest alloc] initWithQueueName:queueName.text] autorelease];
+    SQSCreateQueueResponse *response = [[AmazonClientManager sqs] createQueue:request];
+    if(response.error != nil)
+    {
+        NSLog(@"Error: %@", response.error);
     }
-    @catch (AmazonClientException *exception) {
-        NSLog(@"Exception = %@", exception);
-    }
+    
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 -(IBAction)cancel:(id)sender

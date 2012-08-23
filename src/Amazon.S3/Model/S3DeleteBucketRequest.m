@@ -29,15 +29,25 @@
 
 -(NSMutableURLRequest *)configureURLRequest
 {
-    if (nil == self.bucket) {
-        @throw [AmazonClientException exceptionWithMessage : @"Bucket Name should not be nil."];
-    }
-
     [super configureURLRequest];
 
     [self.urlRequest setHTTPMethod:kHttpMethodDelete];
 
     return self.urlRequest;
+}
+
+- (AmazonClientException *)validate
+{
+    AmazonClientException *clientException = [super validate];
+    
+    if(clientException == nil)
+    {
+        if (nil == self.bucket) {
+            clientException = [AmazonClientException exceptionWithMessage : @"Bucket Name should not be nil."];
+        }
+    }
+    
+    return clientException;
 }
 
 -(void)dealloc

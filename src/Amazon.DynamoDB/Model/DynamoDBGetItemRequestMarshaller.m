@@ -16,6 +16,7 @@
 
 #import "DynamoDBGetItemRequestMarshaller.h"
 #import "AmazonJSON.h"
+#import "../AmazonSDKUtil.h"
 
 @implementation DynamoDBGetItemRequestMarshaller
 
@@ -58,6 +59,10 @@
                     if (hashKeyElement.n != nil) {
                         [hashKeyElementJson setValue:hashKeyElement.n forKey:@"N"];
                     }
+
+                    if (hashKeyElement.b != nil) {
+                        [hashKeyElementJson setValue:[hashKeyElement.b base64EncodedString] forKey:@"B"];
+                    }
                     if (hashKeyElement != nil) {
                         NSArray *sSList = hashKeyElement.sS;
                         if (sSList != nil && [sSList count] > 0) {
@@ -82,6 +87,18 @@
                             }
                         }
                     }
+                    if (hashKeyElement != nil) {
+                        NSArray *bSList = hashKeyElement.bS;
+                        if (bSList != nil && [bSList count] > 0) {
+                            NSMutableArray *bSArray = [[[NSMutableArray alloc] init] autorelease];
+                            [hashKeyElementJson setValue:bSArray forKey:@"BS"];
+                            for (NSData *bSListValue in bSList) {
+                                if (bSListValue != nil) {
+                                    [bSArray addObject:[bSListValue base64EncodedString]];
+                                }
+                            }
+                        }
+                    }
                 }
             }
             if (key != nil) {
@@ -97,6 +114,10 @@
 
                     if (rangeKeyElement.n != nil) {
                         [rangeKeyElementJson setValue:rangeKeyElement.n forKey:@"N"];
+                    }
+
+                    if (rangeKeyElement.b != nil) {
+                        [rangeKeyElementJson setValue:[rangeKeyElement.b base64EncodedString] forKey:@"B"];
                     }
                     if (rangeKeyElement != nil) {
                         NSArray *sSList = rangeKeyElement.sS;
@@ -118,6 +139,18 @@
                             for (NSString *nSListValue in nSList) {
                                 if (nSListValue != nil) {
                                     [nSArray addObject:nSListValue];
+                                }
+                            }
+                        }
+                    }
+                    if (rangeKeyElement != nil) {
+                        NSArray *bSList = rangeKeyElement.bS;
+                        if (bSList != nil && [bSList count] > 0) {
+                            NSMutableArray *bSArray = [[[NSMutableArray alloc] init] autorelease];
+                            [rangeKeyElementJson setValue:bSArray forKey:@"BS"];
+                            for (NSData *bSListValue in bSList) {
+                                if (bSListValue != nil) {
+                                    [bSArray addObject:[bSListValue base64EncodedString]];
                                 }
                             }
                         }

@@ -23,14 +23,14 @@
 -(IBAction)add:(id)sender
 {
     [bucketName resignFirstResponder];
-
-    @try {
-        [[AmazonClientManager s3] createBucket:[[[S3CreateBucketRequest alloc] initWithName:bucketName.text] autorelease]];
+    
+    S3CreateBucketRequest *request = [[[S3CreateBucketRequest alloc] initWithName:bucketName.text] autorelease];
+    S3CreateBucketResponse *response = [[AmazonClientManager s3] createBucket:request];
+    if(response.error != nil)
+    {
+        NSLog(@"Error: %@", response.error);
     }
-    @catch (AmazonClientException *exception) {
-        NSLog(@"Failed to Creater Bucket [%@]", exception);
-    }
-
+    
     [self dismissModalViewControllerAnimated:YES];
 }
 

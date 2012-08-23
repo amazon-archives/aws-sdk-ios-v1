@@ -40,6 +40,6 @@
 +(bool)hasCredentials;
 +(Response *)validateCredentials;
 +(void)wipeAllCredentials;
-+(BOOL)wipeCredentialsOnAuthError:(NSException *)exception;
++ (BOOL)wipeCredentialsOnAuthError:(NSError *)error;
 
 @end

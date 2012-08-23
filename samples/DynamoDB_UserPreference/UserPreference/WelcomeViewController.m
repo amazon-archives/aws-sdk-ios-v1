@@ -130,7 +130,7 @@
                           initWithTitle:@"Warning"
                           message:[NSString stringWithFormat:@"%@\nTable Status: %@.",
                                    message,
-                                   status]
+                                   status == nil ? @"table does not exist" : status]
                           delegate:nil
                           cancelButtonTitle:nil
                           otherButtonTitles:@"OK", nil];

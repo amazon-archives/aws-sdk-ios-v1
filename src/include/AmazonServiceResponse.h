@@ -27,6 +27,7 @@
     bool                 isFinishedLoading;
     bool                 didTimeout;
     Class                unmarshallerDelegate;
+    NSError *error;
 
     AmazonServiceRequest *request;
 
@@ -34,7 +35,7 @@
 }
 
 /** The body of the html response. */
-@property (nonatomic, retain) NSData *body;
+@property (nonatomic, readonly) NSData *body;
 
 /** The HTTP status code of the response from the service. */
 @property (nonatomic) NSInteger httpStatusCode;
@@ -44,6 +45,10 @@
 
 /** Whether the original request was timed out. */
 @property (nonatomic, readonly) bool didTimeout;
+
+/** If an exception was thrown, and the SDK is configured not to throw exceptions,
+ this will return the error object generated from the exception object. */
+@property (nonatomic, retain) NSError *error;
 
 /** If an exception was thrown, this will return the exception. */
 @property (nonatomic, readonly) NSException *exception;

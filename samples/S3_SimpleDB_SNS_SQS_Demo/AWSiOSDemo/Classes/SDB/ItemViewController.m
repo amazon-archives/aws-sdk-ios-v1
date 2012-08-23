@@ -33,25 +33,25 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    @try {
-        SimpleDBGetAttributesRequest  *gar      = [[[SimpleDBGetAttributesRequest alloc] initWithDomainName:self.domain andItemName:self.itemName] autorelease];
-        SimpleDBGetAttributesResponse *response = [[AmazonClientManager sdb] getAttributes:gar];
-
-        if (data == nil) {
-            data = [[NSMutableArray alloc] initWithCapacity:[response.attributes count]];
-        }
-        else {
-            [data removeAllObjects];
-        }
-        for (SimpleDBAttribute *attr in response.attributes) {
-            [data addObject:[NSString stringWithFormat:@"%@ => %@", attr.name, attr.value]];
-        }
-        [data sortUsingSelector:@selector(compare:)];
+    SimpleDBGetAttributesRequest *gar = [[[SimpleDBGetAttributesRequest alloc] initWithDomainName:self.domain andItemName:self.itemName] autorelease];
+    SimpleDBGetAttributesResponse *response = [[AmazonClientManager sdb] getAttributes:gar];
+    if(response.error != nil)
+    {
+        NSLog(@"Error: %@", response.error);
     }
-    @catch (AmazonClientException *exception) {
-        NSLog(@"Exception = %@", exception);
+    
+    if (data == nil) {
+        data = [[NSMutableArray alloc] initWithCapacity:[response.attributes count]];
     }
-
+    else {
+        [data removeAllObjects];
+    }
+    
+    for (SimpleDBAttribute *attr in response.attributes) {
+        [data addObject:[NSString stringWithFormat:@"%@ => %@", attr.name, attr.value]];
+    }
+    
+    [data sortUsingSelector:@selector(compare:)];
     [dataTableView reloadData];
 }
 
@@ -68,16 +68,16 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-
+    
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-
+    
     cell.textLabel.text                      = [data objectAtIndex:indexPath.row];
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
-
+    
     return cell;
 }
 

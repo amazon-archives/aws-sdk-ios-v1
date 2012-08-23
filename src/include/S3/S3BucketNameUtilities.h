@@ -14,6 +14,7 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "../AmazonClientException.h"
 
 /** Utilities for validating bucket names */
 @interface S3BucketNameUtilities:NSObject {
@@ -24,7 +25,7 @@
  * @param theBucketName The name of the bucket.
  * @throws AWSClientException If the bucket name violates the bucket name constraints.
  */
-+(void)validateBucketName:(NSString *)theBucketName;
++(AmazonClientException *)validateBucketName:(NSString *)theBucketName;
 +(bool)isDNSBucketName:(NSString *)theBucketName;
 
 +(bool)contains:(NSString *)sourceString searchString:(NSString *)searchString;
