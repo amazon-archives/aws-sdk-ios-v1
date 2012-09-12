@@ -29,6 +29,8 @@
 #import "AmazonRequestDelegate.h"
 #import "AmazonErrorHandler.h"
 
+extern NSString *const AWSDefaultRunLoopMode;
+
 @interface AmazonAbstractWebServiceClient:NSObject
 {
     AmazonCredentials *credentials;

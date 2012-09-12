@@ -412,63 +412,79 @@
         if (retries > 0) {
             request.date = [NSDate date];
         }
-        
+
         NSURLRequest *urlRequest = [self signS3Request:request];
-        
+
         AMZLogDebug(@"%@ %@", [urlRequest HTTPMethod], [urlRequest URL]);
         AMZLogDebug(@"Request headers: ");
         for (id hKey in [[urlRequest allHTTPHeaderFields] allKeys])
         {
             AMZLogDebug(@"  %@: %@", [hKey description], [[urlRequest allHTTPHeaderFields] valueForKey:hKey]);
         }
-        
+
         response = [AmazonS3Client constructResponseFromRequest:request];
         [response setRequest:request];
-        
-        NSURLConnection *urlConnection = [NSURLConnection connectionWithRequest:urlRequest delegate:response];
-        NSTimer         *timeoutTimer  = [NSTimer scheduledTimerWithTimeInterval:self.timeout target:response selector:@selector(timeout) userInfo:nil repeats:NO];
-        
-        request.urlConnection = urlConnection;
-        
-        if ([request delegate] == nil) {
-            while (!response.isFinishedLoading && !response.exception && !response.didTimeout) {
-                [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
-            }
-            
-            if (response.didTimeout) {
-                [urlConnection cancel];
-            }
-            else {
-                [timeoutTimer invalidate];      //  invalidate also releases the object.
-            }
-            
-            AMZLogDebug(@"Response Status Code : %d", response.httpStatusCode);
-            if ( [self shouldRetry:response]) {
-                AMZLogDebug(@"Retring Request: %d", retries);
-                
-                [self pauseExponentially:retries];
-                retries++;
-            }
-            else {
-                if (response.exception) {
-                    AMZLogDebug(@"Request threw exception: %@", [response.exception description]);
-                    if ([response.exception isMemberOfClass:[AmazonServiceException class]]) {
-                        AMZLogDebug(@"HTTP: %d, S3 Error Code: %@", ((AmazonServiceException *)response.exception).statusCode, ((AmazonServiceException *)response.exception).errorCode);
-                    }
-                    AMZLogDebug(@"Reason: %@", [response.exception reason]);
-                    
-                    response.error = [AmazonErrorHandler errorFromExceptionWithThrowsExceptionOption:response.exception];
-                    return response;
-                }
-                
-                break;
-            }
-        }
-        else {
+
+        if ([request delegate] != nil) {
+            NSURLConnection *urlConnection = [[[NSURLConnection alloc] initWithRequest:urlRequest
+                                                                              delegate:response
+                                                                      startImmediately:NO] autorelease];
+            request.urlConnection = urlConnection;
+            [urlConnection start];
+
+            [NSTimer scheduledTimerWithTimeInterval:self.timeout target:response selector:@selector(timeout) userInfo:nil repeats:NO];
+
             return nil;
         }
+
+        NSURLConnection *urlConnection = [[[NSURLConnection alloc] initWithRequest:urlRequest
+                                                                          delegate:response
+                                                                  startImmediately:NO] autorelease];
+        [urlConnection scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:AWSDefaultRunLoopMode];
+        request.urlConnection = urlConnection;
+        [urlConnection start];
+
+        NSTimer *timeoutTimer = [NSTimer timerWithTimeInterval:self.timeout
+                                                        target:response
+                                                      selector:@selector(timeout)
+                                                      userInfo:nil
+                                                       repeats:NO];
+        [[NSRunLoop currentRunLoop] addTimer:timeoutTimer forMode:AWSDefaultRunLoopMode];
+
+        while (!response.isFinishedLoading && !response.exception && !response.didTimeout) {
+            [[NSRunLoop currentRunLoop] runMode:AWSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+        }
+
+        if (response.didTimeout) {
+            [urlConnection cancel];
+        }
+        else {
+            [timeoutTimer invalidate];      //  invalidate also releases the object.
+        }
+
+        AMZLogDebug(@"Response Status Code : %d", response.httpStatusCode);
+        if ( [self shouldRetry:response]) {
+            AMZLogDebug(@"Retring Request: %d", retries);
+
+            [self pauseExponentially:retries];
+            retries++;
+        }
+        else {
+            if (response.exception) {
+                AMZLogDebug(@"Request threw exception: %@", [response.exception description]);
+                if ([response.exception isMemberOfClass:[AmazonServiceException class]]) {
+                    AMZLogDebug(@"HTTP: %d, S3 Error Code: %@", ((AmazonServiceException *)response.exception).statusCode, ((AmazonServiceException *)response.exception).errorCode);
+                }
+                AMZLogDebug(@"Reason: %@", [response.exception reason]);
+
+                response.error = [AmazonErrorHandler errorFromExceptionWithThrowsExceptionOption:response.exception];
+                return response;
+            }
+
+            break;
+        }
     }
-    
+
     if (response.exception) {
         AMZLogDebug(@"Request threw exception: %@", [response.exception description]);
         if ([response.exception isMemberOfClass:[AmazonServiceException class]]) {

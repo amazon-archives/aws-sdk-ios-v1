@@ -18,6 +18,7 @@
 #import "DynamoDBRequest.h"
 #import "DynamoDBResponse.h"
 
+NSString *const AWSDefaultRunLoopMode = @"com.amazonaws.DefaultRunLoopMode";
 
 @implementation AmazonAbstractWebServiceClient
 
@@ -99,41 +100,56 @@
         // Setting this here and not the AmazonServiceRequest because S3 extends that class and sets its own Content-Type Header.
         [urlRequest addValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
 
-        NSURLConnection *urlConnection = [[[NSURLConnection alloc] initWithRequest:urlRequest 
-                                                                         delegate:response 
-                                                                 startImmediately:NO] autorelease];
+        if ([generatedRequest delegate] != nil) {
+
+            NSURLConnection *urlConnection = [[[NSURLConnection alloc] initWithRequest:urlRequest
+                                                                              delegate:response
+                                                                      startImmediately:NO] autorelease];
+            originalRequest.urlConnection = urlConnection;
+            [urlConnection start];
+            
+            [NSTimer scheduledTimerWithTimeInterval:self.timeout target:response selector:@selector(timeout) userInfo:nil repeats:NO];
+
+            return nil;
+        }
+
+        generatedRequest.delegate = [[[AmazonRequestDelegate alloc] init] autorelease];
+
+        NSURLConnection *urlConnection = [[[NSURLConnection alloc] initWithRequest:urlRequest
+                                                                          delegate:response
+                                                                  startImmediately:NO] autorelease];
+        [urlConnection scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:AWSDefaultRunLoopMode];
         originalRequest.urlConnection = urlConnection;
         [urlConnection start];
 
-        if ([generatedRequest delegate] == nil) {
-            NSTimer *timeoutTimer = [NSTimer scheduledTimerWithTimeInterval:self.timeout target:response selector:@selector(timeout) userInfo:nil repeats:NO];
-            generatedRequest.delegate = [[[AmazonRequestDelegate alloc] init] autorelease];
+        NSTimer *timeoutTimer = [NSTimer timerWithTimeInterval:self.timeout
+                                                        target:response
+                                                      selector:@selector(timeout)
+                                                      userInfo:nil
+                                                       repeats:NO];
+        [[NSRunLoop currentRunLoop] addTimer:timeoutTimer forMode:AWSDefaultRunLoopMode];
 
-            while (![(AmazonRequestDelegate *)(generatedRequest.delegate)isFinishedOrFailed]) {
-                [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
-            }
+        while (![(AmazonRequestDelegate *)(generatedRequest.delegate)isFinishedOrFailed]) {
+            [[NSRunLoop currentRunLoop] runMode:AWSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+        }
 
-            if (response.didTimeout) {
-                [urlConnection cancel];
-            }
-            else {
-                [timeoutTimer invalidate];     //  invalidate also releases the object.
-            }
-
-            AMZLogDebug(@"Response Status Code : %d", response.httpStatusCode);
-            if ( [self shouldRetry:response]) {
-                AMZLog(@"Retring Request: %d", retries);
-                generatedRequest.delegate = nil;
-
-                [self pauseExponentially:retries];
-                retries++;
-            }
-            else {
-                break;
-            }
+        if (response.didTimeout) {
+            [urlConnection cancel];
         }
         else {
-            return nil;
+            [timeoutTimer invalidate];     //  invalidate also releases the object.
+        }
+
+        AMZLogDebug(@"Response Status Code : %d", response.httpStatusCode);
+        if ( [self shouldRetry:response]) {
+            AMZLog(@"Retring Request: %d", retries);
+            generatedRequest.delegate = nil;
+
+            [self pauseExponentially:retries];
+            retries++;
+        }
+        else {
+            break;
         }
     }
 
