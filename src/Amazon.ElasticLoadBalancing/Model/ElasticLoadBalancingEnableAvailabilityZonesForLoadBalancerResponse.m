@@ -36,6 +36,7 @@
     AmazonServiceException *newException = nil;
 
     if ([[theException errorCode] isEqualToString:@"LoadBalancerNotFound"]) {
+        [newException release];
         newException = [[ElasticLoadBalancingLoadBalancerNotFoundException alloc] initWithMessage:@""];
     }
 

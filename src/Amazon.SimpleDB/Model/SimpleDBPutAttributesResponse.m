@@ -28,30 +28,37 @@
     AmazonServiceException *newException = nil;
 
     if ([[theException errorCode] isEqualToString:@"InvalidParameterValue"]) {
+        [newException release];
         newException = [[SimpleDBInvalidParameterValueException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"NumberDomainBytesExceeded"]) {
+        [newException release];
         newException = [[SimpleDBNumberDomainBytesExceededException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"NumberDomainAttributesExceeded"]) {
+        [newException release];
         newException = [[SimpleDBNumberDomainAttributesExceededException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"NoSuchDomain"]) {
+        [newException release];
         newException = [[SimpleDBNoSuchDomainException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"NumberItemAttributesExceeded"]) {
+        [newException release];
         newException = [[SimpleDBNumberItemAttributesExceededException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"AttributeDoesNotExist"]) {
+        [newException release];
         newException = [[SimpleDBAttributeDoesNotExistException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"MissingParameter"]) {
+        [newException release];
         newException = [[SimpleDBMissingParameterException alloc] initWithMessage:@""];
     }
 

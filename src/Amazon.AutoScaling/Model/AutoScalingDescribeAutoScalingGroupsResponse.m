@@ -38,6 +38,7 @@
     AmazonServiceException *newException = nil;
 
     if ([[theException errorCode] isEqualToString:@"InvalidNextToken"]) {
+        [newException release];
         newException = [[AutoScalingInvalidNextTokenException alloc] initWithMessage:@""];
     }
 

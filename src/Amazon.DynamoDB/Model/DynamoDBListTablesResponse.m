@@ -38,6 +38,7 @@
     AmazonServiceException *newException = nil;
 
     if ([[theException errorCode] isEqualToString:@"InternalServerError"]) {
+        [newException release];
         newException = [[DynamoDBInternalServerErrorException alloc] initWithMessage:@""];
     }
 

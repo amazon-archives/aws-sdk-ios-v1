@@ -14,11 +14,24 @@
  */
 
 #import <UIKit/UIKit.h>
+#import <AWSiOSSDK/S3/AmazonS3Client.h>
 
-@interface S3UploaderViewController:UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
+typedef enum {
+    GrandCentralDispatch,
+    Delegate,
+    BackgroundThread
+} UploadType;
+
+@interface S3UploaderViewController:UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate, AmazonServiceRequestDelegate> {
+    UploadType _uploadType;
 }
 
--(IBAction)selectPhoto:(id)sender;
+@property (nonatomic, retain) AmazonS3Client *s3;
+
+-(IBAction)uploadPhotoWithGrandCentralDispatch:(id)sender;
+-(IBAction)uploadPhotoWithDelegate:(id)sender;
+-(IBAction)uploadPhotoWithBackgroundThread:(id)sender;
+
 -(IBAction)showInBrowser:(id)sender;
 
 @end

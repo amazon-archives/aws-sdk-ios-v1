@@ -38,10 +38,12 @@
     AmazonServiceException *newException = nil;
 
     if ([[theException errorCode] isEqualToString:@"InvalidParameterValue"]) {
+        [newException release];
         newException = [[SimpleDBInvalidParameterValueException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"InvalidNextToken"]) {
+        [newException release];
         newException = [[SimpleDBInvalidNextTokenException alloc] initWithMessage:@""];
     }
 

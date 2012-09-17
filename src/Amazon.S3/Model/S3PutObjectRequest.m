@@ -106,9 +106,11 @@
 
 -(id)initWithKey:(NSString *)aKey inBucket:(NSString *)aBucket
 {
-    [self init];
-    self.key    = aKey;
-    self.bucket = aBucket;
+    if(self = [self init])
+    {
+        self.key    = aKey;
+        self.bucket = aBucket;
+    }
 
     return self;
 }

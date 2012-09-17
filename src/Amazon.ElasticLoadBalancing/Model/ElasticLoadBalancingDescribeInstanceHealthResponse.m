@@ -36,10 +36,12 @@
     AmazonServiceException *newException = nil;
 
     if ([[theException errorCode] isEqualToString:@"InvalidInstance"]) {
+        [newException release];
         newException = [[ElasticLoadBalancingInvalidInstanceException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"LoadBalancerNotFound"]) {
+        [newException release];
         newException = [[ElasticLoadBalancingLoadBalancerNotFoundException alloc] initWithMessage:@""];
     }
 

@@ -38,6 +38,7 @@
     AmazonServiceException *newException = nil;
 
     if ([[theException errorCode] isEqualToString:@"InvalidMessageContents"]) {
+        [newException release];
         newException = [[SQSInvalidMessageContentsException alloc] initWithMessage:@""];
     }
 

@@ -36,6 +36,7 @@
     AmazonServiceException *newException = nil;
 
     if ([[theException errorCode] isEqualToString:@"MessageRejected"]) {
+        [newException release];
         newException = [[SESMessageRejectedException alloc] initWithMessage:@""];
     }
 

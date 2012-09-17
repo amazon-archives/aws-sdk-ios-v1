@@ -38,38 +38,47 @@
     AmazonServiceException *newException = nil;
 
     if ([[theException errorCode] isEqualToString:@"InvalidParameterValue"]) {
+        [newException release];
         newException = [[SimpleDBInvalidParameterValueException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"InvalidQueryExpression"]) {
+        [newException release];
         newException = [[SimpleDBInvalidQueryExpressionException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"RequestTimeout"]) {
+        [newException release];
         newException = [[SimpleDBRequestTimeoutException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"InvalidNumberPredicates"]) {
+        [newException release];
         newException = [[SimpleDBInvalidNumberPredicatesException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"NoSuchDomain"]) {
+        [newException release];
         newException = [[SimpleDBNoSuchDomainException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"InvalidNextToken"]) {
+        [newException release];
         newException = [[SimpleDBInvalidNextTokenException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"TooManyRequestedAttributes"]) {
+        [newException release];
         newException = [[SimpleDBTooManyRequestedAttributesException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"MissingParameter"]) {
+        [newException release];
         newException = [[SimpleDBMissingParameterException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"InvalidNumberValueTests"]) {
+        [newException release];
         newException = [[SimpleDBInvalidNumberValueTestsException alloc] initWithMessage:@""];
     }
 

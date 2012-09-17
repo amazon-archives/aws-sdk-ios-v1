@@ -38,18 +38,22 @@
     AmazonServiceException *newException = nil;
 
     if ([[theException errorCode] isEqualToString:@"InvalidParameterValue"]) {
+        [newException release];
         newException = [[CloudWatchInvalidParameterValueException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"InternalServiceError"]) {
+        [newException release];
         newException = [[CloudWatchInternalServiceException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"InvalidParameterCombination"]) {
+        [newException release];
         newException = [[CloudWatchInvalidParameterCombinationException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"MissingParameter"]) {
+        [newException release];
         newException = [[CloudWatchMissingRequiredParameterException alloc] initWithMessage:@""];
     }
 

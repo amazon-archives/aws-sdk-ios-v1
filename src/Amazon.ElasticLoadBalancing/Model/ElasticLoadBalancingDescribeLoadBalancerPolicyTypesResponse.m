@@ -36,6 +36,7 @@
     AmazonServiceException *newException = nil;
 
     if ([[theException errorCode] isEqualToString:@"PolicyTypeNotFound"]) {
+        [newException release];
         newException = [[ElasticLoadBalancingPolicyTypeNotFoundException alloc] initWithMessage:@""];
     }
 

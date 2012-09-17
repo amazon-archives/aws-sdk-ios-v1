@@ -86,14 +86,13 @@
 		D00F6BA3141FEA1800A058E8 /* S3Uploader */ = {
 			isa = PBXGroup;
 			children = (
-				D00F6BC7141FF06400A058E8 /* Constants.m */,
-				D00F6BC5141FECC300A058E8 /* Constants.h */,
 				D00F6BAC141FEA1800A058E8 /* S3UploaderAppDelegate.h */,
 				D00F6BAD141FEA1800A058E8 /* S3UploaderAppDelegate.m */,
-				D00F6BAF141FEA1800A058E8 /* MainWindow.xib */,
+				D00F6BC5141FECC300A058E8 /* Constants.h */,
+				D00F6BC7141FF06400A058E8 /* Constants.m */,
+				D00F6BB5141FEA1800A058E8 /* S3UploaderViewController.xib */,
 				D00F6BB2141FEA1800A058E8 /* S3UploaderViewController.h */,
 				D00F6BB3141FEA1800A058E8 /* S3UploaderViewController.m */,
-				D00F6BB5141FEA1800A058E8 /* S3UploaderViewController.xib */,
 				D00F6BA4141FEA1800A058E8 /* Supporting Files */,
 			);
 			path = S3Uploader;
@@ -102,6 +101,7 @@
 		D00F6BA4141FEA1800A058E8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D00F6BAF141FEA1800A058E8 /* MainWindow.xib */,
 				D00F6BA5141FEA1800A058E8 /* S3Uploader-Info.plist */,
 				D00F6BA6141FEA1800A058E8 /* InfoPlist.strings */,
 				D00F6BA9141FEA1800A058E8 /* S3Uploader-Prefix.pch */,
@@ -256,7 +256,9 @@
 				GCC_PREFIX_HEADER = "S3Uploader/S3Uploader-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "S3Uploader/S3Uploader-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -274,7 +276,9 @@
 				GCC_PREFIX_HEADER = "S3Uploader/S3Uploader-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "S3Uploader/S3Uploader-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

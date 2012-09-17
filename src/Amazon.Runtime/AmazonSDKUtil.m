@@ -562,7 +562,7 @@ static const short base64DecodingTable[] =
     char ch;
     NSInteger inputIdx = 0, outputIdx = 0, padIdx;
 
-    buffer = calloc(length, sizeof(char));
+    buffer = calloc(length, sizeof(unsigned char));
 
     while (((ch = *inputPtr++) != '\0') && (length-- > 0)) {
         if (ch == '=') {

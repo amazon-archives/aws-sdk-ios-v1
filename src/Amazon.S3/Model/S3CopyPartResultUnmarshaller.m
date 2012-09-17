@@ -17,6 +17,8 @@
 
 @implementation S3CopyPartResultUnmarshaller
 
+@synthesize partCopyResult;
+
 #pragma mark NSXMLParserDelegate implementation
 
 -(void) parser:(NSXMLParser *)parser
@@ -27,12 +29,12 @@ qualifiedName:(NSString *)qName
     [super parser:parser didEndElement:elementName namespaceURI:namespaceURI qualifiedName:qName];
 
     if ([elementName isEqualToString:@"LastModified"]) {
-        self.copyPartResult.lastModified = self.currentText;
+        self.partCopyResult.lastModified = self.currentText;
         return;
     }
 
     if ([elementName isEqualToString:@"ETag"]) {
-        self.copyPartResult.etag = self.currentText;
+        self.partCopyResult.etag = self.currentText;
         return;
     }
 
@@ -42,7 +44,7 @@ qualifiedName:(NSString *)qName
         }
 
         if (parentObject != nil && [parentObject respondsToSelector:parentSetter]) {
-            [parentObject performSelector:parentSetter withObject:self.copyPartResult];
+            [parentObject performSelector:parentSetter withObject:self.partCopyResult];
         }
 
         return;
@@ -51,18 +53,18 @@ qualifiedName:(NSString *)qName
 
 #pragma mark Unmarshalled object property
 
--(S3CopyPartResult *)copyPartResult
+-(S3CopyPartResult *)partCopyResult
 {
-    if (nil == copyPartResult)
+    if (nil == partCopyResult)
     {
-        copyPartResult = [[S3CopyPartResult alloc] init];
+        partCopyResult = [[S3CopyPartResult alloc] init];
     }
-    return copyPartResult;
+    return partCopyResult;
 }
 
 -(void)dealloc
 {
-    [copyPartResult release];
+    [partCopyResult release];
     [super dealloc];
 }
 

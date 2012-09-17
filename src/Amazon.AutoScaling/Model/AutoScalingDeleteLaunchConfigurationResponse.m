@@ -28,6 +28,7 @@
     AmazonServiceException *newException = nil;
 
     if ([[theException errorCode] isEqualToString:@"ResourceInUse"]) {
+        [newException release];
         newException = [[AutoScalingResourceInUseException alloc] initWithMessage:@""];
     }
 

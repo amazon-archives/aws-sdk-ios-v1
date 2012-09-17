@@ -36,18 +36,22 @@
     AmazonServiceException *newException = nil;
 
     if ([[theException errorCode] isEqualToString:@"NotFound"]) {
+        [newException release];
         newException = [[SNSNotFoundException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"AuthorizationError"]) {
+        [newException release];
         newException = [[SNSAuthorizationErrorException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"InternalError"]) {
+        [newException release];
         newException = [[SNSInternalErrorException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"InvalidParameter"]) {
+        [newException release];
         newException = [[SNSInvalidParameterException alloc] initWithMessage:@""];
     }
 

@@ -21,10 +21,12 @@
 
 -(id)initWithMultipartUpload:(S3MultipartUpload *)multipartUpload
 {
-    [self init];
-    self.bucket   = multipartUpload.bucket;
-    self.key      = multipartUpload.key;
-    self.uploadId = multipartUpload.uploadId;
+    if(self = [super init])
+    {
+        self.bucket   = multipartUpload.bucket;
+        self.key      = multipartUpload.key;
+        self.uploadId = multipartUpload.uploadId;
+    }
 
     return self;
 }

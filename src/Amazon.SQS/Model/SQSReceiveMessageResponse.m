@@ -36,6 +36,7 @@
     AmazonServiceException *newException = nil;
 
     if ([[theException errorCode] isEqualToString:@"OverLimit"]) {
+        [newException release];
         newException = [[SQSOverLimitException alloc] initWithMessage:@""];
     }
 

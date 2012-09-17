@@ -21,7 +21,6 @@
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow                 *window;
-
 @property (nonatomic, retain) IBOutlet S3UploaderViewController *viewController;
 
 @end

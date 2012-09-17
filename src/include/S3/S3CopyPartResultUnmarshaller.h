@@ -19,9 +19,9 @@
 #import "S3CopyPartResult.h"
 
 @interface S3CopyPartResultUnmarshaller:AmazonUnmarshallerXMLParserDelegate {
-    S3CopyPartResult *copyPartResult;
+    S3CopyPartResult *partCopyResult;
 }
 
-@property (nonatomic, readonly) S3CopyPartResult *copyPartResult;
+@property (nonatomic, readonly) S3CopyPartResult *partCopyResult;
 
 @end

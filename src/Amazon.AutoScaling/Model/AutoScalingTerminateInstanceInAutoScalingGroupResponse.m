@@ -36,6 +36,7 @@
     AmazonServiceException *newException = nil;
 
     if ([[theException errorCode] isEqualToString:@"ScalingActivityInProgress"]) {
+        [newException release];
         newException = [[AutoScalingScalingActivityInProgressException alloc] initWithMessage:@""];
     }
 

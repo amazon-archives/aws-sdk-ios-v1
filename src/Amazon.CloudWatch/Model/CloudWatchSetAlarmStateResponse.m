@@ -28,10 +28,12 @@
     AmazonServiceException *newException = nil;
 
     if ([[theException errorCode] isEqualToString:@"ResourceNotFound"]) {
+        [newException release];
         newException = [[CloudWatchResourceNotFoundException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"InvalidFormat"]) {
+        [newException release];
         newException = [[CloudWatchInvalidFormatException alloc] initWithMessage:@""];
     }
 

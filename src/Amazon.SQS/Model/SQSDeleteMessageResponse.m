@@ -28,10 +28,12 @@
     AmazonServiceException *newException = nil;
 
     if ([[theException errorCode] isEqualToString:@"ReceiptHandleIsInvalid"]) {
+        [newException release];
         newException = [[SQSReceiptHandleIsInvalidException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"InvalidIdFormat"]) {
+        [newException release];
         newException = [[SQSInvalidIdFormatException alloc] initWithMessage:@""];
     }
 

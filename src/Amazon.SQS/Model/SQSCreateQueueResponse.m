@@ -36,10 +36,12 @@
     AmazonServiceException *newException = nil;
 
     if ([[theException errorCode] isEqualToString:@"AWS.SimpleQueueService.QueueNameExists"]) {
+        [newException release];
         newException = [[SQSQueueNameExistsException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"AWS.SimpleQueueService.QueueDeletedRecently"]) {
+        [newException release];
         newException = [[SQSQueueDeletedRecentlyException alloc] initWithMessage:@""];
     }
 

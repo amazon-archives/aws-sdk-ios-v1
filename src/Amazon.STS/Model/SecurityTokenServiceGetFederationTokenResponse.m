@@ -40,10 +40,12 @@
     AmazonServiceException *newException = nil;
 
     if ([[theException errorCode] isEqualToString:@"PackedPolicyTooLarge"]) {
+        [newException release];
         newException = [[SecurityTokenServicePackedPolicyTooLargeException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"MalformedPolicyDocument"]) {
+        [newException release];
         newException = [[SecurityTokenServiceMalformedPolicyDocumentException alloc] initWithMessage:@""];
     }
 

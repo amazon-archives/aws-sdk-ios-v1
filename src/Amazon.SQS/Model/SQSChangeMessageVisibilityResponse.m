@@ -28,10 +28,12 @@
     AmazonServiceException *newException = nil;
 
     if ([[theException errorCode] isEqualToString:@"ReceiptHandleIsInvalid"]) {
+        [newException release];
         newException = [[SQSReceiptHandleIsInvalidException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"AWS.SimpleQueueService.MessageNotInflight"]) {
+        [newException release];
         newException = [[SQSMessageNotInflightException alloc] initWithMessage:@""];
     }
 

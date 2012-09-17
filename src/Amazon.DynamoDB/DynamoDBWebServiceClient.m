@@ -79,9 +79,9 @@
 
         if ([generatedRequest delegate] != nil) {
 
-            NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest
+            NSURLConnection *urlConnection = [[[NSURLConnection alloc] initWithRequest:urlRequest
                                                                              delegate:response
-                                                                     startImmediately:NO];
+                                                                     startImmediately:NO] autorelease];
             originalRequest.urlConnection = urlConnection;
             [urlConnection start];
 

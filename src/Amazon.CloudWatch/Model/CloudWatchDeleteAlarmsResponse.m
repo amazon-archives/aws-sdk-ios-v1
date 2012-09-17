@@ -28,6 +28,7 @@
     AmazonServiceException *newException = nil;
 
     if ([[theException errorCode] isEqualToString:@"ResourceNotFound"]) {
+        [newException release];
         newException = [[CloudWatchResourceNotFoundException alloc] initWithMessage:@""];
     }
 

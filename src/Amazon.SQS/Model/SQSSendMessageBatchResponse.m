@@ -38,22 +38,27 @@
     AmazonServiceException *newException = nil;
 
     if ([[theException errorCode] isEqualToString:@"AWS.SimpleQueueService.BatchEntryIdsNotDistinct"]) {
+        [newException release];
         newException = [[SQSBatchEntryIdsNotDistinctException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"AWS.SimpleQueueService.TooManyEntriesInBatchRequest"]) {
+        [newException release];
         newException = [[SQSTooManyEntriesInBatchRequestException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"AWS.SimpleQueueService.BatchRequestTooLong"]) {
+        [newException release];
         newException = [[SQSBatchRequestTooLongException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"AWS.SimpleQueueService.InvalidBatchEntryId"]) {
+        [newException release];
         newException = [[SQSInvalidBatchEntryIdException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"AWS.SimpleQueueService.EmptyBatchRequest"]) {
+        [newException release];
         newException = [[SQSEmptyBatchRequestException alloc] initWithMessage:@""];
     }
 

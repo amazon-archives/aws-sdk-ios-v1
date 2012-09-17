@@ -28,6 +28,7 @@
     AmazonServiceException *newException = nil;
 
     if ([[theException errorCode] isEqualToString:@"MissingParameter"]) {
+        [newException release];
         newException = [[SimpleDBMissingParameterException alloc] initWithMessage:@""];
     }
 

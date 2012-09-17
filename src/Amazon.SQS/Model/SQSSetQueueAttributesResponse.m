@@ -28,6 +28,7 @@
     AmazonServiceException *newException = nil;
 
     if ([[theException errorCode] isEqualToString:@"InvalidAttributeName"]) {
+        [newException release];
         newException = [[SQSInvalidAttributeNameException alloc] initWithMessage:@""];
     }
 

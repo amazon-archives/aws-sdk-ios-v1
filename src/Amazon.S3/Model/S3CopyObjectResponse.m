@@ -27,8 +27,8 @@
     [parser setDelegate:unmarshaller];
     [parser parse];
 
-    self.etag         = unmarshaller.copyObjectResult.etag;
-    self.lastModified = [NSDate dateWithISO8061Format:unmarshaller.copyObjectResult.lastModified];
+    self.etag         = unmarshaller.objectCopyResult.etag;
+    self.lastModified = [NSDate dateWithISO8061Format:unmarshaller.objectCopyResult.lastModified];
 
     [unmarshaller release];
     [parser release];

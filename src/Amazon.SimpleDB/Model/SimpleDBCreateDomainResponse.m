@@ -28,14 +28,17 @@
     AmazonServiceException *newException = nil;
 
     if ([[theException errorCode] isEqualToString:@"InvalidParameterValue"]) {
+        [newException release];
         newException = [[SimpleDBInvalidParameterValueException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"NumberDomainsExceeded"]) {
+        [newException release];
         newException = [[SimpleDBNumberDomainsExceededException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"MissingParameter"]) {
+        [newException release];
         newException = [[SimpleDBMissingParameterException alloc] initWithMessage:@""];
     }
 

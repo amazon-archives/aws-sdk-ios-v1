@@ -36,14 +36,17 @@
     AmazonServiceException *newException = nil;
 
     if ([[theException errorCode] isEqualToString:@"ResourceInUseException"]) {
+        [newException release];
         newException = [[DynamoDBResourceInUseException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"LimitExceededException"]) {
+        [newException release];
         newException = [[DynamoDBLimitExceededException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"InternalServerError"]) {
+        [newException release];
         newException = [[DynamoDBInternalServerErrorException alloc] initWithMessage:@""];
     }
 

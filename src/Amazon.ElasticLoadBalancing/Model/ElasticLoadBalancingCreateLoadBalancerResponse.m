@@ -36,30 +36,37 @@
     AmazonServiceException *newException = nil;
 
     if ([[theException errorCode] isEqualToString:@"InvalidSubnet"]) {
+        [newException release];
         newException = [[ElasticLoadBalancingInvalidSubnetException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"CertificateNotFound"]) {
+        [newException release];
         newException = [[ElasticLoadBalancingCertificateNotFoundException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"SubnetNotFound"]) {
+        [newException release];
         newException = [[ElasticLoadBalancingSubnetNotFoundException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"TooManyLoadBalancers"]) {
+        [newException release];
         newException = [[ElasticLoadBalancingTooManyLoadBalancersException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"DuplicateLoadBalancerName"]) {
+        [newException release];
         newException = [[ElasticLoadBalancingDuplicateLoadBalancerNameException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"InvalidConfigurationRequest"]) {
+        [newException release];
         newException = [[ElasticLoadBalancingInvalidConfigurationRequestException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"InvalidSecurityGroup"]) {
+        [newException release];
         newException = [[ElasticLoadBalancingInvalidSecurityGroupException alloc] initWithMessage:@""];
     }
 

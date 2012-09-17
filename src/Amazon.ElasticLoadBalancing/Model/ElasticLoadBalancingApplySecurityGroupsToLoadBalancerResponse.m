@@ -36,14 +36,17 @@
     AmazonServiceException *newException = nil;
 
     if ([[theException errorCode] isEqualToString:@"LoadBalancerNotFound"]) {
+        [newException release];
         newException = [[ElasticLoadBalancingLoadBalancerNotFoundException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"InvalidConfigurationRequest"]) {
+        [newException release];
         newException = [[ElasticLoadBalancingInvalidConfigurationRequestException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"InvalidSecurityGroup"]) {
+        [newException release];
         newException = [[ElasticLoadBalancingInvalidSecurityGroupException alloc] initWithMessage:@""];
     }
 

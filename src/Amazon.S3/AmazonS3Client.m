@@ -164,6 +164,11 @@
 
 -(S3CopyObjectResponse *)copyObject:(S3CopyObjectRequest *)copyObjectRequest
 {
+    return [self objectCopy:copyObjectRequest];
+}
+
+-(S3CopyObjectResponse *)objectCopy:(S3CopyObjectRequest *)copyObjectRequest
+{
     return (S3CopyObjectResponse *)[self invoke:copyObjectRequest];
 }
 
@@ -309,15 +314,20 @@
     NSString         *queryString = [[preSignedURLRequest queryString] stringByAppendingFormat:@"&%@=%@", kS3QueryParamSignature, [AmazonSDKUtil urlEncode:signature]];
     
     [preSignedURLRequest setSubResource:queryString];
-    
-    *error = [AmazonErrorHandler errorFromExceptionWithThrowsExceptionOption:[preSignedURLRequest validate]];
-    
-    if(*error != nil) {
+
+    AmazonClientException *clientException = [preSignedURLRequest validate];
+
+    if(clientException != nil)
+    {
+        if (error != NULL)
+        {
+            *error = [AmazonErrorHandler errorFromExceptionWithThrowsExceptionOption:clientException];
+        }
+
         return nil;
     }
-    else {
-        return [AmazonSDKUtil URLWithURL:[preSignedURLRequest url] andProtocol:preSignedURLRequest.protocol];
-    }
+
+    return [AmazonSDKUtil URLWithURL:[preSignedURLRequest url] andProtocol:preSignedURLRequest.protocol];
 }
 
 -(S3InitiateMultipartUploadResponse *)initiateMultipartUpload:(S3InitiateMultipartUploadRequest *)initiateMultipartUploadRequest
@@ -326,6 +336,11 @@
 }
 
 -(S3CopyPartResponse *)copyPart:(S3CopyPartRequest *)copyPartRequest
+{
+    return [self partCopy:copyPartRequest];
+}
+
+-(S3CopyPartResponse *)partCopy:(S3CopyPartRequest *)copyPartRequest
 {
     return (S3CopyPartResponse *)[self invoke:copyPartRequest];
 }

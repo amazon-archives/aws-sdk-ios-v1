@@ -48,10 +48,12 @@
     AmazonServiceException *newException = nil;
 
     if ([[theException errorCode] isEqualToString:@"NoSuchDomain"]) {
+        [newException release];
         newException = [[SimpleDBNoSuchDomainException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"MissingParameter"]) {
+        [newException release];
         newException = [[SimpleDBMissingParameterException alloc] initWithMessage:@""];
     }
 

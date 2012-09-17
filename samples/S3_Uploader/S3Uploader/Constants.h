@@ -24,7 +24,8 @@
 #define PICTURE_NAME           @"NameOfThePicture"
 
 
-#define CREDENTIALS_MESSAGE    @"AWS Credentials not configured correctly.  Please review the README file."
+#define CREDENTIALS_ERROR_TITLE    @"Missing Credentials"
+#define CREDENTIALS_ERROR_MESSAGE  @"AWS Credentials not configured correctly.  Please review the README file."
 
 
 @interface Constants:NSObject {
@@ -34,16 +35,5 @@
  * Utility method to create a bucket name using the Access Key Id.  This will help ensure uniqueness.
  */
 +(NSString *)pictureBucket;
-
-
-/**
- * Utility method to display an alert message.  Used to communicate errors and failures.
- */
-+(void)showAlertMessage:(NSString *)message withTitle:(NSString *)title;
-
-
-
-+(UIAlertView *)credentialsAlert;
-
 
 @end

@@ -36,6 +36,7 @@
     AmazonServiceException *newException = nil;
 
     if ([[theException errorCode] isEqualToString:@"LimitExceeded"]) {
+        [newException release];
         newException = [[AutoScalingLimitExceededException alloc] initWithMessage:@""];
     }
 
