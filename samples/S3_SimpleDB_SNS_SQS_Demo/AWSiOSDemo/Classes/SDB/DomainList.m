@@ -19,37 +19,51 @@
 
 @implementation DomainList
 
--(id)init
+- (void)viewDidLoad
 {
-    return [super initWithNibName:@"DomainList" bundle:nil];
+    [super viewDidLoad];
+
+    self.title = @"Domain List";
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    SimpleDBListDomainsRequest  *listDomainsRequest  = [[[SimpleDBListDomainsRequest alloc] init] autorelease];
-    SimpleDBListDomainsResponse *listDomainsResponse = [[AmazonClientManager sdb] listDomains:listDomainsRequest];
-    if(listDomainsResponse.error != nil)
-    {
-        NSLog(@"Error: %@", listDomainsResponse.error);
-    }
-    
-    if (domains == nil) {
-        domains = [[NSMutableArray alloc] initWithCapacity:[listDomainsResponse.domainNames count]];
-    }
-    else {
-        [domains removeAllObjects];
-    }
-    for (NSString *name in listDomainsResponse.domainNames) {
-        [domains addObject:name];
-    }
-    
-    [domains sortUsingSelector:@selector(compare:)];
-    [domainTableView reloadData];
-}
+    [super viewWillAppear:animated];
 
--(IBAction)done:(id)sender
-{
-    [self dismissModalViewControllerAnimated:YES];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        });
+
+        SimpleDBListDomainsRequest  *listDomainsRequest  = [[[SimpleDBListDomainsRequest alloc] init] autorelease];
+        SimpleDBListDomainsResponse *listDomainsResponse = [[AmazonClientManager sdb] listDomains:listDomainsRequest];
+        if(listDomainsResponse.error != nil)
+        {
+            NSLog(@"Error: %@", listDomainsResponse.error);
+        }
+
+        if (domains == nil) {
+            domains = [[NSMutableArray alloc] initWithCapacity:[listDomainsResponse.domainNames count]];
+        }
+        else {
+            [domains removeAllObjects];
+        }
+        
+        for (NSString *name in listDomainsResponse.domainNames) {
+            [domains addObject:name];
+        }
+
+        [domains sortUsingSelector:@selector(compare:)];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            [self.tableView reloadData];
+        });
+    });
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -70,22 +84,23 @@
     
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell.textLabel.adjustsFontSizeToFitWidth = YES;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
     // Configure the cell...
-    cell.textLabel.text                      = [domains objectAtIndex:indexPath.row];
-    cell.textLabel.adjustsFontSizeToFitWidth = YES;
+    cell.textLabel.text = [domains objectAtIndex:indexPath.row];
     
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ItemListing *itemList = [[ItemListing alloc] init];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    itemList.domain               = [domains objectAtIndex:indexPath.row];
-    itemList.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentModalViewController:itemList animated:YES];
+    ItemListing *itemList = [[ItemListing alloc] initWithStyle:UITableViewStylePlain];
+    itemList.domain = [domains objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:itemList animated:YES];
     [itemList release];
 }
 

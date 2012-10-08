@@ -20,12 +20,9 @@
 
 @interface CheckinsViewController : UITableViewController
 {
-    Location *location;
-    NSMutableArray *checkinsArray;
-    NSManagedObjectContext *managedObjectContext;
 }
 
-@property (nonatomic) Location *location;
-@property (nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) Location *location;
+@property (nonatomic, strong) NSMutableArray *checkinsArray;
 
 @end

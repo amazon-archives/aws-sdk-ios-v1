@@ -28,6 +28,8 @@
     NSNumber *size;
     NSString *snapshotId;
     NSString *availabilityZone;
+    NSString *volumeType;
+    NSNumber *iops;
 }
 
 
@@ -47,6 +49,19 @@
  * The Availability Zone in which to create the new volume.
  */
 @property (nonatomic, retain) NSString *availabilityZone;
+
+/**
+ * The value of the VolumeType property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>standard, io1
+ */
+@property (nonatomic, retain) NSString *volumeType;
+
+/**
+ * The value of the Iops property for this object.
+ */
+@property (nonatomic, retain) NSNumber *iops;
 
 
 /**

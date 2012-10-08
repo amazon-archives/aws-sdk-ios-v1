@@ -103,7 +103,7 @@
 
 /**
  * Changes the <code>DesiredCapacity</code> of the Auto Scaling group by
- * at least the specified value.
+ * at least the specified number of instances.
  */
 @property (nonatomic, retain) NSNumber *minAdjustmentStep;
 

@@ -29,6 +29,8 @@
 @synthesize rootDeviceName;
 @synthesize blockDeviceMappings;
 @synthesize productCodes;
+@synthesize ebsOptimized;
+@synthesize ebsOptimizedIsSet;
 
 
 -(id)init
@@ -45,6 +47,8 @@
         rootDeviceName                    = nil;
         blockDeviceMappings               = [[NSMutableArray alloc] initWithCapacity:1];
         productCodes                      = [[NSMutableArray alloc] initWithCapacity:1];
+        ebsOptimized                      = NO;
+        ebsOptimizedIsSet                 = NO;
     }
 
     return self;
@@ -85,6 +89,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"RootDeviceName: %@,", rootDeviceName] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"BlockDeviceMappings: %@,", blockDeviceMappings] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ProductCodes: %@,", productCodes] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"EbsOptimized: %d,", ebsOptimized] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -96,6 +101,12 @@
 {
     disableApiTermination      = theValue;
     disableApiTerminationIsSet = YES;
+}
+
+-(void)setEbsOptimized:(bool)theValue
+{
+    ebsOptimized      = theValue;
+    ebsOptimizedIsSet = YES;
 }
 
 

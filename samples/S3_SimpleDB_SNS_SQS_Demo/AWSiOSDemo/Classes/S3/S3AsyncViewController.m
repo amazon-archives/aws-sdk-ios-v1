@@ -19,18 +19,22 @@
 
 @implementation S3AsyncViewController
 
-
 @synthesize bytesIn, bytesOut;
-
 
 -(id)init
 {
-    // Create the S3 Request Delegate
-    s3ResponseHandler = [[S3ResponseHandler alloc] init];
-    putObjectRequest  = nil;
-    getObjectRequest  = nil;
-    
-    return [super initWithNibName:@"S3AsyncViewController" bundle:nil];
+    self = [super initWithNibName:@"S3AsyncViewController" bundle:nil];
+    if(self)
+    {
+        self.title = @"S3 Async";
+
+        // Create the S3 Request Delegate
+        s3ResponseHandler = [[S3ResponseHandler alloc] init];
+        putObjectRequest  = nil;
+        getObjectRequest  = nil;
+    }
+
+    return self;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -57,11 +61,6 @@
     if (getObjectRequest != nil) {
         [getObjectRequest.urlConnection cancel];
     }
-}
-
--(IBAction)exit:(id)sender
-{
-    [self dismissModalViewControllerAnimated:YES];
 }
 
 -(void)putObject
@@ -110,6 +109,5 @@
     [getObjectRequest release];
     [super dealloc];
 }
-
 
 @end

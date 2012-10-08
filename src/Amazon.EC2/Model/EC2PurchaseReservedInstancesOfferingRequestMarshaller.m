@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"PurchaseReservedInstancesOffering"           forKey:@"Action"];
-    [request setParameterValue:@"2012-06-15"   forKey:@"Version"];
+    [request setParameterValue:@"2012-08-15"   forKey:@"Version"];
 
     [request setDelegate:[purchaseReservedInstancesOfferingRequest delegate]];
     [request setCredentials:[purchaseReservedInstancesOfferingRequest credentials]];
@@ -37,6 +37,19 @@
     if (purchaseReservedInstancesOfferingRequest != nil) {
         if (purchaseReservedInstancesOfferingRequest.instanceCount != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", purchaseReservedInstancesOfferingRequest.instanceCount] forKey:[NSString stringWithFormat:@"%@", @"InstanceCount"]];
+        }
+    }
+    if (purchaseReservedInstancesOfferingRequest != nil) {
+        EC2ReservedInstanceLimitPrice *limitPrice = purchaseReservedInstancesOfferingRequest.limitPrice;
+        if (limitPrice != nil) {
+            if (limitPrice.amount != nil) {
+                [request setParameterValue:[NSString stringWithFormat:@"%@", limitPrice.amount] forKey:[NSString stringWithFormat:@"%@.%@", @"LimitPrice", @"Amount"]];
+            }
+        }
+        if (limitPrice != nil) {
+            if (limitPrice.currencyCode != nil) {
+                [request setParameterValue:[NSString stringWithFormat:@"%@", limitPrice.currencyCode] forKey:[NSString stringWithFormat:@"%@.%@", @"LimitPrice", @"CurrencyCode"]];
+            }
         }
     }
 

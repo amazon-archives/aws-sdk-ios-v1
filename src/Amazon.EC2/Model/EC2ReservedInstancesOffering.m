@@ -29,6 +29,9 @@
 @synthesize currencyCode;
 @synthesize offeringType;
 @synthesize recurringCharges;
+@synthesize marketplace;
+@synthesize marketplaceIsSet;
+@synthesize pricingDetails;
 
 
 -(id)init
@@ -45,6 +48,9 @@
         currencyCode                = nil;
         offeringType                = nil;
         recurringCharges            = [[NSMutableArray alloc] initWithCapacity:1];
+        marketplace                 = NO;
+        marketplaceIsSet            = NO;
+        pricingDetails              = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
     return self;
@@ -58,6 +64,15 @@
     }
 
     [recurringCharges addObject:recurringChargeObject];
+}
+
+-(void)addPricingDetail:(EC2PricingDetail *)pricingDetailObject
+{
+    if (pricingDetails == nil) {
+        pricingDetails = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [pricingDetails addObject:pricingDetailObject];
 }
 
 
@@ -77,12 +92,20 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"CurrencyCode: %@,", currencyCode] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"OfferingType: %@,", offeringType] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"RecurringCharges: %@,", recurringCharges] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Marketplace: %d,", marketplace] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"PricingDetails: %@,", pricingDetails] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
     return [buffer autorelease];
 }
 
+
+-(void)setMarketplace:(bool)theValue
+{
+    marketplace      = theValue;
+    marketplaceIsSet = YES;
+}
 
 
 -(void)dealloc
@@ -98,6 +121,7 @@
     [currencyCode release];
     [offeringType release];
     [recurringCharges release];
+    [pricingDetails release];
 
     [super dealloc];
 }

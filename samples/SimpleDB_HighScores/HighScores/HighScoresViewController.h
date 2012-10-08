@@ -15,7 +15,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HighScoresViewController:UIViewController {
+@interface HighScoresViewController : UIViewController {
     IBOutlet UISwitch *sortByPlayer;
     IBOutlet UISwitch *sortByScore;
 }

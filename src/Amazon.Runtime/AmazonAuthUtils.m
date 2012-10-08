@@ -240,7 +240,13 @@
         [headerString appendString:@"\n"];
     }
     
-    return headerString;
+    // SigV4 expects all whitespace in headers and values to be collapsed to a single space
+    NSCharacterSet *whitespaceChars = [NSCharacterSet whitespaceCharacterSet];
+    NSPredicate *noEmptyStrings = [NSPredicate predicateWithFormat:@"SELF != ''"];
+    
+    NSArray *parts = [headerString componentsSeparatedByCharactersInSet:whitespaceChars];
+    NSArray *nonWhitespace = [parts filteredArrayUsingPredicate:noEmptyStrings];
+    return [nonWhitespace componentsJoinedByString:@" "];
 }
 
 +(NSString *)getSignedHeadersString:(NSMutableDictionary *)theHeaders

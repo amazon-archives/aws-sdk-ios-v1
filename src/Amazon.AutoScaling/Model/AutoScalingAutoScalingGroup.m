@@ -37,6 +37,7 @@
 @synthesize enabledMetrics;
 @synthesize status;
 @synthesize tags;
+@synthesize terminationPolicies;
 
 
 -(id)init
@@ -61,6 +62,7 @@
         enabledMetrics          = [[NSMutableArray alloc] initWithCapacity:1];
         status                  = nil;
         tags                    = [[NSMutableArray alloc] initWithCapacity:1];
+        terminationPolicies     = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
     return self;
@@ -121,6 +123,15 @@
     [tags addObject:tagObject];
 }
 
+-(void)addTerminationPolicy:(NSString *)terminationPolicyObject
+{
+    if (terminationPolicies == nil) {
+        terminationPolicies = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [terminationPolicies addObject:terminationPolicyObject];
+}
+
 
 -(NSString *)description
 {
@@ -146,6 +157,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"EnabledMetrics: %@,", enabledMetrics] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Status: %@,", status] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Tags: %@,", tags] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"TerminationPolicies: %@,", terminationPolicies] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -175,6 +187,7 @@
     [enabledMetrics release];
     [status release];
     [tags release];
+    [terminationPolicies release];
 
     [super dealloc];
 }

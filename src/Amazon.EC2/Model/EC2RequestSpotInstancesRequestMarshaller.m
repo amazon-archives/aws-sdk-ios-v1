@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"RequestSpotInstances"           forKey:@"Action"];
-    [request setParameterValue:@"2012-06-15"   forKey:@"Version"];
+    [request setParameterValue:@"2012-08-15"   forKey:@"Version"];
 
     [request setDelegate:[requestSpotInstancesRequest delegate]];
     [request setCredentials:[requestSpotInstancesRequest credentials]];
@@ -172,6 +172,16 @@
                             [request setParameterValue:(ebs.deleteOnTermination ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@.%@.%d.%@.%@", @"LaunchSpecification", @"BlockDeviceMapping", blockDeviceMappingsListIndex, @"Ebs", @"DeleteOnTermination"]];
                         }
                     }
+                    if (ebs != nil) {
+                        if (ebs.volumeType != nil) {
+                            [request setParameterValue:[NSString stringWithFormat:@"%@", ebs.volumeType] forKey:[NSString stringWithFormat:@"%@.%@.%d.%@.%@", @"LaunchSpecification", @"BlockDeviceMapping", blockDeviceMappingsListIndex, @"Ebs", @"VolumeType"]];
+                        }
+                    }
+                    if (ebs != nil) {
+                        if (ebs.iops != nil) {
+                            [request setParameterValue:[NSString stringWithFormat:@"%@", ebs.iops] forKey:[NSString stringWithFormat:@"%@.%@.%d.%@.%@", @"LaunchSpecification", @"BlockDeviceMapping", blockDeviceMappingsListIndex, @"Ebs", @"Iops"]];
+                        }
+                    }
                 }
                 if (blockDeviceMappingsListValue != nil) {
                     if (blockDeviceMappingsListValue.noDevice != nil) {
@@ -275,6 +285,11 @@
                 if (iamInstanceProfile.name != nil) {
                     [request setParameterValue:[NSString stringWithFormat:@"%@", iamInstanceProfile.name] forKey:[NSString stringWithFormat:@"%@.%@.%@", @"LaunchSpecification", @"IamInstanceProfile", @"Name"]];
                 }
+            }
+        }
+        if (launchSpecification != nil) {
+            if (launchSpecification.ebsOptimizedIsSet) {
+                [request setParameterValue:(launchSpecification.ebsOptimized ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@.%@", @"LaunchSpecification", @"EbsOptimized"]];
             }
         }
     }

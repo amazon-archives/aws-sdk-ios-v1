@@ -22,22 +22,18 @@
 {
     if ((self = [super initWithNibName:@"PlayerViewController" bundle:nil])) {
         playerScore = thePlayer;
+        self.title = @"Player Details";
     }
 
     return self;
 }
 
--(IBAction)ok:(id)sender
-{
-    [self dismissModalViewControllerAnimated:YES];
-}
-
 -(void)viewDidLoad
 {
-    player.text = playerScore.player;
-    score.text  = [NSString stringWithFormat:@"%d", playerScore.score];
-
     [super viewDidLoad];
+    
+    player.text = playerScore.player;
+    score.text  = [NSString stringWithFormat:@"%d", playerScore.score];    
 }
 
 @end

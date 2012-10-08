@@ -16,6 +16,12 @@
 
 #import <Foundation/Foundation.h>
 
+/*
+ * Use of this class has been deprecated.  It is recommended that end-users
+ * Update their device to iOS6 in order to resolve problems uploading to S3
+ * Over 3G
+ */
+__attribute__ ((deprecated))
 @interface S3UploadInputStream : NSInputStream {
 	NSInputStream *stream;
     NSInteger packetSize;

@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"CreateImage"           forKey:@"Action"];
-    [request setParameterValue:@"2012-06-15"   forKey:@"Version"];
+    [request setParameterValue:@"2012-08-15"   forKey:@"Version"];
 
     [request setDelegate:[createImageRequest delegate]];
     [request setCredentials:[createImageRequest credentials]];
@@ -47,6 +47,57 @@
     if (createImageRequest != nil) {
         if (createImageRequest.noRebootIsSet) {
             [request setParameterValue:(createImageRequest.noReboot ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"NoReboot"]];
+        }
+    }
+
+    if (createImageRequest != nil) {
+        int blockDeviceMappingsListIndex = 1;
+        for (EC2BlockDeviceMapping *blockDeviceMappingsListValue in createImageRequest.blockDeviceMappings) {
+            if (blockDeviceMappingsListValue != nil) {
+                if (blockDeviceMappingsListValue.virtualName != nil) {
+                    [request setParameterValue:[NSString stringWithFormat:@"%@", blockDeviceMappingsListValue.virtualName] forKey:[NSString stringWithFormat:@"%@.%d.%@", @"BlockDeviceMapping", blockDeviceMappingsListIndex, @"VirtualName"]];
+                }
+            }
+            if (blockDeviceMappingsListValue != nil) {
+                if (blockDeviceMappingsListValue.deviceName != nil) {
+                    [request setParameterValue:[NSString stringWithFormat:@"%@", blockDeviceMappingsListValue.deviceName] forKey:[NSString stringWithFormat:@"%@.%d.%@", @"BlockDeviceMapping", blockDeviceMappingsListIndex, @"DeviceName"]];
+                }
+            }
+            if (blockDeviceMappingsListValue != nil) {
+                EC2EbsBlockDevice *ebs = blockDeviceMappingsListValue.ebs;
+                if (ebs != nil) {
+                    if (ebs.snapshotId != nil) {
+                        [request setParameterValue:[NSString stringWithFormat:@"%@", ebs.snapshotId] forKey:[NSString stringWithFormat:@"%@.%d.%@.%@", @"BlockDeviceMapping", blockDeviceMappingsListIndex, @"Ebs", @"SnapshotId"]];
+                    }
+                }
+                if (ebs != nil) {
+                    if (ebs.volumeSize != nil) {
+                        [request setParameterValue:[NSString stringWithFormat:@"%@", ebs.volumeSize] forKey:[NSString stringWithFormat:@"%@.%d.%@.%@", @"BlockDeviceMapping", blockDeviceMappingsListIndex, @"Ebs", @"VolumeSize"]];
+                    }
+                }
+                if (ebs != nil) {
+                    if (ebs.deleteOnTerminationIsSet) {
+                        [request setParameterValue:(ebs.deleteOnTermination ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@.%d.%@.%@", @"BlockDeviceMapping", blockDeviceMappingsListIndex, @"Ebs", @"DeleteOnTermination"]];
+                    }
+                }
+                if (ebs != nil) {
+                    if (ebs.volumeType != nil) {
+                        [request setParameterValue:[NSString stringWithFormat:@"%@", ebs.volumeType] forKey:[NSString stringWithFormat:@"%@.%d.%@.%@", @"BlockDeviceMapping", blockDeviceMappingsListIndex, @"Ebs", @"VolumeType"]];
+                    }
+                }
+                if (ebs != nil) {
+                    if (ebs.iops != nil) {
+                        [request setParameterValue:[NSString stringWithFormat:@"%@", ebs.iops] forKey:[NSString stringWithFormat:@"%@.%d.%@.%@", @"BlockDeviceMapping", blockDeviceMappingsListIndex, @"Ebs", @"Iops"]];
+                    }
+                }
+            }
+            if (blockDeviceMappingsListValue != nil) {
+                if (blockDeviceMappingsListValue.noDevice != nil) {
+                    [request setParameterValue:[NSString stringWithFormat:@"%@", blockDeviceMappingsListValue.noDevice] forKey:[NSString stringWithFormat:@"%@.%d.%@", @"BlockDeviceMapping", blockDeviceMappingsListIndex, @"NoDevice"]];
+                }
+            }
+
+            blockDeviceMappingsListIndex++;
         }
     }
 

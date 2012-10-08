@@ -18,38 +18,49 @@
 
 @implementation TopicList
 
--(id)init
+- (void)viewDidLoad
 {
-    return [super initWithNibName:@"TopicList" bundle:nil];
+    [super viewDidLoad];
+
+    self.title = @"SNS Topics";
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    SNSListTopicsRequest  *listTopicsRequest = [[[SNSListTopicsRequest alloc] init] autorelease];
-    SNSListTopicsResponse *response = [[AmazonClientManager sns] listTopics:listTopicsRequest];
-    if(response.error != nil)
-    {
-        NSLog(@"Error: %@", response.error);
-    }
-    
-    if (topics == nil) {
-        topics = [[NSMutableArray alloc] initWithCapacity:[response.topics count]];
-    }
-    else {
-        [topics removeAllObjects];
-    }
-    
-    for (SNSTopic *topic in response.topics) {
-        [topics addObject:topic.topicArn];
-    }
-    
-    [topics sortUsingSelector:@selector(compare:)];
-    [topicTableView reloadData];
-}
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
 
--(IBAction)done:(id)sender
-{
-    [self dismissModalViewControllerAnimated:YES];
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        });
+
+        SNSListTopicsRequest  *listTopicsRequest = [[[SNSListTopicsRequest alloc] init] autorelease];
+        SNSListTopicsResponse *response = [[AmazonClientManager sns] listTopics:listTopicsRequest];
+        if(response.error != nil)
+        {
+            NSLog(@"Error: %@", response.error);
+        }
+
+        if (topics == nil) {
+            topics = [[NSMutableArray alloc] initWithCapacity:[response.topics count]];
+        }
+        else {
+            [topics removeAllObjects];
+        }
+
+        for (SNSTopic *topic in response.topics) {
+            [topics addObject:topic.topicArn];
+        }
+
+        [topics sortUsingSelector:@selector(compare:)];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            [self.tableView reloadData];
+        });
+    });
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -65,22 +76,23 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
+
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+         cell.textLabel.adjustsFontSizeToFitWidth = YES;
     }
-    
+
     // Configure the cell...
-    cell.textLabel.text                      = [topics objectAtIndex:indexPath.row];
-    cell.textLabel.adjustsFontSizeToFitWidth = YES;
-    
+    cell.textLabel.text = [topics objectAtIndex:indexPath.row];
+
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSLog(@"Topic Selected = %@", [topics objectAtIndex:indexPath.row]);
 }
 
@@ -90,6 +102,4 @@
     [super dealloc];
 }
 
-
 @end
-

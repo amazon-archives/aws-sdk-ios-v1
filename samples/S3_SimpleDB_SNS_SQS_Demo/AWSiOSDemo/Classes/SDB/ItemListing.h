@@ -15,16 +15,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ItemListing:UIViewController {
+@interface ItemListing:UITableViewController {
     NSMutableArray       *items;
     NSString             *domain;
-
-    IBOutlet UITableView *itemsTableView;
 }
 
 @property (nonatomic, retain) NSString *domain;
-
--(id)init;
--(IBAction)done:(id)sender;
 
 @end

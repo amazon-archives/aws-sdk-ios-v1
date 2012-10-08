@@ -48,6 +48,10 @@
 #import "AutoScalingDescribeNotificationConfigurationsResponseUnmarshaller.h"
 #import "AutoScalingDescribeNotificationConfigurationsRequest.h"
 #import "AutoScalingDescribeNotificationConfigurationsRequestMarshaller.h"
+#import "AutoScalingDescribeTerminationPolicyTypesResponse.h"
+#import "AutoScalingDescribeTerminationPolicyTypesResponseUnmarshaller.h"
+#import "AutoScalingDescribeTerminationPolicyTypesRequest.h"
+#import "AutoScalingDescribeTerminationPolicyTypesRequestMarshaller.h"
 #import "AutoScalingDescribeTagsResponse.h"
 #import "AutoScalingDescribeTagsResponseUnmarshaller.h"
 #import "AutoScalingDescribeTagsRequest.h"
@@ -416,6 +420,29 @@
  * @see AutoScalingDescribeNotificationConfigurationsResponse
  */
 -(AutoScalingDescribeNotificationConfigurationsResponse *)describeNotificationConfigurations:(AutoScalingDescribeNotificationConfigurationsRequest *)describeNotificationConfigurationsRequest;
+
+
+/**
+ * <p>
+ * Returns a list of all termination policies supported by Auto Scaling.
+ * </p>
+ *
+ * @param describeTerminationPolicyTypesRequest Container for the necessary parameters to execute the
+ *           DescribeTerminationPolicyTypes service method on AmazonAutoScaling.
+ *
+ * @return The response from the DescribeTerminationPolicyTypes service method, as returned by AmazonAutoScaling.
+ *
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonAutoScaling indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see AutoScalingDescribeTerminationPolicyTypesRequest
+ * @see AutoScalingDescribeTerminationPolicyTypesResponse
+ */
+-(AutoScalingDescribeTerminationPolicyTypesResponse *)describeTerminationPolicyTypes:(AutoScalingDescribeTerminationPolicyTypesRequest *)describeTerminationPolicyTypesRequest;
 
 
 /**

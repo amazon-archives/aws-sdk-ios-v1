@@ -15,18 +15,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ObjectListing:UIViewController {
+@interface ObjectListing:UITableViewController {
     NSMutableArray       *objects;
-    NSString             *bucket;
-
-    IBOutlet UITableView *objectsTableView;
 }
 
 @property (nonatomic, retain) NSString *bucket;
-
--(id)init;
-
--(IBAction)done:(id)sender;
--(IBAction)add:(id)sender;
 
 @end

@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE79F3CF160D3D6D001BED1E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE79F3CE160D3D6D001BED1E /* Default-568h@2x.png */; };
 		D03E18DC148CB91F00C122AC /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = D03E18C6148CB91F00C122AC /* Constants.m */; };
 		D03E18DD148CB91F00C122AC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D03E18C7148CB91F00C122AC /* InfoPlist.strings */; };
-		D03E18DE148CB91F00C122AC /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03E18C9148CB91F00C122AC /* MainWindow.xib */; };
 		D03E18DF148CB91F00C122AC /* Message_BoardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03E18CB148CB91F00C122AC /* Message_BoardViewController.xib */; };
 		D03E18E0148CB91F00C122AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D03E18CD148CB91F00C122AC /* main.m */; };
 		D03E18E1148CB91F00C122AC /* MembersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D03E18CF148CB91F00C122AC /* MembersViewController.m */; };
-		D03E18E4148CB91F00C122AC /* Message_BoardAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D03E18D4148CB91F00C122AC /* Message_BoardAppDelegate.m */; };
+		D03E18E4148CB91F00C122AC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D03E18D4148CB91F00C122AC /* AppDelegate.m */; };
 		D03E18E5148CB91F00C122AC /* Message_BoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D03E18D6148CB91F00C122AC /* Message_BoardViewController.m */; };
 		D03E18E6148CB91F00C122AC /* MessageBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = D03E18D8148CB91F00C122AC /* MessageBoard.m */; };
 		D03E18E7148CB91F00C122AC /* MessageQueueController.m in Sources */ = {isa = PBXBuildFile; fileRef = D03E18DA148CB91F00C122AC /* MessageQueueController.m */; };
@@ -24,18 +24,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE79F3CE160D3D6D001BED1E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D03E18C5148CB91F00C122AC /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		D03E18C6148CB91F00C122AC /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		D03E18C8148CB91F00C122AC /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D03E18CA148CB91F00C122AC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		D03E18CC148CB91F00C122AC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Message_BoardViewController.xib; sourceTree = "<group>"; };
 		D03E18CD148CB91F00C122AC /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D03E18CE148CB91F00C122AC /* MembersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MembersViewController.h; sourceTree = "<group>"; };
 		D03E18CF148CB91F00C122AC /* MembersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MembersViewController.m; sourceTree = "<group>"; };
 		D03E18D1148CB91F00C122AC /* Message Board-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Message Board-Info.plist"; sourceTree = "<group>"; };
 		D03E18D2148CB91F00C122AC /* Message Board-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Message Board-Prefix.pch"; sourceTree = "<group>"; };
-		D03E18D3148CB91F00C122AC /* Message_BoardAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message_BoardAppDelegate.h; sourceTree = "<group>"; };
-		D03E18D4148CB91F00C122AC /* Message_BoardAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message_BoardAppDelegate.m; sourceTree = "<group>"; };
+		D03E18D3148CB91F00C122AC /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D03E18D4148CB91F00C122AC /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D03E18D5148CB91F00C122AC /* Message_BoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message_BoardViewController.h; sourceTree = "<group>"; };
 		D03E18D6148CB91F00C122AC /* Message_BoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message_BoardViewController.m; sourceTree = "<group>"; };
 		D03E18D7148CB91F00C122AC /* MessageBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageBoard.h; sourceTree = "<group>"; };
@@ -64,11 +64,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE79F3CD160D3D4D001BED1E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CE79F3CE160D3D6D001BED1E /* Default-568h@2x.png */,
+				D03E18CD148CB91F00C122AC /* main.m */,
+				D03E18C7148CB91F00C122AC /* InfoPlist.strings */,
+				D03E18D1148CB91F00C122AC /* Message Board-Info.plist */,
+				D03E18D2148CB91F00C122AC /* Message Board-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		D03E18C4148CB91F00C122AC /* Message Board */ = {
 			isa = PBXGroup;
 			children = (
-				D03E18D3148CB91F00C122AC /* Message_BoardAppDelegate.h */,
-				D03E18D4148CB91F00C122AC /* Message_BoardAppDelegate.m */,
+				D03E18D3148CB91F00C122AC /* AppDelegate.h */,
+				D03E18D4148CB91F00C122AC /* AppDelegate.m */,
 				D03E18C5148CB91F00C122AC /* Constants.h */,
 				D03E18C6148CB91F00C122AC /* Constants.m */,
 				D03E18D7148CB91F00C122AC /* MessageBoard.h */,
@@ -80,11 +92,7 @@
 				D03E18CF148CB91F00C122AC /* MembersViewController.m */,
 				D03E18D9148CB91F00C122AC /* MessageQueueController.h */,
 				D03E18DA148CB91F00C122AC /* MessageQueueController.m */,
-				D03E18CD148CB91F00C122AC /* main.m */,
-				D03E18C7148CB91F00C122AC /* InfoPlist.strings */,
-				D03E18C9148CB91F00C122AC /* MainWindow.xib */,
-				D03E18D1148CB91F00C122AC /* Message Board-Info.plist */,
-				D03E18D2148CB91F00C122AC /* Message Board-Prefix.pch */,
+				CE79F3CD160D3D4D001BED1E /* Supporting Files */,
 			);
 			name = "Message Board";
 			path = MessageBoard;
@@ -169,8 +177,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D03E18DD148CB91F00C122AC /* InfoPlist.strings in Resources */,
-				D03E18DE148CB91F00C122AC /* MainWindow.xib in Resources */,
 				D03E18DF148CB91F00C122AC /* Message_BoardViewController.xib in Resources */,
+				CE79F3CF160D3D6D001BED1E /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,7 +192,7 @@
 				D03E18DC148CB91F00C122AC /* Constants.m in Sources */,
 				D03E18E0148CB91F00C122AC /* main.m in Sources */,
 				D03E18E1148CB91F00C122AC /* MembersViewController.m in Sources */,
-				D03E18E4148CB91F00C122AC /* Message_BoardAppDelegate.m in Sources */,
+				D03E18E4148CB91F00C122AC /* AppDelegate.m in Sources */,
 				D03E18E5148CB91F00C122AC /* Message_BoardViewController.m in Sources */,
 				D03E18E6148CB91F00C122AC /* MessageBoard.m in Sources */,
 				D03E18E7148CB91F00C122AC /* MessageQueueController.m in Sources */,
@@ -200,14 +208,6 @@
 				D03E18C8148CB91F00C122AC /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		D03E18C9148CB91F00C122AC /* MainWindow.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D03E18CA148CB91F00C122AC /* en */,
-			);
-			name = MainWindow.xib;
 			sourceTree = "<group>";
 		};
 		D03E18CB148CB91F00C122AC /* Message_BoardViewController.xib */ = {

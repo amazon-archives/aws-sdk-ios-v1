@@ -18,12 +18,10 @@
 
 @interface UserViewController:UITableViewController<SelectionViewControllerDelegate>
 {
-    int                 userNo;
-    NSMutableDictionary *userInfo;
-    NSArray             *tableDataSource;
 }
 
-@property (assign) int                            userNo;
+@property (assign, assign) int userNo;
 @property (nonatomic, retain) NSMutableDictionary *userInfo;
+@property (nonatomic, retain) NSArray *tableDataSource;
 
 @end

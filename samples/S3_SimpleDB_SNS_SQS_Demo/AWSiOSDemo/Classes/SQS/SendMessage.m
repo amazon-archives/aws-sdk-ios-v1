@@ -19,25 +19,38 @@
 
 @implementation SendMessage
 
-@synthesize queue;
+@synthesize queue = _queue;
 
 
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    queueNameLabel.text = queue;
+    queueNameLabel.text = self.queue;
 }
 
 -(IBAction)send:(id)sender
 {
-    SQSSendMessageRequest *sendMessageRequest = [[[SQSSendMessageRequest alloc] initWithQueueUrl:queue andMessageBody:message.text] autorelease];
-    SQSSendMessageResponse *sendMessageResponse = [[AmazonClientManager sqs] sendMessage:sendMessageRequest];
-    if(sendMessageResponse.error != nil)
-    {
-        NSLog(@"Error: %@", sendMessageResponse.error);
-    }
-    
-    [self dismissModalViewControllerAnimated:YES];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        });
+
+        SQSSendMessageRequest *sendMessageRequest = [[[SQSSendMessageRequest alloc] initWithQueueUrl:self.queue andMessageBody:message.text] autorelease];
+        SQSSendMessageResponse *sendMessageResponse = [[AmazonClientManager sqs] sendMessage:sendMessageRequest];
+        if(sendMessageResponse.error != nil)
+        {
+            NSLog(@"Error: %@", sendMessageResponse.error);
+        }
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            [self dismissModalViewControllerAnimated:YES];
+        });
+    });
 }
 
 -(IBAction)cancel:(id)sender
@@ -47,6 +60,10 @@
 
 -(void)dealloc
 {
+    [message release];
+    [queueNameLabel release];
+    [_queue release];
+
     [super dealloc];
 }
 

@@ -36,6 +36,8 @@
     NSString       *rootDeviceName;
     NSMutableArray *blockDeviceMappings;
     NSMutableArray *productCodes;
+    bool           ebsOptimized;
+    bool           ebsOptimizedIsSet;
 }
 
 
@@ -102,6 +104,13 @@
  * The value of the ProductCodes property for this object.
  */
 @property (nonatomic, retain) NSMutableArray *productCodes;
+
+/**
+ * Boolean value
+ */
+@property (nonatomic) bool           ebsOptimized;
+
+@property (nonatomic, readonly) bool ebsOptimizedIsSet;
 
 /**
  * Adds a single object to blockDeviceMappings.

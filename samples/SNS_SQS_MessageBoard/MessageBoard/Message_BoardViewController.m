@@ -37,8 +37,23 @@
 -(IBAction)subscribeEmail:(id)sender
 {
     [email resignFirstResponder];
-    [[MessageBoard instance] subscribeEmail:email.text];
-    [[Constants confirmationAlert] show];
+
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        });
+
+        [[MessageBoard instance] subscribeEmail:email.text];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            [[Constants confirmationAlert] show];
+        });
+    });
 }
 
 -(IBAction)subscribeSMS:(id)sender
@@ -49,8 +64,23 @@
         [[Constants smsSubscriptionAlert] show];
     }
     else {
-        [[MessageBoard instance] subscribeSms:sms.text];
-        [[Constants confirmationAlert] show];
+
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_async(queue, ^{
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+            });
+
+            [[MessageBoard instance] subscribeSms:sms.text];
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                [[Constants confirmationAlert] show];
+            });
+        });        
     }
 }
 
@@ -77,7 +107,22 @@
 -(IBAction)post:(id)sender
 {
     [message resignFirstResponder];
-    [[MessageBoard instance] post:message.text];
+
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        });
+
+        [[MessageBoard instance] post:message.text];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        });
+    });
 }
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField

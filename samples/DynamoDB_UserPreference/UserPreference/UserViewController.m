@@ -22,20 +22,17 @@
 
 @implementation UserViewController
 
-@synthesize userNo, userInfo;
+@synthesize userNo = _userNo;
+@synthesize userInfo = _userInfo;
+@synthesize tableDataSource = _tableDataSource;
 
 -(id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
+
         self.userNo   = 0;
         self.userInfo = nil;
-
-        tableDataSource = [[NSArray arrayWithObjects:
-                            [NSArray arrayWithObjects:@"Auto Login", nil],
-                            [NSArray arrayWithObjects:@"Color Theme", nil],
-                            [NSArray arrayWithObjects:@"Vibrate", @"Silent", nil],
-                            nil] retain];
     }
     return self;
 }
@@ -46,11 +43,36 @@
 {
     [super viewWillAppear:animated];
 
-    self.userInfo = [DynamoDBManager getUserInfo:self.userNo];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
 
-    self.title = [NSString stringWithFormat:@"%@ %@",
-                  ((DynamoDBAttributeValue *)[self.userInfo objectForKey:@"firstName"]).s,
-                  ((DynamoDBAttributeValue *)[self.userInfo objectForKey:@"lastName"]).s];
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+
+            self.tableDataSource = nil;
+            [self.tableView reloadData];
+        });
+
+        self.userInfo = [DynamoDBManager getUserInfo:self.userNo];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+
+            self.title = [NSString stringWithFormat:@"%@ %@",
+                          ((DynamoDBAttributeValue *)[self.userInfo objectForKey:@"firstName"]).s,
+                          ((DynamoDBAttributeValue *)[self.userInfo objectForKey:@"lastName"]).s];
+
+            self.tableDataSource = [NSArray arrayWithObjects:
+                                    [NSArray arrayWithObjects:@"Auto Login", nil],
+                                    [NSArray arrayWithObjects:@"Color Theme", nil],
+                                    [NSArray arrayWithObjects:@"Vibrate", @"Silent", nil],
+                                    nil];
+
+            [self.tableView reloadData];
+        });
+    });
 }
 
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -60,8 +82,8 @@
 
 -(void)dealloc
 {
-    [userInfo release];
-    [tableDataSource release];
+    [_userInfo release];
+    [_tableDataSource release];
 
     [super dealloc];
 }
@@ -70,12 +92,12 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [tableDataSource count];
+    return [self.tableDataSource count];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [(NSArray *)[tableDataSource objectAtIndex:section] count];
+    return [(NSArray *)[self.tableDataSource objectAtIndex:section] count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -89,7 +111,7 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
-    cell.textLabel.text = [[tableDataSource objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    cell.textLabel.text = [[self.tableDataSource objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
 
     if ([cell.textLabel.text isEqualToString:@"Auto Login"])
     {
@@ -128,7 +150,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([[[tableDataSource objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] isEqualToString:@"Color Theme"])
+    if ([[[self.tableDataSource objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] isEqualToString:@"Color Theme"])
     {
         SelectionViewController *selectionView = [[SelectionViewController alloc] initWithStyle:UITableViewStyleGrouped];
         selectionView.dataSource    = [Constants getColors];
@@ -144,47 +166,98 @@
 
 -(void)selectionViewController:(SelectionViewController *)selectionViewController
 {
-    [DynamoDBManager updateAttributeStringValue:selectionViewController.selectedValue
-     forKey:@"colorTheme"
-     withPrimaryKey:(DynamoDBAttributeValue *)[self.userInfo objectForKey:@"userNo"]];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
 
-    if (((DynamoDBAttributeValue *)[self.userInfo objectForKey:@"colorTheme"]) == nil)
-    {
-        [self.userInfo setObject:[[[DynamoDBAttributeValue alloc] initWithS:@""] autorelease] forKey:@"colorTheme"];
-    }
-    ((DynamoDBAttributeValue *)[self.userInfo objectForKey:@"colorTheme"]).s = selectionViewController.selectedValue;
+        dispatch_async(dispatch_get_main_queue(), ^{
 
-    [self.navigationController popViewControllerAnimated:YES];
-    [self.tableView reloadData];
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        });
+
+        [DynamoDBManager updateAttributeStringValue:selectionViewController.selectedValue
+                                             forKey:@"colorTheme"
+                                     withPrimaryKey:(DynamoDBAttributeValue *)[self.userInfo objectForKey:@"userNo"]];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+
+            if (((DynamoDBAttributeValue *)[self.userInfo objectForKey:@"colorTheme"]) == nil)
+            {
+                [self.userInfo setObject:[[[DynamoDBAttributeValue alloc] initWithS:@""] autorelease] forKey:@"colorTheme"];
+            }
+
+            ((DynamoDBAttributeValue *)[self.userInfo objectForKey:@"colorTheme"]).s = selectionViewController.selectedValue;
+
+            [self.navigationController popViewControllerAnimated:YES];
+            [self.tableView reloadData];
+        });
+    });
 }
 
 #pragma mark - UISwitch Actions
 
 -(void)autoLoginSwichChanged:(UISwitch *)aSwitch
 {
-    [aSwitch retain];
-    [DynamoDBManager updateAttributeStringValue:aSwitch.on ? @"YES":@"NO"
-     forKey:@"autoLogin"
-     withPrimaryKey:(DynamoDBAttributeValue *)[self.userInfo objectForKey:@"userNo"]];
-    [aSwitch release];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        });
+
+        [DynamoDBManager updateAttributeStringValue:aSwitch.on ? @"YES":@"NO"
+                                             forKey:@"autoLogin"
+                                     withPrimaryKey:(DynamoDBAttributeValue *)[self.userInfo objectForKey:@"userNo"]];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        });
+    });
 }
 
 -(void)vibrateSwichChanged:(UISwitch *)aSwitch
 {
-    [aSwitch retain];
-    [DynamoDBManager updateAttributeStringValue:aSwitch.on ? @"YES":@"NO"
-     forKey:@"vibrate"
-     withPrimaryKey:(DynamoDBAttributeValue *)[self.userInfo objectForKey:@"userNo"]];
-    [aSwitch release];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        });
+
+        [DynamoDBManager updateAttributeStringValue:aSwitch.on ? @"YES":@"NO"
+                                             forKey:@"vibrate"
+                                     withPrimaryKey:(DynamoDBAttributeValue *)[self.userInfo objectForKey:@"userNo"]];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        });
+    });
 }
 
 -(void)silentSwichChanged:(UISwitch *)aSwitch
 {
-    [aSwitch retain];
-    [DynamoDBManager updateAttributeStringValue:aSwitch.on ? @"YES":@"NO"
-     forKey:@"silent"
-     withPrimaryKey:(DynamoDBAttributeValue *)[self.userInfo objectForKey:@"userNo"]];
-    [aSwitch release];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        });
+
+        [DynamoDBManager updateAttributeStringValue:aSwitch.on ? @"YES":@"NO"
+                                             forKey:@"silent"
+                                     withPrimaryKey:(DynamoDBAttributeValue *)[self.userInfo objectForKey:@"userNo"]];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        });
+    });
 }
 
 #pragma mark -

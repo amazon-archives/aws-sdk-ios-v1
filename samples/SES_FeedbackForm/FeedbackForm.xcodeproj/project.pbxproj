@@ -19,6 +19,7 @@
 		381C1EFD14F6D0E300FC3FC3 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 381C1EFC14F6D0E300FC3FC3 /* AWSiOSSDK.framework */; };
 		381C1F0C14F6D96400FC3FC3 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 381C1F0B14F6D96400FC3FC3 /* Constants.m */; };
 		381C1F1314F6DC4900FC3FC3 /* AmazonClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 381C1F1214F6DC4900FC3FC3 /* AmazonClientManager.m */; };
+		CE87744A160CFA6300120174 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE877449160CFA6300120174 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		381C1F0B14F6D96400FC3FC3 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		381C1F1114F6DC4900FC3FC3 /* AmazonClientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonClientManager.h; sourceTree = "<group>"; };
 		381C1F1214F6DC4900FC3FC3 /* AmazonClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonClientManager.m; sourceTree = "<group>"; };
+		CE877449160CFA6300120174 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,14 +92,14 @@
 		381C1EDC14F6CF5400FC3FC3 /* FeedbackForm */ = {
 			isa = PBXGroup;
 			children = (
+				381C1EE514F6CF5400FC3FC3 /* AppDelegate.h */,
+				381C1EE614F6CF5400FC3FC3 /* AppDelegate.m */,
 				381C1F1114F6DC4900FC3FC3 /* AmazonClientManager.h */,
 				381C1F1214F6DC4900FC3FC3 /* AmazonClientManager.m */,
 				381A9F8914F850DA005DFE36 /* SESManager.h */,
 				381A9F8A14F850DA005DFE36 /* SESManager.m */,
 				381C1F0A14F6D96400FC3FC3 /* Constants.h */,
 				381C1F0B14F6D96400FC3FC3 /* Constants.m */,
-				381C1EE514F6CF5400FC3FC3 /* AppDelegate.h */,
-				381C1EE614F6CF5400FC3FC3 /* AppDelegate.m */,
 				381C1EE814F6CF5400FC3FC3 /* ViewController.h */,
 				381C1EE914F6CF5400FC3FC3 /* ViewController.m */,
 				381C1EEB14F6CF5400FC3FC3 /* ViewController.xib */,
@@ -109,6 +111,7 @@
 		381C1EDD14F6CF5400FC3FC3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CE877449160CFA6300120174 /* Default-568h@2x.png */,
 				381C1EDE14F6CF5400FC3FC3 /* FeedbackForm-Info.plist */,
 				381C1EDF14F6CF5400FC3FC3 /* InfoPlist.strings */,
 				381C1EE214F6CF5400FC3FC3 /* main.m */,
@@ -169,6 +172,7 @@
 			files = (
 				381C1EE114F6CF5400FC3FC3 /* InfoPlist.strings in Resources */,
 				381C1EED14F6CF5400FC3FC3 /* ViewController.xib in Resources */,
+				CE87744A160CFA6300120174 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

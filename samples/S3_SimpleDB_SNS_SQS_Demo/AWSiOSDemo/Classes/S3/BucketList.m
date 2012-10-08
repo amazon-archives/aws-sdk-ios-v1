@@ -21,43 +21,55 @@
 
 @implementation BucketList
 
--(id)init
+- (void)viewDidLoad
 {
-    return [super initWithNibName:@"BucketList" bundle:nil];
+    [super viewDidLoad];
+
+    self.title = @"Bucket List";
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                               target:self
+                                                                               action:@selector(add:)];
+    self.navigationItem.rightBarButtonItem = addButton;
+    [addButton release];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    NSArray *bucketNames = [[AmazonClientManager s3] listBuckets];
-    if (buckets == nil) {
-        buckets = [[NSMutableArray alloc] initWithCapacity:[bucketNames count]];
-    }
-    else {
-        [buckets removeAllObjects];
-    }
-    
-    if (bucketNames != nil) {
-        for (S3Bucket *bucket in bucketNames) {
-            [buckets addObject:[bucket name]];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        });
+
+        NSArray *bucketNames = [[AmazonClientManager s3] listBuckets];
+        if (buckets == nil) {
+            buckets = [[NSMutableArray alloc] initWithCapacity:[bucketNames count]];
         }
-    }
-    
-    [buckets sortUsingSelector:@selector(compare:)];
-    
-    [bucketTableView reloadData];
+        else {
+            [buckets removeAllObjects];
+        }
+
+        if (bucketNames != nil) {
+            for (S3Bucket *bucket in bucketNames) {
+                [buckets addObject:[bucket name]];
+            }
+        }
+
+        [buckets sortUsingSelector:@selector(compare:)];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            [self.tableView reloadData];
+        });
+    });
 }
 
--(IBAction)done:(id)sender
-{
-    [self dismissModalViewControllerAnimated:YES];
-}
-
--(IBAction)add:(id)sender
+-(void)add:(id)sender
 {
     AddBucketViewController *addBucketViewController = [[AddBucketViewController alloc] init];
-    
-    addBucketViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    
     [self presentModalViewController:addBucketViewController animated:YES];
     [addBucketViewController release];
 }
@@ -75,49 +87,62 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
+
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell.textLabel.adjustsFontSizeToFitWidth = YES;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    
+
     // Configure the cell...
-    cell.textLabel.text                      = [buckets objectAtIndex:indexPath.row];
-    cell.textLabel.adjustsFontSizeToFitWidth = YES;
-    
+    cell.textLabel.text = [buckets objectAtIndex:indexPath.row];
+
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
-        S3DeleteBucketRequest *deleteBucketRequest = [[[S3DeleteBucketRequest alloc] initWithName:[buckets objectAtIndex:indexPath.row]] autorelease];
-        S3DeleteBucketResponse *deleteBucketResponse = [[AmazonClientManager s3] deleteBucket:deleteBucketRequest];
-        if(deleteBucketResponse.error != nil)
-        {
-            NSLog(@"Error: %@", deleteBucketResponse.error);
-        }
-        
-        [buckets removeObjectAtIndex:indexPath.row];
-        
-        NSArray *indexPaths = [NSArray arrayWithObjects:indexPath, nil];
-        
-        [tableView beginUpdates];
-        [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
-        [tableView endUpdates];
+
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_async(queue, ^{
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+            });
+
+            S3DeleteBucketRequest *deleteBucketRequest = [[[S3DeleteBucketRequest alloc] initWithName:[buckets objectAtIndex:indexPath.row]] autorelease];
+            S3DeleteBucketResponse *deleteBucketResponse = [[AmazonClientManager s3] deleteBucket:deleteBucketRequest];
+            if(deleteBucketResponse.error != nil)
+            {
+                NSLog(@"Error: %@", deleteBucketResponse.error);
+            }
+
+            [buckets removeObjectAtIndex:indexPath.row];
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+
+                NSArray *indexPaths = [NSArray arrayWithObjects:indexPath, nil];
+                [tableView beginUpdates];
+                [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
+                [tableView endUpdates];
+            });
+        });
     }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     ObjectListing *objectList = [[ObjectListing alloc] init];
-    
-    objectList.bucket               = [buckets objectAtIndex:indexPath.row];
-    objectList.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    
-    [self presentModalViewController:objectList animated:YES];
+    objectList.bucket = [buckets objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:objectList animated:YES];
     [objectList release];
 }
 

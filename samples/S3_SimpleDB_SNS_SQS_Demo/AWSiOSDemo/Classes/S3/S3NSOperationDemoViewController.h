@@ -42,6 +42,5 @@
 
 -(IBAction)uploadImages:(id)sender;
 -(IBAction)downloadImages:(id)sender;
--(IBAction)done:(id)sender;
 
 @end

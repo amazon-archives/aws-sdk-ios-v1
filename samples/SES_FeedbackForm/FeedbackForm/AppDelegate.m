@@ -33,9 +33,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    
     // Override point for customization after application launch.
     self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
-    self.window.rootViewController = self.viewController;
+
+    UINavigationController *container = [UINavigationController new];
+    [container pushViewController:self.viewController animated:NO];
+    self.window.rootViewController = container;
+    [container release];
+
     [self.window makeKeyAndVisible];
     
     // Logging Control - Do NOT use logging for non-development builds.

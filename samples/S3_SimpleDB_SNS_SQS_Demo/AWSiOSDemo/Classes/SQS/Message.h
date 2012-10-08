@@ -17,14 +17,10 @@
 #import "AWSiOSSDK/SQS/SQSMessage.h"
 
 @interface Message:UIViewController {
-    SQSMessage       *message;
-
     IBOutlet UILabel *messageId;
     IBOutlet UILabel *body;
 }
 
 @property (nonatomic, retain) SQSMessage *message;
-
--(IBAction)done:(id)sender;
 
 @end

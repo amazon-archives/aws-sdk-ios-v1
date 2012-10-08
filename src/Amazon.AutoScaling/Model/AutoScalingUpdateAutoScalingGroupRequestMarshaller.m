@@ -91,6 +91,17 @@
         }
     }
 
+    if (updateAutoScalingGroupRequest != nil) {
+        int terminationPoliciesListIndex = 1;
+        for (NSString *terminationPoliciesListValue in updateAutoScalingGroupRequest.terminationPolicies) {
+            if (terminationPoliciesListValue != nil) {
+                [request setParameterValue:[NSString stringWithFormat:@"%@", terminationPoliciesListValue] forKey:[NSString stringWithFormat:@"%@.member.%d", @"TerminationPolicies", terminationPoliciesListIndex]];
+            }
+
+            terminationPoliciesListIndex++;
+        }
+    }
+
 
     return [request autorelease];
 }

@@ -13,6 +13,7 @@
  * permissions and limitations under the License.
  */
 
+#import "EC2ReservedInstanceLimitPrice.h"
 
 #import "../AmazonServiceRequestConfig.h"
 
@@ -25,8 +26,9 @@
 @interface EC2PurchaseReservedInstancesOfferingRequest:AmazonServiceRequestConfig
 
 {
-    NSString *reservedInstancesOfferingId;
-    NSNumber *instanceCount;
+    NSString                      *reservedInstancesOfferingId;
+    NSNumber                      *instanceCount;
+    EC2ReservedInstanceLimitPrice *limitPrice;
 }
 
 
@@ -40,6 +42,11 @@
  * The number of Reserved Instances to purchase.
  */
 @property (nonatomic, retain) NSNumber *instanceCount;
+
+/**
+ * The value of the LimitPrice property for this object.
+ */
+@property (nonatomic, retain) EC2ReservedInstanceLimitPrice *limitPrice;
 
 
 /**

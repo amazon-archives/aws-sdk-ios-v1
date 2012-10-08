@@ -40,6 +40,8 @@
     NSString       *userData;
     NSString       *instanceInitiatedShutdownBehavior;
     NSMutableArray *groups;
+    bool           ebsOptimized;
+    bool           ebsOptimizedIsSet;
 }
 
 
@@ -58,7 +60,7 @@
  * <code>rootDevice</code>, <code>blockDeviceMapping</code>
  * <p>
  * <b>Constraints:</b><br/>
- * <b>Allowed Values: </b>instanceType, kernel, ramdisk, userData, disableApiTermination, instanceInitiatedShutdownBehavior, rootDeviceName, blockDeviceMapping, productCodes, sourceDestCheck, groupSet
+ * <b>Allowed Values: </b>instanceType, kernel, ramdisk, userData, disableApiTermination, instanceInitiatedShutdownBehavior, rootDeviceName, blockDeviceMapping, productCodes, sourceDestCheck, groupSet, ebsOptimized
  */
 @property (nonatomic, retain) NSString *attribute;
 
@@ -121,6 +123,13 @@
  * The value of the Groups property for this object.
  */
 @property (nonatomic, retain) NSMutableArray *groups;
+
+/**
+ * Boolean value
+ */
+@property (nonatomic) bool           ebsOptimized;
+
+@property (nonatomic, readonly) bool ebsOptimizedIsSet;
 
 
 /**

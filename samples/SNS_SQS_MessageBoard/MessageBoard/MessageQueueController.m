@@ -26,11 +26,32 @@
     self = [super init];
     if (self)
     {
-        messages = [[[MessageBoard instance] getMessagesFromQueue] retain];
         self.title = @"Message Queue";
         self.navigationItem.rightBarButtonItem = self.editButtonItem;
     }
     return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        });
+
+        messages = [[[MessageBoard instance] getMessagesFromQueue] retain];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            [self.tableView reloadData];
+        });
+    });
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -51,13 +72,13 @@
 
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
+        cell.textLabel.adjustsFontSizeToFitWidth = YES;
     }
 
     // Configure the cell...
     SQSMessage *message = [messages objectAtIndex:indexPath.row];
     if (message != nil && message.body != nil) {
         cell.textLabel.text                      = [self extractMessageFromJson:message.body];
-        cell.textLabel.adjustsFontSizeToFitWidth = YES;
     }
 
     return cell;
@@ -66,15 +87,30 @@
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        SQSMessage *message = [messages objectAtIndex:indexPath.row];
 
-        [[MessageBoard instance] deleteMessageFromQueue:message];
-        [messages removeObjectAtIndex:indexPath.row];
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_async(queue, ^{
 
-        NSArray *indexPaths = [NSArray arrayWithObjects:indexPath, nil];
-        [tableView beginUpdates];
-        [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
-        [tableView endUpdates];
+            dispatch_async(dispatch_get_main_queue(), ^{
+
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+            });
+
+            SQSMessage *message = [messages objectAtIndex:indexPath.row];
+
+            [[MessageBoard instance] deleteMessageFromQueue:message];
+            [messages removeObjectAtIndex:indexPath.row];
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+
+                NSArray *indexPaths = [NSArray arrayWithObjects:indexPath, nil];
+                [tableView beginUpdates];
+                [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
+                [tableView endUpdates];
+            });
+        });
     }
 }
 

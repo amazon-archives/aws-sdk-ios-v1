@@ -18,27 +18,25 @@
 
 @implementation Message
 
-
-@synthesize message;
-
-
--(IBAction)done:(id)sender
-{
-    [self dismissModalViewControllerAnimated:YES];
-}
+@synthesize message = _message;
 
 -(void)viewDidLoad
 {
     [super viewDidLoad];
 
-    messageId.text = message.messageId;
-    body.text      = message.body;
+    self.title = @"Message Details";
+
+    messageId.text = self.message.messageId;
+    body.text      = self.message.body;
 }
 
 -(void)dealloc
 {
+    [_message release];
+    [messageId release];
+    [body release];
+
     [super dealloc];
 }
-
 
 @end

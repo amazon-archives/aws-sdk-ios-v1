@@ -23,7 +23,7 @@
     S3BucketTagSet *tagset;
 }
 
-/** The S3BucketLifecycleConfigurationRule represented by the XML */
+/** The S3BucketTagSet represented by the XML */
 @property (nonatomic, readonly) S3BucketTagSet *tagset;
 
 @end

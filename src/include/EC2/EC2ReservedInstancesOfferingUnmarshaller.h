@@ -20,6 +20,8 @@
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
 #import "EC2RecurringChargeUnmarshaller.h"
+#import "../AmazonListUnmarshaller.h"
+#import "EC2PricingDetailUnmarshaller.h"
 #import "../AmazonSDKUtil.h"
 
 

@@ -123,6 +123,12 @@
 #import "S3GetBucketTaggingResponse.h"
 #import "S3DeleteBucketTaggingRequest.h"
 #import "S3DeleteBucketTaggingResponse.h"
+#import "S3SetBucketCrossOriginRequest.h"
+#import "S3SetBucketCrossOriginResponse.h"
+#import "S3GetBucketCrossOriginRequest.h"
+#import "S3GetBucketCrossOriginResponse.h"
+#import "S3DeleteBucketCrossOriginRequest.h"
+#import "S3DeleteBucketCrossOriginResponse.h"
 
 /** \defgroup S3 Amazon S3 */
 
@@ -566,9 +572,10 @@
 -(S3DeleteBucketLifecycleConfigurationResponse *)deleteBucketLifecycleConfiguration:(S3DeleteBucketLifecycleConfigurationRequest *)deleteBucketLifecycleConfigurationRequest;
 
 /**
- * Sets the tagging configuration for the specified bucket, or null if no
- * configuration has been established.
- Sets the tagging configuration for the specified bucket.  A tagging configuration contains a TagSet.
+ * Sets the tagging configuration for the specified bucket.  A tagging configuration contains a TagSet.
+ * <p>
+ * For more informaiton on how to using Bucket Cost Allocation Tagging see:
+ * <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/BucketBilling.html">http://docs.amazonwebservices.com/AmazonS3/latest/dev/BucketBilling.html</a>.
  *
  * @param setBucketTaggingRequest request to process
  *
@@ -584,9 +591,11 @@
 /**
  * Gets the tagging configuration for the specified bucket, or null if no
  * configuration has been established.
+ * <p>
+ * For more informaiton on how to using Bucket Cost Allocation Tagging see:
+ * <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/BucketBilling.html">http://docs.amazonwebservices.com/AmazonS3/latest/dev/BucketBilling.html</a>.
  *
- * @param bucketName  The name of the bucket whose tagging configuration is being
- *            retrieved.
+ * @param getBucketTaggingRequest  The request to process
  *
  * @return The bucket lifecycle configuration for the specified bucket,
  *         otherwise null if there is no Lifecycle configuration set for the
@@ -603,9 +612,10 @@
 
 /**
  * Deletes the tagging configuration for the specified bucket
- * 
- * @param bucketName  The name of the bucket whose tagging configuration is being
- *            deleted.
+ * <p> 
+ * For more informaiton on how to using Bucket Cost Allocation Tagging see:
+ * <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/BucketBilling.html">http://docs.amazonwebservices.com/AmazonS3/latest/dev/BucketBilling.html</a>.
+ * @param deleteBucketTaggingRequest The request to process
  *
  * @exception AmazonClientException  If any errors are encountered on the client while making the
  *             request or handling the response. For more information see <AmazonClientException>.
@@ -615,6 +625,62 @@
  * @see S3DeleteBucketTaggingRequest
  */
 -(S3DeleteBucketTaggingResponse *)deleteBucketTagging:(S3DeleteBucketTaggingRequest *)deleteBucketTaggingRequest;
+
+
+/**
+ * Sets the CORS configuration for the specified bucket, or null if no
+ * configuration has been established. CORS config is comprised of a set of rules.
+ * <p>
+ * For more informaiton on how to using Bucket CORS see:
+ * <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/cors.html">http://docs.amazonwebservices.com/AmazonS3/latest/dev/cors.html</a>.
+ *
+ * @param setBucketCrossOriginRequest request to process
+ *
+ * @exception AmazonClientException  If any errors are encountered on the client while making the
+ *             request or handling the response. For more information see <AmazonClientException>.
+ * @exception AmazonServiceException  If any errors occurred in Amazon S3 while processing the
+ *             request.  For more information see <AmazonServiceException>.
+ * @see S3SetBucketCrossOriginResponse
+ * @see S3SetBucketCrossOriginRequest
+ */
+-(S3SetBucketCrossOriginResponse *)setBucketCrossOrigin:(S3SetBucketCrossOriginRequest *)setBucketCrossOriginRequest;
+
+/**
+ * Gets the CrossOrigin configuration for the specified bucket, or null if no
+ * configuration has been established.
+ * <p>
+ * For more informaiton on how to using Bucket CORS see:
+ * <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/cors.html">http://docs.amazonwebservices.com/AmazonS3/latest/dev/cors.html</a>.
+ *
+ * @param getBucketCrossOriginRequest request to process
+ *
+ * @return A response which will contain the CORS config for bucket.
+ *
+ * @exception AmazonClientException  If any errors are encountered on the client while making the
+ *             request or handling the response. For more information see <AmazonClientException>.
+ * @exception AmazonServiceException  If any errors occurred in Amazon S3 while processing the
+ *             request.  For more information see <AmazonServiceException>.
+ * @see S3GetBucketCrossOriginResponse
+ * @see S3GetBucketCrossOriginRequest
+ */
+-(S3GetBucketCrossOriginResponse *)getBucketCrossOrigin:(S3GetBucketCrossOriginRequest *)getBucketCrossOriginRequest;
+
+/**
+ * Deletes the CrossOrigin configuration for the specified bucket
+ * <p>
+ * For more informaiton on how to using Bucket CORS see:
+ * <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/cors.html">http://docs.amazonwebservices.com/AmazonS3/latest/dev/cors.html</a>.
+ *
+ * @param deleteBucketCrossOriginRequest  the request to process
+ *
+ * @exception AmazonClientException  If any errors are encountered on the client while making the
+ *             request or handling the response. For more information see <AmazonClientException>.
+ * @exception AmazonServiceException  If any errors occurred in Amazon S3 while processing the
+ *             request.  For more information see <AmazonServiceException>.
+ * @see S3DeleteBucketCrossOriginResponse
+ * @see S3DeleteBucketCrossOriginRequest
+ */
+-(S3DeleteBucketCrossOriginResponse *)deleteBucketCrossOrigin:(S3DeleteBucketCrossOriginRequest *)deleteBucketCrossOriginRequest;
 
 /** Deletes a specific version of an object in the specified bucket. Once
  * deleted, there is no method to restore or undelete an object version.

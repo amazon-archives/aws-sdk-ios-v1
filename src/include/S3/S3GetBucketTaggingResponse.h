@@ -25,7 +25,7 @@
     S3BucketTaggingConfiguration *configuration;
 }
 
-/** The BucketTagging represented by the XML */
+/** The cost allocation tagging configuration represented by the XML */
 @property (nonatomic, retain) S3BucketTaggingConfiguration *configuration;
 
 @end

@@ -21,6 +21,8 @@
 @synthesize size;
 @synthesize snapshotId;
 @synthesize availabilityZone;
+@synthesize volumeType;
+@synthesize iops;
 
 
 -(id)init
@@ -29,6 +31,8 @@
         size             = nil;
         snapshotId       = nil;
         availabilityZone = nil;
+        volumeType       = nil;
+        iops             = nil;
     }
 
     return self;
@@ -64,6 +68,8 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Size: %@,", size] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"SnapshotId: %@,", snapshotId] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"AvailabilityZone: %@,", availabilityZone] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"VolumeType: %@,", volumeType] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Iops: %@,", iops] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -77,6 +83,8 @@
     [size release];
     [snapshotId release];
     [availabilityZone release];
+    [volumeType release];
+    [iops release];
 
     [super dealloc];
 }

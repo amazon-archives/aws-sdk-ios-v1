@@ -18,8 +18,6 @@
 
 
 @interface SendMessage:UIViewController {
-    NSString             *queue;
-
     IBOutlet UITextField *message;
     IBOutlet UILabel     *queueNameLabel;
 }

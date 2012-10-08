@@ -7,17 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE87745B160D285300120174 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE87745A160D285300120174 /* Default-568h@2x.png */; };
 		D04EE86A143BAEB800587CF6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04EE869143BAEB800587CF6 /* UIKit.framework */; };
 		D04EE86C143BAEB800587CF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04EE86B143BAEB800587CF6 /* Foundation.framework */; };
 		D04EE86E143BAEB800587CF6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04EE86D143BAEB800587CF6 /* CoreGraphics.framework */; };
 		D04EE874143BAEB800587CF6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D04EE872143BAEB800587CF6 /* InfoPlist.strings */; };
 		D04EE877143BAEB800587CF6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D04EE876143BAEB800587CF6 /* main.m */; };
-		D04EE87A143BAEB800587CF6 /* HighScoresAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D04EE879143BAEB800587CF6 /* HighScoresAppDelegate.m */; };
-		D04EE87D143BAEB800587CF6 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D04EE87B143BAEB800587CF6 /* MainWindow.xib */; };
+		D04EE87A143BAEB800587CF6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D04EE879143BAEB800587CF6 /* AppDelegate.m */; };
 		D04EE880143BAEB800587CF6 /* HighScoresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D04EE87F143BAEB800587CF6 /* HighScoresViewController.m */; };
 		D04EE883143BAEB800587CF6 /* HighScoresViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D04EE881143BAEB800587CF6 /* HighScoresViewController.xib */; };
 		D04EE8A4143BB56A00587CF6 /* HighScoresTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D04EE8A2143BB56A00587CF6 /* HighScoresTableViewController.m */; };
-		D04EE8A5143BB56A00587CF6 /* HighScoresTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D04EE8A3143BB56A00587CF6 /* HighScoresTableViewController.xib */; };
 		D04FCC5B146B0C6400F9C434 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04FCC5A146B0C6400F9C434 /* AWSiOSSDK.framework */; };
 		D0A50D041444B3E000BDF08B /* HighScoreList.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A50D031444B3E000BDF08B /* HighScoreList.m */; };
 		D0A50D071444B57000BDF08B /* HighScore.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A50D061444B57000BDF08B /* HighScore.m */; };
@@ -29,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE87745A160D285300120174 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D04EE865143BAEB800587CF6 /* HighScores.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HighScores.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D04EE869143BAEB800587CF6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D04EE86B143BAEB800587CF6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -37,15 +37,13 @@
 		D04EE873143BAEB800587CF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D04EE875143BAEB800587CF6 /* HighScores-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HighScores-Prefix.pch"; sourceTree = "<group>"; };
 		D04EE876143BAEB800587CF6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D04EE878143BAEB800587CF6 /* HighScoresAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HighScoresAppDelegate.h; sourceTree = "<group>"; };
-		D04EE879143BAEB800587CF6 /* HighScoresAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HighScoresAppDelegate.m; sourceTree = "<group>"; };
-		D04EE87C143BAEB800587CF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		D04EE878143BAEB800587CF6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D04EE879143BAEB800587CF6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D04EE87E143BAEB800587CF6 /* HighScoresViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HighScoresViewController.h; sourceTree = "<group>"; };
 		D04EE87F143BAEB800587CF6 /* HighScoresViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HighScoresViewController.m; sourceTree = "<group>"; };
 		D04EE882143BAEB800587CF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HighScoresViewController.xib; sourceTree = "<group>"; };
 		D04EE8A1143BB56A00587CF6 /* HighScoresTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoresTableViewController.h; sourceTree = "<group>"; };
 		D04EE8A2143BB56A00587CF6 /* HighScoresTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoresTableViewController.m; sourceTree = "<group>"; };
-		D04EE8A3143BB56A00587CF6 /* HighScoresTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighScoresTableViewController.xib; sourceTree = "<group>"; };
 		D04FCC5A146B0C6400F9C434 /* AWSiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSiOSSDK.framework; path = ../../AWSiOSSDK.framework; sourceTree = "<group>"; };
 		D0A50D021444B3E000BDF08B /* HighScoreList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreList.h; sourceTree = "<group>"; };
 		D0A50D031444B3E000BDF08B /* HighScoreList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreList.m; sourceTree = "<group>"; };
@@ -109,14 +107,13 @@
 			children = (
 				D0CA09C1144A312A00F15C37 /* Constants.h */,
 				D0CA09C2144A312A00F15C37 /* Constants.m */,
-				D04EE878143BAEB800587CF6 /* HighScoresAppDelegate.h */,
-				D04EE879143BAEB800587CF6 /* HighScoresAppDelegate.m */,
+				D04EE878143BAEB800587CF6 /* AppDelegate.h */,
+				D04EE879143BAEB800587CF6 /* AppDelegate.m */,
 				D04EE87E143BAEB800587CF6 /* HighScoresViewController.h */,
 				D04EE87F143BAEB800587CF6 /* HighScoresViewController.m */,
 				D04EE881143BAEB800587CF6 /* HighScoresViewController.xib */,
 				D04EE8A1143BB56A00587CF6 /* HighScoresTableViewController.h */,
 				D04EE8A2143BB56A00587CF6 /* HighScoresTableViewController.m */,
-				D04EE8A3143BB56A00587CF6 /* HighScoresTableViewController.xib */,
 				D0A587C21443911600DE607C /* AddScoreViewController.h */,
 				D0A50D0E1444CEE700BDF08B /* AddScoreViewController.m */,
 				D0A587C41443911600DE607C /* AddScoreViewController.xib */,
@@ -127,7 +124,6 @@
 				D0CA09B614495CD300F15C37 /* PlayerViewController.h */,
 				D0CA09B714495CD300F15C37 /* PlayerViewController.m */,
 				D0CA09B814495CD300F15C37 /* PlayerViewController.xib */,
-				D04EE87B143BAEB800587CF6 /* MainWindow.xib */,
 				D04EE870143BAEB800587CF6 /* Supporting Files */,
 			);
 			path = HighScores;
@@ -136,6 +132,7 @@
 		D04EE870143BAEB800587CF6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CE87745A160D285300120174 /* Default-568h@2x.png */,
 				D04EE871143BAEB800587CF6 /* HighScores-Info.plist */,
 				D04EE872143BAEB800587CF6 /* InfoPlist.strings */,
 				D04EE875143BAEB800587CF6 /* HighScores-Prefix.pch */,
@@ -195,11 +192,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D04EE874143BAEB800587CF6 /* InfoPlist.strings in Resources */,
-				D04EE87D143BAEB800587CF6 /* MainWindow.xib in Resources */,
 				D04EE883143BAEB800587CF6 /* HighScoresViewController.xib in Resources */,
-				D04EE8A5143BB56A00587CF6 /* HighScoresTableViewController.xib in Resources */,
 				D0A587C61443911600DE607C /* AddScoreViewController.xib in Resources */,
 				D0CA09BA14495CD300F15C37 /* PlayerViewController.xib in Resources */,
+				CE87745B160D285300120174 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,7 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D04EE877143BAEB800587CF6 /* main.m in Sources */,
-				D04EE87A143BAEB800587CF6 /* HighScoresAppDelegate.m in Sources */,
+				D04EE87A143BAEB800587CF6 /* AppDelegate.m in Sources */,
 				D04EE880143BAEB800587CF6 /* HighScoresViewController.m in Sources */,
 				D04EE8A4143BB56A00587CF6 /* HighScoresTableViewController.m in Sources */,
 				D0A50D041444B3E000BDF08B /* HighScoreList.m in Sources */,
@@ -231,14 +227,6 @@
 				D04EE873143BAEB800587CF6 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		D04EE87B143BAEB800587CF6 /* MainWindow.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D04EE87C143BAEB800587CF6 /* en */,
-			);
-			name = MainWindow.xib;
 			sourceTree = "<group>";
 		};
 		D04EE881143BAEB800587CF6 /* HighScoresViewController.xib */ = {

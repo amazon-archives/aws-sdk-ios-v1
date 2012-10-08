@@ -15,14 +15,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BucketList:UIViewController {
+@interface BucketList:UITableViewController {
     NSMutableArray       *buckets;
-    IBOutlet UITableView *bucketTableView;
 }
-
--(id)init;
-
--(IBAction)done:(id)sender;
--(IBAction)add:(id)sender;
 
 @end

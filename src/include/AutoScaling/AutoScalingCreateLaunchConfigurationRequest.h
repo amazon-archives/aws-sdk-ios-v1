@@ -160,11 +160,11 @@
 @property (nonatomic, retain) AutoScalingInstanceMonitoring *instanceMonitoring;
 
 /**
- * The maximum hourly price for any Spot Instance launched to fulfill the
- * request. Spot Instances are launched when the maximum price you
- * specify exceeds the current Spot price. For more information on
+ * The maximum hourly price to be paid for any Spot Instance launched to
+ * fulfill the request. Spot Instances are launched when the price you
+ * specify exceeds the current Spot market price. For more information on
  * launching Spot Instances, go to <a
- * .amazonwebservices.com/AWSEC2/latest/UserGuide/US-SpotInstances.html">
+ * services.com/AutoScaling/latest/DeveloperGuide/US-SpotInstances.html">
  * Using Auto Scaling to Launch Spot Instances</a> in the <i>Auto Scaling
  * Developer Guide</i>.
  * <p>
@@ -174,9 +174,9 @@
 @property (nonatomic, retain) NSString *spotPrice;
 
 /**
- * The name or the ARN of the instance profile associated with the IAM
- * role for the instance. For information on launching EC2 instances with
- * an IAM role, go to <a
+ * The name or the Amazon Resource Name (ARN) of the instance profile
+ * associated with the IAM role for the instance. For information on
+ * launching EC2 instances with an IAM role, go to <a
  * ices.com/AutoScaling/latest/DeveloperGuide/us-iam-role.html">Launching
  * Auto Scaling Instances With an IAM Role</a> in the <i>Auto Scaling
  * Developer Guide</i>.

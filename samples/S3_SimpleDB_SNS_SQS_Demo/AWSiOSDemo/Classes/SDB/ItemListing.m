@@ -22,40 +22,51 @@
 
 @synthesize domain;
 
--(id)init
+- (void)viewDidLoad
 {
-    return [super initWithNibName:@"ItemListing" bundle:nil];
+    [super viewDidLoad];
+
+    self.title = @"Items";
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    NSString *selectExpression = [NSString stringWithFormat:@"select itemName() from `%@`", self.domain];
-    
-    SimpleDBSelectRequest  *selectRequest  = [[[SimpleDBSelectRequest alloc] initWithSelectExpression:selectExpression] autorelease];
-    SimpleDBSelectResponse *selectResponse = [[AmazonClientManager sdb] select:selectRequest];
-    if(selectResponse.error != nil)
-    {
-        NSLog(@"Error: %@", selectResponse.error);
-    }
-    
-    if (items == nil) {
-        items = [[NSMutableArray alloc] initWithCapacity:[selectResponse.items count]];
-    }
-    else {
-        [items removeAllObjects];
-    }
-    
-    for (SimpleDBItem *item in selectResponse.items) {
-        [items addObject:item.name];
-    }
-    
-    [items sortUsingSelector:@selector(compare:)];
-    [itemsTableView reloadData];
-}
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
 
--(IBAction)done:(id)sender
-{
-    [self dismissModalViewControllerAnimated:YES];
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        });
+
+        NSString *selectExpression = [NSString stringWithFormat:@"select itemName() from `%@`", self.domain];
+
+        SimpleDBSelectRequest  *selectRequest  = [[[SimpleDBSelectRequest alloc] initWithSelectExpression:selectExpression] autorelease];
+        SimpleDBSelectResponse *selectResponse = [[AmazonClientManager sdb] select:selectRequest];
+        if(selectResponse.error != nil)
+        {
+            NSLog(@"Error: %@", selectResponse.error);
+        }
+
+        if (items == nil) {
+            items = [[NSMutableArray alloc] initWithCapacity:[selectResponse.items count]];
+        }
+        else {
+            [items removeAllObjects];
+        }
+
+        for (SimpleDBItem *item in selectResponse.items) {
+            [items addObject:item.name];
+        }
+
+        [items sortUsingSelector:@selector(compare:)];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            [self.tableView reloadData];
+        });
+    });
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -76,10 +87,11 @@
     
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell.textLabel.adjustsFontSizeToFitWidth = YES;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    cell.textLabel.text                      = [items objectAtIndex:indexPath.row];
-    cell.textLabel.adjustsFontSizeToFitWidth = YES;
+    cell.textLabel.text = [items objectAtIndex:indexPath.row];
     
     return cell;
 }
@@ -91,12 +103,12 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
     ItemViewController *itemView = [[ItemViewController alloc] init];
-    
-    itemView.domain               = self.domain;
-    itemView.itemName             = [items objectAtIndex:indexPath.row];
-    itemView.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentModalViewController:itemView animated:YES];
+    itemView.domain = self.domain;
+    itemView.itemName = [items objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:itemView animated:YES];
     [itemView release];
 }
 
@@ -107,6 +119,4 @@
     [super dealloc];
 }
 
-
 @end
-

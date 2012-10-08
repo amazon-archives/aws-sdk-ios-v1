@@ -264,7 +264,20 @@
     return (S3DeleteBucketTaggingResponse *)[self invoke:deleteBucketTaggingRequest];
 }
 
+-(S3SetBucketCrossOriginResponse *)setBucketCrossOrigin:(S3SetBucketCrossOriginRequest *)setBucketCrossOriginRequest;
+{
+    return (S3SetBucketCrossOriginResponse *)[self invoke:setBucketCrossOriginRequest];
+}
 
+-(S3GetBucketCrossOriginResponse *)getBucketCrossOrigin:(S3GetBucketCrossOriginRequest *)getBucketCrossOriginRequest;
+{
+    return (S3GetBucketCrossOriginResponse *)[self invoke:getBucketCrossOriginRequest];
+}
+
+-(S3DeleteBucketCrossOriginResponse *)deleteBucketCrossOrigin:(S3DeleteBucketCrossOriginRequest *)deleteBucketCrossOriginRequest;
+{
+    return (S3DeleteBucketCrossOriginResponse *)[self invoke:deleteBucketCrossOriginRequest];
+}
 
 -(S3DeleteVersionResponse *)deleteVersion:(S3DeleteVersionRequest *)deleteVersionRequest
 {

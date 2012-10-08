@@ -31,7 +31,7 @@
 +(id)requestWithBucketName:(NSString *)theBucketName withConfiguration:(S3BucketTaggingConfiguration *)theConfiguration;
 +(id)requestWithBucketName:(NSString *)theBucketName;
 
-/** The new lifecycle configuration for the specified bucket. */
+/** The new cost allocation tagging configuration for the specified bucket. */
 @property (nonatomic, retain) S3BucketTaggingConfiguration *configuration;
 
 @end

@@ -32,6 +32,15 @@
         [parser setDelegate:listUnmarshaller];
     }
 
+    if ([elementName isEqualToString:@"pricingDetailsSet"]) {
+        AmazonListUnmarshaller *listUnmarshaller = [[[AmazonListUnmarshaller alloc] initWithCaller:self withParentObject:self.response.pricingDetails withSetter:@selector(addObjectsFromArray:)] autorelease];
+        listUnmarshaller.endListElementName = @"pricingDetailsSet";
+        listUnmarshaller.entryElementName   = @"item";
+        listUnmarshaller.delegateClass      = [EC2PricingDetailUnmarshaller class];
+
+        [parser setDelegate:listUnmarshaller];
+    }
+
 
 
     if ([elementName isEqualToString:@"Error"]) {
@@ -97,6 +106,11 @@
 
     if ([elementName isEqualToString:@"offeringType"]) {
         self.response.offeringType = self.currentText;
+        return;
+    }
+
+    if ([elementName isEqualToString:@"marketplace"]) {
+        self.response.marketplace = [self.currentText boolValue];
         return;
     }
 

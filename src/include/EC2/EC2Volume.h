@@ -33,6 +33,8 @@
     NSDate         *createTime;
     NSMutableArray *attachments;
     NSMutableArray *tags;
+    NSString       *volumeType;
+    NSNumber       *iops;
 }
 
 
@@ -86,6 +88,19 @@
  * A list of tags for the Volume.
  */
 @property (nonatomic, retain) NSMutableArray *tags;
+
+/**
+ * The value of the VolumeType property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>standard, io1
+ */
+@property (nonatomic, retain) NSString *volumeType;
+
+/**
+ * The value of the Iops property for this object.
+ */
+@property (nonatomic, retain) NSNumber *iops;
 
 /**
  * Adds a single object to attachments.

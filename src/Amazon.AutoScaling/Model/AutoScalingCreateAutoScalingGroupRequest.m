@@ -30,6 +30,7 @@
 @synthesize healthCheckGracePeriod;
 @synthesize placementGroup;
 @synthesize vPCZoneIdentifier;
+@synthesize terminationPolicies;
 @synthesize tags;
 
 
@@ -48,6 +49,7 @@
         healthCheckGracePeriod  = nil;
         placementGroup          = nil;
         vPCZoneIdentifier       = nil;
+        terminationPolicies     = [[NSMutableArray alloc] initWithCapacity:1];
         tags                    = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
@@ -71,6 +73,15 @@
     }
 
     [loadBalancerNames addObject:loadBalancerNameObject];
+}
+
+-(void)addTerminationPolicy:(NSString *)terminationPolicyObject
+{
+    if (terminationPolicies == nil) {
+        terminationPolicies = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [terminationPolicies addObject:terminationPolicyObject];
 }
 
 -(void)addTag:(AutoScalingTag *)tagObject
@@ -100,6 +111,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"HealthCheckGracePeriod: %@,", healthCheckGracePeriod] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"PlacementGroup: %@,", placementGroup] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"VPCZoneIdentifier: %@,", vPCZoneIdentifier] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"TerminationPolicies: %@,", terminationPolicies] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Tags: %@,", tags] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
@@ -123,6 +135,7 @@
     [healthCheckGracePeriod release];
     [placementGroup release];
     [vPCZoneIdentifier release];
+    [terminationPolicies release];
     [tags release];
 
     [super dealloc];

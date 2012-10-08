@@ -17,6 +17,8 @@
 
 #import "EC2Request.h"
 #import "EC2CreateImageRequest.h"
+#import "EC2BlockDeviceMapping.h"
+#import "EC2EbsBlockDevice.h"
 
 
 /**

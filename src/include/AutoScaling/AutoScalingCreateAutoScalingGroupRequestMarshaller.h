@@ -20,6 +20,7 @@
 #import "AutoScalingTag.h"
 #import "AutoScalingTag.h"
 #import "AutoScalingTag.h"
+#import "AutoScalingTag.h"
 
 
 /**

@@ -34,6 +34,8 @@
 @synthesize subnetId;
 @synthesize networkInterfaces;
 @synthesize iamInstanceProfile;
+@synthesize ebsOptimized;
+@synthesize ebsOptimizedIsSet;
 
 
 -(id)init
@@ -55,6 +57,8 @@
         subnetId               = nil;
         networkInterfaces      = [[NSMutableArray alloc] initWithCapacity:1];
         iamInstanceProfile     = nil;
+        ebsOptimized           = NO;
+        ebsOptimizedIsSet      = NO;
     }
 
     return self;
@@ -118,6 +122,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"SubnetId: %@,", subnetId] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"NetworkInterfaces: %@,", networkInterfaces] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"IamInstanceProfile: %@,", iamInstanceProfile] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"EbsOptimized: %d,", ebsOptimized] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -129,6 +134,12 @@
 {
     monitoringEnabled      = theValue;
     monitoringEnabledIsSet = YES;
+}
+
+-(void)setEbsOptimized:(bool)theValue
+{
+    ebsOptimized      = theValue;
+    ebsOptimizedIsSet = YES;
 }
 
 

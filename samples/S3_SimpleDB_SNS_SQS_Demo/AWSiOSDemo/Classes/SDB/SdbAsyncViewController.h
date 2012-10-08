@@ -19,9 +19,6 @@
 #import "AmazonClientManager.h"
 
 @interface SdbAsyncViewController:UIViewController {
-    IBOutlet UILabel             *bytesIn;
-    IBOutlet UILabel             *bytesOut;
-
     SdbRequestDelegate           *sdbDelegate;
     NSTimer                      *timer;
     int                          counter;
@@ -31,12 +28,11 @@
     SimpleDBPutAttributesRequest *putAttributesRequest;
 }
 
-@property (nonatomic, retain) UILabel *bytesIn;
-@property (nonatomic, retain) UILabel *bytesOut;
+@property (nonatomic, retain) IBOutlet UILabel *bytesIn;
+@property (nonatomic, retain) IBOutlet UILabel *bytesOut;
 
 -(IBAction)start:(id)sender;
 -(IBAction)stop:(id)sender;
--(IBAction)exit:(id)sender;
 
 -(void)perform;
 

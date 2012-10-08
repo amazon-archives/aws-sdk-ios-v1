@@ -30,6 +30,12 @@ extern NSString *const AWSPersistenceDynamoDBObjectDeletedNotificationHashKey;
 extern NSString *const AWSPersistenceDynamoDBObjectDeletedNotificationEntityName;
 extern NSString *const AWSPersistenceDynamoDBObjectDeletedNotificationObjectID;
 
+extern NSString *const AWSPersistenceDynamoDBEndpoint;
+extern NSString *const AWSPersistenceDynamoDBMaxRetries;
+extern NSString *const AWSPersistenceDynamoDBTimeout;
+extern NSString *const AWSPersistenceDynamoDBDelay;
+extern NSString *const AWSPersistenceDynamoDBUserAgent;
+
 @protocol AWSPersistenceDynamoDBIncrementalStoreDelegate;
 
 @interface AWSPersistenceDynamoDBIncrementalStore : NSIncrementalStore

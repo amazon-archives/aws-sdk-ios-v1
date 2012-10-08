@@ -72,6 +72,13 @@
         [parser setDelegate:unmarshaller];
     }
 
+    if ([elementName isEqualToString:@"ebsOptimized"]) {
+        AmazonBoolValueUnmarshaller *unmarshaller = [[[AmazonBoolValueUnmarshaller alloc] initWithCaller:self withParentObject:self.response withSetter:@selector(setEbsOptimized:)] autorelease];
+        unmarshaller.endElementTagName   = @"ebsOptimized";
+        unmarshaller.internalElementName = @"value";
+        [parser setDelegate:unmarshaller];
+    }
+
     if ([elementName isEqualToString:@"blockDeviceMapping"]) {
         AmazonListUnmarshaller *listUnmarshaller = [[[AmazonListUnmarshaller alloc] initWithCaller:self withParentObject:self.response.blockDeviceMappings withSetter:@selector(addObjectsFromArray:)] autorelease];
         listUnmarshaller.endListElementName = @"blockDeviceMapping";

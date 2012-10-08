@@ -103,6 +103,17 @@
     }
 
     if (createAutoScalingGroupRequest != nil) {
+        int terminationPoliciesListIndex = 1;
+        for (NSString *terminationPoliciesListValue in createAutoScalingGroupRequest.terminationPolicies) {
+            if (terminationPoliciesListValue != nil) {
+                [request setParameterValue:[NSString stringWithFormat:@"%@", terminationPoliciesListValue] forKey:[NSString stringWithFormat:@"%@.member.%d", @"TerminationPolicies", terminationPoliciesListIndex]];
+            }
+
+            terminationPoliciesListIndex++;
+        }
+    }
+
+    if (createAutoScalingGroupRequest != nil) {
         int tagsListIndex = 1;
         for (AutoScalingTag *tagsListValue in createAutoScalingGroupRequest.tags) {
             if (tagsListValue != nil) {

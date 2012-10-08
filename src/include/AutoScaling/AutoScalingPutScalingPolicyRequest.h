@@ -91,9 +91,9 @@
  * Used with <code>AdjustmentType</code> with the value
  * <code>PercentChangeInCapacity</code>, the scaling policy changes the
  * <code>DesiredCapacity</code> of the Auto Scaling group by at least the
- * specified value. <p> You will get a <code>ValidationError</code> if
- * you use <code>MinAdjustmentStep</code> on a policy with an
- * <code>AdjustmentType</code> other than
+ * number of instances specified in the value. <p> You will get a
+ * <code>ValidationError</code> if you use <code>MinAdjustmentStep</code>
+ * on a policy with an <code>AdjustmentType</code> other than
  * <code>PercentChangeInCapacity</code>.
  */
 @property (nonatomic, retain) NSNumber *minAdjustmentStep;

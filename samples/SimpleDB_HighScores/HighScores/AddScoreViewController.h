@@ -21,6 +21,5 @@
 }
 
 -(IBAction)add:(id)sender;
--(IBAction)cancel:(id)sender;
 
 @end

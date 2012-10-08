@@ -140,6 +140,13 @@
     return (EC2DescribeRegionsResponse *)[self invoke:request rawRequest:describeRegionsRequest unmarshallerDelegate:[EC2DescribeRegionsResponseUnmarshaller class]];
 }
 
+-(EC2CreateReservedInstancesListingResponse *)createReservedInstancesListing:(EC2CreateReservedInstancesListingRequest *)createReservedInstancesListingRequest
+{
+    AmazonServiceRequest *request = [EC2CreateReservedInstancesListingRequestMarshaller createRequest:createReservedInstancesListingRequest];
+
+    return (EC2CreateReservedInstancesListingResponse *)[self invoke:request rawRequest:createReservedInstancesListingRequest unmarshallerDelegate:[EC2CreateReservedInstancesListingResponseUnmarshaller class]];
+}
+
 -(EC2ResetSnapshotAttributeResponse *)resetSnapshotAttribute:(EC2ResetSnapshotAttributeRequest *)resetSnapshotAttributeRequest
 {
     AmazonServiceRequest *request = [EC2ResetSnapshotAttributeRequestMarshaller createRequest:resetSnapshotAttributeRequest];
@@ -238,13 +245,6 @@
     return (EC2DeleteVolumeResponse *)[self invoke:request rawRequest:deleteVolumeRequest unmarshallerDelegate:[EC2DeleteVolumeResponseUnmarshaller class]];
 }
 
--(EC2DeactivateLicenseResponse *)deactivateLicense:(EC2DeactivateLicenseRequest *)deactivateLicenseRequest
-{
-    AmazonServiceRequest *request = [EC2DeactivateLicenseRequestMarshaller createRequest:deactivateLicenseRequest];
-
-    return (EC2DeactivateLicenseResponse *)[self invoke:request rawRequest:deactivateLicenseRequest unmarshallerDelegate:[EC2DeactivateLicenseResponseUnmarshaller class]];
-}
-
 -(EC2AssociateAddressResponse *)associateAddress:(EC2AssociateAddressRequest *)associateAddressRequest
 {
     AmazonServiceRequest *request = [EC2AssociateAddressRequestMarshaller createRequest:associateAddressRequest];
@@ -259,6 +259,13 @@
     return (EC2CancelConversionTaskResponse *)[self invoke:request rawRequest:cancelConversionTaskRequest unmarshallerDelegate:[EC2CancelConversionTaskResponseUnmarshaller class]];
 }
 
+-(EC2DeactivateLicenseResponse *)deactivateLicense:(EC2DeactivateLicenseRequest *)deactivateLicenseRequest
+{
+    AmazonServiceRequest *request = [EC2DeactivateLicenseRequestMarshaller createRequest:deactivateLicenseRequest];
+
+    return (EC2DeactivateLicenseResponse *)[self invoke:request rawRequest:deactivateLicenseRequest unmarshallerDelegate:[EC2DeactivateLicenseResponseUnmarshaller class]];
+}
+
 -(EC2DescribeExportTasksResponse *)describeExportTasks:(EC2DescribeExportTasksRequest *)describeExportTasksRequest
 {
     AmazonServiceRequest *request = [EC2DescribeExportTasksRequestMarshaller createRequest:describeExportTasksRequest];
@@ -271,6 +278,13 @@
     AmazonServiceRequest *request = [EC2DescribeVolumesRequestMarshaller createRequest:describeVolumesRequest];
 
     return (EC2DescribeVolumesResponse *)[self invoke:request rawRequest:describeVolumesRequest unmarshallerDelegate:[EC2DescribeVolumesResponseUnmarshaller class]];
+}
+
+-(EC2DescribeReservedInstancesListingsResponse *)describeReservedInstancesListings:(EC2DescribeReservedInstancesListingsRequest *)describeReservedInstancesListingsRequest
+{
+    AmazonServiceRequest *request = [EC2DescribeReservedInstancesListingsRequestMarshaller createRequest:describeReservedInstancesListingsRequest];
+
+    return (EC2DescribeReservedInstancesListingsResponse *)[self invoke:request rawRequest:describeReservedInstancesListingsRequest unmarshallerDelegate:[EC2DescribeReservedInstancesListingsResponseUnmarshaller class]];
 }
 
 -(EC2ReportInstanceStatusResponse *)reportInstanceStatus:(EC2ReportInstanceStatusRequest *)reportInstanceStatusRequest
@@ -383,6 +397,13 @@
     AmazonServiceRequest *request = [EC2StartInstancesRequestMarshaller createRequest:startInstancesRequest];
 
     return (EC2StartInstancesResponse *)[self invoke:request rawRequest:startInstancesRequest unmarshallerDelegate:[EC2StartInstancesResponseUnmarshaller class]];
+}
+
+-(EC2CancelReservedInstancesListingResponse *)cancelReservedInstancesListing:(EC2CancelReservedInstancesListingRequest *)cancelReservedInstancesListingRequest
+{
+    AmazonServiceRequest *request = [EC2CancelReservedInstancesListingRequestMarshaller createRequest:cancelReservedInstancesListingRequest];
+
+    return (EC2CancelReservedInstancesListingResponse *)[self invoke:request rawRequest:cancelReservedInstancesListingRequest unmarshallerDelegate:[EC2CancelReservedInstancesListingResponseUnmarshaller class]];
 }
 
 -(EC2ModifyInstanceAttributeResponse *)modifyInstanceAttribute:(EC2ModifyInstanceAttributeRequest *)modifyInstanceAttributeRequest

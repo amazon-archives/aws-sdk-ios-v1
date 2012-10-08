@@ -16,16 +16,15 @@
 #import <UIKit/UIKit.h>
 #import "HighScoreList.h"
 
-@interface HighScoresTableViewController:UIViewController {
-    IBOutlet UITableView *highScores;
-
-    HighScoreList        *highScoreList;
-    NSMutableArray       *scores;
+@interface HighScoresTableViewController : UITableViewController
+{
+    BOOL _doneLoading;
 }
 
+@property (nonatomic, assign) int sortMethod;
+@property (nonatomic, retain) NSMutableArray *scores;
+@property (nonatomic, retain) HighScoreList *highScoreList;
+
 -(id)initWithSortMethod:(int)theSortMethod;
-
--(IBAction)back:(id)sender;
-
 
 @end

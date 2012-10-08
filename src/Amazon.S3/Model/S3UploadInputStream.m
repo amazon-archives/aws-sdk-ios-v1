@@ -22,6 +22,8 @@
 
 @synthesize stream, packetSize, delay;
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 -(id)init 
 {
     if ((self = [super init]) != nil) {
@@ -146,5 +148,6 @@
 	
 	[super dealloc];
 }
+#pragma clang diagnostic pop
 
 @end

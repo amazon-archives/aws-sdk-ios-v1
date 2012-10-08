@@ -15,12 +15,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TopicList:UIViewController {
+@interface TopicList:UITableViewController {
     NSMutableArray       *topics;
-    IBOutlet UITableView *topicTableView;
 }
-
--(id)init;
--(IBAction)done:(id)sender;
 
 @end

@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE1B8398161A16C100856E2F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE1B8397161A16C100856E2F /* Default-568h@2x.png */; };
 		D00F6B9E141FEA1800A058E8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00F6B9D141FEA1800A058E8 /* UIKit.framework */; };
 		D00F6BA0141FEA1800A058E8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00F6B9F141FEA1800A058E8 /* Foundation.framework */; };
 		D00F6BA2141FEA1800A058E8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00F6BA1141FEA1800A058E8 /* CoreGraphics.framework */; };
 		D00F6BA8141FEA1800A058E8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D00F6BA6141FEA1800A058E8 /* InfoPlist.strings */; };
 		D00F6BAB141FEA1800A058E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D00F6BAA141FEA1800A058E8 /* main.m */; };
-		D00F6BAE141FEA1800A058E8 /* S3UploaderAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D00F6BAD141FEA1800A058E8 /* S3UploaderAppDelegate.m */; };
-		D00F6BB1141FEA1800A058E8 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D00F6BAF141FEA1800A058E8 /* MainWindow.xib */; };
+		D00F6BAE141FEA1800A058E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D00F6BAD141FEA1800A058E8 /* AppDelegate.m */; };
 		D00F6BB4141FEA1800A058E8 /* S3UploaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D00F6BB3141FEA1800A058E8 /* S3UploaderViewController.m */; };
 		D00F6BB7141FEA1800A058E8 /* S3UploaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D00F6BB5141FEA1800A058E8 /* S3UploaderViewController.xib */; };
 		D00F6BC8141FF06500A058E8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = D00F6BC7141FF06400A058E8 /* Constants.m */; };
@@ -21,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE1B8397161A16C100856E2F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D00F6B99141FEA1800A058E8 /* S3Uploader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = S3Uploader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D00F6B9D141FEA1800A058E8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D00F6B9F141FEA1800A058E8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -29,9 +30,8 @@
 		D00F6BA7141FEA1800A058E8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D00F6BA9141FEA1800A058E8 /* S3Uploader-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "S3Uploader-Prefix.pch"; sourceTree = "<group>"; };
 		D00F6BAA141FEA1800A058E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D00F6BAC141FEA1800A058E8 /* S3UploaderAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = S3UploaderAppDelegate.h; sourceTree = "<group>"; };
-		D00F6BAD141FEA1800A058E8 /* S3UploaderAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = S3UploaderAppDelegate.m; sourceTree = "<group>"; };
-		D00F6BB0141FEA1800A058E8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		D00F6BAC141FEA1800A058E8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D00F6BAD141FEA1800A058E8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D00F6BB2141FEA1800A058E8 /* S3UploaderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = S3UploaderViewController.h; sourceTree = "<group>"; };
 		D00F6BB3141FEA1800A058E8 /* S3UploaderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = S3UploaderViewController.m; sourceTree = "<group>"; };
 		D00F6BB6141FEA1800A058E8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/S3UploaderViewController.xib; sourceTree = "<group>"; };
@@ -86,8 +86,8 @@
 		D00F6BA3141FEA1800A058E8 /* S3Uploader */ = {
 			isa = PBXGroup;
 			children = (
-				D00F6BAC141FEA1800A058E8 /* S3UploaderAppDelegate.h */,
-				D00F6BAD141FEA1800A058E8 /* S3UploaderAppDelegate.m */,
+				D00F6BAC141FEA1800A058E8 /* AppDelegate.h */,
+				D00F6BAD141FEA1800A058E8 /* AppDelegate.m */,
 				D00F6BC5141FECC300A058E8 /* Constants.h */,
 				D00F6BC7141FF06400A058E8 /* Constants.m */,
 				D00F6BB5141FEA1800A058E8 /* S3UploaderViewController.xib */,
@@ -101,7 +101,7 @@
 		D00F6BA4141FEA1800A058E8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D00F6BAF141FEA1800A058E8 /* MainWindow.xib */,
+				CE1B8397161A16C100856E2F /* Default-568h@2x.png */,
 				D00F6BA5141FEA1800A058E8 /* S3Uploader-Info.plist */,
 				D00F6BA6141FEA1800A058E8 /* InfoPlist.strings */,
 				D00F6BA9141FEA1800A058E8 /* S3Uploader-Prefix.pch */,
@@ -161,8 +161,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D00F6BA8141FEA1800A058E8 /* InfoPlist.strings in Resources */,
-				D00F6BB1141FEA1800A058E8 /* MainWindow.xib in Resources */,
 				D00F6BB7141FEA1800A058E8 /* S3UploaderViewController.xib in Resources */,
+				CE1B8398161A16C100856E2F /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,7 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D00F6BAB141FEA1800A058E8 /* main.m in Sources */,
-				D00F6BAE141FEA1800A058E8 /* S3UploaderAppDelegate.m in Sources */,
+				D00F6BAE141FEA1800A058E8 /* AppDelegate.m in Sources */,
 				D00F6BB4141FEA1800A058E8 /* S3UploaderViewController.m in Sources */,
 				D00F6BC8141FF06500A058E8 /* Constants.m in Sources */,
 			);
@@ -189,14 +189,6 @@
 				D00F6BA7141FEA1800A058E8 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		D00F6BAF141FEA1800A058E8 /* MainWindow.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D00F6BB0141FEA1800A058E8 /* en */,
-			);
-			name = MainWindow.xib;
 			sourceTree = "<group>";
 		};
 		D00F6BB5141FEA1800A058E8 /* S3UploaderViewController.xib */ = {

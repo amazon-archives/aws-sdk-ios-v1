@@ -13,40 +13,57 @@
  * permissions and limitations under the License.
  */
 
-
 #import "SdbAsyncViewController.h"
 #import "AmazonClientManager.h"
 
-
 @implementation SdbAsyncViewController
 
-
-@synthesize bytesIn, bytesOut;
-
+@synthesize bytesIn = _bytesIn;
+@synthesize bytesOut = _bytesOut;
 
 -(id)init
 {
-    // Create the SDB Request Delegate
-    sdbDelegate          = [[SdbRequestDelegate alloc] init];
-    timer                = nil;
-    counter              = 0;
-    domainName           = @"testing-async-with-sdb";
-    selectRequest        = nil;
-    putAttributesRequest = nil;
+    self = [super initWithNibName:@"SdbAsyncViewController" bundle:nil];
+    if(self)
+    {
+        self.title = @"SimpleDB Async";
+
+        // Create the SDB Request Delegate
+        sdbDelegate          = [[SdbRequestDelegate alloc] init];
+        timer                = nil;
+        counter              = 0;
+        domainName           = @"testing-async-with-sdb";
+        selectRequest        = nil;
+        putAttributesRequest = nil;
+    }
     
-    return [super initWithNibName:@"SdbAsyncViewController" bundle:nil];
+    return self;
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    sdbDelegate.bytesIn  = bytesIn;
-    sdbDelegate.bytesOut = bytesOut;
+    [super viewWillAppear:animated];
+
+    sdbDelegate.bytesIn  = self.bytesIn;
+    sdbDelegate.bytesOut = self.bytesOut;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+
+    if (timer != nil && [timer isValid]) {
+        [timer invalidate];
+        timer = nil;
+    }
+
+    counter = 0;
 }
 
 -(IBAction)start:(id)sender
 {
-    bytesIn.text  = @"0";
-    bytesOut.text = @"0";
+    self.bytesIn.text  = @"0";
+    self.bytesOut.text = @"0";
     
     if (timer != nil && [timer isValid]) {
         [timer invalidate];
@@ -73,17 +90,6 @@
     if (putAttributesRequest != nil) {
         [putAttributesRequest.urlConnection cancel];
     }
-}
-
--(IBAction)exit:(id)sender
-{
-    if (timer != nil && [timer isValid]) {
-        [timer invalidate];
-        timer = nil;
-    }
-    
-    counter = 0;
-    [self dismissModalViewControllerAnimated:YES];
 }
 
 -(void)perform

@@ -203,7 +203,7 @@ static MessageBoard *_instance = nil;
 {
     SQSReceiveMessageRequest *rmr = [[[SQSReceiveMessageRequest alloc] initWithQueueUrl:queueUrl] autorelease];
     rmr.maxNumberOfMessages = [NSNumber numberWithInt:10];
-    rmr.visibilityTimeout   = [NSNumber numberWithInt:30];
+    rmr.visibilityTimeout   = [NSNumber numberWithInt:2];
     
     SQSReceiveMessageResponse *response    = nil;
     NSMutableArray *allMessages = [NSMutableArray array];

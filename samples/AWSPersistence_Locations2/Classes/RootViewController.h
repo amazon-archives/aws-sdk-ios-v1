@@ -17,14 +17,9 @@
 
 @interface RootViewController : UITableViewController <CLLocationManagerDelegate, UIActionSheetDelegate>
 {	
-    NSMutableArray *eventArray;
-	NSManagedObjectContext *managedObjectContext;	    
-
-    CLLocationManager *locationManager;
 }
 
-@property (nonatomic) NSMutableArray *eventArray;
-@property (nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic) CLLocationManager *locationManager;
+@property (nonatomic, strong) NSMutableArray *locationArray;
+@property (nonatomic, strong) CLLocationManager *locationManager;
 
 @end

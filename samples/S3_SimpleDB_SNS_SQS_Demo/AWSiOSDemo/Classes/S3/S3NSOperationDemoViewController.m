@@ -27,10 +27,33 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
     {
-        operationQueue                             = [NSOperationQueue new];
+        self.title = @"S3 NSOperation Demo";
+        
+        operationQueue = [NSOperationQueue new];
         operationQueue.maxConcurrentOperationCount = 3;
     }
     return self;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        });
+
+        [self deleteBucket];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        });
+    });
 }
 
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -72,24 +95,13 @@
     [imageDownloader3 release];
 }
 
--(IBAction)done:(id)sender
-{
-    [self retain];
-    
-    NSInvocationOperation *io = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(deleteBucket) object:nil];
-    [operationQueue addOperation:io];
-    [io release];
-    
-    [self dismissModalViewControllerAnimated:YES];
-}
-
 #pragma mark - Helper Methods
 
 -(void)deleteBucket
 {
     // Gets all of the objects in the test bucket.
     NSString              *bucketName   = [NSString stringWithFormat:@"s3-async-demo2-ios-for-%@", [ACCESS_KEY_ID lowercaseString]];
-    S3ListObjectsRequest  *listRequest  = [[S3ListObjectsRequest alloc] initWithName:bucketName];
+    S3ListObjectsRequest  *listRequest  = [[[S3ListObjectsRequest alloc] initWithName:bucketName] autorelease];
     S3ListObjectsResponse *listResponse = [[AmazonClientManager s3] listObjects:listRequest];
     if(listResponse.error != nil)
     {
@@ -122,8 +134,6 @@
     }
     
     [deleteBucketReqeust release];
-    
-    [self release];
 }
 
 #pragma mark -

@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"ModifyInstanceAttribute"           forKey:@"Action"];
-    [request setParameterValue:@"2012-06-15"   forKey:@"Version"];
+    [request setParameterValue:@"2012-08-15"   forKey:@"Version"];
 
     [request setDelegate:[modifyInstanceAttributeRequest delegate]];
     [request setCredentials:[modifyInstanceAttributeRequest credentials]];
@@ -124,6 +124,11 @@
             }
 
             groupsListIndex++;
+        }
+    }
+    if (modifyInstanceAttributeRequest != nil) {
+        if (modifyInstanceAttributeRequest.ebsOptimizedIsSet) {
+            [request setParameterValue:(modifyInstanceAttributeRequest.ebsOptimized ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"EbsOptimized.Value"]];
         }
     }
 

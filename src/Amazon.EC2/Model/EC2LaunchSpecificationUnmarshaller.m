@@ -149,6 +149,11 @@
         return;
     }
 
+    if ([elementName isEqualToString:@"ebsOptimized"]) {
+        self.response.ebsOptimized = [self.currentText boolValue];
+        return;
+    }
+
     if ([elementName isEqualToString:@"launchSpecification"]) {
         if (caller != nil) {
             [parser setDelegate:caller];

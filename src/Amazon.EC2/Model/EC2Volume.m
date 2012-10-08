@@ -26,6 +26,8 @@
 @synthesize createTime;
 @synthesize attachments;
 @synthesize tags;
+@synthesize volumeType;
+@synthesize iops;
 
 
 -(id)init
@@ -39,6 +41,8 @@
         createTime       = nil;
         attachments      = [[NSMutableArray alloc] initWithCapacity:1];
         tags             = [[NSMutableArray alloc] initWithCapacity:1];
+        volumeType       = nil;
+        iops             = nil;
     }
 
     return self;
@@ -77,6 +81,8 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"CreateTime: %@,", createTime] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Attachments: %@,", attachments] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Tags: %@,", tags] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"VolumeType: %@,", volumeType] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Iops: %@,", iops] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -95,6 +101,8 @@
     [createTime release];
     [attachments release];
     [tags release];
+    [volumeType release];
+    [iops release];
 
     [super dealloc];
 }

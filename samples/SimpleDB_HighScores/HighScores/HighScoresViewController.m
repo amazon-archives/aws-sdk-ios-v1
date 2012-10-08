@@ -22,9 +22,13 @@
 
 -(void)viewDidLoad
 {
+    [super viewDidLoad];
+
     if ( [ACCESS_KEY_ID isEqualToString:@"CHANGE ME"]) {
         [[Constants credentialsAlert] show];
     }
+
+    self.title = @"High Scores";
 }
 
 -(IBAction)playerSort:(id)sender
@@ -55,38 +59,62 @@
         scores = [[HighScoresTableViewController alloc] initWithSortMethod:NO_SORT];
     }
 
-    scores.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentModalViewController:scores animated:YES];
+    [self.navigationController pushViewController:scores animated:YES];
     [scores release];
 }
 
 -(IBAction)addSingleScore:(id)sender
 {
     AddScoreViewController *addScores = [[AddScoreViewController alloc] init];
-
-    addScores.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentModalViewController:addScores animated:YES];
+    [self.navigationController pushViewController:addScores animated:YES];
     [addScores release];
 }
 
 -(IBAction)createHighScoresList:(id)sender
 {
-    HighScoreList *highScores = [[[HighScoreList alloc] init] autorelease];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
 
-    [highScores createHighScoresDomain];
-    for (int i = 1; i < 10; i++) {
-        NSString  *player    = [Constants getRandomPlayerName];
-        HighScore *highScore = [[[HighScore alloc] initWithPlayer:player andScore:[Constants getRandomScore]] autorelease];
+        dispatch_async(dispatch_get_main_queue(), ^{
 
-        [highScores addHighScore:highScore];
-    }
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        });
+
+        HighScoreList *highScores = [[[HighScoreList alloc] init] autorelease];
+
+        [highScores createHighScoresDomain];
+        for (int i = 1; i < 10; i++) {
+            NSString  *player    = [Constants getRandomPlayerName];
+            HighScore *highScore = [[[HighScore alloc] initWithPlayer:player andScore:[Constants getRandomScore]] autorelease];
+
+            [highScores addHighScore:highScore];
+        }
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        });
+    });
 }
 
 -(IBAction)clearHighScoreList:(id)sender
 {
-    HighScoreList *highScores = [[[HighScoreList alloc] init] autorelease];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
 
-    [highScores clearHighScores];
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        });
+
+        HighScoreList *highScores = [[[HighScoreList alloc] init] autorelease];
+        [highScores clearHighScores];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        });
+    });
 }
 
 @end

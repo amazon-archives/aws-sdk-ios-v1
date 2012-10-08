@@ -19,6 +19,7 @@
 
 #define kS3RegionUSWest1         @"us-west-1"
 #define kS3RegionUSWest2         @"us-west-2"
+#define kS3RegionEUWest1         @"eu-west-1"
 #define kS3RegionEU              @"EU"
 #define kS3RegionAPSoutheast1    @"ap-southeast-1"
 #define kS3RegionAPNortheast1    @"ap-northeast-1"
@@ -40,6 +41,8 @@
 @interface S3Region:NSObject {
     NSString *stringValue;
 }
+
+@property (readonly, atomic) NSString *stringValue;
 
 /** Returns an S3Region initialized with the supplied string value. */
 -(id)initWithStringValue:(NSString *)value;
@@ -91,6 +94,17 @@
 
 /**
  * The EU (Ireland) Amazon S3 Region. This region uses Amazon S3 servers located
+ * in Ireland.  Deprecated in favor of <code>EUWest1</code>.
+ * <p>
+ * In Amazon S3, the EU (Ireland) Region provides read-after-write
+ * consistency for PUTS of new objects in Amazon S3 buckets and eventual
+ * consistency for overwrite PUTS and DELETES.
+ * </p>
+ */
++(S3Region *)EUIreland __attribute__((deprecated));
+
+/**
+ * The EU (Ireland) Amazon S3 Region. This region uses Amazon S3 servers located
  * in Ireland.
  * <p>
  * In Amazon S3, the EU (Ireland) Region provides read-after-write
@@ -98,7 +112,7 @@
  * consistency for overwrite PUTS and DELETES.
  * </p>
  */
-+(S3Region *)EUIreland;
++(S3Region *)EUWest1;
 
 /**
  * The Asia Pacific (Singapore) Region. This region uses Amazon S3 servers located

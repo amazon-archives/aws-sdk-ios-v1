@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"CreateVolume"           forKey:@"Action"];
-    [request setParameterValue:@"2012-06-15"   forKey:@"Version"];
+    [request setParameterValue:@"2012-08-15"   forKey:@"Version"];
 
     [request setDelegate:[createVolumeRequest delegate]];
     [request setCredentials:[createVolumeRequest credentials]];
@@ -42,6 +42,16 @@
     if (createVolumeRequest != nil) {
         if (createVolumeRequest.availabilityZone != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", createVolumeRequest.availabilityZone] forKey:[NSString stringWithFormat:@"%@", @"AvailabilityZone"]];
+        }
+    }
+    if (createVolumeRequest != nil) {
+        if (createVolumeRequest.volumeType != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", createVolumeRequest.volumeType] forKey:[NSString stringWithFormat:@"%@", @"VolumeType"]];
+        }
+    }
+    if (createVolumeRequest != nil) {
+        if (createVolumeRequest.iops != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", createVolumeRequest.iops] forKey:[NSString stringWithFormat:@"%@", @"Iops"]];
         }
     }
 

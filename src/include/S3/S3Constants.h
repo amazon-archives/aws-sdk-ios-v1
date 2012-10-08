@@ -76,6 +76,7 @@
 #define kS3SubResourceWebsite                @"website"
 #define kS3SubResourceLifecycle              @"lifecycle"
 #define kS3SubResourceTagging                @"tagging"
+#define kS3SubResourceCrossOrigin            @"cors"
 
 
 // pre-signed URL query string parameters

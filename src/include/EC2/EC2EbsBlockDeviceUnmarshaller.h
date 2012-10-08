@@ -18,6 +18,7 @@
 #import "EC2ResponseUnmarshaller.h"
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
+#import "../AmazonSDKUtil.h"
 
 
 /**

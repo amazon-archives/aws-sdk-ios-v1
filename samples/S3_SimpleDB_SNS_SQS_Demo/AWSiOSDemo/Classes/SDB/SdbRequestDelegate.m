@@ -17,28 +17,29 @@
 
 @implementation SdbRequestDelegate
 
-@synthesize response;
-@synthesize error;
-@synthesize exception;
-@synthesize bytesIn, bytesOut;
+@synthesize response = _response;
+@synthesize error = _error;
+@synthesize exception = _exception;
+@synthesize bytesIn = _bytesIn;
+@synthesize bytesOut = _bytesOut;
 
 -(id)init
 {
     self = [super init];
     if (self)
     {
-        response  = nil;
-        exception = nil;
-        error     = nil;
-        bytesIn   = nil;
-        bytesOut  = nil;
+        _response  = nil;
+        _exception = nil;
+        _error     = nil;
+        _bytesIn   = nil;
+        _bytesOut  = nil;
     }
     return self;
 }
 
 -(bool)isFinishedOrFailed
 {
-    return (response != nil || error != nil || exception != nil);
+    return (self.response != nil || self.error != nil || self.exception != nil);
 }
 
 -(void)request:(AmazonServiceRequest *)request didReceiveResponse:(NSURLResponse *)aResponse
@@ -49,52 +50,49 @@
 -(void)request:(AmazonServiceRequest *)request didCompleteWithResponse:(AmazonServiceResponse *)aResponse
 {
     NSLog(@"didCompleteWithResponse : %@", aResponse);
-    [response release];
-    response = [aResponse retain];
+    [_response release];
+    _response = [aResponse retain];
 }
 
 -(void)request:(AmazonServiceRequest *)request didReceiveData:(NSData *)data
 {
     NSLog(@"didReceiveData");
-    int total = [bytesIn.text intValue];
+    int total = [self.bytesIn.text intValue];
     total       += [data length];
-    bytesIn.text = [NSString stringWithFormat:@"%d", total];
+    self.bytesIn.text = [NSString stringWithFormat:@"%d", total];
 }
 
 -(void)request:(AmazonServiceRequest *)request didSendData:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
 {
     NSLog(@"didSendData");
-    int total = [bytesOut.text intValue];
+    int total = [self.bytesOut.text intValue];
     total        += bytesWritten;
-    bytesOut.text = [NSString stringWithFormat:@"%d", total];
+    self.bytesOut.text = [NSString stringWithFormat:@"%d", total];
 }
 
 -(void)request:(AmazonServiceRequest *)request didFailWithError:(NSError *)theError
 {
     NSLog(@"didFailWithError : %@", theError);
-    [error release];
-    error = [theError retain];
+    [_error release];
+    _error = [theError retain];
 }
 
 -(void)request:(AmazonServiceRequest *)request didFailWithServiceException:(NSException *)theException
 {
     NSLog(@"didFailWithServiceException : %@", theException);
-    [exception release];
-    exception = [theException retain];
+    [_exception release];
+    _exception = [theException retain];
 }
 
 -(void)dealloc
 {
-    [error release];
-    [exception release];
-    [response release];
+    [_error release];
+    [_exception release];
+    [_response release];
+    [_bytesIn release];
+    [_bytesOut release];
 
     [super dealloc];
 }
 
 @end
-
-
-
-
-

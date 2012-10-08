@@ -21,38 +21,49 @@
 
 @synthesize domain, itemName;
 
--(id)init
+- (void)viewDidLoad
 {
-    return [super initWithNibName:@"ItemViewController" bundle:nil];
-}
+    [super viewDidLoad];
 
--(IBAction)done:(id)sender
-{
-    [self dismissModalViewControllerAnimated:YES];
+    self.title = @"Item";
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    SimpleDBGetAttributesRequest *gar = [[[SimpleDBGetAttributesRequest alloc] initWithDomainName:self.domain andItemName:self.itemName] autorelease];
-    SimpleDBGetAttributesResponse *response = [[AmazonClientManager sdb] getAttributes:gar];
-    if(response.error != nil)
-    {
-        NSLog(@"Error: %@", response.error);
-    }
-    
-    if (data == nil) {
-        data = [[NSMutableArray alloc] initWithCapacity:[response.attributes count]];
-    }
-    else {
-        [data removeAllObjects];
-    }
-    
-    for (SimpleDBAttribute *attr in response.attributes) {
-        [data addObject:[NSString stringWithFormat:@"%@ => %@", attr.name, attr.value]];
-    }
-    
-    [data sortUsingSelector:@selector(compare:)];
-    [dataTableView reloadData];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        });
+
+        SimpleDBGetAttributesRequest *gar = [[[SimpleDBGetAttributesRequest alloc] initWithDomainName:self.domain andItemName:self.itemName] autorelease];
+        SimpleDBGetAttributesResponse *response = [[AmazonClientManager sdb] getAttributes:gar];
+        if(response.error != nil)
+        {
+            NSLog(@"Error: %@", response.error);
+        }
+
+        if (data == nil) {
+            data = [[NSMutableArray alloc] initWithCapacity:[response.attributes count]];
+        }
+        else {
+            [data removeAllObjects];
+        }
+
+        for (SimpleDBAttribute *attr in response.attributes) {
+            [data addObject:[NSString stringWithFormat:@"%@ => %@", attr.name, attr.value]];
+        }
+
+        [data sortUsingSelector:@selector(compare:)];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            [self.tableView reloadData];
+        });
+    });
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -73,12 +84,17 @@
     
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell.textLabel.adjustsFontSizeToFitWidth = YES;        
     }
     
-    cell.textLabel.text                      = [data objectAtIndex:indexPath.row];
-    cell.textLabel.adjustsFontSizeToFitWidth = YES;
+    cell.textLabel.text = [data objectAtIndex:indexPath.row];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 -(void)dealloc
@@ -89,6 +105,4 @@
     [super dealloc];
 }
 
-
 @end
-

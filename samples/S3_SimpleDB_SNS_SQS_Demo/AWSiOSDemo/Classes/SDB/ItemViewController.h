@@ -16,17 +16,13 @@
 #import <UIKit/UIKit.h>
 
 
-@interface ItemViewController:UIViewController {
+@interface ItemViewController:UITableViewController {
     NSString             *domain;
     NSString             *itemName;
     NSMutableArray       *data;
-
-    IBOutlet UITableView *dataTableView;
 }
 
 @property (nonatomic, retain) NSString *domain;
 @property (nonatomic, retain) NSString *itemName;
-
--(IBAction)done:(id)sender;
 
 @end

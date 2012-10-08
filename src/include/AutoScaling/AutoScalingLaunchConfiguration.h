@@ -142,7 +142,7 @@
 @property (nonatomic, retain) AutoScalingInstanceMonitoring *instanceMonitoring;
 
 /**
- * Specifies the bid price for the Spot Instance.
+ * Specifies the price to bid when launching Spot Instances.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 255<br/>
@@ -150,9 +150,9 @@
 @property (nonatomic, retain) NSString *spotPrice;
 
 /**
- * Provides the name or the full ARN of the instance profile associated
- * with the IAM role for the instance. The instance profile is the
- * container for the IAM role.
+ * Provides the name or the Amazon Resource Name (ARN) of the instance
+ * profile associated with the IAM role for the instance. The instance
+ * profile contains the IAM role.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 1600<br/>

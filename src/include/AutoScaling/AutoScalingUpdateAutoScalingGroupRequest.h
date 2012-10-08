@@ -36,6 +36,7 @@
     NSNumber       *healthCheckGracePeriod;
     NSString       *placementGroup;
     NSString       *vPCZoneIdentifier;
+    NSMutableArray *terminationPolicies;
 }
 
 
@@ -137,10 +138,27 @@
 @property (nonatomic, retain) NSString *vPCZoneIdentifier;
 
 /**
+ * A standalone termination policy or a list of termination policies used
+ * to select the instance to terminate. The policies are executed in the
+ * order that they are listed. <p> For more information on creating a
+ * termination policy for your Auto Scaling group, go to <a
+ * AutoScaling/latest/DeveloperGuide/us-termination-policy.html">Instance
+ * Termination Policy for Your Auto Scaling Group</a> in the the <i>Auto
+ * Scaling Developer Guide</i>.
+ */
+@property (nonatomic, retain) NSMutableArray *terminationPolicies;
+
+/**
  * Adds a single object to availabilityZones.
  * This function will alloc and init availabilityZones if not already done.
  */
 -(void)addAvailabilityZone:(NSString *)availabilityZoneObject;
+
+/**
+ * Adds a single object to terminationPolicies.
+ * This function will alloc and init terminationPolicies if not already done.
+ */
+-(void)addTerminationPolicy:(NSString *)terminationPolicyObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

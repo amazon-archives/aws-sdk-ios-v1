@@ -18,6 +18,8 @@
 
 @implementation S3Region
 
+@synthesize stringValue;
+
 
 -(id)initWithStringValue:(NSString *)value
 {
@@ -31,7 +33,7 @@
 +(S3Region *)USStandard
 {
     static S3Region *std = nil;
-
+    
     if (std == nil) {
         std = [[S3Region alloc] initWithStringValue:@""];
     }
@@ -41,7 +43,7 @@
 +(S3Region *)USWest
 {
     static S3Region *west = nil;
-
+    
     if (west == nil) {
         west = [[S3Region alloc] initWithStringValue:kS3RegionUSWest1];
     }
@@ -51,7 +53,7 @@
 +(S3Region *)USWest2
 {
     static S3Region *west2 = nil;
-
+    
     if (west2 == nil) {
         west2 = [[S3Region alloc] initWithStringValue:kS3RegionUSWest2];
     }
@@ -61,17 +63,27 @@
 +(S3Region *)EUIreland
 {
     static S3Region *eu = nil;
-
+    
     if (eu == nil) {
         eu = [[S3Region alloc] initWithStringValue:kS3RegionEU];
     }
     return eu;
 }
 
++(S3Region *)EUWest1
+{
+    static S3Region *euwest1 = nil;
+    
+    if (euwest1 == nil) {
+        euwest1 = [[S3Region alloc] initWithStringValue:kS3RegionEUWest1];
+    }
+    return euwest1;
+}
+
 +(S3Region *)APSingapore
 {
     static S3Region *ap = nil;
-
+    
     if (ap == nil) {
         ap = [[S3Region alloc] initWithStringValue:kS3RegionAPSoutheast1];
     }
@@ -81,7 +93,7 @@
 +(S3Region *)APJapan
 {
     static S3Region *ap = nil;
-
+    
     if (ap == nil) {
         ap = [[S3Region alloc] initWithStringValue:kS3RegionAPNortheast1];
     }
@@ -91,7 +103,7 @@
 +(S3Region *)SASaoPaulo
 {
     static S3Region *ap = nil;
-
+    
     if (ap == nil) {
         ap = [[S3Region alloc] initWithStringValue:kS3RegionSAEast1];
     }
@@ -109,8 +121,14 @@
     else if ([regionName isEqual:kS3RegionUSWest2]) {
         return [S3Region USWest2];
     }
+    else if ([regionName isEqual:kS3RegionEUWest1]) {
+        return [S3Region EUWest1];
+    }
     else if ([regionName isEqual:kS3RegionEU]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         return [S3Region EUIreland];
+#pragma clang diagnostic pop
     }
     else if ([regionName isEqual:kS3RegionAPSoutheast1]) {
         return [S3Region APSingapore];
@@ -122,8 +140,18 @@
         return [S3Region SASaoPaulo];
     }
     
-    AMZLog(@"Invalid S3 region name: '%@'. US Standard is used instead.", regionName);
-    return [S3Region USStandard];
+    AMZLog(@"Unknown S3 region name: '%@'.", regionName);
+    return [[[S3Region alloc] initWithStringValue:regionName] autorelease];
+}
+
+-(BOOL)isEqual:(id)object
+{
+    if (![object respondsToSelector:@selector(stringValue)]) {
+        return NO;
+    }
+    return ([self.stringValue isEqual:[object stringValue]] ||
+            ([self.stringValue isEqual:kS3RegionEU] && [[object stringValue] isEqual:kS3RegionEUWest1]) ||
+            ([self.stringValue isEqual:kS3RegionEUWest1] && [[object stringValue] isEqual:kS3RegionEU]));
 }
 
 -(NSString *)description

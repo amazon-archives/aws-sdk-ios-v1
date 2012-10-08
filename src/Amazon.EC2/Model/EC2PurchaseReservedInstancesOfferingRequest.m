@@ -20,6 +20,7 @@
 
 @synthesize reservedInstancesOfferingId;
 @synthesize instanceCount;
+@synthesize limitPrice;
 
 
 -(id)init
@@ -27,6 +28,7 @@
     if (self = [super init]) {
         reservedInstancesOfferingId = nil;
         instanceCount               = nil;
+        limitPrice                  = nil;
     }
 
     return self;
@@ -51,6 +53,7 @@
     [buffer appendString:@"{"];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ReservedInstancesOfferingId: %@,", reservedInstancesOfferingId] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"InstanceCount: %@,", instanceCount] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"LimitPrice: %@,", limitPrice] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -63,6 +66,7 @@
 {
     [reservedInstancesOfferingId release];
     [instanceCount release];
+    [limitPrice release];
 
     [super dealloc];
 }

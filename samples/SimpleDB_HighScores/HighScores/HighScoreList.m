@@ -102,6 +102,7 @@
 {
     SimpleDBGetAttributesRequest *gar = [[SimpleDBGetAttributesRequest alloc] initWithDomainName:HIGH_SCORE_DOMAIN andItemName:thePlayer];
     SimpleDBGetAttributesResponse *response = [sdbClient getAttributes:gar];
+    [gar release];
     if(response.error != nil)
     {
         NSLog(@"Error: %@", response.error);
@@ -111,7 +112,7 @@
     NSString *playerName = [self getStringValueForAttribute:PLAYER_ATTRIBUTE fromList:response.attributes];
     int score = [self getIntValueForAttribute:SCORE_ATTRIBUTE fromList:response.attributes];
     
-    return [[HighScore alloc] initWithPlayer:playerName andScore:score];
+    return [[[HighScore alloc] initWithPlayer:playerName andScore:score] autorelease];
 }
 
 /*

@@ -19,17 +19,47 @@
 
 @implementation HighScoresTableViewController
 
+@synthesize scores = _scores;
+@synthesize highScoreList = _highScoreList;
 
 -(id)initWithSortMethod:(int)theSortMethod
 {
-    highScoreList = [[HighScoreList alloc] initWithSortMethod:theSortMethod];
-    scores        = [[NSMutableArray alloc] initWithCapacity:0];
-    return [super initWithNibName:@"HighScoresTableViewController" bundle:nil];
+    self = [super initWithStyle:UITableViewStylePlain];
+    if(self)
+    {
+        self.title = @"High Scores";
+
+        _sortMethod = theSortMethod;
+        _highScoreList = [[HighScoreList alloc] initWithSortMethod:self.sortMethod];
+        _scores = [[NSMutableArray alloc] initWithCapacity:0];
+        _doneLoading = NO;
+    }
+    return self;
 }
 
--(IBAction)back:(id)sender
+- (void)viewDidLoad
 {
-    [self dismissModalViewControllerAnimated:YES];
+    [super viewDidLoad];
+
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        });
+
+        [self.scores addObjectsFromArray:[self.highScoreList getHighScores]];
+        int highScoreCount = [self.highScoreList highScoreCount];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            
+            self.title = [NSString stringWithFormat:@"High Scores (%d)", highScoreCount];
+            [self.tableView reloadData];
+        });
+    });
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -39,18 +69,39 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [highScoreList highScoreCount];
+    return [self.scores count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ( [scores count] == 0) {
-        [scores addObjectsFromArray:[highScoreList getHighScores]];
-    }
-    else if (indexPath.row > [scores count] - 1) {
-        [scores addObjectsFromArray:[highScoreList getNextPageOfScores]];
-    }
+    if (indexPath.row == [self.scores count] - 1
+        && _doneLoading == NO) {
 
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_async(queue, ^{
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+            });
+
+            NSArray *newScores = [self.highScoreList getNextPageOfScores];
+            if(newScores == nil || [newScores count] == 0)
+            {
+                _doneLoading = YES;
+            }
+            else
+            {
+                [self.scores addObjectsFromArray:newScores];
+            }
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                [self.tableView reloadData];
+            });
+        });
+    }
 
     static NSString *CellIdentifier = @"Cell";
 
@@ -58,47 +109,61 @@
 
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
+        cell.textLabel.adjustsFontSizeToFitWidth = YES;
+        cell.accessoryType = UITableViewCellStateShowingEditControlMask;
     }
 
     // Configure the cell...
-    HighScore *highScore = [scores objectAtIndex:indexPath.row];
-    cell.textLabel.text                      = highScore.player;
-    cell.textLabel.adjustsFontSizeToFitWidth = YES;
-    cell.detailTextLabel.text                = [NSString stringWithFormat:@"%d", highScore.score];
+    HighScore *highScore = [self.scores objectAtIndex:indexPath.row];
+    cell.textLabel.text = highScore.player;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", highScore.score];
 
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    HighScore            *highScore = (HighScore *)[scores objectAtIndex:indexPath.row];
-
+    HighScore *highScore = (HighScore *)[self.scores objectAtIndex:indexPath.row];
     PlayerViewController *playerView = [[PlayerViewController alloc] initWithPlayer:highScore];
-
-    playerView.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentModalViewController:playerView animated:YES];
+    [self.navigationController pushViewController:playerView animated:YES];
     [playerView release];
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        HighScore *highScore = (HighScore *)[scores objectAtIndex:indexPath.row];
-        [highScoreList removeHighScore:highScore];
 
-        [scores removeObjectAtIndex:indexPath.row];
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_async(queue, ^{
 
-        NSArray *indexPaths = [NSArray arrayWithObjects:indexPath, nil];
-        [tableView beginUpdates];
-        [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
-        [tableView endUpdates];
+            dispatch_async(dispatch_get_main_queue(), ^{
+
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+            });
+
+            HighScore *highScore = (HighScore *)[self.scores objectAtIndex:indexPath.row];
+            [self.highScoreList removeHighScore:highScore];
+
+            [self.scores removeObjectAtIndex:indexPath.row];
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+
+                NSArray *indexPaths = [NSArray arrayWithObjects:indexPath, nil];
+                [tableView beginUpdates];
+                [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
+                [tableView endUpdates];
+            });
+        });
     }
 }
 
 -(void)dealloc
 {
-    [scores release];
-    [highScoreList release];
+    [_scores release];
+    [_highScoreList release];
+    
     [super dealloc];
 }
 

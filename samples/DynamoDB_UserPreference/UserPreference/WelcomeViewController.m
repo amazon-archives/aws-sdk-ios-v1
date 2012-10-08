@@ -68,60 +68,129 @@
 
 -(IBAction)createDB:(id)sender
 {
-    NSString *tableStatus = [DynamoDBManager getTestTableStatus];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
 
-    if (tableStatus == nil)
-    {
-        [DynamoDBManager createTable];
-    }
-    else
-    {
-        [self showAlert:@"The test table already exists." withStatus:tableStatus];
-    }
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        });
+
+        NSString *tableStatus = [DynamoDBManager getTestTableStatus];
+
+        if (tableStatus == nil)
+        {
+            [DynamoDBManager createTable];
+        }
+        else
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+
+                [self showAlert:@"The test table already exists." withStatus:tableStatus];
+            });
+        }
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        });
+    });
 }
 
 -(IBAction)setUpUserList:(id)sender
 {
-    NSString *tableStatus = [DynamoDBManager getTestTableStatus];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
 
-    if ([tableStatus isEqualToString:@"ACTIVE"])
-    {
-        [DynamoDBManager insertUsers];
-    }
-    else
-    {
-        [self showAlert:@"The test table is not ready yet." withStatus:tableStatus];
-    }
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        });
+
+        NSString *tableStatus = [DynamoDBManager getTestTableStatus];
+
+        if ([tableStatus isEqualToString:@"ACTIVE"])
+        {
+            [DynamoDBManager insertUsers];
+        }
+        else
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+
+                [self showAlert:@"The test table is not ready yet." withStatus:tableStatus];
+            });
+        }
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        });
+    });
 }
 
 -(IBAction)showUserList:(id)sender
 {
-    NSString *tableStatus = [DynamoDBManager getTestTableStatus];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
 
-    if ([tableStatus isEqualToString:@"ACTIVE"])
-    {
-        UserListView *user_list_view = [[UserListView alloc] initWithStyle:UITableViewStyleGrouped];
-        [self.navigationController pushViewController:user_list_view animated:YES];
-        [user_list_view release];
-    }
-    else
-    {
-        [self showAlert:@"The test table is not ready yet." withStatus:tableStatus];
-    }
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        });
+
+        NSString *tableStatus = [DynamoDBManager getTestTableStatus];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            if ([tableStatus isEqualToString:@"ACTIVE"])
+            {
+                UserListView *user_list_view = [[UserListView alloc] initWithStyle:UITableViewStyleGrouped];
+                [self.navigationController pushViewController:user_list_view animated:YES];
+                [user_list_view release];
+            }
+            else
+            {
+                [self showAlert:@"The test table is not ready yet." withStatus:tableStatus];
+            }
+        });
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        });
+    });
 }
 
 -(IBAction)cleanUp:(id)sender
 {
-    NSString *tableStatus = [DynamoDBManager getTestTableStatus];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
 
-    if ([tableStatus isEqualToString:@"ACTIVE"])
-    {
-        [DynamoDBManager cleanUp];
-    }
-    else
-    {
-        [self showAlert:@"The test table is not ready yet." withStatus:tableStatus];
-    }
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        });
+
+        NSString *tableStatus = [DynamoDBManager getTestTableStatus];
+
+        if ([tableStatus isEqualToString:@"ACTIVE"])
+        {
+            [DynamoDBManager cleanUp];
+        }
+        else
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+
+                [self showAlert:@"The test table is not ready yet." withStatus:tableStatus];
+            });
+        }
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        });
+    });
+
 }
 
 -(void)showAlert:(NSString *)message withStatus:(NSString *)status
@@ -134,7 +203,7 @@
                           delegate:nil
                           cancelButtonTitle:nil
                           otherButtonTitles:@"OK", nil];
-
+    
     [alert show];
     [alert release];
 }

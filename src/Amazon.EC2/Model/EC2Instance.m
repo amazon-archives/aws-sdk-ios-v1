@@ -55,6 +55,8 @@
 @synthesize hypervisor;
 @synthesize networkInterfaces;
 @synthesize iamInstanceProfile;
+@synthesize ebsOptimized;
+@synthesize ebsOptimizedIsSet;
 
 
 -(id)init
@@ -97,6 +99,8 @@
         hypervisor            = nil;
         networkInterfaces     = [[NSMutableArray alloc] initWithCapacity:1];
         iamInstanceProfile    = nil;
+        ebsOptimized          = NO;
+        ebsOptimizedIsSet     = NO;
     }
 
     return self;
@@ -190,6 +194,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Hypervisor: %@,", hypervisor] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"NetworkInterfaces: %@,", networkInterfaces] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"IamInstanceProfile: %@,", iamInstanceProfile] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"EbsOptimized: %d,", ebsOptimized] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -201,6 +206,12 @@
 {
     sourceDestCheck      = theValue;
     sourceDestCheckIsSet = YES;
+}
+
+-(void)setEbsOptimized:(bool)theValue
+{
+    ebsOptimized      = theValue;
+    ebsOptimizedIsSet = YES;
 }
 
 

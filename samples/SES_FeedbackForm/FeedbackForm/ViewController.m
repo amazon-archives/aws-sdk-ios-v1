@@ -21,34 +21,42 @@
 
 @implementation ViewController
 
-@synthesize nameField;
-@synthesize rating;
-@synthesize commentsField;
-@synthesize submitButton;
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-}
+@synthesize nameField = _nameField;
+@synthesize rating = _rating;
+@synthesize commentsField = _commentsField;
+@synthesize submitButton = _submitButton;
+@synthesize scrollView = _scrollView;
 
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    self.title = @"Feedback";
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidShown:)
+                                                 name:UIKeyboardDidShowNotification
+                                               object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+
+    self.scrollView.contentSize = self.view.frame.size;
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
     self.nameField     = nil;
     self.rating        = nil;
     self.commentsField = nil;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -60,16 +68,6 @@
     else {
         self.submitButton.enabled = YES;
     }
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -84,68 +82,93 @@
     return YES;
 }
 
-
--(void)textViewDidBeginEditing:(UITextView *)textView
-{
-    [self animateView:textView up:YES];
-}
-
--(void)textViewDidEndEditing:(UITextView *)textView
-{
-    [self animateView:textView up:NO];
-}
-
--(void)animateView:(UIView *)uiView up:(BOOL)moveUp
-{
-    int move = 175;
-    
-    if (moveUp) {
-        move = -175;
-    }
-    
-    [UIView beginAnimations:@"animation" context:nil];
-    [UIView setAnimationBeginsFromCurrentState:YES];
-    [UIView setAnimationDuration:0.25f];
-    self.view.frame = CGRectOffset(self.view.frame, 0, move);
-    [UIView commitAnimations];
-}
-
 -(void)dealloc
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
+    [_nameField release];
+    [_rating release];
+    [_commentsField release];
+    [_submitButton release];
+    [_scrollView release];
+
     [super dealloc];
 }
 
-
 #pragma mark - IBActions
+
 -(IBAction)submit:(id)sender
 {
-    [nameField resignFirstResponder];
-    [commentsField resignFirstResponder];
-    
-    if (nameField.text == nil || nameField.text.length == 0 || commentsField.text == nil || commentsField.text.length == 0) {
-        [[[[UIAlertView alloc] initWithTitle:@"Feedback Not Sent" 
-                                     message:@"Please fill out entire form." 
-                                    delegate:nil 
-                           cancelButtonTitle:@"OK" 
+    [self.nameField resignFirstResponder];
+    [self.commentsField resignFirstResponder];
+
+    if (self.nameField.text == nil || self.nameField.text.length == 0
+        || self.commentsField.text == nil || self.commentsField.text.length == 0) {
+        
+        [[[[UIAlertView alloc] initWithTitle:@"Feedback Not Sent"
+                                     message:@"Please fill out entire form."
+                                    delegate:nil
+                           cancelButtonTitle:@"OK"
                            otherButtonTitles:nil] autorelease] show];
         return;
     }
-    
-    if ([SESManager sendFeedbackEmail:commentsField.text name:nameField.text rating:rating.selectedSegmentIndex+1]) {
-        [[[[UIAlertView alloc] initWithTitle:@"Feedback Sent" 
-                                     message:@"Thank you for your feedback!" 
-                                    delegate:nil 
-                           cancelButtonTitle:@"OK" 
-                           otherButtonTitles:nil] autorelease] show];
-        
-    }
-    else {
-        [[[[UIAlertView alloc] initWithTitle:@"Feedback Failed" 
-                                     message:@"Unable to send feedback at this time." 
-                                    delegate:nil 
-                           cancelButtonTitle:@"OK" 
-                           otherButtonTitles:nil] autorelease] show];
-    }
+
+    NSString *commnetsText = self.commentsField.text;
+    NSString *nameText = self.nameField.text;
+    int rating = self.rating.selectedSegmentIndex + 1;
+
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        });
+
+        BOOL didSucceed = [SESManager sendFeedbackEmail:commnetsText
+                                                   name:nameText
+                                                 rating:rating];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+
+            if (didSucceed) {
+
+                [[[[UIAlertView alloc] initWithTitle:@"Feedback Sent"
+                                             message:@"Thank you for your feedback!"
+                                            delegate:nil
+                                   cancelButtonTitle:@"OK"
+                                   otherButtonTitles:nil] autorelease] show];
+            }
+            else {
+                [[[[UIAlertView alloc] initWithTitle:@"Feedback Failed"
+                                             message:@"Unable to send feedback at this time."
+                                            delegate:nil
+                                   cancelButtonTitle:@"OK"
+                                   otherButtonTitles:nil] autorelease] show];
+            }
+        });
+    });
 }
+
+#pragma mark - Helper Methods
+
+- (void)keyboardDidShown:(NSNotification *)notification
+{
+    CGSize kbSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+    self.scrollView.contentInset = contentInsets;
+    self.scrollView.scrollIndicatorInsets = contentInsets;
+}
+
+- (void) keyboardWillHide:(NSNotification *)notification
+{
+    self.scrollView.contentInset = UIEdgeInsetsZero;
+    self.scrollView.scrollIndicatorInsets = UIEdgeInsetsZero;
+}
+
+#pragma mark
 
 @end

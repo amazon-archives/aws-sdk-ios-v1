@@ -24,6 +24,7 @@
 -(IBAction)listTopics:(id)sender;
 -(IBAction)s3AsyncDemo:(id)sender;
 -(IBAction)sdbAsyncDemo:(id)sender;
+-(IBAction)s3NSOperationDemo:(id)sender;
 
 -(IBAction)logout:(id)sender;
 

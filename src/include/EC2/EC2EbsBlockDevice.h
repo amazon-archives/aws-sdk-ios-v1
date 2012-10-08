@@ -27,6 +27,8 @@
     NSNumber *volumeSize;
     bool     deleteOnTermination;
     bool     deleteOnTerminationIsSet;
+    NSString *volumeType;
+    NSNumber *iops;
 }
 
 
@@ -55,6 +57,19 @@
 @property (nonatomic) bool           deleteOnTermination;
 
 @property (nonatomic, readonly) bool deleteOnTerminationIsSet;
+
+/**
+ * The value of the VolumeType property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>standard, io1
+ */
+@property (nonatomic, retain) NSString *volumeType;
+
+/**
+ * The value of the Iops property for this object.
+ */
+@property (nonatomic, retain) NSNumber *iops;
 
 /**
  * Returns a string representation of this object; useful for testing and

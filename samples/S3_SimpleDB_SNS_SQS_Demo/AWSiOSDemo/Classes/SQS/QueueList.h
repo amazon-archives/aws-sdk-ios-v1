@@ -15,14 +15,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QueueList:UIViewController {
+@interface QueueList:UITableViewController {
     NSMutableArray       *queues;
-    IBOutlet UITableView *queueTableView;
 }
-
--(id)init;
-
--(IBAction)done:(id)sender;
--(IBAction)add:(id)sender;
 
 @end

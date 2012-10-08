@@ -72,6 +72,10 @@
 #import "EC2DescribeRegionsResponseUnmarshaller.h"
 #import "EC2DescribeRegionsRequest.h"
 #import "EC2DescribeRegionsRequestMarshaller.h"
+#import "EC2CreateReservedInstancesListingResponse.h"
+#import "EC2CreateReservedInstancesListingResponseUnmarshaller.h"
+#import "EC2CreateReservedInstancesListingRequest.h"
+#import "EC2CreateReservedInstancesListingRequestMarshaller.h"
 #import "EC2ResetSnapshotAttributeResponse.h"
 #import "EC2ResetSnapshotAttributeResponseUnmarshaller.h"
 #import "EC2ResetSnapshotAttributeRequest.h"
@@ -128,10 +132,6 @@
 #import "EC2DeleteVolumeResponseUnmarshaller.h"
 #import "EC2DeleteVolumeRequest.h"
 #import "EC2DeleteVolumeRequestMarshaller.h"
-#import "EC2DeactivateLicenseResponse.h"
-#import "EC2DeactivateLicenseResponseUnmarshaller.h"
-#import "EC2DeactivateLicenseRequest.h"
-#import "EC2DeactivateLicenseRequestMarshaller.h"
 #import "EC2AssociateAddressResponse.h"
 #import "EC2AssociateAddressResponseUnmarshaller.h"
 #import "EC2AssociateAddressRequest.h"
@@ -140,6 +140,10 @@
 #import "EC2CancelConversionTaskResponseUnmarshaller.h"
 #import "EC2CancelConversionTaskRequest.h"
 #import "EC2CancelConversionTaskRequestMarshaller.h"
+#import "EC2DeactivateLicenseResponse.h"
+#import "EC2DeactivateLicenseResponseUnmarshaller.h"
+#import "EC2DeactivateLicenseRequest.h"
+#import "EC2DeactivateLicenseRequestMarshaller.h"
 #import "EC2DescribeExportTasksResponse.h"
 #import "EC2DescribeExportTasksResponseUnmarshaller.h"
 #import "EC2DescribeExportTasksRequest.h"
@@ -148,6 +152,10 @@
 #import "EC2DescribeVolumesResponseUnmarshaller.h"
 #import "EC2DescribeVolumesRequest.h"
 #import "EC2DescribeVolumesRequestMarshaller.h"
+#import "EC2DescribeReservedInstancesListingsResponse.h"
+#import "EC2DescribeReservedInstancesListingsResponseUnmarshaller.h"
+#import "EC2DescribeReservedInstancesListingsRequest.h"
+#import "EC2DescribeReservedInstancesListingsRequestMarshaller.h"
 #import "EC2ReportInstanceStatusResponse.h"
 #import "EC2ReportInstanceStatusResponseUnmarshaller.h"
 #import "EC2ReportInstanceStatusRequest.h"
@@ -212,6 +220,10 @@
 #import "EC2StartInstancesResponseUnmarshaller.h"
 #import "EC2StartInstancesRequest.h"
 #import "EC2StartInstancesRequestMarshaller.h"
+#import "EC2CancelReservedInstancesListingResponse.h"
+#import "EC2CancelReservedInstancesListingResponseUnmarshaller.h"
+#import "EC2CancelReservedInstancesListingRequest.h"
+#import "EC2CancelReservedInstancesListingRequestMarshaller.h"
 #import "EC2ModifyInstanceAttributeResponse.h"
 #import "EC2ModifyInstanceAttributeResponseUnmarshaller.h"
 #import "EC2ModifyInstanceAttributeRequest.h"
@@ -768,6 +780,26 @@
 
 
 /**
+ *
+ * @param createReservedInstancesListingRequest Container for the necessary parameters to execute the
+ *           CreateReservedInstancesListing service method on AmazonEC2.
+ *
+ * @return The response from the CreateReservedInstancesListing service method, as returned by AmazonEC2.
+ *
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonEC2 indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see EC2CreateReservedInstancesListingRequest
+ * @see EC2CreateReservedInstancesListingResponse
+ */
+-(EC2CreateReservedInstancesListingResponse *)createReservedInstancesListing:(EC2CreateReservedInstancesListingRequest *)createReservedInstancesListingRequest;
+
+
+/**
  * <p>
  * Resets permission settings for the specified snapshot.
  * </p>
@@ -1093,28 +1125,6 @@
 
 /**
  * <p>
- * Deactivates a specific number of licenses. Deactivations can be done against a specific license ID after they have
- * persisted for at least a 90-day period.
- * </p>
- *
- * @param deactivateLicenseRequest Container for the necessary parameters to execute the DeactivateLicense service method
- *           on AmazonEC2.
- *
- *
- * @exception AmazonClientException If any internal errors are encountered inside the client while
- * attempting to make the request or handle the response.  For example
- * if a network connection is not available.  For more information see <AmazonClientException>.
- * @exception AmazonServiceException If an error response is returned by AmazonEC2 indicating
- * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
- *
- * @see EC2DeactivateLicenseRequest
- * @see EC2DeactivateLicenseResponse
- */
--(EC2DeactivateLicenseResponse *)deactivateLicense:(EC2DeactivateLicenseRequest *)deactivateLicenseRequest;
-
-
-/**
- * <p>
  * The AssociateAddress operation associates an elastic IP address with an instance.
  * </p>
  * <p>
@@ -1159,6 +1169,28 @@
 
 
 /**
+ * <p>
+ * Deactivates a specific number of licenses. Deactivations can be done against a specific license ID after they have
+ * persisted for at least a 90-day period.
+ * </p>
+ *
+ * @param deactivateLicenseRequest Container for the necessary parameters to execute the DeactivateLicense service method
+ *           on AmazonEC2.
+ *
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonEC2 indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see EC2DeactivateLicenseRequest
+ * @see EC2DeactivateLicenseResponse
+ */
+-(EC2DeactivateLicenseResponse *)deactivateLicense:(EC2DeactivateLicenseRequest *)deactivateLicenseRequest;
+
+
+/**
  *
  * @param describeExportTasksRequest Container for the necessary parameters to execute the DescribeExportTasks service
  *           method on AmazonEC2.
@@ -1200,6 +1232,26 @@
  * @see EC2DescribeVolumesResponse
  */
 -(EC2DescribeVolumesResponse *)describeVolumes:(EC2DescribeVolumesRequest *)describeVolumesRequest;
+
+
+/**
+ *
+ * @param describeReservedInstancesListingsRequest Container for the necessary parameters to execute the
+ *           DescribeReservedInstancesListings service method on AmazonEC2.
+ *
+ * @return The response from the DescribeReservedInstancesListings service method, as returned by AmazonEC2.
+ *
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonEC2 indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see EC2DescribeReservedInstancesListingsRequest
+ * @see EC2DescribeReservedInstancesListingsResponse
+ */
+-(EC2DescribeReservedInstancesListingsResponse *)describeReservedInstancesListings:(EC2DescribeReservedInstancesListingsRequest *)describeReservedInstancesListingsRequest;
 
 
 /**
@@ -1653,6 +1705,26 @@
  * @see EC2StartInstancesResponse
  */
 -(EC2StartInstancesResponse *)startInstances:(EC2StartInstancesRequest *)startInstancesRequest;
+
+
+/**
+ *
+ * @param cancelReservedInstancesListingRequest Container for the necessary parameters to execute the
+ *           CancelReservedInstancesListing service method on AmazonEC2.
+ *
+ * @return The response from the CancelReservedInstancesListing service method, as returned by AmazonEC2.
+ *
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonEC2 indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see EC2CancelReservedInstancesListingRequest
+ * @see EC2CancelReservedInstancesListingResponse
+ */
+-(EC2CancelReservedInstancesListingResponse *)cancelReservedInstancesListing:(EC2CancelReservedInstancesListingRequest *)cancelReservedInstancesListingRequest;
 
 
 /**

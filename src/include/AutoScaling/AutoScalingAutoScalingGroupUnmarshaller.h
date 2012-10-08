@@ -28,6 +28,7 @@
 #import "AutoScalingEnabledMetricUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
 #import "AutoScalingTagDescriptionUnmarshaller.h"
+#import "../AmazonListUnmarshaller.h"
 #import "../AmazonSDKUtil.h"
 
 

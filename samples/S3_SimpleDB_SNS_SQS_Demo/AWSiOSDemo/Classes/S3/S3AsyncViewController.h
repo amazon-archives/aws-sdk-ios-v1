@@ -32,7 +32,6 @@
 
 -(IBAction)start:(id)sender;
 -(IBAction)stop:(id)sender;
--(IBAction)exit:(id)sender;
 
 -(void)putObject;
 -(void)getObject;

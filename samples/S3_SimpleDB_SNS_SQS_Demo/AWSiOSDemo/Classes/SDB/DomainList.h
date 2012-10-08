@@ -15,12 +15,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DomainList:UIViewController {
+@interface DomainList:UITableViewController {
     NSMutableArray       *domains;
-    IBOutlet UITableView *domainTableView;
 }
-
--(id)init;
--(IBAction)done:(id)sender;
 
 @end

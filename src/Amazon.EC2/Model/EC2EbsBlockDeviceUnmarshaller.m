@@ -56,6 +56,16 @@
         return;
     }
 
+    if ([elementName isEqualToString:@"volumeType"]) {
+        self.response.volumeType = self.currentText;
+        return;
+    }
+
+    if ([elementName isEqualToString:@"iops"]) {
+        self.response.iops = [AmazonSDKUtil convertStringToNumber:self.currentText];
+        return;
+    }
+
     if ([elementName isEqualToString:@"ebsBlockDevice"]) {
         if (caller != nil) {
             [parser setDelegate:caller];

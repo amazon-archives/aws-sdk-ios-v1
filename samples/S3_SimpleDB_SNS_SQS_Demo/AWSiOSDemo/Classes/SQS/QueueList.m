@@ -20,48 +20,61 @@
 
 @implementation QueueList
 
--(id)init
+- (void)viewDidLoad
 {
-    return [super initWithNibName:@"QueueList" bundle:nil];
+    [super viewDidLoad];
+
+    self.title = @"Queues";
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                               target:self
+                                                                               action:@selector(add:)];
+    self.navigationItem.rightBarButtonItem = addButton;
+    [addButton release];
 }
 
--(IBAction)add:(id)sender
+-(void)add:(id)sender
 {
     AddQueue *addQueue = [[AddQueue alloc] init];
-    
-    addQueue.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-    
     [self presentModalViewController:addQueue animated:YES];
     [addQueue release];
 }
 
--(IBAction)done:(id)sender
-{
-    [self dismissModalViewControllerAnimated:YES];
-}
-
 -(void)viewWillAppear:(BOOL)animated
 {
-    SQSListQueuesRequest  *listQueuesRequest = [[[SQSListQueuesRequest alloc] init] autorelease];
-    SQSListQueuesResponse *response          = [[AmazonClientManager sqs] listQueues:listQueuesRequest];
-    if(response.error != nil)
-    {
-        NSLog(@"Error: %@", response.error);
-    }
-    
-    if (queues == nil) {
-        queues = [[NSMutableArray alloc] initWithCapacity:[response.queueUrls count]];
-    }
-    else {
-        [queues removeAllObjects];
-    }
-    for (NSString *queueName in response.queueUrls) {
-        [queues addObject:queueName];
-    }
-    
-    [queues sortUsingSelector:@selector(compare:)];
-    
-    [queueTableView reloadData];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        });
+
+        SQSListQueuesRequest  *listQueuesRequest = [[[SQSListQueuesRequest alloc] init] autorelease];
+        SQSListQueuesResponse *response          = [[AmazonClientManager sqs] listQueues:listQueuesRequest];
+        if(response.error != nil)
+        {
+            NSLog(@"Error: %@", response.error);
+        }
+
+        if (queues == nil) {
+            queues = [[NSMutableArray alloc] initWithCapacity:[response.queueUrls count]];
+        }
+        else {
+            [queues removeAllObjects];
+        }
+        
+        for (NSString *queueName in response.queueUrls) {
+            [queues addObject:queueName];
+        }
+
+        [queues sortUsingSelector:@selector(compare:)];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            [self.tableView reloadData];
+        });
+    });
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -77,17 +90,18 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
+
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell.textLabel.adjustsFontSizeToFitWidth = YES;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    
+
     // Configure the cell...
-    cell.textLabel.text                      = [queues objectAtIndex:indexPath.row];
-    cell.textLabel.adjustsFontSizeToFitWidth = YES;
-    
+    cell.textLabel.text = [queues objectAtIndex:indexPath.row];
+
     return cell;
 }
 
@@ -95,29 +109,41 @@
 {
     MessageList *messageList = [[MessageList alloc] init];
     messageList.queue = [queues objectAtIndex:indexPath.row];
-    messageList.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    
-    [self presentModalViewController:messageList animated:YES];
+    [self.navigationController pushViewController:messageList animated:YES];
     [messageList release];
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
-        SQSDeleteQueueRequest *deleteQueueRequest = [[[SQSDeleteQueueRequest alloc] initWithQueueUrl:[queues objectAtIndex:indexPath.row]] autorelease];
-        SQSDeleteQueueResponse *deleteQueueResponse = [[AmazonClientManager sqs] deleteQueue:deleteQueueRequest];
-        if(deleteQueueResponse.error != nil)
-        {
-            NSLog(@"Error: %@", deleteQueueResponse.error);
-        }
-        
-        [queues removeObjectAtIndex:indexPath.row];
-        
-        NSArray *indexPaths = [NSArray arrayWithObjects:indexPath, nil];
-        [queueTableView beginUpdates];
-        [queueTableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
-        [queueTableView endUpdates];
+
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_async(queue, ^{
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+            });
+
+            SQSDeleteQueueRequest *deleteQueueRequest = [[[SQSDeleteQueueRequest alloc] initWithQueueUrl:[queues objectAtIndex:indexPath.row]] autorelease];
+            SQSDeleteQueueResponse *deleteQueueResponse = [[AmazonClientManager sqs] deleteQueue:deleteQueueRequest];
+            if(deleteQueueResponse.error != nil)
+            {
+                NSLog(@"Error: %@", deleteQueueResponse.error);
+            }
+
+            [queues removeObjectAtIndex:indexPath.row];
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+
+                NSArray *indexPaths = [NSArray arrayWithObjects:indexPath, nil];
+                [self.tableView beginUpdates];
+                [self.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
+                [self.tableView endUpdates];
+            });
+        });
     }
 }
 
@@ -127,6 +153,4 @@
     [super dealloc];
 }
 
-
 @end
-

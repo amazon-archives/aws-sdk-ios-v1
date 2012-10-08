@@ -24,8 +24,31 @@
 #import "AmazonClientManager.h"
 #import "LoginViewController.h"
 #import "AmazonKeyChainWrapper.h"
+#import "S3NSOperationDemoViewController.h"
 
 @implementation AWSiOSDemoTVMIdentityViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    self.title = @"AnonymousTVM";
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Top"
+                                                                   style:UIBarButtonItemStyleBordered
+                                                                  target:nil
+                                                                  action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+    [backButton release];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
+    if (![AmazonClientManager hasCredentials]) {
+        [[Constants credentialsAlert] show];
+    }
+}
 
 -(IBAction)listBuckets:(id)sender
 {
@@ -41,11 +64,52 @@
             [[Constants errorAlert:response.message] show];
         }
         else {
-            BucketList *bucketList = [[BucketList alloc] init];
-            bucketList.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-
-            [self presentModalViewController:bucketList animated:YES];
+            BucketList *bucketList = [[BucketList alloc] initWithStyle:UITableViewStylePlain];
+            [self.navigationController pushViewController:bucketList animated:YES];
             [bucketList release];
+        }
+    }
+}
+
+-(IBAction)s3AsyncDemo:(id)sender
+{
+    if (![AmazonClientManager hasCredentials]) {
+        [[Constants credentialsAlert] show];
+    }
+    else if (![AmazonClientManager isLoggedIn]) {
+        [self login];
+    }
+    else {
+        Response *response = [AmazonClientManager validateCredentials];
+        if (![response wasSuccessful]) {
+            [[Constants errorAlert:response.message] show];
+        }
+        else {
+            S3AsyncViewController *s3Async = [S3AsyncViewController new];
+            [self.navigationController pushViewController:s3Async animated:YES];
+            [s3Async release];
+        }
+    }
+}
+
+-(IBAction)s3NSOperationDemo:(id)sender
+{
+    if (![AmazonClientManager hasCredentials]) {
+        [[Constants credentialsAlert] show];
+    }
+    else if (![AmazonClientManager isLoggedIn]) {
+        [self login];
+    }
+    else {
+        Response *response = [AmazonClientManager validateCredentials];
+        if (![response wasSuccessful]) {
+            [[Constants errorAlert:response.message] show];
+        }
+        else {
+            S3NSOperationDemoViewController *s3Async2 = [[S3NSOperationDemoViewController alloc] initWithNibName:@"S3NSOperationDemoView"
+                                                                                                          bundle:nil];
+            [self.navigationController pushViewController:s3Async2 animated:YES];
+            [s3Async2 release];
         }
     }
 }
@@ -64,11 +128,30 @@
             [[Constants errorAlert:response.message] show];
         }
         else {
-            DomainList *domainList = [[DomainList alloc] init];
-            domainList.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-
-            [self presentModalViewController:domainList animated:YES];
+            DomainList *domainList = [[DomainList alloc] initWithStyle:UITableViewStylePlain];
+            [self.navigationController pushViewController:domainList animated:YES];
             [domainList release];
+        }
+    }
+}
+
+-(IBAction)sdbAsyncDemo:(id)sender
+{
+    if (![AmazonClientManager hasCredentials]) {
+        [[Constants credentialsAlert] show];
+    }
+    else if (![AmazonClientManager isLoggedIn]) {
+        [self login];
+    }
+    else {
+        Response *response = [AmazonClientManager validateCredentials];
+        if (![response wasSuccessful]) {
+            [[Constants errorAlert:response.message] show];
+        }
+        else {
+            SdbAsyncViewController *sdbAsync = [SdbAsyncViewController new];
+            [self.navigationController pushViewController:sdbAsync animated:YES];
+            [sdbAsync release];
         }
     }
 }
@@ -87,10 +170,8 @@
             [[Constants errorAlert:response.message] show];
         }
         else {
-            QueueList *queueList = [[QueueList alloc] init];
-            queueList.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-
-            [self presentModalViewController:queueList animated:YES];
+            QueueList *queueList = [QueueList new];
+            [self.navigationController pushViewController:queueList animated:YES];
             [queueList release];
         }
     }
@@ -110,57 +191,9 @@
             [[Constants errorAlert:response.message] show];
         }
         else {
-            TopicList *topicList = [[TopicList alloc] init];
-            topicList.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-
-            [self presentModalViewController:topicList animated:YES];
+            TopicList *topicList = [[TopicList alloc] initWithStyle:UITableViewStylePlain];
+            [self.navigationController pushViewController:topicList animated:YES];
             [topicList release];
-        }
-    }
-}
-
--(IBAction)s3AsyncDemo:(id)sender
-{
-    if (![AmazonClientManager hasCredentials]) {
-        [[Constants credentialsAlert] show];
-    }
-    else if (![AmazonClientManager isLoggedIn]) {
-        [self login];
-    }
-    else {
-        Response *response = [AmazonClientManager validateCredentials];
-        if (![response wasSuccessful]) {
-            [[Constants errorAlert:response.message] show];
-        }
-        else {
-            S3AsyncViewController *s3Async = [[S3AsyncViewController alloc] init];
-            s3Async.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-
-            [self presentModalViewController:s3Async animated:YES];
-            [s3Async release];
-        }
-    }
-}
-
--(IBAction)sdbAsyncDemo:(id)sender
-{
-    if (![AmazonClientManager hasCredentials]) {
-        [[Constants credentialsAlert] show];
-    }
-    else if (![AmazonClientManager isLoggedIn]) {
-        [self login];
-    }
-    else {
-        Response *response = [AmazonClientManager validateCredentials];
-        if (![response wasSuccessful]) {
-            [[Constants errorAlert:response.message] show];
-        }
-        else {
-            SdbAsyncViewController *sdbAsync = [[SdbAsyncViewController alloc] init];
-            sdbAsync.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-
-            [self presentModalViewController:sdbAsync animated:YES];
-            [sdbAsync release];
         }
     }
 }
@@ -173,17 +206,9 @@
 
 -(void)login
 {
-    LoginViewController *login = [[LoginViewController alloc] init];
-
-    login.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-
+    LoginViewController *login = [LoginViewController new];
     [self presentModalViewController:login animated:YES];
     [login release];
-}
-
--(void)dealloc
-{
-    [super dealloc];
 }
 
 @end

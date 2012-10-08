@@ -22,6 +22,8 @@
 @synthesize volumeSize;
 @synthesize deleteOnTermination;
 @synthesize deleteOnTerminationIsSet;
+@synthesize volumeType;
+@synthesize iops;
 
 
 -(id)init
@@ -31,6 +33,8 @@
         volumeSize               = nil;
         deleteOnTermination      = NO;
         deleteOnTerminationIsSet = NO;
+        volumeType               = nil;
+        iops                     = nil;
     }
 
     return self;
@@ -46,6 +50,8 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"SnapshotId: %@,", snapshotId] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"VolumeSize: %@,", volumeSize] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"DeleteOnTermination: %d,", deleteOnTermination] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"VolumeType: %@,", volumeType] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Iops: %@,", iops] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -64,6 +70,8 @@
 {
     [snapshotId release];
     [volumeSize release];
+    [volumeType release];
+    [iops release];
 
     [super dealloc];
 }

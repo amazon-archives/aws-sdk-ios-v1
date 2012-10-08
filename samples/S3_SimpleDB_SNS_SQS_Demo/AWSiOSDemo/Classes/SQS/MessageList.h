@@ -16,16 +16,12 @@
 #import <UIKit/UIKit.h>
 
 
-@interface MessageList:UIViewController {
-    NSMutableArray       *messages;
-    NSString             *queue;
-
-    IBOutlet UITableView *messageTableView;
+@interface MessageList:UITableViewController {
 }
 
 @property (nonatomic, retain) NSString *queue;
+@property (nonatomic, retain) NSMutableArray *messages;
 
--(IBAction)done:(id)sender;
--(IBAction)sendMessage:(id)sender;
+-(void)sendMessage:(id)sender;
 
 @end

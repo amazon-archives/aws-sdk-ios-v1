@@ -34,6 +34,7 @@
 		CE79A1DE14AA542100268707 /* ResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = CE79A1D114AA542100268707 /* ResponseHandler.m */; };
 		CE79A1E414AA54B700268707 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE79A1E314AA54B700268707 /* Security.framework */; };
 		CE79A1F214AA83F200268707 /* DynamoDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE79A1F114AA83F200268707 /* DynamoDBManager.m */; };
+		CE877441160CEB9600120174 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE877440160CEB9600120174 /* Default-568h@2x.png */; };
 		D0FCB13C14C0C9D2000F7853 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0FCB13B14C0C9D2000F7853 /* AWSiOSSDK.framework */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +89,7 @@
 		CE79A1E314AA54B700268707 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CE79A1F014AA83F200268707 /* DynamoDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamoDBManager.h; sourceTree = "<group>"; };
 		CE79A1F114AA83F200268707 /* DynamoDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamoDBManager.m; sourceTree = "<group>"; };
+		CE877440160CEB9600120174 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D0FCB13B14C0C9D2000F7853 /* AWSiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSiOSSDK.framework; path = ../../AWSiOSSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,6 +165,7 @@
 		CE2617DF14A5476800258242 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CE877440160CEB9600120174 /* Default-568h@2x.png */,
 				CE2617E014A5476800258242 /* UserPreference-Info.plist */,
 				CE2617E114A5476800258242 /* InfoPlist.strings */,
 				CE2617E414A5476800258242 /* main.m */,
@@ -256,6 +259,7 @@
 			files = (
 				CE2617E314A5476800258242 /* InfoPlist.strings in Resources */,
 				CE2617FD14A54C2D00258242 /* WelcomeView.xib in Resources */,
+				CE877441160CEB9600120174 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

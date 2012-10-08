@@ -18,13 +18,7 @@
 
 @implementation ObjectViewController
 
-
 @synthesize objectNameLabel, objectDataLabel, objectName, bucket;
-
--(id)init
-{
-    return [super initWithNibName:@"ObjectViewController" bundle:nil];
-}
 
 -(IBAction)done:(id)sender
 {
@@ -33,21 +27,35 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    S3GetObjectRequest  *getObjectRequest  = [[[S3GetObjectRequest alloc] initWithKey:self.objectName withBucket:self.bucket] autorelease];
-    S3GetObjectResponse *getObjectResponse = [[AmazonClientManager s3] getObject:getObjectRequest];
-    if(getObjectResponse.error != nil)
-    {
-        NSLog(@"Error: %@", getObjectResponse.error);
-    }
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        });
+
+        S3GetObjectRequest  *getObjectRequest  = [[[S3GetObjectRequest alloc] initWithKey:self.objectName withBucket:self.bucket] autorelease];
+        S3GetObjectResponse *getObjectResponse = [[AmazonClientManager s3] getObject:getObjectRequest];
+        if(getObjectResponse.error != nil)
+        {
+            NSLog(@"Error: %@", getObjectResponse.error);
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+
+            self.objectNameLabel.text = self.objectName;
+            self.objectDataLabel.text = [[[NSString alloc] initWithData:getObjectResponse.body encoding:NSUTF8StringEncoding] autorelease];
+        });
+    });
     
-    self.objectNameLabel.text = self.objectName;
-    self.objectDataLabel.text = [[NSString alloc] initWithData:getObjectResponse.body encoding:NSUTF8StringEncoding];
 }
 
 -(void)dealloc
 {
     [super dealloc];
 }
-
 
 @end

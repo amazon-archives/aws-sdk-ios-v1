@@ -17,6 +17,7 @@
 
 #import "EC2Request.h"
 #import "EC2PurchaseReservedInstancesOfferingRequest.h"
+#import "EC2ReservedInstanceLimitPrice.h"
 
 
 /**

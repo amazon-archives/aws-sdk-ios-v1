@@ -15,15 +15,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController <UITextFieldDelegate> {
+@interface ViewController : UIViewController <UITextFieldDelegate>
+{
 }
 
 @property (nonatomic, retain) IBOutlet UITextField        *nameField;
 @property (nonatomic, retain) IBOutlet UISegmentedControl *rating;
 @property (nonatomic, retain) IBOutlet UITextView         *commentsField;
 @property (nonatomic, retain) IBOutlet UIButton           *submitButton;
+@property (nonatomic, retain) IBOutlet UIScrollView           *scrollView;
 
 -(IBAction)submit:(id)sender;
--(void)animateView:(UIView *)uiView up:(BOOL)moveUp;
 
 @end

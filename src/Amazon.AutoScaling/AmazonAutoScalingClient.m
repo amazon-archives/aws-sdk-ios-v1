@@ -98,6 +98,13 @@
     return (AutoScalingDescribeNotificationConfigurationsResponse *)[self invoke:request rawRequest:describeNotificationConfigurationsRequest unmarshallerDelegate:[AutoScalingDescribeNotificationConfigurationsResponseUnmarshaller class]];
 }
 
+-(AutoScalingDescribeTerminationPolicyTypesResponse *)describeTerminationPolicyTypes:(AutoScalingDescribeTerminationPolicyTypesRequest *)describeTerminationPolicyTypesRequest
+{
+    AmazonServiceRequest *request = [AutoScalingDescribeTerminationPolicyTypesRequestMarshaller createRequest:describeTerminationPolicyTypesRequest];
+
+    return (AutoScalingDescribeTerminationPolicyTypesResponse *)[self invoke:request rawRequest:describeTerminationPolicyTypesRequest unmarshallerDelegate:[AutoScalingDescribeTerminationPolicyTypesResponseUnmarshaller class]];
+}
+
 -(AutoScalingDescribeTagsResponse *)describeTags:(AutoScalingDescribeTagsRequest *)describeTagsRequest
 {
     AmazonServiceRequest *request = [AutoScalingDescribeTagsRequestMarshaller createRequest:describeTagsRequest];

@@ -21,14 +21,27 @@
 
 -(IBAction)create:(id)sender
 {
-    SQSCreateQueueRequest *request = [[[SQSCreateQueueRequest alloc] initWithQueueName:queueName.text] autorelease];
-    SQSCreateQueueResponse *response = [[AmazonClientManager sqs] createQueue:request];
-    if(response.error != nil)
-    {
-        NSLog(@"Error: %@", response.error);
-    }
-    
-    [self dismissModalViewControllerAnimated:YES];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        });
+
+        SQSCreateQueueRequest *request = [[[SQSCreateQueueRequest alloc] initWithQueueName:queueName.text] autorelease];
+        SQSCreateQueueResponse *response = [[AmazonClientManager sqs] createQueue:request];
+        if(response.error != nil)
+        {
+            NSLog(@"Error: %@", response.error);
+        }
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            [self dismissModalViewControllerAnimated:YES];
+        });
+    });
 }
 
 -(IBAction)cancel:(id)sender

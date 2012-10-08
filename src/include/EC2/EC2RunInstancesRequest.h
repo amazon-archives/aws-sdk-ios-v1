@@ -55,6 +55,8 @@
     NSString                           *additionalInfo;
     NSMutableArray                     *networkInterfaces;
     EC2IamInstanceProfileSpecification *iamInstanceProfile;
+    bool                               ebsOptimized;
+    bool                               ebsOptimizedIsSet;
 }
 
 
@@ -108,7 +110,7 @@
  * Specifies the instance type for the launched instances.
  * <p>
  * <b>Constraints:</b><br/>
- * <b>Allowed Values: </b>t1.micro, m1.small, m1.medium, m1.large, m1.xlarge, m2.xlarge, m2.2xlarge, m2.4xlarge, c1.medium, c1.xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge
+ * <b>Allowed Values: </b>t1.micro, m1.small, m1.medium, m1.large, m1.xlarge, m2.xlarge, m2.2xlarge, m2.4xlarge, c1.medium, c1.xlarge, hi1.4xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge
  */
 @property (nonatomic, retain) NSString *instanceType;
 
@@ -200,6 +202,13 @@
  * The value of the IamInstanceProfile property for this object.
  */
 @property (nonatomic, retain) EC2IamInstanceProfileSpecification *iamInstanceProfile;
+
+/**
+ * The value of the EbsOptimized property for this object.
+ */
+@property (nonatomic) bool           ebsOptimized;
+
+@property (nonatomic, readonly) bool ebsOptimizedIsSet;
 
 
 /**

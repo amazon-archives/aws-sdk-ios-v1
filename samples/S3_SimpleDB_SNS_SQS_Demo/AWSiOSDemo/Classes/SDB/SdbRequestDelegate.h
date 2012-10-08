@@ -17,13 +17,6 @@
 
 @interface SdbRequestDelegate:NSObject<AmazonServiceRequestDelegate>
 {
-    UILabel *bytesIn;
-    UILabel *bytesOut;
-
-    @public
-    AmazonServiceResponse *response;
-    NSException           *exception;
-    NSError               *error;
 }
 
 @property (nonatomic, readonly) AmazonServiceResponse *response;

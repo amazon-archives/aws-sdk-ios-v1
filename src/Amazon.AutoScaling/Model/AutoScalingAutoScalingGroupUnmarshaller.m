@@ -41,6 +41,15 @@
         [parser setDelegate:listUnmarshaller];
     }
 
+    if ([elementName isEqualToString:@"TerminationPolicies"]) {
+        AmazonListUnmarshaller *listUnmarshaller = [[[AmazonListUnmarshaller alloc] initWithCaller:self withParentObject:self.response.terminationPolicies withSetter:@selector(addObjectsFromArray:)] autorelease];
+        listUnmarshaller.endListElementName = @"TerminationPolicies";
+        listUnmarshaller.entryElementName   = @"member";
+        listUnmarshaller.delegateClass      = [AmazonValueUnmarshaller class];
+
+        [parser setDelegate:listUnmarshaller];
+    }
+
     if ([elementName isEqualToString:@"Instances"]) {
         AmazonListUnmarshaller *listUnmarshaller = [[[AmazonListUnmarshaller alloc] initWithCaller:self withParentObject:self.response.instances withSetter:@selector(addObjectsFromArray:)] autorelease];
         listUnmarshaller.endListElementName = @"Instances";

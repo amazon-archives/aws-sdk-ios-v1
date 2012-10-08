@@ -40,32 +40,23 @@
 {
     [super viewDidLoad];
 
-    self.users = [DynamoDBManager getUserList];
-}
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
 
--(void)viewDidUnload
-{
-    [super viewDidUnload];
-}
+        dispatch_async(dispatch_get_main_queue(), ^{
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        });
 
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
+        self.users = [DynamoDBManager getUserList];
 
--(void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-}
+        dispatch_async(dispatch_get_main_queue(), ^{
 
--(void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+
+            [self.tableView reloadData];
+        });
+    });
 }
 
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -93,13 +84,12 @@
 
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell.accessoryType = UITableViewCellStateShowingEditControlMask;
     }
 
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",
                            ((DynamoDBAttributeValue *)[[self.users objectAtIndex:indexPath.row] objectForKey:@"firstName"]).s,
-                           ((DynamoDBAttributeValue *)[[self.users objectAtIndex:indexPath.row] objectForKey:@"lastName"]).s];
-
-    cell.accessoryType = UITableViewCellStateShowingEditControlMask;
+                           ((DynamoDBAttributeValue *)[[self.users objectAtIndex:indexPath.row] objectForKey:@"lastName"]).s];    
 
     return cell;
 }
@@ -108,10 +98,25 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        [DynamoDBManager deleteUser:(DynamoDBAttributeValue *)[[self.users objectAtIndex:indexPath.row] objectForKey:@"userNo"]];
-        [self.users removeObjectAtIndex:indexPath.row];
-        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-         withRowAnimation:YES];
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_async(queue, ^{
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+            });
+
+            [DynamoDBManager deleteUser:(DynamoDBAttributeValue *)[[self.users objectAtIndex:indexPath.row] objectForKey:@"userNo"]];
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+
+                [self.users removeObjectAtIndex:indexPath.row];
+                [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                                      withRowAnimation:YES];
+            });
+        });
     }
 }
 

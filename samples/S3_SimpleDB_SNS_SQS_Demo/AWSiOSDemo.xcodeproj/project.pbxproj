@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE65E7D7160B9223000F1A54 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE65E7D6160B9223000F1A54 /* Default-568h@2x.png */; };
 		CEFDDC3014D366920024CC3C /* S3NSOperationDemoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEFDDC2F14D366920024CC3C /* S3NSOperationDemoView.xib */; };
 		CEFDDC3314D36BA20024CC3C /* S3NSOperationDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFDDC3214D36BA20024CC3C /* S3NSOperationDemoViewController.m */; };
 		CEFDDC3814D372740024CC3C /* image1.png in Resources */ = {isa = PBXBuildFile; fileRef = CEFDDC3514D372740024CC3C /* image1.png */; };
@@ -21,33 +22,25 @@
 		D054DC7713E874820005B88E /* AddObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D054DC3D13E874820005B88E /* AddObjectViewController.m */; };
 		D054DC7813E874820005B88E /* AddObjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D054DC3E13E874820005B88E /* AddObjectViewController.xib */; };
 		D054DC7913E874820005B88E /* BucketList.m in Sources */ = {isa = PBXBuildFile; fileRef = D054DC4013E874820005B88E /* BucketList.m */; };
-		D054DC7A13E874820005B88E /* BucketList.xib in Resources */ = {isa = PBXBuildFile; fileRef = D054DC4113E874820005B88E /* BucketList.xib */; };
 		D054DC7B13E874820005B88E /* ObjectListing.m in Sources */ = {isa = PBXBuildFile; fileRef = D054DC4313E874820005B88E /* ObjectListing.m */; };
-		D054DC7C13E874820005B88E /* ObjectListing.xib in Resources */ = {isa = PBXBuildFile; fileRef = D054DC4413E874820005B88E /* ObjectListing.xib */; };
 		D054DC7D13E874820005B88E /* ObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D054DC4613E874820005B88E /* ObjectViewController.m */; };
 		D054DC7E13E874820005B88E /* ObjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D054DC4713E874820005B88E /* ObjectViewController.xib */; };
 		D054DC7F13E874820005B88E /* S3AsyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D054DC4913E874820005B88E /* S3AsyncViewController.m */; };
 		D054DC8013E874820005B88E /* S3AsyncViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D054DC4A13E874820005B88E /* S3AsyncViewController.xib */; };
 		D054DC8113E874820005B88E /* S3ResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D054DC4C13E874820005B88E /* S3ResponseHandler.m */; };
 		D054DC8213E874820005B88E /* DomainList.m in Sources */ = {isa = PBXBuildFile; fileRef = D054DC4F13E874820005B88E /* DomainList.m */; };
-		D054DC8313E874820005B88E /* DomainList.xib in Resources */ = {isa = PBXBuildFile; fileRef = D054DC5013E874820005B88E /* DomainList.xib */; };
 		D054DC8413E874820005B88E /* ItemListing.m in Sources */ = {isa = PBXBuildFile; fileRef = D054DC5213E874820005B88E /* ItemListing.m */; };
-		D054DC8513E874820005B88E /* ItemListing.xib in Resources */ = {isa = PBXBuildFile; fileRef = D054DC5313E874820005B88E /* ItemListing.xib */; };
 		D054DC8613E874820005B88E /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D054DC5513E874820005B88E /* ItemViewController.m */; };
-		D054DC8713E874820005B88E /* ItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D054DC5613E874820005B88E /* ItemViewController.xib */; };
 		D054DC8813E874820005B88E /* SdbAsyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D054DC5813E874820005B88E /* SdbAsyncViewController.m */; };
 		D054DC8913E874820005B88E /* SdbAsyncViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D054DC5913E874820005B88E /* SdbAsyncViewController.xib */; };
 		D054DC8A13E874820005B88E /* SdbRequestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D054DC5B13E874820005B88E /* SdbRequestDelegate.m */; };
 		D054DC8B13E874820005B88E /* TopicList.m in Sources */ = {isa = PBXBuildFile; fileRef = D054DC5E13E874820005B88E /* TopicList.m */; };
-		D054DC8C13E874820005B88E /* TopicList.xib in Resources */ = {isa = PBXBuildFile; fileRef = D054DC5F13E874820005B88E /* TopicList.xib */; };
 		D054DC8D13E874820005B88E /* AddQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = D054DC6213E874820005B88E /* AddQueue.m */; };
 		D054DC8E13E874820005B88E /* AddQueue.xib in Resources */ = {isa = PBXBuildFile; fileRef = D054DC6313E874820005B88E /* AddQueue.xib */; };
 		D054DC8F13E874820005B88E /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = D054DC6513E874820005B88E /* Message.m */; };
 		D054DC9013E874820005B88E /* Message.xib in Resources */ = {isa = PBXBuildFile; fileRef = D054DC6613E874820005B88E /* Message.xib */; };
 		D054DC9113E874820005B88E /* MessageList.m in Sources */ = {isa = PBXBuildFile; fileRef = D054DC6813E874820005B88E /* MessageList.m */; };
-		D054DC9213E874820005B88E /* MessageList.xib in Resources */ = {isa = PBXBuildFile; fileRef = D054DC6913E874820005B88E /* MessageList.xib */; };
 		D054DC9313E874820005B88E /* QueueList.m in Sources */ = {isa = PBXBuildFile; fileRef = D054DC6B13E874820005B88E /* QueueList.m */; };
-		D054DC9413E874820005B88E /* QueueList.xib in Resources */ = {isa = PBXBuildFile; fileRef = D054DC6C13E874820005B88E /* QueueList.xib */; };
 		D054DC9513E874820005B88E /* SendMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = D054DC6E13E874820005B88E /* SendMessage.m */; };
 		D054DC9613E874820005B88E /* SendMessage.xib in Resources */ = {isa = PBXBuildFile; fileRef = D054DC6F13E874820005B88E /* SendMessage.xib */; };
 		D054DC9713E874820005B88E /* temp.txt in Resources */ = {isa = PBXBuildFile; fileRef = D054DC7013E874820005B88E /* temp.txt */; };
@@ -57,13 +50,13 @@
 		D0A0E33B13E873F000601B8D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0A0E33A13E873F000601B8D /* CoreGraphics.framework */; };
 		D0A0E34113E873F000601B8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0A0E33F13E873F000601B8D /* InfoPlist.strings */; };
 		D0A0E34413E873F000601B8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0E34313E873F000601B8D /* main.m */; };
-		D0A0E34713E873F000601B8D /* AWSiOSDemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0E34613E873F000601B8D /* AWSiOSDemoAppDelegate.m */; };
-		D0A0E34A13E873F000601B8D /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0A0E34813E873F000601B8D /* MainWindow.xib */; };
+		D0A0E34713E873F000601B8D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0E34613E873F000601B8D /* AppDelegate.m */; };
 		D0A0E34D13E873F000601B8D /* AWSiOSDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0E34C13E873F000601B8D /* AWSiOSDemoViewController.m */; };
 		D0A0E35013E873F000601B8D /* AWSiOSDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0A0E34E13E873F000601B8D /* AWSiOSDemoViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE65E7D6160B9223000F1A54 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		CED7605114D74190004655FE /* S3NSOperationDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3NSOperationDemoViewController.h; sourceTree = "<group>"; };
 		CEFDDC2F14D366920024CC3C /* S3NSOperationDemoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = S3NSOperationDemoView.xib; sourceTree = "<group>"; };
 		CEFDDC3214D36BA20024CC3C /* S3NSOperationDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3NSOperationDemoViewController.m; sourceTree = "<group>"; };
@@ -86,10 +79,8 @@
 		D054DC3E13E874820005B88E /* AddObjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddObjectViewController.xib; sourceTree = "<group>"; };
 		D054DC3F13E874820005B88E /* BucketList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BucketList.h; sourceTree = "<group>"; };
 		D054DC4013E874820005B88E /* BucketList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BucketList.m; sourceTree = "<group>"; };
-		D054DC4113E874820005B88E /* BucketList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BucketList.xib; sourceTree = "<group>"; };
 		D054DC4213E874820005B88E /* ObjectListing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectListing.h; sourceTree = "<group>"; };
 		D054DC4313E874820005B88E /* ObjectListing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectListing.m; sourceTree = "<group>"; };
-		D054DC4413E874820005B88E /* ObjectListing.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ObjectListing.xib; sourceTree = "<group>"; };
 		D054DC4513E874820005B88E /* ObjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectViewController.h; sourceTree = "<group>"; };
 		D054DC4613E874820005B88E /* ObjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectViewController.m; sourceTree = "<group>"; };
 		D054DC4713E874820005B88E /* ObjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ObjectViewController.xib; sourceTree = "<group>"; };
@@ -100,13 +91,10 @@
 		D054DC4C13E874820005B88E /* S3ResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3ResponseHandler.m; sourceTree = "<group>"; };
 		D054DC4E13E874820005B88E /* DomainList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DomainList.h; sourceTree = "<group>"; };
 		D054DC4F13E874820005B88E /* DomainList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DomainList.m; sourceTree = "<group>"; };
-		D054DC5013E874820005B88E /* DomainList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DomainList.xib; sourceTree = "<group>"; };
 		D054DC5113E874820005B88E /* ItemListing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemListing.h; sourceTree = "<group>"; };
 		D054DC5213E874820005B88E /* ItemListing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemListing.m; sourceTree = "<group>"; };
-		D054DC5313E874820005B88E /* ItemListing.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemListing.xib; sourceTree = "<group>"; };
 		D054DC5413E874820005B88E /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
 		D054DC5513E874820005B88E /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
-		D054DC5613E874820005B88E /* ItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemViewController.xib; sourceTree = "<group>"; };
 		D054DC5713E874820005B88E /* SdbAsyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SdbAsyncViewController.h; sourceTree = "<group>"; };
 		D054DC5813E874820005B88E /* SdbAsyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SdbAsyncViewController.m; sourceTree = "<group>"; };
 		D054DC5913E874820005B88E /* SdbAsyncViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SdbAsyncViewController.xib; sourceTree = "<group>"; };
@@ -114,7 +102,6 @@
 		D054DC5B13E874820005B88E /* SdbRequestDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SdbRequestDelegate.m; sourceTree = "<group>"; };
 		D054DC5D13E874820005B88E /* TopicList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicList.h; sourceTree = "<group>"; };
 		D054DC5E13E874820005B88E /* TopicList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicList.m; sourceTree = "<group>"; };
-		D054DC5F13E874820005B88E /* TopicList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopicList.xib; sourceTree = "<group>"; };
 		D054DC6113E874820005B88E /* AddQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddQueue.h; sourceTree = "<group>"; };
 		D054DC6213E874820005B88E /* AddQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddQueue.m; sourceTree = "<group>"; };
 		D054DC6313E874820005B88E /* AddQueue.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddQueue.xib; sourceTree = "<group>"; };
@@ -123,10 +110,8 @@
 		D054DC6613E874820005B88E /* Message.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Message.xib; sourceTree = "<group>"; };
 		D054DC6713E874820005B88E /* MessageList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageList.h; sourceTree = "<group>"; };
 		D054DC6813E874820005B88E /* MessageList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageList.m; sourceTree = "<group>"; };
-		D054DC6913E874820005B88E /* MessageList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageList.xib; sourceTree = "<group>"; };
 		D054DC6A13E874820005B88E /* QueueList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueueList.h; sourceTree = "<group>"; };
 		D054DC6B13E874820005B88E /* QueueList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueueList.m; sourceTree = "<group>"; };
-		D054DC6C13E874820005B88E /* QueueList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QueueList.xib; sourceTree = "<group>"; };
 		D054DC6D13E874820005B88E /* SendMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendMessage.h; sourceTree = "<group>"; };
 		D054DC6E13E874820005B88E /* SendMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendMessage.m; sourceTree = "<group>"; };
 		D054DC6F13E874820005B88E /* SendMessage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendMessage.xib; sourceTree = "<group>"; };
@@ -136,15 +121,14 @@
 		D0A0E33613E873F000601B8D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D0A0E33813E873F000601B8D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D0A0E33A13E873F000601B8D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		D0A0E33E13E873F000601B8D /* AWSiOSDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AWSiOSDemo-Info.plist"; sourceTree = "<group>"; };
+		D0A0E33E13E873F000601B8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0A0E34013E873F000601B8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D0A0E34213E873F000601B8D /* AWSiOSDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSiOSDemo-Prefix.pch"; sourceTree = "<group>"; };
 		D0A0E34313E873F000601B8D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D0A0E34513E873F000601B8D /* AWSiOSDemoAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSiOSDemoAppDelegate.h; sourceTree = "<group>"; };
-		D0A0E34613E873F000601B8D /* AWSiOSDemoAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSiOSDemoAppDelegate.m; sourceTree = "<group>"; };
-		D0A0E34913E873F000601B8D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		D0A0E34B13E873F000601B8D /* AWSiOSDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSiOSDemoViewController.h; sourceTree = "<group>"; };
-		D0A0E34C13E873F000601B8D /* AWSiOSDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSiOSDemoViewController.m; sourceTree = "<group>"; };
+		D0A0E34513E873F000601B8D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../AppDelegate.h; sourceTree = "<group>"; };
+		D0A0E34613E873F000601B8D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../AppDelegate.m; sourceTree = "<group>"; };
+		D0A0E34B13E873F000601B8D /* AWSiOSDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AWSiOSDemoViewController.h; path = ../AWSiOSDemoViewController.h; sourceTree = "<group>"; };
+		D0A0E34C13E873F000601B8D /* AWSiOSDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AWSiOSDemoViewController.m; path = ../AWSiOSDemoViewController.m; sourceTree = "<group>"; };
 		D0A0E34F13E873F000601B8D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AWSiOSDemoViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -177,14 +161,19 @@
 		D054DC2F13E874820005B88E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				D054DC3013E874820005B88E /* AmazonClientManager.h */,
-				D054DC3113E874820005B88E /* AmazonClientManager.m */,
 				D054DC3613E874820005B88E /* Constants.h */,
 				D054DC3713E874820005B88E /* Constants.m */,
+				D0A0E34513E873F000601B8D /* AppDelegate.h */,
+				D0A0E34613E873F000601B8D /* AppDelegate.m */,
+				D0A0E34B13E873F000601B8D /* AWSiOSDemoViewController.h */,
+				D0A0E34C13E873F000601B8D /* AWSiOSDemoViewController.m */,
+				D0A0E34E13E873F000601B8D /* AWSiOSDemoViewController.xib */,
+				D054DC3013E874820005B88E /* AmazonClientManager.h */,
+				D054DC3113E874820005B88E /* AmazonClientManager.m */,
 				D054DC3813E874820005B88E /* S3 */,
 				D054DC4D13E874820005B88E /* SDB */,
-				D054DC5C13E874820005B88E /* SNS */,
 				D054DC6013E874820005B88E /* SQS */,
+				D054DC5C13E874820005B88E /* SNS */,
 				CEFDDC3414D371070024CC3C /* TestData */,
 			);
 			path = Classes;
@@ -193,21 +182,19 @@
 		D054DC3813E874820005B88E /* S3 */ = {
 			isa = PBXGroup;
 			children = (
+				D054DC3F13E874820005B88E /* BucketList.h */,
+				D054DC4013E874820005B88E /* BucketList.m */,
 				D054DC3913E874820005B88E /* AddBucketViewController.h */,
 				D054DC3A13E874820005B88E /* AddBucketViewController.m */,
 				D054DC3B13E874820005B88E /* AddBucketViewController.xib */,
 				D054DC3C13E874820005B88E /* AddObjectViewController.h */,
 				D054DC3D13E874820005B88E /* AddObjectViewController.m */,
 				D054DC3E13E874820005B88E /* AddObjectViewController.xib */,
-				D054DC3F13E874820005B88E /* BucketList.h */,
-				D054DC4013E874820005B88E /* BucketList.m */,
-				D054DC4113E874820005B88E /* BucketList.xib */,
 				D054DC4213E874820005B88E /* ObjectListing.h */,
 				D054DC4313E874820005B88E /* ObjectListing.m */,
-				D054DC4413E874820005B88E /* ObjectListing.xib */,
+				D054DC4713E874820005B88E /* ObjectViewController.xib */,
 				D054DC4513E874820005B88E /* ObjectViewController.h */,
 				D054DC4613E874820005B88E /* ObjectViewController.m */,
-				D054DC4713E874820005B88E /* ObjectViewController.xib */,
 				D054DC4813E874820005B88E /* S3AsyncViewController.h */,
 				D054DC4913E874820005B88E /* S3AsyncViewController.m */,
 				D054DC4A13E874820005B88E /* S3AsyncViewController.xib */,
@@ -229,13 +216,10 @@
 			children = (
 				D054DC4E13E874820005B88E /* DomainList.h */,
 				D054DC4F13E874820005B88E /* DomainList.m */,
-				D054DC5013E874820005B88E /* DomainList.xib */,
 				D054DC5113E874820005B88E /* ItemListing.h */,
 				D054DC5213E874820005B88E /* ItemListing.m */,
-				D054DC5313E874820005B88E /* ItemListing.xib */,
 				D054DC5413E874820005B88E /* ItemViewController.h */,
 				D054DC5513E874820005B88E /* ItemViewController.m */,
-				D054DC5613E874820005B88E /* ItemViewController.xib */,
 				D054DC5713E874820005B88E /* SdbAsyncViewController.h */,
 				D054DC5813E874820005B88E /* SdbAsyncViewController.m */,
 				D054DC5913E874820005B88E /* SdbAsyncViewController.xib */,
@@ -250,7 +234,6 @@
 			children = (
 				D054DC5D13E874820005B88E /* TopicList.h */,
 				D054DC5E13E874820005B88E /* TopicList.m */,
-				D054DC5F13E874820005B88E /* TopicList.xib */,
 			);
 			path = SNS;
 			sourceTree = "<group>";
@@ -258,18 +241,16 @@
 		D054DC6013E874820005B88E /* SQS */ = {
 			isa = PBXGroup;
 			children = (
+				D054DC6A13E874820005B88E /* QueueList.h */,
+				D054DC6B13E874820005B88E /* QueueList.m */,
 				D054DC6113E874820005B88E /* AddQueue.h */,
 				D054DC6213E874820005B88E /* AddQueue.m */,
 				D054DC6313E874820005B88E /* AddQueue.xib */,
+				D054DC6713E874820005B88E /* MessageList.h */,
+				D054DC6813E874820005B88E /* MessageList.m */,
 				D054DC6413E874820005B88E /* Message.h */,
 				D054DC6513E874820005B88E /* Message.m */,
 				D054DC6613E874820005B88E /* Message.xib */,
-				D054DC6713E874820005B88E /* MessageList.h */,
-				D054DC6813E874820005B88E /* MessageList.m */,
-				D054DC6913E874820005B88E /* MessageList.xib */,
-				D054DC6A13E874820005B88E /* QueueList.h */,
-				D054DC6B13E874820005B88E /* QueueList.m */,
-				D054DC6C13E874820005B88E /* QueueList.xib */,
 				D054DC6D13E874820005B88E /* SendMessage.h */,
 				D054DC6E13E874820005B88E /* SendMessage.m */,
 				D054DC6F13E874820005B88E /* SendMessage.xib */,
@@ -309,12 +290,6 @@
 			isa = PBXGroup;
 			children = (
 				D054DC2F13E874820005B88E /* Classes */,
-				D0A0E34513E873F000601B8D /* AWSiOSDemoAppDelegate.h */,
-				D0A0E34613E873F000601B8D /* AWSiOSDemoAppDelegate.m */,
-				D0A0E34813E873F000601B8D /* MainWindow.xib */,
-				D0A0E34B13E873F000601B8D /* AWSiOSDemoViewController.h */,
-				D0A0E34C13E873F000601B8D /* AWSiOSDemoViewController.m */,
-				D0A0E34E13E873F000601B8D /* AWSiOSDemoViewController.xib */,
 				D0A0E33D13E873F000601B8D /* Supporting Files */,
 			);
 			path = AWSiOSDemo;
@@ -323,10 +298,11 @@
 		D0A0E33D13E873F000601B8D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D0A0E33E13E873F000601B8D /* AWSiOSDemo-Info.plist */,
+				D0A0E33E13E873F000601B8D /* Info.plist */,
 				D0A0E33F13E873F000601B8D /* InfoPlist.strings */,
 				D0A0E34213E873F000601B8D /* AWSiOSDemo-Prefix.pch */,
 				D0A0E34313E873F000601B8D /* main.m */,
+				CE65E7D6160B9223000F1A54 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -382,29 +358,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0A0E34113E873F000601B8D /* InfoPlist.strings in Resources */,
-				D0A0E34A13E873F000601B8D /* MainWindow.xib in Resources */,
 				D0A0E35013E873F000601B8D /* AWSiOSDemoViewController.xib in Resources */,
 				D054DC7613E874820005B88E /* AddBucketViewController.xib in Resources */,
 				D054DC7813E874820005B88E /* AddObjectViewController.xib in Resources */,
-				D054DC7A13E874820005B88E /* BucketList.xib in Resources */,
-				D054DC7C13E874820005B88E /* ObjectListing.xib in Resources */,
 				D054DC7E13E874820005B88E /* ObjectViewController.xib in Resources */,
 				D054DC8013E874820005B88E /* S3AsyncViewController.xib in Resources */,
-				D054DC8313E874820005B88E /* DomainList.xib in Resources */,
-				D054DC8513E874820005B88E /* ItemListing.xib in Resources */,
-				D054DC8713E874820005B88E /* ItemViewController.xib in Resources */,
 				D054DC8913E874820005B88E /* SdbAsyncViewController.xib in Resources */,
-				D054DC8C13E874820005B88E /* TopicList.xib in Resources */,
 				D054DC8E13E874820005B88E /* AddQueue.xib in Resources */,
 				D054DC9013E874820005B88E /* Message.xib in Resources */,
-				D054DC9213E874820005B88E /* MessageList.xib in Resources */,
-				D054DC9413E874820005B88E /* QueueList.xib in Resources */,
 				D054DC9613E874820005B88E /* SendMessage.xib in Resources */,
 				D054DC9713E874820005B88E /* temp.txt in Resources */,
 				CEFDDC3014D366920024CC3C /* S3NSOperationDemoView.xib in Resources */,
 				CEFDDC3814D372740024CC3C /* image1.png in Resources */,
 				CEFDDC3914D372740024CC3C /* image2.png in Resources */,
 				CEFDDC3A14D372740024CC3C /* image3.png in Resources */,
+				CE65E7D7160B9223000F1A54 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,7 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0A0E34413E873F000601B8D /* main.m in Sources */,
-				D0A0E34713E873F000601B8D /* AWSiOSDemoAppDelegate.m in Sources */,
+				D0A0E34713E873F000601B8D /* AppDelegate.m in Sources */,
 				D0A0E34D13E873F000601B8D /* AWSiOSDemoViewController.m in Sources */,
 				D054DC7113E874820005B88E /* AmazonClientManager.m in Sources */,
 				D054DC7413E874820005B88E /* Constants.m in Sources */,
@@ -455,20 +423,13 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		D0A0E34813E873F000601B8D /* MainWindow.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D0A0E34913E873F000601B8D /* en */,
-			);
-			name = MainWindow.xib;
-			sourceTree = "<group>";
-		};
 		D0A0E34E13E873F000601B8D /* AWSiOSDemoViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D0A0E34F13E873F000601B8D /* en */,
 			);
 			name = AWSiOSDemoViewController.xib;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -519,7 +480,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AWSiOSDemo/AWSiOSDemo-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INFOPLIST_FILE = "AWSiOSDemo/AWSiOSDemo-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/AWSiOSDemo/Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -537,7 +498,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AWSiOSDemo/AWSiOSDemo-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INFOPLIST_FILE = "AWSiOSDemo/AWSiOSDemo-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/AWSiOSDemo/Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;

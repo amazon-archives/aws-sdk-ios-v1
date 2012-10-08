@@ -32,6 +32,12 @@ NSString *const AWSPersistenceDynamoDBObjectDeletedNotificationHashKey = @"hashK
 NSString *const AWSPersistenceDynamoDBObjectDeletedNotificationEntityName = @"entityName";
 NSString *const AWSPersistenceDynamoDBObjectDeletedNotificationObjectID = @"objectID";
 
+NSString *const AWSPersistenceDynamoDBEndpoint = @"endpoint";
+NSString *const AWSPersistenceDynamoDBMaxRetries = @"maxRetries";
+NSString *const AWSPersistenceDynamoDBTimeout = @"timeout";
+NSString *const AWSPersistenceDynamoDBDelay = @"delay";
+NSString *const AWSPersistenceDynamoDBUserAgent = @"userAgent";
+
 // Private Constants
 NSString *const AWSPersistenceDynamoDBUserAgentPrefix = @"Persistence Framework";
 
@@ -430,8 +436,33 @@ NSString *const AWSPersistenceDynamoDBUserAgentPrefix = @"Persistence Framework"
 {
     AmazonDynamoDBClient *dynamoDBClient = [[AmazonDynamoDBClient alloc] initWithCredentials:[delegate credentials]];
 
+    if([self.options objectForKey:AWSPersistenceDynamoDBEndpoint] != nil)
+    {
+        dynamoDBClient.endpoint = [self.options objectForKey:AWSPersistenceDynamoDBEndpoint];
+    }
+
+    if([self.options objectForKey:AWSPersistenceDynamoDBMaxRetries] != nil)
+    {
+        dynamoDBClient.maxRetries = [[self.options objectForKey:AWSPersistenceDynamoDBMaxRetries] intValue];
+    }
+
+    if([self.options objectForKey:AWSPersistenceDynamoDBTimeout] != nil)
+    {
+        dynamoDBClient.timeout = [[self.options objectForKey:AWSPersistenceDynamoDBTimeout] doubleValue];
+    }
+
+    if([self.options objectForKey:AWSPersistenceDynamoDBDelay] != nil)
+    {
+        dynamoDBClient.delay = [[self.options objectForKey:AWSPersistenceDynamoDBDelay] doubleValue];
+    }
+
     if(![dynamoDBClient.userAgent hasPrefix:AWSPersistenceDynamoDBUserAgentPrefix])
     {
+        if([self.options objectForKey:AWSPersistenceDynamoDBUserAgent] != nil)
+        {
+            dynamoDBClient.userAgent = [self.options objectForKey:AWSPersistenceDynamoDBUserAgent];
+        }
+
         dynamoDBClient.userAgent = AWSPersistenceDynamoDBUserAgentPrefix;
     }
 

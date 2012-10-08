@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"RunInstances"           forKey:@"Action"];
-    [request setParameterValue:@"2012-06-15"   forKey:@"Version"];
+    [request setParameterValue:@"2012-08-15"   forKey:@"Version"];
 
     [request setDelegate:[runInstancesRequest delegate]];
     [request setCredentials:[runInstancesRequest credentials]];
@@ -143,6 +143,16 @@
                 if (ebs != nil) {
                     if (ebs.deleteOnTerminationIsSet) {
                         [request setParameterValue:(ebs.deleteOnTermination ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@.%d.%@.%@", @"BlockDeviceMapping", blockDeviceMappingsListIndex, @"Ebs", @"DeleteOnTermination"]];
+                    }
+                }
+                if (ebs != nil) {
+                    if (ebs.volumeType != nil) {
+                        [request setParameterValue:[NSString stringWithFormat:@"%@", ebs.volumeType] forKey:[NSString stringWithFormat:@"%@.%d.%@.%@", @"BlockDeviceMapping", blockDeviceMappingsListIndex, @"Ebs", @"VolumeType"]];
+                    }
+                }
+                if (ebs != nil) {
+                    if (ebs.iops != nil) {
+                        [request setParameterValue:[NSString stringWithFormat:@"%@", ebs.iops] forKey:[NSString stringWithFormat:@"%@.%d.%@.%@", @"BlockDeviceMapping", blockDeviceMappingsListIndex, @"Ebs", @"Iops"]];
                     }
                 }
             }
@@ -281,6 +291,11 @@
             if (iamInstanceProfile.name != nil) {
                 [request setParameterValue:[NSString stringWithFormat:@"%@", iamInstanceProfile.name] forKey:[NSString stringWithFormat:@"%@.%@", @"IamInstanceProfile", @"Name"]];
             }
+        }
+    }
+    if (runInstancesRequest != nil) {
+        if (runInstancesRequest.ebsOptimizedIsSet) {
+            [request setParameterValue:(runInstancesRequest.ebsOptimized ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"EbsOptimized"]];
         }
     }
 

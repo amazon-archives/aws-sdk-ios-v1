@@ -23,16 +23,18 @@
 @synthesize descriptionValue;
 @synthesize noReboot;
 @synthesize noRebootIsSet;
+@synthesize blockDeviceMappings;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        instanceId       = nil;
-        name             = nil;
-        descriptionValue = nil;
-        noReboot         = NO;
-        noRebootIsSet    = NO;
+        instanceId          = nil;
+        name                = nil;
+        descriptionValue    = nil;
+        noReboot            = NO;
+        noRebootIsSet       = NO;
+        blockDeviceMappings = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
     return self;
@@ -49,6 +51,15 @@
 }
 
 
+-(void)addBlockDeviceMapping:(EC2BlockDeviceMapping *)blockDeviceMappingObject
+{
+    if (blockDeviceMappings == nil) {
+        blockDeviceMappings = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [blockDeviceMappings addObject:blockDeviceMappingObject];
+}
+
 
 -(NSString *)description
 {
@@ -59,6 +70,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Name: %@,", name] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Description: %@,", descriptionValue] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"NoReboot: %d,", noReboot] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"BlockDeviceMappings: %@,", blockDeviceMappings] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -78,6 +90,7 @@
     [instanceId release];
     [name release];
     [descriptionValue release];
+    [blockDeviceMappings release];
 
     [super dealloc];
 }

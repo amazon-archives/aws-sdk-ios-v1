@@ -20,79 +20,93 @@
 
 @implementation ObjectListing
 
-@synthesize bucket;
+@synthesize bucket = _bucket;
 
--(id)init
+- (void)viewDidLoad
 {
-    return [super initWithNibName:@"ObjectListing" bundle:nil];
+    [super viewDidLoad];
+
+    self.title = @"Objects";
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                               target:self
+                                                                               action:@selector(add:)];
+    self.navigationItem.rightBarButtonItem = addButton;
+    [addButton release];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    S3ListObjectsRequest  *listObjectRequest = [[[S3ListObjectsRequest alloc] initWithName:self.bucket] autorelease];
-    S3ListObjectsResponse *listObjectResponse = [[AmazonClientManager s3] listObjects:listObjectRequest];
-    if(listObjectResponse.error != nil)
-    {
-        NSLog(@"Error: %@", listObjectResponse.error);
-        [objects addObject:@"Unable to load objects!"];
-    }
-    else
-    {
-        S3ListObjectsResult *listObjectsResults = listObjectResponse.listObjectsResult;
-        
-        if (objects == nil) {
-            objects = [[NSMutableArray alloc] initWithCapacity:[listObjectsResults.objectSummaries count]];
+    [super viewWillAppear:animated];
+
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        });
+
+        S3ListObjectsRequest  *listObjectRequest = [[[S3ListObjectsRequest alloc] initWithName:self.bucket] autorelease];
+        S3ListObjectsResponse *listObjectResponse = [[AmazonClientManager s3] listObjects:listObjectRequest];
+        if(listObjectResponse.error != nil)
+        {
+            NSLog(@"Error: %@", listObjectResponse.error);
+            [objects addObject:@"Unable to load objects!"];
         }
-        else {
-            [objects removeAllObjects];
-        }
-        
-        // By defrault, listObjects will only return 1000 keys
-        // This code will fetch all objects in bucket.
-        // NOTE: This could cause the application to run out of memory
-        NSString *lastKey;
-        for (S3ObjectSummary *objectSummary in listObjectsResults.objectSummaries) {
-            [objects addObject:[objectSummary key]];
-            lastKey = [objectSummary key];
-        }
-        
-        while (listObjectsResults.isTruncated) {
-            listObjectRequest = [[[S3ListObjectsRequest alloc] initWithName:self.bucket] autorelease];
-            listObjectRequest.marker = lastKey;
-            
-            listObjectResponse = [[AmazonClientManager s3] listObjects:listObjectRequest];
-            if(listObjectResponse.error != nil)
-            {
-                NSLog(@"Error: %@", listObjectResponse.error);
-                [objects addObject:@"Unable to load objects!"];
-                
-                break;
+        else
+        {
+            S3ListObjectsResult *listObjectsResults = listObjectResponse.listObjectsResult;
+
+            if (objects == nil) {
+                objects = [[NSMutableArray alloc] initWithCapacity:[listObjectsResults.objectSummaries count]];
             }
-            
-            listObjectsResults = listObjectResponse.listObjectsResult;
-            
+            else {
+                [objects removeAllObjects];
+            }
+
+            // By defrault, listObjects will only return 1000 keys
+            // This code will fetch all objects in bucket.
+            // NOTE: This could cause the application to run out of memory
+            NSString *lastKey = @"";
             for (S3ObjectSummary *objectSummary in listObjectsResults.objectSummaries) {
                 [objects addObject:[objectSummary key]];
                 lastKey = [objectSummary key];
             }
+
+            while (listObjectsResults.isTruncated) {
+                listObjectRequest = [[[S3ListObjectsRequest alloc] initWithName:self.bucket] autorelease];
+                listObjectRequest.marker = lastKey;
+
+                listObjectResponse = [[AmazonClientManager s3] listObjects:listObjectRequest];
+                if(listObjectResponse.error != nil)
+                {
+                    NSLog(@"Error: %@", listObjectResponse.error);
+                    [objects addObject:@"Unable to load objects!"];
+
+                    break;
+                }
+
+                listObjectsResults = listObjectResponse.listObjectsResult;
+
+                for (S3ObjectSummary *objectSummary in listObjectsResults.objectSummaries) {
+                    [objects addObject:[objectSummary key]];
+                    lastKey = [objectSummary key];
+                }
+            }
         }
-    }
-    
-    [objectsTableView reloadData];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            [self.tableView reloadData];
+        });
+    });
 }
 
--(IBAction)done:(id)sender
-{
-    [self dismissModalViewControllerAnimated:YES];
-}
-
--(IBAction)add:(id)sender
+-(void)add:(id)sender
 {
     AddObjectViewController *addObject = [[AddObjectViewController alloc] init];
-    
     addObject.bucket               = self.bucket;
-    addObject.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    
     [self presentModalViewController:addObject animated:YES];
     [addObject release];
 }
@@ -111,17 +125,18 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
+
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell.textLabel.adjustsFontSizeToFitWidth = YES;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    
+
     // Configure the cell...
-    cell.textLabel.text                      = [objects objectAtIndex:indexPath.row];
-    cell.textLabel.adjustsFontSizeToFitWidth = YES;
-    
+    cell.textLabel.text = [objects objectAtIndex:indexPath.row];
+
     return cell;
 }
 
@@ -133,11 +148,12 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ObjectViewController *objectView = [[ObjectViewController alloc] init];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    ObjectViewController *objectView = [[ObjectViewController alloc] initWithNibName:@"ObjectViewController" bundle:nil];
     objectView.bucket = self.bucket;
     objectView.objectName = [objects objectAtIndex:indexPath.row];
-    objectView.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    
+
     [self presentModalViewController:objectView animated:YES];
     [objectView release];
 }
@@ -146,33 +162,45 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        S3DeleteObjectRequest *dor = [[[S3DeleteObjectRequest alloc] init] autorelease];
-        dor.bucket = self.bucket;
-        dor.key    = [objects objectAtIndex:indexPath.row];
-        
-        S3DeleteObjectResponse *deleteObjectResponse = [[AmazonClientManager s3] deleteObject:dor];
-        if(deleteObjectResponse.error != nil)
-        {
-            NSLog(@"Error: %@", deleteObjectResponse.error);
-        }
-        
-        [objects removeObjectAtIndex:indexPath.row];
-        
-        NSArray *indexPaths = [NSArray arrayWithObjects:indexPath, nil];
-        
-        [tableView beginUpdates];
-        [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
-        [tableView endUpdates];
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_async(queue, ^{
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+            });
+
+            S3DeleteObjectRequest *dor = [[[S3DeleteObjectRequest alloc] init] autorelease];
+            dor.bucket = self.bucket;
+            dor.key    = [objects objectAtIndex:indexPath.row];
+
+            S3DeleteObjectResponse *deleteObjectResponse = [[AmazonClientManager s3] deleteObject:dor];
+            if(deleteObjectResponse.error != nil)
+            {
+                NSLog(@"Error: %@", deleteObjectResponse.error);
+            }
+
+            [objects removeObjectAtIndex:indexPath.row];
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+
+                NSArray *indexPaths = [NSArray arrayWithObjects:indexPath, nil];
+                [tableView beginUpdates];
+                [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
+                [tableView endUpdates];
+            });
+        });
     }
 }
 
 -(void)dealloc
 {
     [objects release];
-    [bucket release];
+    [_bucket release];
+    
     [super dealloc];
 }
 
-
 @end
-

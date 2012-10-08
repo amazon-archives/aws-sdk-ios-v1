@@ -32,6 +32,8 @@
 @synthesize userData;
 @synthesize instanceInitiatedShutdownBehavior;
 @synthesize groups;
+@synthesize ebsOptimized;
+@synthesize ebsOptimizedIsSet;
 
 
 -(id)init
@@ -51,6 +53,8 @@
         userData                          = nil;
         instanceInitiatedShutdownBehavior = nil;
         groups                            = [[NSMutableArray alloc] initWithCapacity:1];
+        ebsOptimized                      = NO;
+        ebsOptimizedIsSet                 = NO;
     }
 
     return self;
@@ -103,6 +107,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"UserData: %@,", userData] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"InstanceInitiatedShutdownBehavior: %@,", instanceInitiatedShutdownBehavior] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Groups: %@,", groups] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"EbsOptimized: %d,", ebsOptimized] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -120,6 +125,12 @@
 {
     disableApiTermination      = theValue;
     disableApiTerminationIsSet = YES;
+}
+
+-(void)setEbsOptimized:(bool)theValue
+{
+    ebsOptimized      = theValue;
+    ebsOptimizedIsSet = YES;
 }
 
 

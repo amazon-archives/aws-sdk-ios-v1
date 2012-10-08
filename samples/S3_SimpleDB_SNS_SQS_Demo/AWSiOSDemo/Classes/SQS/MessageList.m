@@ -20,42 +20,62 @@
 
 @implementation MessageList
 
-@synthesize queue;
+@synthesize queue = _queue;
+@synthesize messages = _messages;
 
--(IBAction)done:(id)sender
+- (void)viewDidLoad
 {
-    [self dismissModalViewControllerAnimated:YES];
+    [super viewDidLoad];
+
+    self.title = @"Messages";
+    UIBarButtonItem *sendButton = [[UIBarButtonItem alloc] initWithTitle:@"Send"
+                                                                   style:UIBarButtonItemStylePlain
+                                                                  target:self
+                                                                  action:@selector(sendMessage:)];
+    self.navigationItem.rightBarButtonItem = sendButton;
+    [sendButton release];
 }
 
--(IBAction)sendMessage:(id)sender
+-(void)sendMessage:(id)sender
 {
     SendMessage *sendMessage = [[SendMessage alloc] initWithNibName:@"SendMessage" bundle:nil];
-    
-    sendMessage.queue                = queue;
+
+    sendMessage.queue = self.queue;
     sendMessage.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-    
+
     [self presentModalViewController:sendMessage animated:YES];
     [sendMessage release];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    SQSReceiveMessageRequest *messageRequest = [[[SQSReceiveMessageRequest alloc] initWithQueueUrl:queue] autorelease];
-    messageRequest.maxNumberOfMessages = [NSNumber numberWithInt:10];
-    messageRequest.visibilityTimeout   = [NSNumber numberWithInt:0];
-    SQSReceiveMessageResponse *messageResponse = [[AmazonClientManager sqs] receiveMessage:messageRequest];
-    if(messageResponse.error != nil)
-    {
-        NSLog(@"Error: %@", messageResponse.error);
-    }
-    
-    messages = messageResponse.messages;
-    [messageTableView reloadData];
-}
+    [super viewWillAppear:animated];
 
--(void)viewDidDisappear:(BOOL)animated
-{
-    [self.modalViewController viewDidAppear:animated];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        });
+
+        SQSReceiveMessageRequest *messageRequest = [[[SQSReceiveMessageRequest alloc] initWithQueueUrl:self.queue] autorelease];
+        messageRequest.maxNumberOfMessages = [NSNumber numberWithInt:10];
+        messageRequest.visibilityTimeout   = [NSNumber numberWithInt:1];
+        SQSReceiveMessageResponse *messageResponse = [[AmazonClientManager sqs] receiveMessage:messageRequest];
+        if(messageResponse.error != nil)
+        {
+            NSLog(@"Error: %@", messageResponse.error);
+        }
+
+        self.messages = messageResponse.messages;
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            [self.tableView reloadData];
+        });
+    });
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -65,64 +85,78 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [messages count];
+    return [self.messages count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
+
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell.textLabel.adjustsFontSizeToFitWidth = YES;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    
+
     // Configure the cell...
-    SQSMessage *message = (SQSMessage *)[messages objectAtIndex:indexPath.row];
-    cell.textLabel.text                      = message.messageId;
-    cell.textLabel.adjustsFontSizeToFitWidth = YES;
-    
+    SQSMessage *message = (SQSMessage *)[self.messages objectAtIndex:indexPath.row];
+    cell.textLabel.text = message.messageId;
+
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Message *messageView = [[Message alloc] init];
-    
-    messageView.message              = [messages objectAtIndex:indexPath.row];
-    messageView.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    
-    [self presentModalViewController:messageView animated:YES];
+    messageView.message = [self.messages objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:messageView animated:YES];
     [messageView release];
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        SQSMessage *selectedMessage = [messages objectAtIndex:indexPath.row];
-        SQSDeleteMessageRequest *deleteMessageRequest = [[[SQSDeleteMessageRequest alloc] initWithQueueUrl:queue andReceiptHandle:selectedMessage.receiptHandle] autorelease];
-        
-        SQSDeleteMessageResponse *deleteMessageResponse = [[AmazonClientManager sqs] deleteMessage:deleteMessageRequest];
-        if(deleteMessageResponse.error != nil)
-        {
-            NSLog(@"Error: %@", deleteMessageResponse.error);
-        }
-        
-        [messages removeObjectAtIndex:indexPath.row];
-        
-        NSArray *indexPaths = [NSArray arrayWithObjects:indexPath, nil];
-        [messageTableView beginUpdates];
-        [messageTableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
-        [messageTableView endUpdates];
+
+        dispatch_queue_t dispatchQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_async(dispatchQueue, ^{
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+            });
+
+            SQSMessage *selectedMessage = [self.messages objectAtIndex:indexPath.row];
+            SQSDeleteMessageRequest *deleteMessageRequest = [[[SQSDeleteMessageRequest alloc] initWithQueueUrl:self.queue andReceiptHandle:selectedMessage.receiptHandle] autorelease];
+
+            SQSDeleteMessageResponse *deleteMessageResponse = [[AmazonClientManager sqs] deleteMessage:deleteMessageRequest];
+            if(deleteMessageResponse.error != nil)
+            {
+                NSLog(@"Error: %@", deleteMessageResponse.error);
+            }
+
+            [self.messages removeObjectAtIndex:indexPath.row];
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+
+                NSArray *indexPaths = [NSArray arrayWithObjects:indexPath, nil];
+                [self.tableView beginUpdates];
+                [self.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
+                [self.tableView endUpdates];
+            });
+        });
     }
 }
 
 -(void)dealloc
 {
-    [messages release];
+    [_queue release];
+    [_messages release];
+    
     [super dealloc];
 }
 
 @end
-

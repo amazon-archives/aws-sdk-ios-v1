@@ -26,6 +26,4 @@
 
 -(id)initWithPlayer:(HighScore *)thePlayer;
 
--(IBAction)ok:(id)sender;
-
 @end
