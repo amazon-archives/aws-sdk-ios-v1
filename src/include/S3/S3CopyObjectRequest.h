@@ -24,14 +24,6 @@
  *
  */
 @interface S3CopyObjectRequest:S3AbstractPutRequest {
-    NSString *sourceKey;
-    NSString *sourceBucket;
-
-    NSString *metadataDirective;
-    NSDate   *ifModifiedSince;
-    NSDate   *ifUnmodifiedSince;
-    NSString *ifMatch;
-    NSString *ifNoneMatch;
 }
 
 /** The name of the source object. */
@@ -56,6 +48,8 @@
 
 /** Copies the object if it hasn't been modified since the specified time */
 @property (nonatomic, retain) NSDate *ifUnmodifiedSince;
+
+@property (nonatomic, retain) NSString *redirectLocation;
 
 /** intializes the request with source and destination.
  *

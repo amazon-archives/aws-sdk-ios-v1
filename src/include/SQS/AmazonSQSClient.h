@@ -91,8 +91,8 @@
 
 /**
  * <p>
- * Sets an attribute of a queue. The set of attributes that can be set are - DelaySeconds, MessageRetentionPeriod,
- * MaximumMessageSize, VisibilityTimeout and Policy.
+ * Sets the value of one or more queue attributes. Valid attributes that can be set are [VisibilityTimeout, Policy,
+ * MaximumMessageSize, MessageRetentionPeriod, ReceiveMessageWaitTimeSeconds].
  * </p>
  *
  * @param setQueueAttributesRequest Container for the necessary parameters to execute the SetQueueAttributes service method
@@ -248,6 +248,8 @@
  * <li> ApproximateNumberOfMessagesDelayed - returns the approximate number of messages that are pending to be added to
  * the queue.</li>
  * <li> DelaySeconds - returns the default delay on the queue in seconds.</li>
+ * <li> ReceiveMessageWaitTimeSeconds - returns the time for which a ReceiveMessage call will wait for a message to
+ * arrive.</li>
  *
  * </ul>
  *
@@ -352,9 +354,18 @@
  * <p>
  * Retrieves one or more messages from the specified queue, including the message body and message ID of each message.
  * Messages returned by this action stay in the queue until you delete them. However, once a message is returned to a
- * ReceiveMessage request, it is not returned on subsequent ReceiveMessage requests for the duration of
- * the VisibilityTimeout . If you do not specify a VisibilityTimeout in the request, the overall visibility timeout for the
+ * ReceiveMessage request, it is not returned on subsequent ReceiveMessage requests for the duration of the
+ * VisibilityTimeout . If you do not specify a VisibilityTimeout in the request, the overall visibility timeout for the
  * queue is used for the returned messages.
+ * </p>
+ * <p>
+ * If a message is available in the queue, the call will return immediately. Otherwise, it will wait up to WaitTimeSeconds
+ * for a message to arrive. If you do not specify WaitTimeSeconds in the request, the queue attribute
+ * ReceiveMessageWaitTimeSeconds is used to determine how long to wait.
+ * </p>
+ * <p>
+ * You could ask for additional information about each message through the attributes. Attributes that can be requested are
+ * [SenderId, ApproximateFirstReceiveTimestamp, ApproximateReceiveCount, SentTimestamp] .
  * </p>
  *
  * @param receiveMessageRequest Container for the necessary parameters to execute the ReceiveMessage service method on

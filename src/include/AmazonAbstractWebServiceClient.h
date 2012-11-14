@@ -37,6 +37,7 @@ extern NSString *const AWSDefaultRunLoopMode;
     NSString          *endpoint;
     NSInteger         maxRetries;
     NSTimeInterval    timeout;
+    NSTimeInterval    connectionTimeout;
     NSTimeInterval    delay;
     NSString          *userAgent;
 }
@@ -51,12 +52,20 @@ extern NSString *const AWSDefaultRunLoopMode;
  */
 @property (nonatomic, assign) int maxRetries;
 
-/** The amount of time to wait (in seconds) for data to be transfered over
- * an established, open connection before the connection times out and is closed.
+/** The amount of time to wait (in seconds) for a request to complete.  This
+ * includes the time to establish connection and transfer data.
  *
  * Default is 240 seconds.
  */
 @property (nonatomic, assign) NSTimeInterval timeout;
+
+/** The timeoutInterval to applied to the underlying NSURLConnection.  This 
+ * value has a minimum effective value as defined by the operation and version
+ * of iOS.
+ *
+ * If not set, value defaults to value of timeout
+ */
+@property (nonatomic, assign) NSTimeInterval connectionTimeout;
 
 /**
  * The amount of time to pause between retries.  The pause time will grow exponentially

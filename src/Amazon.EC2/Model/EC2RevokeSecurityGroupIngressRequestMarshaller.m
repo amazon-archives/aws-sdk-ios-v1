@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"RevokeSecurityGroupIngress"           forKey:@"Action"];
-    [request setParameterValue:@"2012-08-15"   forKey:@"Version"];
+    [request setParameterValue:@"2012-10-01"   forKey:@"Version"];
 
     [request setDelegate:[revokeSecurityGroupIngressRequest delegate]];
     [request setCredentials:[revokeSecurityGroupIngressRequest credentials]];

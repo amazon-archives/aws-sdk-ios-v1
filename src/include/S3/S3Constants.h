@@ -60,6 +60,7 @@
 #define kHttpHdrAmzGrantReadAcp              @"x-amz-grant-read-acp"
 #define kHttpHdrAmzGrantWriteAcp             @"x-amz-grant-write-acp"
 #define kHttpHdrAmzGrantFullControl          @"x-amz-grant-full-control"
+#define kHttpHdrAmzWebsiteRedirectLocation   @"x-amz-website-redirect-location"
 
 #define kS3DateFormat                        @"EEE, dd MMM yyyy HH:mm:ss z"
 
@@ -77,6 +78,7 @@
 #define kS3SubResourceLifecycle              @"lifecycle"
 #define kS3SubResourceTagging                @"tagging"
 #define kS3SubResourceCrossOrigin            @"cors"
+#define kS3SubResourceRestore                @"restore"
 
 
 // pre-signed URL query string parameters

@@ -23,6 +23,9 @@
 
 + (void)turnLoggingOff;
 + (void)verboseLogging;
++ (BOOL)isLoggingEnabled;
++ (BOOL)isVerboseLoggingEnabled;
+
 
 // Use AMZLog(fmt, ...); instead.
 + (void)logInfo:(NSString *)fmt, ... NS_FORMAT_FUNCTION(1, 2);

@@ -19,6 +19,7 @@
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
 #import "EC2SpotInstanceStateFaultUnmarshaller.h"
+#import "EC2SpotInstanceStatusUnmarshaller.h"
 #import "EC2LaunchSpecificationUnmarshaller.h"
 #import "../AmazonListUnmarshaller.h"
 #import "EC2TagUnmarshaller.h"

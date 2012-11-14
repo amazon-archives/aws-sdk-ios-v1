@@ -14,6 +14,7 @@
  */
 
 #import "AmazonSecurityTokenServiceClient.h"
+#import "../AmazonEndpoints.h"
 #import "../AmazonServiceRequest.h"
 
 
@@ -22,7 +23,7 @@
 -(id)initWithAccessKey:(NSString *)theAccessKey withSecretKey:(NSString *)theSecretKey
 {
     if (self = [super initWithAccessKey:theAccessKey withSecretKey:theSecretKey]) {
-        self.endpoint = @"https://sts.amazonaws.com";
+        self.endpoint = AMAZON_STS_ENDPOINT_SECURE;
     }
     return self;
 }
@@ -30,7 +31,7 @@
 -(id)initWithCredentials:(AmazonCredentials *)theCredentials
 {
     if (self = [super initWithCredentials:theCredentials]) {
-        self.endpoint = @"https://sts.amazonaws.com";
+        self.endpoint = AMAZON_STS_ENDPOINT_SECURE;
     }
     return self;
 }

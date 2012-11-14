@@ -14,6 +14,7 @@
  */
 
 #import "AmazonSimpleDBClient.h"
+#import "../AmazonEndpoints.h"
 #import "../AmazonServiceRequest.h"
 
 
@@ -22,7 +23,7 @@
 -(id)initWithAccessKey:(NSString *)theAccessKey withSecretKey:(NSString *)theSecretKey
 {
     if (self = [super initWithAccessKey:theAccessKey withSecretKey:theSecretKey]) {
-        self.endpoint = @"https://sdb.amazonaws.com";
+        self.endpoint = AMAZON_SDB_US_EAST_1_ENDPOINT_SECURE;
     }
     return self;
 }
@@ -30,7 +31,7 @@
 -(id)initWithCredentials:(AmazonCredentials *)theCredentials
 {
     if (self = [super initWithCredentials:theCredentials]) {
-        self.endpoint = @"https://sdb.amazonaws.com";
+        self.endpoint = AMAZON_SDB_US_EAST_1_ENDPOINT_SECURE;
     }
     return self;
 }

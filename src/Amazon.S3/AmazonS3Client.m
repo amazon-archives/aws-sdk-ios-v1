@@ -14,6 +14,7 @@
  */
 
 #import "AmazonS3Client.h"
+#import "../AmazonEndpoints.h"
 
 
 @implementation AmazonS3Client
@@ -22,7 +23,7 @@
 {
     if ((self = [super init]) != nil) {
         [AmazonS3Client initializeResponseObjects];
-        self.endpoint = @"https://s3.amazonaws.com";
+        self.endpoint = AMAZON_S3_US_EAST_1_ENDPOINT_SECURE;;
     }
     
     return self;
@@ -320,7 +321,7 @@
     }
     
     AmazonURLRequest *amazonURLRequest = [preSignedURLRequest configureURLRequest];
-    amazonURLRequest.endpointHost = [preSignedURLRequest endpointHost];
+    amazonURLRequest.endpointHost = [preSignedURLRequest hostName];
     NSURLRequest     *urlRequest  = [self signS3Request:preSignedURLRequest];
     NSString         *auth        = [urlRequest valueForHTTPHeaderField:kHttpHdrAuthorization];
     NSString         *signature   = (NSString *)[[auth componentsSeparatedByString:@":"] objectAtIndex:1];
@@ -395,6 +396,11 @@
     return (S3CompleteMultipartUploadResponse *)[self invoke:completeMultipartUploadRequest];
 }
 
+-(S3RestoreObjectResponse *)restoreObject:(S3RestoreObjectRequest *)restoreObjectRequest
+{
+    return (S3RestoreObjectResponse *)[self invoke:restoreObjectRequest];
+}
+
 #pragma mark Request Utility Code
 
 -(S3Response *)invoke:(S3Request *)request
@@ -441,13 +447,26 @@
             request.date = [NSDate date];
         }
 
-        NSURLRequest *urlRequest = [self signS3Request:request];
-
-        AMZLogDebug(@"%@ %@", [urlRequest HTTPMethod], [urlRequest URL]);
-        AMZLogDebug(@"Request headers: ");
-        for (id hKey in [[urlRequest allHTTPHeaderFields] allKeys])
-        {
-            AMZLogDebug(@"  %@: %@", [hKey description], [[urlRequest allHTTPHeaderFields] valueForKey:hKey]);
+        NSMutableURLRequest *urlRequest = [self signS3Request:request];
+        
+        if (self.connectionTimeout != 0) {
+            [urlRequest setTimeoutInterval:self.connectionTimeout];
+        }
+        else {
+            [urlRequest setTimeoutInterval:self.timeout];
+        }
+        
+        if ([AmazonLogger isVerboseLoggingEnabled]) {
+            AMZLogDebug(@"%@ %@", [urlRequest HTTPMethod], [urlRequest URL]);
+            AMZLogDebug(@"Request headers: ");
+            for (id hKey in [[urlRequest allHTTPHeaderFields] allKeys])
+            {
+                AMZLogDebug(@"  %@: %@", [hKey description], [[urlRequest allHTTPHeaderFields] valueForKey:hKey]);
+            }
+            AMZLogDebug(@"Request body: ");
+            NSString *rBody = [[NSString alloc] initWithData:[urlRequest HTTPBody] encoding:NSUTF8StringEncoding];
+            AMZLogDebug(@"%@", rBody);
+            [rBody release];
         }
 
         response = [AmazonS3Client constructResponseFromRequest:request];
@@ -458,9 +477,14 @@
                                                                               delegate:response
                                                                       startImmediately:NO] autorelease];
             request.urlConnection = urlConnection;
+            
+            NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:self.timeout
+                                                              target:response
+                                                            selector:@selector(timeout)
+                                                            userInfo:nil
+                                                             repeats:NO];
+            request.responseTimer = timer;
             [urlConnection start];
-
-            [NSTimer scheduledTimerWithTimeInterval:self.timeout target:response selector:@selector(timeout) userInfo:nil repeats:NO];
 
             return nil;
         }
@@ -492,7 +516,7 @@
 
         AMZLogDebug(@"Response Status Code : %d", response.httpStatusCode);
         if ( [self shouldRetry:response]) {
-            AMZLogDebug(@"Retring Request: %d", retries);
+            AMZLogDebug(@"Retrying Request: %d", retries);
 
             [self pauseExponentially:retries];
             retries++;
@@ -550,7 +574,7 @@
     return [response autorelease];
 }
 
--(NSURLRequest *)signS3Request:(S3Request *)request
+-(NSMutableURLRequest *)signS3Request:(S3Request *)request
 {
     AmazonURLRequest *urlRequest = [request configureURLRequest];
     

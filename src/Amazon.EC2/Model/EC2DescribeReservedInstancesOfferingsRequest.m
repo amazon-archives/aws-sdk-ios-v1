@@ -25,6 +25,8 @@
 @synthesize filters;
 @synthesize instanceTenancy;
 @synthesize offeringType;
+@synthesize nextToken;
+@synthesize maxResults;
 
 
 -(id)init
@@ -37,6 +39,8 @@
         filters                      = [[NSMutableArray alloc] initWithCapacity:1];
         instanceTenancy              = nil;
         offeringType                 = nil;
+        nextToken                    = nil;
+        maxResults                   = nil;
     }
 
     return self;
@@ -74,6 +78,8 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Filters: %@,", filters] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"InstanceTenancy: %@,", instanceTenancy] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"OfferingType: %@,", offeringType] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"NextToken: %@,", nextToken] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"MaxResults: %@,", maxResults] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -91,6 +97,8 @@
     [filters release];
     [instanceTenancy release];
     [offeringType release];
+    [nextToken release];
+    [maxResults release];
 
     [super dealloc];
 }

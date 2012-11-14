@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribeReservedInstancesOfferings"           forKey:@"Action"];
-    [request setParameterValue:@"2012-08-15"   forKey:@"Version"];
+    [request setParameterValue:@"2012-10-01"   forKey:@"Version"];
 
     [request setDelegate:[describeReservedInstancesOfferingsRequest delegate]];
     [request setCredentials:[describeReservedInstancesOfferingsRequest credentials]];
@@ -87,6 +87,16 @@
     if (describeReservedInstancesOfferingsRequest != nil) {
         if (describeReservedInstancesOfferingsRequest.offeringType != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", describeReservedInstancesOfferingsRequest.offeringType] forKey:[NSString stringWithFormat:@"%@", @"OfferingType"]];
+        }
+    }
+    if (describeReservedInstancesOfferingsRequest != nil) {
+        if (describeReservedInstancesOfferingsRequest.nextToken != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", describeReservedInstancesOfferingsRequest.nextToken] forKey:[NSString stringWithFormat:@"%@", @"NextToken"]];
+        }
+    }
+    if (describeReservedInstancesOfferingsRequest != nil) {
+        if (describeReservedInstancesOfferingsRequest.maxResults != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", describeReservedInstancesOfferingsRequest.maxResults] forKey:[NSString stringWithFormat:@"%@", @"MaxResults"]];
         }
     }
 

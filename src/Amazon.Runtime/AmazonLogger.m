@@ -30,6 +30,16 @@ static BOOL isVerboseLoggingEnabled = NO;
     isVerboseLoggingEnabled = YES;
 }
 
++ (BOOL)isLoggingEnabled
+{
+    return isLoggingEnabled;
+}
+
++ (BOOL)isVerboseLoggingEnabled
+{
+    return isVerboseLoggingEnabled;
+}
+
 + (void)logInfo:(NSString *)fmt, ...
 {
     if(isLoggingEnabled)

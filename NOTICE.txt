@@ -9,4 +9,6 @@ THIRD PARTY COMPONENTS
 **********************
 This software includes third party software subject to the following copyrights:
 - SBJson.
+- CRC32 calculation function from PHP - Copyright (c) 1997-2012 The PHP Group
 
+The licenses for these third party components are included in LICENSE.txt

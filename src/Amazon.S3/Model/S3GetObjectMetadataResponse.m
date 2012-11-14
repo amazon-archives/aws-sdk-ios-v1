@@ -24,4 +24,36 @@
     [super setValue:value forHTTPHeaderField:header];
 }
 
+-(BOOL)ongoingRestore
+{
+    NSString *restore = [super valueForHTTPHeaderField:@"X-Amz-Restore"];
+    if (restore == nil) {
+        return NO;
+    }
+    
+    //x-amz-restore: ongoing-request="false", expiry-date="Fri, 23 Dec 2012 00:00:00 GMT"
+    NSRange ongoing = [restore rangeOfString:@"ongoing-request=\"true\""];
+    
+    return (ongoing.location != NSNotFound);
+}
+
+-(NSDate *)restoreExpiry
+{
+    NSString *restore = [super valueForHTTPHeaderField:@"X-Amz-Restore"];
+    if (restore == nil) {
+        return nil;
+    }
+    
+    //x-amz-restore: ongoing-request="false", expiry-date="Fri, 23 Dec 2012 00:00:00 GMT"
+    NSRange expiry = [restore rangeOfString:@"expiry-date=\""];
+    if (expiry.location == NSNotFound) {
+        return nil;
+    }
+    
+    NSString *trimmed = [restore substringFromIndex:(expiry.location + expiry.length)];
+    trimmed = [trimmed substringToIndex:trimmed.length-1];
+    
+    return [NSDate dateWithRFC822Format:trimmed];
+}
+
 @end

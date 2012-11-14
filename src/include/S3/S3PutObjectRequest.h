@@ -26,19 +26,7 @@
  *
  */
 @interface S3PutObjectRequest:S3AbstractPutRequest {
-    NSString      *cacheControl;
-    NSString      *contentDisposition;
-    NSString      *contentEncoding;
-    NSString      *contentMD5;
-    NSString      *expect;
-    NSString      *filename;
-    NSData        *data;
-
-    NSInputStream *stream;
-
-    NSInteger     expires;
-    bool          expiresSet;
-    bool          generateMD5;
+    BOOL expiresSet;
 }
 
 /** Can be used to specify caching behavior along the request/reply chain.
@@ -68,7 +56,7 @@
  *
  * MD5 Generation only works on files and data, generation is not attempted for streams.
  */
-@property (nonatomic) bool generateMD5;
+@property (nonatomic, assign) BOOL generateMD5;
 
 /** When your application uses 100-continue, it does not send the request body until it receives an acknowledgement.
  * If the message is rejected based on the headers, the body of the message is not sent.
@@ -91,7 +79,7 @@
 @property (nonatomic, retain) NSInputStream *stream;
 
 /** Number of milliseconds before expiration. */
-@property (nonatomic) int expires;
+@property (nonatomic, assign, readonly) NSInteger expires;
 
 /** Path of file in the filesystem to be uploaded.
  * The <code>contentLength</code> and <code>contentType</code> will be inferred.
@@ -101,6 +89,8 @@
  * @throws AmazonClientException If the file does not exist or is not readable.
  */
 @property (nonatomic, retain) NSString *filename;
+
+@property (nonatomic, retain) NSString *redirectLocation;
 
 /** Initializes the request with the key and bucket name */
 -(id)initWithKey:(NSString *)aKey inBucket:(NSString *)aBucket;

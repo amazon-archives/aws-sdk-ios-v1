@@ -26,6 +26,12 @@
 /** How many metadata items were not returned in the response. */
 @property (nonatomic) int missingMeta;
 
+/** Whether or not this object is currently being restored */
+@property (readonly) BOOL ongoingRestore;
+
+/** If defined, the expiration date for the restored copy of the object */
+@property (readonly) NSDate *restoreExpiry;
+
 /** Sets a value in the response for the given HTTP header. */
 -(void)setValue:(id)value forHTTPHeaderField:(NSString *)header;
 

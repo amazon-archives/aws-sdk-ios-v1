@@ -24,12 +24,36 @@
 @synthesize endpoint;
 @synthesize userAgent;
 @synthesize credentials;
+@synthesize urlRequest;
 @synthesize urlConnection;
+@synthesize responseTimer;
 @synthesize requestTag;
 @synthesize serviceName;
 @synthesize regionName;
 @synthesize hostName;
+@synthesize delegate;
 
+- (id)init
+{
+    if(self = [super init])
+    {
+        httpMethod = nil;
+        parameters = nil;
+        endpoint = nil;
+        userAgent = nil;
+        credentials = nil;
+        urlRequest = [AmazonURLRequest new];
+        urlConnection = nil;
+        responseTimer = nil;
+        requestTag = nil;
+        serviceName = nil;
+        regionName = nil;
+        hostName = nil;
+        delegate = nil;
+    }
+
+    return self;
+}
 
 -(void)sign
 {
@@ -84,13 +108,6 @@
     return [buffer autorelease];
 }
 
--(void)setHostName:(NSString *)theHostName 
-{
-    [hostName release];
-    hostName = theHostName;
-    [hostName retain];
-}
-
 -(NSString *)hostName
 {
     // hostName was explicitly set
@@ -109,13 +126,6 @@
     return [trimmed substringToIndex:(endOfHost.location)];
 }
 
--(void)setRegionName:(NSString *)theRegionName 
-{
-    [regionName release];
-    regionName = theRegionName;
-    [regionName retain];
-}
-
 -(NSString *)regionName
 {
     // regionName was explicitly set
@@ -123,10 +133,11 @@
         return regionName;
     }
     // If we don't recognize the domain, just return the default
-    if (![self.hostName hasSuffix:@".amazonaws.com"]) {
-        return @"us-east-1";
+    if ([self.hostName hasSuffix:@".queue.amazonaws.com"]){
+        NSRange  range             = [self.hostName rangeOfString:@".queue.amazonaws.com"];
+        return [self.hostName substringToIndex:range.location];
     }
-    else {
+    else if ([self.hostName hasSuffix:@".amazonaws.com"]) {
         NSRange  range             = [self.hostName rangeOfString:@".amazonaws.com"];
         NSString *serviceAndRegion = [self.hostName substringToIndex:range.location];
         
@@ -148,16 +159,12 @@
             return region;
         }
     }
+    else {
+        return @"us-east-1";
+    }
+    
 }
 
--(void)setServiceName:(NSString *)theServiceName
-{
-    [serviceName release];
-    serviceName = theServiceName;
-    [serviceName retain];
-}
-
-//TODO: this needs to be fleshed out to handle all cases
 -(NSString *)serviceName
 {
     // serviceName was explicitly set
@@ -166,10 +173,10 @@
     }
     
     // If we don't recognize the domain, just return nil
-    if (![self.hostName hasSuffix:@".amazonaws.com"]) {
-        return nil;
+    if ([self.hostName hasSuffix:@"queue.amazonaws.com"]){
+        return @"sqs";
     }
-    else {
+    else if ([self.hostName hasSuffix:@".amazonaws.com"]) {
         NSRange  range             = [self.hostName rangeOfString:@".amazonaws.com"];
         NSString *serviceAndRegion = [self.hostName substringToIndex:range.location];
         
@@ -185,25 +192,9 @@
         NSRange index = [serviceAndRegion rangeOfString:separator];
         return [serviceAndRegion substringToIndex:index.location];
     }
-}
-
--(AmazonURLRequest *)urlRequest
-{
-    if (nil == urlRequest) {
-        urlRequest = [[AmazonURLRequest alloc] init];
+    else {
+        return nil;
     }
-
-    return urlRequest;
-}
-
--(void)setUrlRequest:(AmazonURLRequest *)request
-{
-    if (nil != urlRequest)
-    {
-        [urlRequest release];
-        urlRequest = nil;
-    }
-    urlRequest = [request retain];
 }
 
 -(void)setParameterValue:(NSString *)theValue forKey:(NSString *)theKey
@@ -219,19 +210,15 @@
     return nil;
 }
 
--(void)setDelegate:(id<AmazonServiceRequestDelegate> )aDelegate
-{
-    delegate = aDelegate;
-}
-
--(id<AmazonServiceRequestDelegate> )delegate
-{
-    return delegate;
-}
-
 - (AmazonClientException *)validate
 {
     return nil;
+}
+
+- (void)cancel
+{
+    [self.urlConnection cancel];
+    [self.responseTimer invalidate];
 }
 
 -(void)dealloc
@@ -243,6 +230,7 @@
     [parameters release];
     [userAgent release];
     [urlConnection release];
+    [responseTimer release];
     [requestTag release];
     [serviceName release];
     [regionName release];

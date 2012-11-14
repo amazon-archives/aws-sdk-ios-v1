@@ -24,19 +24,19 @@
 @class AmazonServiceException;
 
 @interface AmazonServiceRequest:NSObject {
-    AmazonURLRequest                 *urlRequest;
-    NSMutableDictionary              *parameters;
-    id<AmazonServiceRequestDelegate> delegate;
     NSString                         *httpMethod;
+    NSMutableDictionary              *parameters;
     NSString                         *endpoint;
+    NSString                         *userAgent;
+    AmazonCredentials                *credentials;
+    AmazonURLRequest                 *urlRequest;
+    NSURLConnection                  *urlConnection;
+    NSTimer                          *responseTimer;
+    NSString                         *requestTag;
     NSString                         *serviceName;
     NSString                         *regionName;
     NSString                         *hostName;
-    NSString                         *userAgent;
-    AmazonCredentials                *credentials;
-    NSURLConnection                  *urlConnection;
-
-    NSString                         *requestTag;
+    id<AmazonServiceRequestDelegate> delegate;
 }
 
 /** Request specific credentials. */
@@ -50,6 +50,8 @@
 /** The connection object used to make the request.
  */
 @property (nonatomic, retain) NSURLConnection *urlConnection;
+
+@property (nonatomic, retain) NSTimer *responseTimer;
 
 /** The HTTP Method (GET, PUT, POST, DELETE) used for the request. */
 @property (nonatomic, retain) NSString *httpMethod;
@@ -66,6 +68,8 @@
 @property (nonatomic, retain) NSString            *hostName;
 @property (nonatomic, retain) NSString            *userAgent;
 
+@property (nonatomic, assign) id<AmazonServiceRequestDelegate> delegate;
+
 /**
  * Open property that enables user to distinquish various requests.
  */
@@ -78,9 +82,6 @@
 -(void)sign;
 
 -(void)setParameterValue:(NSString *)theValue forKey:(NSString *)theKey;
-
-/** Returns the delegate object for the request */
--(id<AmazonServiceRequestDelegate> )delegate;
 
 /** Sets the delegate object for the request.
  *
@@ -101,6 +102,11 @@
  * All methods inheriting this method must call [super validate] first to check if it returns any exceptions.
  */
 - (AmazonClientException *)validate;
+
+/** Cancel asynchronous operations. The thread invoked this request needs to call this method to cancel the operation. Once cancelled, it cannot be resumed. Create another request object and invoke it again.
+ * It has no effect on synchronous operations.
+ */
+- (void)cancel;
 
 @end
 
@@ -174,7 +180,7 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite;
  * @param request   The AmazonServiceRequest sending the message.
  * @param exception The AmazonClientException that would have been thrown in the absence of a delegate.
  */
--(void)request:(AmazonServiceRequest *)request didFailWithServiceException:(NSException *)exception __OSX_AVAILABLE_BUT_DEPRECATED(__MAC_NA,__MAC_NA,__IPHONE_NA,__IPHONE_NA);
+-(void)request:(AmazonServiceRequest *)request didFailWithServiceException:(NSException *)exception __attribute__((deprecated));
 
 @end
 

@@ -33,6 +33,8 @@
     NSMutableArray *filters;
     NSString       *instanceTenancy;
     NSString       *offeringType;
+    NSString       *nextToken;
+    NSNumber       *maxResults;
 }
 
 
@@ -88,6 +90,16 @@
  * The Reserved Instance offering type.
  */
 @property (nonatomic, retain) NSString *offeringType;
+
+/**
+ * The value of the NextToken property for this object.
+ */
+@property (nonatomic, retain) NSString *nextToken;
+
+/**
+ * The value of the MaxResults property for this object.
+ */
+@property (nonatomic, retain) NSNumber *maxResults;
 
 /**
  * Adds a single object to reservedInstancesOfferingIds.

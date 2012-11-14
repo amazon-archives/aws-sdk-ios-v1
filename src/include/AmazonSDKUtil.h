@@ -17,7 +17,7 @@
 #import <UIKit/UIKit.h>
 #import "AmazonClientException.h"
 
-#define AWS_SDK_VERSION              @"1.4.3"
+#define AWS_SDK_VERSION              @"1.4.4"
 #define AWS_SDK_USER_AGENT_FORMAT    @"aws-sdk-iOS/%@ %@/%@ %@"
 #define kISO8061DateFormat           @"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 #define kISO8601DateFormat           @"yyyy-MM-dd'T'HH:mm:ss'Z'"
@@ -25,7 +25,7 @@
 #define kDateStampFormat             @"yyyyMMdd"
 #define kDateTimeFormat              @"yyyyMMdd'T'HHmmss'Z'"
 
-@interface AmazonSDKUtil:NSObject {
+@interface AmazonSDKUtil : NSObject {
 }
 
 +(NSString *)userAgentString;
@@ -49,6 +49,7 @@
 -(NSString *)stringWithISO8601Format;
 -(NSString *)stringWithRFC822Format;
 +(NSDate *)dateWithISO8061Format:(NSString *)dateString;
++(NSDate *)dateWithRFC822Format:(NSString *)dateString;
 +(NSString *)ISO8061FormattedCurrentTimestamp;
 -(NSString *)dateStamp;
 -(NSString *)dateTime;
@@ -82,4 +83,10 @@
  * @return NSData with the data represented by the encoded string.
  */
 +(NSData *) dataWithBase64EncodedString:(NSString *)encodedString;
+@end
+
+@interface NSData (CRC32)
+
+- (uint32_t)crc32;
+
 @end

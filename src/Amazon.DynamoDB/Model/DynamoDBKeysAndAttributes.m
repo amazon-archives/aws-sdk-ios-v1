@@ -20,13 +20,17 @@
 
 @synthesize keys;
 @synthesize attributesToGet;
+@synthesize consistentRead;
+@synthesize consistentReadIsSet;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        keys            = [[NSMutableArray alloc] initWithCapacity:1];
-        attributesToGet = [[NSMutableArray alloc] initWithCapacity:1];
+        keys                = [[NSMutableArray alloc] initWithCapacity:1];
+        attributesToGet     = [[NSMutableArray alloc] initWithCapacity:1];
+        consistentRead      = NO;
+        consistentReadIsSet = NO;
     }
 
     return self;
@@ -59,12 +63,19 @@
     [buffer appendString:@"{"];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Keys: %@,", keys] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"AttributesToGet: %@,", attributesToGet] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"ConsistentRead: %d,", consistentRead] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
     return [buffer autorelease];
 }
 
+
+-(void)setConsistentRead:(bool)theValue
+{
+    consistentRead      = theValue;
+    consistentReadIsSet = YES;
+}
 
 
 -(void)dealloc

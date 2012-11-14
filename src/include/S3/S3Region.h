@@ -22,8 +22,10 @@
 #define kS3RegionEUWest1         @"eu-west-1"
 #define kS3RegionEU              @"EU"
 #define kS3RegionAPSoutheast1    @"ap-southeast-1"
+#define kS3RegionAPSoutheast2    @"ap-southeast-2"
 #define kS3RegionAPNortheast1    @"ap-northeast-1"
 #define kS3RegionSAEast1         @"sa-east-1"
+
 
 /**
  * Specifies constants that define Amazon S3 Regions.
@@ -125,6 +127,18 @@
  * </p>
  */
 +(S3Region *)APSingapore;
+
+/**
+ * The AP-Southeast-2 (Sydney) Region. This region uses Amazon S3 servers located
+ * in Sydney.
+ * <p>
+ * When using buckets in this region, optionally set the client
+ * endpoint to <code>s3-ap-southeast-2.amazonaws.com</code> on all requests to these buckets
+ * to reduce any latency experienced after the first hour of
+ * creating a bucket in this region.
+ * </p>
+ */
++(S3Region *)APSydney;
 
 /**
  * The Asia Pacific (Japan) Region. This region uses Amazon S3 servers located

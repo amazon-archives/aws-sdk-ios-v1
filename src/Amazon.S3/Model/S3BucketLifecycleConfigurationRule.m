@@ -17,20 +17,30 @@
 
 @implementation S3BucketLifecycleConfigurationRule
 
-@synthesize ruleId;
-@synthesize status;
-@synthesize prefix;
+@synthesize ruleId=_ruleId;
+@synthesize status=_status;
+@synthesize prefix=_prefix;
 @synthesize expirationInDays;
+@synthesize expirationDate=_expirationDate;
+@synthesize transitions=_transitions;
 
 -(NSString *)toXml 
 {
     NSMutableString *xml = [[NSMutableString alloc] init];
     
     [xml appendString:@"<Rule>"];
-    [xml appendFormat:@"<ID>%@</ID>", ruleId];
-    [xml appendFormat:@"<Prefix>%@</Prefix>", prefix];
-    [xml appendFormat:@"<Status>%@</Status>", status];
-    [xml appendFormat:@"<Expiration><Days>%d</Days></Expiration>", expirationInDays];
+    [xml appendFormat:@"<ID>%@</ID>", self.ruleId];
+    [xml appendFormat:@"<Prefix>%@</Prefix>", self.prefix];
+    [xml appendFormat:@"<Status>%@</Status>", self.status];
+    if (self.expirationInDays > 0) {
+        [xml appendFormat:@"<Expiration><Days>%d</Days></Expiration>", self.expirationInDays];
+    }
+    else if (self.expirationDate != nil) {
+        [xml appendFormat:@"<Expiration><Date>%@</Date></Expiration>", [self.expirationDate stringWithISO8061Format]];
+    }
+    for (S3BucketLifecycleConfigurationTransition *transition in self.transitions) {
+        [xml appendString:[transition toXml]];
+    }
     [xml appendString:@"</Rule>"];
     
     
@@ -39,6 +49,12 @@
     
     return retval;
 
+}
+
+
+-(id)initWithId:(NSString *)theRuleId andPrefix:(NSString *)thePrefix andStatus:(NSString *)theStatus
+{
+    return [self initWithId:theRuleId andPrefix:thePrefix andExpirationDate:nil andStatus:theStatus];
 }
 
 -(id)initWithId:(NSString *)theRuleId andPrefix:(NSString *)thePrefix andExpirationInDays:(NSInteger) theExpiration andStatus:(NSString *)theStatus
@@ -54,6 +70,19 @@
     return self;
 }
 
+-(id)initWithId:(NSString *)theRuleId andPrefix:(NSString *)thePrefix andExpirationDate:(NSDate *) theExpirationDate andStatus:(NSString *)theStatus
+{
+    self = [super init];
+    if (self) {
+        self.ruleId           = theRuleId;
+        self.prefix           = thePrefix;
+        self.status           = theStatus;
+        self.expirationDate   = theExpirationDate;
+    }
+    
+    return self;
+}
+
 -(BOOL)isEnabled
 {
     return [status isEqualToString:S3_BUCKET_LIFECYCLE_RULE_ENABLED];
@@ -62,9 +91,10 @@
 
 -(void)dealloc
 {
-    [ruleId release];
-    [prefix release];
-    [status release];
+    self.ruleId = nil;
+    self.status = nil;
+    self.prefix = nil;
+    self.expirationDate = nil;
     [super dealloc];
 }
 

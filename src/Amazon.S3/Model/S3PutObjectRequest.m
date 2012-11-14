@@ -22,15 +22,29 @@
 @synthesize contentDisposition;
 @synthesize contentEncoding;
 @synthesize contentMD5;
+@synthesize filename;
 @synthesize data;
 @synthesize stream;
 @synthesize expect;
 @synthesize generateMD5;
+@synthesize expires;
+@synthesize redirectLocation;
 
 -(id)init
 {
     if (self = [super init])
     {
+        cacheControl = nil;
+        contentDisposition = nil;
+        contentEncoding = nil;
+        contentMD5 = nil;
+        expect = nil;
+        data = nil;
+        stream = nil;
+        filename = nil;
+        redirectLocation = nil;
+        
+        expires = 0;
         expiresSet  = NO;
         generateMD5 = NO;
     }
@@ -41,11 +55,6 @@
 {
     expires    = exp;
     expiresSet = YES;
-}
-
--(NSInteger)expires
-{
-    return expires;
 }
 
 -(NSMutableURLRequest *)configureURLRequest
@@ -72,23 +81,33 @@
     [urlRequest setHTTPMethod:kHttpMethodPut];
 
     if (nil != self.expect) {
-        [self.urlRequest setValue:self.expect forHTTPHeaderField:kHttpHdrExpect];
+        [self.urlRequest setValue:self.expect
+               forHTTPHeaderField:kHttpHdrExpect];
     }
     if (nil != self.contentMD5) {
-        [self.urlRequest setValue:self.contentMD5 forHTTPHeaderField:kHttpHdrContentMD5];
+        [self.urlRequest setValue:self.contentMD5
+               forHTTPHeaderField:kHttpHdrContentMD5];
     }
     if (nil != self.contentEncoding) {
-        [self.urlRequest setValue:self.contentEncoding forHTTPHeaderField:kHttpHdrContentEncoding];
+        [self.urlRequest setValue:self.contentEncoding
+               forHTTPHeaderField:kHttpHdrContentEncoding];
     }
     if (nil != self.contentDisposition) {
-        [self.urlRequest setValue:self.contentDisposition forHTTPHeaderField:kHttpHdrContentDisposition];
+        [self.urlRequest setValue:self.contentDisposition
+               forHTTPHeaderField:kHttpHdrContentDisposition];
     }
     if (nil != self.cacheControl) {
-        [self.urlRequest setValue:self.cacheControl forHTTPHeaderField:kHttpHdrCacheControl];
+        [self.urlRequest setValue:self.cacheControl
+               forHTTPHeaderField:kHttpHdrCacheControl];
+    }
+    if (nil != self.redirectLocation) {
+        [self.urlRequest setValue:self.redirectLocation
+               forHTTPHeaderField:kHttpHdrAmzWebsiteRedirectLocation];
     }
 
     if (expiresSet) {
-        [self.urlRequest setValue:[NSString stringWithFormat:@"%d", self.expires] forHTTPHeaderField:kHttpHdrExpires];
+        [self.urlRequest setValue:[NSString stringWithFormat:@"%d", self.expires]
+               forHTTPHeaderField:kHttpHdrExpires];
     }
 
     if (self.stream != nil) {
@@ -97,7 +116,8 @@
     else {
         [self.urlRequest setHTTPBody:data];
         if (self.contentLength < 1) {
-            [self.urlRequest setValue:[NSString stringWithFormat:@"%d", [data length]] forHTTPHeaderField:kHttpHdrContentLength];
+            [self.urlRequest setValue:[NSString stringWithFormat:@"%d", [data length]]
+                   forHTTPHeaderField:kHttpHdrContentLength];
         }
     }
 
@@ -113,21 +133,6 @@
     }
 
     return self;
-}
-
--(void)setFilename:(NSString *)theFilename
-{
-    if (filename != nil) {
-        [filename release];
-        filename = nil;
-    }
-
-    filename = [theFilename retain];
-}
-
--(NSString *)filename
-{
-    return filename;
 }
 
 - (AmazonClientException *)validate

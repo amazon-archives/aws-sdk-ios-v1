@@ -129,6 +129,8 @@
 #import "S3GetBucketCrossOriginResponse.h"
 #import "S3DeleteBucketCrossOriginRequest.h"
 #import "S3DeleteBucketCrossOriginResponse.h"
+#import "S3RestoreObjectRequest.h"
+#import "S3RestoreObjectResponse.h"
 
 /** \defgroup S3 Amazon S3 */
 
@@ -840,6 +842,14 @@
  */
 -(S3CompleteMultipartUploadResponse *)completeMultipartUpload:(S3CompleteMultipartUploadRequest *)completeMultipartUploadRequest;
 
+/** Request temporary restoration of an object which was transitioned 
+ * to Amazon Glacier from Amazon S3 via life cycle configuration.
+ * @param restoreObjectRequest The RestoreObjectRequest that defines the parameters of the operation.
+ * @return An RestoreObjectResponse from S3.
+ * @see S3RestoreObjectRequest
+ */
+-(S3RestoreObjectResponse *)restoreObject:(S3RestoreObjectRequest *)restoreObjectRequest;
+
 /** Creates a signed http request.
  * Query string authentication is useful for giving HTTP or browser
  * access to resources that would normally require authentication.
@@ -892,7 +902,7 @@
 /** Return the version of the S3 API */
 +(NSString *)apiVersion;
 
--(NSURLRequest *)signS3Request:(S3Request *)request;
+-(NSMutableURLRequest *)signS3Request:(S3Request *)request;
 
 /** Ensure that all response classes have been loaded by the runtime. */
 +(void)initializeResponseObjects;

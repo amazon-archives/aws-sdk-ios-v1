@@ -29,6 +29,12 @@
         [parser setDelegate:unmarshaller];
     }
 
+    if ([elementName isEqualToString:@"status"]) {
+        EC2SpotInstanceStatusUnmarshaller *unmarshaller = [[[EC2SpotInstanceStatusUnmarshaller alloc] initWithCaller:self withParentObject:self.response withSetter:@selector(setStatus:)] autorelease];
+        unmarshaller.endElementTagName = @"status";
+        [parser setDelegate:unmarshaller];
+    }
+
     if ([elementName isEqualToString:@"launchSpecification"]) {
         EC2LaunchSpecificationUnmarshaller *unmarshaller = [[[EC2LaunchSpecificationUnmarshaller alloc] initWithCaller:self withParentObject:self.response withSetter:@selector(setLaunchSpecification:)] autorelease];
         unmarshaller.endElementTagName = @"launchSpecification";

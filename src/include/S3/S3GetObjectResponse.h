@@ -22,8 +22,6 @@
 @interface S3GetObjectResponse:S3Response {
     NSMutableDictionary *metadata;
     NSOutputStream      *outputStream;
-    NSDate              *lastModified;
-    NSString            *contentType;
 }
 
 /**
@@ -39,6 +37,8 @@
  * of this header is a standard MIME type.
  */
 @property (nonatomic, retain) NSString *contentType;
+
+@property (nonatomic, retain) NSString *redirectLocation;
 
 /** Get the value for a user-defined metadata key.
  * @param aKey The key of the metadata.

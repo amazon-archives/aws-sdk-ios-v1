@@ -14,6 +14,7 @@
  */
 
 #import "AmazonSQSClient.h"
+#import "../AmazonEndpoints.h"
 #import "../AmazonServiceRequest.h"
 
 
@@ -22,7 +23,7 @@
 -(id)initWithAccessKey:(NSString *)theAccessKey withSecretKey:(NSString *)theSecretKey
 {
     if (self = [super initWithAccessKey:theAccessKey withSecretKey:theSecretKey]) {
-        self.endpoint = @"https://queue.amazonaws.com";
+        self.endpoint = AMAZON_SQS_US_EAST_1_ENDPOINT_SECURE;
     }
     return self;
 }
@@ -30,7 +31,7 @@
 -(id)initWithCredentials:(AmazonCredentials *)theCredentials
 {
     if (self = [super initWithCredentials:theCredentials]) {
-        self.endpoint = @"https://queue.amazonaws.com";
+        self.endpoint = AMAZON_SQS_US_EAST_1_ENDPOINT_SECURE;
     }
     return self;
 }

@@ -26,6 +26,8 @@
 {
     NSMutableArray *keys;
     NSMutableArray *attributesToGet;
+    bool           consistentRead;
+    bool           consistentReadIsSet;
 }
 
 
@@ -54,6 +56,14 @@
  * <b>Length: </b>1 - <br/>
  */
 @property (nonatomic, retain) NSMutableArray *attributesToGet;
+
+/**
+ * If set to <code>true</code>, then a consistent read is issued.
+ * Otherwise eventually-consistent is used.
+ */
+@property (nonatomic) bool           consistentRead;
+
+@property (nonatomic, readonly) bool consistentReadIsSet;
 
 /**
  * Adds a single object to keys.

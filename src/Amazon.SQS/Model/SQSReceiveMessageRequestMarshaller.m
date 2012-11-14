@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[SQSRequest alloc] init];
 
     [request setParameterValue:@"ReceiveMessage"           forKey:@"Action"];
-    [request setParameterValue:@"2011-10-01"   forKey:@"Version"];
+    [request setParameterValue:@"2012-11-05"   forKey:@"Version"];
 
     [request setDelegate:[receiveMessageRequest delegate]];
     [request setCredentials:[receiveMessageRequest credentials]];
@@ -53,6 +53,11 @@
     if (receiveMessageRequest != nil) {
         if (receiveMessageRequest.visibilityTimeout != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", receiveMessageRequest.visibilityTimeout] forKey:[NSString stringWithFormat:@"%@", @"VisibilityTimeout"]];
+        }
+    }
+    if (receiveMessageRequest != nil) {
+        if (receiveMessageRequest.waitTimeSeconds != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", receiveMessageRequest.waitTimeSeconds] forKey:[NSString stringWithFormat:@"%@", @"WaitTimeSeconds"]];
         }
     }
 

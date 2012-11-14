@@ -41,6 +41,11 @@
         [keysAndAttributes.attributesToGet addObject:memberObject];
     }
 
+
+    if ([jsonObject valueForKey:@"ConsistentRead"] != nil) {
+        keysAndAttributes.consistentRead = [[jsonObject valueForKey:@"ConsistentRead"] boolValue];
+    }
+
     return keysAndAttributes;
 }
 

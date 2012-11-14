@@ -22,16 +22,17 @@ NSString *const AWSDefaultRunLoopMode = @"com.amazonaws.DefaultRunLoopMode";
 
 @implementation AmazonAbstractWebServiceClient
 
-@synthesize endpoint, maxRetries, timeout, userAgent, delay;
+@synthesize endpoint, maxRetries, timeout, userAgent, delay, connectionTimeout;
 
 -(id)initWithCredentials:(AmazonCredentials *)theCredentials
 {
     if (self = [self init]) {
-        credentials = [theCredentials retain];
-        maxRetries  = 5;
-        timeout     = 240;
-        delay       = 0.2;
-        userAgent   = [[AmazonSDKUtil userAgentString] retain];
+        credentials       = [theCredentials retain];
+        maxRetries        = 5;
+        timeout           = 240;
+        connectionTimeout = 0;
+        delay             = 0.2;
+        userAgent         = [[AmazonSDKUtil userAgentString] retain];
     }
     return self;
 }
@@ -80,11 +81,13 @@ NSString *const AWSDefaultRunLoopMode = @"com.amazonaws.DefaultRunLoopMode";
     [generatedRequest sign];
     [urlRequest setHTTPBody:[[generatedRequest queryString] dataUsingEncoding:NSUTF8StringEncoding]];
 
-    AMZLogDebug(@"%@ %@", [urlRequest HTTPMethod], [urlRequest URL]);
-    AMZLogDebug(@"Request body: ");
-    NSString *rBody = [[NSString alloc] initWithData:[urlRequest HTTPBody] encoding:NSUTF8StringEncoding];
-    AMZLogDebug(@"%@", rBody);
-    [rBody release];
+    if ([AmazonLogger isVerboseLoggingEnabled]) {
+        AMZLogDebug(@"%@ %@", [urlRequest HTTPMethod], [urlRequest URL]);
+        AMZLogDebug(@"Request body: ");
+        NSString *rBody = [[NSString alloc] initWithData:[urlRequest HTTPBody] encoding:NSUTF8StringEncoding];
+        AMZLogDebug(@"%@", rBody);
+        [rBody release];
+    }
 
     AmazonServiceResponse *response = nil;
     NSInteger             retries   = 0;
@@ -95,7 +98,12 @@ NSString *const AWSDefaultRunLoopMode = @"com.amazonaws.DefaultRunLoopMode";
         [response setRequest:generatedRequest];
         response.unmarshallerDelegate = unmarshallerDelegate;
 
-        [urlRequest setTimeoutInterval:self.timeout];
+        if (self.connectionTimeout != 0) {
+            [urlRequest setTimeoutInterval:self.connectionTimeout];
+        }
+        else {
+            [urlRequest setTimeoutInterval:self.timeout];
+        }
 
         // Setting this here and not the AmazonServiceRequest because S3 extends that class and sets its own Content-Type Header.
         [urlRequest addValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
@@ -106,9 +114,13 @@ NSString *const AWSDefaultRunLoopMode = @"com.amazonaws.DefaultRunLoopMode";
                                                                               delegate:response
                                                                       startImmediately:NO] autorelease];
             originalRequest.urlConnection = urlConnection;
-            [urlConnection start];
             
-            [NSTimer scheduledTimerWithTimeInterval:self.timeout target:response selector:@selector(timeout) userInfo:nil repeats:NO];
+            NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:self.timeout
+                                                              target:response selector:@selector(timeout)
+                                                            userInfo:nil
+                                                             repeats:NO];
+            response.request.responseTimer = timer;
+            [urlConnection start];
 
             return nil;
         }
@@ -198,33 +210,36 @@ NSString *const AWSDefaultRunLoopMode = @"com.amazonaws.DefaultRunLoopMode";
 
 -(bool)shouldRetry:(AmazonServiceResponse *)response
 {
-    if (response.didTimeout ||
-        response.httpStatusCode == 500 ||
-        response.httpStatusCode == 503 ||
-        (response.exception != nil &&
-         response.exception.reason != nil &&
-         [response.exception.reason rangeOfString:@"Throttling"].location != NSNotFound)) {
-        return YES;
-    }
-
-    return NO;
+    return [self shouldRetry:response exception:response.exception];
 }
 
 -(bool)shouldRetry:(AmazonServiceResponse *)response exception:(NSException *)theException
 {
-    AmazonServiceException *exception = (AmazonServiceException *)theException;
-    
     if (response.didTimeout || response.httpStatusCode == 500 || response.httpStatusCode == 503) {
+        
         return YES;
     }
-    else if (exception == nil) {
-        return NO;
+    else if([theException isKindOfClass:[AmazonServiceException class]])
+    {
+        AmazonServiceException *serviceException = (AmazonServiceException *)theException;
+        
+        if (serviceException == nil) {
+            return NO;
+        }
+        else if ( [serviceException.errorCode isEqualToString:@"ProvisionedThroughputExceededException"]) {
+            return YES;
+        }
+        else if (serviceException.reason != nil && [serviceException.reason rangeOfString:@"Throttling"].location != NSNotFound) {
+            return YES;
+        }
     }
-    else if ( [exception.errorCode isEqualToString:@"ProvisionedThroughputExceededException"]) {
-        return YES;
-    }
-    else if (exception.reason != nil && [exception.reason rangeOfString:@"Throttling"].location != NSNotFound) {
-        return YES;
+    else if([theException isKindOfClass:[AmazonClientException class]])
+    {
+        AmazonClientException *clientException = (AmazonClientException *)theException;
+
+        if ([clientException.message isEqualToString:@"CRC32 doesn't match."]) {
+            return YES;
+        }
     }
     
     return NO;

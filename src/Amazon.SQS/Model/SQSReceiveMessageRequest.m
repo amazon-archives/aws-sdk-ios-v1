@@ -22,6 +22,7 @@
 @synthesize attributeNames;
 @synthesize maxNumberOfMessages;
 @synthesize visibilityTimeout;
+@synthesize waitTimeSeconds;
 
 
 -(id)init
@@ -31,6 +32,7 @@
         attributeNames      = [[NSMutableArray alloc] initWithCapacity:1];
         maxNumberOfMessages = nil;
         visibilityTimeout   = nil;
+        waitTimeSeconds     = nil;
     }
 
     return self;
@@ -65,6 +67,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"AttributeNames: %@,", attributeNames] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"MaxNumberOfMessages: %@,", maxNumberOfMessages] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"VisibilityTimeout: %@,", visibilityTimeout] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"WaitTimeSeconds: %@,", waitTimeSeconds] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -79,6 +82,7 @@
     [attributeNames release];
     [maxNumberOfMessages release];
     [visibilityTimeout release];
+    [waitTimeSeconds release];
 
     [super dealloc];
 }

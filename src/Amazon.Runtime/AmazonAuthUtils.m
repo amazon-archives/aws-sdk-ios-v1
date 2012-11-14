@@ -40,10 +40,22 @@
     
     // add date header (done here for consistency in timestamp)
     [headers setObject:dateTime forKey:@"X-Amz-Date"];
-    [serviceRequest.urlRequest setValue:dateTime forHTTPHeaderField:@"X-Amz-Date"]; 
-        
-    // TODO: This needs to be generalized for non-Dynamo calls (path and query)
-    NSString *canonicalRequest = [AmazonAuthUtils getCanonicalizedRequest:serviceRequest.urlRequest.HTTPMethod path:@"/" query:@"" headers:headers payload:payload];    
+    [serviceRequest.urlRequest setValue:dateTime forHTTPHeaderField:@"X-Amz-Date"];
+    
+    NSString *path = serviceRequest.urlRequest.URL.path;
+    if (path.length == 0) {
+        path = [NSString stringWithFormat:@"/"];
+    }
+    NSString *query = serviceRequest.urlRequest.URL.query;
+    if (query == nil) {
+        query = [NSString stringWithFormat:@""];
+    }
+    
+    NSString *canonicalRequest = [AmazonAuthUtils getCanonicalizedRequest:serviceRequest.urlRequest.HTTPMethod
+                                                                     path:path
+                                                                    query:query
+                                                                  headers:headers
+                                                                  payload:payload];
     
     AMZLogDebug(@"AWS4 Canonical Request: [%@]", canonicalRequest);
     

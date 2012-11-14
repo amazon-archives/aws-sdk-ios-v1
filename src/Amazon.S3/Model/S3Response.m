@@ -201,6 +201,8 @@
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
+    [self.request.responseTimer invalidate];
+
     NSDate   *startDate = [NSDate date];
     
     if (![self isMemberOfClass:[S3GetObjectResponse class]]) {
@@ -221,7 +223,10 @@
 
         if (throwsExceptions == YES
             && [(NSObject *)self.request.delegate respondsToSelector:@selector(request:didFailWithServiceException:)]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
             [self.request.delegate request:self.request didFailWithServiceException:(AmazonServiceException *)exception];
+#pragma clang diagnostic pop
         }
         else if (throwsExceptions == NO
                  && [(NSObject *)self.request.delegate respondsToSelector:@selector(request:didFailWithError:)]) {
@@ -246,6 +251,8 @@
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)theError
 {
+    [self.request.responseTimer invalidate];
+    
     NSDictionary *info = [theError userInfo];
     for (id key in info)
     {

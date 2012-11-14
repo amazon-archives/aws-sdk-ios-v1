@@ -90,6 +90,16 @@
     return ap;
 }
 
++(S3Region *)APSydney
+{
+    static S3Region *ap = nil;
+    
+    if (ap == nil) {
+        ap = [[S3Region alloc] initWithStringValue:kS3RegionAPSoutheast2];
+    }
+    return ap;
+}
+
 +(S3Region *)APJapan
 {
     static S3Region *ap = nil;

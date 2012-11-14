@@ -14,6 +14,7 @@
  */
 
 #import "EC2SpotInstanceStateFault.h"
+#import "EC2SpotInstanceStatus.h"
 #import "EC2LaunchSpecification.h"
 #import "EC2Tag.h"
 
@@ -33,6 +34,7 @@
     NSString                  *type;
     NSString                  *state;
     EC2SpotInstanceStateFault *fault;
+    EC2SpotInstanceStatus     *status;
     NSDate                    *validFrom;
     NSDate                    *validUntil;
     NSString                  *launchGroup;
@@ -81,6 +83,11 @@
  * The value of the Fault property for this object.
  */
 @property (nonatomic, retain) EC2SpotInstanceStateFault *fault;
+
+/**
+ * The value of the Status property for this object.
+ */
+@property (nonatomic, retain) EC2SpotInstanceStatus *status;
 
 /**
  * The value of the ValidFrom property for this object.

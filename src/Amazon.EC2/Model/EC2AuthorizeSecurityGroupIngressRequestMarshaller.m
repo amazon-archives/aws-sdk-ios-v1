@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"AuthorizeSecurityGroupIngress"           forKey:@"Action"];
-    [request setParameterValue:@"2012-08-15"   forKey:@"Version"];
+    [request setParameterValue:@"2012-10-01"   forKey:@"Version"];
 
     [request setDelegate:[authorizeSecurityGroupIngressRequest delegate]];
     [request setCredentials:[authorizeSecurityGroupIngressRequest credentials]];

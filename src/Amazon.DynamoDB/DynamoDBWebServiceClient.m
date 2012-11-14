@@ -33,10 +33,10 @@
 -(AmazonServiceResponse *)invoke:(AmazonServiceRequest *)generatedRequest rawRequest:(AmazonServiceRequestConfig *)originalRequest unmarshallerDelegate:(Class)unmarshallerDelegate
 {
     if (nil == generatedRequest) {
-        
+
         AmazonServiceResponse *response = [[[AmazonServiceResponse alloc] init] autorelease];
-        response.error = [AmazonErrorHandler errorFromExceptionWithThrowsExceptionOption:[AmazonClientException 
-                                                                 exceptionWithMessage:@"Request cannot be nil."]];
+        response.error = [AmazonErrorHandler errorFromExceptionWithThrowsExceptionOption:[AmazonClientException
+                                                                                          exceptionWithMessage:@"Request cannot be nil."]];
         return response;
     }
 
@@ -50,12 +50,15 @@
     }
 
     NSMutableURLRequest *urlRequest = [generatedRequest configureURLRequest];
+    [urlRequest setValue:@"" forHTTPHeaderField:@"Accept-Encoding"];
 
-    AMZLogDebug(@"%@ %@", [urlRequest HTTPMethod], [urlRequest URL]);
-    AMZLogDebug(@"Request body: ");
-    NSString *rBody = [[NSString alloc] initWithData:[urlRequest HTTPBody] encoding:NSUTF8StringEncoding];
-    AMZLogDebug(@"%@", rBody);
-    [rBody release];
+    if ([AmazonLogger isVerboseLoggingEnabled]) {
+        AMZLogDebug(@"%@ %@", [urlRequest HTTPMethod], [urlRequest URL]);
+        AMZLogDebug(@"Request body: ");
+        NSString *rBody = [[NSString alloc] initWithData:[urlRequest HTTPBody] encoding:NSUTF8StringEncoding];
+        AMZLogDebug(@"%@", rBody);
+        [rBody release];
+    }
 
     DynamoDBResponse *response = nil;
     int              retries   = 0;
@@ -66,7 +69,12 @@
         [response setRequest:generatedRequest];
         response.unmarshallerDelegate = unmarshallerDelegate;
 
-        [urlRequest setTimeoutInterval:self.timeout];
+        if (self.connectionTimeout != 0) {
+            [urlRequest setTimeoutInterval:self.connectionTimeout];
+        }
+        else {
+            [urlRequest setTimeoutInterval:self.timeout];
+        }
 
         AMZLogDebug(@"%@ %@", [urlRequest HTTPMethod], [urlRequest URL]);
         AMZLogDebug(@"Request headers: ");
@@ -75,22 +83,21 @@
             AMZLogDebug(@"  %@: %@", [hKey description], [[urlRequest allHTTPHeaderFields] valueForKey:hKey]);
         }
 
-        
-
         if ([generatedRequest delegate] != nil) {
 
             NSURLConnection *urlConnection = [[[NSURLConnection alloc] initWithRequest:urlRequest
-                                                                             delegate:response
-                                                                     startImmediately:NO] autorelease];
+                                                                              delegate:response
+                                                                      startImmediately:NO] autorelease];
             originalRequest.urlConnection = urlConnection;
+
+            NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:self.timeout
+                                                              target:response
+                                                            selector:@selector(timeout)
+                                                            userInfo:nil
+                                                             repeats:NO];
+            response.request.responseTimer = timer;
             [urlConnection start];
 
-            [NSTimer scheduledTimerWithTimeInterval:self.timeout
-                                             target:response
-                                           selector:@selector(timeout)
-                                           userInfo:nil
-                                            repeats:NO];
-            
             return nil;
         }
 
@@ -109,7 +116,7 @@
                                                       userInfo:nil
                                                        repeats:NO];
         [[NSRunLoop currentRunLoop] addTimer:timeoutTimer forMode:AWSDefaultRunLoopMode];
-        
+
         while (![(AmazonRequestDelegate *)(generatedRequest.delegate)isFinishedOrFailed]) {
             [[NSRunLoop currentRunLoop] runMode:AWSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
         }

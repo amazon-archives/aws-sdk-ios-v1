@@ -24,6 +24,37 @@
 @synthesize ifNoneMatch;
 @synthesize ifModifiedSince;
 @synthesize ifUnmodifiedSince;
+@synthesize redirectLocation;
+
+- (id)init
+{
+    if(self = [super init])
+    {
+        sourceKey = nil;
+        sourceBucket = nil;
+        metadataDirective = nil;
+        ifMatch = nil;
+        ifNoneMatch = nil;
+        ifModifiedSince = nil;
+        ifUnmodifiedSince = nil;
+        redirectLocation = nil;
+    }
+
+    return self;
+}
+
+-(id)initWithSourceKey:(NSString *)srcKey sourceBucket:(NSString *)srcBucket destinationKey:(NSString *)dstKey destinationBucket:(NSString *)dstBucket
+{
+    if (self = [self init])
+    {
+        self.sourceKey    = srcKey;
+        self.sourceBucket = srcBucket;
+        self.key          = dstKey;
+        self.bucket       = dstBucket;
+    }
+
+    return self;
+}
 
 -(NSMutableURLRequest *)configureURLRequest
 {
@@ -39,46 +70,37 @@
         self.key = self.sourceKey;
     }
 
-    // If both the above are true, this is an invalid request
-    if ([self.key isEqualToString:self.sourceKey] && [self.bucket isEqualToString:self.sourceBucket]) {
-        [AmazonClientException raise:@"InvalidCopyRequest" format:@"Source and destination objects cannot be the same.", nil];
-    }
-
     [self.urlRequest setHTTPMethod:kHttpMethodPut];
 
-    [self.urlRequest setValue:[NSString stringWithFormat:@"%@/%@", self.sourceBucket, self.sourceKey, nil] forHTTPHeaderField:kHttpHdrAmzCopySource];
+    [self.urlRequest setValue:[NSString stringWithFormat:@"%@/%@", self.sourceBucket, self.sourceKey, nil]
+           forHTTPHeaderField:kHttpHdrAmzCopySource];
 
     if (nil != self.metadataDirective) {
-        [self.urlRequest setValue:self.metadataDirective forHTTPHeaderField:kHttpHdrAmzMetaDirective];
+        [self.urlRequest setValue:self.metadataDirective
+               forHTTPHeaderField:kHttpHdrAmzMetaDirective];
     }
     if (nil != self.ifMatch) {
-        [self.urlRequest setValue:self.ifMatch forHTTPHeaderField:kHttpHdrAmzCopySourceIfMatch];
+        [self.urlRequest setValue:self.ifMatch
+               forHTTPHeaderField:kHttpHdrAmzCopySourceIfMatch];
     }
     if (nil != self.ifNoneMatch) {
-        [self.urlRequest setValue:self.ifNoneMatch forHTTPHeaderField:kHttpHdrAmzCopySourceIfNoneMatch];
+        [self.urlRequest setValue:self.ifNoneMatch
+               forHTTPHeaderField:kHttpHdrAmzCopySourceIfNoneMatch];
     }
-
     if (nil != self.ifModifiedSince) {
-        [self.urlRequest setValue:[self.ifModifiedSince requestFormat] forHTTPHeaderField:kHttpHdrAmzCopySourceIfModified];
+        [self.urlRequest setValue:[self.ifModifiedSince requestFormat]
+               forHTTPHeaderField:kHttpHdrAmzCopySourceIfModified];
     }
     if (nil != self.ifUnmodifiedSince) {
-        [self.urlRequest setValue:[self.ifUnmodifiedSince requestFormat] forHTTPHeaderField:kHttpHdrAmzCopySourceIfUnmodified];
+        [self.urlRequest setValue:[self.ifUnmodifiedSince requestFormat]
+               forHTTPHeaderField:kHttpHdrAmzCopySourceIfUnmodified];
+    }
+    if (nil != self.redirectLocation) {
+        [self.urlRequest setValue:self.redirectLocation
+               forHTTPHeaderField:kHttpHdrAmzWebsiteRedirectLocation];
     }
 
     return urlRequest;
-}
-
--(id)initWithSourceKey:(NSString *)srcKey sourceBucket:(NSString *)srcBucket destinationKey:(NSString *)dstKey destinationBucket:(NSString *)dstBucket
-{
-    if (self = [super init])
-    {
-        self.sourceKey    = srcKey;
-        self.sourceBucket = srcBucket;
-        self.key          = dstKey;
-        self.bucket       = dstBucket;
-    }
-
-    return self;
 }
 
 -(void)dealloc
@@ -90,6 +112,7 @@
     [ifNoneMatch release];
     [ifModifiedSince release];
     [ifUnmodifiedSince release];
+    [redirectLocation release];
 
     [super dealloc];
 }

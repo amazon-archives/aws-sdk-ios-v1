@@ -23,6 +23,7 @@
 @synthesize type;
 @synthesize state;
 @synthesize fault;
+@synthesize status;
 @synthesize validFrom;
 @synthesize validUntil;
 @synthesize launchGroup;
@@ -43,6 +44,7 @@
         type                     = nil;
         state                    = nil;
         fault                    = nil;
+        status                   = nil;
         validFrom                = nil;
         validUntil               = nil;
         launchGroup              = nil;
@@ -79,6 +81,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Type: %@,", type] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"State: %@,", state] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Fault: %@,", fault] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Status: %@,", status] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ValidFrom: %@,", validFrom] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ValidUntil: %@,", validUntil] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"LaunchGroup: %@,", launchGroup] autorelease]];
@@ -104,6 +107,7 @@
     [type release];
     [state release];
     [fault release];
+    [status release];
     [validFrom release];
     [validUntil release];
     [launchGroup release];

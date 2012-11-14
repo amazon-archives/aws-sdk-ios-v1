@@ -86,7 +86,7 @@
 -(NSString *)protocol;
 
 /** Returns the host portion of the endpoint. */
--(NSString *)endpointHost;
+-(NSString *)endpointHost __attribute__((deprecated)); 
 
 @end
 

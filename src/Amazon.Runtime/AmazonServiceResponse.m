@@ -29,6 +29,7 @@
 @synthesize unmarshallerDelegate;
 @synthesize processingTime;
 @synthesize error;
+@synthesize exception;
 
 -(id)init
 {
@@ -48,19 +49,6 @@
     return [NSData dataWithData:body];
 }
 
-// TODO: Make the body property readonly when all operations are converted to the delegate technique.
-// TODO: It seems like nothing in the SDK is calling this method. -Yosuke
-/*
--(void)setBody:(NSData *)data
-{
-    if (nil != body) {
-        [body setLength:0];
-    }
-    body = [[NSMutableData dataWithData:data] retain];
-    [self processBody];
-}
-*/
-
 // Override this to perform processing on the body.
 -(void)processBody
 {
@@ -75,15 +63,21 @@
 -(void)timeout
 {
     if (!isFinishedLoading && !exception) {
+        
         didTimeout = YES;
-        exception  = [[AmazonClientException exceptionWithMessage:@"Request timed out."] retain];
+        [self.request.urlConnection cancel];
+        self.request.responseTimer = nil;
 
+        exception  = [[AmazonClientException exceptionWithMessage:@"Request timed out."] retain];
+        
         BOOL throwsExceptions = [AmazonErrorHandler throwsExceptions];
         
         if (throwsExceptions == YES
             && [(NSObject *)request.delegate respondsToSelector:@selector(request:didFailWithServiceException:)]) {
-            
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
             [request.delegate request:request didFailWithServiceException:exception];
+#pragma clang diagnostic pop
         }
         else if (throwsExceptions == NO
                  && [(NSObject *)request.delegate respondsToSelector:@selector(request:didFailWithError:)]) {
@@ -94,12 +88,7 @@
     }
 }
 
--(NSException *)exception
-{
-    return exception;
-}
-
-#pragma mark NSURLConnection delegate methods
+#pragma mark - NSURLProtocolClient delegate methods
 
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -109,7 +98,6 @@
     for (NSString *header in [[httpResponse allHeaderFields] allKeys]) {
         AMZLogDebug(@"%@ = [%@]", header, [[httpResponse allHeaderFields] valueForKey:header]);
     }
-
 
     self.httpStatusCode = [httpResponse statusCode];
 
@@ -135,6 +123,8 @@
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
+    [self.request.responseTimer invalidate];
+    
     NSDate *startDate = [NSDate date];
 
     isFinishedLoading = YES;
@@ -170,7 +160,10 @@
         
         if(throwsExceptions == YES
            && [(NSObject *)request.delegate respondsToSelector:@selector(request:didFailWithServiceException:)]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
             [request.delegate request:request didFailWithServiceException:(AmazonServiceException *)exceptionFound];
+#pragma clang diagnostic pop
         }
         else if(throwsExceptions == NO
                 && [(NSObject *)request.delegate respondsToSelector:@selector(request:didFailWithError:)]) {
@@ -195,6 +188,8 @@
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)theError
 {
+    [self.request.responseTimer invalidate];
+
     NSDictionary *info = [theError userInfo];
     for (id key in info)
     {

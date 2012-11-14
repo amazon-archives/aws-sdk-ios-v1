@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[SQSRequest alloc] init];
 
     [request setParameterValue:@"GetQueueAttributes"           forKey:@"Action"];
-    [request setParameterValue:@"2011-10-01"   forKey:@"Version"];
+    [request setParameterValue:@"2012-11-05"   forKey:@"Version"];
 
     [request setDelegate:[getQueueAttributesRequest delegate]];
     [request setCredentials:[getQueueAttributesRequest credentials]];

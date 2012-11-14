@@ -179,6 +179,10 @@
                     }
                 }
             }
+
+            if (requestItemsListValueValue.consistentReadIsSet) {
+                [requestItemsListValueJson setValue:(requestItemsListValueValue.consistentRead ? @"true":@"false") forKey:@"ConsistentRead"];
+            }
         }
     }
 

@@ -88,11 +88,11 @@
 {
     if (nil != self.bucket) {
         if ( [S3BucketNameUtilities isDNSBucketName:self.bucket]) {
-            return [NSString stringWithFormat:@"%@.%@", self.bucket, [self endpointHost]];
+            return [NSString stringWithFormat:@"%@.%@", self.bucket, [super hostName]];
         }
     }
 
-    return [self endpointHost];
+    return [self hostName];
 }
 
 -(NSDate *)date
@@ -120,13 +120,7 @@
 
 -(NSString *)endpointHost
 {
-    if (self.endpoint == nil) {
-        return nil;
-    }
-    else {
-        NSRange startOfHost = [self.endpoint rangeOfString:@"://"];
-        return [self.endpoint substringFromIndex:(startOfHost.location + 3)];
-    }
+    return [super hostName];
 }
 
 
