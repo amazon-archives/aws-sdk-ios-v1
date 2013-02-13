@@ -16,3 +16,8 @@ xcuserdata
 # Patched code #
 ######################
 *.bak
+
+# Built assets #
+######################
+build
+*.framework
