@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -21,9 +21,9 @@
 
 @synthesize requestId, errorCode, serviceName, statusCode;
 
-+(AmazonServiceException *)exceptionWithMessage:(NSString *)theMessage
++(id)exceptionWithMessage:(NSString *)theMessage
 {
-    AmazonServiceException *e = [[AmazonServiceException alloc] initWithName:@"AmazonServiceException"
+    AmazonServiceException *e = [[[self class] alloc] initWithName:@"AmazonServiceException"
                                                                       reason:theMessage
                                                                     userInfo:nil];
     e.message = theMessage;
@@ -31,9 +31,9 @@
     return [e autorelease];
 }
 
-+(AmazonServiceException *)exceptionWithStatusCode:(NSInteger)theStatusCode
++(id)exceptionWithStatusCode:(NSInteger)theStatusCode
 {
-    AmazonServiceException *e = [[AmazonServiceException alloc] initWithName:@"AmazonServiceException"
+    AmazonServiceException *e = [[[self class] alloc] initWithName:@"AmazonServiceException"
                                                                       reason:nil
                                                                     userInfo:nil];
     e.statusCode = theStatusCode;
@@ -41,9 +41,9 @@
     return [e autorelease];
 }
 
-+(AmazonServiceException *)exceptionWithMessage:(NSString *)theMessage withErrorCode:(NSString *)theErrorCode withStatusCode:(NSInteger)theStatusCode withRequestId:(NSString *)theRequestId
++(id)exceptionWithMessage:(NSString *)theMessage withErrorCode:(NSString *)theErrorCode withStatusCode:(NSInteger)theStatusCode withRequestId:(NSString *)theRequestId
 {
-    AmazonServiceException *e = [[AmazonServiceException alloc] initWithName:@"AmazonServiceException" 
+    AmazonServiceException *e = [[[self class] alloc] initWithName:@"AmazonServiceException" 
                                                                       reason:theMessage 
                                                                     userInfo:nil];
     e.errorCode  = theErrorCode;

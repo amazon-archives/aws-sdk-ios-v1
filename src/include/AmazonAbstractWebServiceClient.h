@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -28,19 +28,14 @@
 #import "AmazonCredentials.h"
 #import "AmazonRequestDelegate.h"
 #import "AmazonErrorHandler.h"
+#import "AmazonCredentialsProvider.h"
 
-extern NSString *const AWSDefaultRunLoopMode;
 
-@interface AmazonAbstractWebServiceClient:NSObject
+@interface AmazonAbstractWebServiceClient : NSObject
 {
-    AmazonCredentials *credentials;
-    NSString          *endpoint;
-    NSInteger         maxRetries;
-    NSTimeInterval    timeout;
-    NSTimeInterval    connectionTimeout;
-    NSTimeInterval    delay;
-    NSString          *userAgent;
 }
+
+@property (atomic, retain) id<AmazonCredentialsProvider> provider;
 
 /** The service endpoint to which requests should be sent. */
 @property (nonatomic, retain) NSString *endpoint;
@@ -50,7 +45,7 @@ extern NSString *const AWSDefaultRunLoopMode;
  *
  * Default is 5.
  */
-@property (nonatomic, assign) int maxRetries;
+@property (nonatomic, assign) NSInteger maxRetries;
 
 /** The amount of time to wait (in seconds) for a request to complete.  This
  * includes the time to establish connection and transfer data.
@@ -77,8 +72,12 @@ extern NSString *const AWSDefaultRunLoopMode;
 /** The HTTP user agent header to send with all requests. */
 @property (nonatomic, retain) NSString *userAgent;
 
-/** Inits the client the given credentials. */
--(id)initWithCredentials:(AmazonCredentials *)theCredentials;
+/** Inits the client with the given credentials. */
+-(id)initWithCredentials:(AmazonCredentials *)credentials;
+
+/** Inits the client with a credentials provider which will provide refreshable credentials */
+-(id)initWithCredentialsProvider:(id<AmazonCredentialsProvider>)provider;
+
 
 /** Constructs an empty response object of the appropriate type to match the given request
  * object.
@@ -97,8 +96,8 @@ extern NSString *const AWSDefaultRunLoopMode;
 -(AmazonServiceResponse *)invoke:(AmazonServiceRequest *)generatedRequest rawRequest:(AmazonServiceRequestConfig *)originalRequest unmarshallerDelegate:(Class)unmarshallerDelegate;
 
 -(void)pauseExponentially:(int)tryCount;
--(bool)shouldRetry:(AmazonServiceResponse *)response;
--(bool)shouldRetry:(AmazonServiceResponse *)response exception:(NSException *)theException;
+-(BOOL)shouldRetry:(AmazonServiceResponse *)response;
+-(BOOL)shouldRetry:(AmazonServiceResponse *)response exception:(NSException *)theException;
 
 @end
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -20,6 +20,10 @@
 #import "SecurityTokenServiceGetFederationTokenResponseUnmarshaller.h"
 #import "SecurityTokenServiceGetFederationTokenRequest.h"
 #import "SecurityTokenServiceGetFederationTokenRequestMarshaller.h"
+#import "SecurityTokenServiceAssumeRoleResponse.h"
+#import "SecurityTokenServiceAssumeRoleResponseUnmarshaller.h"
+#import "SecurityTokenServiceAssumeRoleRequest.h"
+#import "SecurityTokenServiceAssumeRoleRequestMarshaller.h"
 
 #import "../AmazonWebServiceClient.h"
 
@@ -60,9 +64,9 @@
  * <p>
  * The GetSessionToken action returns a set of temporary credentials for an AWS account or IAM user. The credentials
  * consist of an Access Key ID, a Secret Access Key, and a security token. These credentials are valid for the specified
- * duration only. The session duration for IAM users can be between one and 36 hours, with a default of 12 hours. The
- * session duration for AWS account owners is restricted to one hour. Providing the AWS Multi-Factor Authentication (MFA)
- * device serial number and the token code is optional.
+ * duration only. The session duration for IAM users can be between 15 minutes and 36 hours, with a default of 12 hours.
+ * The session duration for AWS account owners is restricted to a maximum of one hour. Providing the AWS Multi-Factor
+ * Authentication (MFA) device serial number and the token code is optional.
  * </p>
  * <p>
  * For more information about using GetSessionToken to create temporary credentials, go to <a
@@ -92,18 +96,17 @@
  * <p>
  * The GetFederationToken action returns a set of temporary credentials for a federated user with the user name and policy
  * specified in the request. The credentials consist of an Access Key ID, a Secret Access Key, and a security token.
- * Credentials created by IAM users are valid for the specified duration, between one and 36 hours; credentials created
- * using account credentials last one hour.
+ * Credentials created by IAM users are valid for the specified duration, between 15 minutes and 36 hours; credentials
+ * created using account credentials have a maximum duration of one hour.
  * </p>
  * <p>
  * The federated user who holds these credentials has any permissions allowed by the intersection of the specified policy
  * and any resource or user policies that apply to the caller of the GetFederationToken API, and any resource policies that
  * apply to the federated user's Amazon Resource Name (ARN). For more information about how token permissions work, see <a
  * href="http://docs.amazonwebservices.com/IAM/latest/UserGuide/TokenPermissions.html"> Controlling Permissions in
- * Temporary Credentials </a> in <i>Using AWS Identity and Access Management</i> . For information about using
- * GetFederationToken to create temporary credentials, see <a
- * href="http://docs.amazonwebservices.com/IAM/latest/UserGuide/CreatingFedTokens.html"> Creating Temporary Credentials to
- * Enable Access for Federated Users </a> in <i>Using AWS Identity and Access Management</i> .
+ * Temporary Credentials </a> in <i>Using IAM</i> . For information about using GetFederationToken to create temporary
+ * credentials, see <a href="http://docs.amazonwebservices.com/IAM/latest/UserGuide/CreatingFedTokens.html"> Creating
+ * Temporary Credentials to Enable Access for Federated Users </a> in <i>Using IAM</i> .
  * </p>
  *
  * @param getFederationTokenRequest Container for the necessary parameters to execute the GetFederationToken service method
@@ -124,6 +127,61 @@
  * @see SecurityTokenServiceGetFederationTokenResponse
  */
 -(SecurityTokenServiceGetFederationTokenResponse *)getFederationToken:(SecurityTokenServiceGetFederationTokenRequest *)getFederationTokenRequest;
+
+
+/**
+ * <p>
+ * The AssumeRole action returns a set of temporary security credentials that you can use to access resources that are
+ * defined in the role's policy. The returned credentials consist of an Access Key ID, a Secret Access Key, and a security
+ * token.
+ * </p>
+ * <p>
+ * <b>Important:</b> Only IAM users can assume a role. If you use AWS account credentials to call AssumeRole, access is
+ * denied.
+ * </p>
+ * <p>
+ * The credentials are valid for the duration that you specified when calling AssumeRole , which can be from 15 minutes to
+ * 1 hour.
+ * </p>
+ * <p>
+ * When you assume a role, you have the privileges that are defined in the role. You can further restrict the privileges
+ * by passing a policy when calling AssumeRole .
+ *
+ * </p>
+ * <p>
+ * To assume a role, you must be an IAM user from a trusted entity and have permission to call AssumeRole .
+ * Trusted entites are defined when the IAM role is created. Permission to call AssumeRole is defined in your or
+ * your group's IAM policy.
+ * </p>
+ * <p>
+ * </p>
+ * <p>
+ * </p>
+ * <p>
+ * </p>
+ * <p>
+ * </p>
+ * <p>
+ * </p>
+ *
+ * @param assumeRoleRequest Container for the necessary parameters to execute the AssumeRole service method on
+ *           AmazonSecurityTokenService.
+ *
+ * @return The response from the AssumeRole service method, as returned by AmazonSecurityTokenService.
+ *
+ * @exception SecurityTokenServicePackedPolicyTooLargeException For more information see <SecurityTokenServicePackedPolicyTooLargeException>
+ * @exception SecurityTokenServiceMalformedPolicyDocumentException For more information see <SecurityTokenServiceMalformedPolicyDocumentException>
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonSecurityTokenService indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see SecurityTokenServiceAssumeRoleRequest
+ * @see SecurityTokenServiceAssumeRoleResponse
+ */
+-(SecurityTokenServiceAssumeRoleResponse *)assumeRole:(SecurityTokenServiceAssumeRoleRequest *)assumeRoleRequest;
 
 
 

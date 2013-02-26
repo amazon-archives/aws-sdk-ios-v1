@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -16,8 +16,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "AmazonClientException.h"
+#import "AmazonServiceException.h"
 
-#define AWS_SDK_VERSION              @"1.4.4"
+#define AWS_SDK_VERSION              @"1.4.5"
 #define AWS_SDK_USER_AGENT_FORMAT    @"aws-sdk-iOS/%@ %@/%@ %@"
 #define kISO8061DateFormat           @"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 #define kISO8601DateFormat           @"yyyy-MM-dd'T'HH:mm:ss'Z'"
@@ -25,7 +26,11 @@
 #define kDateStampFormat             @"yyyyMMdd"
 #define kDateTimeFormat              @"yyyyMMdd'T'HHmmss'Z'"
 
-@interface AmazonSDKUtil : NSObject {
+extern NSString *const AWSDefaultRunLoopMode;
+extern NSString *const AWSS3TransferManagerUserAgentPrefix;
+
+@interface AmazonSDKUtil : NSObject
+{
 }
 
 +(NSString *)userAgentString;
@@ -37,13 +42,17 @@
 +(NSNumber *)convertStringToNumber:(NSString *)string;
 +(NSDate *)convertStringToDate:(NSString *)string;
 +(NSDate *)convertStringToDate:(NSString *)string usingFormat:(NSString *)dateFormat;
++(NSString *)convertDateToString:(NSDate *)date usingFormat:(NSString *)dateFormat;
 +(NSDate *)millisSinceEpochToDate:(NSNumber *)millisSinceEpoch;
 +(NSDate *)secondsSinceEpochToDate:(NSNumber *)secondsSinceEpoch;
 +(NSURL *)URLWithURL:(NSURL *)theURL andProtocol:(NSString *)theProtocol;
 +(NSLocale *)timestampLocale;
++(void)setRuntimeClockSkew:(NSTimeInterval)clockskew;
++(NSTimeInterval)getRuntimeClockSkew;
+
 @end
 
-@interface NSDate (WithISO8061Format)
+@interface NSDate (AmazonSDKUtil)
 
 -(NSString *)stringWithISO8061Format;
 -(NSString *)stringWithISO8601Format;
@@ -53,8 +62,6 @@
 +(NSString *)ISO8061FormattedCurrentTimestamp;
 -(NSString *)dateStamp;
 -(NSString *)dateTime;
-
-
 
 @end
 

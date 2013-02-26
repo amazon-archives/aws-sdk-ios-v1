@@ -15,15 +15,17 @@
 
 #import <Foundation/Foundation.h>
 #import <AWSiOSSDK/DynamoDB/AmazonDynamoDBClient.h>
+#import <AWSiOSSDK/AmazonCredentialsProvider.h>
 #import "Constants.h"
 #import "Response.h"
 
-@interface AmazonClientManager:NSObject
+@interface AmazonClientManager : NSObject <AmazonCredentialsProvider>
 {
 }
 
-+(AmazonDynamoDBClient *)ddb;
-+(AmazonCredentials *)credentials;
-+(void)wipeAllCredentials;
++ (AmazonDynamoDBClient *)ddb;
+
+- (AmazonCredentials *)credentials;
+- (void)refresh;
 
 @end

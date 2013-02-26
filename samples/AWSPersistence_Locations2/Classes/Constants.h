@@ -13,8 +13,6 @@
  * permissions and limitations under the License.
  */
 
-#import <Foundation/Foundation.h>
-
 #define TOKEN_VENDING_MACHINE_URL    @"CHANGEME.elasticbeanstalk.com"
 #define USE_SSL                      NO
 #define CREDENTIALS_ALERT_MESSAGE    @"Please update the Constants.h file with the Token Vending Machine URL."

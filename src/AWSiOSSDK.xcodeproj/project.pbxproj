@@ -672,6 +672,54 @@
 		384FC925163F06C9008E11CA /* SQSSetQueueAttributesResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8CA163F06C9008E11CA /* SQSSetQueueAttributesResponse.h */; };
 		384FC926163F06C9008E11CA /* SQSSetQueueAttributesResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8CB163F06C9008E11CA /* SQSSetQueueAttributesResponseUnmarshaller.h */; };
 		384FC927163F06C9008E11CA /* SQSTooManyEntriesInBatchRequestException.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8CC163F06C9008E11CA /* SQSTooManyEntriesInBatchRequestException.h */; };
+		389941B016558CE900A0927D /* AmazonSecurityTokenServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3899419716558CE900A0927D /* AmazonSecurityTokenServiceClient.m */; };
+		389941B116558CE900A0927D /* SecurityTokenServiceAssumedRoleUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3899419916558CE900A0927D /* SecurityTokenServiceAssumedRoleUser.m */; };
+		389941B216558CE900A0927D /* SecurityTokenServiceAssumedRoleUserUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3899419A16558CE900A0927D /* SecurityTokenServiceAssumedRoleUserUnmarshaller.m */; };
+		389941B316558CE900A0927D /* SecurityTokenServiceAssumeRoleRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3899419B16558CE900A0927D /* SecurityTokenServiceAssumeRoleRequest.m */; };
+		389941B416558CE900A0927D /* SecurityTokenServiceAssumeRoleRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3899419C16558CE900A0927D /* SecurityTokenServiceAssumeRoleRequestMarshaller.m */; };
+		389941B516558CE900A0927D /* SecurityTokenServiceAssumeRoleResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3899419D16558CE900A0927D /* SecurityTokenServiceAssumeRoleResponse.m */; };
+		389941B616558CE900A0927D /* SecurityTokenServiceAssumeRoleResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3899419E16558CE900A0927D /* SecurityTokenServiceAssumeRoleResponseUnmarshaller.m */; };
+		389941B716558CE900A0927D /* SecurityTokenServiceCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 3899419F16558CE900A0927D /* SecurityTokenServiceCredentials.m */; };
+		389941B816558CE900A0927D /* SecurityTokenServiceCredentialsUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 389941A016558CE900A0927D /* SecurityTokenServiceCredentialsUnmarshaller.m */; };
+		389941B916558CE900A0927D /* SecurityTokenServiceFederatedUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 389941A116558CE900A0927D /* SecurityTokenServiceFederatedUser.m */; };
+		389941BA16558CE900A0927D /* SecurityTokenServiceFederatedUserUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 389941A216558CE900A0927D /* SecurityTokenServiceFederatedUserUnmarshaller.m */; };
+		389941BB16558CE900A0927D /* SecurityTokenServiceGetFederationTokenRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 389941A316558CE900A0927D /* SecurityTokenServiceGetFederationTokenRequest.m */; };
+		389941BC16558CE900A0927D /* SecurityTokenServiceGetFederationTokenRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 389941A416558CE900A0927D /* SecurityTokenServiceGetFederationTokenRequestMarshaller.m */; };
+		389941BD16558CE900A0927D /* SecurityTokenServiceGetFederationTokenResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 389941A516558CE900A0927D /* SecurityTokenServiceGetFederationTokenResponse.m */; };
+		389941BE16558CE900A0927D /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 389941A616558CE900A0927D /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.m */; };
+		389941BF16558CE900A0927D /* SecurityTokenServiceGetSessionTokenRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 389941A716558CE900A0927D /* SecurityTokenServiceGetSessionTokenRequest.m */; };
+		389941C016558CE900A0927D /* SecurityTokenServiceGetSessionTokenRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 389941A816558CE900A0927D /* SecurityTokenServiceGetSessionTokenRequestMarshaller.m */; };
+		389941C116558CE900A0927D /* SecurityTokenServiceGetSessionTokenResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 389941A916558CE900A0927D /* SecurityTokenServiceGetSessionTokenResponse.m */; };
+		389941C216558CE900A0927D /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 389941AA16558CE900A0927D /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.m */; };
+		389941C316558CE900A0927D /* SecurityTokenServiceMalformedPolicyDocumentException.m in Sources */ = {isa = PBXBuildFile; fileRef = 389941AB16558CE900A0927D /* SecurityTokenServiceMalformedPolicyDocumentException.m */; };
+		389941C416558CE900A0927D /* SecurityTokenServicePackedPolicyTooLargeException.m in Sources */ = {isa = PBXBuildFile; fileRef = 389941AC16558CE900A0927D /* SecurityTokenServicePackedPolicyTooLargeException.m */; };
+		389941C516558CE900A0927D /* SecurityTokenServiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 389941AD16558CE900A0927D /* SecurityTokenServiceRequest.m */; };
+		389941C616558CE900A0927D /* SecurityTokenServiceResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 389941AE16558CE900A0927D /* SecurityTokenServiceResponse.m */; };
+		389941C716558CE900A0927D /* SecurityTokenServiceResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 389941AF16558CE900A0927D /* SecurityTokenServiceResponseUnmarshaller.m */; };
+		389941E116558CFD00A0927D /* AmazonSecurityTokenServiceClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 389941C916558CFD00A0927D /* AmazonSecurityTokenServiceClient.h */; };
+		389941E216558CFD00A0927D /* SecurityTokenServiceAssumedRoleUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 389941CA16558CFD00A0927D /* SecurityTokenServiceAssumedRoleUser.h */; };
+		389941E316558CFD00A0927D /* SecurityTokenServiceAssumedRoleUserUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 389941CB16558CFD00A0927D /* SecurityTokenServiceAssumedRoleUserUnmarshaller.h */; };
+		389941E416558CFD00A0927D /* SecurityTokenServiceAssumeRoleRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 389941CC16558CFD00A0927D /* SecurityTokenServiceAssumeRoleRequest.h */; };
+		389941E516558CFD00A0927D /* SecurityTokenServiceAssumeRoleRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 389941CD16558CFD00A0927D /* SecurityTokenServiceAssumeRoleRequestMarshaller.h */; };
+		389941E616558CFD00A0927D /* SecurityTokenServiceAssumeRoleResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 389941CE16558CFD00A0927D /* SecurityTokenServiceAssumeRoleResponse.h */; };
+		389941E716558CFD00A0927D /* SecurityTokenServiceAssumeRoleResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 389941CF16558CFD00A0927D /* SecurityTokenServiceAssumeRoleResponseUnmarshaller.h */; };
+		389941E816558CFD00A0927D /* SecurityTokenServiceCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 389941D016558CFD00A0927D /* SecurityTokenServiceCredentials.h */; };
+		389941E916558CFD00A0927D /* SecurityTokenServiceCredentialsUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 389941D116558CFD00A0927D /* SecurityTokenServiceCredentialsUnmarshaller.h */; };
+		389941EA16558CFD00A0927D /* SecurityTokenServiceFederatedUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 389941D216558CFD00A0927D /* SecurityTokenServiceFederatedUser.h */; };
+		389941EB16558CFD00A0927D /* SecurityTokenServiceFederatedUserUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 389941D316558CFD00A0927D /* SecurityTokenServiceFederatedUserUnmarshaller.h */; };
+		389941EC16558CFD00A0927D /* SecurityTokenServiceGetFederationTokenRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 389941D416558CFD00A0927D /* SecurityTokenServiceGetFederationTokenRequest.h */; };
+		389941ED16558CFD00A0927D /* SecurityTokenServiceGetFederationTokenRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 389941D516558CFD00A0927D /* SecurityTokenServiceGetFederationTokenRequestMarshaller.h */; };
+		389941EE16558CFD00A0927D /* SecurityTokenServiceGetFederationTokenResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 389941D616558CFD00A0927D /* SecurityTokenServiceGetFederationTokenResponse.h */; };
+		389941EF16558CFD00A0927D /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 389941D716558CFD00A0927D /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.h */; };
+		389941F016558CFD00A0927D /* SecurityTokenServiceGetSessionTokenRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 389941D816558CFD00A0927D /* SecurityTokenServiceGetSessionTokenRequest.h */; };
+		389941F116558CFD00A0927D /* SecurityTokenServiceGetSessionTokenRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 389941D916558CFD00A0927D /* SecurityTokenServiceGetSessionTokenRequestMarshaller.h */; };
+		389941F216558CFD00A0927D /* SecurityTokenServiceGetSessionTokenResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 389941DA16558CFD00A0927D /* SecurityTokenServiceGetSessionTokenResponse.h */; };
+		389941F316558CFD00A0927D /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 389941DB16558CFD00A0927D /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.h */; };
+		389941F416558CFD00A0927D /* SecurityTokenServiceMalformedPolicyDocumentException.h in Headers */ = {isa = PBXBuildFile; fileRef = 389941DC16558CFD00A0927D /* SecurityTokenServiceMalformedPolicyDocumentException.h */; };
+		389941F516558CFD00A0927D /* SecurityTokenServicePackedPolicyTooLargeException.h in Headers */ = {isa = PBXBuildFile; fileRef = 389941DD16558CFD00A0927D /* SecurityTokenServicePackedPolicyTooLargeException.h */; };
+		389941F616558CFD00A0927D /* SecurityTokenServiceRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 389941DE16558CFD00A0927D /* SecurityTokenServiceRequest.h */; };
+		389941F716558CFD00A0927D /* SecurityTokenServiceResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 389941DF16558CFD00A0927D /* SecurityTokenServiceResponse.h */; };
+		389941F816558CFD00A0927D /* SecurityTokenServiceResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 389941E016558CFD00A0927D /* SecurityTokenServiceResponseUnmarshaller.h */; };
 		389F3B42164D9E9100272BA2 /* AmazonEC2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 389F3935164D9E9000272BA2 /* AmazonEC2Client.m */; };
 		389F3B43164D9E9100272BA2 /* EC2Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 389F3936164D9E9000272BA2 /* EC2Request.m */; };
 		389F3B44164D9E9100272BA2 /* EC2Response.m in Sources */ = {isa = PBXBuildFile; fileRef = 389F3937164D9E9000272BA2 /* EC2Response.m */; };
@@ -1720,6 +1768,11 @@
 		389F4164164D9EA000272BA2 /* EC2VolumeStatusItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 389F3F58164D9EA000272BA2 /* EC2VolumeStatusItem.h */; };
 		389F4165164D9EA000272BA2 /* EC2VolumeStatusItemUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 389F3F59164D9EA000272BA2 /* EC2VolumeStatusItemUnmarshaller.h */; };
 		389F4166164D9EA000272BA2 /* EC2VolumeUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 389F3F5A164D9EA000272BA2 /* EC2VolumeUnmarshaller.h */; };
+		38E1D27E16C5B55300613C99 /* AmazonCredentialsProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 38E1D27D16C5B55300613C99 /* AmazonCredentialsProvider.h */; };
+		38E1D28616C5B73B00613C99 /* AmazonStaticCredentialsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E1D28416C5B73B00613C99 /* AmazonStaticCredentialsProvider.m */; };
+		38E1D28816C5B76200613C99 /* AmazonStaticCredentialsProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 38E1D28716C5B76200613C99 /* AmazonStaticCredentialsProvider.h */; };
+		38E1D28C16C5BF4C00613C99 /* AmazonSTSCredentialsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E1D28A16C5BF4C00613C99 /* AmazonSTSCredentialsProvider.m */; };
+		38E1D28E16C5BF7500613C99 /* AmazonSTSCredentialsProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 38E1D28D16C5BF7500613C99 /* AmazonSTSCredentialsProvider.h */; };
 		38EFE867161F53FF0069348B /* AmazonS3Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7D1161F53FF0069348B /* AmazonS3Client.m */; };
 		38EFE868161F53FF0069348B /* BucketWebsiteConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7D3161F53FF0069348B /* BucketWebsiteConfiguration.m */; };
 		38EFE869161F53FF0069348B /* DeletedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7D4161F53FF0069348B /* DeletedObject.m */; };
@@ -2415,43 +2468,52 @@
 		38EFF156161F547D0069348B /* S3VersionSummary.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFF0BF161F547C0069348B /* S3VersionSummary.h */; };
 		38EFF157161F547D0069348B /* S3VersionSummaryUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFF0C0161F547C0069348B /* S3VersionSummaryUnmarshaller.h */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
-		CE228B4114DCC1E000A33431 /* SecurityTokenServiceCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = CE228B2F14DCC1E000A33431 /* SecurityTokenServiceCredentials.m */; };
-		CE228B4214DCC1E000A33431 /* SecurityTokenServiceCredentialsUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = CE228B3014DCC1E000A33431 /* SecurityTokenServiceCredentialsUnmarshaller.m */; };
-		CE228B4314DCC1E000A33431 /* SecurityTokenServiceFederatedUser.m in Sources */ = {isa = PBXBuildFile; fileRef = CE228B3114DCC1E000A33431 /* SecurityTokenServiceFederatedUser.m */; };
-		CE228B4414DCC1E000A33431 /* SecurityTokenServiceFederatedUserUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = CE228B3214DCC1E000A33431 /* SecurityTokenServiceFederatedUserUnmarshaller.m */; };
-		CE228B4514DCC1E000A33431 /* SecurityTokenServiceGetFederationTokenRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CE228B3314DCC1E000A33431 /* SecurityTokenServiceGetFederationTokenRequest.m */; };
-		CE228B4614DCC1E000A33431 /* SecurityTokenServiceGetFederationTokenRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = CE228B3414DCC1E000A33431 /* SecurityTokenServiceGetFederationTokenRequestMarshaller.m */; };
-		CE228B4714DCC1E000A33431 /* SecurityTokenServiceGetFederationTokenResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = CE228B3514DCC1E000A33431 /* SecurityTokenServiceGetFederationTokenResponse.m */; };
-		CE228B4814DCC1E000A33431 /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = CE228B3614DCC1E000A33431 /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.m */; };
-		CE228B4914DCC1E000A33431 /* SecurityTokenServiceGetSessionTokenRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CE228B3714DCC1E000A33431 /* SecurityTokenServiceGetSessionTokenRequest.m */; };
-		CE228B4A14DCC1E000A33431 /* SecurityTokenServiceGetSessionTokenRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = CE228B3814DCC1E000A33431 /* SecurityTokenServiceGetSessionTokenRequestMarshaller.m */; };
-		CE228B4B14DCC1E000A33431 /* SecurityTokenServiceGetSessionTokenResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = CE228B3914DCC1E000A33431 /* SecurityTokenServiceGetSessionTokenResponse.m */; };
-		CE228B4C14DCC1E000A33431 /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = CE228B3A14DCC1E000A33431 /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.m */; };
-		CE228B4D14DCC1E000A33431 /* SecurityTokenServiceMalformedPolicyDocumentException.m in Sources */ = {isa = PBXBuildFile; fileRef = CE228B3B14DCC1E000A33431 /* SecurityTokenServiceMalformedPolicyDocumentException.m */; };
-		CE228B4E14DCC1E000A33431 /* SecurityTokenServicePackedPolicyTooLargeException.m in Sources */ = {isa = PBXBuildFile; fileRef = CE228B3C14DCC1E000A33431 /* SecurityTokenServicePackedPolicyTooLargeException.m */; };
-		CE228B4F14DCC1E000A33431 /* SecurityTokenServiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CE228B3D14DCC1E000A33431 /* SecurityTokenServiceRequest.m */; };
-		CE228B5014DCC1E000A33431 /* SecurityTokenServiceResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = CE228B3E14DCC1E000A33431 /* SecurityTokenServiceResponse.m */; };
-		CE228B5114DCC1E000A33431 /* SecurityTokenServiceResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = CE228B3F14DCC1E000A33431 /* SecurityTokenServiceResponseUnmarshaller.m */; };
-		CE228B6714DCC20000A33431 /* SecurityTokenServiceCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = CE228B5514DCC20000A33431 /* SecurityTokenServiceCredentials.h */; };
-		CE228B6814DCC20000A33431 /* SecurityTokenServiceCredentialsUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE228B5614DCC20000A33431 /* SecurityTokenServiceCredentialsUnmarshaller.h */; };
-		CE228B6914DCC20000A33431 /* SecurityTokenServiceFederatedUser.h in Headers */ = {isa = PBXBuildFile; fileRef = CE228B5714DCC20000A33431 /* SecurityTokenServiceFederatedUser.h */; };
-		CE228B6A14DCC20000A33431 /* SecurityTokenServiceFederatedUserUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE228B5814DCC20000A33431 /* SecurityTokenServiceFederatedUserUnmarshaller.h */; };
-		CE228B6B14DCC20000A33431 /* SecurityTokenServiceGetFederationTokenRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE228B5914DCC20000A33431 /* SecurityTokenServiceGetFederationTokenRequest.h */; };
-		CE228B6C14DCC20000A33431 /* SecurityTokenServiceGetFederationTokenRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE228B5A14DCC20000A33431 /* SecurityTokenServiceGetFederationTokenRequestMarshaller.h */; };
-		CE228B6D14DCC20000A33431 /* SecurityTokenServiceGetFederationTokenResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE228B5B14DCC20000A33431 /* SecurityTokenServiceGetFederationTokenResponse.h */; };
-		CE228B6E14DCC20000A33431 /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE228B5C14DCC20000A33431 /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.h */; };
-		CE228B6F14DCC20000A33431 /* SecurityTokenServiceGetSessionTokenRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE228B5D14DCC20000A33431 /* SecurityTokenServiceGetSessionTokenRequest.h */; };
-		CE228B7014DCC20000A33431 /* SecurityTokenServiceGetSessionTokenRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE228B5E14DCC20000A33431 /* SecurityTokenServiceGetSessionTokenRequestMarshaller.h */; };
-		CE228B7114DCC20000A33431 /* SecurityTokenServiceGetSessionTokenResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE228B5F14DCC20000A33431 /* SecurityTokenServiceGetSessionTokenResponse.h */; };
-		CE228B7214DCC20000A33431 /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE228B6014DCC20000A33431 /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.h */; };
-		CE228B7314DCC20000A33431 /* SecurityTokenServiceMalformedPolicyDocumentException.h in Headers */ = {isa = PBXBuildFile; fileRef = CE228B6114DCC20000A33431 /* SecurityTokenServiceMalformedPolicyDocumentException.h */; };
-		CE228B7414DCC20000A33431 /* SecurityTokenServicePackedPolicyTooLargeException.h in Headers */ = {isa = PBXBuildFile; fileRef = CE228B6214DCC20000A33431 /* SecurityTokenServicePackedPolicyTooLargeException.h */; };
-		CE228B7514DCC20000A33431 /* SecurityTokenServiceRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE228B6314DCC20000A33431 /* SecurityTokenServiceRequest.h */; };
-		CE228B7614DCC20000A33431 /* SecurityTokenServiceResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE228B6414DCC20000A33431 /* SecurityTokenServiceResponse.h */; };
-		CE228B7714DCC20000A33431 /* SecurityTokenServiceResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE228B6514DCC20000A33431 /* SecurityTokenServiceResponseUnmarshaller.h */; };
+		C416BD1216BCA24A00B0290C /* EC2CopySnapshotRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C416BD0E16BCA24A00B0290C /* EC2CopySnapshotRequest.m */; };
+		C416BD1316BCA24A00B0290C /* EC2CopySnapshotRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = C416BD0F16BCA24A00B0290C /* EC2CopySnapshotRequestMarshaller.m */; };
+		C416BD1416BCA24A00B0290C /* EC2CopySnapshotResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = C416BD1016BCA24A00B0290C /* EC2CopySnapshotResponse.m */; };
+		C416BD1516BCA24A00B0290C /* EC2CopySnapshotResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = C416BD1116BCA24A00B0290C /* EC2CopySnapshotResponseUnmarshaller.m */; };
+		C416BD1B16BCA27200B0290C /* EC2CopySnapshotRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = C416BD1716BCA27200B0290C /* EC2CopySnapshotRequest.h */; };
+		C416BD1C16BCA27200B0290C /* EC2CopySnapshotRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = C416BD1816BCA27200B0290C /* EC2CopySnapshotRequestMarshaller.h */; };
+		C416BD1D16BCA27200B0290C /* EC2CopySnapshotResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = C416BD1916BCA27200B0290C /* EC2CopySnapshotResponse.h */; };
+		C416BD1E16BCA27200B0290C /* EC2CopySnapshotResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = C416BD1A16BCA27200B0290C /* EC2CopySnapshotResponseUnmarshaller.h */; };
+		C4A4785516A4AE3800B64442 /* EC2DescribeSubnetsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A4784916A4AE3800B64442 /* EC2DescribeSubnetsRequest.m */; };
+		C4A4785616A4AE3800B64442 /* EC2DescribeSubnetsRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A4784A16A4AE3800B64442 /* EC2DescribeSubnetsRequestMarshaller.m */; };
+		C4A4785716A4AE3800B64442 /* EC2DescribeSubnetsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A4784B16A4AE3800B64442 /* EC2DescribeSubnetsResponse.m */; };
+		C4A4785816A4AE3800B64442 /* EC2DescribeSubnetsResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A4784C16A4AE3800B64442 /* EC2DescribeSubnetsResponseUnmarshaller.m */; };
+		C4A4785916A4AE3800B64442 /* EC2DescribeVpcsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A4784D16A4AE3800B64442 /* EC2DescribeVpcsRequest.m */; };
+		C4A4785A16A4AE3800B64442 /* EC2DescribeVpcsRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A4784E16A4AE3800B64442 /* EC2DescribeVpcsRequestMarshaller.m */; };
+		C4A4785B16A4AE3800B64442 /* EC2DescribeVpcsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A4784F16A4AE3800B64442 /* EC2DescribeVpcsResponse.m */; };
+		C4A4785C16A4AE3800B64442 /* EC2DescribeVpcsResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A4785016A4AE3800B64442 /* EC2DescribeVpcsResponseUnmarshaller.m */; };
+		C4A4785D16A4AE3800B64442 /* EC2Subnet.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A4785116A4AE3800B64442 /* EC2Subnet.m */; };
+		C4A4785E16A4AE3800B64442 /* EC2SubnetUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A4785216A4AE3800B64442 /* EC2SubnetUnmarshaller.m */; };
+		C4A4785F16A4AE3800B64442 /* EC2Vpc.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A4785316A4AE3800B64442 /* EC2Vpc.m */; };
+		C4A4786016A4AE3800B64442 /* EC2VpcUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A4785416A4AE3800B64442 /* EC2VpcUnmarshaller.m */; };
+		C4A4786E16A4AE5600B64442 /* EC2DescribeSubnetsRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A4786216A4AE5600B64442 /* EC2DescribeSubnetsRequest.h */; };
+		C4A4786F16A4AE5600B64442 /* EC2DescribeSubnetsRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A4786316A4AE5600B64442 /* EC2DescribeSubnetsRequestMarshaller.h */; };
+		C4A4787016A4AE5600B64442 /* EC2DescribeSubnetsResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A4786416A4AE5600B64442 /* EC2DescribeSubnetsResponse.h */; };
+		C4A4787116A4AE5600B64442 /* EC2DescribeSubnetsResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A4786516A4AE5600B64442 /* EC2DescribeSubnetsResponseUnmarshaller.h */; };
+		C4A4787216A4AE5600B64442 /* EC2DescribeVpcsRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A4786616A4AE5600B64442 /* EC2DescribeVpcsRequest.h */; };
+		C4A4787316A4AE5600B64442 /* EC2DescribeVpcsRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A4786716A4AE5600B64442 /* EC2DescribeVpcsRequestMarshaller.h */; };
+		C4A4787416A4AE5600B64442 /* EC2DescribeVpcsResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A4786816A4AE5600B64442 /* EC2DescribeVpcsResponse.h */; };
+		C4A4787516A4AE5600B64442 /* EC2DescribeVpcsResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A4786916A4AE5600B64442 /* EC2DescribeVpcsResponseUnmarshaller.h */; };
+		C4A4787616A4AE5600B64442 /* EC2Subnet.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A4786A16A4AE5600B64442 /* EC2Subnet.h */; };
+		C4A4787716A4AE5600B64442 /* EC2SubnetUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A4786B16A4AE5600B64442 /* EC2SubnetUnmarshaller.h */; };
+		C4A4787816A4AE5600B64442 /* EC2Vpc.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A4786C16A4AE5600B64442 /* EC2Vpc.h */; };
+		C4A4787916A4AE5600B64442 /* EC2VpcUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A4786D16A4AE5600B64442 /* EC2VpcUnmarshaller.h */; };
+		CE17329816D8132A00DEC510 /* SBJson.h in Headers */ = {isa = PBXBuildFile; fileRef = CE17329716D8132A00DEC510 /* SBJson.h */; };
+		CE2BF33416CB329D005189A8 /* S3TransferManager.h in Headers */ = {isa = PBXBuildFile; fileRef = CE2BF33216CB329D005189A8 /* S3TransferManager.h */; };
+		CE2BF33B16CB32C2005189A8 /* S3AbortMultiplartUploadsOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = CE2BF33516CB32C2005189A8 /* S3AbortMultiplartUploadsOperation.h */; };
+		CE2BF33C16CB32C2005189A8 /* S3AbortMultiplartUploadsOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF33616CB32C2005189A8 /* S3AbortMultiplartUploadsOperation.m */; };
+		CE2BF33D16CB32C2005189A8 /* S3MultipartUploadOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = CE2BF33716CB32C2005189A8 /* S3MultipartUploadOperation.h */; };
+		CE2BF33E16CB32C2005189A8 /* S3MultipartUploadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF33816CB32C2005189A8 /* S3MultipartUploadOperation.m */; };
+		CE2BF33F16CB32C2005189A8 /* S3PutObjectOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = CE2BF33916CB32C2005189A8 /* S3PutObjectOperation.h */; };
+		CE2BF34016CB32C2005189A8 /* S3PutObjectOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF33A16CB32C2005189A8 /* S3PutObjectOperation.m */; };
+		CE2BF34216CB32CF005189A8 /* S3TransferManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF34116CB32CF005189A8 /* S3TransferManager.m */; };
+		CE31477416D30B7E00BEDAA0 /* S3BucketLifecycleConfigurationTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFF17A1625DC4F0069348B /* S3BucketLifecycleConfigurationTransition.h */; };
+		CE31477516D30B7E00BEDAA0 /* S3BucketLifecycleConfigurationTransitionUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFF17B1625DC4F0069348B /* S3BucketLifecycleConfigurationTransitionUnmarshaller.h */; };
+		CE31477616D30B7E00BEDAA0 /* S3RestoreObjectRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3830E62416288041000C443F /* S3RestoreObjectRequest.h */; };
+		CE31477716D30B7E00BEDAA0 /* S3RestoreObjectResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 3830E62516288041000C443F /* S3RestoreObjectResponse.h */; };
 		CE39A67D15B73D890008DBEA /* AmazonErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = CE39A67C15B73D890008DBEA /* AmazonErrorHandler.m */; };
-		CE5B46A714E063DC000267FA /* AmazonSecurityTokenServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5B46A614E063DC000267FA /* AmazonSecurityTokenServiceClient.m */; };
-		CE5B46AA14E06402000267FA /* AmazonSecurityTokenServiceClient.h in Headers */ = {isa = PBXBuildFile; fileRef = CE5B46A914E06402000267FA /* AmazonSecurityTokenServiceClient.h */; };
 		CE96C1B7158BD58A0084D3CB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE96C1A9158BC2A70084D3CB /* MobileCoreServices.framework */; };
 		CEDA40F5151D519A002CBB54 /* CloudWatchMetricDatum.h in Headers */ = {isa = PBXBuildFile; fileRef = CEDA40EF151D519A002CBB54 /* CloudWatchMetricDatum.h */; };
 		CEDA40F6151D519A002CBB54 /* CloudWatchPutMetricDataRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CEDA40F0151D519A002CBB54 /* CloudWatchPutMetricDataRequest.h */; };
@@ -3055,30 +3117,29 @@
 		D0A0EA811344E793007721F9 /* CloudWatchResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0EA801344E793007721F9 /* CloudWatchResponse.m */; };
 		D0A0EA851344E7AA007721F9 /* SNSResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0EA841344E7AA007721F9 /* SNSResponse.m */; };
 		D0A0EA871344E7B5007721F9 /* SimpleDBResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0EA861344E7B5007721F9 /* SimpleDBResponse.m */; };
-		D0C5652514BB72D2002C4FEF /* JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5650C14BB72D2002C4FEF /* JSON.h */; };
-		D0C5652614BB72D2002C4FEF /* SBJson.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5650E14BB72D2002C4FEF /* SBJson.h */; };
-		D0C5652714BB72D2002C4FEF /* SBJsonParser.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5650F14BB72D2002C4FEF /* SBJsonParser.h */; };
-		D0C5652814BB72D2002C4FEF /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5651014BB72D2002C4FEF /* SBJsonParser.m */; };
-		D0C5652914BB72D2002C4FEF /* SBJsonStreamParser.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5651114BB72D2002C4FEF /* SBJsonStreamParser.h */; };
-		D0C5652A14BB72D2002C4FEF /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5651214BB72D2002C4FEF /* SBJsonStreamParser.m */; };
-		D0C5652B14BB72D2002C4FEF /* SBJsonStreamParserAccumulator.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5651314BB72D2002C4FEF /* SBJsonStreamParserAccumulator.h */; };
-		D0C5652C14BB72D2002C4FEF /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5651414BB72D2002C4FEF /* SBJsonStreamParserAccumulator.m */; };
-		D0C5652D14BB72D2002C4FEF /* SBJsonStreamParserAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5651514BB72D2002C4FEF /* SBJsonStreamParserAdapter.h */; };
-		D0C5652E14BB72D2002C4FEF /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5651614BB72D2002C4FEF /* SBJsonStreamParserAdapter.m */; };
-		D0C5652F14BB72D2002C4FEF /* SBJsonStreamParserState.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5651714BB72D2002C4FEF /* SBJsonStreamParserState.h */; };
-		D0C5653014BB72D2002C4FEF /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5651814BB72D2002C4FEF /* SBJsonStreamParserState.m */; };
-		D0C5653114BB72D2002C4FEF /* SBJsonStreamWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5651914BB72D2002C4FEF /* SBJsonStreamWriter.h */; };
-		D0C5653214BB72D2002C4FEF /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5651A14BB72D2002C4FEF /* SBJsonStreamWriter.m */; };
-		D0C5653314BB72D2002C4FEF /* SBJsonStreamWriterAccumulator.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5651B14BB72D2002C4FEF /* SBJsonStreamWriterAccumulator.h */; };
-		D0C5653414BB72D2002C4FEF /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5651C14BB72D2002C4FEF /* SBJsonStreamWriterAccumulator.m */; };
-		D0C5653514BB72D2002C4FEF /* SBJsonStreamWriterState.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5651D14BB72D2002C4FEF /* SBJsonStreamWriterState.h */; };
-		D0C5653614BB72D2002C4FEF /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5651E14BB72D2002C4FEF /* SBJsonStreamWriterState.m */; };
-		D0C5653714BB72D2002C4FEF /* SBJsonTokeniser.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5651F14BB72D2002C4FEF /* SBJsonTokeniser.h */; };
-		D0C5653814BB72D2002C4FEF /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5652014BB72D2002C4FEF /* SBJsonTokeniser.m */; };
-		D0C5653914BB72D2002C4FEF /* SBJsonUTF8Stream.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5652114BB72D2002C4FEF /* SBJsonUTF8Stream.h */; };
-		D0C5653A14BB72D2002C4FEF /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5652214BB72D2002C4FEF /* SBJsonUTF8Stream.m */; };
-		D0C5653B14BB72D2002C4FEF /* SBJsonWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5652314BB72D2002C4FEF /* SBJsonWriter.h */; };
-		D0C5653C14BB72D2002C4FEF /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5652414BB72D2002C4FEF /* SBJsonWriter.m */; };
+		D0C5652614BB72D2002C4FEF /* AWS_SBJson.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5650E14BB72D2002C4FEF /* AWS_SBJson.h */; };
+		D0C5652714BB72D2002C4FEF /* AWS_SBJsonParser.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5650F14BB72D2002C4FEF /* AWS_SBJsonParser.h */; };
+		D0C5652814BB72D2002C4FEF /* AWS_SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5651014BB72D2002C4FEF /* AWS_SBJsonParser.m */; };
+		D0C5652914BB72D2002C4FEF /* AWS_SBJsonStreamParser.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5651114BB72D2002C4FEF /* AWS_SBJsonStreamParser.h */; };
+		D0C5652A14BB72D2002C4FEF /* AWS_SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5651214BB72D2002C4FEF /* AWS_SBJsonStreamParser.m */; };
+		D0C5652B14BB72D2002C4FEF /* AWS_SBJsonStreamParserAccumulator.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5651314BB72D2002C4FEF /* AWS_SBJsonStreamParserAccumulator.h */; };
+		D0C5652C14BB72D2002C4FEF /* AWS_SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5651414BB72D2002C4FEF /* AWS_SBJsonStreamParserAccumulator.m */; };
+		D0C5652D14BB72D2002C4FEF /* AWS_SBJsonStreamParserAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5651514BB72D2002C4FEF /* AWS_SBJsonStreamParserAdapter.h */; };
+		D0C5652E14BB72D2002C4FEF /* AWS_SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5651614BB72D2002C4FEF /* AWS_SBJsonStreamParserAdapter.m */; };
+		D0C5652F14BB72D2002C4FEF /* AWS_SBJsonStreamParserState.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5651714BB72D2002C4FEF /* AWS_SBJsonStreamParserState.h */; };
+		D0C5653014BB72D2002C4FEF /* AWS_SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5651814BB72D2002C4FEF /* AWS_SBJsonStreamParserState.m */; };
+		D0C5653114BB72D2002C4FEF /* AWS_SBJsonStreamWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5651914BB72D2002C4FEF /* AWS_SBJsonStreamWriter.h */; };
+		D0C5653214BB72D2002C4FEF /* AWS_SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5651A14BB72D2002C4FEF /* AWS_SBJsonStreamWriter.m */; };
+		D0C5653314BB72D2002C4FEF /* AWS_SBJsonStreamWriterAccumulator.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5651B14BB72D2002C4FEF /* AWS_SBJsonStreamWriterAccumulator.h */; };
+		D0C5653414BB72D2002C4FEF /* AWS_SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5651C14BB72D2002C4FEF /* AWS_SBJsonStreamWriterAccumulator.m */; };
+		D0C5653514BB72D2002C4FEF /* AWS_SBJsonStreamWriterState.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5651D14BB72D2002C4FEF /* AWS_SBJsonStreamWriterState.h */; };
+		D0C5653614BB72D2002C4FEF /* AWS_SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5651E14BB72D2002C4FEF /* AWS_SBJsonStreamWriterState.m */; };
+		D0C5653714BB72D2002C4FEF /* AWS_SBJsonTokeniser.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5651F14BB72D2002C4FEF /* AWS_SBJsonTokeniser.h */; };
+		D0C5653814BB72D2002C4FEF /* AWS_SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5652014BB72D2002C4FEF /* AWS_SBJsonTokeniser.m */; };
+		D0C5653914BB72D2002C4FEF /* AWS_SBJsonUTF8Stream.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5652114BB72D2002C4FEF /* AWS_SBJsonUTF8Stream.h */; };
+		D0C5653A14BB72D2002C4FEF /* AWS_SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5652214BB72D2002C4FEF /* AWS_SBJsonUTF8Stream.m */; };
+		D0C5653B14BB72D2002C4FEF /* AWS_SBJsonWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5652314BB72D2002C4FEF /* AWS_SBJsonWriter.h */; };
+		D0C5653C14BB72D2002C4FEF /* AWS_SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5652414BB72D2002C4FEF /* AWS_SBJsonWriter.m */; };
 		D0C9CFDA13381003006BE1FE /* AmazonValueUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C9CFD813380FFB006BE1FE /* AmazonValueUnmarshaller.m */; };
 		D0DDA6B412A45CB5004B18C0 /* SNSRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DDA6B312A45CB5004B18C0 /* SNSRequest.m */; };
 		D0DDA6B612A45CC4004B18C0 /* SNSRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D0DDA6B512A45CC4004B18C0 /* SNSRequest.h */; };
@@ -3763,6 +3824,54 @@
 		384FC8CA163F06C9008E11CA /* SQSSetQueueAttributesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQSSetQueueAttributesResponse.h; sourceTree = "<group>"; };
 		384FC8CB163F06C9008E11CA /* SQSSetQueueAttributesResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQSSetQueueAttributesResponseUnmarshaller.h; sourceTree = "<group>"; };
 		384FC8CC163F06C9008E11CA /* SQSTooManyEntriesInBatchRequestException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQSTooManyEntriesInBatchRequestException.h; sourceTree = "<group>"; };
+		3899419716558CE900A0927D /* AmazonSecurityTokenServiceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonSecurityTokenServiceClient.m; sourceTree = "<group>"; };
+		3899419916558CE900A0927D /* SecurityTokenServiceAssumedRoleUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceAssumedRoleUser.m; sourceTree = "<group>"; };
+		3899419A16558CE900A0927D /* SecurityTokenServiceAssumedRoleUserUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceAssumedRoleUserUnmarshaller.m; sourceTree = "<group>"; };
+		3899419B16558CE900A0927D /* SecurityTokenServiceAssumeRoleRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceAssumeRoleRequest.m; sourceTree = "<group>"; };
+		3899419C16558CE900A0927D /* SecurityTokenServiceAssumeRoleRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceAssumeRoleRequestMarshaller.m; sourceTree = "<group>"; };
+		3899419D16558CE900A0927D /* SecurityTokenServiceAssumeRoleResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceAssumeRoleResponse.m; sourceTree = "<group>"; };
+		3899419E16558CE900A0927D /* SecurityTokenServiceAssumeRoleResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceAssumeRoleResponseUnmarshaller.m; sourceTree = "<group>"; };
+		3899419F16558CE900A0927D /* SecurityTokenServiceCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceCredentials.m; sourceTree = "<group>"; };
+		389941A016558CE900A0927D /* SecurityTokenServiceCredentialsUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceCredentialsUnmarshaller.m; sourceTree = "<group>"; };
+		389941A116558CE900A0927D /* SecurityTokenServiceFederatedUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceFederatedUser.m; sourceTree = "<group>"; };
+		389941A216558CE900A0927D /* SecurityTokenServiceFederatedUserUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceFederatedUserUnmarshaller.m; sourceTree = "<group>"; };
+		389941A316558CE900A0927D /* SecurityTokenServiceGetFederationTokenRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetFederationTokenRequest.m; sourceTree = "<group>"; };
+		389941A416558CE900A0927D /* SecurityTokenServiceGetFederationTokenRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetFederationTokenRequestMarshaller.m; sourceTree = "<group>"; };
+		389941A516558CE900A0927D /* SecurityTokenServiceGetFederationTokenResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetFederationTokenResponse.m; sourceTree = "<group>"; };
+		389941A616558CE900A0927D /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetFederationTokenResponseUnmarshaller.m; sourceTree = "<group>"; };
+		389941A716558CE900A0927D /* SecurityTokenServiceGetSessionTokenRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetSessionTokenRequest.m; sourceTree = "<group>"; };
+		389941A816558CE900A0927D /* SecurityTokenServiceGetSessionTokenRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetSessionTokenRequestMarshaller.m; sourceTree = "<group>"; };
+		389941A916558CE900A0927D /* SecurityTokenServiceGetSessionTokenResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetSessionTokenResponse.m; sourceTree = "<group>"; };
+		389941AA16558CE900A0927D /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetSessionTokenResponseUnmarshaller.m; sourceTree = "<group>"; };
+		389941AB16558CE900A0927D /* SecurityTokenServiceMalformedPolicyDocumentException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceMalformedPolicyDocumentException.m; sourceTree = "<group>"; };
+		389941AC16558CE900A0927D /* SecurityTokenServicePackedPolicyTooLargeException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServicePackedPolicyTooLargeException.m; sourceTree = "<group>"; };
+		389941AD16558CE900A0927D /* SecurityTokenServiceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceRequest.m; sourceTree = "<group>"; };
+		389941AE16558CE900A0927D /* SecurityTokenServiceResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceResponse.m; sourceTree = "<group>"; };
+		389941AF16558CE900A0927D /* SecurityTokenServiceResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceResponseUnmarshaller.m; sourceTree = "<group>"; };
+		389941C916558CFD00A0927D /* AmazonSecurityTokenServiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonSecurityTokenServiceClient.h; sourceTree = "<group>"; };
+		389941CA16558CFD00A0927D /* SecurityTokenServiceAssumedRoleUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceAssumedRoleUser.h; sourceTree = "<group>"; };
+		389941CB16558CFD00A0927D /* SecurityTokenServiceAssumedRoleUserUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceAssumedRoleUserUnmarshaller.h; sourceTree = "<group>"; };
+		389941CC16558CFD00A0927D /* SecurityTokenServiceAssumeRoleRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceAssumeRoleRequest.h; sourceTree = "<group>"; };
+		389941CD16558CFD00A0927D /* SecurityTokenServiceAssumeRoleRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceAssumeRoleRequestMarshaller.h; sourceTree = "<group>"; };
+		389941CE16558CFD00A0927D /* SecurityTokenServiceAssumeRoleResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceAssumeRoleResponse.h; sourceTree = "<group>"; };
+		389941CF16558CFD00A0927D /* SecurityTokenServiceAssumeRoleResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceAssumeRoleResponseUnmarshaller.h; sourceTree = "<group>"; };
+		389941D016558CFD00A0927D /* SecurityTokenServiceCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceCredentials.h; sourceTree = "<group>"; };
+		389941D116558CFD00A0927D /* SecurityTokenServiceCredentialsUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceCredentialsUnmarshaller.h; sourceTree = "<group>"; };
+		389941D216558CFD00A0927D /* SecurityTokenServiceFederatedUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceFederatedUser.h; sourceTree = "<group>"; };
+		389941D316558CFD00A0927D /* SecurityTokenServiceFederatedUserUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceFederatedUserUnmarshaller.h; sourceTree = "<group>"; };
+		389941D416558CFD00A0927D /* SecurityTokenServiceGetFederationTokenRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceGetFederationTokenRequest.h; sourceTree = "<group>"; };
+		389941D516558CFD00A0927D /* SecurityTokenServiceGetFederationTokenRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceGetFederationTokenRequestMarshaller.h; sourceTree = "<group>"; };
+		389941D616558CFD00A0927D /* SecurityTokenServiceGetFederationTokenResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceGetFederationTokenResponse.h; sourceTree = "<group>"; };
+		389941D716558CFD00A0927D /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceGetFederationTokenResponseUnmarshaller.h; sourceTree = "<group>"; };
+		389941D816558CFD00A0927D /* SecurityTokenServiceGetSessionTokenRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceGetSessionTokenRequest.h; sourceTree = "<group>"; };
+		389941D916558CFD00A0927D /* SecurityTokenServiceGetSessionTokenRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceGetSessionTokenRequestMarshaller.h; sourceTree = "<group>"; };
+		389941DA16558CFD00A0927D /* SecurityTokenServiceGetSessionTokenResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceGetSessionTokenResponse.h; sourceTree = "<group>"; };
+		389941DB16558CFD00A0927D /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceGetSessionTokenResponseUnmarshaller.h; sourceTree = "<group>"; };
+		389941DC16558CFD00A0927D /* SecurityTokenServiceMalformedPolicyDocumentException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceMalformedPolicyDocumentException.h; sourceTree = "<group>"; };
+		389941DD16558CFD00A0927D /* SecurityTokenServicePackedPolicyTooLargeException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServicePackedPolicyTooLargeException.h; sourceTree = "<group>"; };
+		389941DE16558CFD00A0927D /* SecurityTokenServiceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceRequest.h; sourceTree = "<group>"; };
+		389941DF16558CFD00A0927D /* SecurityTokenServiceResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceResponse.h; sourceTree = "<group>"; };
+		389941E016558CFD00A0927D /* SecurityTokenServiceResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceResponseUnmarshaller.h; sourceTree = "<group>"; };
 		389F3935164D9E9000272BA2 /* AmazonEC2Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonEC2Client.m; sourceTree = "<group>"; };
 		389F3936164D9E9000272BA2 /* EC2Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2Request.m; sourceTree = "<group>"; };
 		389F3937164D9E9000272BA2 /* EC2Response.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2Response.m; sourceTree = "<group>"; };
@@ -4811,6 +4920,11 @@
 		389F3F58164D9EA000272BA2 /* EC2VolumeStatusItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2VolumeStatusItem.h; sourceTree = "<group>"; };
 		389F3F59164D9EA000272BA2 /* EC2VolumeStatusItemUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2VolumeStatusItemUnmarshaller.h; sourceTree = "<group>"; };
 		389F3F5A164D9EA000272BA2 /* EC2VolumeUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2VolumeUnmarshaller.h; sourceTree = "<group>"; };
+		38E1D27D16C5B55300613C99 /* AmazonCredentialsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonCredentialsProvider.h; sourceTree = "<group>"; };
+		38E1D28416C5B73B00613C99 /* AmazonStaticCredentialsProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonStaticCredentialsProvider.m; sourceTree = "<group>"; };
+		38E1D28716C5B76200613C99 /* AmazonStaticCredentialsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonStaticCredentialsProvider.h; sourceTree = "<group>"; };
+		38E1D28A16C5BF4C00613C99 /* AmazonSTSCredentialsProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonSTSCredentialsProvider.m; sourceTree = "<group>"; };
+		38E1D28D16C5BF7500613C99 /* AmazonSTSCredentialsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonSTSCredentialsProvider.h; sourceTree = "<group>"; };
 		38EFE7D1161F53FF0069348B /* AmazonS3Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AmazonS3Client.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		38EFE7D3161F53FF0069348B /* BucketWebsiteConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BucketWebsiteConfiguration.m; sourceTree = "<group>"; };
 		38EFE7D4161F53FF0069348B /* DeletedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeletedObject.m; sourceTree = "<group>"; };
@@ -5511,43 +5625,48 @@
 		38EFF17B1625DC4F0069348B /* S3BucketLifecycleConfigurationTransitionUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3BucketLifecycleConfigurationTransitionUnmarshaller.h; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* AWSiOSSDK_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSiOSSDK_Prefix.pch; sourceTree = "<group>"; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		CE228B2F14DCC1E000A33431 /* SecurityTokenServiceCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceCredentials.m; sourceTree = "<group>"; };
-		CE228B3014DCC1E000A33431 /* SecurityTokenServiceCredentialsUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceCredentialsUnmarshaller.m; sourceTree = "<group>"; };
-		CE228B3114DCC1E000A33431 /* SecurityTokenServiceFederatedUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceFederatedUser.m; sourceTree = "<group>"; };
-		CE228B3214DCC1E000A33431 /* SecurityTokenServiceFederatedUserUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceFederatedUserUnmarshaller.m; sourceTree = "<group>"; };
-		CE228B3314DCC1E000A33431 /* SecurityTokenServiceGetFederationTokenRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetFederationTokenRequest.m; sourceTree = "<group>"; };
-		CE228B3414DCC1E000A33431 /* SecurityTokenServiceGetFederationTokenRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetFederationTokenRequestMarshaller.m; sourceTree = "<group>"; };
-		CE228B3514DCC1E000A33431 /* SecurityTokenServiceGetFederationTokenResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetFederationTokenResponse.m; sourceTree = "<group>"; };
-		CE228B3614DCC1E000A33431 /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetFederationTokenResponseUnmarshaller.m; sourceTree = "<group>"; };
-		CE228B3714DCC1E000A33431 /* SecurityTokenServiceGetSessionTokenRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetSessionTokenRequest.m; sourceTree = "<group>"; };
-		CE228B3814DCC1E000A33431 /* SecurityTokenServiceGetSessionTokenRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetSessionTokenRequestMarshaller.m; sourceTree = "<group>"; };
-		CE228B3914DCC1E000A33431 /* SecurityTokenServiceGetSessionTokenResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetSessionTokenResponse.m; sourceTree = "<group>"; };
-		CE228B3A14DCC1E000A33431 /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetSessionTokenResponseUnmarshaller.m; sourceTree = "<group>"; };
-		CE228B3B14DCC1E000A33431 /* SecurityTokenServiceMalformedPolicyDocumentException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceMalformedPolicyDocumentException.m; sourceTree = "<group>"; };
-		CE228B3C14DCC1E000A33431 /* SecurityTokenServicePackedPolicyTooLargeException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServicePackedPolicyTooLargeException.m; sourceTree = "<group>"; };
-		CE228B3D14DCC1E000A33431 /* SecurityTokenServiceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceRequest.m; sourceTree = "<group>"; };
-		CE228B3E14DCC1E000A33431 /* SecurityTokenServiceResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceResponse.m; sourceTree = "<group>"; };
-		CE228B3F14DCC1E000A33431 /* SecurityTokenServiceResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceResponseUnmarshaller.m; sourceTree = "<group>"; };
-		CE228B5514DCC20000A33431 /* SecurityTokenServiceCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceCredentials.h; sourceTree = "<group>"; };
-		CE228B5614DCC20000A33431 /* SecurityTokenServiceCredentialsUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceCredentialsUnmarshaller.h; sourceTree = "<group>"; };
-		CE228B5714DCC20000A33431 /* SecurityTokenServiceFederatedUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceFederatedUser.h; sourceTree = "<group>"; };
-		CE228B5814DCC20000A33431 /* SecurityTokenServiceFederatedUserUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceFederatedUserUnmarshaller.h; sourceTree = "<group>"; };
-		CE228B5914DCC20000A33431 /* SecurityTokenServiceGetFederationTokenRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceGetFederationTokenRequest.h; sourceTree = "<group>"; };
-		CE228B5A14DCC20000A33431 /* SecurityTokenServiceGetFederationTokenRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceGetFederationTokenRequestMarshaller.h; sourceTree = "<group>"; };
-		CE228B5B14DCC20000A33431 /* SecurityTokenServiceGetFederationTokenResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceGetFederationTokenResponse.h; sourceTree = "<group>"; };
-		CE228B5C14DCC20000A33431 /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceGetFederationTokenResponseUnmarshaller.h; sourceTree = "<group>"; };
-		CE228B5D14DCC20000A33431 /* SecurityTokenServiceGetSessionTokenRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceGetSessionTokenRequest.h; sourceTree = "<group>"; };
-		CE228B5E14DCC20000A33431 /* SecurityTokenServiceGetSessionTokenRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceGetSessionTokenRequestMarshaller.h; sourceTree = "<group>"; };
-		CE228B5F14DCC20000A33431 /* SecurityTokenServiceGetSessionTokenResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceGetSessionTokenResponse.h; sourceTree = "<group>"; };
-		CE228B6014DCC20000A33431 /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceGetSessionTokenResponseUnmarshaller.h; sourceTree = "<group>"; };
-		CE228B6114DCC20000A33431 /* SecurityTokenServiceMalformedPolicyDocumentException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceMalformedPolicyDocumentException.h; sourceTree = "<group>"; };
-		CE228B6214DCC20000A33431 /* SecurityTokenServicePackedPolicyTooLargeException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServicePackedPolicyTooLargeException.h; sourceTree = "<group>"; };
-		CE228B6314DCC20000A33431 /* SecurityTokenServiceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceRequest.h; sourceTree = "<group>"; };
-		CE228B6414DCC20000A33431 /* SecurityTokenServiceResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceResponse.h; sourceTree = "<group>"; };
-		CE228B6514DCC20000A33431 /* SecurityTokenServiceResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenServiceResponseUnmarshaller.h; sourceTree = "<group>"; };
+		C416BD0E16BCA24A00B0290C /* EC2CopySnapshotRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2CopySnapshotRequest.m; sourceTree = "<group>"; };
+		C416BD0F16BCA24A00B0290C /* EC2CopySnapshotRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2CopySnapshotRequestMarshaller.m; sourceTree = "<group>"; };
+		C416BD1016BCA24A00B0290C /* EC2CopySnapshotResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2CopySnapshotResponse.m; sourceTree = "<group>"; };
+		C416BD1116BCA24A00B0290C /* EC2CopySnapshotResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2CopySnapshotResponseUnmarshaller.m; sourceTree = "<group>"; };
+		C416BD1716BCA27200B0290C /* EC2CopySnapshotRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2CopySnapshotRequest.h; sourceTree = "<group>"; };
+		C416BD1816BCA27200B0290C /* EC2CopySnapshotRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2CopySnapshotRequestMarshaller.h; sourceTree = "<group>"; };
+		C416BD1916BCA27200B0290C /* EC2CopySnapshotResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2CopySnapshotResponse.h; sourceTree = "<group>"; };
+		C416BD1A16BCA27200B0290C /* EC2CopySnapshotResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2CopySnapshotResponseUnmarshaller.h; sourceTree = "<group>"; };
+		C4A4784916A4AE3800B64442 /* EC2DescribeSubnetsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2DescribeSubnetsRequest.m; sourceTree = "<group>"; };
+		C4A4784A16A4AE3800B64442 /* EC2DescribeSubnetsRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2DescribeSubnetsRequestMarshaller.m; sourceTree = "<group>"; };
+		C4A4784B16A4AE3800B64442 /* EC2DescribeSubnetsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2DescribeSubnetsResponse.m; sourceTree = "<group>"; };
+		C4A4784C16A4AE3800B64442 /* EC2DescribeSubnetsResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2DescribeSubnetsResponseUnmarshaller.m; sourceTree = "<group>"; };
+		C4A4784D16A4AE3800B64442 /* EC2DescribeVpcsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2DescribeVpcsRequest.m; sourceTree = "<group>"; };
+		C4A4784E16A4AE3800B64442 /* EC2DescribeVpcsRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2DescribeVpcsRequestMarshaller.m; sourceTree = "<group>"; };
+		C4A4784F16A4AE3800B64442 /* EC2DescribeVpcsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2DescribeVpcsResponse.m; sourceTree = "<group>"; };
+		C4A4785016A4AE3800B64442 /* EC2DescribeVpcsResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2DescribeVpcsResponseUnmarshaller.m; sourceTree = "<group>"; };
+		C4A4785116A4AE3800B64442 /* EC2Subnet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2Subnet.m; sourceTree = "<group>"; };
+		C4A4785216A4AE3800B64442 /* EC2SubnetUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2SubnetUnmarshaller.m; sourceTree = "<group>"; };
+		C4A4785316A4AE3800B64442 /* EC2Vpc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2Vpc.m; sourceTree = "<group>"; };
+		C4A4785416A4AE3800B64442 /* EC2VpcUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2VpcUnmarshaller.m; sourceTree = "<group>"; };
+		C4A4786216A4AE5600B64442 /* EC2DescribeSubnetsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2DescribeSubnetsRequest.h; sourceTree = "<group>"; };
+		C4A4786316A4AE5600B64442 /* EC2DescribeSubnetsRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2DescribeSubnetsRequestMarshaller.h; sourceTree = "<group>"; };
+		C4A4786416A4AE5600B64442 /* EC2DescribeSubnetsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2DescribeSubnetsResponse.h; sourceTree = "<group>"; };
+		C4A4786516A4AE5600B64442 /* EC2DescribeSubnetsResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2DescribeSubnetsResponseUnmarshaller.h; sourceTree = "<group>"; };
+		C4A4786616A4AE5600B64442 /* EC2DescribeVpcsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2DescribeVpcsRequest.h; sourceTree = "<group>"; };
+		C4A4786716A4AE5600B64442 /* EC2DescribeVpcsRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2DescribeVpcsRequestMarshaller.h; sourceTree = "<group>"; };
+		C4A4786816A4AE5600B64442 /* EC2DescribeVpcsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2DescribeVpcsResponse.h; sourceTree = "<group>"; };
+		C4A4786916A4AE5600B64442 /* EC2DescribeVpcsResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2DescribeVpcsResponseUnmarshaller.h; sourceTree = "<group>"; };
+		C4A4786A16A4AE5600B64442 /* EC2Subnet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2Subnet.h; sourceTree = "<group>"; };
+		C4A4786B16A4AE5600B64442 /* EC2SubnetUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2SubnetUnmarshaller.h; sourceTree = "<group>"; };
+		C4A4786C16A4AE5600B64442 /* EC2Vpc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2Vpc.h; sourceTree = "<group>"; };
+		C4A4786D16A4AE5600B64442 /* EC2VpcUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2VpcUnmarshaller.h; sourceTree = "<group>"; };
+		CE17329716D8132A00DEC510 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
+		CE2BF33216CB329D005189A8 /* S3TransferManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3TransferManager.h; sourceTree = "<group>"; };
+		CE2BF33516CB32C2005189A8 /* S3AbortMultiplartUploadsOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3AbortMultiplartUploadsOperation.h; sourceTree = "<group>"; };
+		CE2BF33616CB32C2005189A8 /* S3AbortMultiplartUploadsOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3AbortMultiplartUploadsOperation.m; sourceTree = "<group>"; };
+		CE2BF33716CB32C2005189A8 /* S3MultipartUploadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3MultipartUploadOperation.h; sourceTree = "<group>"; };
+		CE2BF33816CB32C2005189A8 /* S3MultipartUploadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3MultipartUploadOperation.m; sourceTree = "<group>"; };
+		CE2BF33916CB32C2005189A8 /* S3PutObjectOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3PutObjectOperation.h; sourceTree = "<group>"; };
+		CE2BF33A16CB32C2005189A8 /* S3PutObjectOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3PutObjectOperation.m; sourceTree = "<group>"; };
+		CE2BF34116CB32CF005189A8 /* S3TransferManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3TransferManager.m; sourceTree = "<group>"; };
 		CE39A67C15B73D890008DBEA /* AmazonErrorHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonErrorHandler.m; sourceTree = "<group>"; };
-		CE5B46A614E063DC000267FA /* AmazonSecurityTokenServiceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonSecurityTokenServiceClient.m; sourceTree = "<group>"; };
-		CE5B46A914E06402000267FA /* AmazonSecurityTokenServiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonSecurityTokenServiceClient.h; sourceTree = "<group>"; };
 		CE96C1A9158BC2A70084D3CB /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		CEDA40EF151D519A002CBB54 /* CloudWatchMetricDatum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloudWatchMetricDatum.h; sourceTree = "<group>"; };
 		CEDA40F0151D519A002CBB54 /* CloudWatchPutMetricDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloudWatchPutMetricDataRequest.h; sourceTree = "<group>"; };
@@ -6153,31 +6272,30 @@
 		D0A0EA801344E793007721F9 /* CloudWatchResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchResponse.m; sourceTree = "<group>"; };
 		D0A0EA841344E7AA007721F9 /* SNSResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSResponse.m; sourceTree = "<group>"; };
 		D0A0EA861344E7B5007721F9 /* SimpleDBResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBResponse.m; sourceTree = "<group>"; };
-		D0C5650C14BB72D2002C4FEF /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		D0C5650D14BB72D2002C4FEF /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		D0C5650E14BB72D2002C4FEF /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
-		D0C5650F14BB72D2002C4FEF /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
-		D0C5651014BB72D2002C4FEF /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
-		D0C5651114BB72D2002C4FEF /* SBJsonStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParser.h; sourceTree = "<group>"; };
-		D0C5651214BB72D2002C4FEF /* SBJsonStreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParser.m; sourceTree = "<group>"; };
-		D0C5651314BB72D2002C4FEF /* SBJsonStreamParserAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAccumulator.h; sourceTree = "<group>"; };
-		D0C5651414BB72D2002C4FEF /* SBJsonStreamParserAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAccumulator.m; sourceTree = "<group>"; };
-		D0C5651514BB72D2002C4FEF /* SBJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAdapter.h; sourceTree = "<group>"; };
-		D0C5651614BB72D2002C4FEF /* SBJsonStreamParserAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAdapter.m; sourceTree = "<group>"; };
-		D0C5651714BB72D2002C4FEF /* SBJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserState.h; sourceTree = "<group>"; };
-		D0C5651814BB72D2002C4FEF /* SBJsonStreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserState.m; sourceTree = "<group>"; };
-		D0C5651914BB72D2002C4FEF /* SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriter.h; sourceTree = "<group>"; };
-		D0C5651A14BB72D2002C4FEF /* SBJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriter.m; sourceTree = "<group>"; };
-		D0C5651B14BB72D2002C4FEF /* SBJsonStreamWriterAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterAccumulator.h; sourceTree = "<group>"; };
-		D0C5651C14BB72D2002C4FEF /* SBJsonStreamWriterAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterAccumulator.m; sourceTree = "<group>"; };
-		D0C5651D14BB72D2002C4FEF /* SBJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterState.h; sourceTree = "<group>"; };
-		D0C5651E14BB72D2002C4FEF /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
-		D0C5651F14BB72D2002C4FEF /* SBJsonTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonTokeniser.h; sourceTree = "<group>"; };
-		D0C5652014BB72D2002C4FEF /* SBJsonTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonTokeniser.m; sourceTree = "<group>"; };
-		D0C5652114BB72D2002C4FEF /* SBJsonUTF8Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonUTF8Stream.h; sourceTree = "<group>"; };
-		D0C5652214BB72D2002C4FEF /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
-		D0C5652314BB72D2002C4FEF /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
-		D0C5652414BB72D2002C4FEF /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		D0C5650E14BB72D2002C4FEF /* AWS_SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWS_SBJson.h; sourceTree = "<group>"; };
+		D0C5650F14BB72D2002C4FEF /* AWS_SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWS_SBJsonParser.h; sourceTree = "<group>"; };
+		D0C5651014BB72D2002C4FEF /* AWS_SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWS_SBJsonParser.m; sourceTree = "<group>"; };
+		D0C5651114BB72D2002C4FEF /* AWS_SBJsonStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWS_SBJsonStreamParser.h; sourceTree = "<group>"; };
+		D0C5651214BB72D2002C4FEF /* AWS_SBJsonStreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWS_SBJsonStreamParser.m; sourceTree = "<group>"; };
+		D0C5651314BB72D2002C4FEF /* AWS_SBJsonStreamParserAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWS_SBJsonStreamParserAccumulator.h; sourceTree = "<group>"; };
+		D0C5651414BB72D2002C4FEF /* AWS_SBJsonStreamParserAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWS_SBJsonStreamParserAccumulator.m; sourceTree = "<group>"; };
+		D0C5651514BB72D2002C4FEF /* AWS_SBJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWS_SBJsonStreamParserAdapter.h; sourceTree = "<group>"; };
+		D0C5651614BB72D2002C4FEF /* AWS_SBJsonStreamParserAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWS_SBJsonStreamParserAdapter.m; sourceTree = "<group>"; };
+		D0C5651714BB72D2002C4FEF /* AWS_SBJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWS_SBJsonStreamParserState.h; sourceTree = "<group>"; };
+		D0C5651814BB72D2002C4FEF /* AWS_SBJsonStreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWS_SBJsonStreamParserState.m; sourceTree = "<group>"; };
+		D0C5651914BB72D2002C4FEF /* AWS_SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWS_SBJsonStreamWriter.h; sourceTree = "<group>"; };
+		D0C5651A14BB72D2002C4FEF /* AWS_SBJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWS_SBJsonStreamWriter.m; sourceTree = "<group>"; };
+		D0C5651B14BB72D2002C4FEF /* AWS_SBJsonStreamWriterAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWS_SBJsonStreamWriterAccumulator.h; sourceTree = "<group>"; };
+		D0C5651C14BB72D2002C4FEF /* AWS_SBJsonStreamWriterAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWS_SBJsonStreamWriterAccumulator.m; sourceTree = "<group>"; };
+		D0C5651D14BB72D2002C4FEF /* AWS_SBJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWS_SBJsonStreamWriterState.h; sourceTree = "<group>"; };
+		D0C5651E14BB72D2002C4FEF /* AWS_SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWS_SBJsonStreamWriterState.m; sourceTree = "<group>"; };
+		D0C5651F14BB72D2002C4FEF /* AWS_SBJsonTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWS_SBJsonTokeniser.h; sourceTree = "<group>"; };
+		D0C5652014BB72D2002C4FEF /* AWS_SBJsonTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWS_SBJsonTokeniser.m; sourceTree = "<group>"; };
+		D0C5652114BB72D2002C4FEF /* AWS_SBJsonUTF8Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWS_SBJsonUTF8Stream.h; sourceTree = "<group>"; };
+		D0C5652214BB72D2002C4FEF /* AWS_SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWS_SBJsonUTF8Stream.m; sourceTree = "<group>"; };
+		D0C5652314BB72D2002C4FEF /* AWS_SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWS_SBJsonWriter.h; sourceTree = "<group>"; };
+		D0C5652414BB72D2002C4FEF /* AWS_SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWS_SBJsonWriter.m; sourceTree = "<group>"; };
 		D0C9CFD813380FFB006BE1FE /* AmazonValueUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonValueUnmarshaller.m; sourceTree = "<group>"; };
 		D0DDA6B312A45CB5004B18C0 /* SNSRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSRequest.m; sourceTree = "<group>"; };
 		D0DDA6B512A45CC4004B18C0 /* SNSRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNSRequest.h; sourceTree = "<group>"; };
@@ -6230,7 +6348,7 @@
 				38085F8215AC8F7B00D2D529 /* Amazon.SES */,
 				D09F07B61294585C00376534 /* Amazon.SNS */,
 				384FC7B9163F06B6008E11CA /* Amazon.SQS */,
-				CE228B2C14DCC1E000A33431 /* Amazon.STS */,
+				3899419616558CE900A0927D /* Amazon.STS */,
 				0AFD9561128471A4004B7863 /* include */,
 				0AFD8DC212846372004B7863 /* Scripts */,
 				0AFD8DBF128462A0004B7863 /* Resources */,
@@ -6438,6 +6556,7 @@
 				0AFD8D6312836644004B7863 /* AmazonServiceRequest.m */,
 				0AFD8D681283667C004B7863 /* AmazonServiceResponse.m */,
 				0A99250A12DB7601000B298D /* AmazonServiceRequestConfig.m */,
+				38E1D28416C5B73B00613C99 /* AmazonStaticCredentialsProvider.m */,
 			);
 			path = Amazon.Runtime;
 			sourceTree = "<group>";
@@ -6474,6 +6593,7 @@
 				38EFEA71161F542C0069348B /* AmazonBoolValueUnmarshaller.h */,
 				38EFEA72161F542C0069348B /* AmazonClientException.h */,
 				38EFEA73161F542C0069348B /* AmazonCredentials.h */,
+				38E1D27D16C5B55300613C99 /* AmazonCredentialsProvider.h */,
 				38EFEA74161F542C0069348B /* AmazonDictionaryUnmarshaller.h */,
 				38EFEA75161F542C0069348B /* AmazonEndpoints.h */,
 				38EFEA76161F542C0069348B /* AmazonErrorHandler.h */,
@@ -6490,6 +6610,7 @@
 				38EFEA81161F542C0069348B /* AmazonServiceResponse.h */,
 				38EFEA82161F542C0069348B /* AmazonServiceResponseUnmarshaller.h */,
 				38EFEA83161F542C0069348B /* AmazonSignatureException.h */,
+				38E1D28716C5B76200613C99 /* AmazonStaticCredentialsProvider.h */,
 				38EFEA84161F542C0069348B /* AmazonUnmarshallerXMLParserDelegate.h */,
 				38EFEA85161F542C0069348B /* AmazonURLRequest.h */,
 				38EFEA86161F542C0069348B /* AmazonValueUnmarshaller.h */,
@@ -6504,7 +6625,7 @@
 				3808603815AC8F9C00D2D529 /* SES */,
 				D09F08B8129458A600376534 /* SNS */,
 				384FC871163F06C9008E11CA /* SQS */,
-				CE228B5314DCC20000A33431 /* STS */,
+				389941C816558CFD00A0927D /* STS */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -7130,6 +7251,78 @@
 			path = SQS;
 			sourceTree = "<group>";
 		};
+		3899419616558CE900A0927D /* Amazon.STS */ = {
+			isa = PBXGroup;
+			children = (
+				3899419716558CE900A0927D /* AmazonSecurityTokenServiceClient.m */,
+				3899419816558CE900A0927D /* Model */,
+				389941AD16558CE900A0927D /* SecurityTokenServiceRequest.m */,
+				389941AE16558CE900A0927D /* SecurityTokenServiceResponse.m */,
+				389941AF16558CE900A0927D /* SecurityTokenServiceResponseUnmarshaller.m */,
+				38E1D28A16C5BF4C00613C99 /* AmazonSTSCredentialsProvider.m */,
+			);
+			path = Amazon.STS;
+			sourceTree = "<group>";
+		};
+		3899419816558CE900A0927D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3899419916558CE900A0927D /* SecurityTokenServiceAssumedRoleUser.m */,
+				3899419A16558CE900A0927D /* SecurityTokenServiceAssumedRoleUserUnmarshaller.m */,
+				3899419B16558CE900A0927D /* SecurityTokenServiceAssumeRoleRequest.m */,
+				3899419C16558CE900A0927D /* SecurityTokenServiceAssumeRoleRequestMarshaller.m */,
+				3899419D16558CE900A0927D /* SecurityTokenServiceAssumeRoleResponse.m */,
+				3899419E16558CE900A0927D /* SecurityTokenServiceAssumeRoleResponseUnmarshaller.m */,
+				3899419F16558CE900A0927D /* SecurityTokenServiceCredentials.m */,
+				389941A016558CE900A0927D /* SecurityTokenServiceCredentialsUnmarshaller.m */,
+				389941A116558CE900A0927D /* SecurityTokenServiceFederatedUser.m */,
+				389941A216558CE900A0927D /* SecurityTokenServiceFederatedUserUnmarshaller.m */,
+				389941A316558CE900A0927D /* SecurityTokenServiceGetFederationTokenRequest.m */,
+				389941A416558CE900A0927D /* SecurityTokenServiceGetFederationTokenRequestMarshaller.m */,
+				389941A516558CE900A0927D /* SecurityTokenServiceGetFederationTokenResponse.m */,
+				389941A616558CE900A0927D /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.m */,
+				389941A716558CE900A0927D /* SecurityTokenServiceGetSessionTokenRequest.m */,
+				389941A816558CE900A0927D /* SecurityTokenServiceGetSessionTokenRequestMarshaller.m */,
+				389941A916558CE900A0927D /* SecurityTokenServiceGetSessionTokenResponse.m */,
+				389941AA16558CE900A0927D /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.m */,
+				389941AB16558CE900A0927D /* SecurityTokenServiceMalformedPolicyDocumentException.m */,
+				389941AC16558CE900A0927D /* SecurityTokenServicePackedPolicyTooLargeException.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		389941C816558CFD00A0927D /* STS */ = {
+			isa = PBXGroup;
+			children = (
+				389941C916558CFD00A0927D /* AmazonSecurityTokenServiceClient.h */,
+				389941CA16558CFD00A0927D /* SecurityTokenServiceAssumedRoleUser.h */,
+				389941CB16558CFD00A0927D /* SecurityTokenServiceAssumedRoleUserUnmarshaller.h */,
+				389941CC16558CFD00A0927D /* SecurityTokenServiceAssumeRoleRequest.h */,
+				389941CD16558CFD00A0927D /* SecurityTokenServiceAssumeRoleRequestMarshaller.h */,
+				389941CE16558CFD00A0927D /* SecurityTokenServiceAssumeRoleResponse.h */,
+				389941CF16558CFD00A0927D /* SecurityTokenServiceAssumeRoleResponseUnmarshaller.h */,
+				389941D016558CFD00A0927D /* SecurityTokenServiceCredentials.h */,
+				389941D116558CFD00A0927D /* SecurityTokenServiceCredentialsUnmarshaller.h */,
+				389941D216558CFD00A0927D /* SecurityTokenServiceFederatedUser.h */,
+				389941D316558CFD00A0927D /* SecurityTokenServiceFederatedUserUnmarshaller.h */,
+				389941D416558CFD00A0927D /* SecurityTokenServiceGetFederationTokenRequest.h */,
+				389941D516558CFD00A0927D /* SecurityTokenServiceGetFederationTokenRequestMarshaller.h */,
+				389941D616558CFD00A0927D /* SecurityTokenServiceGetFederationTokenResponse.h */,
+				389941D716558CFD00A0927D /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.h */,
+				389941D816558CFD00A0927D /* SecurityTokenServiceGetSessionTokenRequest.h */,
+				389941D916558CFD00A0927D /* SecurityTokenServiceGetSessionTokenRequestMarshaller.h */,
+				389941DA16558CFD00A0927D /* SecurityTokenServiceGetSessionTokenResponse.h */,
+				389941DB16558CFD00A0927D /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.h */,
+				389941DC16558CFD00A0927D /* SecurityTokenServiceMalformedPolicyDocumentException.h */,
+				389941DD16558CFD00A0927D /* SecurityTokenServicePackedPolicyTooLargeException.h */,
+				389941DE16558CFD00A0927D /* SecurityTokenServiceRequest.h */,
+				389941DF16558CFD00A0927D /* SecurityTokenServiceResponse.h */,
+				389941E016558CFD00A0927D /* SecurityTokenServiceResponseUnmarshaller.h */,
+				38E1D28D16C5BF7500613C99 /* AmazonSTSCredentialsProvider.h */,
+			);
+			path = STS;
+			sourceTree = "<group>";
+		};
 		389F3934164D9E9000272BA2 /* Amazon.EC2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -7145,6 +7338,10 @@
 		389F3939164D9E9000272BA2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C416BD0E16BCA24A00B0290C /* EC2CopySnapshotRequest.m */,
+				C416BD0F16BCA24A00B0290C /* EC2CopySnapshotRequestMarshaller.m */,
+				C416BD1016BCA24A00B0290C /* EC2CopySnapshotResponse.m */,
+				C416BD1116BCA24A00B0290C /* EC2CopySnapshotResponseUnmarshaller.m */,
 				389F393A164D9E9000272BA2 /* EC2ActivateLicenseRequest.m */,
 				389F393B164D9E9000272BA2 /* EC2ActivateLicenseRequestMarshaller.m */,
 				389F393C164D9E9000272BA2 /* EC2ActivateLicenseResponse.m */,
@@ -7380,6 +7577,10 @@
 				389F3A22164D9E9100272BA2 /* EC2DescribeSpotPriceHistoryRequestMarshaller.m */,
 				389F3A23164D9E9100272BA2 /* EC2DescribeSpotPriceHistoryResponse.m */,
 				389F3A24164D9E9100272BA2 /* EC2DescribeSpotPriceHistoryResponseUnmarshaller.m */,
+				C4A4784916A4AE3800B64442 /* EC2DescribeSubnetsRequest.m */,
+				C4A4784A16A4AE3800B64442 /* EC2DescribeSubnetsRequestMarshaller.m */,
+				C4A4784B16A4AE3800B64442 /* EC2DescribeSubnetsResponse.m */,
+				C4A4784C16A4AE3800B64442 /* EC2DescribeSubnetsResponseUnmarshaller.m */,
 				389F3A25164D9E9100272BA2 /* EC2DescribeTagsRequest.m */,
 				389F3A26164D9E9100272BA2 /* EC2DescribeTagsRequestMarshaller.m */,
 				389F3A27164D9E9100272BA2 /* EC2DescribeTagsResponse.m */,
@@ -7396,6 +7597,10 @@
 				389F3A32164D9E9100272BA2 /* EC2DescribeVolumeStatusRequestMarshaller.m */,
 				389F3A33164D9E9100272BA2 /* EC2DescribeVolumeStatusResponse.m */,
 				389F3A34164D9E9100272BA2 /* EC2DescribeVolumeStatusResponseUnmarshaller.m */,
+				C4A4784D16A4AE3800B64442 /* EC2DescribeVpcsRequest.m */,
+				C4A4784E16A4AE3800B64442 /* EC2DescribeVpcsRequestMarshaller.m */,
+				C4A4784F16A4AE3800B64442 /* EC2DescribeVpcsResponse.m */,
+				C4A4785016A4AE3800B64442 /* EC2DescribeVpcsResponseUnmarshaller.m */,
 				389F3A35164D9E9100272BA2 /* EC2DetachVolumeRequest.m */,
 				389F3A36164D9E9100272BA2 /* EC2DetachVolumeRequestMarshaller.m */,
 				389F3A37164D9E9100272BA2 /* EC2DetachVolumeResponse.m */,
@@ -7636,6 +7841,8 @@
 				389F3B22164D9E9100272BA2 /* EC2StopInstancesResponseUnmarshaller.m */,
 				389F3B23164D9E9100272BA2 /* EC2Storage.m */,
 				389F3B24164D9E9100272BA2 /* EC2StorageUnmarshaller.m */,
+				C4A4785116A4AE3800B64442 /* EC2Subnet.m */,
+				C4A4785216A4AE3800B64442 /* EC2SubnetUnmarshaller.m */,
 				389F3B25164D9E9100272BA2 /* EC2Tag.m */,
 				389F3B26164D9E9100272BA2 /* EC2TagDescription.m */,
 				389F3B27164D9E9100272BA2 /* EC2TagDescriptionUnmarshaller.m */,
@@ -7665,6 +7872,8 @@
 				389F3B3F164D9E9100272BA2 /* EC2VolumeStatusItem.m */,
 				389F3B40164D9E9100272BA2 /* EC2VolumeStatusItemUnmarshaller.m */,
 				389F3B41164D9E9100272BA2 /* EC2VolumeUnmarshaller.m */,
+				C4A4785316A4AE3800B64442 /* EC2Vpc.m */,
+				C4A4785416A4AE3800B64442 /* EC2VpcUnmarshaller.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -7672,6 +7881,22 @@
 		389F3D4E164D9E9F00272BA2 /* EC2 */ = {
 			isa = PBXGroup;
 			children = (
+				C416BD1716BCA27200B0290C /* EC2CopySnapshotRequest.h */,
+				C416BD1816BCA27200B0290C /* EC2CopySnapshotRequestMarshaller.h */,
+				C416BD1916BCA27200B0290C /* EC2CopySnapshotResponse.h */,
+				C416BD1A16BCA27200B0290C /* EC2CopySnapshotResponseUnmarshaller.h */,
+				C4A4786216A4AE5600B64442 /* EC2DescribeSubnetsRequest.h */,
+				C4A4786316A4AE5600B64442 /* EC2DescribeSubnetsRequestMarshaller.h */,
+				C4A4786416A4AE5600B64442 /* EC2DescribeSubnetsResponse.h */,
+				C4A4786516A4AE5600B64442 /* EC2DescribeSubnetsResponseUnmarshaller.h */,
+				C4A4786616A4AE5600B64442 /* EC2DescribeVpcsRequest.h */,
+				C4A4786716A4AE5600B64442 /* EC2DescribeVpcsRequestMarshaller.h */,
+				C4A4786816A4AE5600B64442 /* EC2DescribeVpcsResponse.h */,
+				C4A4786916A4AE5600B64442 /* EC2DescribeVpcsResponseUnmarshaller.h */,
+				C4A4786A16A4AE5600B64442 /* EC2Subnet.h */,
+				C4A4786B16A4AE5600B64442 /* EC2SubnetUnmarshaller.h */,
+				C4A4786C16A4AE5600B64442 /* EC2Vpc.h */,
+				C4A4786D16A4AE5600B64442 /* EC2VpcUnmarshaller.h */,
 				389F3D4F164D9E9F00272BA2 /* AmazonEC2Client.h */,
 				389F3D50164D9E9F00272BA2 /* EC2ActivateLicenseRequest.h */,
 				389F3D51164D9E9F00272BA2 /* EC2ActivateLicenseRequestMarshaller.h */,
@@ -8204,6 +8429,7 @@
 			isa = PBXGroup;
 			children = (
 				38EFE7D1161F53FF0069348B /* AmazonS3Client.m */,
+				CE2BF34116CB32CF005189A8 /* S3TransferManager.m */,
 				38EFE7D2161F53FF0069348B /* Model */,
 				38EFE866161F53FF0069348B /* Util */,
 			);
@@ -8218,6 +8444,8 @@
 				38EFE7D5161F53FF0069348B /* DeleteError.m */,
 				38EFE7D6161F53FF0069348B /* S3AbortMultipartUploadRequest.m */,
 				38EFE7D7161F53FF0069348B /* S3AbortMultipartUploadResponse.m */,
+				CE2BF33516CB32C2005189A8 /* S3AbortMultiplartUploadsOperation.h */,
+				CE2BF33616CB32C2005189A8 /* S3AbortMultiplartUploadsOperation.m */,
 				38EFE7D8161F53FF0069348B /* S3AbstractPutRequest.m */,
 				38EFE7D9161F53FF0069348B /* S3AccessControlList.m */,
 				38EFE7DA161F53FF0069348B /* S3AccessControlListUnmarshaller.m */,
@@ -8227,8 +8455,8 @@
 				38EFE7DE161F53FF0069348B /* S3BucketLifecycleConfiguration.m */,
 				38EFE7DF161F53FF0069348B /* S3BucketLifecycleConfigurationRule.m */,
 				38EFE7E0161F53FF0069348B /* S3BucketLifecycleConfigurationRuleUnmarshaller.m */,
-				38EFF1751625DC390069348B /* S3BucketLifecycleConfigurationTransitionUnmarshaller.m */,
 				38EFF1761625DC390069348B /* S3BucketLifecycleConfigurationTransition.m */,
+				38EFF1751625DC390069348B /* S3BucketLifecycleConfigurationTransitionUnmarshaller.m */,
 				38EFE7E1161F53FF0069348B /* S3BucketLifecycleConfigurationUnmarshaller.m */,
 				38EFE7E2161F53FF0069348B /* S3BucketNameUtilities.m */,
 				38EFE7E3161F53FF0069348B /* S3BucketPolicy.m */,
@@ -8329,6 +8557,8 @@
 				38EFE842161F53FF0069348B /* S3LocationConstraintUnmarshaller.m */,
 				38EFE843161F53FF0069348B /* S3MultiFactorAuthentication.m */,
 				38EFE844161F53FF0069348B /* S3MultipartUpload.m */,
+				CE2BF33716CB32C2005189A8 /* S3MultipartUploadOperation.h */,
+				CE2BF33816CB32C2005189A8 /* S3MultipartUploadOperation.m */,
 				38EFE845161F53FF0069348B /* S3MultipartUploadUnmarshaller.m */,
 				38EFE846161F53FF0069348B /* S3ObjectSummary.m */,
 				38EFE847161F53FF0069348B /* S3ObjectSummaryUnmarshaller.m */,
@@ -8337,14 +8567,16 @@
 				38EFE84A161F53FF0069348B /* S3Part.m */,
 				38EFE84B161F53FF0069348B /* S3PartUnmarshaller.m */,
 				38EFE84C161F53FF0069348B /* S3Permission.m */,
+				CE2BF33916CB32C2005189A8 /* S3PutObjectOperation.h */,
+				CE2BF33A16CB32C2005189A8 /* S3PutObjectOperation.m */,
 				38EFE84D161F53FF0069348B /* S3PutObjectRequest.m */,
 				38EFE84E161F53FF0069348B /* S3PutObjectResponse.m */,
 				38EFE84F161F53FF0069348B /* S3Region.m */,
 				38EFE850161F53FF0069348B /* S3Request.m */,
 				38EFE851161F53FF0069348B /* S3Response.m */,
 				38EFE852161F53FF0069348B /* S3ResponseHeaderOverrides.m */,
-				3830E61F1628801A000C443F /* S3RestoreObjectResponse.m */,
 				3830E6201628801A000C443F /* S3RestoreObjectRequest.m */,
+				3830E61F1628801A000C443F /* S3RestoreObjectResponse.m */,
 				38EFE853161F53FF0069348B /* S3SetACLRequest.m */,
 				38EFE854161F53FF0069348B /* S3SetACLResponse.m */,
 				38EFE855161F53FF0069348B /* S3SetBucketCrossOriginRequest.m */,
@@ -8770,10 +9002,6 @@
 		38EFF029161F547C0069348B /* S3 */ = {
 			isa = PBXGroup;
 			children = (
-				3830E62416288041000C443F /* S3RestoreObjectRequest.h */,
-				3830E62516288041000C443F /* S3RestoreObjectResponse.h */,
-				38EFF17A1625DC4F0069348B /* S3BucketLifecycleConfigurationTransition.h */,
-				38EFF17B1625DC4F0069348B /* S3BucketLifecycleConfigurationTransitionUnmarshaller.h */,
 				38EFF02A161F547C0069348B /* AmazonS3Client.h */,
 				38EFF02B161F547C0069348B /* BucketWebsiteConfiguration.h */,
 				38EFF02C161F547C0069348B /* DeletedObject.h */,
@@ -8789,6 +9017,8 @@
 				38EFF036161F547C0069348B /* S3BucketLifecycleConfiguration.h */,
 				38EFF037161F547C0069348B /* S3BucketLifecycleConfigurationRule.h */,
 				38EFF038161F547C0069348B /* S3BucketLifecycleConfigurationRuleUnmarshaller.h */,
+				38EFF17A1625DC4F0069348B /* S3BucketLifecycleConfigurationTransition.h */,
+				38EFF17B1625DC4F0069348B /* S3BucketLifecycleConfigurationTransitionUnmarshaller.h */,
 				38EFF039161F547C0069348B /* S3BucketLifecycleConfigurationUnmarshaller.h */,
 				38EFF03A161F547C0069348B /* S3BucketNameUtilities.h */,
 				38EFF03B161F547C0069348B /* S3BucketPolicy.h */,
@@ -8904,6 +9134,8 @@
 				38EFF0A9161F547C0069348B /* S3Request.h */,
 				38EFF0AA161F547C0069348B /* S3Response.h */,
 				38EFF0AB161F547C0069348B /* S3ResponseHeaderOverrides.h */,
+				3830E62416288041000C443F /* S3RestoreObjectRequest.h */,
+				3830E62516288041000C443F /* S3RestoreObjectResponse.h */,
 				38EFF0AC161F547C0069348B /* S3ServiceModel.h */,
 				38EFF0AD161F547C0069348B /* S3ServiceTransform.h */,
 				38EFF0AE161F547C0069348B /* S3SetACLRequest.h */,
@@ -8920,6 +9152,7 @@
 				38EFF0B9161F547C0069348B /* S3SetBucketVersioningConfigurationResponse.h */,
 				38EFF0BA161F547C0069348B /* S3SetBucketWebsiteConfigurationRequest.h */,
 				38EFF0BB161F547C0069348B /* S3SetBucketWebsiteConfigurationResponse.h */,
+				CE2BF33216CB329D005189A8 /* S3TransferManager.h */,
 				38EFF0BC161F547C0069348B /* S3UploadInputStream.h */,
 				38EFF0BD161F547C0069348B /* S3UploadPartRequest.h */,
 				38EFF0BE161F547C0069348B /* S3UploadPartResponse.h */,
@@ -8927,64 +9160,6 @@
 				38EFF0C0161F547C0069348B /* S3VersionSummaryUnmarshaller.h */,
 			);
 			path = S3;
-			sourceTree = "<group>";
-		};
-		CE228B2C14DCC1E000A33431 /* Amazon.STS */ = {
-			isa = PBXGroup;
-			children = (
-				CE5B46A614E063DC000267FA /* AmazonSecurityTokenServiceClient.m */,
-				CE228B2E14DCC1E000A33431 /* Model */,
-				CE228B3D14DCC1E000A33431 /* SecurityTokenServiceRequest.m */,
-				CE228B3E14DCC1E000A33431 /* SecurityTokenServiceResponse.m */,
-				CE228B3F14DCC1E000A33431 /* SecurityTokenServiceResponseUnmarshaller.m */,
-			);
-			path = Amazon.STS;
-			sourceTree = "<group>";
-		};
-		CE228B2E14DCC1E000A33431 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				CE228B2F14DCC1E000A33431 /* SecurityTokenServiceCredentials.m */,
-				CE228B3014DCC1E000A33431 /* SecurityTokenServiceCredentialsUnmarshaller.m */,
-				CE228B3114DCC1E000A33431 /* SecurityTokenServiceFederatedUser.m */,
-				CE228B3214DCC1E000A33431 /* SecurityTokenServiceFederatedUserUnmarshaller.m */,
-				CE228B3314DCC1E000A33431 /* SecurityTokenServiceGetFederationTokenRequest.m */,
-				CE228B3414DCC1E000A33431 /* SecurityTokenServiceGetFederationTokenRequestMarshaller.m */,
-				CE228B3514DCC1E000A33431 /* SecurityTokenServiceGetFederationTokenResponse.m */,
-				CE228B3614DCC1E000A33431 /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.m */,
-				CE228B3714DCC1E000A33431 /* SecurityTokenServiceGetSessionTokenRequest.m */,
-				CE228B3814DCC1E000A33431 /* SecurityTokenServiceGetSessionTokenRequestMarshaller.m */,
-				CE228B3914DCC1E000A33431 /* SecurityTokenServiceGetSessionTokenResponse.m */,
-				CE228B3A14DCC1E000A33431 /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.m */,
-				CE228B3B14DCC1E000A33431 /* SecurityTokenServiceMalformedPolicyDocumentException.m */,
-				CE228B3C14DCC1E000A33431 /* SecurityTokenServicePackedPolicyTooLargeException.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		CE228B5314DCC20000A33431 /* STS */ = {
-			isa = PBXGroup;
-			children = (
-				CE5B46A914E06402000267FA /* AmazonSecurityTokenServiceClient.h */,
-				CE228B5514DCC20000A33431 /* SecurityTokenServiceCredentials.h */,
-				CE228B5614DCC20000A33431 /* SecurityTokenServiceCredentialsUnmarshaller.h */,
-				CE228B5714DCC20000A33431 /* SecurityTokenServiceFederatedUser.h */,
-				CE228B5814DCC20000A33431 /* SecurityTokenServiceFederatedUserUnmarshaller.h */,
-				CE228B5914DCC20000A33431 /* SecurityTokenServiceGetFederationTokenRequest.h */,
-				CE228B5A14DCC20000A33431 /* SecurityTokenServiceGetFederationTokenRequestMarshaller.h */,
-				CE228B5B14DCC20000A33431 /* SecurityTokenServiceGetFederationTokenResponse.h */,
-				CE228B5C14DCC20000A33431 /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.h */,
-				CE228B5D14DCC20000A33431 /* SecurityTokenServiceGetSessionTokenRequest.h */,
-				CE228B5E14DCC20000A33431 /* SecurityTokenServiceGetSessionTokenRequestMarshaller.h */,
-				CE228B5F14DCC20000A33431 /* SecurityTokenServiceGetSessionTokenResponse.h */,
-				CE228B6014DCC20000A33431 /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.h */,
-				CE228B6114DCC20000A33431 /* SecurityTokenServiceMalformedPolicyDocumentException.h */,
-				CE228B6214DCC20000A33431 /* SecurityTokenServicePackedPolicyTooLargeException.h */,
-				CE228B6314DCC20000A33431 /* SecurityTokenServiceRequest.h */,
-				CE228B6414DCC20000A33431 /* SecurityTokenServiceResponse.h */,
-				CE228B6514DCC20000A33431 /* SecurityTokenServiceResponseUnmarshaller.h */,
-			);
-			path = STS;
 			sourceTree = "<group>";
 		};
 		D018B55F1358B634002D7716 /* Amazon.ElasticLoadBalancing */ = {
@@ -9538,31 +9713,31 @@
 		D0C5650B14BB72D2002C4FEF /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				D0C5650C14BB72D2002C4FEF /* JSON.h */,
 				D0C5650D14BB72D2002C4FEF /* LICENSE */,
-				D0C5650E14BB72D2002C4FEF /* SBJson.h */,
-				D0C5650F14BB72D2002C4FEF /* SBJsonParser.h */,
-				D0C5651014BB72D2002C4FEF /* SBJsonParser.m */,
-				D0C5651114BB72D2002C4FEF /* SBJsonStreamParser.h */,
-				D0C5651214BB72D2002C4FEF /* SBJsonStreamParser.m */,
-				D0C5651314BB72D2002C4FEF /* SBJsonStreamParserAccumulator.h */,
-				D0C5651414BB72D2002C4FEF /* SBJsonStreamParserAccumulator.m */,
-				D0C5651514BB72D2002C4FEF /* SBJsonStreamParserAdapter.h */,
-				D0C5651614BB72D2002C4FEF /* SBJsonStreamParserAdapter.m */,
-				D0C5651714BB72D2002C4FEF /* SBJsonStreamParserState.h */,
-				D0C5651814BB72D2002C4FEF /* SBJsonStreamParserState.m */,
-				D0C5651914BB72D2002C4FEF /* SBJsonStreamWriter.h */,
-				D0C5651A14BB72D2002C4FEF /* SBJsonStreamWriter.m */,
-				D0C5651B14BB72D2002C4FEF /* SBJsonStreamWriterAccumulator.h */,
-				D0C5651C14BB72D2002C4FEF /* SBJsonStreamWriterAccumulator.m */,
-				D0C5651D14BB72D2002C4FEF /* SBJsonStreamWriterState.h */,
-				D0C5651E14BB72D2002C4FEF /* SBJsonStreamWriterState.m */,
-				D0C5651F14BB72D2002C4FEF /* SBJsonTokeniser.h */,
-				D0C5652014BB72D2002C4FEF /* SBJsonTokeniser.m */,
-				D0C5652114BB72D2002C4FEF /* SBJsonUTF8Stream.h */,
-				D0C5652214BB72D2002C4FEF /* SBJsonUTF8Stream.m */,
-				D0C5652314BB72D2002C4FEF /* SBJsonWriter.h */,
-				D0C5652414BB72D2002C4FEF /* SBJsonWriter.m */,
+				CE17329716D8132A00DEC510 /* SBJson.h */,
+				D0C5650E14BB72D2002C4FEF /* AWS_SBJson.h */,
+				D0C5650F14BB72D2002C4FEF /* AWS_SBJsonParser.h */,
+				D0C5651014BB72D2002C4FEF /* AWS_SBJsonParser.m */,
+				D0C5651114BB72D2002C4FEF /* AWS_SBJsonStreamParser.h */,
+				D0C5651214BB72D2002C4FEF /* AWS_SBJsonStreamParser.m */,
+				D0C5651314BB72D2002C4FEF /* AWS_SBJsonStreamParserAccumulator.h */,
+				D0C5651414BB72D2002C4FEF /* AWS_SBJsonStreamParserAccumulator.m */,
+				D0C5651514BB72D2002C4FEF /* AWS_SBJsonStreamParserAdapter.h */,
+				D0C5651614BB72D2002C4FEF /* AWS_SBJsonStreamParserAdapter.m */,
+				D0C5651714BB72D2002C4FEF /* AWS_SBJsonStreamParserState.h */,
+				D0C5651814BB72D2002C4FEF /* AWS_SBJsonStreamParserState.m */,
+				D0C5651914BB72D2002C4FEF /* AWS_SBJsonStreamWriter.h */,
+				D0C5651A14BB72D2002C4FEF /* AWS_SBJsonStreamWriter.m */,
+				D0C5651B14BB72D2002C4FEF /* AWS_SBJsonStreamWriterAccumulator.h */,
+				D0C5651C14BB72D2002C4FEF /* AWS_SBJsonStreamWriterAccumulator.m */,
+				D0C5651D14BB72D2002C4FEF /* AWS_SBJsonStreamWriterState.h */,
+				D0C5651E14BB72D2002C4FEF /* AWS_SBJsonStreamWriterState.m */,
+				D0C5651F14BB72D2002C4FEF /* AWS_SBJsonTokeniser.h */,
+				D0C5652014BB72D2002C4FEF /* AWS_SBJsonTokeniser.m */,
+				D0C5652114BB72D2002C4FEF /* AWS_SBJsonUTF8Stream.h */,
+				D0C5652214BB72D2002C4FEF /* AWS_SBJsonUTF8Stream.m */,
+				D0C5652314BB72D2002C4FEF /* AWS_SBJsonWriter.h */,
+				D0C5652414BB72D2002C4FEF /* AWS_SBJsonWriter.m */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -9662,6 +9837,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE31477416D30B7E00BEDAA0 /* S3BucketLifecycleConfigurationTransition.h in Headers */,
+				CE31477516D30B7E00BEDAA0 /* S3BucketLifecycleConfigurationTransitionUnmarshaller.h in Headers */,
+				CE31477616D30B7E00BEDAA0 /* S3RestoreObjectRequest.h in Headers */,
+				CE31477716D30B7E00BEDAA0 /* S3RestoreObjectResponse.h in Headers */,
 				D054D569128C8AFE009B5334 /* AmazonSimpleDBClient.h in Headers */,
 				D054D56C128C8AFE009B5334 /* SimpleDBAttribute.h in Headers */,
 				D054D56D128C8AFE009B5334 /* SimpleDBAttributeDoesNotExistException.h in Headers */,
@@ -9987,19 +10166,18 @@
 				D04933D7140C18A5003EEADD /* ElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerRequestMarshaller.h in Headers */,
 				D04933D8140C18A5003EEADD /* ElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerResponse.h in Headers */,
 				D04933D9140C18A5003EEADD /* ElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerResponseUnmarshaller.h in Headers */,
-				D0C5652514BB72D2002C4FEF /* JSON.h in Headers */,
-				D0C5652614BB72D2002C4FEF /* SBJson.h in Headers */,
-				D0C5652714BB72D2002C4FEF /* SBJsonParser.h in Headers */,
-				D0C5652914BB72D2002C4FEF /* SBJsonStreamParser.h in Headers */,
-				D0C5652B14BB72D2002C4FEF /* SBJsonStreamParserAccumulator.h in Headers */,
-				D0C5652D14BB72D2002C4FEF /* SBJsonStreamParserAdapter.h in Headers */,
-				D0C5652F14BB72D2002C4FEF /* SBJsonStreamParserState.h in Headers */,
-				D0C5653114BB72D2002C4FEF /* SBJsonStreamWriter.h in Headers */,
-				D0C5653314BB72D2002C4FEF /* SBJsonStreamWriterAccumulator.h in Headers */,
-				D0C5653514BB72D2002C4FEF /* SBJsonStreamWriterState.h in Headers */,
-				D0C5653714BB72D2002C4FEF /* SBJsonTokeniser.h in Headers */,
-				D0C5653914BB72D2002C4FEF /* SBJsonUTF8Stream.h in Headers */,
-				D0C5653B14BB72D2002C4FEF /* SBJsonWriter.h in Headers */,
+				D0C5652614BB72D2002C4FEF /* AWS_SBJson.h in Headers */,
+				D0C5652714BB72D2002C4FEF /* AWS_SBJsonParser.h in Headers */,
+				D0C5652914BB72D2002C4FEF /* AWS_SBJsonStreamParser.h in Headers */,
+				D0C5652B14BB72D2002C4FEF /* AWS_SBJsonStreamParserAccumulator.h in Headers */,
+				D0C5652D14BB72D2002C4FEF /* AWS_SBJsonStreamParserAdapter.h in Headers */,
+				D0C5652F14BB72D2002C4FEF /* AWS_SBJsonStreamParserState.h in Headers */,
+				D0C5653114BB72D2002C4FEF /* AWS_SBJsonStreamWriter.h in Headers */,
+				D0C5653314BB72D2002C4FEF /* AWS_SBJsonStreamWriterAccumulator.h in Headers */,
+				D0C5653514BB72D2002C4FEF /* AWS_SBJsonStreamWriterState.h in Headers */,
+				D0C5653714BB72D2002C4FEF /* AWS_SBJsonTokeniser.h in Headers */,
+				D0C5653914BB72D2002C4FEF /* AWS_SBJsonUTF8Stream.h in Headers */,
+				D0C5653B14BB72D2002C4FEF /* AWS_SBJsonWriter.h in Headers */,
 				D02867CF14BFB8BE00184AC6 /* ElasticLoadBalancingApplySecurityGroupsToLoadBalancerRequest.h in Headers */,
 				D02867D014BFB8BE00184AC6 /* ElasticLoadBalancingApplySecurityGroupsToLoadBalancerRequestMarshaller.h in Headers */,
 				D02867D114BFB8BE00184AC6 /* ElasticLoadBalancingApplySecurityGroupsToLoadBalancerResponse.h in Headers */,
@@ -10023,24 +10201,6 @@
 				D02867EB14BFB8D500184AC6 /* SNSSetSubscriptionAttributesRequestMarshaller.h in Headers */,
 				D02867EC14BFB8D500184AC6 /* SNSSetSubscriptionAttributesResponse.h in Headers */,
 				D02867ED14BFB8D500184AC6 /* SNSSetSubscriptionAttributesResponseUnmarshaller.h in Headers */,
-				CE228B6714DCC20000A33431 /* SecurityTokenServiceCredentials.h in Headers */,
-				CE228B6814DCC20000A33431 /* SecurityTokenServiceCredentialsUnmarshaller.h in Headers */,
-				CE228B6914DCC20000A33431 /* SecurityTokenServiceFederatedUser.h in Headers */,
-				CE228B6A14DCC20000A33431 /* SecurityTokenServiceFederatedUserUnmarshaller.h in Headers */,
-				CE228B6B14DCC20000A33431 /* SecurityTokenServiceGetFederationTokenRequest.h in Headers */,
-				CE228B6C14DCC20000A33431 /* SecurityTokenServiceGetFederationTokenRequestMarshaller.h in Headers */,
-				CE228B6D14DCC20000A33431 /* SecurityTokenServiceGetFederationTokenResponse.h in Headers */,
-				CE228B6E14DCC20000A33431 /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.h in Headers */,
-				CE228B6F14DCC20000A33431 /* SecurityTokenServiceGetSessionTokenRequest.h in Headers */,
-				CE228B7014DCC20000A33431 /* SecurityTokenServiceGetSessionTokenRequestMarshaller.h in Headers */,
-				CE228B7114DCC20000A33431 /* SecurityTokenServiceGetSessionTokenResponse.h in Headers */,
-				CE228B7214DCC20000A33431 /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.h in Headers */,
-				CE228B7314DCC20000A33431 /* SecurityTokenServiceMalformedPolicyDocumentException.h in Headers */,
-				CE228B7414DCC20000A33431 /* SecurityTokenServicePackedPolicyTooLargeException.h in Headers */,
-				CE228B7514DCC20000A33431 /* SecurityTokenServiceRequest.h in Headers */,
-				CE228B7614DCC20000A33431 /* SecurityTokenServiceResponse.h in Headers */,
-				CE228B7714DCC20000A33431 /* SecurityTokenServiceResponseUnmarshaller.h in Headers */,
-				CE5B46AA14E06402000267FA /* AmazonSecurityTokenServiceClient.h in Headers */,
 				CEDA40F5151D519A002CBB54 /* CloudWatchMetricDatum.h in Headers */,
 				CEDA40F6151D519A002CBB54 /* CloudWatchPutMetricDataRequest.h in Headers */,
 				CEDA40F7151D519A002CBB54 /* CloudWatchPutMetricDataRequestMarshaller.h in Headers */,
@@ -11205,6 +11365,54 @@
 				389F4164164D9EA000272BA2 /* EC2VolumeStatusItem.h in Headers */,
 				389F4165164D9EA000272BA2 /* EC2VolumeStatusItemUnmarshaller.h in Headers */,
 				389F4166164D9EA000272BA2 /* EC2VolumeUnmarshaller.h in Headers */,
+				389941E116558CFD00A0927D /* AmazonSecurityTokenServiceClient.h in Headers */,
+				389941E216558CFD00A0927D /* SecurityTokenServiceAssumedRoleUser.h in Headers */,
+				389941E316558CFD00A0927D /* SecurityTokenServiceAssumedRoleUserUnmarshaller.h in Headers */,
+				389941E416558CFD00A0927D /* SecurityTokenServiceAssumeRoleRequest.h in Headers */,
+				389941E516558CFD00A0927D /* SecurityTokenServiceAssumeRoleRequestMarshaller.h in Headers */,
+				389941E616558CFD00A0927D /* SecurityTokenServiceAssumeRoleResponse.h in Headers */,
+				389941E716558CFD00A0927D /* SecurityTokenServiceAssumeRoleResponseUnmarshaller.h in Headers */,
+				389941E816558CFD00A0927D /* SecurityTokenServiceCredentials.h in Headers */,
+				389941E916558CFD00A0927D /* SecurityTokenServiceCredentialsUnmarshaller.h in Headers */,
+				389941EA16558CFD00A0927D /* SecurityTokenServiceFederatedUser.h in Headers */,
+				389941EB16558CFD00A0927D /* SecurityTokenServiceFederatedUserUnmarshaller.h in Headers */,
+				389941EC16558CFD00A0927D /* SecurityTokenServiceGetFederationTokenRequest.h in Headers */,
+				389941ED16558CFD00A0927D /* SecurityTokenServiceGetFederationTokenRequestMarshaller.h in Headers */,
+				389941EE16558CFD00A0927D /* SecurityTokenServiceGetFederationTokenResponse.h in Headers */,
+				389941EF16558CFD00A0927D /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.h in Headers */,
+				389941F016558CFD00A0927D /* SecurityTokenServiceGetSessionTokenRequest.h in Headers */,
+				389941F116558CFD00A0927D /* SecurityTokenServiceGetSessionTokenRequestMarshaller.h in Headers */,
+				389941F216558CFD00A0927D /* SecurityTokenServiceGetSessionTokenResponse.h in Headers */,
+				389941F316558CFD00A0927D /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.h in Headers */,
+				389941F416558CFD00A0927D /* SecurityTokenServiceMalformedPolicyDocumentException.h in Headers */,
+				389941F516558CFD00A0927D /* SecurityTokenServicePackedPolicyTooLargeException.h in Headers */,
+				389941F616558CFD00A0927D /* SecurityTokenServiceRequest.h in Headers */,
+				389941F716558CFD00A0927D /* SecurityTokenServiceResponse.h in Headers */,
+				389941F816558CFD00A0927D /* SecurityTokenServiceResponseUnmarshaller.h in Headers */,
+				38E1D27E16C5B55300613C99 /* AmazonCredentialsProvider.h in Headers */,
+				38E1D28816C5B76200613C99 /* AmazonStaticCredentialsProvider.h in Headers */,
+				38E1D28E16C5BF7500613C99 /* AmazonSTSCredentialsProvider.h in Headers */,
+				C4A4786E16A4AE5600B64442 /* EC2DescribeSubnetsRequest.h in Headers */,
+				C4A4786F16A4AE5600B64442 /* EC2DescribeSubnetsRequestMarshaller.h in Headers */,
+				C4A4787016A4AE5600B64442 /* EC2DescribeSubnetsResponse.h in Headers */,
+				C4A4787116A4AE5600B64442 /* EC2DescribeSubnetsResponseUnmarshaller.h in Headers */,
+				C4A4787216A4AE5600B64442 /* EC2DescribeVpcsRequest.h in Headers */,
+				C4A4787316A4AE5600B64442 /* EC2DescribeVpcsRequestMarshaller.h in Headers */,
+				C4A4787416A4AE5600B64442 /* EC2DescribeVpcsResponse.h in Headers */,
+				C4A4787516A4AE5600B64442 /* EC2DescribeVpcsResponseUnmarshaller.h in Headers */,
+				C4A4787616A4AE5600B64442 /* EC2Subnet.h in Headers */,
+				C4A4787716A4AE5600B64442 /* EC2SubnetUnmarshaller.h in Headers */,
+				C4A4787816A4AE5600B64442 /* EC2Vpc.h in Headers */,
+				C4A4787916A4AE5600B64442 /* EC2VpcUnmarshaller.h in Headers */,
+				C416BD1B16BCA27200B0290C /* EC2CopySnapshotRequest.h in Headers */,
+				C416BD1C16BCA27200B0290C /* EC2CopySnapshotRequestMarshaller.h in Headers */,
+				C416BD1D16BCA27200B0290C /* EC2CopySnapshotResponse.h in Headers */,
+				C416BD1E16BCA27200B0290C /* EC2CopySnapshotResponseUnmarshaller.h in Headers */,
+				CE2BF33416CB329D005189A8 /* S3TransferManager.h in Headers */,
+				CE2BF33B16CB32C2005189A8 /* S3AbortMultiplartUploadsOperation.h in Headers */,
+				CE2BF33D16CB32C2005189A8 /* S3MultipartUploadOperation.h in Headers */,
+				CE2BF33F16CB32C2005189A8 /* S3PutObjectOperation.h in Headers */,
+				CE17329816D8132A00DEC510 /* SBJson.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -11635,17 +11843,17 @@
 				D0493410140C18C9003EEADD /* ElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerRequestMarshaller.m in Sources */,
 				D0493411140C18C9003EEADD /* ElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerResponse.m in Sources */,
 				D0493412140C18C9003EEADD /* ElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerResponseUnmarshaller.m in Sources */,
-				D0C5652814BB72D2002C4FEF /* SBJsonParser.m in Sources */,
-				D0C5652A14BB72D2002C4FEF /* SBJsonStreamParser.m in Sources */,
-				D0C5652C14BB72D2002C4FEF /* SBJsonStreamParserAccumulator.m in Sources */,
-				D0C5652E14BB72D2002C4FEF /* SBJsonStreamParserAdapter.m in Sources */,
-				D0C5653014BB72D2002C4FEF /* SBJsonStreamParserState.m in Sources */,
-				D0C5653214BB72D2002C4FEF /* SBJsonStreamWriter.m in Sources */,
-				D0C5653414BB72D2002C4FEF /* SBJsonStreamWriterAccumulator.m in Sources */,
-				D0C5653614BB72D2002C4FEF /* SBJsonStreamWriterState.m in Sources */,
-				D0C5653814BB72D2002C4FEF /* SBJsonTokeniser.m in Sources */,
-				D0C5653A14BB72D2002C4FEF /* SBJsonUTF8Stream.m in Sources */,
-				D0C5653C14BB72D2002C4FEF /* SBJsonWriter.m in Sources */,
+				D0C5652814BB72D2002C4FEF /* AWS_SBJsonParser.m in Sources */,
+				D0C5652A14BB72D2002C4FEF /* AWS_SBJsonStreamParser.m in Sources */,
+				D0C5652C14BB72D2002C4FEF /* AWS_SBJsonStreamParserAccumulator.m in Sources */,
+				D0C5652E14BB72D2002C4FEF /* AWS_SBJsonStreamParserAdapter.m in Sources */,
+				D0C5653014BB72D2002C4FEF /* AWS_SBJsonStreamParserState.m in Sources */,
+				D0C5653214BB72D2002C4FEF /* AWS_SBJsonStreamWriter.m in Sources */,
+				D0C5653414BB72D2002C4FEF /* AWS_SBJsonStreamWriterAccumulator.m in Sources */,
+				D0C5653614BB72D2002C4FEF /* AWS_SBJsonStreamWriterState.m in Sources */,
+				D0C5653814BB72D2002C4FEF /* AWS_SBJsonTokeniser.m in Sources */,
+				D0C5653A14BB72D2002C4FEF /* AWS_SBJsonUTF8Stream.m in Sources */,
+				D0C5653C14BB72D2002C4FEF /* AWS_SBJsonWriter.m in Sources */,
 				D07E9DA114BB9C160007304E /* AmazonJSON.m in Sources */,
 				D02867A114BFB87400184AC6 /* ElasticLoadBalancingApplySecurityGroupsToLoadBalancerRequest.m in Sources */,
 				D02867A214BFB87400184AC6 /* ElasticLoadBalancingApplySecurityGroupsToLoadBalancerRequestMarshaller.m in Sources */,
@@ -11670,24 +11878,6 @@
 				D02867BD14BFB8A100184AC6 /* SNSSetSubscriptionAttributesRequestMarshaller.m in Sources */,
 				D02867BE14BFB8A100184AC6 /* SNSSetSubscriptionAttributesResponse.m in Sources */,
 				D02867BF14BFB8A100184AC6 /* SNSSetSubscriptionAttributesResponseUnmarshaller.m in Sources */,
-				CE228B4114DCC1E000A33431 /* SecurityTokenServiceCredentials.m in Sources */,
-				CE228B4214DCC1E000A33431 /* SecurityTokenServiceCredentialsUnmarshaller.m in Sources */,
-				CE228B4314DCC1E000A33431 /* SecurityTokenServiceFederatedUser.m in Sources */,
-				CE228B4414DCC1E000A33431 /* SecurityTokenServiceFederatedUserUnmarshaller.m in Sources */,
-				CE228B4514DCC1E000A33431 /* SecurityTokenServiceGetFederationTokenRequest.m in Sources */,
-				CE228B4614DCC1E000A33431 /* SecurityTokenServiceGetFederationTokenRequestMarshaller.m in Sources */,
-				CE228B4714DCC1E000A33431 /* SecurityTokenServiceGetFederationTokenResponse.m in Sources */,
-				CE228B4814DCC1E000A33431 /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.m in Sources */,
-				CE228B4914DCC1E000A33431 /* SecurityTokenServiceGetSessionTokenRequest.m in Sources */,
-				CE228B4A14DCC1E000A33431 /* SecurityTokenServiceGetSessionTokenRequestMarshaller.m in Sources */,
-				CE228B4B14DCC1E000A33431 /* SecurityTokenServiceGetSessionTokenResponse.m in Sources */,
-				CE228B4C14DCC1E000A33431 /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.m in Sources */,
-				CE228B4D14DCC1E000A33431 /* SecurityTokenServiceMalformedPolicyDocumentException.m in Sources */,
-				CE228B4E14DCC1E000A33431 /* SecurityTokenServicePackedPolicyTooLargeException.m in Sources */,
-				CE228B4F14DCC1E000A33431 /* SecurityTokenServiceRequest.m in Sources */,
-				CE228B5014DCC1E000A33431 /* SecurityTokenServiceResponse.m in Sources */,
-				CE228B5114DCC1E000A33431 /* SecurityTokenServiceResponseUnmarshaller.m in Sources */,
-				CE5B46A714E063DC000267FA /* AmazonSecurityTokenServiceClient.m in Sources */,
 				CEEDD5D214FC0EF6009BA65E /* AmazonAbstractWebServiceClient.m in Sources */,
 				38078EB91526217F006F384C /* DynamoDBExceptionUnmarshaller.m in Sources */,
 				38078EBA1526217F006F384C /* DynamoDBRequest.m in Sources */,
@@ -12820,6 +13010,52 @@
 				389F3D4B164D9E9100272BA2 /* EC2VolumeStatusItem.m in Sources */,
 				389F3D4C164D9E9100272BA2 /* EC2VolumeStatusItemUnmarshaller.m in Sources */,
 				389F3D4D164D9E9100272BA2 /* EC2VolumeUnmarshaller.m in Sources */,
+				389941B016558CE900A0927D /* AmazonSecurityTokenServiceClient.m in Sources */,
+				389941B116558CE900A0927D /* SecurityTokenServiceAssumedRoleUser.m in Sources */,
+				389941B216558CE900A0927D /* SecurityTokenServiceAssumedRoleUserUnmarshaller.m in Sources */,
+				389941B316558CE900A0927D /* SecurityTokenServiceAssumeRoleRequest.m in Sources */,
+				389941B416558CE900A0927D /* SecurityTokenServiceAssumeRoleRequestMarshaller.m in Sources */,
+				389941B516558CE900A0927D /* SecurityTokenServiceAssumeRoleResponse.m in Sources */,
+				389941B616558CE900A0927D /* SecurityTokenServiceAssumeRoleResponseUnmarshaller.m in Sources */,
+				389941B716558CE900A0927D /* SecurityTokenServiceCredentials.m in Sources */,
+				389941B816558CE900A0927D /* SecurityTokenServiceCredentialsUnmarshaller.m in Sources */,
+				389941B916558CE900A0927D /* SecurityTokenServiceFederatedUser.m in Sources */,
+				389941BA16558CE900A0927D /* SecurityTokenServiceFederatedUserUnmarshaller.m in Sources */,
+				389941BB16558CE900A0927D /* SecurityTokenServiceGetFederationTokenRequest.m in Sources */,
+				389941BC16558CE900A0927D /* SecurityTokenServiceGetFederationTokenRequestMarshaller.m in Sources */,
+				389941BD16558CE900A0927D /* SecurityTokenServiceGetFederationTokenResponse.m in Sources */,
+				389941BE16558CE900A0927D /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.m in Sources */,
+				389941BF16558CE900A0927D /* SecurityTokenServiceGetSessionTokenRequest.m in Sources */,
+				389941C016558CE900A0927D /* SecurityTokenServiceGetSessionTokenRequestMarshaller.m in Sources */,
+				389941C116558CE900A0927D /* SecurityTokenServiceGetSessionTokenResponse.m in Sources */,
+				389941C216558CE900A0927D /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.m in Sources */,
+				389941C316558CE900A0927D /* SecurityTokenServiceMalformedPolicyDocumentException.m in Sources */,
+				389941C416558CE900A0927D /* SecurityTokenServicePackedPolicyTooLargeException.m in Sources */,
+				389941C516558CE900A0927D /* SecurityTokenServiceRequest.m in Sources */,
+				389941C616558CE900A0927D /* SecurityTokenServiceResponse.m in Sources */,
+				389941C716558CE900A0927D /* SecurityTokenServiceResponseUnmarshaller.m in Sources */,
+				38E1D28616C5B73B00613C99 /* AmazonStaticCredentialsProvider.m in Sources */,
+				38E1D28C16C5BF4C00613C99 /* AmazonSTSCredentialsProvider.m in Sources */,
+				C4A4785516A4AE3800B64442 /* EC2DescribeSubnetsRequest.m in Sources */,
+				C4A4785616A4AE3800B64442 /* EC2DescribeSubnetsRequestMarshaller.m in Sources */,
+				C4A4785716A4AE3800B64442 /* EC2DescribeSubnetsResponse.m in Sources */,
+				C4A4785816A4AE3800B64442 /* EC2DescribeSubnetsResponseUnmarshaller.m in Sources */,
+				C4A4785916A4AE3800B64442 /* EC2DescribeVpcsRequest.m in Sources */,
+				C4A4785A16A4AE3800B64442 /* EC2DescribeVpcsRequestMarshaller.m in Sources */,
+				C4A4785B16A4AE3800B64442 /* EC2DescribeVpcsResponse.m in Sources */,
+				C4A4785C16A4AE3800B64442 /* EC2DescribeVpcsResponseUnmarshaller.m in Sources */,
+				C4A4785D16A4AE3800B64442 /* EC2Subnet.m in Sources */,
+				C4A4785E16A4AE3800B64442 /* EC2SubnetUnmarshaller.m in Sources */,
+				C4A4785F16A4AE3800B64442 /* EC2Vpc.m in Sources */,
+				C4A4786016A4AE3800B64442 /* EC2VpcUnmarshaller.m in Sources */,
+				C416BD1216BCA24A00B0290C /* EC2CopySnapshotRequest.m in Sources */,
+				C416BD1316BCA24A00B0290C /* EC2CopySnapshotRequestMarshaller.m in Sources */,
+				C416BD1416BCA24A00B0290C /* EC2CopySnapshotResponse.m in Sources */,
+				C416BD1516BCA24A00B0290C /* EC2CopySnapshotResponseUnmarshaller.m in Sources */,
+				CE2BF33C16CB32C2005189A8 /* S3AbortMultiplartUploadsOperation.m in Sources */,
+				CE2BF33E16CB32C2005189A8 /* S3MultipartUploadOperation.m in Sources */,
+				CE2BF34016CB32C2005189A8 /* S3PutObjectOperation.m in Sources */,
+				CE2BF34216CB32CF005189A8 /* S3TransferManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -12856,7 +13092,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"ARCHS[sdk=*]" = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Yosuke Matsuda (9PGC836KKV)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DOXYGEN_PATH = /Applications/Doxygen.app/Contents/Resources/doxygen;
 				DSTROOT = /tmp/s3.dst;
@@ -12877,7 +13113,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = AWSiOSSDK;
-				PROVISIONING_PROFILE = "4B05C84C-01AB-4AA6-8A3E-8B8EA60E9912";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
@@ -12889,7 +13125,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"ARCHS[sdk=*]" = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Yosuke Matsuda (9PGC836KKV)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DSTROOT = /tmp/s3.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -12901,7 +13137,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				HEADER_SEARCH_PATHS = (
 					"include/**",
-					ThirdParty,
+					"ThirdParty/**",
 				);
 				INSTALL_PATH = /usr/local/lib;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
@@ -12910,7 +13146,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = AWSiOSSDK;
-				PROVISIONING_PROFILE = "4B05C84C-01AB-4AA6-8A3E-8B8EA60E9912";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};

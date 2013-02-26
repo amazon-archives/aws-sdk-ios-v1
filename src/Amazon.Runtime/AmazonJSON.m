@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -19,22 +19,22 @@
 
 +(NSString *)JSONRepresentation:(NSObject *)object
 {
-    SBJsonWriter *writer = [[[SBJsonWriter alloc] init] autorelease];
+    AWS_SBJsonWriter *writer = [[[AWS_SBJsonWriter alloc] init] autorelease];
     NSString     *json   = [writer stringWithObject:object];
 
     if (!json) {
-        NSLog(@"-[AmazonJSON JSONRepresentation:json] failed. Error is: %@", writer.error);
+        AMZLog(@"-[AmazonJSON JSONRepresentation:json] failed. Error is: %@", writer.error);
     }
     return json;
 }
 
 +(id)JSONValue:(NSString *)jsonString
 {
-    SBJsonParser *parser = [[[SBJsonParser alloc] init] autorelease];
+    AWS_SBJsonParser *parser = [[[AWS_SBJsonParser alloc] init] autorelease];
     id           repr    = [parser objectWithString:jsonString];
 
     if (!repr) {
-        NSLog(@"-JSONValue failed. Error is: %@", parser.error);
+        AMZLog(@"-JSONValue failed. Error is: %@", parser.error);
     }
     return repr;
 }

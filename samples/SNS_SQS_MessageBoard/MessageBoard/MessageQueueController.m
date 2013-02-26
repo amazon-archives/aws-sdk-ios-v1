@@ -15,7 +15,7 @@
 
 #import "MessageQueueController.h"
 #import "MessageBoard.h"
-#import <AWSiOSSDK/SBJsonParser.h>
+#import <AWSiOSSDK/AWS_SBJsonParser.h>
 
 // View used to display the messages in the queue.
 @implementation MessageQueueController
@@ -116,7 +116,7 @@
 
 -(NSString *)extractMessageFromJson:(NSString *)json
 {
-    SBJsonParser *parser = [[SBJsonParser new] autorelease];
+    AWS_SBJsonParser *parser = [[AWS_SBJsonParser new] autorelease];
     NSDictionary *jsonDic = [parser objectWithString:json];
     
     return [jsonDic objectForKey:@"Message"];

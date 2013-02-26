@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -30,6 +30,8 @@
 @synthesize instanceMonitoring;
 @synthesize spotPrice;
 @synthesize iamInstanceProfile;
+@synthesize ebsOptimized;
+@synthesize ebsOptimizedIsSet;
 
 
 -(id)init
@@ -47,6 +49,8 @@
         instanceMonitoring      = nil;
         spotPrice               = nil;
         iamInstanceProfile      = nil;
+        ebsOptimized            = NO;
+        ebsOptimizedIsSet       = NO;
     }
 
     return self;
@@ -89,12 +93,19 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"InstanceMonitoring: %@,", instanceMonitoring] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"SpotPrice: %@,", spotPrice] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"IamInstanceProfile: %@,", iamInstanceProfile] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"EbsOptimized: %d,", ebsOptimized] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
     return [buffer autorelease];
 }
 
+
+-(void)setEbsOptimized:(bool)theValue
+{
+    ebsOptimized      = theValue;
+    ebsOptimizedIsSet = YES;
+}
 
 
 -(void)dealloc

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -34,13 +34,14 @@
 
 /**
  * The duration, in seconds, that the credentials should remain valid.
- * Acceptable durations for IAM user sessions range from 3600s (one hour)
- * to 129600s (36 hours), with 43200s (12 hours) as the default. Sessions
- * for AWS account owners are restricted to a maximum of 3600s (one
- * hour).
+ * Acceptable durations for IAM user sessions range from 900s (15
+ * minutes) to 129600s (36 hours), with 43200s (12 hours) as the default.
+ * Sessions for AWS account owners are restricted to a maximum of 3600s
+ * (one hour). If the duration is longer than one hour, the session for
+ * AWS account owners defaults to one hour.
  * <p>
  * <b>Constraints:</b><br/>
- * <b>Range: </b>3600 - 129600<br/>
+ * <b>Range: </b>900 - 129600<br/>
  */
 @property (nonatomic, retain) NSNumber *durationSeconds;
 

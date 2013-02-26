@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -49,14 +49,14 @@
  *
  * @param theMessage The user-friendly message
  */
-+(AmazonClientException *)exceptionWithMessage:(NSString *)theMessage;
++(id)exceptionWithMessage:(NSString *)theMessage;
 
 /** Return an exception with the given message and error.
  *
  * @param theMessage The user-friendly message
  * @param theError The error
  */
-+(AmazonClientException *)exceptionWithMessage:(NSString *)theMessage andError:(NSError *)theError;
++(id)exceptionWithMessage:(NSString *)theMessage andError:(NSError *)theError;
 
 
 @end

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -36,6 +36,14 @@
     return self;
 }
 
+-(id)initWithCredentialsProvider:(id<AmazonCredentialsProvider> )theProvider
+{
+    if (self = [super initWithCredentialsProvider:theProvider]) {
+        self.endpoint = AMAZON_STS_ENDPOINT_SECURE;
+    }
+    return self;
+}
+
 -(SecurityTokenServiceGetSessionTokenResponse *)getSessionToken:(SecurityTokenServiceGetSessionTokenRequest *)getSessionTokenRequest
 {
     AmazonServiceRequest *request = [SecurityTokenServiceGetSessionTokenRequestMarshaller createRequest:getSessionTokenRequest];
@@ -48,6 +56,13 @@
     AmazonServiceRequest *request = [SecurityTokenServiceGetFederationTokenRequestMarshaller createRequest:getFederationTokenRequest];
 
     return (SecurityTokenServiceGetFederationTokenResponse *)[self invoke:request rawRequest:getFederationTokenRequest unmarshallerDelegate:[SecurityTokenServiceGetFederationTokenResponseUnmarshaller class]];
+}
+
+-(SecurityTokenServiceAssumeRoleResponse *)assumeRole:(SecurityTokenServiceAssumeRoleRequest *)assumeRoleRequest
+{
+    AmazonServiceRequest *request = [SecurityTokenServiceAssumeRoleRequestMarshaller createRequest:assumeRoleRequest];
+
+    return (SecurityTokenServiceAssumeRoleResponse *)[self invoke:request rawRequest:assumeRoleRequest unmarshallerDelegate:[SecurityTokenServiceAssumeRoleResponseUnmarshaller class]];
 }
 
 

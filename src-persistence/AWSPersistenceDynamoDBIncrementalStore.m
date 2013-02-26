@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -16,6 +16,7 @@
 #import "AWSPersistenceDynamoDBIncrementalStore.h"
 #import <objc/message.h>
 #import <AWSiOSSDK/AmazonErrorHandler.h>
+#import <AWSiOSSDK/DynamoDB/AmazonDynamoDBClient.h>
 
 // Public Constants
 NSString *const AWSPersistenceDynamoDBIncrementalStoreType = @"AWSPersistenceDynamoDBIncrementalStore";
@@ -23,6 +24,7 @@ NSString *const AWSPersistenceDynamoDBHashKey = @"hashKeys";
 NSString *const AWSPersistenceDynamoDBVersionKey = @"versions";
 NSString *const AWSPersistenceDynamoDBDelegate = @"delegate";
 NSString *const AWSPersistenceDynamoDBTableMapper = @"tableMapper";
+NSString *const AWSPersistenceDynamoDBClient = @"dynamoDbClient";
 
 NSString *const AWSPersistenceDynamoDBServiceErrorDomain = @"com.amazonaws.coredata.AWSPersistenceDynamoDBServiceErrorDomain";
 NSString *const AWSPersistenceDynamoDBClientErrorDomain = @"com.amazonaws.coredata.AWSPersistenceDynamoDBClientErrorDomain";
@@ -32,18 +34,21 @@ NSString *const AWSPersistenceDynamoDBObjectDeletedNotificationHashKey = @"hashK
 NSString *const AWSPersistenceDynamoDBObjectDeletedNotificationEntityName = @"entityName";
 NSString *const AWSPersistenceDynamoDBObjectDeletedNotificationObjectID = @"objectID";
 
-NSString *const AWSPersistenceDynamoDBEndpoint = @"endpoint";
-NSString *const AWSPersistenceDynamoDBMaxRetries = @"maxRetries";
-NSString *const AWSPersistenceDynamoDBTimeout = @"timeout";
-NSString *const AWSPersistenceDynamoDBDelay = @"delay";
-NSString *const AWSPersistenceDynamoDBUserAgent = @"userAgent";
-
 // Private Constants
 NSString *const AWSPersistenceDynamoDBUserAgentPrefix = @"Persistence Framework";
 
+@interface AWSPersistenceDynamoDBIncrementalStore ()
+{}
+
+@property (nonatomic, retain) AmazonDynamoDBClient *ddb;
+
+@end
+
 @implementation AWSPersistenceDynamoDBIncrementalStore
 
-@synthesize initialBackoffTimeInSecond, retryCount;
+@synthesize initialBackoffTimeInSecond = _initialBackoffTimeInSecond;
+@synthesize retryCount = _retryCount;
+@synthesize ddb = _ddb;
 
 #pragma mark - NSIncrementalStore Methods
 
@@ -62,6 +67,13 @@ NSString *const AWSPersistenceDynamoDBUserAgentPrefix = @"Persistence Framework"
 
         self.initialBackoffTimeInSecond = 0.8;
         self.retryCount = 3;
+
+        // Setting up the DynamoDB client.
+        self.ddb = [[self.options objectForKey:AWSPersistenceDynamoDBClient] copy];
+        if(![self.ddb.userAgent hasPrefix:AWSPersistenceDynamoDBUserAgentPrefix])
+        {
+            self.ddb.userAgent = AWSPersistenceDynamoDBUserAgentPrefix;
+        }
     }
 
     return self;
@@ -71,10 +83,9 @@ NSString *const AWSPersistenceDynamoDBUserAgentPrefix = @"Persistence Framework"
 {
     AMZLogDebug(@"- (BOOL)loadMetadata:(NSError **)error called.");
 
-    AmazonCredentials *credentials = [delegate credentials];
+    AmazonCredentials *credentials = [self.ddb.provider credentials];
     if([credentials.accessKey length] > 0
-       && [credentials.secretKey length] > 0
-       && [credentials.securityToken length] > 0)
+       && [credentials.secretKey length] > 0)
     {
         [self setMetadata:[NSDictionary dictionaryWithObjectsAndKeys:
                            AWSPersistenceDynamoDBIncrementalStoreType, NSStoreTypeKey,
@@ -215,8 +226,7 @@ NSString *const AWSPersistenceDynamoDBUserAgentPrefix = @"Persistence Framework"
                                                                                             andKey:key];
         getItemRequest.consistentRead = YES;
 
-        AmazonDynamoDBClient *dynamoDBClient = [self dynamoDBClient];
-        DynamoDBGetItemResponse *getItemResponse = [dynamoDBClient getItem:getItemRequest];
+        DynamoDBGetItemResponse *getItemResponse = [self.ddb getItem:getItemRequest];
 
         if(getItemResponse.error == nil)
         {
@@ -325,8 +335,7 @@ NSString *const AWSPersistenceDynamoDBUserAgentPrefix = @"Persistence Framework"
                                                                                             andKey:key];
         getItemRequest.consistentRead = YES;
 
-        AmazonDynamoDBClient *dynamoDBClient = [self dynamoDBClient];
-        DynamoDBGetItemResponse *getItemResponse = [dynamoDBClient getItem:getItemRequest];
+        DynamoDBGetItemResponse *getItemResponse = [self.ddb getItem:getItemRequest];
 
         if(getItemResponse.error == nil)
         {
@@ -430,45 +439,6 @@ NSString *const AWSPersistenceDynamoDBUserAgentPrefix = @"Persistence Framework"
     return [NSArray arrayWithArray:resultArray];
 }
 
-#pragma mark - DynamoDBClient Management Methods
-
-- (AmazonDynamoDBClient *)dynamoDBClient
-{
-    AmazonDynamoDBClient *dynamoDBClient = [[AmazonDynamoDBClient alloc] initWithCredentials:[delegate credentials]];
-
-    if([self.options objectForKey:AWSPersistenceDynamoDBEndpoint] != nil)
-    {
-        dynamoDBClient.endpoint = [self.options objectForKey:AWSPersistenceDynamoDBEndpoint];
-    }
-
-    if([self.options objectForKey:AWSPersistenceDynamoDBMaxRetries] != nil)
-    {
-        dynamoDBClient.maxRetries = [[self.options objectForKey:AWSPersistenceDynamoDBMaxRetries] intValue];
-    }
-
-    if([self.options objectForKey:AWSPersistenceDynamoDBTimeout] != nil)
-    {
-        dynamoDBClient.timeout = [[self.options objectForKey:AWSPersistenceDynamoDBTimeout] doubleValue];
-    }
-
-    if([self.options objectForKey:AWSPersistenceDynamoDBDelay] != nil)
-    {
-        dynamoDBClient.delay = [[self.options objectForKey:AWSPersistenceDynamoDBDelay] doubleValue];
-    }
-
-    if(![dynamoDBClient.userAgent hasPrefix:AWSPersistenceDynamoDBUserAgentPrefix])
-    {
-        if([self.options objectForKey:AWSPersistenceDynamoDBUserAgent] != nil)
-        {
-            dynamoDBClient.userAgent = [self.options objectForKey:AWSPersistenceDynamoDBUserAgent];
-        }
-
-        dynamoDBClient.userAgent = AWSPersistenceDynamoDBUserAgentPrefix;
-    }
-
-    return dynamoDBClient;
-}
-
 #pragma mark - DynamoDB Methods
 
 - (NSMutableArray *)scan:(NSFetchRequest *)request withContext:(NSManagedObjectContext *)context error:(NSError **)error
@@ -489,8 +459,7 @@ NSString *const AWSPersistenceDynamoDBUserAgentPrefix = @"Persistence Framework"
         do {
             scanRequest.exclusiveStartKey = lastEvaluatedKey;
 
-            AmazonDynamoDBClient *dynamoDBClient = [self dynamoDBClient];
-            response = [dynamoDBClient scan:scanRequest];
+            response = [self.ddb scan:scanRequest];
 
             if(response.error == nil)
             {
@@ -552,8 +521,7 @@ NSString *const AWSPersistenceDynamoDBUserAgentPrefix = @"Persistence Framework"
         getItemRequest.consistentRead = YES;
         getItemRequest.attributesToGet = [NSMutableArray arrayWithObject:[self hashKeyForEntityName:request.entity.name]];
 
-        AmazonDynamoDBClient *dynamoDBClient = [self dynamoDBClient];
-        DynamoDBGetItemResponse *getItemResponse = [dynamoDBClient getItem:getItemRequest];
+        DynamoDBGetItemResponse *getItemResponse = [self.ddb getItem:getItemRequest];
 
         if(getItemResponse.error == nil)
         {
@@ -668,11 +636,9 @@ NSString *const AWSPersistenceDynamoDBUserAgentPrefix = @"Persistence Framework"
             {
                 DynamoDBBatchWriteItemResponse * batchWriteResponse = nil;
 
-                AmazonDynamoDBClient *dynamoDBClient = [self dynamoDBClient];
-
                 for(int i = 0; i < self.retryCount + 1; i++)
                 {
-                    batchWriteResponse = [dynamoDBClient batchWriteItem:batchWriteRequest];
+                    batchWriteResponse = [self.ddb batchWriteItem:batchWriteRequest];
 
                     if(batchWriteResponse.error == nil)
                     {
@@ -832,8 +798,7 @@ NSString *const AWSPersistenceDynamoDBUserAgentPrefix = @"Persistence Framework"
                                                                                                          andKey:hashKey
                                                                                             andAttributeUpdates:userDic];
 
-            AmazonDynamoDBClient *dynamoDBClient = [self dynamoDBClient];
-            DynamoDBUpdateItemResponse *updateItemResponse = [dynamoDBClient updateItem:updateItemRequest];
+            DynamoDBUpdateItemResponse *updateItemResponse = [self.ddb updateItem:updateItemRequest];
 
             if(updateItemResponse.error == nil)
             {
@@ -842,7 +807,7 @@ NSString *const AWSPersistenceDynamoDBUserAgentPrefix = @"Persistence Framework"
                     DynamoDBUpdateItemRequest *updateItemRequest = [[DynamoDBUpdateItemRequest alloc] initWithTableName:[self tableNameForEntityName:managedObject.entity.name]
                                                                                                                  andKey:hashKey
                                                                                                     andAttributeUpdates:userDicForDelete];
-                    updateItemResponse = [dynamoDBClient updateItem:updateItemRequest];
+                    updateItemResponse = [self.ddb updateItem:updateItemRequest];
                     if(updateItemResponse.error != nil)
                     {
                         *error = updateItemResponse.error;
@@ -900,11 +865,9 @@ NSString *const AWSPersistenceDynamoDBUserAgentPrefix = @"Persistence Framework"
             {
                 DynamoDBBatchWriteItemResponse * batchWriteResponse = nil;
 
-                AmazonDynamoDBClient *dynamoDBClient = [self dynamoDBClient];
-
                 for(int i = 0; i < self.retryCount + 1; i++)
                 {
-                    batchWriteResponse = [dynamoDBClient batchWriteItem:batchWriteRequest];
+                    batchWriteResponse = [self.ddb batchWriteItem:batchWriteRequest];
 
                     if(batchWriteResponse.error == nil)
                     {
@@ -1165,7 +1128,7 @@ NSString *const AWSPersistenceDynamoDBUserAgentPrefix = @"Persistence Framework"
 
 - (void)checkeAuthenticationFailure:(NSString *)errorCode
 {
-    if([delegate respondsToSelector:@selector(handleAuthenticationFailure)])
+    if([delegate respondsToSelector:@selector(refresh)])
     {
         if(
            // STS http://docs.amazonwebservices.com/STS/latest/APIReference/CommonErrors.html
@@ -1184,7 +1147,7 @@ NSString *const AWSPersistenceDynamoDBUserAgentPrefix = @"Persistence Framework"
            || [errorCode isEqualToString:@"InternalFailure"]
            || [errorCode isEqualToString:@"InternalServerError"])
         {
-            [delegate handleAuthenticationFailure];
+            [delegate refresh];
         }
     }
 }

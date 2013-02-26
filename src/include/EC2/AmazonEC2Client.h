@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -132,6 +132,10 @@
 #import "EC2DeleteVolumeResponseUnmarshaller.h"
 #import "EC2DeleteVolumeRequest.h"
 #import "EC2DeleteVolumeRequestMarshaller.h"
+#import "EC2DescribeVpcsResponse.h"
+#import "EC2DescribeVpcsResponseUnmarshaller.h"
+#import "EC2DescribeVpcsRequest.h"
+#import "EC2DescribeVpcsRequestMarshaller.h"
 #import "EC2AssociateAddressResponse.h"
 #import "EC2AssociateAddressResponseUnmarshaller.h"
 #import "EC2AssociateAddressRequest.h"
@@ -196,6 +200,10 @@
 #import "EC2DescribeInstanceAttributeResponseUnmarshaller.h"
 #import "EC2DescribeInstanceAttributeRequest.h"
 #import "EC2DescribeInstanceAttributeRequestMarshaller.h"
+#import "EC2DescribeSubnetsResponse.h"
+#import "EC2DescribeSubnetsResponseUnmarshaller.h"
+#import "EC2DescribeSubnetsRequest.h"
+#import "EC2DescribeSubnetsRequestMarshaller.h"
 #import "EC2RunInstancesResponse.h"
 #import "EC2RunInstancesResponseUnmarshaller.h"
 #import "EC2RunInstancesRequest.h"
@@ -332,6 +340,10 @@
 #import "EC2DeletePlacementGroupResponseUnmarshaller.h"
 #import "EC2DeletePlacementGroupRequest.h"
 #import "EC2DeletePlacementGroupRequestMarshaller.h"
+#import "EC2CopySnapshotResponse.h"
+#import "EC2CopySnapshotResponseUnmarshaller.h"
+#import "EC2CopySnapshotRequest.h"
+#import "EC2CopySnapshotRequestMarshaller.h"
 #import "EC2AllocateAddressResponse.h"
 #import "EC2AllocateAddressResponseUnmarshaller.h"
 #import "EC2AllocateAddressRequest.h"
@@ -1125,6 +1137,39 @@
 
 /**
  * <p>
+ * Gives you information about your VPCs. You can filter the results to return information only about VPCs that match
+ * criteria you specify.
+ * </p>
+ * <p>
+ * For example, you could ask to get information about a particular VPC or VPCs (or all your VPCs) only if the VPC's state
+ * is available. You can specify multiple filters (e.g., the VPC uses one of several sets of DHCP options, and the VPC's
+ * state is available). The result includes information for a particular VPC only if the VPC matches all your filters.
+ * </p>
+ * <p>
+ * If there's no match, no special message is returned; the response is simply empty. The following table shows the
+ * available filters.
+ * </p>
+ *
+ * @param describeVpcsRequest Container for the necessary parameters to execute the DescribeVpcs service method on
+ *           AmazonEC2.
+ *
+ * @return The response from the DescribeVpcs service method, as returned by AmazonEC2.
+ *
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonEC2 indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see EC2DescribeVpcsRequest
+ * @see EC2DescribeVpcsResponse
+ */
+-(EC2DescribeVpcsResponse *)describeVpcs:(EC2DescribeVpcsRequest *)describeVpcsRequest;
+
+
+/**
+ * <p>
  * The AssociateAddress operation associates an elastic IP address with an instance.
  * </p>
  * <p>
@@ -1487,6 +1532,39 @@
  * @see EC2DescribeInstanceAttributeResponse
  */
 -(EC2DescribeInstanceAttributeResponse *)describeInstanceAttribute:(EC2DescribeInstanceAttributeRequest *)describeInstanceAttributeRequest;
+
+
+/**
+ * <p>
+ * Gives you information about your subnets. You can filter the results to return information only about subnets that
+ * match criteria you specify.
+ * </p>
+ * <p>
+ * For example, you could ask to get information about a particular subnet (or all) only if the subnet's state is
+ * available. You can specify multiple filters (e.g., the subnet is in a particular VPC, and the subnet's state is
+ * available).
+ * </p>
+ * <p>
+ * The result includes information for a particular subnet only if the subnet matches all your filters. If there's no
+ * match, no special message is returned; the response is simply empty. The following table shows the available filters.
+ * </p>
+ *
+ * @param describeSubnetsRequest Container for the necessary parameters to execute the DescribeSubnets service method on
+ *           AmazonEC2.
+ *
+ * @return The response from the DescribeSubnets service method, as returned by AmazonEC2.
+ *
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonEC2 indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see EC2DescribeSubnetsRequest
+ * @see EC2DescribeSubnetsResponse
+ */
+-(EC2DescribeSubnetsResponse *)describeSubnets:(EC2DescribeSubnetsRequest *)describeSubnetsRequest;
 
 
 /**
@@ -2445,6 +2523,26 @@
  * @see EC2DeletePlacementGroupResponse
  */
 -(EC2DeletePlacementGroupResponse *)deletePlacementGroup:(EC2DeletePlacementGroupRequest *)deletePlacementGroupRequest;
+
+
+/**
+ *
+ * @param copySnapshotRequest Container for the necessary parameters to execute the CopySnapshot service method on
+ *           AmazonEC2.
+ *
+ * @return The response from the CopySnapshot service method, as returned by AmazonEC2.
+ *
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonEC2 indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see EC2CopySnapshotRequest
+ * @see EC2CopySnapshotResponse
+ */
+-(EC2CopySnapshotResponse *)doCopySnapshot:(EC2CopySnapshotRequest *)copySnapshotRequest;
 
 
 /**

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -14,26 +14,51 @@
  */
 
 #import "AmazonAbstractWebServiceClient.h"
+#import "AmazonStaticCredentialsProvider.h"
 #import "AmazonEndpoints.h"
 #import "DynamoDBRequest.h"
 #import "DynamoDBResponse.h"
 
-NSString *const AWSDefaultRunLoopMode = @"com.amazonaws.DefaultRunLoopMode";
-
 @implementation AmazonAbstractWebServiceClient
 
-@synthesize endpoint, maxRetries, timeout, userAgent, delay, connectionTimeout;
+@synthesize endpoint = _endpoint;
+@synthesize maxRetries = _maxRetries;
+@synthesize timeout = _timeout;
+@synthesize connectionTimeout = _connectionTimeout;
+@synthesize delay = _delay;
+@synthesize userAgent = _userAgent;
+@synthesize provider = _provider;
 
--(id)initWithCredentials:(AmazonCredentials *)theCredentials
+- (id)init
+{
+    if (self = [super init]) {
+        _maxRetries = 5;
+        _timeout = 240;
+        _connectionTimeout = 0;
+        _delay = 0.2;
+        _userAgent = [[AmazonSDKUtil userAgentString] retain];
+    }
+
+    return self;
+}
+
+-(id)initWithCredentials:(AmazonCredentials *)credentials
 {
     if (self = [self init]) {
-        credentials       = [theCredentials retain];
-        maxRetries        = 5;
-        timeout           = 240;
-        connectionTimeout = 0;
-        delay             = 0.2;
-        userAgent         = [[AmazonSDKUtil userAgentString] retain];
+        AmazonStaticCredentialsProvider *provider = [[AmazonStaticCredentialsProvider alloc] initWithCredentials:credentials];
+        [self initWithCredentialsProvider:provider];
+        [provider release];
     }
+    
+    return self;
+}
+
+-(id)initWithCredentialsProvider:(id<AmazonCredentialsProvider>)provider
+{
+    if (self = [self init]) {
+        _provider = [provider retain];
+    }
+    
     return self;
 }
 
@@ -63,8 +88,8 @@ NSString *const AWSDefaultRunLoopMode = @"com.amazonaws.DefaultRunLoopMode";
     if (nil == generatedRequest) {
 
         AmazonServiceResponse *response = [[[AmazonServiceResponse alloc] init] autorelease];
-        response.error = [AmazonErrorHandler errorFromExceptionWithThrowsExceptionOption:[AmazonClientException 
-                                                                 exceptionWithMessage:@"Request cannot be nil."]];
+        response.error = [AmazonErrorHandler errorFromExceptionWithThrowsExceptionOption:[AmazonClientException
+                                                                                          exceptionWithMessage:@"Request cannot be nil."]];
         return response;
     }
 
@@ -74,7 +99,7 @@ NSString *const AWSDefaultRunLoopMode = @"com.amazonaws.DefaultRunLoopMode";
         generatedRequest.endpoint = [self endpoint];
     }
     if (nil == generatedRequest.credentials) {
-        [generatedRequest setCredentials:credentials];
+        [generatedRequest setCredentials:[_provider credentials]];
     }
 
     NSMutableURLRequest *urlRequest = [generatedRequest configureURLRequest];
@@ -114,7 +139,7 @@ NSString *const AWSDefaultRunLoopMode = @"com.amazonaws.DefaultRunLoopMode";
                                                                               delegate:response
                                                                       startImmediately:NO] autorelease];
             originalRequest.urlConnection = urlConnection;
-            
+
             NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:self.timeout
                                                               target:response selector:@selector(timeout)
                                                             userInfo:nil
@@ -155,10 +180,14 @@ NSString *const AWSDefaultRunLoopMode = @"com.amazonaws.DefaultRunLoopMode";
         AMZLogDebug(@"Response Status Code : %d", response.httpStatusCode);
         if ( [self shouldRetry:response]) {
             AMZLog(@"Retring Request: %d", retries);
-            generatedRequest.delegate = nil;
 
             [self pauseExponentially:retries];
             retries++;
+
+            if(retries < self.maxRetries)
+            {
+                generatedRequest.delegate = nil;
+            }
         }
         else {
             break;
@@ -166,29 +195,29 @@ NSString *const AWSDefaultRunLoopMode = @"com.amazonaws.DefaultRunLoopMode";
     }
 
     if (response.exception != nil) {
-        
+
         response.error = [AmazonErrorHandler errorFromExceptionWithThrowsExceptionOption:response.exception];
         return response;
     }
     else {
         if (((AmazonRequestDelegate *)generatedRequest.delegate).error != nil) {
-            
+
             if(response == nil)
             {
                 response = [[[AmazonServiceResponse alloc] init] autorelease];
             }
             response.error = ((AmazonRequestDelegate *)generatedRequest.delegate).error;
-            
+
             return response;
         }
         else if (((AmazonRequestDelegate *)generatedRequest.delegate).exception != nil) {
-            
+
             if(response == nil)
             {
                 response = [[[AmazonServiceResponse alloc] init] autorelease];
             }
             response.error = [AmazonErrorHandler errorFromExceptionWithThrowsExceptionOption:((AmazonRequestDelegate *)generatedRequest.delegate).exception];
-            
+
             return response;
         }
         else if (((AmazonRequestDelegate *)generatedRequest.delegate).response != nil)
@@ -208,23 +237,55 @@ NSString *const AWSDefaultRunLoopMode = @"com.amazonaws.DefaultRunLoopMode";
     }
 }
 
--(bool)shouldRetry:(AmazonServiceResponse *)response
+- (BOOL)shouldRetry:(AmazonServiceResponse *)response
 {
     return [self shouldRetry:response exception:response.exception];
 }
 
--(bool)shouldRetry:(AmazonServiceResponse *)response exception:(NSException *)theException
+- (BOOL)shouldRetry:(AmazonServiceResponse *)response exception:(NSException *)exception
 {
     if (response.didTimeout || response.httpStatusCode == 500 || response.httpStatusCode == 503) {
-        
+
         return YES;
     }
-    else if([theException isKindOfClass:[AmazonServiceException class]])
+    else if([exception isKindOfClass:[AmazonServiceException class]])
     {
-        AmazonServiceException *serviceException = (AmazonServiceException *)theException;
-        
-        if (serviceException == nil) {
+        AmazonServiceException *serviceException = (AmazonServiceException *)exception;
+
+        if (exception == nil) {
             return NO;
+        }
+        else if([serviceException.error.domain isEqualToString:NSURLErrorDomain]
+                && serviceException.error.code == kCFURLErrorNetworkConnectionLost)
+        {
+            // The network connection was lost.
+            return YES;
+        }
+        else if([serviceException.error.domain isEqualToString:NSURLErrorDomain]
+                && serviceException.error.code == kCFURLErrorTimedOut)
+        {
+            // The request timed out.
+            return YES;
+        }
+        else if([serviceException.error.domain isEqualToString:NSURLErrorDomain]
+                && serviceException.error.code == NSURLErrorCannotFindHost)
+        {
+            // S3 sometimes returns this error even when the bucket exists.
+            return YES;
+        }
+        else if ( [serviceException.errorCode isEqualToString:@"NoSuchUpload"])
+        {
+            // S3 Multipart Upload Complete request sometimes fails.
+            return YES;
+        }
+        else if( [serviceException.errorCode isEqualToString:@"ExpiredToken"]
+                || [serviceException.errorCode isEqualToString:@"InvalidToken"]
+                || [serviceException.errorCode isEqualToString:@"TokenRefreshRequired"] ) {
+            
+            // If the service returned error indicating session expired,
+            // force refresh on provider and retry
+            [_provider refresh];
+            return YES;
         }
         else if ( [serviceException.errorCode isEqualToString:@"ProvisionedThroughputExceededException"]) {
             return YES;
@@ -233,11 +294,18 @@ NSString *const AWSDefaultRunLoopMode = @"com.amazonaws.DefaultRunLoopMode";
             return YES;
         }
     }
-    else if([theException isKindOfClass:[AmazonClientException class]])
+    else if([exception isKindOfClass:[AmazonClientException class]])
     {
-        AmazonClientException *clientException = (AmazonClientException *)theException;
+        AmazonClientException *clientException = (AmazonClientException *)exception;
 
         if ([clientException.message isEqualToString:@"CRC32 doesn't match."]) {
+            return YES;
+        }
+        else if([clientException.error.domain isEqualToString:NSURLErrorDomain]
+                && clientException.error.code == kCFURLErrorNetworkConnectionLost)
+        {
+            // The network connection was lost.
+            // * Note: AmazonClientException shouldn't involve any networking.
             return YES;
         }
     }
@@ -254,27 +322,42 @@ NSString *const AWSDefaultRunLoopMode = @"com.amazonaws.DefaultRunLoopMode";
 
 -(void)setUserAgent:(NSString *)newUserAgent
 {
-    userAgent = [[NSString stringWithFormat:@"%@, %@", newUserAgent, [AmazonSDKUtil userAgentString]] retain];
+    [_userAgent autorelease];
+    _userAgent = [[NSString stringWithFormat:@"%@, %@", newUserAgent, [AmazonSDKUtil userAgentString]] retain];
 }
 
 -(NSString *)userAgent
 {
     if([AmazonErrorHandler throwsExceptions] == YES)
     {
-        return userAgent;
+        return _userAgent;
     }
     else
     {
         // When NSError error handling is enabled, add NE at the end of userAgent.
-        return [NSString stringWithFormat:@"%@ NE", userAgent];
+        return [NSString stringWithFormat:@"%@ NE", _userAgent];
     }
+}
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    AmazonAbstractWebServiceClient *o = [[[self class] allocWithZone:zone] init];
+    o.provider = self.provider;
+    o.endpoint = [[self.endpoint copy] autorelease];
+    o.maxRetries = self.maxRetries;
+    o.timeout = self.timeout;
+    o.connectionTimeout = self.connectionTimeout;
+    o.delay = self.delay;
+    o.userAgent = [[self.userAgent copy] autorelease];
+
+    return o;
 }
 
 -(void)dealloc
 {
-    [credentials release];
-    [endpoint release];
-    [userAgent release];
+    [_provider release];
+    [_endpoint release];
+    [_userAgent release];
 
     [super dealloc];
 }

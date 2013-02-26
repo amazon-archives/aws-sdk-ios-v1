@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -39,6 +39,8 @@
     NSString                      *spotPrice;
     NSString                      *iamInstanceProfile;
     NSDate                        *createdTime;
+    bool                          ebsOptimized;
+    bool                          ebsOptimizedIsSet;
 }
 
 
@@ -164,6 +166,13 @@
  * Provides the creation date and time for this launch configuration.
  */
 @property (nonatomic, retain) NSDate *createdTime;
+
+/**
+ * The value of the EbsOptimized property for this object.
+ */
+@property (nonatomic) bool           ebsOptimized;
+
+@property (nonatomic, readonly) bool ebsOptimizedIsSet;
 
 /**
  * Adds a single object to securityGroups.

@@ -16,6 +16,9 @@
 #import "CoreDataManager.h"
 #import "Utilities.h"
 
+#import "Location.h"
+#import "Checkin.h"
+
 @implementation CoreDataManager
 
 @synthesize managedObjectContext = _managedObjectContext;

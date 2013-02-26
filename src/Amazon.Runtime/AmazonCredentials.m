@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -17,9 +17,9 @@
 
 @implementation AmazonCredentials
 
-@synthesize accessKey;
-@synthesize secretKey;
-@synthesize securityToken;
+@synthesize accessKey = _accessKey;
+@synthesize secretKey = _secretKey;
+@synthesize securityToken = _securityToken;
 
 -(id)initWithAccessKey:(NSString *)theAccessKey withSecretKey:(NSString *)theSecretKey
 {
@@ -40,11 +40,22 @@
     return self;
 }
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    AmazonCredentials *o = [[[self class] allocWithZone:zone] init];
+    o.accessKey = [[self.accessKey copy] autorelease];
+    o.secretKey = [[self.secretKey copy] autorelease];
+    o.securityToken = [[self.securityToken copy] autorelease];
+
+    return o;
+}
+
 -(void)dealloc
 {
-    [accessKey release];
-    [secretKey release];
-    [securityToken release];
+    [_accessKey release];
+    [_secretKey release];
+    [_securityToken release];
+    
     [super dealloc];
 }
 

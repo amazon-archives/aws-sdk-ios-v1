@@ -16,7 +16,7 @@
 
 #import "MessageBoard.h"
 #import "Constants.h"
-#import <AWSiOSSDK/SBJsonWriter.h>
+#import <AWSiOSSDK/AWS_SBJsonWriter.h>
 
 
 // This singleton class provides all the functionality to manipulate the Amazon
@@ -203,7 +203,7 @@ static MessageBoard *_instance = nil;
 {
     SQSReceiveMessageRequest *rmr = [[[SQSReceiveMessageRequest alloc] initWithQueueUrl:queueUrl] autorelease];
     rmr.maxNumberOfMessages = [NSNumber numberWithInt:10];
-    rmr.visibilityTimeout   = [NSNumber numberWithInt:2];
+    rmr.visibilityTimeout   = [NSNumber numberWithInt:50];
     
     SQSReceiveMessageResponse *response    = nil;
     NSMutableArray *allMessages = [NSMutableArray array];
@@ -216,7 +216,7 @@ static MessageBoard *_instance = nil;
         }
         
         [allMessages addObjectsFromArray:response.messages];
-        [NSThread sleepForTimeInterval:1.0];
+        [NSThread sleepForTimeInterval:0.2];
     } while ( [response.messages count] != 0);
     
     return allMessages;
@@ -284,7 +284,7 @@ static MessageBoard *_instance = nil;
                                                           nil], 
                                 nil], @"Statement",
                                nil];
-    SBJsonWriter *writer = [[SBJsonWriter new] autorelease];
+    AWS_SBJsonWriter *writer = [[AWS_SBJsonWriter new] autorelease];
     
     return [writer stringWithObject:policyDic];
 }

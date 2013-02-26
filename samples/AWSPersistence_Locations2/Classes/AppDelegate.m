@@ -12,6 +12,9 @@
  * express or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
+
+#import <AWSPersistence/AWSPersistenceDynamoDBIncrementalStore.h>
+
 #import <AWSiOSSDK/AmazonLogger.h>
 #import <AWSiOSSDK/AmazonErrorHandler.h>
 
@@ -151,10 +154,14 @@
     NSDictionary *tableMapper = [NSDictionary dictionaryWithObjectsAndKeys:
                                  LOCATIONS_TABLE, @"Location",
                                  CHECKINS_TABLE, @"Checkin", nil];
+
+    AmazonClientManager *provider = [AmazonClientManager new];
+    AmazonDynamoDBClient *ddb = [[AmazonDynamoDBClient alloc] initWithCredentialsProvider:provider];
+
     NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
                              hashKeys, AWSPersistenceDynamoDBHashKey, 
                              versions, AWSPersistenceDynamoDBVersionKey,
-                             self, AWSPersistenceDynamoDBDelegate,
+                             ddb, AWSPersistenceDynamoDBClient,
                              tableMapper, AWSPersistenceDynamoDBTableMapper, nil];
     
     // Adds the AWSNSIncrementalStore to the PersistentStoreCoordinator
@@ -171,16 +178,6 @@
     return _persistentStoreCoordinator;
 }
 
-#pragma mark - AWSPersistenceDynamoDBIncrementalStoreDelegate
-
-- (AmazonCredentials *)credentials
-{
-    return [AmazonClientManager credentials];
-}
-
-- (void)handleAuthenticationFailure
-{
-    [AmazonClientManager wipeAllCredentials];
-}
+#pragma mark -
 
 @end

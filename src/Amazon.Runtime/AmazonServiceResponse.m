@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -195,7 +195,7 @@
     {
         AMZLogDebug(@"UserInfo.%@ = %@", [key description], [[info valueForKey:key] description]);
     }
-    exception = [[AmazonClientException exceptionWithMessage:[theError description] andError:theError] retain];
+    exception = [[AmazonServiceException exceptionWithMessage:[theError description] andError:theError] retain];
     AMZLogDebug(@"An error occured in the request: %@", [theError description]);
     
     if ([(NSObject *)self.request.delegate respondsToSelector:@selector(request:didFailWithError:)]) {

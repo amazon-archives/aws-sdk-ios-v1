@@ -15,6 +15,9 @@
 
 #import "Utilities.h"
 
+#import <AWSiOSSDK/DynamoDB/AmazonDynamoDBClient.h>
+#import "AmazonClientManager.h"
+
 @implementation Utilities
 
 /**

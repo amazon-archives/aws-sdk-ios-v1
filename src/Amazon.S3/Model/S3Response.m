@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -58,7 +58,7 @@
         keyName = [keyName stringByAppendingString:[[(NSString *)[parts objectAtIndex:i] lowercaseString] capitalizedString]];
     }
 
-    //NSLog( @"Setting response value [%@] from header [%@] with value [%@]", keyName, header, value );
+    //AMZLog( @"Setting response value [%@] from header [%@] with value [%@]", keyName, header, value );
 
     NSString *typeName = [self getTypeOfPropertyNamed:keyName];
 
@@ -66,7 +66,7 @@
         [self setValue:value forKey:keyName];
     }
     else if ([typeName isEqualToString:@"T@\"NSDate\""]) {
-        [self setValue:[self parseDateHeader:value] forKey:keyName];
+        [self setValue:[NSDate dateWithRFC822Format:value] forKey:keyName];
     }
     else if ([typeName isEqualToString:@"Ti"]) {
         NSInteger v = [(NSString *) value integerValue];
@@ -81,17 +81,6 @@
 -(id)valueForHTTPHeaderField:(NSString *)header
 {
     return [headers valueForKey:header];
-}
-
--(NSDate *)parseDateHeader:(NSString *)dateString
-{
-    if (nil == dateFormatter) {
-        dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setLocale:[AmazonSDKUtil timestampLocale]];
-        [dateFormatter setDateFormat:kS3DateFormat];
-    }
-
-    return [dateFormatter dateFromString:dateString];
 }
 
 
@@ -117,20 +106,6 @@
 {
     return [NSData dataWithData:body];
 }
-
-// TODO: Make the body property readonly when all operations are converted to the delegate technique.
-// TODO: It seems like nothing in the SDK is calling this method. -Yosuke
-/*
--(void)setBody:(NSData *)data
-{
-    if (nil != body) {
-        [body setLength:0];
-    }
-    body = [[NSMutableData dataWithData:data] retain];
-
-    [self processBody];
-}
-*/
 
 // Override this to perform processing on the body.
 -(void)processBody
@@ -258,7 +233,7 @@
     {
         AMZLog(@"UserInfo.%@ = %@", [key description], [[info valueForKey:key] description]);
     }
-    exception = [[AmazonClientException exceptionWithMessage:[theError description]] retain];
+    exception = [[AmazonServiceException exceptionWithMessage:[theError description] andError:theError] retain];
     AMZLog(@"An error occured in the request: %@", [theError description]);
 
     if ([(NSObject *)self.request.delegate respondsToSelector:@selector(request:didFailWithError:)]) {
@@ -311,8 +286,6 @@
     [versionId release];
     [serverSideEncryption release];
     [headers release];
-
-    [dateFormatter release];
 
     [super dealloc];
 }

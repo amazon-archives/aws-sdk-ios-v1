@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -89,14 +89,3 @@
 -(NSString *)endpointHost __attribute__((deprecated)); 
 
 @end
-
-#pragma mark Categories
-
-/** Add a Request formatter to the NSDate class */
-@interface NSDate (WithS3RequestFormat)
-
-/** Format a date for use with Amazon S3 requests */
--(NSString *)requestFormat;
-
-@end
-

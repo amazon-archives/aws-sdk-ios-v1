@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -36,8 +36,7 @@
  * The name of the federated user associated with the credentials. For
  * information about limitations on user names, go to <a
  * vices.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations
- * on IAM Entities</a> in <i>Using AWS Identity and Access
- * Management</i>.
+ * on IAM Entities</a> in <i>Using IAM</i>.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>2 - 32<br/>
@@ -53,7 +52,7 @@
  * temporary credentials, see <a
  * docs.amazonwebservices.com/IAM/latest/UserGuide/TokenPermissions.html"
  * target="_blank">Controlling Permissions in Temporary Credentials</a>
- * in <i>Using AWS Identity and Access Management</i>.
+ * in <i>Using IAM</i>.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 2048<br/>
@@ -63,11 +62,14 @@
 
 /**
  * The duration, in seconds, that the session should last. Acceptable
- * durations for federation sessions range from 3600s (one hour) to
- * 129600s (36 hours), with 43200s (12 hours) as the default.
+ * durations for federation sessions range from 900s (15 minutes) to
+ * 129600s (36 hours), with 43200s (12 hours) as the default. Sessions
+ * for AWS account owners are restricted to a maximum of 3600s (one
+ * hour). If the duration is longer than one hour, the session for AWS
+ * account owners defaults to one hour.
  * <p>
  * <b>Constraints:</b><br/>
- * <b>Range: </b>3600 - 129600<br/>
+ * <b>Range: </b>900 - 129600<br/>
  */
 @property (nonatomic, retain) NSNumber *durationSeconds;
 
@@ -85,8 +87,7 @@
  * @param theName The name of the federated user associated with the
  * credentials. For information about limitations on user names, go to <a
  * vices.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations
- * on IAM Entities</a> in <i>Using AWS Identity and Access
- * Management</i>.
+ * on IAM Entities</a> in <i>Using IAM</i>.
  */
 -(id)initWithName:(NSString *)theName;
 

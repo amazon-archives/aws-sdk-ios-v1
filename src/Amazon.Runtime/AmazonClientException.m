@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -20,9 +20,9 @@
 @synthesize message;
 @synthesize error;
 
-+(AmazonClientException *)exceptionWithMessage:(NSString *)theMessage
++(id)exceptionWithMessage:(NSString *)theMessage
 {
-    AmazonClientException *e = [[AmazonClientException alloc] initWithName:@"AmazonClientException" 
+    AmazonClientException *e = [[[self class] alloc] initWithName:@"AmazonClientException" 
                                                                     reason:theMessage
                                                                   userInfo:nil];
     e.error = nil;
@@ -31,9 +31,9 @@
     return [e autorelease];
 }
 
-+(AmazonClientException *)exceptionWithMessage:(NSString *)theMessage andError:(NSError *)theError
++(id)exceptionWithMessage:(NSString *)theMessage andError:(NSError *)theError
 {
-    AmazonClientException *e = [[AmazonClientException alloc] initWithName:@"AmazonClientException"
+    AmazonClientException *e = [[[self class] alloc] initWithName:@"AmazonClientException"
                                                                     reason:theMessage
                                                                   userInfo:nil];
     e.error   = theError;

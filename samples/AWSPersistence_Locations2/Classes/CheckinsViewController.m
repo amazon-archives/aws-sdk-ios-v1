@@ -17,6 +17,11 @@
 #import "CheckinsViewController.h"
 #import "RootViewController.h"
 #import "CoreDataManager.h"
+#import "Utilities.h"
+#import "Constants.h"
+
+#import "Location.h"
+#import "Checkin.h"
 
 @implementation CheckinsViewController
 

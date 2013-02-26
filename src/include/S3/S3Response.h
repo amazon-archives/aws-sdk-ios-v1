@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -34,8 +34,6 @@
     NSString            *id2;
     NSString            *versionId;
     NSString            *serverSideEncryption;
-
-    NSDateFormatter     *dateFormatter;
 
     NSMutableDictionary *headers;
 }
@@ -79,9 +77,6 @@
 
 /** Gets the value in the response corresponding to the HTTP header */
 -(id)valueForHTTPHeaderField:(NSString *)header;
-
-/** Parses a date from an S3 response. */
--(NSDate *)parseDateHeader:(NSString *)dateString;
 
 /** Determines the type of a property in a response. */
 -(NSString *)getTypeOfPropertyNamed:(NSString *)propertyName;

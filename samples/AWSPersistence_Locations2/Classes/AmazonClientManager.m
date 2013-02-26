@@ -21,26 +21,38 @@
 #import <AWSiOSSDK/S3/S3GetObjectRequest.h>
 #import <AWSiOSSDK/S3/S3GetObjectResponse.h>
 
-static AmazonCredentials    *credentials = nil;
-static AmazonDynamoDBClient *ddb         = nil;
-static AmazonTVMClient      *tvm         = nil;
+static AmazonCredentials *credentials = nil;
+static AmazonTVMClient *tvm = nil;
+
+// This DynamoDB client object is used for operations that are not supported by the Persistence Framework. eg. Create tables
+static AmazonDynamoDBClient *ddb = nil;
 
 
 @implementation AmazonClientManager
 
-+(AmazonDynamoDBClient *)ddb
-{
-    [AmazonClientManager validateCredentials];
-    return ddb;
-}
+#pragma mark - AmazonCredentialsProvider
 
-+(AmazonCredentials *)credentials;
+- (AmazonCredentials *)credentials;
 {
     [AmazonClientManager validateCredentials];
     return credentials;
 }
 
-+(AmazonTVMClient *)tvm
+- (void)refresh
+{
+    [AmazonClientManager wipeAllCredentials];
+    [AmazonClientManager validateCredentials];
+}
+
+#pragma mark -
+
++ (AmazonDynamoDBClient *)ddb
+{
+    [AmazonClientManager validateCredentials];
+    return ddb;
+}
+
++ (AmazonTVMClient *)tvm
 {
     if (tvm == nil) {
         tvm = [[AmazonTVMClient alloc] initWithEndpoint:TOKEN_VENDING_MACHINE_URL useSSL:USE_SSL];
@@ -49,12 +61,12 @@ static AmazonTVMClient      *tvm         = nil;
     return tvm;
 }
 
-+(bool)hasCredentials
++ (bool)hasCredentials
 {
     return ![TOKEN_VENDING_MACHINE_URL isEqualToString:@"CHANGE ME"];
 }
 
-+(Response *)validateCredentials
++ (Response *)validateCredentials
 {
     Response *ableToGetToken = [[Response alloc] initWithCode:200 andMessage:@"OK"];
     
@@ -72,7 +84,7 @@ static AmazonTVMClient      *tvm         = nil;
                     
                     if ( [ableToGetToken wasSuccessful])
                     {
-                        [AmazonClientManager initClients];
+                        [AmazonClientManager setupClients];
                     }
                 }
             }
@@ -84,7 +96,7 @@ static AmazonTVMClient      *tvm         = nil;
         {
             if (ddb == nil)
             {
-                [AmazonClientManager initClients];
+                [AmazonClientManager setupClients];
             }
         }
     }
@@ -92,13 +104,13 @@ static AmazonTVMClient      *tvm         = nil;
     return ableToGetToken;
 }
 
-+(void)initClients
++ (void)setupClients
 {
     credentials = [AmazonKeyChainWrapper getCredentialsFromKeyChain];
     ddb = [[AmazonDynamoDBClient alloc] initWithCredentials:credentials];
 }
 
-+(void)wipeAllCredentials
++ (void)wipeAllCredentials
 {
     @synchronized(self)
     {

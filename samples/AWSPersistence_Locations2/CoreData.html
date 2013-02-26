@@ -68,32 +68,16 @@
         <h2>Configuring the AWS Persistence Framework for Core Data</h2>
     <p>Given this entity and relationship model, you need to configure the app to use the AWS
             Persistence Framework for Core Data. </p>
-
-    <p>The AppDelegate also implements the
-                <code>AWSPersistenceDynamoDBIncrementalStoreDelegate</code> protocol, which requires
-            you to implement a single selector: </p>
-
-    <table class="sample"><tr><td align="left"
-                    ><pre>- (AmazonCredentials *)credentials
-{
-    return [AmazonClientManager credentials];
-}   </pre>
-                </td></tr>
-    </table>
     
-
-    <p><b>Note:</b> This selector is called every time the framework requires a connection to Amazon
-            DynamoDB; it should return valid credentials. The supplied sample uses TVM to gather
-            these credentials. </p>
-
-    <p>The next step is to register that you want to use Amazon DynamoDB as your back-end store.
+    <p>Your application will need to register that you want to use Amazon DynamoDB as your back-end store.
             This happens in your AppDelegate as part of the <code>persistentStoreCoordinator</code>
             selector. </p>
 
     <table class="sample"><tr><td align="left"
-                    ><pre>[NSPersistentStoreCoordinator registerStoreClass:[AWSPersistenceDynamoDBIncrementalStore class] forStoreType:AWSPersistenceDynamoDBIncrementalStoreType];
+                    ><pre>[NSPersistentStoreCoordinator registerStoreClass:[AWSPersistenceDynamoDBIncrementalStore class]
+                                    forStoreType:AWSPersistenceDynamoDBIncrementalStoreType];
     
-persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];    </pre></td></tr>
+persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];</pre></td></tr>
     </table>
     
 
@@ -133,15 +117,17 @@ persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManag
       </li>
     </ul>
 
-<p>With the mappings created, you next create a larger options dictionary and include the delegate
-            for your object manager, which is set to be the AppDelegate itself. </p>
-
+<p>With the mappings created, you next create a larger options dictionary. You also need to create an Amazon DynamoDB client object with AmazonCredentialProvider, and include it in the options dictionary. The AWS Persistence Framework for Core Data uses this client object to make requests to Amazon DynamoDB.</p>
+    
     <table class="sample"><tr><td align="left"
-                    ><pre>NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+                    ><pre>AmazonClientManager *provider = [AmazonClientManager new];
+AmazonDynamoDBClient *ddb = [[AmazonDynamoDBClient alloc] initWithCredentialsProvider:provider];
+
+NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
                          hashKeys, AWSPersistenceDynamoDBHashKey, 
                          versions, AWSPersistenceDynamoDBVersionKey,
-                         self, AWSPersistenceDynamoDBDelegate,
-                         tableMapper, AWSPersistenceDynamoDBTableMapper, nil];    </pre>
+                         tableMapper, AWSPersistenceDynamoDBTableMapper,
+                         ddb, AWSPersistenceDynamoDBClient, nil];    </pre>
                 </td></tr>
     </table>
     

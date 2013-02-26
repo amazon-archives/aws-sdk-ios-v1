@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -21,11 +21,12 @@
 -(id)initWithCredentials:(AmazonCredentials *)theCredentials
 {
     if (self = [self init]) {
-        credentials = [theCredentials retain];
-        maxRetries  = 11;
-        timeout     = 30;
-        delay       = 0.05;
-        userAgent   = [[AmazonSDKUtil userAgentString] retain];
+        [super initWithCredentials:theCredentials];
+        // override values for DynamoDB
+        self.maxRetries  = 11;
+        self.timeout     = 30;
+        self.delay       = 0.05;
+        self.userAgent   = [AmazonSDKUtil userAgentString];
     }
     return self;
 }
@@ -46,7 +47,7 @@
         generatedRequest.endpoint = [self endpoint];
     }
     if (nil == generatedRequest.credentials) {
-        [generatedRequest setCredentials:credentials];
+        [generatedRequest setCredentials: [self.provider credentials]];
     }
 
     NSMutableURLRequest *urlRequest = [generatedRequest configureURLRequest];
@@ -131,10 +132,14 @@
         AMZLogDebug(@"Response Status Code : %d", response.httpStatusCode);
         if ( [self shouldRetry:response exception:((AmazonRequestDelegate *)generatedRequest.delegate).exception]) {
             AMZLog(@"Retring Request: %d", retries);
-            generatedRequest.delegate = nil;
-
+            
             [self pauseExponentially:retries];
             retries++;
+
+            if(retries < self.maxRetries)
+            {
+                generatedRequest.delegate = nil;
+            }
         }
         else {
             break;

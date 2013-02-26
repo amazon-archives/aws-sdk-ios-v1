@@ -23,7 +23,7 @@
             common tasks associated with object life-cycle and object graph management, including
             persistence. You can read more about Core Data in the Apple documentation <a
                 href="https://developer.apple.com/library/ios/#documentation/DataManagement/Conceptual/iPhoneCoreData01/Introduction/Introduction.html"
-                >here</a>
+                >here</a>.
         </p>
 
     <p><a href="http://aws.amazon.com/dynamodb/">Amazon DynamoDB</a> is a fast, highly scalable,
@@ -66,43 +66,16 @@
     </p>
 
     <p>
-    You will need to have an object that implements the
-    <i>AWSPersistenceDynamoDBIncrementalStoreDelegate</i> protocol, which
-    requires a single selector be implemented:
-    </p>
-
-    </p>
-    <p style="padding-left:2cm;">
-    <table class="sample"><tr><td align="left" >
-    <pre>
-- (AmazonCredentials *)credentials
-{
-    return [AmazonClientManager credentials];
-}
-    </pre>
-    </pre></td></tr>
-    </table>
-    </p>
-
-    <p>
-    <b>Note:</b> This selector is called every time the framework
-    requires a connection to Amazon DynamoDB; it should return valid
-    credentials. The supplied sample uses TVM to gather these credentials.
-    </p>
-
-    <p>
     Your application will need to register that it will use Amazon DynamoDB
     as its backend store.  This can all be placed in the AppDelegate,
     as part of the <i>persistentStoreCoordinator</i> selector.
     </p>
     <p style="padding-left:2cm;">
-    <table class="sample"><tr><td align="left" >
-    <pre>
-[NSPersistentStoreCoordinator registerStoreClass:[AWSPersistenceDynamoDBIncrementalStore class] forStoreType:AWSPersistenceDynamoDBIncrementalStoreType];
+    <table class="sample"><tr><td align="left"
+                    ><pre>[NSPersistentStoreCoordinator registerStoreClass:[AWSPersistenceDynamoDBIncrementalStore class]
+                                    forStoreType:AWSPersistenceDynamoDBIncrementalStoreType];
     
-persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    </pre>
-    </pre></td></tr>
+persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];</pre></td></tr>
     </table>
     </p>
 
@@ -152,20 +125,18 @@ NSDictionary *tableMapper = [NSDictionary dictionaryWithObjectsAndKeys:
       </li>
     </ul>
     </p>
-<p>
-With the mappings created, your application will need to create a larger options dictionary and
-include the delegate for the object manager.
-</p>
+<p>With the mappings created, you next create a larger options dictionary. You also need to create an Amazon DynamoDB client object with AmazonCredentialProvider, and include it in the options dictionary. The AWS Persistence Framework for Core Data uses this client object to make requests to Amazon DynamoDB.</p>
+
     <p style="padding-left:2cm;">
-    <table class="sample"><tr><td align="left" >
-    <pre>
+    <table class="sample"><tr><td align="left"><pre>AmazonClientManager *provider = [AmazonClientManager new];
+AmazonDynamoDBClient *ddb = [[AmazonDynamoDBClient alloc] initWithCredentialsProvider:provider];
+
 NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
                          hashKeys, AWSPersistenceDynamoDBHashKey, 
                          versions, AWSPersistenceDynamoDBVersionKey,
-                         delegate, AWSPersistenceDynamoDBDelegate,
-                         tableMapper, AWSPersistenceDynamoDBTableMapper, nil];
-    </pre>
-    </pre></td></tr>
+                         tableMapper, AWSPersistenceDynamoDBTableMapper,
+                         ddb, AWSPersistenceDynamoDBClient, nil];    </pre>
+                </td></tr>
     </table>
     </p>
 

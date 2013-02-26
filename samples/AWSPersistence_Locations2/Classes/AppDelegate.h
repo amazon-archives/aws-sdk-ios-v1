@@ -13,9 +13,7 @@
  * permissions and limitations under the License.
  */
 
-#import <AWSPersistence/AWSPersistenceDynamoDBIncrementalStore.h>
-
-@interface AppDelegate : NSObject <UIApplicationDelegate, AWSPersistenceDynamoDBIncrementalStoreDelegate> {
+@interface AppDelegate : NSObject <UIApplicationDelegate> {
 }
 
 @property (nonatomic) UIWindow *window;

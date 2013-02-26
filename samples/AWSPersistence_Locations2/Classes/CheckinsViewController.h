@@ -14,9 +14,8 @@
  */
 
 #import <UIKit/UIKit.h>
-#import "Location.h"
-#import "Checkin.h"
-#import "Utilities.h"
+
+@class Location;
 
 @interface CheckinsViewController : UITableViewController
 {

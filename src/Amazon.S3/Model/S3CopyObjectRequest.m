@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -88,11 +88,11 @@
                forHTTPHeaderField:kHttpHdrAmzCopySourceIfNoneMatch];
     }
     if (nil != self.ifModifiedSince) {
-        [self.urlRequest setValue:[self.ifModifiedSince requestFormat]
+        [self.urlRequest setValue:[self.ifModifiedSince stringWithRFC822Format]
                forHTTPHeaderField:kHttpHdrAmzCopySourceIfModified];
     }
     if (nil != self.ifUnmodifiedSince) {
-        [self.urlRequest setValue:[self.ifUnmodifiedSince requestFormat]
+        [self.urlRequest setValue:[self.ifUnmodifiedSince stringWithRFC822Format]
                forHTTPHeaderField:kHttpHdrAmzCopySourceIfUnmodified];
     }
     if (nil != self.redirectLocation) {

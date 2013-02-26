@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -31,6 +31,14 @@
 -(id)initWithCredentials:(AmazonCredentials *)theCredentials
 {
     if (self = [super initWithCredentials:theCredentials]) {
+        self.endpoint = AMAZON_EC2_US_EAST_1_ENDPOINT_SECURE;
+    }
+    return self;
+}
+
+-(id)initWithCredentialsProvider:(id<AmazonCredentialsProvider> )theProvider
+{
+    if (self = [super initWithCredentialsProvider:theProvider]) {
         self.endpoint = AMAZON_EC2_US_EAST_1_ENDPOINT_SECURE;
     }
     return self;
@@ -246,6 +254,13 @@
     return (EC2DeleteVolumeResponse *)[self invoke:request rawRequest:deleteVolumeRequest unmarshallerDelegate:[EC2DeleteVolumeResponseUnmarshaller class]];
 }
 
+-(EC2DescribeVpcsResponse *)describeVpcs:(EC2DescribeVpcsRequest *)describeVpcsRequest
+{
+    AmazonServiceRequest *request = [EC2DescribeVpcsRequestMarshaller createRequest:describeVpcsRequest];
+
+    return (EC2DescribeVpcsResponse *)[self invoke:request rawRequest:describeVpcsRequest unmarshallerDelegate:[EC2DescribeVpcsResponseUnmarshaller class]];
+}
+
 -(EC2AssociateAddressResponse *)associateAddress:(EC2AssociateAddressRequest *)associateAddressRequest
 {
     AmazonServiceRequest *request = [EC2AssociateAddressRequestMarshaller createRequest:associateAddressRequest];
@@ -356,6 +371,13 @@
     AmazonServiceRequest *request = [EC2DescribeInstanceAttributeRequestMarshaller createRequest:describeInstanceAttributeRequest];
 
     return (EC2DescribeInstanceAttributeResponse *)[self invoke:request rawRequest:describeInstanceAttributeRequest unmarshallerDelegate:[EC2DescribeInstanceAttributeResponseUnmarshaller class]];
+}
+
+-(EC2DescribeSubnetsResponse *)describeSubnets:(EC2DescribeSubnetsRequest *)describeSubnetsRequest
+{
+    AmazonServiceRequest *request = [EC2DescribeSubnetsRequestMarshaller createRequest:describeSubnetsRequest];
+
+    return (EC2DescribeSubnetsResponse *)[self invoke:request rawRequest:describeSubnetsRequest unmarshallerDelegate:[EC2DescribeSubnetsResponseUnmarshaller class]];
 }
 
 -(EC2RunInstancesResponse *)runInstances:(EC2RunInstancesRequest *)runInstancesRequest
@@ -594,6 +616,13 @@
     AmazonServiceRequest *request = [EC2DeletePlacementGroupRequestMarshaller createRequest:deletePlacementGroupRequest];
 
     return (EC2DeletePlacementGroupResponse *)[self invoke:request rawRequest:deletePlacementGroupRequest unmarshallerDelegate:[EC2DeletePlacementGroupResponseUnmarshaller class]];
+}
+
+-(EC2CopySnapshotResponse *)doCopySnapshot:(EC2CopySnapshotRequest *)copySnapshotRequest
+{
+    AmazonServiceRequest *request = [EC2CopySnapshotRequestMarshaller createRequest:copySnapshotRequest];
+
+    return (EC2CopySnapshotResponse *)[self invoke:request rawRequest:copySnapshotRequest unmarshallerDelegate:[EC2CopySnapshotResponseUnmarshaller class]];
 }
 
 -(EC2AllocateAddressResponse *)allocateAddress:(EC2AllocateAddressRequest *)allocateAddressRequest

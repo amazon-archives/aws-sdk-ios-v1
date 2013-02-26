@@ -13,15 +13,10 @@
  * permissions and limitations under the License.
  */
 
-#import <Foundation/Foundation.h>
-#import <AWSiOSSDK/DynamoDB/AmazonDynamoDBClient.h>
-#import "AmazonClientManager.h"
-
 @interface Utilities : NSObject
 
 +(BOOL)setupTables;
 +(void)waitForTable:(NSString *)tableName toTransitionToStatus:(NSString *)toStatus;
 +(NSString *)getUUID;
-
 
 @end

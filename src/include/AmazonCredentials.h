@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -15,10 +15,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AmazonCredentials:NSObject {
-    NSString *accessKey;
-    NSString *secretKey;
-    NSString *securityToken;
+@interface AmazonCredentials : NSObject <NSCopying>
+{
 }
 
 /** Inits the credential with the access key and the secret key.
@@ -35,7 +33,6 @@
  * @param theSecurityToken The AWS Security Token
  */
 -(id)initWithAccessKey:(NSString *)theAccessKey withSecretKey:(NSString *)theSecretKey withSecurityToken:(NSString *)theSecurityToken;
-
 
 /** The AWS Access Key */
 @property (nonatomic, retain) NSString *accessKey;

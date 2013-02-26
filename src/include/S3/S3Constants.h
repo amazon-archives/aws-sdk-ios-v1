@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -61,8 +61,6 @@
 #define kHttpHdrAmzGrantWriteAcp             @"x-amz-grant-write-acp"
 #define kHttpHdrAmzGrantFullControl          @"x-amz-grant-full-control"
 #define kHttpHdrAmzWebsiteRedirectLocation   @"x-amz-website-redirect-location"
-
-#define kS3DateFormat                        @"EEE, dd MMM yyyy HH:mm:ss z"
 
 #define kS3SubResourceAcl                    @"acl"
 #define kS3SubResourceVersioning             @"versioning"

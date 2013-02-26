@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -122,6 +122,11 @@
     if (createLaunchConfigurationRequest != nil) {
         if (createLaunchConfigurationRequest.iamInstanceProfile != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", createLaunchConfigurationRequest.iamInstanceProfile] forKey:[NSString stringWithFormat:@"%@", @"IamInstanceProfile"]];
+        }
+    }
+    if (createLaunchConfigurationRequest != nil) {
+        if (createLaunchConfigurationRequest.ebsOptimizedIsSet) {
+            [request setParameterValue:(createLaunchConfigurationRequest.ebsOptimized ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"EbsOptimized"]];
         }
     }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -47,13 +47,13 @@
  *
  * @param theMessage The user-friendly message
  */
-+(AmazonServiceException *)exceptionWithMessage:(NSString *)theMessage;
++(id)exceptionWithMessage:(NSString *)theMessage;
 
 /** Return an exception with the given HTTP status code
  *
  * @param theStatusCode The HTTP status code.
  */
-+(AmazonServiceException *)exceptionWithStatusCode:(int)theStatusCode;
++(id)exceptionWithStatusCode:(int)theStatusCode;
 
 /** Return an exception with the given message, error code, status, and request ID.
  *
@@ -63,7 +63,7 @@
  * @param theRequestId The request ID assigned by the service.
  * @return The exception.
  */
-+(AmazonServiceException *)exceptionWithMessage:(NSString *)theMessage withErrorCode:(NSString *)theErrorCode withStatusCode:(NSInteger)theStatusCode withRequestId:(NSString *)theRequestId;
++(id)exceptionWithMessage:(NSString *)theMessage withErrorCode:(NSString *)theErrorCode withStatusCode:(NSInteger)theStatusCode withRequestId:(NSString *)theRequestId;
 
 /** Initialize the exception with a name, reason and userInfo.
  *
