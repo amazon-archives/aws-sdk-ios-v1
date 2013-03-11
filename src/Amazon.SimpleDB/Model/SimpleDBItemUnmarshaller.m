@@ -14,6 +14,7 @@
  */
 
 #import "SimpleDBItemUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SimpleDBItemUnmarshaller
 

@@ -15,7 +15,6 @@
 
 
 #import "SNSResponse.h"
-#import "../AmazonServiceExceptionUnmarshaller.h"
 
 #import "SNSNotFoundException.h"
 #import "SNSAuthorizationErrorException.h"
@@ -45,7 +44,8 @@
 -(id)init;
 
 /**
- * Unique identifier assigned to the published message.
+ * Unique identifier assigned to the published message. <p>Length
+ * Constraint: Maximum 100 characters
  */
 @property (nonatomic, retain) NSString *messageId;
 

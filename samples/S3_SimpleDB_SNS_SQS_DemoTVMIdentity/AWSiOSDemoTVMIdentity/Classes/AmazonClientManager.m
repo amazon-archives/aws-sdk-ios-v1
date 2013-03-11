@@ -14,7 +14,10 @@
  */
 
 #import "AmazonClientManager.h"
+
 #import <AWSiOSSDK/AmazonLogger.h>
+#import <AWSiOSSDK/AmazonEndpoints.h>
+
 #import "AmazonKeyChainWrapper.h"
 
 static AmazonS3Client       *s3  = nil;
@@ -118,15 +121,19 @@ static AmazonTVMClient      *tvm = nil;
     
     [s3 release];
     s3  = [[AmazonS3Client alloc] initWithCredentials:credentials];
+    s3.endpoint = [AmazonEndpoints s3Endpoint:US_WEST_2];
     
     [sdb release];
     sdb = [[AmazonSimpleDBClient alloc] initWithCredentials:credentials];
+    sdb.endpoint = [AmazonEndpoints sdbEndpoint:US_WEST_2];
     
     [sqs release];
     sqs = [[AmazonSQSClient alloc] initWithCredentials:credentials];
+    sqs.endpoint = [AmazonEndpoints sqsEndpoint:US_WEST_2];
     
     [sns release];
     sns = [[AmazonSNSClient alloc] initWithCredentials:credentials];
+    sns.endpoint = [AmazonEndpoints snsEndpoint:US_WEST_2];
 }
 
 +(void)wipeAllCredentials

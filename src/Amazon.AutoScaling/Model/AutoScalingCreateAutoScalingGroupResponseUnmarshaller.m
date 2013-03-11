@@ -15,6 +15,7 @@
 
 
 #import "AutoScalingCreateAutoScalingGroupResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation AutoScalingCreateAutoScalingGroupResponseUnmarshaller
 

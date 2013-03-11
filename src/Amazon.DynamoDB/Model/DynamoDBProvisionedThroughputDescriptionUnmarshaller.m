@@ -37,6 +37,11 @@
     }
 
 
+    if ([jsonObject valueForKey:@"NumberOfDecreasesToday"] != nil) {
+        provisionedThroughputDescription.numberOfDecreasesToday = [jsonObject valueForKey:@"NumberOfDecreasesToday"];
+    }
+
+
     if ([jsonObject valueForKey:@"ReadCapacityUnits"] != nil) {
         provisionedThroughputDescription.readCapacityUnits = [jsonObject valueForKey:@"ReadCapacityUnits"];
     }

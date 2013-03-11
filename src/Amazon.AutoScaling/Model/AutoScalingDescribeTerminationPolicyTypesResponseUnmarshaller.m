@@ -14,6 +14,7 @@
  */
 
 #import "AutoScalingDescribeTerminationPolicyTypesResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation AutoScalingDescribeTerminationPolicyTypesResponseUnmarshaller
 

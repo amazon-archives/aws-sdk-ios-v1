@@ -14,6 +14,7 @@
  */
 
 #import "SESDeleteIdentityResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SESDeleteIdentityResponseUnmarshaller
 

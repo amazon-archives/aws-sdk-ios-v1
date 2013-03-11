@@ -14,6 +14,7 @@
  */
 
 #import "EC2InstanceNetworkInterfaceSpecificationUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2InstanceNetworkInterfaceSpecificationUnmarshaller
 

@@ -15,6 +15,7 @@
 
 
 #import "SNSAddPermissionResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SNSAddPermissionResponseUnmarshaller
 

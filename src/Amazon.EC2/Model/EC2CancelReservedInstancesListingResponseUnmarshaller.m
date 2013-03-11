@@ -14,6 +14,7 @@
  */
 
 #import "EC2CancelReservedInstancesListingResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2CancelReservedInstancesListingResponseUnmarshaller
 

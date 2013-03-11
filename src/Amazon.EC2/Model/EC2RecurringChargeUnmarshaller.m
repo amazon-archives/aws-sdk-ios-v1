@@ -14,6 +14,7 @@
  */
 
 #import "EC2RecurringChargeUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2RecurringChargeUnmarshaller
 

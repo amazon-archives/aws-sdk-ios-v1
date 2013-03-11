@@ -37,7 +37,8 @@
 @property (nonatomic, retain) NSString *topicArn;
 
 /**
- * Token returned by the previous ListSubscriptionsByTopic request.
+ * Token returned by the previous <code>ListSubscriptionsByTopic</code>
+ * request.
  */
 @property (nonatomic, retain) NSString *nextToken;
 
@@ -64,7 +65,7 @@
  * @param theTopicArn The ARN of the topic for which you wish to find
  * subscriptions.
  * @param theNextToken Token returned by the previous
- * ListSubscriptionsByTopic request.
+ * <code>ListSubscriptionsByTopic</code> request.
  */
 -(id)initWithTopicArn:(NSString *)theTopicArn andNextToken:(NSString *)theNextToken;
 

@@ -13,8 +13,21 @@
  * permissions and limitations under the License.
  */
 
-#import "../AmazonUnmarshallerXMLParserDelegate.h"
+#import "../AmazonServiceRequest.h"
 
-#import "S3OwnerUnmarshaller.h"
-#import "S3BucketUnmarshaller.h"
-#import "S3ListBucketsResultUnmarshaller.h"
+#import "EC2Request.h"
+#import "EC2DescribeAccountAttributesRequest.h"
+
+
+/**
+ * Describe Account Attributes Request Marshaller
+ */
+@interface EC2DescribeAccountAttributesRequestMarshaller:NSObject {
+}
+
+
++(AmazonServiceRequest *)createRequest:(EC2DescribeAccountAttributesRequest *)describeAccountAttributesRequest;
+
+
+@end
+

@@ -35,14 +35,14 @@
     self.window.rootViewController = container;
     [container release];
 
-    [self.window makeKeyAndVisible];
-
     // Logging Control - Do NOT use logging for non-development builds.
 #ifdef DEBUG
     [AmazonLogger verboseLogging];
 #else
     [AmazonLogger turnLoggingOff];
 #endif
+    
+    [self.window makeKeyAndVisible];
 
     return YES;
 }

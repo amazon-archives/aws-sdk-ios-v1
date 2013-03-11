@@ -14,6 +14,7 @@
  */
 
 #import "SQSBatchResponseErrorEntryUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SQSBatchResponseErrorEntryUnmarshaller
 

@@ -14,6 +14,7 @@
  */
 
 #import "SecurityTokenServiceAssumeRoleResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SecurityTokenServiceAssumeRoleResponseUnmarshaller
 

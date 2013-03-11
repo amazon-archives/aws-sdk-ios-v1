@@ -15,6 +15,7 @@
 
 
 #import "AutoScalingExecutePolicyResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation AutoScalingExecutePolicyResponseUnmarshaller
 

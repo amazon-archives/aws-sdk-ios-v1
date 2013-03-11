@@ -154,7 +154,9 @@
                 self.contentType   = [AmazonSDKUtil MIMETypeForExtension:[self.filename pathExtension]];
 
                 @try {
-                    self.stream = [[NSInputStream alloc] initWithFileAtPath:self.filename];
+                    NSInputStream *inputStream = [[NSInputStream alloc] initWithFileAtPath:self.filename];
+                    self.stream = inputStream;
+                    [inputStream release];
                 }
                 @catch (NSException *e) {
 

@@ -16,7 +16,6 @@
 #import "AutoScalingScalingPolicy.h"
 
 #import "AutoScalingResponse.h"
-#import "../AmazonServiceExceptionUnmarshaller.h"
 
 #import "AutoScalingInvalidNextTokenException.h"
 

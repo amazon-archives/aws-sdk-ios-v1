@@ -16,7 +16,6 @@
 #import "EC2KeyPairInfo.h"
 
 #import "EC2Response.h"
-#import "../AmazonServiceExceptionUnmarshaller.h"
 
 
 

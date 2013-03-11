@@ -14,6 +14,7 @@
  */
 
 #import "EC2CopySnapshotResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2CopySnapshotResponseUnmarshaller
 

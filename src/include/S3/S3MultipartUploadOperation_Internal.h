@@ -19,7 +19,7 @@
 
 @protocol AmazonCredentialsProvider;
 
-@interface S3MultipartUploadOperation : NSOperation <AmazonServiceRequestDelegate>
+@interface S3MultipartUploadOperation_Internal : NSOperation <AmazonServiceRequestDelegate>
 {
 }
 

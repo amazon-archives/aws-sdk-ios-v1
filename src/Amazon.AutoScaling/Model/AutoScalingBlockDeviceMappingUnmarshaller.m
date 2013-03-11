@@ -14,6 +14,7 @@
  */
 
 #import "AutoScalingBlockDeviceMappingUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation AutoScalingBlockDeviceMappingUnmarshaller
 

@@ -14,6 +14,7 @@
  */
 
 #import "EC2DescribeAvailabilityZonesResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2DescribeAvailabilityZonesResponseUnmarshaller
 

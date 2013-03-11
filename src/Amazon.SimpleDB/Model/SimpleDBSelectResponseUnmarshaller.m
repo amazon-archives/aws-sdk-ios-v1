@@ -14,6 +14,7 @@
  */
 
 #import "SimpleDBSelectResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SimpleDBSelectResponseUnmarshaller
 

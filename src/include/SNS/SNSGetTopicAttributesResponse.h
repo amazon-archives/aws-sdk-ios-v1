@@ -15,7 +15,6 @@
 
 
 #import "SNSResponse.h"
-#import "../AmazonServiceExceptionUnmarshaller.h"
 
 #import "SNSNotFoundException.h"
 #import "SNSAuthorizationErrorException.h"
@@ -46,19 +45,21 @@
 
 /**
  * A map of the topic's attributes. Attributes in this map include the
- * following: <ul> <li>TopicArn -- the topic's ARN</li> <li>Owner -- the
- * AWS account ID of the topic's owner</li> <li>Policy -- the JSON
- * serialization of the topic's access control policy</li>
- * <li>DisplayName -- the human-readable name used in the "From" field
- * for notifications to email and email-json endpoints</li>
- * <li>SubscriptionsPending -- the number of subscriptions pending
- * confirmation on this topic</li> <li>SubscriptionsConfirmed -- the
- * number of confirmed subscriptions on this topic</li>
- * <li>SubscriptionsDeleted -- the number of deleted subscriptions on
- * this topic</li> <li>DeliveryPolicy -- the JSON serialization of the
- * topic's delivery policy</li> <li>EffectiveDeliveryPolicy -- the JSON
- * serialization of the effective delivery policy which takes into
- * account system defaults</li> </ul>
+ * following: <ul> <li><code>TopicArn</code> -- the topic's ARN</li>
+ * <li><code>Owner</code> -- the AWS account ID of the topic's owner</li>
+ * <li><code>Policy</code> -- the JSON serialization of the topic's
+ * access control policy</li> <li><code>DisplayName</code> -- the
+ * human-readable name used in the "From" field for notifications to
+ * email and email-json endpoints</li>
+ * <li><code>SubscriptionsPending</code> -- the number of subscriptions
+ * pending confirmation on this topic</li>
+ * <li><code>SubscriptionsConfirmed</code> -- the number of confirmed
+ * subscriptions on this topic</li> <li><code>SubscriptionsDeleted</code>
+ * -- the number of deleted subscriptions on this topic</li>
+ * <li><code>DeliveryPolicy</code> -- the JSON serialization of the
+ * topic's delivery policy</li> <li><code>EffectiveDeliveryPolicy</code>
+ * -- the JSON serialization of the effective delivery policy that takes
+ * into account system defaults</li> </ul>
  */
 @property (nonatomic, retain) NSMutableDictionary *attributes;
 

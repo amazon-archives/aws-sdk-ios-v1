@@ -16,7 +16,6 @@
 #import <Foundation/Foundation.h>
 #import "S3Response.h"
 #import "S3BucketVersioningConfiguration.h"
-#import "S3BucketVersioningConfigurationUnmarshaller.h"
 
 /** Contains the bucket versioning configuration.
  *

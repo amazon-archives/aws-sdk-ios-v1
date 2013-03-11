@@ -17,7 +17,6 @@
 #import "AmazonServiceRequest.h"
 #import "AmazonClientException.h"
 #import "AmazonServiceException.h"
-#import "AmazonServiceExceptionUnmarshaller.h"
 
 @interface AmazonServiceResponse:NSObject {
     NSInteger            httpStatusCode;

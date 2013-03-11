@@ -14,6 +14,7 @@
  */
 
 #import "EC2DescribePlacementGroupsResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2DescribePlacementGroupsResponseUnmarshaller
 

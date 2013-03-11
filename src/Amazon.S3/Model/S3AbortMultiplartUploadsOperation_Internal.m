@@ -13,9 +13,9 @@
  * permissions and limitations under the License.
  */
 
-#import "S3AbortMultiplartUploadsOperation.h"
+#import "S3AbortMultiplartUploadsOperation_Internal.h"
 
-@interface S3AbortMultiplartUploadsOperation ()
+@interface S3AbortMultiplartUploadsOperation_Internal ()
 {
     BOOL _isExecuting;
     BOOL _isFinished;
@@ -23,7 +23,7 @@
 
 @end
 
-@implementation S3AbortMultiplartUploadsOperation
+@implementation S3AbortMultiplartUploadsOperation_Internal
 
 @synthesize delegate = _delegate;
 @synthesize s3 = _s3;

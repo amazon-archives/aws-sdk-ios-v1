@@ -14,6 +14,7 @@
  */
 
 #import "EC2S3StorageUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2S3StorageUnmarshaller
 

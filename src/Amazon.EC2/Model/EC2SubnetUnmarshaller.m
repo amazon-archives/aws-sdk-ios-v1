@@ -14,6 +14,7 @@
  */
 
 #import "EC2SubnetUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2SubnetUnmarshaller
 
@@ -77,6 +78,16 @@
 
     if ([elementName isEqualToString:@"availabilityZone"]) {
         self.response.availabilityZone = self.currentText;
+        return;
+    }
+
+    if ([elementName isEqualToString:@"defaultForAz"]) {
+        self.response.defaultForAz = [self.currentText boolValue];
+        return;
+    }
+
+    if ([elementName isEqualToString:@"mapPublicIpOnLaunch"]) {
+        self.response.mapPublicIpOnLaunch = [self.currentText boolValue];
         return;
     }
 

@@ -14,6 +14,7 @@
  */
 
 #import "EC2EbsInstanceBlockDeviceUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2EbsInstanceBlockDeviceUnmarshaller
 

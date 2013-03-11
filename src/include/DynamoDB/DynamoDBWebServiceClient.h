@@ -13,33 +13,12 @@
  * permissions and limitations under the License.
  */
 
-#import "../AmazonSDKUtil.h"
-#import "../AmazonAuthUtils.h"
-#import "../AmazonClientException.h"
-#import "../AmazonLogger.h"
-#import "../AmazonServiceException.h"
-#import "../AmazonSignatureException.h"
-#import "../AmazonUnmarshallerXMLParserDelegate.h"
-#import "../AmazonServiceRequest.h"
-#import "../AmazonServiceRequestConfig.h"
-#import "DynamoDBResponse.h"
-#import "../AmazonServiceResponseUnmarshaller.h"
-#import "../AmazonURLRequest.h"
-#import "../AmazonCredentials.h"
-#import "../AmazonRequestDelegate.h"
-#import "../AmazonAbstractWebServiceClient.h"
+#import "../AmazonAbstractJsonWebServiceClient.h"
 
-@interface DynamoDBWebServiceClient:AmazonAbstractWebServiceClient
+@interface DynamoDBWebServiceClient:AmazonAbstractJsonWebServiceClient
 {
 }
-
-/** Utility method that sends the AmazonServiceRequest to be processed.
- *
- * @param request An AmazonServiceRequest describing the parameters of a request.
- * @return The response from the service.
- */
--(AmazonServiceResponse *)invoke:(AmazonServiceRequest *)generatedRequest rawRequest:(AmazonServiceRequestConfig *)originalRequest unmarshallerDelegate:(Class)unmarshallerDelegate;
-
+ 
 @end
 
 

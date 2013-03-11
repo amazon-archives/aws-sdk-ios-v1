@@ -15,6 +15,7 @@
 
 
 #import "SQSDeleteQueueResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SQSDeleteQueueResponseUnmarshaller
 

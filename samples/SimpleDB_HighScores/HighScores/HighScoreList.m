@@ -15,6 +15,8 @@
 
 #import "HighScoreList.h"
 
+#import <AWSiOSSDK/AmazonEndpoints.h>
+
 #import "Constants.h"
 
 
@@ -54,6 +56,8 @@
     {
         // Initial the SimpleDB Client.
         sdbClient      = [[AmazonSimpleDBClient alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY];
+        sdbClient.endpoint = [AmazonEndpoints sdbEndpoint:US_WEST_2];
+
         self.nextToken = nil;
         sortMethod     = NO_SORT;
     }
@@ -68,6 +72,8 @@
     {
         // Initial the SimpleDB Client.
         sdbClient      = [[AmazonSimpleDBClient alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY];
+        sdbClient.endpoint = [AmazonEndpoints sdbEndpoint:US_WEST_2];
+
         self.nextToken = nil;
         sortMethod     = theSortMethod;
     }

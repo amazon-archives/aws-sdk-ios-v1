@@ -14,6 +14,7 @@
  */
 
 #import "SimpleDBDomainMetadataResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SimpleDBDomainMetadataResponseUnmarshaller
 

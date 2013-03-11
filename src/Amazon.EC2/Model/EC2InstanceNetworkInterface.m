@@ -31,6 +31,7 @@
 @synthesize groups;
 @synthesize attachment;
 @synthesize association;
+@synthesize privateIpAddresses;
 
 
 -(id)init
@@ -49,6 +50,7 @@
         groups               = [[NSMutableArray alloc] initWithCapacity:1];
         attachment           = nil;
         association          = nil;
+        privateIpAddresses   = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
     return self;
@@ -62,6 +64,15 @@
     }
 
     [groups addObject:groupObject];
+}
+
+-(void)addPrivateIpAddresse:(EC2InstancePrivateIpAddress *)privateIpAddresseObject
+{
+    if (privateIpAddresses == nil) {
+        privateIpAddresses = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [privateIpAddresses addObject:privateIpAddresseObject];
 }
 
 
@@ -82,6 +93,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Groups: %@,", groups] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Attachment: %@,", attachment] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Association: %@,", association] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"PrivateIpAddresses: %@,", privateIpAddresses] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -109,6 +121,7 @@
     [groups release];
     [attachment release];
     [association release];
+    [privateIpAddresses release];
 
     [super dealloc];
 }

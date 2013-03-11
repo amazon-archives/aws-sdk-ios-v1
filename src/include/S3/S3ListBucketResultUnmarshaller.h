@@ -15,8 +15,8 @@
 
 #import <Foundation/Foundation.h>
 #import "S3ServiceModel.h"
-#import "S3ServiceTransform.h"
 #import "S3ListObjectsResult.h"
+#import "../AmazonUnmarshallerXMLParserDelegate.h"
 
 
 @interface S3ListBucketResultUnmarshaller:AmazonUnmarshallerXMLParserDelegate {

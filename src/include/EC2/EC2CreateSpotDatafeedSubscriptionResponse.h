@@ -16,7 +16,6 @@
 #import "EC2SpotDatafeedSubscription.h"
 
 #import "EC2Response.h"
-#import "../AmazonServiceExceptionUnmarshaller.h"
 
 
 

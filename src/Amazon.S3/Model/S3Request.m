@@ -69,15 +69,14 @@
     NSString *resQuery;
 
     if (self.bucket == nil || [S3BucketNameUtilities isDNSBucketName:self.bucket]) {
-        keyPath  = (self.key == nil ? @"" : [NSString stringWithFormat:@"/%@", [self.key stringWithURLEncoding]]);
-        resQuery = (self.subResource == nil ? @"" : [NSString stringWithFormat:@"%@?%@", self.key == nil ? @"/":@"", self.subResource]);
+        keyPath  = (self.key == nil ? @"" : [NSString stringWithFormat:@"%@", [self.key stringWithURLEncoding]]);
     }
     else {
-        keyPath  = (self.key == nil ? [NSString stringWithFormat:@"/%@/", self.bucket] : [NSString stringWithFormat:@"/%@/%@", self.bucket, [self.key stringWithURLEncoding]]);
-        resQuery = (self.subResource == nil ? @"" : [NSString stringWithFormat:@"?%@", self.subResource]);
+        keyPath  = (self.key == nil ? [NSString stringWithFormat:@"%@/", self.bucket] : [NSString stringWithFormat:@"/%@/%@", self.bucket, [self.key stringWithURLEncoding]]);
     }
+    resQuery = (self.subResource == nil ? @"" : [NSString stringWithFormat:@"?%@", self.subResource]);
 
-    return [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@%@%@", [self protocol], self.host, keyPath, resQuery]];
+    return [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/%@%@", [self protocol], self.host, keyPath, resQuery]];
 }
 
 -(NSString *)host

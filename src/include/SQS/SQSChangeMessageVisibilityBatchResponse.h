@@ -17,7 +17,6 @@
 #import "SQSBatchResponseErrorEntry.h"
 
 #import "SQSResponse.h"
-#import "../AmazonServiceExceptionUnmarshaller.h"
 
 #import "SQSBatchEntryIdsNotDistinctException.h"
 #import "SQSTooManyEntriesInBatchRequestException.h"

@@ -14,6 +14,7 @@
  */
 
 #import "SecurityTokenServiceCredentialsUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SecurityTokenServiceCredentialsUnmarshaller
 

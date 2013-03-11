@@ -15,6 +15,7 @@
 
 
 #import "SQSChangeMessageVisibilityResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SQSChangeMessageVisibilityResponseUnmarshaller
 

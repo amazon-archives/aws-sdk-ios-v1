@@ -14,6 +14,7 @@
  */
 
 #import "S3GetACLResponse.h"
+#import "S3AccessControlListUnmarshaller.h"
 
 
 @implementation S3GetACLResponse

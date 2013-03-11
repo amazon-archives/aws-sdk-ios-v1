@@ -15,6 +15,7 @@
 
 
 #import "AutoScalingDisableMetricsCollectionResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation AutoScalingDisableMetricsCollectionResponseUnmarshaller
 

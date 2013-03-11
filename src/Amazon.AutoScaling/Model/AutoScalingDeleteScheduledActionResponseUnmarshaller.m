@@ -15,6 +15,7 @@
 
 
 #import "AutoScalingDeleteScheduledActionResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation AutoScalingDeleteScheduledActionResponseUnmarshaller
 

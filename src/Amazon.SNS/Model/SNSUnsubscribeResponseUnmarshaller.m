@@ -15,6 +15,7 @@
 
 
 #import "SNSUnsubscribeResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SNSUnsubscribeResponseUnmarshaller
 

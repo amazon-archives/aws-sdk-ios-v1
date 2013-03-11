@@ -14,6 +14,7 @@
  */
 
 #import "SESGetSendQuotaResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SESGetSendQuotaResponseUnmarshaller
 

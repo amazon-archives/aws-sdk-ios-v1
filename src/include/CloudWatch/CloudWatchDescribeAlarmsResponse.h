@@ -16,7 +16,6 @@
 #import "CloudWatchMetricAlarm.h"
 
 #import "CloudWatchResponse.h"
-#import "../AmazonServiceExceptionUnmarshaller.h"
 
 #import "CloudWatchInvalidNextTokenException.h"
 

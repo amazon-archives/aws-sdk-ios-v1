@@ -14,6 +14,7 @@
  */
 
 #import "AutoScalingProcessTypeUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation AutoScalingProcessTypeUnmarshaller
 

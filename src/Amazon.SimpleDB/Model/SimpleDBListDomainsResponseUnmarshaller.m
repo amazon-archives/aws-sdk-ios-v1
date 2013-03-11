@@ -14,6 +14,7 @@
  */
 
 #import "SimpleDBListDomainsResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SimpleDBListDomainsResponseUnmarshaller
 

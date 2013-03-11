@@ -15,6 +15,7 @@
 
 
 #import "EC2DeleteTagsResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2DeleteTagsResponseUnmarshaller
 

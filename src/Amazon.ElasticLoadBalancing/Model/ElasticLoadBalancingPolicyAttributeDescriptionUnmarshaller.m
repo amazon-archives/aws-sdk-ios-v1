@@ -14,6 +14,7 @@
  */
 
 #import "ElasticLoadBalancingPolicyAttributeDescriptionUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation ElasticLoadBalancingPolicyAttributeDescriptionUnmarshaller
 

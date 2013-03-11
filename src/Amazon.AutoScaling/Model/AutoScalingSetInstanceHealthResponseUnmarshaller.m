@@ -15,6 +15,7 @@
 
 
 #import "AutoScalingSetInstanceHealthResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation AutoScalingSetInstanceHealthResponseUnmarshaller
 

@@ -16,7 +16,6 @@
 #import "SimpleDBAttribute.h"
 
 #import "SimpleDBResponse.h"
-#import "../AmazonServiceExceptionUnmarshaller.h"
 
 #import "SimpleDBInvalidParameterValueException.h"
 #import "SimpleDBNoSuchDomainException.h"

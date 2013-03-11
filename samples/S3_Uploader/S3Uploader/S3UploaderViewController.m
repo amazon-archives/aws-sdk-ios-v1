@@ -16,6 +16,8 @@
 #import "S3UploaderViewController.h"
 #import "Constants.h"
 
+#import <AWSiOSSDK/AmazonEndpoints.h>
+
 
 @implementation S3UploaderViewController
 
@@ -34,9 +36,10 @@
     {
         // Initial the S3 Client.
         self.s3 = [[[AmazonS3Client alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY] autorelease];
+        self.s3.endpoint = [AmazonEndpoints s3Endpoint:US_WEST_2];
 
         // Create the picture bucket.
-        S3CreateBucketRequest *createBucketRequest = [[[S3CreateBucketRequest alloc] initWithName:[Constants pictureBucket]] autorelease];
+        S3CreateBucketRequest *createBucketRequest = [[[S3CreateBucketRequest alloc] initWithName:[Constants pictureBucket] andRegion:[S3Region USWest2]] autorelease];
         S3CreateBucketResponse *createBucketResponse = [self.s3 createBucket:createBucketRequest];
         if(createBucketResponse.error != nil)
         {

@@ -13,17 +13,11 @@
  * permissions and limitations under the License.
  */
 #import "SecurityTokenServiceGetSessionTokenResponse.h"
-#import "SecurityTokenServiceGetSessionTokenResponseUnmarshaller.h"
 #import "SecurityTokenServiceGetSessionTokenRequest.h"
-#import "SecurityTokenServiceGetSessionTokenRequestMarshaller.h"
 #import "SecurityTokenServiceGetFederationTokenResponse.h"
-#import "SecurityTokenServiceGetFederationTokenResponseUnmarshaller.h"
 #import "SecurityTokenServiceGetFederationTokenRequest.h"
-#import "SecurityTokenServiceGetFederationTokenRequestMarshaller.h"
 #import "SecurityTokenServiceAssumeRoleResponse.h"
-#import "SecurityTokenServiceAssumeRoleResponseUnmarshaller.h"
 #import "SecurityTokenServiceAssumeRoleRequest.h"
-#import "SecurityTokenServiceAssumeRoleRequestMarshaller.h"
 
 #import "../AmazonWebServiceClient.h"
 

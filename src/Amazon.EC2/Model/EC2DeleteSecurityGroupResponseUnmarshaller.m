@@ -15,6 +15,7 @@
 
 
 #import "EC2DeleteSecurityGroupResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2DeleteSecurityGroupResponseUnmarshaller
 

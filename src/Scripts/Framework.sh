@@ -75,16 +75,18 @@ else
 	# Now copy the final assets over: your library  
 	# header files and the plist file  
 	echo "Framework: Copying assets into current version..."  
-	cp -r include/* $FRAMEWORK_DIR/Headers/  
-    cp ThirdParty/JSON/*.h $FRAMEWORK_DIR/Headers/
-	cp Resources/Framework.plist $FRAMEWORK_DIR/Resources/Info.plist  
+	cp -a include/* $FRAMEWORK_DIR/Headers/ 
+	# prune out non-public files
+	Scripts/PrunePrivateHeaders.sh $FRAMEWORK_DIR/Headers/
+	cp -a ThirdParty/JSON/*.h $FRAMEWORK_DIR/Headers/
+	cp -a Resources/Framework.plist $FRAMEWORK_DIR/Resources/Info.plist  
 	( cd $FRAMEWORK_DIR; rm -rf `find . -name ".svn"` )
 
 
 	# Copy Framework to 'sample project' accessible location
 	echo "Copying framework to samples accessible location"
 	rm -rf build/../../$FRAMEWORK_NAME.framework
-	cp -r $FRAMEWORK_BUILD_PATH/$FRAMEWORK_NAME.framework build/../../$FRAMEWORK_NAME.framework
+	cp -a $FRAMEWORK_BUILD_PATH/$FRAMEWORK_NAME.framework build/../../$FRAMEWORK_NAME.framework
 
 	# run checks against the completed Framework
 	# failing this will stop the build

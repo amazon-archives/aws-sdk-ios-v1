@@ -14,6 +14,7 @@
  */
 
 #import "CloudWatchAlarmHistoryItemUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation CloudWatchAlarmHistoryItemUnmarshaller
 

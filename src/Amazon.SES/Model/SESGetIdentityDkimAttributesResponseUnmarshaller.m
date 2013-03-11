@@ -14,6 +14,7 @@
  */
 
 #import "SESGetIdentityDkimAttributesResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SESGetIdentityDkimAttributesResponseUnmarshaller
 

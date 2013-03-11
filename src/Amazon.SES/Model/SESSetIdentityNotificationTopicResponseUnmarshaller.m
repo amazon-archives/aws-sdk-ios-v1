@@ -14,6 +14,7 @@
  */
 
 #import "SESSetIdentityNotificationTopicResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SESSetIdentityNotificationTopicResponseUnmarshaller
 

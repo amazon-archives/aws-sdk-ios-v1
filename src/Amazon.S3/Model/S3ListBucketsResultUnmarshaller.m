@@ -14,6 +14,9 @@
  */
 
 #import "S3ListBucketsResultUnmarshaller.h"
+#import "S3OwnerUnmarshaller.h"
+#import "S3BucketUnmarshaller.h"
+
 
 @implementation S3ListBucketsResultUnmarshaller
 

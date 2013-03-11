@@ -17,7 +17,6 @@
 #import "AutoScalingMetricGranularityType.h"
 
 #import "AutoScalingResponse.h"
-#import "../AmazonServiceExceptionUnmarshaller.h"
 
 
 

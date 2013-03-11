@@ -14,6 +14,7 @@
  */
 
 #import "DynamoDBRequest.h"
+#import "DynamoDBResponse.h"
 #import <CommonCrypto/CommonDigest.h>
 
 @implementation DynamoDBRequest
@@ -42,78 +43,17 @@
     return self.urlRequest;
 }
 
--(NSString *)generateAuthorization3
-{
-    NSMutableString *buffer = [[[NSMutableString alloc] initWithCapacity:256] autorelease];
-
-    [buffer appendString:@"AWS3 "];
-    [buffer appendString:[NSString stringWithFormat:@"AWSAccessKeyId=%@,", self.credentials.accessKey]];
-    [buffer appendString:@"Algorithm=HmacSHA256,"];
-
-    [buffer appendString:@"SignedHeaders="];
-    NSArray *headersToSign = [self headersToSign];
-    for (int i = 0; i < [headersToSign count]; i++) {
-        if (i > 0) {
-            [buffer appendString:@";"];
-        }
-        [buffer appendString:[headersToSign objectAtIndex:i]];
-    }
-    [buffer appendString:@","];
-
-    [buffer appendString:[NSString stringWithFormat:@"Signature=%@", [self generateSignature]]];
-
-    return buffer;
-}
-
--(NSString *)generateSignature
-{
-    NSString *stringToSign = [self generateStringToSign];
-    NSData   *dataToSign   = [AmazonAuthUtils hash:[stringToSign dataUsingEncoding:NSUTF8StringEncoding]];
-
-    return [AmazonAuthUtils HMACSign:dataToSign withKey:self.credentials.secretKey usingAlgorithm:kCCHmacAlgSHA256];
-}
-
--(NSString *)generateStringToSign
-{
-    NSMutableString *stringToSign = [[[NSMutableString alloc] initWithCapacity:256] autorelease];
-
-    [stringToSign appendString:@"POST\n"];
-    [stringToSign appendString:@"/\n"];
-    [stringToSign appendString:@"\n"];
-
-    NSArray *headersToSign = [self headersToSign];
-    for (NSString *header in headersToSign) {
-        [stringToSign appendString:[NSString stringWithFormat:@"%@:%@\n", [header lowercaseString], [headers valueForKey:header]]];
-    }
-
-    [stringToSign appendString:@"\n"];
-    [stringToSign appendString:[NSString stringWithFormat:@"%@", content]];
-
-    return stringToSign;
-}
-
--(NSArray *)headersToSign
-{
-    NSMutableArray *headersToSign = [[[NSMutableArray alloc] initWithCapacity:1] autorelease];
-    for (NSString *header in [headers allKeys]) {
-        NSString *lowerCaseHeader = [header lowercaseString];
-
-        if ( [lowerCaseHeader hasPrefix:@"x-amz"] || [lowerCaseHeader isEqualToString:@"host"]) {
-            [headersToSign addObject:header];
-        }
-    }
-
-    [headersToSign sortUsingSelector:@selector(caseInsensitiveCompare:)];
-
-    return headersToSign;
-}
-
 -(void)addValue:(NSString *)theValue forHeader:(NSString *)theHeader
 {
     if (nil == headers) {
         headers = [[NSMutableDictionary alloc] initWithCapacity:1];
     }
     [headers setValue:theValue forKey:theHeader];
+}
+
+-(DynamoDBResponse*)constructResponse
+{
+    return [[DynamoDBResponse new] autorelease];
 }
 
 -(void)dealloc

@@ -17,6 +17,7 @@
 
 #import <AWSiOSSDK/AmazonLogger.h>
 #import <AWSiOSSDK/AmazonErrorHandler.h>
+#import <AWSiOSSDK/AmazonEndpoints.h>
 
 #import "AppDelegate.h"
 #import "RootViewController.h"
@@ -157,6 +158,7 @@
 
     AmazonClientManager *provider = [AmazonClientManager new];
     AmazonDynamoDBClient *ddb = [[AmazonDynamoDBClient alloc] initWithCredentialsProvider:provider];
+    ddb.endpoint = [AmazonEndpoints ddbEndpoint:US_WEST_2];
 
     NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
                              hashKeys, AWSPersistenceDynamoDBHashKey, 

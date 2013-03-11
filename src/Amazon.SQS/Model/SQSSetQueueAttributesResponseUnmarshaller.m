@@ -15,6 +15,7 @@
 
 
 #import "SQSSetQueueAttributesResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SQSSetQueueAttributesResponseUnmarshaller
 

@@ -40,7 +40,10 @@
 -(id)init;
 
 /**
- * The namespace for the metric data.
+ * The namespace for the metric data. <note> You cannot specify a
+ * namespace that begins with "AWS/". Namespaces that begin with "AWS/"
+ * are reserved for other Amazon Web Services products that send metrics
+ * to Amazon CloudWatch. </note>
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 255<br/>

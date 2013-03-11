@@ -15,6 +15,7 @@
 
 
 #import "AutoScalingDeleteNotificationConfigurationResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation AutoScalingDeleteNotificationConfigurationResponseUnmarshaller
 

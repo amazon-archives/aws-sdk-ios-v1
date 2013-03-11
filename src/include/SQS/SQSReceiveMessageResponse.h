@@ -16,7 +16,6 @@
 #import "SQSMessage.h"
 
 #import "SQSResponse.h"
-#import "../AmazonServiceExceptionUnmarshaller.h"
 
 #import "SQSOverLimitException.h"
 

@@ -15,6 +15,7 @@
 
 
 #import "SimpleDBDeleteAttributesResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SimpleDBDeleteAttributesResponseUnmarshaller
 

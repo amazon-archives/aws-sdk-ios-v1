@@ -14,6 +14,7 @@
  */
 
 #import "SESSendDataPointUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SESSendDataPointUnmarshaller
 

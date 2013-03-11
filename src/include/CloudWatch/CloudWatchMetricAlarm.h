@@ -123,7 +123,8 @@
  * <code>INSUFFICIENT_DATA</code> state from any other state. Each action
  * is specified as an Amazon Resource Number (ARN). Currently the only
  * actions supported are publishing to an Amazon SNS topic or triggering
- * an Auto Scaling policy.
+ * an Auto Scaling policy. <important>The current WSDL lists this
+ * attribute as <code>UnknownActions</code>.</important>
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>0 - 5<br/>

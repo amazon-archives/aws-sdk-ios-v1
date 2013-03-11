@@ -15,7 +15,6 @@
 
 
 #import "SQSResponse.h"
-#import "../AmazonServiceExceptionUnmarshaller.h"
 
 #import "SQSInvalidMessageContentsException.h"
 

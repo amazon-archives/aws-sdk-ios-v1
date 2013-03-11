@@ -15,6 +15,7 @@
 
 
 #import "SQSRemovePermissionResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SQSRemovePermissionResponseUnmarshaller
 

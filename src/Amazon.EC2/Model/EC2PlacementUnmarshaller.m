@@ -14,6 +14,7 @@
  */
 
 #import "EC2PlacementUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2PlacementUnmarshaller
 

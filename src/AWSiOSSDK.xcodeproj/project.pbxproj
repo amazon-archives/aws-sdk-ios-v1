@@ -2447,7 +2447,6 @@
 		38EFF141161F547D0069348B /* S3Response.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFF0AA161F547C0069348B /* S3Response.h */; };
 		38EFF142161F547D0069348B /* S3ResponseHeaderOverrides.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFF0AB161F547C0069348B /* S3ResponseHeaderOverrides.h */; };
 		38EFF143161F547D0069348B /* S3ServiceModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFF0AC161F547C0069348B /* S3ServiceModel.h */; };
-		38EFF144161F547D0069348B /* S3ServiceTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFF0AD161F547C0069348B /* S3ServiceTransform.h */; };
 		38EFF145161F547D0069348B /* S3SetACLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFF0AE161F547C0069348B /* S3SetACLRequest.h */; };
 		38EFF146161F547D0069348B /* S3SetACLResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFF0AF161F547C0069348B /* S3SetACLResponse.h */; };
 		38EFF147161F547D0069348B /* S3SetBucketCrossOriginRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFF0B0161F547C0069348B /* S3SetBucketCrossOriginRequest.h */; };
@@ -2467,9 +2466,9 @@
 		38EFF155161F547D0069348B /* S3UploadPartResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFF0BE161F547C0069348B /* S3UploadPartResponse.h */; };
 		38EFF156161F547D0069348B /* S3VersionSummary.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFF0BF161F547C0069348B /* S3VersionSummary.h */; };
 		38EFF157161F547D0069348B /* S3VersionSummaryUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFF0C0161F547C0069348B /* S3VersionSummaryUnmarshaller.h */; };
-		38FFA9AE16DEC58200CB3B82 /* S3AbortMultiplartUploadsOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 38FFA9AB16DEC58200CB3B82 /* S3AbortMultiplartUploadsOperation.h */; };
-		38FFA9AF16DEC58200CB3B82 /* S3MultipartUploadOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 38FFA9AC16DEC58200CB3B82 /* S3MultipartUploadOperation.h */; };
-		38FFA9B016DEC58200CB3B82 /* S3PutObjectOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 38FFA9AD16DEC58200CB3B82 /* S3PutObjectOperation.h */; };
+		38FFA9AE16DEC58200CB3B82 /* S3AbortMultiplartUploadsOperation_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 38FFA9AB16DEC58200CB3B82 /* S3AbortMultiplartUploadsOperation_Internal.h */; };
+		38FFA9AF16DEC58200CB3B82 /* S3MultipartUploadOperation_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 38FFA9AC16DEC58200CB3B82 /* S3MultipartUploadOperation_Internal.h */; };
+		38FFA9B016DEC58200CB3B82 /* S3PutObjectOperation_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 38FFA9AD16DEC58200CB3B82 /* S3PutObjectOperation_Internal.h */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		C416BD1216BCA24A00B0290C /* EC2CopySnapshotRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C416BD0E16BCA24A00B0290C /* EC2CopySnapshotRequest.m */; };
 		C416BD1316BCA24A00B0290C /* EC2CopySnapshotRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = C416BD0F16BCA24A00B0290C /* EC2CopySnapshotRequestMarshaller.m */; };
@@ -2504,10 +2503,38 @@
 		C4A4787816A4AE5600B64442 /* EC2Vpc.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A4786C16A4AE5600B64442 /* EC2Vpc.h */; };
 		C4A4787916A4AE5600B64442 /* EC2VpcUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A4786D16A4AE5600B64442 /* EC2VpcUnmarshaller.h */; };
 		CE17329816D8132A00DEC510 /* SBJson.h in Headers */ = {isa = PBXBuildFile; fileRef = CE17329716D8132A00DEC510 /* SBJson.h */; };
+		CE24F79716E98402001E3E1A /* EC2AccountAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = CE24F78916E98402001E3E1A /* EC2AccountAttribute.m */; };
+		CE24F79816E98402001E3E1A /* EC2AccountAttributeUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = CE24F78A16E98402001E3E1A /* EC2AccountAttributeUnmarshaller.m */; };
+		CE24F79916E98402001E3E1A /* EC2AccountAttributeValue.m in Sources */ = {isa = PBXBuildFile; fileRef = CE24F78B16E98402001E3E1A /* EC2AccountAttributeValue.m */; };
+		CE24F79A16E98402001E3E1A /* EC2AccountAttributeValueUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = CE24F78C16E98402001E3E1A /* EC2AccountAttributeValueUnmarshaller.m */; };
+		CE24F79B16E98402001E3E1A /* EC2CopyImageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CE24F78D16E98402001E3E1A /* EC2CopyImageRequest.m */; };
+		CE24F79C16E98402001E3E1A /* EC2CopyImageRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = CE24F78E16E98402001E3E1A /* EC2CopyImageRequestMarshaller.m */; };
+		CE24F79D16E98402001E3E1A /* EC2CopyImageResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = CE24F78F16E98402001E3E1A /* EC2CopyImageResponse.m */; };
+		CE24F79E16E98402001E3E1A /* EC2CopyImageResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = CE24F79016E98402001E3E1A /* EC2CopyImageResponseUnmarshaller.m */; };
+		CE24F79F16E98402001E3E1A /* EC2DescribeAccountAttributesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CE24F79116E98402001E3E1A /* EC2DescribeAccountAttributesRequest.m */; };
+		CE24F7A016E98402001E3E1A /* EC2DescribeAccountAttributesRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = CE24F79216E98402001E3E1A /* EC2DescribeAccountAttributesRequestMarshaller.m */; };
+		CE24F7A116E98402001E3E1A /* EC2DescribeAccountAttributesResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = CE24F79316E98402001E3E1A /* EC2DescribeAccountAttributesResponse.m */; };
+		CE24F7A216E98402001E3E1A /* EC2DescribeAccountAttributesResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = CE24F79416E98402001E3E1A /* EC2DescribeAccountAttributesResponseUnmarshaller.m */; };
+		CE24F7A316E98402001E3E1A /* EC2InstancePrivateIpAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = CE24F79516E98402001E3E1A /* EC2InstancePrivateIpAddress.m */; };
+		CE24F7A416E98402001E3E1A /* EC2InstancePrivateIpAddressUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = CE24F79616E98402001E3E1A /* EC2InstancePrivateIpAddressUnmarshaller.m */; };
+		CE24F7B316E98419001E3E1A /* EC2AccountAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = CE24F7A516E98419001E3E1A /* EC2AccountAttribute.h */; };
+		CE24F7B416E98419001E3E1A /* EC2AccountAttributeUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE24F7A616E98419001E3E1A /* EC2AccountAttributeUnmarshaller.h */; };
+		CE24F7B516E98419001E3E1A /* EC2AccountAttributeValue.h in Headers */ = {isa = PBXBuildFile; fileRef = CE24F7A716E98419001E3E1A /* EC2AccountAttributeValue.h */; };
+		CE24F7B616E98419001E3E1A /* EC2AccountAttributeValueUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE24F7A816E98419001E3E1A /* EC2AccountAttributeValueUnmarshaller.h */; };
+		CE24F7B716E98419001E3E1A /* EC2CopyImageRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE24F7A916E98419001E3E1A /* EC2CopyImageRequest.h */; };
+		CE24F7B816E98419001E3E1A /* EC2CopyImageRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE24F7AA16E98419001E3E1A /* EC2CopyImageRequestMarshaller.h */; };
+		CE24F7B916E98419001E3E1A /* EC2CopyImageResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE24F7AB16E98419001E3E1A /* EC2CopyImageResponse.h */; };
+		CE24F7BA16E98419001E3E1A /* EC2CopyImageResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE24F7AC16E98419001E3E1A /* EC2CopyImageResponseUnmarshaller.h */; };
+		CE24F7BB16E98419001E3E1A /* EC2DescribeAccountAttributesRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE24F7AD16E98419001E3E1A /* EC2DescribeAccountAttributesRequest.h */; };
+		CE24F7BC16E98419001E3E1A /* EC2DescribeAccountAttributesRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE24F7AE16E98419001E3E1A /* EC2DescribeAccountAttributesRequestMarshaller.h */; };
+		CE24F7BD16E98419001E3E1A /* EC2DescribeAccountAttributesResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE24F7AF16E98419001E3E1A /* EC2DescribeAccountAttributesResponse.h */; };
+		CE24F7BE16E98419001E3E1A /* EC2DescribeAccountAttributesResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE24F7B016E98419001E3E1A /* EC2DescribeAccountAttributesResponseUnmarshaller.h */; };
+		CE24F7BF16E98419001E3E1A /* EC2InstancePrivateIpAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = CE24F7B116E98419001E3E1A /* EC2InstancePrivateIpAddress.h */; };
+		CE24F7C016E98419001E3E1A /* EC2InstancePrivateIpAddressUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE24F7B216E98419001E3E1A /* EC2InstancePrivateIpAddressUnmarshaller.h */; };
 		CE2BF33416CB329D005189A8 /* S3TransferManager.h in Headers */ = {isa = PBXBuildFile; fileRef = CE2BF33216CB329D005189A8 /* S3TransferManager.h */; };
-		CE2BF33C16CB32C2005189A8 /* S3AbortMultiplartUploadsOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF33616CB32C2005189A8 /* S3AbortMultiplartUploadsOperation.m */; };
-		CE2BF33E16CB32C2005189A8 /* S3MultipartUploadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF33816CB32C2005189A8 /* S3MultipartUploadOperation.m */; };
-		CE2BF34016CB32C2005189A8 /* S3PutObjectOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF33A16CB32C2005189A8 /* S3PutObjectOperation.m */; };
+		CE2BF33C16CB32C2005189A8 /* S3AbortMultiplartUploadsOperation_Internal.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF33616CB32C2005189A8 /* S3AbortMultiplartUploadsOperation_Internal.m */; };
+		CE2BF33E16CB32C2005189A8 /* S3MultipartUploadOperation_Internal.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF33816CB32C2005189A8 /* S3MultipartUploadOperation_Internal.m */; };
+		CE2BF34016CB32C2005189A8 /* S3PutObjectOperation_Internal.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF33A16CB32C2005189A8 /* S3PutObjectOperation_Internal.m */; };
 		CE2BF34216CB32CF005189A8 /* S3TransferManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF34116CB32CF005189A8 /* S3TransferManager.m */; };
 		CE31477416D30B7E00BEDAA0 /* S3BucketLifecycleConfigurationTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFF17A1625DC4F0069348B /* S3BucketLifecycleConfigurationTransition.h */; };
 		CE31477516D30B7E00BEDAA0 /* S3BucketLifecycleConfigurationTransitionUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFF17B1625DC4F0069348B /* S3BucketLifecycleConfigurationTransitionUnmarshaller.h */; };
@@ -3004,6 +3031,8 @@
 		D054D5B7128C8AFE009B5334 /* SimpleDBSelectResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D565128C8AFE009B5334 /* SimpleDBSelectResponseUnmarshaller.h */; };
 		D054D5B8128C8AFE009B5334 /* SimpleDBTooManyRequestedAttributesException.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D566128C8AFE009B5334 /* SimpleDBTooManyRequestedAttributesException.h */; };
 		D054D5BA128C8AFE009B5334 /* SimpleDBUpdateCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D568128C8AFE009B5334 /* SimpleDBUpdateCondition.h */; };
+		D063F1E416E53B93006AD673 /* AmazonAbstractJsonWebServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D063F1E316E53B93006AD673 /* AmazonAbstractJsonWebServiceClient.m */; };
+		D063F1E716E53B9E006AD673 /* AmazonAbstractJsonWebServiceClient.h in Headers */ = {isa = PBXBuildFile; fileRef = D063F1E616E53B9E006AD673 /* AmazonAbstractJsonWebServiceClient.h */; };
 		D07CEC7E129B3737008FF534 /* SimpleDBRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D07CEC7D129B3737008FF534 /* SimpleDBRequest.h */; };
 		D07E9DA114BB9C160007304E /* AmazonJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = D07E9DA014BB9C160007304E /* AmazonJSON.m */; };
 		D080C904138C54A6000B306B /* ElasticLoadBalancingSourceSecurityGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = D080C902138C54A6000B306B /* ElasticLoadBalancingSourceSecurityGroup.m */; };
@@ -5599,7 +5628,6 @@
 		38EFF0AA161F547C0069348B /* S3Response.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3Response.h; sourceTree = "<group>"; };
 		38EFF0AB161F547C0069348B /* S3ResponseHeaderOverrides.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3ResponseHeaderOverrides.h; sourceTree = "<group>"; };
 		38EFF0AC161F547C0069348B /* S3ServiceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3ServiceModel.h; sourceTree = "<group>"; };
-		38EFF0AD161F547C0069348B /* S3ServiceTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3ServiceTransform.h; sourceTree = "<group>"; };
 		38EFF0AE161F547C0069348B /* S3SetACLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3SetACLRequest.h; sourceTree = "<group>"; };
 		38EFF0AF161F547C0069348B /* S3SetACLResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3SetACLResponse.h; sourceTree = "<group>"; };
 		38EFF0B0161F547C0069348B /* S3SetBucketCrossOriginRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3SetBucketCrossOriginRequest.h; sourceTree = "<group>"; };
@@ -5623,9 +5651,9 @@
 		38EFF1761625DC390069348B /* S3BucketLifecycleConfigurationTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3BucketLifecycleConfigurationTransition.m; sourceTree = "<group>"; };
 		38EFF17A1625DC4F0069348B /* S3BucketLifecycleConfigurationTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3BucketLifecycleConfigurationTransition.h; sourceTree = "<group>"; };
 		38EFF17B1625DC4F0069348B /* S3BucketLifecycleConfigurationTransitionUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3BucketLifecycleConfigurationTransitionUnmarshaller.h; sourceTree = "<group>"; };
-		38FFA9AB16DEC58200CB3B82 /* S3AbortMultiplartUploadsOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3AbortMultiplartUploadsOperation.h; sourceTree = "<group>"; };
-		38FFA9AC16DEC58200CB3B82 /* S3MultipartUploadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3MultipartUploadOperation.h; sourceTree = "<group>"; };
-		38FFA9AD16DEC58200CB3B82 /* S3PutObjectOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3PutObjectOperation.h; sourceTree = "<group>"; };
+		38FFA9AB16DEC58200CB3B82 /* S3AbortMultiplartUploadsOperation_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3AbortMultiplartUploadsOperation_Internal.h; sourceTree = "<group>"; };
+		38FFA9AC16DEC58200CB3B82 /* S3MultipartUploadOperation_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3MultipartUploadOperation_Internal.h; sourceTree = "<group>"; };
+		38FFA9AD16DEC58200CB3B82 /* S3PutObjectOperation_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3PutObjectOperation_Internal.h; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* AWSiOSSDK_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSiOSSDK_Prefix.pch; sourceTree = "<group>"; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C416BD0E16BCA24A00B0290C /* EC2CopySnapshotRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2CopySnapshotRequest.m; sourceTree = "<group>"; };
@@ -5661,10 +5689,38 @@
 		C4A4786C16A4AE5600B64442 /* EC2Vpc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2Vpc.h; sourceTree = "<group>"; };
 		C4A4786D16A4AE5600B64442 /* EC2VpcUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2VpcUnmarshaller.h; sourceTree = "<group>"; };
 		CE17329716D8132A00DEC510 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
+		CE24F78916E98402001E3E1A /* EC2AccountAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2AccountAttribute.m; sourceTree = "<group>"; };
+		CE24F78A16E98402001E3E1A /* EC2AccountAttributeUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2AccountAttributeUnmarshaller.m; sourceTree = "<group>"; };
+		CE24F78B16E98402001E3E1A /* EC2AccountAttributeValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2AccountAttributeValue.m; sourceTree = "<group>"; };
+		CE24F78C16E98402001E3E1A /* EC2AccountAttributeValueUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2AccountAttributeValueUnmarshaller.m; sourceTree = "<group>"; };
+		CE24F78D16E98402001E3E1A /* EC2CopyImageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2CopyImageRequest.m; sourceTree = "<group>"; };
+		CE24F78E16E98402001E3E1A /* EC2CopyImageRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2CopyImageRequestMarshaller.m; sourceTree = "<group>"; };
+		CE24F78F16E98402001E3E1A /* EC2CopyImageResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2CopyImageResponse.m; sourceTree = "<group>"; };
+		CE24F79016E98402001E3E1A /* EC2CopyImageResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2CopyImageResponseUnmarshaller.m; sourceTree = "<group>"; };
+		CE24F79116E98402001E3E1A /* EC2DescribeAccountAttributesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2DescribeAccountAttributesRequest.m; sourceTree = "<group>"; };
+		CE24F79216E98402001E3E1A /* EC2DescribeAccountAttributesRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2DescribeAccountAttributesRequestMarshaller.m; sourceTree = "<group>"; };
+		CE24F79316E98402001E3E1A /* EC2DescribeAccountAttributesResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2DescribeAccountAttributesResponse.m; sourceTree = "<group>"; };
+		CE24F79416E98402001E3E1A /* EC2DescribeAccountAttributesResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2DescribeAccountAttributesResponseUnmarshaller.m; sourceTree = "<group>"; };
+		CE24F79516E98402001E3E1A /* EC2InstancePrivateIpAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2InstancePrivateIpAddress.m; sourceTree = "<group>"; };
+		CE24F79616E98402001E3E1A /* EC2InstancePrivateIpAddressUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2InstancePrivateIpAddressUnmarshaller.m; sourceTree = "<group>"; };
+		CE24F7A516E98419001E3E1A /* EC2AccountAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2AccountAttribute.h; sourceTree = "<group>"; };
+		CE24F7A616E98419001E3E1A /* EC2AccountAttributeUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2AccountAttributeUnmarshaller.h; sourceTree = "<group>"; };
+		CE24F7A716E98419001E3E1A /* EC2AccountAttributeValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2AccountAttributeValue.h; sourceTree = "<group>"; };
+		CE24F7A816E98419001E3E1A /* EC2AccountAttributeValueUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2AccountAttributeValueUnmarshaller.h; sourceTree = "<group>"; };
+		CE24F7A916E98419001E3E1A /* EC2CopyImageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2CopyImageRequest.h; sourceTree = "<group>"; };
+		CE24F7AA16E98419001E3E1A /* EC2CopyImageRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2CopyImageRequestMarshaller.h; sourceTree = "<group>"; };
+		CE24F7AB16E98419001E3E1A /* EC2CopyImageResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2CopyImageResponse.h; sourceTree = "<group>"; };
+		CE24F7AC16E98419001E3E1A /* EC2CopyImageResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2CopyImageResponseUnmarshaller.h; sourceTree = "<group>"; };
+		CE24F7AD16E98419001E3E1A /* EC2DescribeAccountAttributesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2DescribeAccountAttributesRequest.h; sourceTree = "<group>"; };
+		CE24F7AE16E98419001E3E1A /* EC2DescribeAccountAttributesRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2DescribeAccountAttributesRequestMarshaller.h; sourceTree = "<group>"; };
+		CE24F7AF16E98419001E3E1A /* EC2DescribeAccountAttributesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2DescribeAccountAttributesResponse.h; sourceTree = "<group>"; };
+		CE24F7B016E98419001E3E1A /* EC2DescribeAccountAttributesResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2DescribeAccountAttributesResponseUnmarshaller.h; sourceTree = "<group>"; };
+		CE24F7B116E98419001E3E1A /* EC2InstancePrivateIpAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2InstancePrivateIpAddress.h; sourceTree = "<group>"; };
+		CE24F7B216E98419001E3E1A /* EC2InstancePrivateIpAddressUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC2InstancePrivateIpAddressUnmarshaller.h; sourceTree = "<group>"; };
 		CE2BF33216CB329D005189A8 /* S3TransferManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3TransferManager.h; sourceTree = "<group>"; };
-		CE2BF33616CB32C2005189A8 /* S3AbortMultiplartUploadsOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3AbortMultiplartUploadsOperation.m; sourceTree = "<group>"; };
-		CE2BF33816CB32C2005189A8 /* S3MultipartUploadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3MultipartUploadOperation.m; sourceTree = "<group>"; };
-		CE2BF33A16CB32C2005189A8 /* S3PutObjectOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3PutObjectOperation.m; sourceTree = "<group>"; };
+		CE2BF33616CB32C2005189A8 /* S3AbortMultiplartUploadsOperation_Internal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3AbortMultiplartUploadsOperation_Internal.m; sourceTree = "<group>"; };
+		CE2BF33816CB32C2005189A8 /* S3MultipartUploadOperation_Internal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3MultipartUploadOperation_Internal.m; sourceTree = "<group>"; };
+		CE2BF33A16CB32C2005189A8 /* S3PutObjectOperation_Internal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3PutObjectOperation_Internal.m; sourceTree = "<group>"; };
 		CE2BF34116CB32CF005189A8 /* S3TransferManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3TransferManager.m; sourceTree = "<group>"; };
 		CE39A67C15B73D890008DBEA /* AmazonErrorHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonErrorHandler.m; sourceTree = "<group>"; };
 		CE96C1A9158BC2A70084D3CB /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -6157,6 +6213,8 @@
 		D054D565128C8AFE009B5334 /* SimpleDBSelectResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleDBSelectResponseUnmarshaller.h; sourceTree = "<group>"; };
 		D054D566128C8AFE009B5334 /* SimpleDBTooManyRequestedAttributesException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleDBTooManyRequestedAttributesException.h; sourceTree = "<group>"; };
 		D054D568128C8AFE009B5334 /* SimpleDBUpdateCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleDBUpdateCondition.h; sourceTree = "<group>"; };
+		D063F1E316E53B93006AD673 /* AmazonAbstractJsonWebServiceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonAbstractJsonWebServiceClient.m; sourceTree = "<group>"; };
+		D063F1E616E53B9E006AD673 /* AmazonAbstractJsonWebServiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonAbstractJsonWebServiceClient.h; sourceTree = "<group>"; };
 		D069663F1234D53400BFBB1E /* libAWSiOSSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAWSiOSSDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D07CEC4A129B330B008FF534 /* SimpleDBRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBRequest.m; sourceTree = "<group>"; };
 		D07CEC7D129B3737008FF534 /* SimpleDBRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleDBRequest.h; sourceTree = "<group>"; };
@@ -6531,6 +6589,7 @@
 		0AFD8AEB12832C77004B7863 /* Amazon.Runtime */ = {
 			isa = PBXGroup;
 			children = (
+				D063F1E316E53B93006AD673 /* AmazonAbstractJsonWebServiceClient.m */,
 				CE39A67C15B73D890008DBEA /* AmazonErrorHandler.m */,
 				D07E9DA014BB9C160007304E /* AmazonJSON.m */,
 				D020EBF8136091CD008EB16D /* AmazonRequestDelegate.m */,
@@ -6588,6 +6647,7 @@
 		0AFD9561128471A4004B7863 /* include */ = {
 			isa = PBXGroup;
 			children = (
+				D063F1E616E53B9E006AD673 /* AmazonAbstractJsonWebServiceClient.h */,
 				38EFEA6F161F542C0069348B /* AmazonAbstractWebServiceClient.h */,
 				38EFEA70161F542C0069348B /* AmazonAuthUtils.h */,
 				38EFEA71161F542C0069348B /* AmazonBoolValueUnmarshaller.h */,
@@ -7338,10 +7398,10 @@
 		389F3939164D9E9000272BA2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C416BD0E16BCA24A00B0290C /* EC2CopySnapshotRequest.m */,
-				C416BD0F16BCA24A00B0290C /* EC2CopySnapshotRequestMarshaller.m */,
-				C416BD1016BCA24A00B0290C /* EC2CopySnapshotResponse.m */,
-				C416BD1116BCA24A00B0290C /* EC2CopySnapshotResponseUnmarshaller.m */,
+				CE24F78916E98402001E3E1A /* EC2AccountAttribute.m */,
+				CE24F78A16E98402001E3E1A /* EC2AccountAttributeUnmarshaller.m */,
+				CE24F78B16E98402001E3E1A /* EC2AccountAttributeValue.m */,
+				CE24F78C16E98402001E3E1A /* EC2AccountAttributeValueUnmarshaller.m */,
 				389F393A164D9E9000272BA2 /* EC2ActivateLicenseRequest.m */,
 				389F393B164D9E9000272BA2 /* EC2ActivateLicenseRequestMarshaller.m */,
 				389F393C164D9E9000272BA2 /* EC2ActivateLicenseResponse.m */,
@@ -7406,6 +7466,14 @@
 				389F3977164D9E9000272BA2 /* EC2ConfirmProductInstanceResponseUnmarshaller.m */,
 				389F3978164D9E9000272BA2 /* EC2ConversionTask.m */,
 				389F3979164D9E9000272BA2 /* EC2ConversionTaskUnmarshaller.m */,
+				CE24F78D16E98402001E3E1A /* EC2CopyImageRequest.m */,
+				CE24F78E16E98402001E3E1A /* EC2CopyImageRequestMarshaller.m */,
+				CE24F78F16E98402001E3E1A /* EC2CopyImageResponse.m */,
+				CE24F79016E98402001E3E1A /* EC2CopyImageResponseUnmarshaller.m */,
+				C416BD0E16BCA24A00B0290C /* EC2CopySnapshotRequest.m */,
+				C416BD0F16BCA24A00B0290C /* EC2CopySnapshotRequestMarshaller.m */,
+				C416BD1016BCA24A00B0290C /* EC2CopySnapshotResponse.m */,
+				C416BD1116BCA24A00B0290C /* EC2CopySnapshotResponseUnmarshaller.m */,
 				389F397A164D9E9000272BA2 /* EC2CreateImageRequest.m */,
 				389F397B164D9E9000272BA2 /* EC2CreateImageRequestMarshaller.m */,
 				389F397C164D9E9000272BA2 /* EC2CreateImageResponse.m */,
@@ -7485,6 +7553,10 @@
 				389F39C6164D9E9000272BA2 /* EC2DeregisterImageRequestMarshaller.m */,
 				389F39C7164D9E9000272BA2 /* EC2DeregisterImageResponse.m */,
 				389F39C8164D9E9000272BA2 /* EC2DeregisterImageResponseUnmarshaller.m */,
+				CE24F79116E98402001E3E1A /* EC2DescribeAccountAttributesRequest.m */,
+				CE24F79216E98402001E3E1A /* EC2DescribeAccountAttributesRequestMarshaller.m */,
+				CE24F79316E98402001E3E1A /* EC2DescribeAccountAttributesResponse.m */,
+				CE24F79416E98402001E3E1A /* EC2DescribeAccountAttributesResponseUnmarshaller.m */,
 				389F39C9164D9E9000272BA2 /* EC2DescribeAddressesRequest.m */,
 				389F39CA164D9E9000272BA2 /* EC2DescribeAddressesRequestMarshaller.m */,
 				389F39CB164D9E9000272BA2 /* EC2DescribeAddressesResponse.m */,
@@ -7690,6 +7762,8 @@
 				389F3A8B164D9E9100272BA2 /* EC2InstanceNetworkInterfaceSpecification.m */,
 				389F3A8C164D9E9100272BA2 /* EC2InstanceNetworkInterfaceSpecificationUnmarshaller.m */,
 				389F3A8D164D9E9100272BA2 /* EC2InstanceNetworkInterfaceUnmarshaller.m */,
+				CE24F79516E98402001E3E1A /* EC2InstancePrivateIpAddress.m */,
+				CE24F79616E98402001E3E1A /* EC2InstancePrivateIpAddressUnmarshaller.m */,
 				389F3A8E164D9E9100272BA2 /* EC2InstanceState.m */,
 				389F3A8F164D9E9100272BA2 /* EC2InstanceStateChange.m */,
 				389F3A90164D9E9100272BA2 /* EC2InstanceStateChangeUnmarshaller.m */,
@@ -7881,23 +7955,11 @@
 		389F3D4E164D9E9F00272BA2 /* EC2 */ = {
 			isa = PBXGroup;
 			children = (
-				C416BD1716BCA27200B0290C /* EC2CopySnapshotRequest.h */,
-				C416BD1816BCA27200B0290C /* EC2CopySnapshotRequestMarshaller.h */,
-				C416BD1916BCA27200B0290C /* EC2CopySnapshotResponse.h */,
-				C416BD1A16BCA27200B0290C /* EC2CopySnapshotResponseUnmarshaller.h */,
-				C4A4786216A4AE5600B64442 /* EC2DescribeSubnetsRequest.h */,
-				C4A4786316A4AE5600B64442 /* EC2DescribeSubnetsRequestMarshaller.h */,
-				C4A4786416A4AE5600B64442 /* EC2DescribeSubnetsResponse.h */,
-				C4A4786516A4AE5600B64442 /* EC2DescribeSubnetsResponseUnmarshaller.h */,
-				C4A4786616A4AE5600B64442 /* EC2DescribeVpcsRequest.h */,
-				C4A4786716A4AE5600B64442 /* EC2DescribeVpcsRequestMarshaller.h */,
-				C4A4786816A4AE5600B64442 /* EC2DescribeVpcsResponse.h */,
-				C4A4786916A4AE5600B64442 /* EC2DescribeVpcsResponseUnmarshaller.h */,
-				C4A4786A16A4AE5600B64442 /* EC2Subnet.h */,
-				C4A4786B16A4AE5600B64442 /* EC2SubnetUnmarshaller.h */,
-				C4A4786C16A4AE5600B64442 /* EC2Vpc.h */,
-				C4A4786D16A4AE5600B64442 /* EC2VpcUnmarshaller.h */,
 				389F3D4F164D9E9F00272BA2 /* AmazonEC2Client.h */,
+				CE24F7A516E98419001E3E1A /* EC2AccountAttribute.h */,
+				CE24F7A616E98419001E3E1A /* EC2AccountAttributeUnmarshaller.h */,
+				CE24F7A716E98419001E3E1A /* EC2AccountAttributeValue.h */,
+				CE24F7A816E98419001E3E1A /* EC2AccountAttributeValueUnmarshaller.h */,
 				389F3D50164D9E9F00272BA2 /* EC2ActivateLicenseRequest.h */,
 				389F3D51164D9E9F00272BA2 /* EC2ActivateLicenseRequestMarshaller.h */,
 				389F3D52164D9E9F00272BA2 /* EC2ActivateLicenseResponse.h */,
@@ -7962,6 +8024,14 @@
 				389F3D8D164D9E9F00272BA2 /* EC2ConfirmProductInstanceResponseUnmarshaller.h */,
 				389F3D8E164D9E9F00272BA2 /* EC2ConversionTask.h */,
 				389F3D8F164D9E9F00272BA2 /* EC2ConversionTaskUnmarshaller.h */,
+				CE24F7A916E98419001E3E1A /* EC2CopyImageRequest.h */,
+				CE24F7AA16E98419001E3E1A /* EC2CopyImageRequestMarshaller.h */,
+				CE24F7AB16E98419001E3E1A /* EC2CopyImageResponse.h */,
+				CE24F7AC16E98419001E3E1A /* EC2CopyImageResponseUnmarshaller.h */,
+				C416BD1716BCA27200B0290C /* EC2CopySnapshotRequest.h */,
+				C416BD1816BCA27200B0290C /* EC2CopySnapshotRequestMarshaller.h */,
+				C416BD1916BCA27200B0290C /* EC2CopySnapshotResponse.h */,
+				C416BD1A16BCA27200B0290C /* EC2CopySnapshotResponseUnmarshaller.h */,
 				389F3D90164D9E9F00272BA2 /* EC2CreateImageRequest.h */,
 				389F3D91164D9E9F00272BA2 /* EC2CreateImageRequestMarshaller.h */,
 				389F3D92164D9E9F00272BA2 /* EC2CreateImageResponse.h */,
@@ -8041,6 +8111,10 @@
 				389F3DDC164D9E9F00272BA2 /* EC2DeregisterImageRequestMarshaller.h */,
 				389F3DDD164D9E9F00272BA2 /* EC2DeregisterImageResponse.h */,
 				389F3DDE164D9E9F00272BA2 /* EC2DeregisterImageResponseUnmarshaller.h */,
+				CE24F7AD16E98419001E3E1A /* EC2DescribeAccountAttributesRequest.h */,
+				CE24F7AE16E98419001E3E1A /* EC2DescribeAccountAttributesRequestMarshaller.h */,
+				CE24F7AF16E98419001E3E1A /* EC2DescribeAccountAttributesResponse.h */,
+				CE24F7B016E98419001E3E1A /* EC2DescribeAccountAttributesResponseUnmarshaller.h */,
 				389F3DDF164D9E9F00272BA2 /* EC2DescribeAddressesRequest.h */,
 				389F3DE0164D9E9F00272BA2 /* EC2DescribeAddressesRequestMarshaller.h */,
 				389F3DE1164D9E9F00272BA2 /* EC2DescribeAddressesResponse.h */,
@@ -8133,6 +8207,10 @@
 				389F3E38164D9E9F00272BA2 /* EC2DescribeSpotPriceHistoryRequestMarshaller.h */,
 				389F3E39164D9E9F00272BA2 /* EC2DescribeSpotPriceHistoryResponse.h */,
 				389F3E3A164D9E9F00272BA2 /* EC2DescribeSpotPriceHistoryResponseUnmarshaller.h */,
+				C4A4786216A4AE5600B64442 /* EC2DescribeSubnetsRequest.h */,
+				C4A4786316A4AE5600B64442 /* EC2DescribeSubnetsRequestMarshaller.h */,
+				C4A4786416A4AE5600B64442 /* EC2DescribeSubnetsResponse.h */,
+				C4A4786516A4AE5600B64442 /* EC2DescribeSubnetsResponseUnmarshaller.h */,
 				389F3E3B164D9E9F00272BA2 /* EC2DescribeTagsRequest.h */,
 				389F3E3C164D9E9F00272BA2 /* EC2DescribeTagsRequestMarshaller.h */,
 				389F3E3D164D9E9F00272BA2 /* EC2DescribeTagsResponse.h */,
@@ -8149,6 +8227,10 @@
 				389F3E48164D9E9F00272BA2 /* EC2DescribeVolumeStatusRequestMarshaller.h */,
 				389F3E49164D9E9F00272BA2 /* EC2DescribeVolumeStatusResponse.h */,
 				389F3E4A164D9E9F00272BA2 /* EC2DescribeVolumeStatusResponseUnmarshaller.h */,
+				C4A4786616A4AE5600B64442 /* EC2DescribeVpcsRequest.h */,
+				C4A4786716A4AE5600B64442 /* EC2DescribeVpcsRequestMarshaller.h */,
+				C4A4786816A4AE5600B64442 /* EC2DescribeVpcsResponse.h */,
+				C4A4786916A4AE5600B64442 /* EC2DescribeVpcsResponseUnmarshaller.h */,
 				389F3E4B164D9E9F00272BA2 /* EC2DetachVolumeRequest.h */,
 				389F3E4C164D9E9F00272BA2 /* EC2DetachVolumeRequestMarshaller.h */,
 				389F3E4D164D9E9F00272BA2 /* EC2DetachVolumeResponse.h */,
@@ -8238,6 +8320,8 @@
 				389F3EA1164D9E9F00272BA2 /* EC2InstanceNetworkInterfaceSpecification.h */,
 				389F3EA2164D9E9F00272BA2 /* EC2InstanceNetworkInterfaceSpecificationUnmarshaller.h */,
 				389F3EA3164D9E9F00272BA2 /* EC2InstanceNetworkInterfaceUnmarshaller.h */,
+				CE24F7B116E98419001E3E1A /* EC2InstancePrivateIpAddress.h */,
+				CE24F7B216E98419001E3E1A /* EC2InstancePrivateIpAddressUnmarshaller.h */,
 				389F3EA4164D9E9F00272BA2 /* EC2InstanceState.h */,
 				389F3EA5164D9E9F00272BA2 /* EC2InstanceStateChange.h */,
 				389F3EA6164D9E9F00272BA2 /* EC2InstanceStateChangeUnmarshaller.h */,
@@ -8392,6 +8476,8 @@
 				389F3F3B164D9EA000272BA2 /* EC2StopInstancesResponseUnmarshaller.h */,
 				389F3F3C164D9EA000272BA2 /* EC2Storage.h */,
 				389F3F3D164D9EA000272BA2 /* EC2StorageUnmarshaller.h */,
+				C4A4786A16A4AE5600B64442 /* EC2Subnet.h */,
+				C4A4786B16A4AE5600B64442 /* EC2SubnetUnmarshaller.h */,
 				389F3F3E164D9EA000272BA2 /* EC2Tag.h */,
 				389F3F3F164D9EA000272BA2 /* EC2TagDescription.h */,
 				389F3F40164D9EA000272BA2 /* EC2TagDescriptionUnmarshaller.h */,
@@ -8421,6 +8507,8 @@
 				389F3F58164D9EA000272BA2 /* EC2VolumeStatusItem.h */,
 				389F3F59164D9EA000272BA2 /* EC2VolumeStatusItemUnmarshaller.h */,
 				389F3F5A164D9EA000272BA2 /* EC2VolumeUnmarshaller.h */,
+				C4A4786C16A4AE5600B64442 /* EC2Vpc.h */,
+				C4A4786D16A4AE5600B64442 /* EC2VpcUnmarshaller.h */,
 			);
 			path = EC2;
 			sourceTree = "<group>";
@@ -8444,7 +8532,7 @@
 				38EFE7D5161F53FF0069348B /* DeleteError.m */,
 				38EFE7D6161F53FF0069348B /* S3AbortMultipartUploadRequest.m */,
 				38EFE7D7161F53FF0069348B /* S3AbortMultipartUploadResponse.m */,
-				CE2BF33616CB32C2005189A8 /* S3AbortMultiplartUploadsOperation.m */,
+				CE2BF33616CB32C2005189A8 /* S3AbortMultiplartUploadsOperation_Internal.m */,
 				38EFE7D8161F53FF0069348B /* S3AbstractPutRequest.m */,
 				38EFE7D9161F53FF0069348B /* S3AccessControlList.m */,
 				38EFE7DA161F53FF0069348B /* S3AccessControlListUnmarshaller.m */,
@@ -8556,7 +8644,7 @@
 				38EFE842161F53FF0069348B /* S3LocationConstraintUnmarshaller.m */,
 				38EFE843161F53FF0069348B /* S3MultiFactorAuthentication.m */,
 				38EFE844161F53FF0069348B /* S3MultipartUpload.m */,
-				CE2BF33816CB32C2005189A8 /* S3MultipartUploadOperation.m */,
+				CE2BF33816CB32C2005189A8 /* S3MultipartUploadOperation_Internal.m */,
 				38EFE845161F53FF0069348B /* S3MultipartUploadUnmarshaller.m */,
 				38EFE846161F53FF0069348B /* S3ObjectSummary.m */,
 				38EFE847161F53FF0069348B /* S3ObjectSummaryUnmarshaller.m */,
@@ -8565,7 +8653,7 @@
 				38EFE84A161F53FF0069348B /* S3Part.m */,
 				38EFE84B161F53FF0069348B /* S3PartUnmarshaller.m */,
 				38EFE84C161F53FF0069348B /* S3Permission.m */,
-				CE2BF33A16CB32C2005189A8 /* S3PutObjectOperation.m */,
+				CE2BF33A16CB32C2005189A8 /* S3PutObjectOperation_Internal.m */,
 				38EFE84D161F53FF0069348B /* S3PutObjectRequest.m */,
 				38EFE84E161F53FF0069348B /* S3PutObjectResponse.m */,
 				38EFE84F161F53FF0069348B /* S3Region.m */,
@@ -8999,15 +9087,13 @@
 		38EFF029161F547C0069348B /* S3 */ = {
 			isa = PBXGroup;
 			children = (
-				38FFA9AB16DEC58200CB3B82 /* S3AbortMultiplartUploadsOperation.h */,
-				38FFA9AC16DEC58200CB3B82 /* S3MultipartUploadOperation.h */,
-				38FFA9AD16DEC58200CB3B82 /* S3PutObjectOperation.h */,
 				38EFF02A161F547C0069348B /* AmazonS3Client.h */,
 				38EFF02B161F547C0069348B /* BucketWebsiteConfiguration.h */,
 				38EFF02C161F547C0069348B /* DeletedObject.h */,
 				38EFF02D161F547C0069348B /* DeleteError.h */,
 				38EFF02E161F547C0069348B /* S3AbortMultipartUploadRequest.h */,
 				38EFF02F161F547C0069348B /* S3AbortMultipartUploadResponse.h */,
+				38FFA9AB16DEC58200CB3B82 /* S3AbortMultiplartUploadsOperation_Internal.h */,
 				38EFF030161F547C0069348B /* S3AbstractPutRequest.h */,
 				38EFF031161F547C0069348B /* S3AccessControlList.h */,
 				38EFF032161F547C0069348B /* S3AccessControlListUnmarshaller.h */,
@@ -9120,6 +9206,7 @@
 				38EFF09B161F547C0069348B /* S3LocationConstraintUnmarshaller.h */,
 				38EFF09C161F547C0069348B /* S3MultiFactorAuthentication.h */,
 				38EFF09D161F547C0069348B /* S3MultipartUpload.h */,
+				38FFA9AC16DEC58200CB3B82 /* S3MultipartUploadOperation_Internal.h */,
 				38EFF09E161F547C0069348B /* S3MultipartUploadUnmarshaller.h */,
 				38EFF09F161F547C0069348B /* S3ObjectSummary.h */,
 				38EFF0A0161F547C0069348B /* S3ObjectSummaryUnmarshaller.h */,
@@ -9128,6 +9215,7 @@
 				38EFF0A3161F547C0069348B /* S3Part.h */,
 				38EFF0A4161F547C0069348B /* S3PartUnmarshaller.h */,
 				38EFF0A5161F547C0069348B /* S3Permission.h */,
+				38FFA9AD16DEC58200CB3B82 /* S3PutObjectOperation_Internal.h */,
 				38EFF0A6161F547C0069348B /* S3PutObjectRequest.h */,
 				38EFF0A7161F547C0069348B /* S3PutObjectResponse.h */,
 				38EFF0A8161F547C0069348B /* S3Region.h */,
@@ -9137,7 +9225,6 @@
 				3830E62416288041000C443F /* S3RestoreObjectRequest.h */,
 				3830E62516288041000C443F /* S3RestoreObjectResponse.h */,
 				38EFF0AC161F547C0069348B /* S3ServiceModel.h */,
-				38EFF0AD161F547C0069348B /* S3ServiceTransform.h */,
 				38EFF0AE161F547C0069348B /* S3SetACLRequest.h */,
 				38EFF0AF161F547C0069348B /* S3SetACLResponse.h */,
 				38EFF0B0161F547C0069348B /* S3SetBucketCrossOriginRequest.h */,
@@ -10730,7 +10817,6 @@
 				38EFF141161F547D0069348B /* S3Response.h in Headers */,
 				38EFF142161F547D0069348B /* S3ResponseHeaderOverrides.h in Headers */,
 				38EFF143161F547D0069348B /* S3ServiceModel.h in Headers */,
-				38EFF144161F547D0069348B /* S3ServiceTransform.h in Headers */,
 				38EFF145161F547D0069348B /* S3SetACLRequest.h in Headers */,
 				38EFF146161F547D0069348B /* S3SetACLResponse.h in Headers */,
 				38EFF147161F547D0069348B /* S3SetBucketCrossOriginRequest.h in Headers */,
@@ -11410,9 +11496,24 @@
 				C416BD1E16BCA27200B0290C /* EC2CopySnapshotResponseUnmarshaller.h in Headers */,
 				CE2BF33416CB329D005189A8 /* S3TransferManager.h in Headers */,
 				CE17329816D8132A00DEC510 /* SBJson.h in Headers */,
-				38FFA9AE16DEC58200CB3B82 /* S3AbortMultiplartUploadsOperation.h in Headers */,
-				38FFA9AF16DEC58200CB3B82 /* S3MultipartUploadOperation.h in Headers */,
-				38FFA9B016DEC58200CB3B82 /* S3PutObjectOperation.h in Headers */,
+				38FFA9AE16DEC58200CB3B82 /* S3AbortMultiplartUploadsOperation_Internal.h in Headers */,
+				38FFA9AF16DEC58200CB3B82 /* S3MultipartUploadOperation_Internal.h in Headers */,
+				38FFA9B016DEC58200CB3B82 /* S3PutObjectOperation_Internal.h in Headers */,
+				D063F1E716E53B9E006AD673 /* AmazonAbstractJsonWebServiceClient.h in Headers */,
+				CE24F7B316E98419001E3E1A /* EC2AccountAttribute.h in Headers */,
+				CE24F7B416E98419001E3E1A /* EC2AccountAttributeUnmarshaller.h in Headers */,
+				CE24F7B516E98419001E3E1A /* EC2AccountAttributeValue.h in Headers */,
+				CE24F7B616E98419001E3E1A /* EC2AccountAttributeValueUnmarshaller.h in Headers */,
+				CE24F7B716E98419001E3E1A /* EC2CopyImageRequest.h in Headers */,
+				CE24F7B816E98419001E3E1A /* EC2CopyImageRequestMarshaller.h in Headers */,
+				CE24F7B916E98419001E3E1A /* EC2CopyImageResponse.h in Headers */,
+				CE24F7BA16E98419001E3E1A /* EC2CopyImageResponseUnmarshaller.h in Headers */,
+				CE24F7BB16E98419001E3E1A /* EC2DescribeAccountAttributesRequest.h in Headers */,
+				CE24F7BC16E98419001E3E1A /* EC2DescribeAccountAttributesRequestMarshaller.h in Headers */,
+				CE24F7BD16E98419001E3E1A /* EC2DescribeAccountAttributesResponse.h in Headers */,
+				CE24F7BE16E98419001E3E1A /* EC2DescribeAccountAttributesResponseUnmarshaller.h in Headers */,
+				CE24F7BF16E98419001E3E1A /* EC2InstancePrivateIpAddress.h in Headers */,
+				CE24F7C016E98419001E3E1A /* EC2InstancePrivateIpAddressUnmarshaller.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -13052,10 +13153,25 @@
 				C416BD1316BCA24A00B0290C /* EC2CopySnapshotRequestMarshaller.m in Sources */,
 				C416BD1416BCA24A00B0290C /* EC2CopySnapshotResponse.m in Sources */,
 				C416BD1516BCA24A00B0290C /* EC2CopySnapshotResponseUnmarshaller.m in Sources */,
-				CE2BF33C16CB32C2005189A8 /* S3AbortMultiplartUploadsOperation.m in Sources */,
-				CE2BF33E16CB32C2005189A8 /* S3MultipartUploadOperation.m in Sources */,
-				CE2BF34016CB32C2005189A8 /* S3PutObjectOperation.m in Sources */,
+				CE2BF33C16CB32C2005189A8 /* S3AbortMultiplartUploadsOperation_Internal.m in Sources */,
+				CE2BF33E16CB32C2005189A8 /* S3MultipartUploadOperation_Internal.m in Sources */,
+				CE2BF34016CB32C2005189A8 /* S3PutObjectOperation_Internal.m in Sources */,
 				CE2BF34216CB32CF005189A8 /* S3TransferManager.m in Sources */,
+				D063F1E416E53B93006AD673 /* AmazonAbstractJsonWebServiceClient.m in Sources */,
+				CE24F79716E98402001E3E1A /* EC2AccountAttribute.m in Sources */,
+				CE24F79816E98402001E3E1A /* EC2AccountAttributeUnmarshaller.m in Sources */,
+				CE24F79916E98402001E3E1A /* EC2AccountAttributeValue.m in Sources */,
+				CE24F79A16E98402001E3E1A /* EC2AccountAttributeValueUnmarshaller.m in Sources */,
+				CE24F79B16E98402001E3E1A /* EC2CopyImageRequest.m in Sources */,
+				CE24F79C16E98402001E3E1A /* EC2CopyImageRequestMarshaller.m in Sources */,
+				CE24F79D16E98402001E3E1A /* EC2CopyImageResponse.m in Sources */,
+				CE24F79E16E98402001E3E1A /* EC2CopyImageResponseUnmarshaller.m in Sources */,
+				CE24F79F16E98402001E3E1A /* EC2DescribeAccountAttributesRequest.m in Sources */,
+				CE24F7A016E98402001E3E1A /* EC2DescribeAccountAttributesRequestMarshaller.m in Sources */,
+				CE24F7A116E98402001E3E1A /* EC2DescribeAccountAttributesResponse.m in Sources */,
+				CE24F7A216E98402001E3E1A /* EC2DescribeAccountAttributesResponseUnmarshaller.m in Sources */,
+				CE24F7A316E98402001E3E1A /* EC2InstancePrivateIpAddress.m in Sources */,
+				CE24F7A416E98402001E3E1A /* EC2InstancePrivateIpAddressUnmarshaller.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

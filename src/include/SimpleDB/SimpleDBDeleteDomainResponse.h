@@ -15,7 +15,6 @@
 
 
 #import "SimpleDBResponse.h"
-#import "../AmazonServiceExceptionUnmarshaller.h"
 
 #import "SimpleDBMissingParameterException.h"
 

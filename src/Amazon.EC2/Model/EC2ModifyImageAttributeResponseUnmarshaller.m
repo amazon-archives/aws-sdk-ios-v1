@@ -15,6 +15,7 @@
 
 
 #import "EC2ModifyImageAttributeResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2ModifyImageAttributeResponseUnmarshaller
 

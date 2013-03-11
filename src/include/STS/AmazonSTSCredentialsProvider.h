@@ -15,6 +15,12 @@
 
 #import "AmazonSecurityTokenServiceClient.h"
 
+/**
+ * An implementation of AmazonCredentialsProvider which makes calls to AWS 
+ * Secure Token Service (STS) to get temporary credentials.
+ *
+ * @see AmazonCredentialsProvider
+ */
 @interface AmazonSTSCredentialsProvider : NSObject<AmazonCredentialsProvider>
 
 /** 

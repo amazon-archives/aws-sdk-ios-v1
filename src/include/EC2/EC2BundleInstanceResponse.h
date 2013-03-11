@@ -16,7 +16,6 @@
 #import "EC2BundleTask.h"
 
 #import "EC2Response.h"
-#import "../AmazonServiceExceptionUnmarshaller.h"
 
 
 

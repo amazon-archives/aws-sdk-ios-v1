@@ -14,6 +14,7 @@
  */
 
 #import "ElasticLoadBalancingCreateLBCookieStickinessPolicyResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation ElasticLoadBalancingCreateLBCookieStickinessPolicyResponseUnmarshaller
 

@@ -25,6 +25,7 @@
 {
     NSDate   *lastIncreaseDateTime;
     NSDate   *lastDecreaseDateTime;
+    NSNumber *numberOfDecreasesToday;
     NSNumber *readCapacityUnits;
     NSNumber *writeCapacityUnits;
 }
@@ -47,6 +48,14 @@
  * The value of the LastDecreaseDateTime property for this object.
  */
 @property (nonatomic, retain) NSDate *lastDecreaseDateTime;
+
+/**
+ * The value of the NumberOfDecreasesToday property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Range: </b>1 - <br/>
+ */
+@property (nonatomic, retain) NSNumber *numberOfDecreasesToday;
 
 /**
  * The value of the ReadCapacityUnits property for this object.

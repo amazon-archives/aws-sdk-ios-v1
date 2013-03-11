@@ -14,6 +14,7 @@
  */
 
 #import "EC2DescribeVpcsResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2DescribeVpcsResponseUnmarshaller
 

@@ -24,6 +24,7 @@
 
 {
     NSString *publicIp;
+    NSString *publicDnsName;
     NSString *ipOwnerId;
 }
 
@@ -40,6 +41,11 @@
  * The value of the PublicIp property for this object.
  */
 @property (nonatomic, retain) NSString *publicIp;
+
+/**
+ * The value of the PublicDnsName property for this object.
+ */
+@property (nonatomic, retain) NSString *publicDnsName;
 
 /**
  * The value of the IpOwnerId property for this object.

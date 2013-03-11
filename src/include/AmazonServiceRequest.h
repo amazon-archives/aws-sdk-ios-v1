@@ -108,6 +108,11 @@
  */
 - (void)cancel;
 
+/**
+ * Internal helper method to create the appropriate response object for the request.
+ */
+-(AmazonServiceResponse*)constructResponse;
+
 @end
 
 

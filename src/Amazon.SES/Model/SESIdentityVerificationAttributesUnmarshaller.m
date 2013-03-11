@@ -14,6 +14,7 @@
  */
 
 #import "SESIdentityVerificationAttributesUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SESIdentityVerificationAttributesUnmarshaller
 

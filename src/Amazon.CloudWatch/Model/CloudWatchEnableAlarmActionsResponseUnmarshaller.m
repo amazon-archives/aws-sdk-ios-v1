@@ -15,6 +15,7 @@
 
 
 #import "CloudWatchEnableAlarmActionsResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation CloudWatchEnableAlarmActionsResponseUnmarshaller
 

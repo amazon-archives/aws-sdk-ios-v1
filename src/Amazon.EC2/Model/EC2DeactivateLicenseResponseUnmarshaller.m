@@ -15,6 +15,7 @@
 
 
 #import "EC2DeactivateLicenseResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2DeactivateLicenseResponseUnmarshaller
 

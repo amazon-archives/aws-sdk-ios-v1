@@ -16,7 +16,6 @@
 #import "DynamoDBTableDescription.h"
 
 #import "DynamoDBResponse.h"
-#import "../AmazonServiceExceptionUnmarshaller.h"
 
 #import "DynamoDBResourceInUseException.h"
 #import "DynamoDBLimitExceededException.h"

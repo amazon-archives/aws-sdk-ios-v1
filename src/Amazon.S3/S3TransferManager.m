@@ -15,13 +15,14 @@
 
 #import "S3TransferManager.h"
 
-#import "S3PutObjectOperation.h"
-#import "S3MultipartUploadOperation.h"
-#import "S3AbortMultiplartUploadsOperation.h"
+#import "S3PutObjectOperation_Internal.h"
+#import "S3MultipartUploadOperation_Internal.h"
+#import "S3AbortMultiplartUploadsOperation_Internal.h"
 #import "AmazonErrorHandler.h"
 
 // Private Constants
 NSUInteger const S3MultipartMinimumUploadSize = 5242880;
+NSInteger const S3DefaultMaxConcurrentOperationCount = 3;
 
 @interface S3TransferManager ()
 {
@@ -79,7 +80,7 @@ NSUInteger const S3MultipartMinimumUploadSize = 5242880;
     if([self shouldUseMutipartUpload:putObjectRequest])
     {
         // Multipart Upload
-        S3MultipartUploadOperation *multipartUploadOperation = [S3MultipartUploadOperation new];
+        S3MultipartUploadOperation_Internal *multipartUploadOperation = [S3MultipartUploadOperation_Internal new];
         multipartUploadOperation.s3 = self.s3;
         multipartUploadOperation.request = putObjectRequest;
         multipartUploadOperation.partSize = self.minimumUploadPartSize;
@@ -107,7 +108,7 @@ NSUInteger const S3MultipartMinimumUploadSize = 5242880;
     else
     {
         // Put
-        S3PutObjectOperation *putObjectOperation = [S3PutObjectOperation new];
+        S3PutObjectOperation_Internal *putObjectOperation = [S3PutObjectOperation_Internal new];
         putObjectOperation.s3 = self.s3;
         putObjectOperation.request = putObjectRequest;
         putObjectOperation.delegate = self.delegate;
@@ -175,11 +176,19 @@ NSUInteger const S3MultipartMinimumUploadSize = 5242880;
     if([self shouldUseMutipartUpload:putObjectRequest])
     {
         // Multipart Upload
-        S3MultipartUploadOperation *multipartUploadOperation = [S3MultipartUploadOperation new];
+        S3MultipartUploadOperation_Internal *multipartUploadOperation = [S3MultipartUploadOperation_Internal new];
         multipartUploadOperation.s3 = self.s3;
         multipartUploadOperation.request = putObjectRequest;
         multipartUploadOperation.partSize = self.minimumUploadPartSize;
-        multipartUploadOperation.delegate = self.delegate;
+
+        if(putObjectRequest.delegate == nil)
+        {
+            multipartUploadOperation.delegate = self.delegate;
+        }
+        else
+        {
+            multipartUploadOperation.delegate = putObjectRequest.delegate;
+        }
 
         [self.operationQueue addOperation:multipartUploadOperation];
         [multipartUploadOperation release];
@@ -187,10 +196,14 @@ NSUInteger const S3MultipartMinimumUploadSize = 5242880;
     else
     {
         // Put
-        S3PutObjectOperation *putObjectOperation = [S3PutObjectOperation new];
+        S3PutObjectOperation_Internal *putObjectOperation = [S3PutObjectOperation_Internal new];
         putObjectOperation.s3 = self.s3;
         putObjectOperation.request = putObjectRequest;
-        putObjectOperation.delegate = self.delegate;
+        
+        if(putObjectRequest.delegate == nil)
+        {
+            putObjectOperation.delegate = self.delegate;
+        }
 
         [self.operationQueue addOperation:putObjectOperation];
         [putObjectOperation release];
@@ -232,7 +245,7 @@ NSUInteger const S3MultipartMinimumUploadSize = 5242880;
 
 - (void)abortMultipartUploads:(NSString *)bucket initiatedBefore:(NSDate *)date
 {
-    S3AbortMultiplartUploadsOperation *abortMultiplartUploadsOperation = [S3AbortMultiplartUploadsOperation new];
+    S3AbortMultiplartUploadsOperation_Internal *abortMultiplartUploadsOperation = [S3AbortMultiplartUploadsOperation_Internal new];
     abortMultiplartUploadsOperation.s3 = self.s3;
     abortMultiplartUploadsOperation.delegate = self.delegate;
     abortMultiplartUploadsOperation.bucket = bucket;
@@ -244,7 +257,7 @@ NSUInteger const S3MultipartMinimumUploadSize = 5242880;
 
 - (void)abortMultipartUploads:(NSString *)bucket forKey:(NSString *)key
 {
-    S3AbortMultiplartUploadsOperation *abortMultiplartUploadsOperation = [S3AbortMultiplartUploadsOperation new];
+    S3AbortMultiplartUploadsOperation_Internal *abortMultiplartUploadsOperation = [S3AbortMultiplartUploadsOperation_Internal new];
     abortMultiplartUploadsOperation.s3 = self.s3;
     abortMultiplartUploadsOperation.delegate = self.delegate;
     abortMultiplartUploadsOperation.bucket = bucket;
@@ -267,6 +280,7 @@ NSUInteger const S3MultipartMinimumUploadSize = 5242880;
             if(_operationQueue == nil)
             {
                 _operationQueue = [NSOperationQueue new];
+                _operationQueue.maxConcurrentOperationCount = S3DefaultMaxConcurrentOperationCount;
             }
         }
     }

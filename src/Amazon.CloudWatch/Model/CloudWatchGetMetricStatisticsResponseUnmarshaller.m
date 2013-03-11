@@ -14,6 +14,7 @@
  */
 
 #import "CloudWatchGetMetricStatisticsResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation CloudWatchGetMetricStatisticsResponseUnmarshaller
 

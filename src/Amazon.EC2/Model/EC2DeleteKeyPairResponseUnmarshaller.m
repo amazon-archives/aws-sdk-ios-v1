@@ -15,6 +15,7 @@
 
 
 #import "EC2DeleteKeyPairResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2DeleteKeyPairResponseUnmarshaller
 

@@ -14,6 +14,7 @@
  */
 
 #import "S3CopyPartResponse.h"
+#import "S3CopyPartResultUnmarshaller.h"
 
 
 @implementation S3CopyPartResponse

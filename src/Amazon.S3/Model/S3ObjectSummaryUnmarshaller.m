@@ -14,6 +14,7 @@
  */
 
 #import "S3ObjectSummaryUnmarshaller.h"
+#import "S3OwnerUnmarshaller.h"
 
 @implementation S3ObjectSummaryUnmarshaller
 

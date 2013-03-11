@@ -25,7 +25,6 @@
 @synthesize securityGroups;
 @synthesize securityGroupIds;
 @synthesize userData;
-@synthesize addressingType;
 @synthesize instanceType;
 @synthesize placement;
 @synthesize kernelId;
@@ -57,7 +56,6 @@
         securityGroups                    = [[NSMutableArray alloc] initWithCapacity:1];
         securityGroupIds                  = [[NSMutableArray alloc] initWithCapacity:1];
         userData                          = nil;
-        addressingType                    = nil;
         instanceType                      = nil;
         placement                         = nil;
         kernelId                          = nil;
@@ -143,7 +141,6 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"SecurityGroups: %@,", securityGroups] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"SecurityGroupIds: %@,", securityGroupIds] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"UserData: %@,", userData] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"AddressingType: %@,", addressingType] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"InstanceType: %@,", instanceType] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Placement: %@,", placement] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"KernelId: %@,", kernelId] autorelease]];
@@ -195,7 +192,6 @@
     [securityGroups release];
     [securityGroupIds release];
     [userData release];
-    [addressingType release];
     [instanceType release];
     [placement release];
     [kernelId release];

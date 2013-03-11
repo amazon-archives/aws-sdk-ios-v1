@@ -15,6 +15,7 @@
 
 
 #import "EC2ModifySnapshotAttributeResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2ModifySnapshotAttributeResponseUnmarshaller
 

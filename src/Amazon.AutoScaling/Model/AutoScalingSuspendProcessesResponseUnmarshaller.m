@@ -15,6 +15,7 @@
 
 
 #import "AutoScalingSuspendProcessesResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation AutoScalingSuspendProcessesResponseUnmarshaller
 

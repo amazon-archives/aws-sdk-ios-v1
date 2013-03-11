@@ -14,6 +14,7 @@
  */
 
 #import "EC2DescribeVolumesResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2DescribeVolumesResponseUnmarshaller
 

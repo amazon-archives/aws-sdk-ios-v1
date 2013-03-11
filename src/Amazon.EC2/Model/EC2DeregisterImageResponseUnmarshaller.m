@@ -15,6 +15,7 @@
 
 
 #import "EC2DeregisterImageResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2DeregisterImageResponseUnmarshaller
 

@@ -16,6 +16,188 @@
 #import "AmazonEC2Client.h"
 #import "../AmazonEndpoints.h"
 #import "../AmazonServiceRequest.h"
+#import "EC2RebootInstancesResponseUnmarshaller.h"
+#import "EC2RebootInstancesRequestMarshaller.h"
+#import "EC2DescribeReservedInstancesResponseUnmarshaller.h"
+#import "EC2DescribeReservedInstancesRequestMarshaller.h"
+#import "EC2DescribeAvailabilityZonesResponseUnmarshaller.h"
+#import "EC2DescribeAvailabilityZonesRequestMarshaller.h"
+#import "EC2DetachVolumeResponseUnmarshaller.h"
+#import "EC2DetachVolumeRequestMarshaller.h"
+#import "EC2DeleteKeyPairResponseUnmarshaller.h"
+#import "EC2DeleteKeyPairRequestMarshaller.h"
+#import "EC2UnmonitorInstancesResponseUnmarshaller.h"
+#import "EC2UnmonitorInstancesRequestMarshaller.h"
+#import "EC2CreateImageResponseUnmarshaller.h"
+#import "EC2CreateImageRequestMarshaller.h"
+#import "EC2DeleteSecurityGroupResponseUnmarshaller.h"
+#import "EC2DeleteSecurityGroupRequestMarshaller.h"
+#import "EC2CreateInstanceExportTaskResponseUnmarshaller.h"
+#import "EC2CreateInstanceExportTaskRequestMarshaller.h"
+#import "EC2GetPasswordDataResponseUnmarshaller.h"
+#import "EC2GetPasswordDataRequestMarshaller.h"
+#import "EC2StopInstancesResponseUnmarshaller.h"
+#import "EC2StopInstancesRequestMarshaller.h"
+#import "EC2ImportKeyPairResponseUnmarshaller.h"
+#import "EC2ImportKeyPairRequestMarshaller.h"
+#import "EC2CreateSecurityGroupResponseUnmarshaller.h"
+#import "EC2CreateSecurityGroupRequestMarshaller.h"
+#import "EC2DescribeSpotPriceHistoryResponseUnmarshaller.h"
+#import "EC2DescribeSpotPriceHistoryRequestMarshaller.h"
+#import "EC2DescribeRegionsResponseUnmarshaller.h"
+#import "EC2DescribeRegionsRequestMarshaller.h"
+#import "EC2CreateReservedInstancesListingResponseUnmarshaller.h"
+#import "EC2CreateReservedInstancesListingRequestMarshaller.h"
+#import "EC2ResetSnapshotAttributeResponseUnmarshaller.h"
+#import "EC2ResetSnapshotAttributeRequestMarshaller.h"
+#import "EC2ImportVolumeResponseUnmarshaller.h"
+#import "EC2ImportVolumeRequestMarshaller.h"
+#import "EC2DescribeSecurityGroupsResponseUnmarshaller.h"
+#import "EC2DescribeSecurityGroupsRequestMarshaller.h"
+#import "EC2DeregisterImageResponseUnmarshaller.h"
+#import "EC2DeregisterImageRequestMarshaller.h"
+#import "EC2DescribeSpotDatafeedSubscriptionResponseUnmarshaller.h"
+#import "EC2DescribeSpotDatafeedSubscriptionRequestMarshaller.h"
+#import "EC2DeleteTagsResponseUnmarshaller.h"
+#import "EC2DeleteTagsRequestMarshaller.h"
+#import "EC2DescribeAccountAttributesResponseUnmarshaller.h"
+#import "EC2DescribeAccountAttributesRequestMarshaller.h"
+#import "EC2EnableVolumeIOResponseUnmarshaller.h"
+#import "EC2EnableVolumeIORequestMarshaller.h"
+#import "EC2AttachVolumeResponseUnmarshaller.h"
+#import "EC2AttachVolumeRequestMarshaller.h"
+#import "EC2DescribeLicensesResponseUnmarshaller.h"
+#import "EC2DescribeLicensesRequestMarshaller.h"
+#import "EC2DescribeVolumeStatusResponseUnmarshaller.h"
+#import "EC2DescribeVolumeStatusRequestMarshaller.h"
+#import "EC2ActivateLicenseResponseUnmarshaller.h"
+#import "EC2ActivateLicenseRequestMarshaller.h"
+#import "EC2ResetImageAttributeResponseUnmarshaller.h"
+#import "EC2ResetImageAttributeRequestMarshaller.h"
+#import "EC2CreateSnapshotResponseUnmarshaller.h"
+#import "EC2CreateSnapshotRequestMarshaller.h"
+#import "EC2DeleteVolumeResponseUnmarshaller.h"
+#import "EC2DeleteVolumeRequestMarshaller.h"
+#import "EC2DescribeVpcsResponseUnmarshaller.h"
+#import "EC2DescribeVpcsRequestMarshaller.h"
+#import "EC2CancelConversionTaskResponseUnmarshaller.h"
+#import "EC2CancelConversionTaskRequestMarshaller.h"
+#import "EC2AssociateAddressResponseUnmarshaller.h"
+#import "EC2AssociateAddressRequestMarshaller.h"
+#import "EC2DeactivateLicenseResponseUnmarshaller.h"
+#import "EC2DeactivateLicenseRequestMarshaller.h"
+#import "EC2DescribeExportTasksResponseUnmarshaller.h"
+#import "EC2DescribeExportTasksRequestMarshaller.h"
+#import "EC2DescribeVolumesResponseUnmarshaller.h"
+#import "EC2DescribeVolumesRequestMarshaller.h"
+#import "EC2DescribeReservedInstancesListingsResponseUnmarshaller.h"
+#import "EC2DescribeReservedInstancesListingsRequestMarshaller.h"
+#import "EC2ReportInstanceStatusResponseUnmarshaller.h"
+#import "EC2ReportInstanceStatusRequestMarshaller.h"
+#import "EC2MonitorInstancesResponseUnmarshaller.h"
+#import "EC2MonitorInstancesRequestMarshaller.h"
+#import "EC2DescribeBundleTasksResponseUnmarshaller.h"
+#import "EC2DescribeBundleTasksRequestMarshaller.h"
+#import "EC2ImportInstanceResponseUnmarshaller.h"
+#import "EC2ImportInstanceRequestMarshaller.h"
+#import "EC2RevokeSecurityGroupIngressResponseUnmarshaller.h"
+#import "EC2RevokeSecurityGroupIngressRequestMarshaller.h"
+#import "EC2GetConsoleOutputResponseUnmarshaller.h"
+#import "EC2GetConsoleOutputRequestMarshaller.h"
+#import "EC2ModifyImageAttributeResponseUnmarshaller.h"
+#import "EC2ModifyImageAttributeRequestMarshaller.h"
+#import "EC2CreateSpotDatafeedSubscriptionResponseUnmarshaller.h"
+#import "EC2CreateSpotDatafeedSubscriptionRequestMarshaller.h"
+#import "EC2DescribeConversionTasksResponseUnmarshaller.h"
+#import "EC2DescribeConversionTasksRequestMarshaller.h"
+#import "EC2DescribeInstanceAttributeResponseUnmarshaller.h"
+#import "EC2DescribeInstanceAttributeRequestMarshaller.h"
+#import "EC2DescribeSubnetsResponseUnmarshaller.h"
+#import "EC2DescribeSubnetsRequestMarshaller.h"
+#import "EC2RunInstancesResponseUnmarshaller.h"
+#import "EC2RunInstancesRequestMarshaller.h"
+#import "EC2DescribePlacementGroupsResponseUnmarshaller.h"
+#import "EC2DescribePlacementGroupsRequestMarshaller.h"
+#import "EC2DescribeInstancesResponseUnmarshaller.h"
+#import "EC2DescribeInstancesRequestMarshaller.h"
+#import "EC2ModifyVolumeAttributeResponseUnmarshaller.h"
+#import "EC2ModifyVolumeAttributeRequestMarshaller.h"
+#import "EC2DescribeImagesResponseUnmarshaller.h"
+#import "EC2DescribeImagesRequestMarshaller.h"
+#import "EC2StartInstancesResponseUnmarshaller.h"
+#import "EC2StartInstancesRequestMarshaller.h"
+#import "EC2CancelReservedInstancesListingResponseUnmarshaller.h"
+#import "EC2CancelReservedInstancesListingRequestMarshaller.h"
+#import "EC2ModifyInstanceAttributeResponseUnmarshaller.h"
+#import "EC2ModifyInstanceAttributeRequestMarshaller.h"
+#import "EC2AuthorizeSecurityGroupIngressResponseUnmarshaller.h"
+#import "EC2AuthorizeSecurityGroupIngressRequestMarshaller.h"
+#import "EC2DescribeSpotInstanceRequestsResponseUnmarshaller.h"
+#import "EC2DescribeSpotInstanceRequestsRequestMarshaller.h"
+#import "EC2CancelExportTaskResponseUnmarshaller.h"
+#import "EC2CancelExportTaskRequestMarshaller.h"
+#import "EC2CopyImageResponseUnmarshaller.h"
+#import "EC2CopyImageRequestMarshaller.h"
+#import "EC2RequestSpotInstancesResponseUnmarshaller.h"
+#import "EC2RequestSpotInstancesRequestMarshaller.h"
+#import "EC2CreateTagsResponseUnmarshaller.h"
+#import "EC2CreateTagsRequestMarshaller.h"
+#import "EC2DescribeVolumeAttributeResponseUnmarshaller.h"
+#import "EC2DescribeVolumeAttributeRequestMarshaller.h"
+#import "EC2DescribeTagsResponseUnmarshaller.h"
+#import "EC2DescribeTagsRequestMarshaller.h"
+#import "EC2CancelBundleTaskResponseUnmarshaller.h"
+#import "EC2CancelBundleTaskRequestMarshaller.h"
+#import "EC2CancelSpotInstanceRequestsResponseUnmarshaller.h"
+#import "EC2CancelSpotInstanceRequestsRequestMarshaller.h"
+#import "EC2PurchaseReservedInstancesOfferingResponseUnmarshaller.h"
+#import "EC2PurchaseReservedInstancesOfferingRequestMarshaller.h"
+#import "EC2ModifySnapshotAttributeResponseUnmarshaller.h"
+#import "EC2ModifySnapshotAttributeRequestMarshaller.h"
+#import "EC2TerminateInstancesResponseUnmarshaller.h"
+#import "EC2TerminateInstancesRequestMarshaller.h"
+#import "EC2DeleteSpotDatafeedSubscriptionResponseUnmarshaller.h"
+#import "EC2DeleteSpotDatafeedSubscriptionRequestMarshaller.h"
+#import "EC2DescribeSnapshotAttributeResponseUnmarshaller.h"
+#import "EC2DescribeSnapshotAttributeRequestMarshaller.h"
+#import "EC2DescribeAddressesResponseUnmarshaller.h"
+#import "EC2DescribeAddressesRequestMarshaller.h"
+#import "EC2DescribeImageAttributeResponseUnmarshaller.h"
+#import "EC2DescribeImageAttributeRequestMarshaller.h"
+#import "EC2DescribeKeyPairsResponseUnmarshaller.h"
+#import "EC2DescribeKeyPairsRequestMarshaller.h"
+#import "EC2ConfirmProductInstanceResponseUnmarshaller.h"
+#import "EC2ConfirmProductInstanceRequestMarshaller.h"
+#import "EC2CreateVolumeResponseUnmarshaller.h"
+#import "EC2CreateVolumeRequestMarshaller.h"
+#import "EC2DescribeInstanceStatusResponseUnmarshaller.h"
+#import "EC2DescribeInstanceStatusRequestMarshaller.h"
+#import "EC2DescribeReservedInstancesOfferingsResponseUnmarshaller.h"
+#import "EC2DescribeReservedInstancesOfferingsRequestMarshaller.h"
+#import "EC2DeleteSnapshotResponseUnmarshaller.h"
+#import "EC2DeleteSnapshotRequestMarshaller.h"
+#import "EC2DisassociateAddressResponseUnmarshaller.h"
+#import "EC2DisassociateAddressRequestMarshaller.h"
+#import "EC2CreatePlacementGroupResponseUnmarshaller.h"
+#import "EC2CreatePlacementGroupRequestMarshaller.h"
+#import "EC2BundleInstanceResponseUnmarshaller.h"
+#import "EC2BundleInstanceRequestMarshaller.h"
+#import "EC2DeletePlacementGroupResponseUnmarshaller.h"
+#import "EC2DeletePlacementGroupRequestMarshaller.h"
+#import "EC2CopySnapshotResponseUnmarshaller.h"
+#import "EC2CopySnapshotRequestMarshaller.h"
+#import "EC2AllocateAddressResponseUnmarshaller.h"
+#import "EC2AllocateAddressRequestMarshaller.h"
+#import "EC2ReleaseAddressResponseUnmarshaller.h"
+#import "EC2ReleaseAddressRequestMarshaller.h"
+#import "EC2ResetInstanceAttributeResponseUnmarshaller.h"
+#import "EC2ResetInstanceAttributeRequestMarshaller.h"
+#import "EC2CreateKeyPairResponseUnmarshaller.h"
+#import "EC2CreateKeyPairRequestMarshaller.h"
+#import "EC2DescribeSnapshotsResponseUnmarshaller.h"
+#import "EC2DescribeSnapshotsRequestMarshaller.h"
+#import "EC2RegisterImageResponseUnmarshaller.h"
+#import "EC2RegisterImageRequestMarshaller.h"
 
 
 @implementation AmazonEC2Client
@@ -198,6 +380,13 @@
     return (EC2DeleteTagsResponse *)[self invoke:request rawRequest:deleteTagsRequest unmarshallerDelegate:[EC2DeleteTagsResponseUnmarshaller class]];
 }
 
+-(EC2DescribeAccountAttributesResponse *)describeAccountAttributes:(EC2DescribeAccountAttributesRequest *)describeAccountAttributesRequest
+{
+    AmazonServiceRequest *request = [EC2DescribeAccountAttributesRequestMarshaller createRequest:describeAccountAttributesRequest];
+
+    return (EC2DescribeAccountAttributesResponse *)[self invoke:request rawRequest:describeAccountAttributesRequest unmarshallerDelegate:[EC2DescribeAccountAttributesResponseUnmarshaller class]];
+}
+
 -(EC2EnableVolumeIOResponse *)enableVolumeIO:(EC2EnableVolumeIORequest *)enableVolumeIORequest
 {
     AmazonServiceRequest *request = [EC2EnableVolumeIORequestMarshaller createRequest:enableVolumeIORequest];
@@ -261,18 +450,18 @@
     return (EC2DescribeVpcsResponse *)[self invoke:request rawRequest:describeVpcsRequest unmarshallerDelegate:[EC2DescribeVpcsResponseUnmarshaller class]];
 }
 
--(EC2AssociateAddressResponse *)associateAddress:(EC2AssociateAddressRequest *)associateAddressRequest
-{
-    AmazonServiceRequest *request = [EC2AssociateAddressRequestMarshaller createRequest:associateAddressRequest];
-
-    return (EC2AssociateAddressResponse *)[self invoke:request rawRequest:associateAddressRequest unmarshallerDelegate:[EC2AssociateAddressResponseUnmarshaller class]];
-}
-
 -(EC2CancelConversionTaskResponse *)cancelConversionTask:(EC2CancelConversionTaskRequest *)cancelConversionTaskRequest
 {
     AmazonServiceRequest *request = [EC2CancelConversionTaskRequestMarshaller createRequest:cancelConversionTaskRequest];
 
     return (EC2CancelConversionTaskResponse *)[self invoke:request rawRequest:cancelConversionTaskRequest unmarshallerDelegate:[EC2CancelConversionTaskResponseUnmarshaller class]];
+}
+
+-(EC2AssociateAddressResponse *)associateAddress:(EC2AssociateAddressRequest *)associateAddressRequest
+{
+    AmazonServiceRequest *request = [EC2AssociateAddressRequestMarshaller createRequest:associateAddressRequest];
+
+    return (EC2AssociateAddressResponse *)[self invoke:request rawRequest:associateAddressRequest unmarshallerDelegate:[EC2AssociateAddressResponseUnmarshaller class]];
 }
 
 -(EC2DeactivateLicenseResponse *)deactivateLicense:(EC2DeactivateLicenseRequest *)deactivateLicenseRequest
@@ -455,6 +644,13 @@
     AmazonServiceRequest *request = [EC2CancelExportTaskRequestMarshaller createRequest:cancelExportTaskRequest];
 
     return (EC2CancelExportTaskResponse *)[self invoke:request rawRequest:cancelExportTaskRequest unmarshallerDelegate:[EC2CancelExportTaskResponseUnmarshaller class]];
+}
+
+-(EC2CopyImageResponse *)doCopyImage:(EC2CopyImageRequest *)copyImageRequest
+{
+    AmazonServiceRequest *request = [EC2CopyImageRequestMarshaller createRequest:copyImageRequest];
+
+    return (EC2CopyImageResponse *)[self invoke:request rawRequest:copyImageRequest unmarshallerDelegate:[EC2CopyImageResponseUnmarshaller class]];
 }
 
 -(EC2RequestSpotInstancesResponse *)requestSpotInstances:(EC2RequestSpotInstancesRequest *)requestSpotInstancesRequest

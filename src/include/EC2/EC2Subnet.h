@@ -30,6 +30,10 @@
     NSString       *cidrBlock;
     NSNumber       *availableIpAddressCount;
     NSString       *availabilityZone;
+    bool           defaultForAz;
+    bool           defaultForAzIsSet;
+    bool           mapPublicIpOnLaunch;
+    bool           mapPublicIpOnLaunchIsSet;
     NSMutableArray *tags;
 }
 
@@ -74,6 +78,20 @@
  * Specifies the Availability Zone the subnet is in.
  */
 @property (nonatomic, retain) NSString *availabilityZone;
+
+/**
+ * The value of the DefaultForAz property for this object.
+ */
+@property (nonatomic) bool           defaultForAz;
+
+@property (nonatomic, readonly) bool defaultForAzIsSet;
+
+/**
+ * The value of the MapPublicIpOnLaunch property for this object.
+ */
+@property (nonatomic) bool           mapPublicIpOnLaunch;
+
+@property (nonatomic, readonly) bool mapPublicIpOnLaunchIsSet;
 
 /**
  * A list of tags for the Subnet.

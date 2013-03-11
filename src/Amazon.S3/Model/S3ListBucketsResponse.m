@@ -14,6 +14,7 @@
  */
 
 #import "S3ListBucketsResponse.h"
+#import "S3ListBucketsResultUnmarshaller.h"
 
 @implementation S3ListBucketsResponse
 

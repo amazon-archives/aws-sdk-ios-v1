@@ -16,7 +16,6 @@
 #import "SecurityTokenServiceCredentials.h"
 
 #import "SecurityTokenServiceResponse.h"
-#import "../AmazonServiceExceptionUnmarshaller.h"
 
 
 

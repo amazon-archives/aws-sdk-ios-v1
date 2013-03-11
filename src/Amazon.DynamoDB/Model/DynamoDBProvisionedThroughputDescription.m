@@ -20,6 +20,7 @@
 
 @synthesize lastIncreaseDateTime;
 @synthesize lastDecreaseDateTime;
+@synthesize numberOfDecreasesToday;
 @synthesize readCapacityUnits;
 @synthesize writeCapacityUnits;
 
@@ -27,10 +28,11 @@
 -(id)init
 {
     if (self = [super init]) {
-        lastIncreaseDateTime = nil;
-        lastDecreaseDateTime = nil;
-        readCapacityUnits    = nil;
-        writeCapacityUnits   = nil;
+        lastIncreaseDateTime   = nil;
+        lastDecreaseDateTime   = nil;
+        numberOfDecreasesToday = nil;
+        readCapacityUnits      = nil;
+        writeCapacityUnits     = nil;
     }
 
     return self;
@@ -45,6 +47,7 @@
     [buffer appendString:@"{"];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"LastIncreaseDateTime: %@,", lastIncreaseDateTime] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"LastDecreaseDateTime: %@,", lastDecreaseDateTime] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"NumberOfDecreasesToday: %@,", numberOfDecreasesToday] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ReadCapacityUnits: %@,", readCapacityUnits] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"WriteCapacityUnits: %@,", writeCapacityUnits] autorelease]];
     [buffer appendString:[super description]];
@@ -59,6 +62,7 @@
 {
     [lastIncreaseDateTime release];
     [lastDecreaseDateTime release];
+    [numberOfDecreasesToday release];
     [readCapacityUnits release];
     [writeCapacityUnits release];
 

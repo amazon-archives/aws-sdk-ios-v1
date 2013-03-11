@@ -25,6 +25,7 @@
     [bucketName resignFirstResponder];
     
     S3CreateBucketRequest *request = [[[S3CreateBucketRequest alloc] initWithName:bucketName.text] autorelease];
+    request.region = [S3Region USWest2];
     S3CreateBucketResponse *response = [[AmazonClientManager s3] createBucket:request];
     if(response.error != nil)
     {

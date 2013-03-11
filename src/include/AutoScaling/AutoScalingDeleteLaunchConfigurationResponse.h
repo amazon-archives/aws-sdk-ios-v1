@@ -15,7 +15,6 @@
 
 
 #import "AutoScalingResponse.h"
-#import "../AmazonServiceExceptionUnmarshaller.h"
 
 #import "AutoScalingResourceInUseException.h"
 

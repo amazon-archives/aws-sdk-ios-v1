@@ -16,7 +16,9 @@
 
 #import "MessageBoard.h"
 #import "Constants.h"
+
 #import <AWSiOSSDK/AWS_SBJsonWriter.h>
+#import <AWSiOSSDK/AmazonEndpoints.h>
 
 
 // This singleton class provides all the functionality to manipulate the Amazon
@@ -45,7 +47,10 @@ static MessageBoard *_instance = nil;
     self = [super init];
     if (self != nil) {
         snsClient = [[AmazonSNSClient alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY];
+        snsClient.endpoint = [AmazonEndpoints snsEndpoint:US_WEST_2];
+
         sqsClient = [[AmazonSQSClient alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY];
+        sqsClient.endpoint = [AmazonEndpoints sqsEndpoint:US_WEST_2];
         
         // Find the Topic for this App or create one.
         topicARN = [[self findTopicArn] retain];

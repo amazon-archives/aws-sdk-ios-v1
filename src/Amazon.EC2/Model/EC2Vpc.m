@@ -24,6 +24,8 @@
 @synthesize dhcpOptionsId;
 @synthesize tags;
 @synthesize instanceTenancy;
+@synthesize isDefault;
+@synthesize isDefaultIsSet;
 
 
 -(id)init
@@ -35,6 +37,8 @@
         dhcpOptionsId   = nil;
         tags            = [[NSMutableArray alloc] initWithCapacity:1];
         instanceTenancy = nil;
+        isDefault       = NO;
+        isDefaultIsSet  = NO;
     }
 
     return self;
@@ -62,12 +66,19 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"DhcpOptionsId: %@,", dhcpOptionsId] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Tags: %@,", tags] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"InstanceTenancy: %@,", instanceTenancy] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"IsDefault: %d,", isDefault] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
     return [buffer autorelease];
 }
 
+
+-(void)setIsDefault:(bool)theValue
+{
+    isDefault      = theValue;
+    isDefaultIsSet = YES;
+}
 
 
 -(void)dealloc

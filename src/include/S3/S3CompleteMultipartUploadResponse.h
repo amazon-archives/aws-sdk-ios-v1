@@ -16,7 +16,6 @@
 #import <Foundation/Foundation.h>
 #import "S3Response.h"
 #import "S3CompleteMultipartUploadResult.h"
-#import "S3CompleteMultipartUploadResultUnmarshaller.h"
 
 /** Contains the response from a completeMultipartUpload operation.
  *

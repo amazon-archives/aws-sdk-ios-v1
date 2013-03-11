@@ -29,10 +29,6 @@
 @property (nonatomic, retain) NSString *content;
 
 
--(NSArray *)headersToSign;
 -(void)addValue:(NSString *)theValue forHeader:(NSString *)theHeader;
--(NSString *)generateAuthorization3;
--(NSString *)generateSignature;
--(NSString *)generateStringToSign;
 
 @end

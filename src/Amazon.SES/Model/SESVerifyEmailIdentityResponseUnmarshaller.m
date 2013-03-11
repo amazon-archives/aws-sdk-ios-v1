@@ -14,6 +14,7 @@
  */
 
 #import "SESVerifyEmailIdentityResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SESVerifyEmailIdentityResponseUnmarshaller
 

@@ -16,7 +16,6 @@
 #import "CloudWatchDatapoint.h"
 
 #import "CloudWatchResponse.h"
-#import "../AmazonServiceExceptionUnmarshaller.h"
 
 #import "CloudWatchInvalidParameterValueException.h"
 #import "CloudWatchInternalServiceException.h"

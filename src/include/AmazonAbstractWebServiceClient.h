@@ -19,11 +19,9 @@
 #import "AmazonLogger.h"
 #import "AmazonServiceException.h"
 #import "AmazonSignatureException.h"
-#import "AmazonUnmarshallerXMLParserDelegate.h"
 #import "AmazonServiceRequest.h"
 #import "AmazonServiceRequestConfig.h"
 #import "AmazonServiceResponse.h"
-#import "AmazonServiceResponseUnmarshaller.h"
 #import "AmazonURLRequest.h"
 #import "AmazonCredentials.h"
 #import "AmazonRequestDelegate.h"
@@ -98,6 +96,19 @@
 -(void)pauseExponentially:(int)tryCount;
 -(BOOL)shouldRetry:(AmazonServiceResponse *)response;
 -(BOOL)shouldRetry:(AmazonServiceResponse *)response exception:(NSException *)theException;
+
+-(AmazonServiceResponse *)nilRequestResponse;
+-(AmazonServiceResponse *)createResponse:(AmazonServiceRequest *)generatedRequest withUnmarshallerDelegate:(Class)unmarshallerDelegate;
+
+-(void)logTheRequest:(NSMutableURLRequest *)urlRequest;
+-(void)logTheRequestHeaders:(NSMutableURLRequest *)urlRequest;
+
+-(void)setupRequestTimeout:(NSMutableURLRequest *)urlRequest;
+
+-(AmazonServiceResponse*)returnErrorOrResponse:(AmazonServiceResponse*)response forRequest:(AmazonServiceRequest *)generatedRequest;
+
+-(void)startAsyncRequest:(NSMutableURLRequest *)urlRequest response:(AmazonServiceResponse *)response originalRequest:(AmazonServiceRequestConfig *)originalRequest;
+-(void)startSyncRequest:(AmazonServiceRequest *)generatedRequest forRequest:(NSMutableURLRequest *)urlRequest response:(AmazonServiceResponse *)response originalRequest:(AmazonServiceRequestConfig *)originalRequest;
 
 @end
 

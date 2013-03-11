@@ -38,8 +38,6 @@
 
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
 
-    [_window makeKeyAndVisible];
-    
     // Logging Control - Do NOT use logging for non-development builds.
 #ifdef DEBUG
     [AmazonLogger verboseLogging];
@@ -48,6 +46,8 @@
 #endif
     
     [AmazonErrorHandler shouldNotThrowExceptions];
+    
+    [_window makeKeyAndVisible];
     
     return YES;
 }

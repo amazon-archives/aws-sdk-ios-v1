@@ -15,6 +15,11 @@
 
 #import "AmazonCredentialsProvider.h"
 
+/** 
+ * A wrapper for static/long-term credentials.  Embedding credentials in your application is not recommended.
+ *
+ * @see AmazonCredentialsProvider
+ */
 @interface AmazonStaticCredentialsProvider : NSObject<AmazonCredentialsProvider> {
     AmazonCredentials* staticCredentials;
 }

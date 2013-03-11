@@ -15,7 +15,6 @@
 
 
 #import "ElasticLoadBalancingResponse.h"
-#import "../AmazonServiceExceptionUnmarshaller.h"
 
 #import "ElasticLoadBalancingInvalidSubnetException.h"
 #import "ElasticLoadBalancingCertificateNotFoundException.h"

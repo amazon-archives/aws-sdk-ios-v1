@@ -16,7 +16,6 @@
 #import "ElasticLoadBalancingLoadBalancerDescription.h"
 
 #import "ElasticLoadBalancingResponse.h"
-#import "../AmazonServiceExceptionUnmarshaller.h"
 
 #import "ElasticLoadBalancingLoadBalancerNotFoundException.h"
 

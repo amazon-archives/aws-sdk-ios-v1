@@ -16,7 +16,6 @@
 #import "DynamoDBKey.h"
 
 #import "DynamoDBResponse.h"
-#import "../AmazonServiceExceptionUnmarshaller.h"
 
 #import "DynamoDBProvisionedThroughputExceededException.h"
 #import "DynamoDBInternalServerErrorException.h"

@@ -15,7 +15,6 @@
 
 #import <Foundation/Foundation.h>
 #import "S3Response.h"
-#import "S3CopyObjectResultUnmarshaller.h"
 #import "../AmazonSDKUtil.h"
 
 /** Contains the response from a putObject operation.

@@ -14,6 +14,7 @@
  */
 
 #import "EC2DescribeBundleTasksResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2DescribeBundleTasksResponseUnmarshaller
 

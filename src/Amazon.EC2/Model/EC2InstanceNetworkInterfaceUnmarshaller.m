@@ -14,6 +14,7 @@
  */
 
 #import "EC2InstanceNetworkInterfaceUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2InstanceNetworkInterfaceUnmarshaller
 
@@ -42,6 +43,15 @@
         EC2InstanceNetworkInterfaceAssociationUnmarshaller *unmarshaller = [[[EC2InstanceNetworkInterfaceAssociationUnmarshaller alloc] initWithCaller:self withParentObject:self.response withSetter:@selector(setAssociation:)] autorelease];
         unmarshaller.endElementTagName = @"association";
         [parser setDelegate:unmarshaller];
+    }
+
+    if ([elementName isEqualToString:@"privateIpAddressesSet"]) {
+        AmazonListUnmarshaller *listUnmarshaller = [[[AmazonListUnmarshaller alloc] initWithCaller:self withParentObject:self.response.privateIpAddresses withSetter:@selector(addObjectsFromArray:)] autorelease];
+        listUnmarshaller.endListElementName = @"privateIpAddressesSet";
+        listUnmarshaller.entryElementName   = @"item";
+        listUnmarshaller.delegateClass      = [EC2InstancePrivateIpAddressUnmarshaller class];
+
+        [parser setDelegate:listUnmarshaller];
     }
 
 

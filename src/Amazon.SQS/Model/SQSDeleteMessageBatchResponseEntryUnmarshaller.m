@@ -14,6 +14,7 @@
  */
 
 #import "SQSDeleteMessageBatchResponseEntryUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SQSDeleteMessageBatchResponseEntryUnmarshaller
 

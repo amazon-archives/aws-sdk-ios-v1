@@ -14,7 +14,10 @@
  */
 
 #import "AmazonClientManager.h"
+
 #import <AWSiOSSDK/AmazonLogger.h>
+#import <AWSiOSSDK/AmazonEndpoints.h>
+
 #import "Constants.h"
 
 static AmazonS3Client       *s3  = nil;
@@ -60,9 +63,16 @@ static AmazonSNSClient      *sns = nil;
         [AmazonClientManager clearCredentials];
 
         s3  = [[AmazonS3Client alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY];
+        s3.endpoint = [AmazonEndpoints s3Endpoint:US_WEST_2];
+        
         sdb = [[AmazonSimpleDBClient alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY];
+        sdb.endpoint = [AmazonEndpoints sdbEndpoint:US_WEST_2];
+
         sqs = [[AmazonSQSClient alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY];
+        sqs.endpoint = [AmazonEndpoints sqsEndpoint:US_WEST_2];
+
         sns = [[AmazonSNSClient alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY];
+        sns.endpoint = [AmazonEndpoints snsEndpoint:US_WEST_2];
     }
 }
 

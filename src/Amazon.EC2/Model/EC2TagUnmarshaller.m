@@ -14,6 +14,7 @@
  */
 
 #import "EC2TagUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2TagUnmarshaller
 

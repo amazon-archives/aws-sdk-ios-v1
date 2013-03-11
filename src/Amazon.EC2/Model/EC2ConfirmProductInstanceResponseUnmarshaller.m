@@ -14,6 +14,7 @@
  */
 
 #import "EC2ConfirmProductInstanceResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2ConfirmProductInstanceResponseUnmarshaller
 

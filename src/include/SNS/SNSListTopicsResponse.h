@@ -16,7 +16,6 @@
 #import "SNSTopic.h"
 
 #import "SNSResponse.h"
-#import "../AmazonServiceExceptionUnmarshaller.h"
 
 #import "SNSAuthorizationErrorException.h"
 #import "SNSInternalErrorException.h"
@@ -51,8 +50,8 @@
 @property (nonatomic, retain) NSMutableArray *topics;
 
 /**
- * Token to pass along to the next ListTopics request. This element is
- * returned if there are additional topics to retrieve.
+ * Token to pass along to the next <code>ListTopics</code> request. This
+ * element is returned if there are additional topics to retrieve.
  */
 @property (nonatomic, retain) NSString *nextToken;
 

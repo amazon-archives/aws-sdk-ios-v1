@@ -16,7 +16,6 @@
 #import "SNSSubscription.h"
 
 #import "SNSResponse.h"
-#import "../AmazonServiceExceptionUnmarshaller.h"
 
 #import "SNSNotFoundException.h"
 #import "SNSAuthorizationErrorException.h"
@@ -52,8 +51,9 @@
 @property (nonatomic, retain) NSMutableArray *subscriptions;
 
 /**
- * Token to pass along to the next ListSubscriptionsByTopic request. This
- * element is returned if there are more subscriptions to retrieve.
+ * Token to pass along to the next <code>ListSubscriptionsByTopic</code>
+ * request. This element is returned if there are more subscriptions to
+ * retrieve.
  */
 @property (nonatomic, retain) NSString *nextToken;
 

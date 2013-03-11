@@ -17,15 +17,18 @@
 #import "AmazonServiceRequest.h"
 #import "AmazonS3Client.h"
 
-@interface S3AbortMultiplartUploadsOperation : NSOperation <AmazonServiceRequestDelegate>
+@protocol AmazonCredentialsProvider;
+
+@interface S3PutObjectOperation_Internal : NSOperation <AmazonServiceRequestDelegate>
 {
 }
 
 @property (nonatomic, assign) id<AmazonServiceRequestDelegate> delegate;
-@property (nonatomic, retain) AmazonS3Client *s3;
-@property (nonatomic, retain) NSString *bucket;
-@property (nonatomic, retain) NSDate *date;
-@property (nonatomic, retain) NSString *key;
 
+@property (nonatomic, retain) AmazonS3Client *s3;
+@property (nonatomic, retain) S3PutObjectRequest *request;
+@property (nonatomic, retain) AmazonServiceResponse *response;
+@property (nonatomic, retain) NSError *error;
+@property (nonatomic, retain) NSException *exception;
 
 @end

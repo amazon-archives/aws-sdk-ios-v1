@@ -14,6 +14,7 @@
  */
 
 #import "EC2CreateKeyPairResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2CreateKeyPairResponseUnmarshaller
 

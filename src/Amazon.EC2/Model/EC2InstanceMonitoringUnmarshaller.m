@@ -14,6 +14,7 @@
  */
 
 #import "EC2InstanceMonitoringUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2InstanceMonitoringUnmarshaller
 

@@ -14,6 +14,7 @@
  */
 
 #import "EC2TerminateInstancesResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2TerminateInstancesResponseUnmarshaller
 

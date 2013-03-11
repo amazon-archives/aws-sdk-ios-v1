@@ -14,6 +14,7 @@
  */
 
 #import "EC2ReservationUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2ReservationUnmarshaller
 

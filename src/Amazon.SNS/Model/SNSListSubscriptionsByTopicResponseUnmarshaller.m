@@ -14,6 +14,7 @@
  */
 
 #import "SNSListSubscriptionsByTopicResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SNSListSubscriptionsByTopicResponseUnmarshaller
 

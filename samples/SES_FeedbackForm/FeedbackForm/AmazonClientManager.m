@@ -14,7 +14,10 @@
  */
 
 #import "AmazonClientManager.h"
+
 #import <AWSiOSSDK/AmazonLogger.h>
+#import <AWSiOSSDK/AmazonEndpoints.h>
+
 #import "Constants.h"
 
 static AmazonSESClient *ses  = nil;
@@ -39,6 +42,7 @@ static AmazonSESClient *ses  = nil;
         [AmazonClientManager clearCredentials];
 
         ses = [[AmazonSESClient alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY];
+        ses.endpoint = [AmazonEndpoints sesEndpoint:US_WEST_2];
     }
 }
 

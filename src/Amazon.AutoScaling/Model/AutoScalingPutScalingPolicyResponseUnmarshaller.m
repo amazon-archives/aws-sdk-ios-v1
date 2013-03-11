@@ -14,6 +14,7 @@
  */
 
 #import "AutoScalingPutScalingPolicyResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation AutoScalingPutScalingPolicyResponseUnmarshaller
 

@@ -15,7 +15,6 @@
 
 
 #import "SNSResponse.h"
-#import "../AmazonServiceExceptionUnmarshaller.h"
 
 #import "SNSNotFoundException.h"
 #import "SNSAuthorizationErrorException.h"
@@ -46,15 +45,17 @@
 
 /**
  * A map of the subscription's attributes. Attributes in this map include
- * the following: <ul> <li>SubscriptionArn -- the subscription's ARN</li>
- * <li>TopicArn -- the topic ARN which the subscription is associated
- * with</li> <li>Owner -- the AWS account ID of the subscription's
- * owner</li> <li>ConfirmationWasAuthenticated -- True if the
+ * the following: <ul> <li><code>SubscriptionArn</code> -- the
+ * subscription's ARN</li> <li><code>TopicArn</code> -- the topic ARN
+ * which the subscription is associated with</li> <li><code>Owner</code>
+ * -- the AWS account ID of the subscription's owner</li>
+ * <li><code>ConfirmationWasAuthenticated</code> -- true if the
  * subscription confirmation request was authenticated</li>
- * <li>DeliveryPolicy -- the JSON serialization of the subscription's
- * delivery policy</li> <li>EffectiveDeliveryPolicy -- the JSON
- * serialization of the effective delivery policy which takes into the
- * topic delivery policy and account system defaults</li> </ul>
+ * <li><code>DeliveryPolicy</code> -- the JSON serialization of the
+ * subscription's delivery policy</li>
+ * <li><code>EffectiveDeliveryPolicy</code> -- the JSON serialization of
+ * the effective delivery policy which takes into the topic delivery
+ * policy and account system defaults</li> </ul>
  */
 @property (nonatomic, retain) NSMutableDictionary *attributes;
 

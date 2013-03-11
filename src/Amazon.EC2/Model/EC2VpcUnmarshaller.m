@@ -14,6 +14,7 @@
  */
 
 #import "EC2VpcUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2VpcUnmarshaller
 
@@ -72,6 +73,11 @@
 
     if ([elementName isEqualToString:@"instanceTenancy"]) {
         self.response.instanceTenancy = self.currentText;
+        return;
+    }
+
+    if ([elementName isEqualToString:@"isDefault"]) {
+        self.response.isDefault = [self.currentText boolValue];
         return;
     }
 

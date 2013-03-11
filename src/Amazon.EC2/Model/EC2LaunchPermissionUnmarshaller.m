@@ -14,6 +14,7 @@
  */
 
 #import "EC2LaunchPermissionUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2LaunchPermissionUnmarshaller
 

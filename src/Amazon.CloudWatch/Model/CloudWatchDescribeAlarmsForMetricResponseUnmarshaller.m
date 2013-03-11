@@ -14,6 +14,7 @@
  */
 
 #import "CloudWatchDescribeAlarmsForMetricResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation CloudWatchDescribeAlarmsForMetricResponseUnmarshaller
 

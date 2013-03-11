@@ -15,6 +15,7 @@
 
 
 #import "EC2RebootInstancesResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2RebootInstancesResponseUnmarshaller
 

@@ -13,65 +13,35 @@
  * permissions and limitations under the License.
  */
 #import "SNSConfirmSubscriptionResponse.h"
-#import "SNSConfirmSubscriptionResponseUnmarshaller.h"
 #import "SNSConfirmSubscriptionRequest.h"
-#import "SNSConfirmSubscriptionRequestMarshaller.h"
 #import "SNSGetTopicAttributesResponse.h"
-#import "SNSGetTopicAttributesResponseUnmarshaller.h"
 #import "SNSGetTopicAttributesRequest.h"
-#import "SNSGetTopicAttributesRequestMarshaller.h"
 #import "SNSSubscribeResponse.h"
-#import "SNSSubscribeResponseUnmarshaller.h"
 #import "SNSSubscribeRequest.h"
-#import "SNSSubscribeRequestMarshaller.h"
 #import "SNSSetTopicAttributesResponse.h"
-#import "SNSSetTopicAttributesResponseUnmarshaller.h"
 #import "SNSSetTopicAttributesRequest.h"
-#import "SNSSetTopicAttributesRequestMarshaller.h"
 #import "SNSDeleteTopicResponse.h"
-#import "SNSDeleteTopicResponseUnmarshaller.h"
 #import "SNSDeleteTopicRequest.h"
-#import "SNSDeleteTopicRequestMarshaller.h"
 #import "SNSRemovePermissionResponse.h"
-#import "SNSRemovePermissionResponseUnmarshaller.h"
 #import "SNSRemovePermissionRequest.h"
-#import "SNSRemovePermissionRequestMarshaller.h"
 #import "SNSListSubscriptionsResponse.h"
-#import "SNSListSubscriptionsResponseUnmarshaller.h"
 #import "SNSListSubscriptionsRequest.h"
-#import "SNSListSubscriptionsRequestMarshaller.h"
 #import "SNSSetSubscriptionAttributesResponse.h"
-#import "SNSSetSubscriptionAttributesResponseUnmarshaller.h"
 #import "SNSSetSubscriptionAttributesRequest.h"
-#import "SNSSetSubscriptionAttributesRequestMarshaller.h"
 #import "SNSAddPermissionResponse.h"
-#import "SNSAddPermissionResponseUnmarshaller.h"
 #import "SNSAddPermissionRequest.h"
-#import "SNSAddPermissionRequestMarshaller.h"
 #import "SNSCreateTopicResponse.h"
-#import "SNSCreateTopicResponseUnmarshaller.h"
 #import "SNSCreateTopicRequest.h"
-#import "SNSCreateTopicRequestMarshaller.h"
 #import "SNSGetSubscriptionAttributesResponse.h"
-#import "SNSGetSubscriptionAttributesResponseUnmarshaller.h"
 #import "SNSGetSubscriptionAttributesRequest.h"
-#import "SNSGetSubscriptionAttributesRequestMarshaller.h"
 #import "SNSListTopicsResponse.h"
-#import "SNSListTopicsResponseUnmarshaller.h"
 #import "SNSListTopicsRequest.h"
-#import "SNSListTopicsRequestMarshaller.h"
 #import "SNSUnsubscribeResponse.h"
-#import "SNSUnsubscribeResponseUnmarshaller.h"
 #import "SNSUnsubscribeRequest.h"
-#import "SNSUnsubscribeRequestMarshaller.h"
 #import "SNSListSubscriptionsByTopicResponse.h"
-#import "SNSListSubscriptionsByTopicResponseUnmarshaller.h"
 #import "SNSListSubscriptionsByTopicRequest.h"
-#import "SNSListSubscriptionsByTopicRequestMarshaller.h"
 #import "SNSPublishResponse.h"
-#import "SNSPublishResponseUnmarshaller.h"
 #import "SNSPublishRequest.h"
-#import "SNSPublishRequestMarshaller.h"
 
 #import "../AmazonWebServiceClient.h"
 
@@ -122,8 +92,8 @@
 
 /**
  * <p>
- * The GetTopicAttribtues action returns all of the properties of a topic customers have created. Topic properties returned
- * might differ based on the authorization of the user.
+ * The GetTopicAttributes action returns all of the properties of a topic. Topic properties returned might differ based on
+ * the authorization of the user.
  * </p>
  *
  * @param getTopicAttributesRequest Container for the necessary parameters to execute the GetTopicAttributes service method
@@ -206,7 +176,7 @@
  * <p>
  * The DeleteTopic action deletes a topic and all its subscriptions. Deleting a topic might prevent some messages
  * previously sent to the topic from being delivered to subscribers. This action is idempotent, so deleting a topic that
- * does not exist will not result in an error.
+ * does not exist does not result in an error.
  * </p>
  *
  * @param deleteTopicRequest Container for the necessary parameters to execute the DeleteTopic service method on AmazonSNS.
@@ -334,9 +304,10 @@
 
 /**
  * <p>
- * The CreateTopic action creates a topic to which notifications can be published. Users can create at most 25 topics. This
- * action is idempotent, so if the requester already owns a topic with the specified name, that topic's ARN will be
- * returned without creating a new topic.
+ * The CreateTopic action creates a topic to which notifications can be published. Users can create at most 100 topics. For
+ * more information, see <a href="http://aws.amazon.com/sns/"> http://aws.amazon.com/sns </a> . This action is idempotent,
+ * so if the requester already owns a topic with the specified name, that topic's ARN is returned without creating a new
+ * topic.
  * </p>
  *
  * @param createTopicRequest Container for the necessary parameters to execute the CreateTopic service method on AmazonSNS.

@@ -16,7 +16,6 @@
 #import <Foundation/Foundation.h>
 #import "S3Response.h"
 #import "S3AccessControlList.h"
-#import "S3AccessControlListUnmarshaller.h"
 
 /** Contains all the information about the getACL operation.
  *

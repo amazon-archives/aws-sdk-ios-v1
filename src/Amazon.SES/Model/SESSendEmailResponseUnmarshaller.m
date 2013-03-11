@@ -14,6 +14,7 @@
  */
 
 #import "SESSendEmailResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SESSendEmailResponseUnmarshaller
 

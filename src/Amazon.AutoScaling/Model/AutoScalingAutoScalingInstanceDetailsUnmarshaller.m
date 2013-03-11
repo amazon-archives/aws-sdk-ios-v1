@@ -14,6 +14,7 @@
  */
 
 #import "AutoScalingAutoScalingInstanceDetailsUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation AutoScalingAutoScalingInstanceDetailsUnmarshaller
 

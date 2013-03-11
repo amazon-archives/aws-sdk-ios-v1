@@ -16,6 +16,7 @@
 #import "S3Response.h"
 #import "S3GetObjectResponse.h"
 #import "AmazonLogger.h"
+#import "S3ErrorResponseHandler.h"
 
 
 @implementation S3Response
@@ -187,7 +188,8 @@
         [tmp release];
     }
 
-    if (self.httpStatusCode >= 400) {
+    // S3 treats 301's as an error and passes back an Error Response, so parse it
+    if ((self.httpStatusCode == 301) || (self.httpStatusCode >= 400)) {
         NSXMLParser            *parser       = [[NSXMLParser alloc] initWithData:self.body];
         S3ErrorResponseHandler *errorHandler = [[S3ErrorResponseHandler alloc] initWithStatusCode:self.httpStatusCode];
         [parser setDelegate:errorHandler];

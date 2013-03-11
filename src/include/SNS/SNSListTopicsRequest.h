@@ -31,7 +31,7 @@
 
 
 /**
- * Token returned by the previous ListTopics request.
+ * Token returned by the previous <code>ListTopics</code> request.
  */
 @property (nonatomic, retain) NSString *nextToken;
 
@@ -46,7 +46,8 @@
  * Constructs a new ListTopicsRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theNextToken Token returned by the previous ListTopics request.
+ * @param theNextToken Token returned by the previous
+ * <code>ListTopics</code> request.
  */
 -(id)initWithNextToken:(NSString *)theNextToken;
 

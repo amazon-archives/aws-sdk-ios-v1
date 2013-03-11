@@ -24,19 +24,27 @@
 @synthesize cidrBlock;
 @synthesize availableIpAddressCount;
 @synthesize availabilityZone;
+@synthesize defaultForAz;
+@synthesize defaultForAzIsSet;
+@synthesize mapPublicIpOnLaunch;
+@synthesize mapPublicIpOnLaunchIsSet;
 @synthesize tags;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        subnetId                = nil;
-        state                   = nil;
-        vpcId                   = nil;
-        cidrBlock               = nil;
-        availableIpAddressCount = nil;
-        availabilityZone        = nil;
-        tags                    = [[NSMutableArray alloc] initWithCapacity:1];
+        subnetId                 = nil;
+        state                    = nil;
+        vpcId                    = nil;
+        cidrBlock                = nil;
+        availableIpAddressCount  = nil;
+        availabilityZone         = nil;
+        defaultForAz             = NO;
+        defaultForAzIsSet        = NO;
+        mapPublicIpOnLaunch      = NO;
+        mapPublicIpOnLaunchIsSet = NO;
+        tags                     = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
     return self;
@@ -64,6 +72,8 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"CidrBlock: %@,", cidrBlock] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"AvailableIpAddressCount: %@,", availableIpAddressCount] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"AvailabilityZone: %@,", availabilityZone] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"DefaultForAz: %d,", defaultForAz] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"MapPublicIpOnLaunch: %d,", mapPublicIpOnLaunch] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Tags: %@,", tags] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
@@ -71,6 +81,18 @@
     return [buffer autorelease];
 }
 
+
+-(void)setDefaultForAz:(bool)theValue
+{
+    defaultForAz      = theValue;
+    defaultForAzIsSet = YES;
+}
+
+-(void)setMapPublicIpOnLaunch:(bool)theValue
+{
+    mapPublicIpOnLaunch      = theValue;
+    mapPublicIpOnLaunchIsSet = YES;
+}
 
 
 -(void)dealloc

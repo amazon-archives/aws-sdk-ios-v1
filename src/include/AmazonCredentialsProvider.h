@@ -15,11 +15,33 @@
 
 #import "AmazonCredentials.h"
 
+/** The protocol for AmazonCredential Providers
+ *
+ * Credential providers provide credentials to service clients (either long term or session
+ * credentials).  The only public interfaces for providers are to provide the credentials
+ * or refresh the credentials.  The implementation of the protocol can choose to handle these
+ * operations however they choose, but developers should be aware of thread/resource contention
+ * when implementing this protocol.
+ *
+ * Common patterns include using AWS Security Token Service or a custom api, such as a Token
+ * Vending Machine, to deliver temporary credentials.  It is recommended that providers refresh
+ * tokens slightly prior to their expiration to improve performance and reliability.
+ *
+ */
 @protocol AmazonCredentialsProvider <NSObject>
 
 @required
 
+/** 
+ * Provide the credentials object to use for service calls.  Could be long term credentials
+ * or session (short-term) credentials.
+ */
 - (AmazonCredentials *)credentials;
+
+/**
+ * Tells the provider to refresh the credentials.  Will be called by service client if they
+ * detect an invalid token or expired token error.
+ */
 - (void)refresh;
 
 @end

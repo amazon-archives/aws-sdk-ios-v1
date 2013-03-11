@@ -13,361 +13,187 @@
  * permissions and limitations under the License.
  */
 #import "EC2RebootInstancesResponse.h"
-#import "EC2RebootInstancesResponseUnmarshaller.h"
 #import "EC2RebootInstancesRequest.h"
-#import "EC2RebootInstancesRequestMarshaller.h"
 #import "EC2DescribeReservedInstancesResponse.h"
-#import "EC2DescribeReservedInstancesResponseUnmarshaller.h"
 #import "EC2DescribeReservedInstancesRequest.h"
-#import "EC2DescribeReservedInstancesRequestMarshaller.h"
 #import "EC2DescribeAvailabilityZonesResponse.h"
-#import "EC2DescribeAvailabilityZonesResponseUnmarshaller.h"
 #import "EC2DescribeAvailabilityZonesRequest.h"
-#import "EC2DescribeAvailabilityZonesRequestMarshaller.h"
 #import "EC2DetachVolumeResponse.h"
-#import "EC2DetachVolumeResponseUnmarshaller.h"
 #import "EC2DetachVolumeRequest.h"
-#import "EC2DetachVolumeRequestMarshaller.h"
 #import "EC2DeleteKeyPairResponse.h"
-#import "EC2DeleteKeyPairResponseUnmarshaller.h"
 #import "EC2DeleteKeyPairRequest.h"
-#import "EC2DeleteKeyPairRequestMarshaller.h"
 #import "EC2UnmonitorInstancesResponse.h"
-#import "EC2UnmonitorInstancesResponseUnmarshaller.h"
 #import "EC2UnmonitorInstancesRequest.h"
-#import "EC2UnmonitorInstancesRequestMarshaller.h"
 #import "EC2CreateImageResponse.h"
-#import "EC2CreateImageResponseUnmarshaller.h"
 #import "EC2CreateImageRequest.h"
-#import "EC2CreateImageRequestMarshaller.h"
 #import "EC2DeleteSecurityGroupResponse.h"
-#import "EC2DeleteSecurityGroupResponseUnmarshaller.h"
 #import "EC2DeleteSecurityGroupRequest.h"
-#import "EC2DeleteSecurityGroupRequestMarshaller.h"
 #import "EC2CreateInstanceExportTaskResponse.h"
-#import "EC2CreateInstanceExportTaskResponseUnmarshaller.h"
 #import "EC2CreateInstanceExportTaskRequest.h"
-#import "EC2CreateInstanceExportTaskRequestMarshaller.h"
 #import "EC2GetPasswordDataResponse.h"
-#import "EC2GetPasswordDataResponseUnmarshaller.h"
 #import "EC2GetPasswordDataRequest.h"
-#import "EC2GetPasswordDataRequestMarshaller.h"
 #import "EC2StopInstancesResponse.h"
-#import "EC2StopInstancesResponseUnmarshaller.h"
 #import "EC2StopInstancesRequest.h"
-#import "EC2StopInstancesRequestMarshaller.h"
 #import "EC2ImportKeyPairResponse.h"
-#import "EC2ImportKeyPairResponseUnmarshaller.h"
 #import "EC2ImportKeyPairRequest.h"
-#import "EC2ImportKeyPairRequestMarshaller.h"
 #import "EC2CreateSecurityGroupResponse.h"
-#import "EC2CreateSecurityGroupResponseUnmarshaller.h"
 #import "EC2CreateSecurityGroupRequest.h"
-#import "EC2CreateSecurityGroupRequestMarshaller.h"
 #import "EC2DescribeSpotPriceHistoryResponse.h"
-#import "EC2DescribeSpotPriceHistoryResponseUnmarshaller.h"
 #import "EC2DescribeSpotPriceHistoryRequest.h"
-#import "EC2DescribeSpotPriceHistoryRequestMarshaller.h"
 #import "EC2DescribeRegionsResponse.h"
-#import "EC2DescribeRegionsResponseUnmarshaller.h"
 #import "EC2DescribeRegionsRequest.h"
-#import "EC2DescribeRegionsRequestMarshaller.h"
 #import "EC2CreateReservedInstancesListingResponse.h"
-#import "EC2CreateReservedInstancesListingResponseUnmarshaller.h"
 #import "EC2CreateReservedInstancesListingRequest.h"
-#import "EC2CreateReservedInstancesListingRequestMarshaller.h"
 #import "EC2ResetSnapshotAttributeResponse.h"
-#import "EC2ResetSnapshotAttributeResponseUnmarshaller.h"
 #import "EC2ResetSnapshotAttributeRequest.h"
-#import "EC2ResetSnapshotAttributeRequestMarshaller.h"
 #import "EC2ImportVolumeResponse.h"
-#import "EC2ImportVolumeResponseUnmarshaller.h"
 #import "EC2ImportVolumeRequest.h"
-#import "EC2ImportVolumeRequestMarshaller.h"
 #import "EC2DescribeSecurityGroupsResponse.h"
-#import "EC2DescribeSecurityGroupsResponseUnmarshaller.h"
 #import "EC2DescribeSecurityGroupsRequest.h"
-#import "EC2DescribeSecurityGroupsRequestMarshaller.h"
 #import "EC2DeregisterImageResponse.h"
-#import "EC2DeregisterImageResponseUnmarshaller.h"
 #import "EC2DeregisterImageRequest.h"
-#import "EC2DeregisterImageRequestMarshaller.h"
 #import "EC2DescribeSpotDatafeedSubscriptionResponse.h"
-#import "EC2DescribeSpotDatafeedSubscriptionResponseUnmarshaller.h"
 #import "EC2DescribeSpotDatafeedSubscriptionRequest.h"
-#import "EC2DescribeSpotDatafeedSubscriptionRequestMarshaller.h"
 #import "EC2DeleteTagsResponse.h"
-#import "EC2DeleteTagsResponseUnmarshaller.h"
 #import "EC2DeleteTagsRequest.h"
-#import "EC2DeleteTagsRequestMarshaller.h"
+#import "EC2DescribeAccountAttributesResponse.h"
+#import "EC2DescribeAccountAttributesRequest.h"
 #import "EC2EnableVolumeIOResponse.h"
-#import "EC2EnableVolumeIOResponseUnmarshaller.h"
 #import "EC2EnableVolumeIORequest.h"
-#import "EC2EnableVolumeIORequestMarshaller.h"
 #import "EC2AttachVolumeResponse.h"
-#import "EC2AttachVolumeResponseUnmarshaller.h"
 #import "EC2AttachVolumeRequest.h"
-#import "EC2AttachVolumeRequestMarshaller.h"
 #import "EC2DescribeLicensesResponse.h"
-#import "EC2DescribeLicensesResponseUnmarshaller.h"
 #import "EC2DescribeLicensesRequest.h"
-#import "EC2DescribeLicensesRequestMarshaller.h"
 #import "EC2DescribeVolumeStatusResponse.h"
-#import "EC2DescribeVolumeStatusResponseUnmarshaller.h"
 #import "EC2DescribeVolumeStatusRequest.h"
-#import "EC2DescribeVolumeStatusRequestMarshaller.h"
 #import "EC2ActivateLicenseResponse.h"
-#import "EC2ActivateLicenseResponseUnmarshaller.h"
 #import "EC2ActivateLicenseRequest.h"
-#import "EC2ActivateLicenseRequestMarshaller.h"
 #import "EC2ResetImageAttributeResponse.h"
-#import "EC2ResetImageAttributeResponseUnmarshaller.h"
 #import "EC2ResetImageAttributeRequest.h"
-#import "EC2ResetImageAttributeRequestMarshaller.h"
 #import "EC2CreateSnapshotResponse.h"
-#import "EC2CreateSnapshotResponseUnmarshaller.h"
 #import "EC2CreateSnapshotRequest.h"
-#import "EC2CreateSnapshotRequestMarshaller.h"
 #import "EC2DeleteVolumeResponse.h"
-#import "EC2DeleteVolumeResponseUnmarshaller.h"
 #import "EC2DeleteVolumeRequest.h"
-#import "EC2DeleteVolumeRequestMarshaller.h"
 #import "EC2DescribeVpcsResponse.h"
-#import "EC2DescribeVpcsResponseUnmarshaller.h"
 #import "EC2DescribeVpcsRequest.h"
-#import "EC2DescribeVpcsRequestMarshaller.h"
-#import "EC2AssociateAddressResponse.h"
-#import "EC2AssociateAddressResponseUnmarshaller.h"
-#import "EC2AssociateAddressRequest.h"
-#import "EC2AssociateAddressRequestMarshaller.h"
 #import "EC2CancelConversionTaskResponse.h"
-#import "EC2CancelConversionTaskResponseUnmarshaller.h"
 #import "EC2CancelConversionTaskRequest.h"
-#import "EC2CancelConversionTaskRequestMarshaller.h"
+#import "EC2AssociateAddressResponse.h"
+#import "EC2AssociateAddressRequest.h"
 #import "EC2DeactivateLicenseResponse.h"
-#import "EC2DeactivateLicenseResponseUnmarshaller.h"
 #import "EC2DeactivateLicenseRequest.h"
-#import "EC2DeactivateLicenseRequestMarshaller.h"
 #import "EC2DescribeExportTasksResponse.h"
-#import "EC2DescribeExportTasksResponseUnmarshaller.h"
 #import "EC2DescribeExportTasksRequest.h"
-#import "EC2DescribeExportTasksRequestMarshaller.h"
 #import "EC2DescribeVolumesResponse.h"
-#import "EC2DescribeVolumesResponseUnmarshaller.h"
 #import "EC2DescribeVolumesRequest.h"
-#import "EC2DescribeVolumesRequestMarshaller.h"
 #import "EC2DescribeReservedInstancesListingsResponse.h"
-#import "EC2DescribeReservedInstancesListingsResponseUnmarshaller.h"
 #import "EC2DescribeReservedInstancesListingsRequest.h"
-#import "EC2DescribeReservedInstancesListingsRequestMarshaller.h"
 #import "EC2ReportInstanceStatusResponse.h"
-#import "EC2ReportInstanceStatusResponseUnmarshaller.h"
 #import "EC2ReportInstanceStatusRequest.h"
-#import "EC2ReportInstanceStatusRequestMarshaller.h"
 #import "EC2MonitorInstancesResponse.h"
-#import "EC2MonitorInstancesResponseUnmarshaller.h"
 #import "EC2MonitorInstancesRequest.h"
-#import "EC2MonitorInstancesRequestMarshaller.h"
 #import "EC2DescribeBundleTasksResponse.h"
-#import "EC2DescribeBundleTasksResponseUnmarshaller.h"
 #import "EC2DescribeBundleTasksRequest.h"
-#import "EC2DescribeBundleTasksRequestMarshaller.h"
 #import "EC2ImportInstanceResponse.h"
-#import "EC2ImportInstanceResponseUnmarshaller.h"
 #import "EC2ImportInstanceRequest.h"
-#import "EC2ImportInstanceRequestMarshaller.h"
 #import "EC2RevokeSecurityGroupIngressResponse.h"
-#import "EC2RevokeSecurityGroupIngressResponseUnmarshaller.h"
 #import "EC2RevokeSecurityGroupIngressRequest.h"
-#import "EC2RevokeSecurityGroupIngressRequestMarshaller.h"
 #import "EC2GetConsoleOutputResponse.h"
-#import "EC2GetConsoleOutputResponseUnmarshaller.h"
 #import "EC2GetConsoleOutputRequest.h"
-#import "EC2GetConsoleOutputRequestMarshaller.h"
 #import "EC2ModifyImageAttributeResponse.h"
-#import "EC2ModifyImageAttributeResponseUnmarshaller.h"
 #import "EC2ModifyImageAttributeRequest.h"
-#import "EC2ModifyImageAttributeRequestMarshaller.h"
 #import "EC2CreateSpotDatafeedSubscriptionResponse.h"
-#import "EC2CreateSpotDatafeedSubscriptionResponseUnmarshaller.h"
 #import "EC2CreateSpotDatafeedSubscriptionRequest.h"
-#import "EC2CreateSpotDatafeedSubscriptionRequestMarshaller.h"
 #import "EC2DescribeConversionTasksResponse.h"
-#import "EC2DescribeConversionTasksResponseUnmarshaller.h"
 #import "EC2DescribeConversionTasksRequest.h"
-#import "EC2DescribeConversionTasksRequestMarshaller.h"
 #import "EC2DescribeInstanceAttributeResponse.h"
-#import "EC2DescribeInstanceAttributeResponseUnmarshaller.h"
 #import "EC2DescribeInstanceAttributeRequest.h"
-#import "EC2DescribeInstanceAttributeRequestMarshaller.h"
 #import "EC2DescribeSubnetsResponse.h"
-#import "EC2DescribeSubnetsResponseUnmarshaller.h"
 #import "EC2DescribeSubnetsRequest.h"
-#import "EC2DescribeSubnetsRequestMarshaller.h"
 #import "EC2RunInstancesResponse.h"
-#import "EC2RunInstancesResponseUnmarshaller.h"
 #import "EC2RunInstancesRequest.h"
-#import "EC2RunInstancesRequestMarshaller.h"
 #import "EC2DescribePlacementGroupsResponse.h"
-#import "EC2DescribePlacementGroupsResponseUnmarshaller.h"
 #import "EC2DescribePlacementGroupsRequest.h"
-#import "EC2DescribePlacementGroupsRequestMarshaller.h"
 #import "EC2DescribeInstancesResponse.h"
-#import "EC2DescribeInstancesResponseUnmarshaller.h"
 #import "EC2DescribeInstancesRequest.h"
-#import "EC2DescribeInstancesRequestMarshaller.h"
 #import "EC2ModifyVolumeAttributeResponse.h"
-#import "EC2ModifyVolumeAttributeResponseUnmarshaller.h"
 #import "EC2ModifyVolumeAttributeRequest.h"
-#import "EC2ModifyVolumeAttributeRequestMarshaller.h"
 #import "EC2DescribeImagesResponse.h"
-#import "EC2DescribeImagesResponseUnmarshaller.h"
 #import "EC2DescribeImagesRequest.h"
-#import "EC2DescribeImagesRequestMarshaller.h"
 #import "EC2StartInstancesResponse.h"
-#import "EC2StartInstancesResponseUnmarshaller.h"
 #import "EC2StartInstancesRequest.h"
-#import "EC2StartInstancesRequestMarshaller.h"
 #import "EC2CancelReservedInstancesListingResponse.h"
-#import "EC2CancelReservedInstancesListingResponseUnmarshaller.h"
 #import "EC2CancelReservedInstancesListingRequest.h"
-#import "EC2CancelReservedInstancesListingRequestMarshaller.h"
 #import "EC2ModifyInstanceAttributeResponse.h"
-#import "EC2ModifyInstanceAttributeResponseUnmarshaller.h"
 #import "EC2ModifyInstanceAttributeRequest.h"
-#import "EC2ModifyInstanceAttributeRequestMarshaller.h"
 #import "EC2AuthorizeSecurityGroupIngressResponse.h"
-#import "EC2AuthorizeSecurityGroupIngressResponseUnmarshaller.h"
 #import "EC2AuthorizeSecurityGroupIngressRequest.h"
-#import "EC2AuthorizeSecurityGroupIngressRequestMarshaller.h"
 #import "EC2DescribeSpotInstanceRequestsResponse.h"
-#import "EC2DescribeSpotInstanceRequestsResponseUnmarshaller.h"
 #import "EC2DescribeSpotInstanceRequestsRequest.h"
-#import "EC2DescribeSpotInstanceRequestsRequestMarshaller.h"
 #import "EC2CancelExportTaskResponse.h"
-#import "EC2CancelExportTaskResponseUnmarshaller.h"
 #import "EC2CancelExportTaskRequest.h"
-#import "EC2CancelExportTaskRequestMarshaller.h"
+#import "EC2CopyImageResponse.h"
+#import "EC2CopyImageRequest.h"
 #import "EC2RequestSpotInstancesResponse.h"
-#import "EC2RequestSpotInstancesResponseUnmarshaller.h"
 #import "EC2RequestSpotInstancesRequest.h"
-#import "EC2RequestSpotInstancesRequestMarshaller.h"
 #import "EC2CreateTagsResponse.h"
-#import "EC2CreateTagsResponseUnmarshaller.h"
 #import "EC2CreateTagsRequest.h"
-#import "EC2CreateTagsRequestMarshaller.h"
 #import "EC2DescribeVolumeAttributeResponse.h"
-#import "EC2DescribeVolumeAttributeResponseUnmarshaller.h"
 #import "EC2DescribeVolumeAttributeRequest.h"
-#import "EC2DescribeVolumeAttributeRequestMarshaller.h"
 #import "EC2DescribeTagsResponse.h"
-#import "EC2DescribeTagsResponseUnmarshaller.h"
 #import "EC2DescribeTagsRequest.h"
-#import "EC2DescribeTagsRequestMarshaller.h"
 #import "EC2CancelBundleTaskResponse.h"
-#import "EC2CancelBundleTaskResponseUnmarshaller.h"
 #import "EC2CancelBundleTaskRequest.h"
-#import "EC2CancelBundleTaskRequestMarshaller.h"
 #import "EC2CancelSpotInstanceRequestsResponse.h"
-#import "EC2CancelSpotInstanceRequestsResponseUnmarshaller.h"
 #import "EC2CancelSpotInstanceRequestsRequest.h"
-#import "EC2CancelSpotInstanceRequestsRequestMarshaller.h"
 #import "EC2PurchaseReservedInstancesOfferingResponse.h"
-#import "EC2PurchaseReservedInstancesOfferingResponseUnmarshaller.h"
 #import "EC2PurchaseReservedInstancesOfferingRequest.h"
-#import "EC2PurchaseReservedInstancesOfferingRequestMarshaller.h"
 #import "EC2ModifySnapshotAttributeResponse.h"
-#import "EC2ModifySnapshotAttributeResponseUnmarshaller.h"
 #import "EC2ModifySnapshotAttributeRequest.h"
-#import "EC2ModifySnapshotAttributeRequestMarshaller.h"
 #import "EC2TerminateInstancesResponse.h"
-#import "EC2TerminateInstancesResponseUnmarshaller.h"
 #import "EC2TerminateInstancesRequest.h"
-#import "EC2TerminateInstancesRequestMarshaller.h"
 #import "EC2DeleteSpotDatafeedSubscriptionResponse.h"
-#import "EC2DeleteSpotDatafeedSubscriptionResponseUnmarshaller.h"
 #import "EC2DeleteSpotDatafeedSubscriptionRequest.h"
-#import "EC2DeleteSpotDatafeedSubscriptionRequestMarshaller.h"
 #import "EC2DescribeSnapshotAttributeResponse.h"
-#import "EC2DescribeSnapshotAttributeResponseUnmarshaller.h"
 #import "EC2DescribeSnapshotAttributeRequest.h"
-#import "EC2DescribeSnapshotAttributeRequestMarshaller.h"
 #import "EC2DescribeAddressesResponse.h"
-#import "EC2DescribeAddressesResponseUnmarshaller.h"
 #import "EC2DescribeAddressesRequest.h"
-#import "EC2DescribeAddressesRequestMarshaller.h"
 #import "EC2DescribeImageAttributeResponse.h"
-#import "EC2DescribeImageAttributeResponseUnmarshaller.h"
 #import "EC2DescribeImageAttributeRequest.h"
-#import "EC2DescribeImageAttributeRequestMarshaller.h"
 #import "EC2DescribeKeyPairsResponse.h"
-#import "EC2DescribeKeyPairsResponseUnmarshaller.h"
 #import "EC2DescribeKeyPairsRequest.h"
-#import "EC2DescribeKeyPairsRequestMarshaller.h"
 #import "EC2ConfirmProductInstanceResponse.h"
-#import "EC2ConfirmProductInstanceResponseUnmarshaller.h"
 #import "EC2ConfirmProductInstanceRequest.h"
-#import "EC2ConfirmProductInstanceRequestMarshaller.h"
 #import "EC2CreateVolumeResponse.h"
-#import "EC2CreateVolumeResponseUnmarshaller.h"
 #import "EC2CreateVolumeRequest.h"
-#import "EC2CreateVolumeRequestMarshaller.h"
 #import "EC2DescribeInstanceStatusResponse.h"
-#import "EC2DescribeInstanceStatusResponseUnmarshaller.h"
 #import "EC2DescribeInstanceStatusRequest.h"
-#import "EC2DescribeInstanceStatusRequestMarshaller.h"
 #import "EC2DescribeReservedInstancesOfferingsResponse.h"
-#import "EC2DescribeReservedInstancesOfferingsResponseUnmarshaller.h"
 #import "EC2DescribeReservedInstancesOfferingsRequest.h"
-#import "EC2DescribeReservedInstancesOfferingsRequestMarshaller.h"
 #import "EC2DeleteSnapshotResponse.h"
-#import "EC2DeleteSnapshotResponseUnmarshaller.h"
 #import "EC2DeleteSnapshotRequest.h"
-#import "EC2DeleteSnapshotRequestMarshaller.h"
 #import "EC2DisassociateAddressResponse.h"
-#import "EC2DisassociateAddressResponseUnmarshaller.h"
 #import "EC2DisassociateAddressRequest.h"
-#import "EC2DisassociateAddressRequestMarshaller.h"
 #import "EC2CreatePlacementGroupResponse.h"
-#import "EC2CreatePlacementGroupResponseUnmarshaller.h"
 #import "EC2CreatePlacementGroupRequest.h"
-#import "EC2CreatePlacementGroupRequestMarshaller.h"
 #import "EC2BundleInstanceResponse.h"
-#import "EC2BundleInstanceResponseUnmarshaller.h"
 #import "EC2BundleInstanceRequest.h"
-#import "EC2BundleInstanceRequestMarshaller.h"
 #import "EC2DeletePlacementGroupResponse.h"
-#import "EC2DeletePlacementGroupResponseUnmarshaller.h"
 #import "EC2DeletePlacementGroupRequest.h"
-#import "EC2DeletePlacementGroupRequestMarshaller.h"
 #import "EC2CopySnapshotResponse.h"
-#import "EC2CopySnapshotResponseUnmarshaller.h"
 #import "EC2CopySnapshotRequest.h"
-#import "EC2CopySnapshotRequestMarshaller.h"
 #import "EC2AllocateAddressResponse.h"
-#import "EC2AllocateAddressResponseUnmarshaller.h"
 #import "EC2AllocateAddressRequest.h"
-#import "EC2AllocateAddressRequestMarshaller.h"
 #import "EC2ReleaseAddressResponse.h"
-#import "EC2ReleaseAddressResponseUnmarshaller.h"
 #import "EC2ReleaseAddressRequest.h"
-#import "EC2ReleaseAddressRequestMarshaller.h"
 #import "EC2ResetInstanceAttributeResponse.h"
-#import "EC2ResetInstanceAttributeResponseUnmarshaller.h"
 #import "EC2ResetInstanceAttributeRequest.h"
-#import "EC2ResetInstanceAttributeRequestMarshaller.h"
 #import "EC2CreateKeyPairResponse.h"
-#import "EC2CreateKeyPairResponseUnmarshaller.h"
 #import "EC2CreateKeyPairRequest.h"
-#import "EC2CreateKeyPairRequestMarshaller.h"
 #import "EC2DescribeSnapshotsResponse.h"
-#import "EC2DescribeSnapshotsResponseUnmarshaller.h"
 #import "EC2DescribeSnapshotsRequest.h"
-#import "EC2DescribeSnapshotsRequestMarshaller.h"
 #import "EC2RegisterImageResponse.h"
-#import "EC2RegisterImageResponseUnmarshaller.h"
 #import "EC2RegisterImageRequest.h"
-#import "EC2RegisterImageRequestMarshaller.h"
 
 #import "../AmazonWebServiceClient.h"
 
@@ -949,6 +775,26 @@
 
 
 /**
+ *
+ * @param describeAccountAttributesRequest Container for the necessary parameters to execute the DescribeAccountAttributes
+ *           service method on AmazonEC2.
+ *
+ * @return The response from the DescribeAccountAttributes service method, as returned by AmazonEC2.
+ *
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonEC2 indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see EC2DescribeAccountAttributesRequest
+ * @see EC2DescribeAccountAttributesResponse
+ */
+-(EC2DescribeAccountAttributesResponse *)describeAccountAttributes:(EC2DescribeAccountAttributesRequest *)describeAccountAttributesRequest;
+
+
+/**
  * <p>
  * Enable IO on the volume after an event has occured.
  * </p>
@@ -1169,6 +1015,24 @@
 
 
 /**
+ *
+ * @param cancelConversionTaskRequest Container for the necessary parameters to execute the CancelConversionTask service
+ *           method on AmazonEC2.
+ *
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonEC2 indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see EC2CancelConversionTaskRequest
+ * @see EC2CancelConversionTaskResponse
+ */
+-(EC2CancelConversionTaskResponse *)cancelConversionTask:(EC2CancelConversionTaskRequest *)cancelConversionTaskRequest;
+
+
+/**
  * <p>
  * The AssociateAddress operation associates an elastic IP address with an instance.
  * </p>
@@ -1193,24 +1057,6 @@
  * @see EC2AssociateAddressResponse
  */
 -(EC2AssociateAddressResponse *)associateAddress:(EC2AssociateAddressRequest *)associateAddressRequest;
-
-
-/**
- *
- * @param cancelConversionTaskRequest Container for the necessary parameters to execute the CancelConversionTask service
- *           method on AmazonEC2.
- *
- *
- * @exception AmazonClientException If any internal errors are encountered inside the client while
- * attempting to make the request or handle the response.  For example
- * if a network connection is not available.  For more information see <AmazonClientException>.
- * @exception AmazonServiceException If an error response is returned by AmazonEC2 indicating
- * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
- *
- * @see EC2CancelConversionTaskRequest
- * @see EC2CancelConversionTaskResponse
- */
--(EC2CancelConversionTaskResponse *)cancelConversionTask:(EC2CancelConversionTaskRequest *)cancelConversionTaskRequest;
 
 
 /**
@@ -1917,6 +1763,25 @@
  * @see EC2CancelExportTaskResponse
  */
 -(EC2CancelExportTaskResponse *)cancelExportTask:(EC2CancelExportTaskRequest *)cancelExportTaskRequest;
+
+
+/**
+ *
+ * @param copyImageRequest Container for the necessary parameters to execute the CopyImage service method on AmazonEC2.
+ *
+ * @return The response from the CopyImage service method, as returned by AmazonEC2.
+ *
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonEC2 indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see EC2CopyImageRequest
+ * @see EC2CopyImageResponse
+ */
+-(EC2CopyImageResponse *)doCopyImage:(EC2CopyImageRequest *)copyImageRequest;
 
 
 /**

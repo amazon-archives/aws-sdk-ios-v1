@@ -15,6 +15,7 @@
 
 
 #import "AutoScalingSetDesiredCapacityResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation AutoScalingSetDesiredCapacityResponseUnmarshaller
 

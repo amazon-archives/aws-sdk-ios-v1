@@ -16,6 +16,12 @@
 #import "AmazonSecurityTokenServiceClient.h"
 #import "../AmazonEndpoints.h"
 #import "../AmazonServiceRequest.h"
+#import "SecurityTokenServiceGetSessionTokenResponseUnmarshaller.h"
+#import "SecurityTokenServiceGetSessionTokenRequestMarshaller.h"
+#import "SecurityTokenServiceGetFederationTokenResponseUnmarshaller.h"
+#import "SecurityTokenServiceGetFederationTokenRequestMarshaller.h"
+#import "SecurityTokenServiceAssumeRoleResponseUnmarshaller.h"
+#import "SecurityTokenServiceAssumeRoleRequestMarshaller.h"
 
 
 @implementation AmazonSecurityTokenServiceClient

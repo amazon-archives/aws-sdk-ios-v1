@@ -14,6 +14,7 @@
  */
 
 #import "EC2GetPasswordDataResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2GetPasswordDataResponseUnmarshaller
 

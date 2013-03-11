@@ -14,6 +14,7 @@
  */
 
 #import "EC2GetConsoleOutputResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2GetConsoleOutputResponseUnmarshaller
 

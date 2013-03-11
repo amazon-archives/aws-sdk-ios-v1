@@ -15,7 +15,6 @@
 
 #import <Foundation/Foundation.h>
 #import "S3Response.h"
-#import "S3CopyPartResultUnmarshaller.h"
 
 /** Contains the response from a uploadPart operation.
  *

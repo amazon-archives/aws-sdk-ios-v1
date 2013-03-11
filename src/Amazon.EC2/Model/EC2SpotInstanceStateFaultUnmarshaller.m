@@ -14,6 +14,7 @@
  */
 
 #import "EC2SpotInstanceStateFaultUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2SpotInstanceStateFaultUnmarshaller
 

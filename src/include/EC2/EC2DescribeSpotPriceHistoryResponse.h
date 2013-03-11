@@ -16,7 +16,6 @@
 #import "EC2SpotPrice.h"
 
 #import "EC2Response.h"
-#import "../AmazonServiceExceptionUnmarshaller.h"
 
 
 

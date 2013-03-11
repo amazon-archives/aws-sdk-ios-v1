@@ -15,6 +15,7 @@
 
 
 #import "AutoScalingDeleteLaunchConfigurationResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation AutoScalingDeleteLaunchConfigurationResponseUnmarshaller
 

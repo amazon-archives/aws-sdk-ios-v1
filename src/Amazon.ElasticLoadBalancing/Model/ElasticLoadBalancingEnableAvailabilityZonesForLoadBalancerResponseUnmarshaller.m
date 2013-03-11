@@ -14,6 +14,7 @@
  */
 
 #import "ElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation ElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerResponseUnmarshaller
 

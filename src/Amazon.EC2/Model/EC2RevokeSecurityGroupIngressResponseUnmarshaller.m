@@ -15,6 +15,7 @@
 
 
 #import "EC2RevokeSecurityGroupIngressResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2RevokeSecurityGroupIngressResponseUnmarshaller
 

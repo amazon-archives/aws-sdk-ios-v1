@@ -15,6 +15,7 @@
 
 
 #import "AmazonServiceRequest.h"
+#import "AmazonServiceResponse.h"
 #import "AmazonAuthUtils.h"
 
 @implementation AmazonServiceRequest
@@ -219,6 +220,11 @@
 {
     [self.urlConnection cancel];
     [self.responseTimer invalidate];
+}
+
+-(AmazonServiceResponse*)constructResponse
+{
+    return [[AmazonServiceResponse new] autorelease];
 }
 
 -(void)dealloc

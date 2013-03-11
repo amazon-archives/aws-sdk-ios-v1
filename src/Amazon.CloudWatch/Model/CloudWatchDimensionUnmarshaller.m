@@ -14,6 +14,7 @@
  */
 
 #import "CloudWatchDimensionUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation CloudWatchDimensionUnmarshaller
 

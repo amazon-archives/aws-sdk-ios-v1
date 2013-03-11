@@ -14,6 +14,7 @@
  */
 
 #import "S3CompleteMultipartUploadResponse.h"
+#import "S3CompleteMultipartUploadResultUnmarshaller.h"
 
 
 @implementation S3CompleteMultipartUploadResponse

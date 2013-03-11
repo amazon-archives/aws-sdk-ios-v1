@@ -51,7 +51,9 @@
 @property (nonatomic, retain) NSString *metricName;
 
 /**
- * A list of dimensions associated with the metric.
+ * A list of dimensions associated with the metric. Note, when using the
+ * Dimensions value in a query, you need to append .member.N to it (e.g.,
+ * Dimensions.member.N).
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>0 - 10<br/>
@@ -67,10 +69,10 @@
 /**
  * The value for the metric. <important>Although the <code>Value</code>
  * parameter accepts numbers of type <code>Double</code>, Amazon
- * CloudWatch truncates values with very large exponents. Values with
- * base-10 exponents greater than 126 (1 x 10^126) are truncated.
- * Likewise, values with base-10 exponents less than -130 (1 x 10^-130)
- * are also truncated. </important>
+ * CloudWatch rejects values that are either too small or too large.
+ * Values must be in the range of 8.515920e-109 to 1.174271e+108 (Base
+ * 10) or 2e-360 to 2e360 (Base 2). In addition, special values (e.g.,
+ * NaN, +Infinity, -Infinity) are not supported. </important>
  */
 @property (nonatomic, retain) NSNumber *value;
 

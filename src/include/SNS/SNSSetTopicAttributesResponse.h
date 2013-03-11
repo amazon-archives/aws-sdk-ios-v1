@@ -15,7 +15,6 @@
 
 
 #import "SNSResponse.h"
-#import "../AmazonServiceExceptionUnmarshaller.h"
 
 #import "SNSNotFoundException.h"
 #import "SNSAuthorizationErrorException.h"

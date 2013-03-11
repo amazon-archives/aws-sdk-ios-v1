@@ -17,7 +17,6 @@
 #import "SecurityTokenServiceAssumedRoleUser.h"
 
 #import "SecurityTokenServiceResponse.h"
-#import "../AmazonServiceExceptionUnmarshaller.h"
 
 #import "SecurityTokenServicePackedPolicyTooLargeException.h"
 #import "SecurityTokenServiceMalformedPolicyDocumentException.h"

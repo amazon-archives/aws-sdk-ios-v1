@@ -15,6 +15,7 @@
 
 
 #import "SNSDeleteTopicResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SNSDeleteTopicResponseUnmarshaller
 

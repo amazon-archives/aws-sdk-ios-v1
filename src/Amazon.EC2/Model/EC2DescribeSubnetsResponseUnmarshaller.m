@@ -14,6 +14,7 @@
  */
 
 #import "EC2DescribeSubnetsResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2DescribeSubnetsResponseUnmarshaller
 

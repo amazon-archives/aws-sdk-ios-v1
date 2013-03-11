@@ -14,6 +14,7 @@
  */
 
 #import "EC2PriceScheduleUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2PriceScheduleUnmarshaller
 

@@ -15,6 +15,7 @@
 
 
 #import "ElasticLoadBalancingSetLoadBalancerListenerSSLCertificateResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation ElasticLoadBalancingSetLoadBalancerListenerSSLCertificateResponseUnmarshaller
 

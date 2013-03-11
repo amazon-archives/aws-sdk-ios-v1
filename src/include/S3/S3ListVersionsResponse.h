@@ -16,7 +16,6 @@
 #import <Foundation/Foundation.h>
 #import "S3Response.h"
 #import "S3ListVersionsResult.h"
-#import "S3ListVersionsResultUnmarshaller.h"
 
 /** Contains the response from a list versions operation.
  *

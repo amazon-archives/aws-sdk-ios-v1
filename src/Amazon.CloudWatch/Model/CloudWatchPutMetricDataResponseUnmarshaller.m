@@ -15,6 +15,7 @@
 
 
 #import "CloudWatchPutMetricDataResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation CloudWatchPutMetricDataResponseUnmarshaller
 

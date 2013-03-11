@@ -14,6 +14,7 @@
  */
 
 #import "SecurityTokenServiceGetSessionTokenResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SecurityTokenServiceGetSessionTokenResponseUnmarshaller
 

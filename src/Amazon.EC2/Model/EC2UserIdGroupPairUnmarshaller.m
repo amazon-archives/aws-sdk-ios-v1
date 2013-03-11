@@ -14,6 +14,7 @@
  */
 
 #import "EC2UserIdGroupPairUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2UserIdGroupPairUnmarshaller
 

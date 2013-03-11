@@ -14,6 +14,7 @@
  */
 
 #import "EC2InstanceLicenseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2InstanceLicenseUnmarshaller
 

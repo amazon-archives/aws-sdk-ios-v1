@@ -14,6 +14,7 @@
  */
 
 #import "EC2RequestSpotInstancesResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2RequestSpotInstancesResponseUnmarshaller
 

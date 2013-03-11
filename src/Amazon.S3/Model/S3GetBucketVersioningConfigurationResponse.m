@@ -14,7 +14,7 @@
  */
 
 #import "S3GetBucketVersioningConfigurationResponse.h"
-
+#import "S3BucketVersioningConfigurationUnmarshaller.h"
 
 @implementation S3GetBucketVersioningConfigurationResponse
 

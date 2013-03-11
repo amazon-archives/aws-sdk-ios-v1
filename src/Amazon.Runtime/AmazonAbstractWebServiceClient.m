@@ -16,8 +16,6 @@
 #import "AmazonAbstractWebServiceClient.h"
 #import "AmazonStaticCredentialsProvider.h"
 #import "AmazonEndpoints.h"
-#import "DynamoDBRequest.h"
-#import "DynamoDBResponse.h"
 
 @implementation AmazonAbstractWebServiceClient
 
@@ -67,30 +65,19 @@
     NSString *requestClassName  = NSStringFromClass([request class]);
     NSString *responseClassName = [[requestClassName substringToIndex:[requestClassName length] - 7] stringByAppendingFormat:@"Response"];
 
-    id       response = [[NSClassFromString(responseClassName) alloc] init];
+    id response = [[NSClassFromString(responseClassName) new] autorelease];
 
     if (nil == response) {
-        if([request isKindOfClass:[DynamoDBRequest class]])
-        {
-            response = [DynamoDBResponse new];
-        }
-        else
-        {
-            response = [AmazonServiceResponse new];
-        }
+        response = [request constructResponse];
     }
 
-    return [response autorelease];
+    return response;
 }
 
 -(AmazonServiceResponse *)invoke:(AmazonServiceRequest *)generatedRequest rawRequest:(AmazonServiceRequestConfig *)originalRequest unmarshallerDelegate:(Class)unmarshallerDelegate
 {
     if (nil == generatedRequest) {
-
-        AmazonServiceResponse *response = [[[AmazonServiceResponse alloc] init] autorelease];
-        response.error = [AmazonErrorHandler errorFromExceptionWithThrowsExceptionOption:[AmazonClientException
-                                                                                          exceptionWithMessage:@"Request cannot be nil."]];
-        return response;
+        return [self nilRequestResponse];
     }
 
     [generatedRequest setUserAgent:self.userAgent];
@@ -106,85 +93,33 @@
     [generatedRequest sign];
     [urlRequest setHTTPBody:[[generatedRequest queryString] dataUsingEncoding:NSUTF8StringEncoding]];
 
-    if ([AmazonLogger isVerboseLoggingEnabled]) {
-        AMZLogDebug(@"%@ %@", [urlRequest HTTPMethod], [urlRequest URL]);
-        AMZLogDebug(@"Request body: ");
-        NSString *rBody = [[NSString alloc] initWithData:[urlRequest HTTPBody] encoding:NSUTF8StringEncoding];
-        AMZLogDebug(@"%@", rBody);
-        [rBody release];
-    }
+    [self logTheRequest:urlRequest];
 
     AmazonServiceResponse *response = nil;
-    NSInteger             retries   = 0;
+    int retries = 0;
     while (retries < self.maxRetries) {
         AMZLogDebug(@"Begin Request: %@:%d", NSStringFromClass([generatedRequest class]), retries);
 
-        response = [AmazonAbstractWebServiceClient constructResponseFromRequest:generatedRequest];
-        [response setRequest:generatedRequest];
-        response.unmarshallerDelegate = unmarshallerDelegate;
-
-        if (self.connectionTimeout != 0) {
-            [urlRequest setTimeoutInterval:self.connectionTimeout];
-        }
-        else {
-            [urlRequest setTimeoutInterval:self.timeout];
-        }
+        response = [self createResponse:generatedRequest withUnmarshallerDelegate:unmarshallerDelegate];
+        [self setupRequestTimeout:urlRequest];
 
         // Setting this here and not the AmazonServiceRequest because S3 extends that class and sets its own Content-Type Header.
         [urlRequest addValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
 
         if ([generatedRequest delegate] != nil) {
-
-            NSURLConnection *urlConnection = [[[NSURLConnection alloc] initWithRequest:urlRequest
-                                                                              delegate:response
-                                                                      startImmediately:NO] autorelease];
-            originalRequest.urlConnection = urlConnection;
-
-            NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:self.timeout
-                                                              target:response selector:@selector(timeout)
-                                                            userInfo:nil
-                                                             repeats:NO];
-            response.request.responseTimer = timer;
-            [urlConnection start];
-
+            [self startAsyncRequest:urlRequest response:response originalRequest:originalRequest];
             return nil;
         }
-
-        generatedRequest.delegate = [[[AmazonRequestDelegate alloc] init] autorelease];
-
-        NSURLConnection *urlConnection = [[[NSURLConnection alloc] initWithRequest:urlRequest
-                                                                          delegate:response
-                                                                  startImmediately:NO] autorelease];
-        [urlConnection scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:AWSDefaultRunLoopMode];
-        originalRequest.urlConnection = urlConnection;
-        [urlConnection start];
-
-        NSTimer *timeoutTimer = [NSTimer timerWithTimeInterval:self.timeout
-                                                        target:response
-                                                      selector:@selector(timeout)
-                                                      userInfo:nil
-                                                       repeats:NO];
-        [[NSRunLoop currentRunLoop] addTimer:timeoutTimer forMode:AWSDefaultRunLoopMode];
-
-        while (![(AmazonRequestDelegate *)(generatedRequest.delegate)isFinishedOrFailed]) {
-            [[NSRunLoop currentRunLoop] runMode:AWSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
-        }
-
-        if (response.didTimeout) {
-            [urlConnection cancel];
-        }
-        else {
-            [timeoutTimer invalidate];     //  invalidate also releases the object.
-        }
-
+        
+        [self startSyncRequest:generatedRequest forRequest:urlRequest response:response originalRequest:originalRequest];
         AMZLogDebug(@"Response Status Code : %d", response.httpStatusCode);
-        if ( [self shouldRetry:response]) {
+        if ( [self shouldRetry:response] ) {
             AMZLog(@"Retring Request: %d", retries);
-
+            
             [self pauseExponentially:retries];
             retries++;
-
-            if(retries < self.maxRetries)
+            
+            if (retries < self.maxRetries)
             {
                 generatedRequest.delegate = nil;
             }
@@ -194,47 +129,7 @@
         }
     }
 
-    if (response.exception != nil) {
-
-        response.error = [AmazonErrorHandler errorFromExceptionWithThrowsExceptionOption:response.exception];
-        return response;
-    }
-    else {
-        if (((AmazonRequestDelegate *)generatedRequest.delegate).error != nil) {
-
-            if(response == nil)
-            {
-                response = [[[AmazonServiceResponse alloc] init] autorelease];
-            }
-            response.error = ((AmazonRequestDelegate *)generatedRequest.delegate).error;
-
-            return response;
-        }
-        else if (((AmazonRequestDelegate *)generatedRequest.delegate).exception != nil) {
-
-            if(response == nil)
-            {
-                response = [[[AmazonServiceResponse alloc] init] autorelease];
-            }
-            response.error = [AmazonErrorHandler errorFromExceptionWithThrowsExceptionOption:((AmazonRequestDelegate *)generatedRequest.delegate).exception];
-
-            return response;
-        }
-        else if (((AmazonRequestDelegate *)generatedRequest.delegate).response != nil)
-        {
-            return ((AmazonRequestDelegate *)generatedRequest.delegate).response;
-        }
-        else
-        {
-            if(response == nil)
-            {
-                response = [[[AmazonServiceResponse alloc] init] autorelease];
-            }
-            AmazonClientException *clientException = [AmazonClientException exceptionWithMessage:@"Unknown error occurred."];
-            response.error = [AmazonErrorHandler errorFromExceptionWithThrowsExceptionOption:clientException];
-            return response;
-        }
-    }
+    return [self returnErrorOrResponse:response forRequest:generatedRequest];
 }
 
 - (BOOL)shouldRetry:(AmazonServiceResponse *)response
@@ -351,6 +246,144 @@
     o.userAgent = [[self.userAgent copy] autorelease];
 
     return o;
+}
+
+-(AmazonServiceResponse *)nilRequestResponse
+{
+    AmazonServiceResponse *response = [[[AmazonServiceResponse alloc] init] autorelease];
+    response.error = [AmazonErrorHandler errorFromExceptionWithThrowsExceptionOption:[AmazonClientException
+                                                                                    exceptionWithMessage:@"Request cannot be nil."]];
+    
+    return response;
+}
+
+-(void)logTheRequest:(NSMutableURLRequest *)urlRequest
+{
+    if ([AmazonLogger isVerboseLoggingEnabled]) {
+        AMZLogDebug(@"%@ %@", [urlRequest HTTPMethod], [urlRequest URL]);
+        AMZLogDebug(@"Request body: ");
+        NSString *rBody = [[NSString alloc] initWithData:[urlRequest HTTPBody] encoding:NSUTF8StringEncoding];
+        AMZLogDebug(@"%@", rBody);
+        [rBody release];
+    }    
+}
+
+-(void)logTheRequestHeaders:(NSMutableURLRequest *)urlRequest
+{
+    AMZLogDebug(@"%@ %@", [urlRequest HTTPMethod], [urlRequest URL]);
+    AMZLogDebug(@"Request headers: ");
+    for (id hKey in [[urlRequest allHTTPHeaderFields] allKeys])
+    {
+        AMZLogDebug(@"  %@: %@", [hKey description], [[urlRequest allHTTPHeaderFields] valueForKey:hKey]);
+    }
+}
+
+-(AmazonServiceResponse *)returnErrorOrResponse:(AmazonServiceResponse*)response forRequest:(AmazonServiceRequest *)generatedRequest
+{
+    if (response.exception != nil)
+    {
+        response.error = [AmazonErrorHandler errorFromExceptionWithThrowsExceptionOption:response.exception];
+    }
+    else if(response.error == nil)
+    {
+        if (((AmazonRequestDelegate *)generatedRequest.delegate).error != nil)
+        {
+            if (response == nil)
+            {
+                response = [generatedRequest constructResponse];
+            }
+            response.error = ((AmazonRequestDelegate *)generatedRequest.delegate).error;
+        }
+        else if (((AmazonRequestDelegate *)generatedRequest.delegate).exception != nil)
+        {
+            if (response == nil)
+            {
+                response = [generatedRequest constructResponse];
+            }
+            response.error = [AmazonErrorHandler errorFromExceptionWithThrowsExceptionOption:((AmazonRequestDelegate *)generatedRequest.delegate).exception];
+        }
+        else if (((AmazonRequestDelegate *)generatedRequest.delegate).response != nil)
+        {
+            return ((AmazonRequestDelegate *)generatedRequest.delegate).response;
+        }
+        else
+        {
+            if (response == nil)
+            {
+                response = [generatedRequest constructResponse];
+            }
+            response.error = [AmazonErrorHandler errorFromExceptionWithThrowsExceptionOption:
+                              [AmazonClientException exceptionWithMessage:@"Unknown error occurred."]];
+        }
+    }
+    
+    return response;
+}
+
+-(void)startAsyncRequest:(NSMutableURLRequest *)urlRequest response:(AmazonServiceResponse *)response originalRequest:(AmazonServiceRequestConfig *)originalRequest
+{
+    NSURLConnection *urlConnection = [[[NSURLConnection alloc] initWithRequest:urlRequest
+                                                                      delegate:response
+                                                              startImmediately:NO] autorelease];
+    originalRequest.urlConnection = urlConnection;
+    
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:self.timeout
+                                                      target:response
+                                                    selector:@selector(timeout)
+                                                    userInfo:nil
+                                                     repeats:NO];
+    response.request.responseTimer = timer;
+    [urlConnection start];
+}
+
+-(void)startSyncRequest:(AmazonServiceRequest *)generatedRequest forRequest:(NSMutableURLRequest *)urlRequest response:(AmazonServiceResponse *)response originalRequest:(AmazonServiceRequestConfig *)originalRequest
+{
+    generatedRequest.delegate = [[[AmazonRequestDelegate alloc] init] autorelease];
+    
+    NSURLConnection *urlConnection = [[[NSURLConnection alloc] initWithRequest:urlRequest
+                                                                      delegate:response
+                                                              startImmediately:NO] autorelease];
+    [urlConnection scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:AWSDefaultRunLoopMode];
+    originalRequest.urlConnection = urlConnection;
+    [urlConnection start];
+    
+    NSTimer *timeoutTimer = [NSTimer timerWithTimeInterval:self.timeout
+                                                    target:response
+                                                  selector:@selector(timeout)
+                                                  userInfo:nil
+                                                   repeats:NO];
+    [[NSRunLoop currentRunLoop] addTimer:timeoutTimer forMode:AWSDefaultRunLoopMode];
+    
+    while (![(AmazonRequestDelegate *)(generatedRequest.delegate)isFinishedOrFailed]) {
+        [[NSRunLoop currentRunLoop] runMode:AWSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+    }
+    
+    if (response.didTimeout) {
+        [urlConnection cancel];
+    }
+    else {
+        [timeoutTimer invalidate];     //  invalidate also releases the object.
+    }
+}
+
+-(AmazonServiceResponse *)createResponse:(AmazonServiceRequest *)generatedRequest withUnmarshallerDelegate:(Class)unmarshallerDelegate
+{
+    AmazonServiceResponse *response = [AmazonAbstractWebServiceClient constructResponseFromRequest:generatedRequest];
+    [response setRequest:generatedRequest];
+    response.unmarshallerDelegate = unmarshallerDelegate;
+    
+    return response;
+}
+
+-(void)setupRequestTimeout:(NSMutableURLRequest *)urlRequest
+{
+    if (self.connectionTimeout != 0) {
+        [urlRequest setTimeoutInterval:self.connectionTimeout];
+    }
+    else {
+        [urlRequest setTimeoutInterval:self.timeout];
+    }
+
 }
 
 -(void)dealloc

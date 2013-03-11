@@ -14,6 +14,7 @@
  */
 
 #import "EC2SpotDatafeedSubscriptionUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2SpotDatafeedSubscriptionUnmarshaller
 

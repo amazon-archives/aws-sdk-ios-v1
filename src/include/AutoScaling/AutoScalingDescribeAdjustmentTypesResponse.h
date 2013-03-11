@@ -16,7 +16,6 @@
 #import "AutoScalingAdjustmentType.h"
 
 #import "AutoScalingResponse.h"
-#import "../AmazonServiceExceptionUnmarshaller.h"
 
 
 

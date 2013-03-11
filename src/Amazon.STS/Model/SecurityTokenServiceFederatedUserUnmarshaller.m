@@ -14,6 +14,7 @@
  */
 
 #import "SecurityTokenServiceFederatedUserUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SecurityTokenServiceFederatedUserUnmarshaller
 

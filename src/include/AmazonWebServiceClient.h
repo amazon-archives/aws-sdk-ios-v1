@@ -13,20 +13,6 @@
  * permissions and limitations under the License.
  */
 
-#import "AmazonSDKUtil.h"
-#import "AmazonAuthUtils.h"
-#import "AmazonClientException.h"
-#import "AmazonLogger.h"
-#import "AmazonServiceException.h"
-#import "AmazonSignatureException.h"
-#import "AmazonUnmarshallerXMLParserDelegate.h"
-#import "AmazonServiceRequest.h"
-#import "AmazonServiceRequestConfig.h"
-#import "AmazonServiceResponse.h"
-#import "AmazonServiceResponseUnmarshaller.h"
-#import "AmazonURLRequest.h"
-#import "AmazonCredentials.h"
-#import "AmazonRequestDelegate.h"
 #import "AmazonAbstractWebServiceClient.h"
 
 @interface AmazonWebServiceClient:AmazonAbstractWebServiceClient

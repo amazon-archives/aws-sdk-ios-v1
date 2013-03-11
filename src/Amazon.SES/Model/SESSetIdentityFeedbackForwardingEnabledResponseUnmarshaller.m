@@ -14,6 +14,7 @@
  */
 
 #import "SESSetIdentityFeedbackForwardingEnabledResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SESSetIdentityFeedbackForwardingEnabledResponseUnmarshaller
 

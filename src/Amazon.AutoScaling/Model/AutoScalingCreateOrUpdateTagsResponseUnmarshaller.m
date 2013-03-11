@@ -15,6 +15,7 @@
 
 
 #import "AutoScalingCreateOrUpdateTagsResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation AutoScalingCreateOrUpdateTagsResponseUnmarshaller
 

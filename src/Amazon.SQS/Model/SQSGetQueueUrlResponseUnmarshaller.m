@@ -14,6 +14,7 @@
  */
 
 #import "SQSGetQueueUrlResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SQSGetQueueUrlResponseUnmarshaller
 

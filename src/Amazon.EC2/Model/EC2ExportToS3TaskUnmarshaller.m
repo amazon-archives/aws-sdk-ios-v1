@@ -14,6 +14,7 @@
  */
 
 #import "EC2ExportToS3TaskUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2ExportToS3TaskUnmarshaller
 

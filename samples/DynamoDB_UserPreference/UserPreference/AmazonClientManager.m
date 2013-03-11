@@ -20,6 +20,7 @@
 #import <AWSiOSSDK/S3/AmazonS3Client.h>
 #import <AWSiOSSDK/S3/S3GetObjectRequest.h>
 #import <AWSiOSSDK/S3/S3GetObjectResponse.h>
+#import <AWSiOSSDK/AmazonEndpoints.h>
 
 static AmazonDynamoDBClient *ddb = nil;
 static AmazonTVMClient      *tvm = nil;
@@ -90,6 +91,7 @@ static AmazonTVMClient      *tvm = nil;
     
     [ddb release];
     ddb = [[AmazonDynamoDBClient alloc] initWithCredentials:credentials];
+    ddb.endpoint = [AmazonEndpoints ddbEndpoint:US_WEST_2];
 }
 
 +(void)wipeAllCredentials

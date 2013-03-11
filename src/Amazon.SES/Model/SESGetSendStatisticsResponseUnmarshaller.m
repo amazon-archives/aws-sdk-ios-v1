@@ -14,6 +14,7 @@
  */
 
 #import "SESGetSendStatisticsResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SESGetSendStatisticsResponseUnmarshaller
 

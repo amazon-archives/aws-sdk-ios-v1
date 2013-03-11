@@ -14,6 +14,7 @@
  */
 
 #import "AutoScalingTerminateInstanceInAutoScalingGroupResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation AutoScalingTerminateInstanceInAutoScalingGroupResponseUnmarshaller
 

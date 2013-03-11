@@ -15,6 +15,7 @@
 
 
 #import "SimpleDBBatchPutAttributesResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SimpleDBBatchPutAttributesResponseUnmarshaller
 

@@ -15,6 +15,7 @@
 
 
 #import "EC2EnableVolumeIOResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2EnableVolumeIOResponseUnmarshaller
 

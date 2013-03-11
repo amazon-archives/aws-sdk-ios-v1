@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"CreateReservedInstancesListing"           forKey:@"Action"];
-    [request setParameterValue:@"2012-12-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
 
     [request setDelegate:[createReservedInstancesListingRequest delegate]];
     [request setCredentials:[createReservedInstancesListingRequest credentials]];

@@ -15,6 +15,7 @@
 
 
 #import "EC2DisassociateAddressResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2DisassociateAddressResponseUnmarshaller
 

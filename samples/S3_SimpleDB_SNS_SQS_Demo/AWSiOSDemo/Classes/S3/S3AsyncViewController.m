@@ -70,7 +70,8 @@
     NSString *filename   = [[NSBundle mainBundle] pathForResource:@"temp" ofType:@"txt"];
     
     // Create the Bucket to put the Object.
-    S3CreateBucketResponse *createBucketResponse = [[AmazonClientManager s3] createBucketWithName:bucketName];
+    S3CreateBucketRequest  *createBucketRequest = [[[S3CreateBucketRequest alloc] initWithName:bucketName andRegion:[S3Region USWest2]]autorelease];
+    S3CreateBucketResponse *createBucketResponse = [[AmazonClientManager s3] createBucket:createBucketRequest];
     if(createBucketResponse.error != nil)
     {
         NSLog(@"Error: %@", createBucketResponse.error);

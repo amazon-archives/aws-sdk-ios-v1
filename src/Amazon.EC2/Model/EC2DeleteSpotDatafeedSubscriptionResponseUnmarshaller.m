@@ -15,6 +15,7 @@
 
 
 #import "EC2DeleteSpotDatafeedSubscriptionResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2DeleteSpotDatafeedSubscriptionResponseUnmarshaller
 

@@ -33,7 +33,8 @@
 /**
  * The name of the topic you want to create. <p>Constraints: Topic names
  * must be made up of only uppercase and lowercase ASCII letters,
- * numbers, and hyphens, and must be between 1 and 256 characters long.
+ * numbers, underscores, and hyphens, and must be between 1 and 256
+ * characters long.
  */
 @property (nonatomic, retain) NSString *name;
 
@@ -50,8 +51,8 @@
  *
  * @param theName The name of the topic you want to create.
  * <p>Constraints: Topic names must be made up of only uppercase and
- * lowercase ASCII letters, numbers, and hyphens, and must be between 1
- * and 256 characters long.
+ * lowercase ASCII letters, numbers, underscores, and hyphens, and must
+ * be between 1 and 256 characters long.
  */
 -(id)initWithName:(NSString *)theName;
 

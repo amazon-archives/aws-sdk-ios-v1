@@ -14,6 +14,7 @@
  */
 
 #import "EC2DiskImageDescriptionUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2DiskImageDescriptionUnmarshaller
 

@@ -54,7 +54,8 @@
 @property (nonatomic, retain) NSMutableArray *aWSAccountIds;
 
 /**
- * The action you want to allow for the specified principal(s).
+ * The action you want to allow for the specified principal(s). <p>Valid
+ * values: any Amazon SNS action name.
  */
 @property (nonatomic, retain) NSMutableArray *actionNames;
 
@@ -80,7 +81,7 @@
  * eService/latest/SQSDeveloperGuide/index.html?AWSCredentials.html">Your
  * AWS Identifiers</aulink> in the &service; Developer Guide.-->
  * @param theActionNames The action you want to allow for the specified
- * principal(s).
+ * principal(s). <p>Valid values: any Amazon SNS action name.
  */
 -(id)initWithTopicArn:(NSString *)theTopicArn andLabel:(NSString *)theLabel andAWSAccountIds:(NSMutableArray *)theAWSAccountIds andActionNames:(NSMutableArray *)theActionNames;
 

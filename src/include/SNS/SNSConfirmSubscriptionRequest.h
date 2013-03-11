@@ -38,16 +38,17 @@
 @property (nonatomic, retain) NSString *topicArn;
 
 /**
- * Short-lived token sent to an endpoint during the Subscribe action.
+ * Short-lived token sent to an endpoint during the
+ * <code>Subscribe</code> action.
  */
 @property (nonatomic, retain) NSString *token;
 
 /**
- * Indicates that you want to disallow unauthenticated unsubscribes of
- * the subscription. If value of this parameter is "true" and the request
- * has an AWS signature then only the topic owner and the subscription
- * owner will be permitted to unsubscribe the endpoint. The unsubscribe
- * action will require AWS authentication.
+ * Disallows unauthenticated unsubscribes of the subscription. If the
+ * value of this parameter is <code>true</code> and the request has an
+ * AWS signature, then only the topic owner and the subscription owner
+ * can unsubscribe the endpoint. The unsubscribe action will require AWS
+ * authentication.
  */
 @property (nonatomic, retain) NSString *authenticateOnUnsubscribe;
 
@@ -65,7 +66,7 @@
  * @param theTopicArn The ARN of the topic for which you wish to confirm
  * a subscription.
  * @param theToken Short-lived token sent to an endpoint during the
- * Subscribe action.
+ * <code>Subscribe</code> action.
  */
 -(id)initWithTopicArn:(NSString *)theTopicArn andToken:(NSString *)theToken;
 
@@ -76,13 +77,12 @@
  * @param theTopicArn The ARN of the topic for which you wish to confirm
  * a subscription.
  * @param theToken Short-lived token sent to an endpoint during the
- * Subscribe action.
- * @param theAuthenticateOnUnsubscribe Indicates that you want to
- * disallow unauthenticated unsubscribes of the subscription. If value of
- * this parameter is "true" and the request has an AWS signature then
- * only the topic owner and the subscription owner will be permitted to
- * unsubscribe the endpoint. The unsubscribe action will require AWS
- * authentication.
+ * <code>Subscribe</code> action.
+ * @param theAuthenticateOnUnsubscribe Disallows unauthenticated
+ * unsubscribes of the subscription. If the value of this parameter is
+ * <code>true</code> and the request has an AWS signature, then only the
+ * topic owner and the subscription owner can unsubscribe the endpoint.
+ * The unsubscribe action will require AWS authentication.
  */
 -(id)initWithTopicArn:(NSString *)theTopicArn andToken:(NSString *)theToken andAuthenticateOnUnsubscribe:(NSString *)theAuthenticateOnUnsubscribe;
 

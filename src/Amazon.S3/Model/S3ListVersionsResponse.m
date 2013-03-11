@@ -14,6 +14,7 @@
  */
 
 #import "S3ListVersionsResponse.h"
+#import "S3ListVersionsResultUnmarshaller.h"
 
 @implementation S3ListVersionsResponse
 

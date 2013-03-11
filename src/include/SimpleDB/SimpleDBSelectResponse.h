@@ -16,7 +16,6 @@
 #import "SimpleDBItem.h"
 
 #import "SimpleDBResponse.h"
-#import "../AmazonServiceExceptionUnmarshaller.h"
 
 #import "SimpleDBInvalidParameterValueException.h"
 #import "SimpleDBInvalidQueryExpressionException.h"

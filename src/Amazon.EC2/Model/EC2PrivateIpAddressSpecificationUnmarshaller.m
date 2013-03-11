@@ -14,6 +14,7 @@
  */
 
 #import "EC2PrivateIpAddressSpecificationUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2PrivateIpAddressSpecificationUnmarshaller
 

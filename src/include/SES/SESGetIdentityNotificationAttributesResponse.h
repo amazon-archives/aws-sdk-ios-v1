@@ -16,7 +16,6 @@
 #import "SESIdentityNotificationAttributes.h"
 
 #import "SESResponse.h"
-#import "../AmazonServiceExceptionUnmarshaller.h"
 
 
 

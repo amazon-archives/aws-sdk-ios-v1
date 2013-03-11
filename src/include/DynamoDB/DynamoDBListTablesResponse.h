@@ -15,7 +15,6 @@
 
 
 #import "DynamoDBResponse.h"
-#import "../AmazonServiceExceptionUnmarshaller.h"
 
 #import "DynamoDBInternalServerErrorException.h"
 

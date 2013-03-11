@@ -22,6 +22,8 @@
 #import "EC2GroupIdentifierUnmarshaller.h"
 #import "EC2InstanceNetworkInterfaceAttachmentUnmarshaller.h"
 #import "EC2InstanceNetworkInterfaceAssociationUnmarshaller.h"
+#import "../AmazonListUnmarshaller.h"
+#import "EC2InstancePrivateIpAddressUnmarshaller.h"
 
 
 /**

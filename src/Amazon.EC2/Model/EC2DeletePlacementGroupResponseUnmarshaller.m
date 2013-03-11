@@ -15,6 +15,7 @@
 
 
 #import "EC2DeletePlacementGroupResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2DeletePlacementGroupResponseUnmarshaller
 

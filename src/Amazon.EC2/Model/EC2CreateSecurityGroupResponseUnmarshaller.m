@@ -14,6 +14,7 @@
  */
 
 #import "EC2CreateSecurityGroupResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2CreateSecurityGroupResponseUnmarshaller
 

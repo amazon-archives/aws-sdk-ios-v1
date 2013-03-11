@@ -14,6 +14,7 @@
  */
 
 #import "AutoScalingScheduledUpdateGroupActionUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation AutoScalingScheduledUpdateGroupActionUnmarshaller
 

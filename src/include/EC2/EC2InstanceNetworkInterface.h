@@ -16,6 +16,7 @@
 #import "EC2GroupIdentifier.h"
 #import "EC2InstanceNetworkInterfaceAttachment.h"
 #import "EC2InstanceNetworkInterfaceAssociation.h"
+#import "EC2InstancePrivateIpAddress.h"
 
 
 
@@ -39,6 +40,7 @@
     NSMutableArray                         *groups;
     EC2InstanceNetworkInterfaceAttachment  *attachment;
     EC2InstanceNetworkInterfaceAssociation *association;
+    NSMutableArray                         *privateIpAddresses;
 }
 
 
@@ -113,10 +115,21 @@
 @property (nonatomic, retain) EC2InstanceNetworkInterfaceAssociation *association;
 
 /**
+ * The value of the PrivateIpAddresses property for this object.
+ */
+@property (nonatomic, retain) NSMutableArray *privateIpAddresses;
+
+/**
  * Adds a single object to groups.
  * This function will alloc and init groups if not already done.
  */
 -(void)addGroup:(EC2GroupIdentifier *)groupObject;
+
+/**
+ * Adds a single object to privateIpAddresses.
+ * This function will alloc and init privateIpAddresses if not already done.
+ */
+-(void)addPrivateIpAddresse:(EC2InstancePrivateIpAddress *)privateIpAddresseObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

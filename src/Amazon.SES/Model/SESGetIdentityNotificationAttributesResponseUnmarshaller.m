@@ -14,6 +14,7 @@
  */
 
 #import "SESGetIdentityNotificationAttributesResponseUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation SESGetIdentityNotificationAttributesResponseUnmarshaller
 

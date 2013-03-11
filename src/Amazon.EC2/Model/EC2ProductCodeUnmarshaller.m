@@ -14,6 +14,7 @@
  */
 
 #import "EC2ProductCodeUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2ProductCodeUnmarshaller
 

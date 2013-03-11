@@ -14,6 +14,7 @@
  */
 
 #import "EC2InstanceNetworkInterfaceAssociationUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2InstanceNetworkInterfaceAssociationUnmarshaller
 
@@ -43,6 +44,11 @@
 
     if ([elementName isEqualToString:@"publicIp"]) {
         self.response.publicIp = self.currentText;
+        return;
+    }
+
+    if ([elementName isEqualToString:@"publicDnsName"]) {
+        self.response.publicDnsName = self.currentText;
         return;
     }
 

@@ -30,6 +30,8 @@
     NSString       *dhcpOptionsId;
     NSMutableArray *tags;
     NSString       *instanceTenancy;
+    bool           isDefault;
+    bool           isDefaultIsSet;
 }
 
 
@@ -73,6 +75,13 @@
  * The allowed tenancy of instances launched into the VPC.
  */
 @property (nonatomic, retain) NSString *instanceTenancy;
+
+/**
+ *
+ */
+@property (nonatomic) bool           isDefault;
+
+@property (nonatomic, readonly) bool isDefaultIsSet;
 
 /**
  * Adds a single object to tags.

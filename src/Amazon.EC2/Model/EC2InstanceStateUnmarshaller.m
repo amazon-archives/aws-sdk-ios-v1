@@ -14,6 +14,7 @@
  */
 
 #import "EC2InstanceStateUnmarshaller.h"
+#import "../AmazonServiceExceptionUnmarshaller.h"
 
 @implementation EC2InstanceStateUnmarshaller
 
