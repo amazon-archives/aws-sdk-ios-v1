@@ -13,14 +13,14 @@
  * permissions and limitations under the License.
  */
 
-#import "DynamoDBBatchResponse.h"
 #import "DynamoDBKeysAndAttributes.h"
+#import "DynamoDBConsumedCapacity.h"
 
 #import "DynamoDBResponse.h"
 
+#import "DynamoDBResourceNotFoundException.h"
 #import "DynamoDBProvisionedThroughputExceededException.h"
 #import "DynamoDBInternalServerErrorException.h"
-#import "DynamoDBResourceNotFoundException.h"
 
 
 /**
@@ -32,6 +32,7 @@
 {
     NSMutableDictionary *responses;
     NSMutableDictionary *unprocessedKeys;
+    NSMutableArray      *consumedCapacity;
 }
 
 
@@ -46,18 +47,12 @@
 -(id)init;
 
 /**
- * Table names and the respective item attributes from the tables.
+ * The value of the Responses property for this object.
  */
 @property (nonatomic, retain) NSMutableDictionary *responses;
 
 /**
- * Contains a map of tables and their respective keys that were not
- * processed with the current response, possibly due to reaching a limit
- * on the response size. The <code>UnprocessedKeys</code> value is in the
- * same form as a <code>RequestItems</code> parameter (so the value can
- * be provided directly to a subsequent <code>BatchGetItem</code>
- * operation). For more information, see the above
- * <code>RequestItems</code> parameter.
+ * The value of the UnprocessedKeys property for this object.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 100<br/>
@@ -65,14 +60,26 @@
 @property (nonatomic, retain) NSMutableDictionary *unprocessedKeys;
 
 /**
+ * The value of the ConsumedCapacity property for this object.
+ */
+@property (nonatomic, retain) NSMutableArray *consumedCapacity;
+
+/**
  * Returns a value from the responses dictionary for the specified key.
  */
--(DynamoDBBatchResponse *)responsesValueForKey:(NSString *)theKey;
+-(NSArray *)responsesValueForKey:(NSString *)theKey;
 
 /**
  * Returns a value from the unprocessedKeys dictionary for the specified key.
  */
 -(DynamoDBKeysAndAttributes *)unprocessedKeysValueForKey:(NSString *)theKey;
+
+
+
+/**
+ * Returns a value from the consumedCapacity array for the specified index
+ */
+-(DynamoDBConsumedCapacity *)consumedCapacityObjectAtIndex:(int)index;
 
 /**
  * Returns a string representation of this object; useful for testing and

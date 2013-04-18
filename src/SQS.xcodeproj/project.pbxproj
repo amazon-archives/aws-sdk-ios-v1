@@ -1,0 +1,1091 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		384FC816163F06B6008E11CA /* AmazonSQSClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7BA163F06B6008E11CA /* AmazonSQSClient.m */; };
+		384FC817163F06B6008E11CA /* SQSAddPermissionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7BC163F06B6008E11CA /* SQSAddPermissionRequest.m */; };
+		384FC818163F06B6008E11CA /* SQSAddPermissionRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7BD163F06B6008E11CA /* SQSAddPermissionRequestMarshaller.m */; };
+		384FC819163F06B6008E11CA /* SQSAddPermissionResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7BE163F06B6008E11CA /* SQSAddPermissionResponse.m */; };
+		384FC81A163F06B6008E11CA /* SQSAddPermissionResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7BF163F06B6008E11CA /* SQSAddPermissionResponseUnmarshaller.m */; };
+		384FC81B163F06B6008E11CA /* SQSBatchEntryIdsNotDistinctException.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7C0163F06B6008E11CA /* SQSBatchEntryIdsNotDistinctException.m */; };
+		384FC81C163F06B6008E11CA /* SQSBatchRequestTooLongException.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7C1163F06B6008E11CA /* SQSBatchRequestTooLongException.m */; };
+		384FC81D163F06B6008E11CA /* SQSBatchResponseErrorEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7C2163F06B6008E11CA /* SQSBatchResponseErrorEntry.m */; };
+		384FC81E163F06B6008E11CA /* SQSBatchResponseErrorEntryUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7C3163F06B6008E11CA /* SQSBatchResponseErrorEntryUnmarshaller.m */; };
+		384FC81F163F06B6008E11CA /* SQSChangeMessageVisibilityBatchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7C4163F06B6008E11CA /* SQSChangeMessageVisibilityBatchRequest.m */; };
+		384FC820163F06B6008E11CA /* SQSChangeMessageVisibilityBatchRequestEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7C5163F06B6008E11CA /* SQSChangeMessageVisibilityBatchRequestEntry.m */; };
+		384FC821163F06B6008E11CA /* SQSChangeMessageVisibilityBatchRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7C6163F06B6008E11CA /* SQSChangeMessageVisibilityBatchRequestMarshaller.m */; };
+		384FC822163F06B6008E11CA /* SQSChangeMessageVisibilityBatchResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7C7163F06B6008E11CA /* SQSChangeMessageVisibilityBatchResponse.m */; };
+		384FC823163F06B6008E11CA /* SQSChangeMessageVisibilityBatchResponseEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7C8163F06B6008E11CA /* SQSChangeMessageVisibilityBatchResponseEntry.m */; };
+		384FC824163F06B6008E11CA /* SQSChangeMessageVisibilityBatchResponseEntryUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7C9163F06B6008E11CA /* SQSChangeMessageVisibilityBatchResponseEntryUnmarshaller.m */; };
+		384FC825163F06B6008E11CA /* SQSChangeMessageVisibilityBatchResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7CA163F06B6008E11CA /* SQSChangeMessageVisibilityBatchResponseUnmarshaller.m */; };
+		384FC826163F06B6008E11CA /* SQSChangeMessageVisibilityRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7CB163F06B6008E11CA /* SQSChangeMessageVisibilityRequest.m */; };
+		384FC827163F06B6008E11CA /* SQSChangeMessageVisibilityRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7CC163F06B6008E11CA /* SQSChangeMessageVisibilityRequestMarshaller.m */; };
+		384FC828163F06B6008E11CA /* SQSChangeMessageVisibilityResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7CD163F06B6008E11CA /* SQSChangeMessageVisibilityResponse.m */; };
+		384FC829163F06B6008E11CA /* SQSChangeMessageVisibilityResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7CE163F06B6008E11CA /* SQSChangeMessageVisibilityResponseUnmarshaller.m */; };
+		384FC82A163F06B6008E11CA /* SQSCreateQueueRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7CF163F06B6008E11CA /* SQSCreateQueueRequest.m */; };
+		384FC82B163F06B6008E11CA /* SQSCreateQueueRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7D0163F06B6008E11CA /* SQSCreateQueueRequestMarshaller.m */; };
+		384FC82C163F06B6008E11CA /* SQSCreateQueueResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7D1163F06B6008E11CA /* SQSCreateQueueResponse.m */; };
+		384FC82D163F06B6008E11CA /* SQSCreateQueueResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7D2163F06B6008E11CA /* SQSCreateQueueResponseUnmarshaller.m */; };
+		384FC82E163F06B6008E11CA /* SQSDeleteMessageBatchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7D3163F06B6008E11CA /* SQSDeleteMessageBatchRequest.m */; };
+		384FC82F163F06B6008E11CA /* SQSDeleteMessageBatchRequestEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7D4163F06B6008E11CA /* SQSDeleteMessageBatchRequestEntry.m */; };
+		384FC830163F06B6008E11CA /* SQSDeleteMessageBatchRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7D5163F06B6008E11CA /* SQSDeleteMessageBatchRequestMarshaller.m */; };
+		384FC831163F06B6008E11CA /* SQSDeleteMessageBatchResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7D6163F06B6008E11CA /* SQSDeleteMessageBatchResponse.m */; };
+		384FC832163F06B6008E11CA /* SQSDeleteMessageBatchResponseEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7D7163F06B6008E11CA /* SQSDeleteMessageBatchResponseEntry.m */; };
+		384FC833163F06B6008E11CA /* SQSDeleteMessageBatchResponseEntryUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7D8163F06B6008E11CA /* SQSDeleteMessageBatchResponseEntryUnmarshaller.m */; };
+		384FC834163F06B6008E11CA /* SQSDeleteMessageBatchResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7D9163F06B6008E11CA /* SQSDeleteMessageBatchResponseUnmarshaller.m */; };
+		384FC835163F06B6008E11CA /* SQSDeleteMessageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7DA163F06B6008E11CA /* SQSDeleteMessageRequest.m */; };
+		384FC836163F06B6008E11CA /* SQSDeleteMessageRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7DB163F06B6008E11CA /* SQSDeleteMessageRequestMarshaller.m */; };
+		384FC837163F06B6008E11CA /* SQSDeleteMessageResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7DC163F06B6008E11CA /* SQSDeleteMessageResponse.m */; };
+		384FC838163F06B6008E11CA /* SQSDeleteMessageResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7DD163F06B6008E11CA /* SQSDeleteMessageResponseUnmarshaller.m */; };
+		384FC839163F06B6008E11CA /* SQSDeleteQueueRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7DE163F06B6008E11CA /* SQSDeleteQueueRequest.m */; };
+		384FC83A163F06B6008E11CA /* SQSDeleteQueueRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7DF163F06B6008E11CA /* SQSDeleteQueueRequestMarshaller.m */; };
+		384FC83B163F06B6008E11CA /* SQSDeleteQueueResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7E0163F06B6008E11CA /* SQSDeleteQueueResponse.m */; };
+		384FC83C163F06B6008E11CA /* SQSDeleteQueueResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7E1163F06B6008E11CA /* SQSDeleteQueueResponseUnmarshaller.m */; };
+		384FC83D163F06B6008E11CA /* SQSEmptyBatchRequestException.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7E2163F06B6008E11CA /* SQSEmptyBatchRequestException.m */; };
+		384FC83E163F06B6008E11CA /* SQSGetQueueAttributesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7E3163F06B6008E11CA /* SQSGetQueueAttributesRequest.m */; };
+		384FC83F163F06B6008E11CA /* SQSGetQueueAttributesRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7E4163F06B6008E11CA /* SQSGetQueueAttributesRequestMarshaller.m */; };
+		384FC840163F06B6008E11CA /* SQSGetQueueAttributesResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7E5163F06B6008E11CA /* SQSGetQueueAttributesResponse.m */; };
+		384FC841163F06B6008E11CA /* SQSGetQueueAttributesResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7E6163F06B6008E11CA /* SQSGetQueueAttributesResponseUnmarshaller.m */; };
+		384FC842163F06B6008E11CA /* SQSGetQueueUrlRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7E7163F06B6008E11CA /* SQSGetQueueUrlRequest.m */; };
+		384FC843163F06B6008E11CA /* SQSGetQueueUrlRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7E8163F06B6008E11CA /* SQSGetQueueUrlRequestMarshaller.m */; };
+		384FC844163F06B6008E11CA /* SQSGetQueueUrlResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7E9163F06B6008E11CA /* SQSGetQueueUrlResponse.m */; };
+		384FC845163F06B6008E11CA /* SQSGetQueueUrlResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7EA163F06B6008E11CA /* SQSGetQueueUrlResponseUnmarshaller.m */; };
+		384FC846163F06B6008E11CA /* SQSInvalidAttributeNameException.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7EB163F06B6008E11CA /* SQSInvalidAttributeNameException.m */; };
+		384FC847163F06B6008E11CA /* SQSInvalidBatchEntryIdException.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7EC163F06B6008E11CA /* SQSInvalidBatchEntryIdException.m */; };
+		384FC848163F06B6008E11CA /* SQSInvalidIdFormatException.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7ED163F06B6008E11CA /* SQSInvalidIdFormatException.m */; };
+		384FC849163F06B6008E11CA /* SQSInvalidMessageContentsException.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7EE163F06B6008E11CA /* SQSInvalidMessageContentsException.m */; };
+		384FC84A163F06B6008E11CA /* SQSListQueuesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7EF163F06B6008E11CA /* SQSListQueuesRequest.m */; };
+		384FC84B163F06B6008E11CA /* SQSListQueuesRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7F0163F06B6008E11CA /* SQSListQueuesRequestMarshaller.m */; };
+		384FC84C163F06B6008E11CA /* SQSListQueuesResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7F1163F06B6008E11CA /* SQSListQueuesResponse.m */; };
+		384FC84D163F06B6008E11CA /* SQSListQueuesResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7F2163F06B6008E11CA /* SQSListQueuesResponseUnmarshaller.m */; };
+		384FC84E163F06B6008E11CA /* SQSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7F3163F06B6008E11CA /* SQSMessage.m */; };
+		384FC84F163F06B6008E11CA /* SQSMessageNotInflightException.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7F4163F06B6008E11CA /* SQSMessageNotInflightException.m */; };
+		384FC850163F06B6008E11CA /* SQSMessageUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7F5163F06B6008E11CA /* SQSMessageUnmarshaller.m */; };
+		384FC851163F06B6008E11CA /* SQSOverLimitException.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7F6163F06B6008E11CA /* SQSOverLimitException.m */; };
+		384FC852163F06B6008E11CA /* SQSQueueDeletedRecentlyException.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7F7163F06B6008E11CA /* SQSQueueDeletedRecentlyException.m */; };
+		384FC853163F06B6008E11CA /* SQSQueueDoesNotExistException.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7F8163F06B6008E11CA /* SQSQueueDoesNotExistException.m */; };
+		384FC854163F06B6008E11CA /* SQSQueueNameExistsException.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7F9163F06B6008E11CA /* SQSQueueNameExistsException.m */; };
+		384FC855163F06B6008E11CA /* SQSReceiptHandleIsInvalidException.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7FA163F06B6008E11CA /* SQSReceiptHandleIsInvalidException.m */; };
+		384FC856163F06B6008E11CA /* SQSReceiveMessageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7FB163F06B6008E11CA /* SQSReceiveMessageRequest.m */; };
+		384FC857163F06B6008E11CA /* SQSReceiveMessageRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7FC163F06B6008E11CA /* SQSReceiveMessageRequestMarshaller.m */; };
+		384FC858163F06B6008E11CA /* SQSReceiveMessageResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7FD163F06B6008E11CA /* SQSReceiveMessageResponse.m */; };
+		384FC859163F06B6008E11CA /* SQSReceiveMessageResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7FE163F06B6008E11CA /* SQSReceiveMessageResponseUnmarshaller.m */; };
+		384FC85A163F06B6008E11CA /* SQSRemovePermissionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC7FF163F06B6008E11CA /* SQSRemovePermissionRequest.m */; };
+		384FC85B163F06B6008E11CA /* SQSRemovePermissionRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC800163F06B6008E11CA /* SQSRemovePermissionRequestMarshaller.m */; };
+		384FC85C163F06B6008E11CA /* SQSRemovePermissionResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC801163F06B6008E11CA /* SQSRemovePermissionResponse.m */; };
+		384FC85D163F06B6008E11CA /* SQSRemovePermissionResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC802163F06B6008E11CA /* SQSRemovePermissionResponseUnmarshaller.m */; };
+		384FC85E163F06B6008E11CA /* SQSSendMessageBatchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC803163F06B6008E11CA /* SQSSendMessageBatchRequest.m */; };
+		384FC85F163F06B6008E11CA /* SQSSendMessageBatchRequestEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC804163F06B6008E11CA /* SQSSendMessageBatchRequestEntry.m */; };
+		384FC860163F06B6008E11CA /* SQSSendMessageBatchRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC805163F06B6008E11CA /* SQSSendMessageBatchRequestMarshaller.m */; };
+		384FC861163F06B6008E11CA /* SQSSendMessageBatchResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC806163F06B6008E11CA /* SQSSendMessageBatchResponse.m */; };
+		384FC862163F06B6008E11CA /* SQSSendMessageBatchResponseEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC807163F06B6008E11CA /* SQSSendMessageBatchResponseEntry.m */; };
+		384FC863163F06B6008E11CA /* SQSSendMessageBatchResponseEntryUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC808163F06B6008E11CA /* SQSSendMessageBatchResponseEntryUnmarshaller.m */; };
+		384FC864163F06B6008E11CA /* SQSSendMessageBatchResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC809163F06B6008E11CA /* SQSSendMessageBatchResponseUnmarshaller.m */; };
+		384FC865163F06B6008E11CA /* SQSSendMessageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC80A163F06B6008E11CA /* SQSSendMessageRequest.m */; };
+		384FC866163F06B6008E11CA /* SQSSendMessageRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC80B163F06B6008E11CA /* SQSSendMessageRequestMarshaller.m */; };
+		384FC867163F06B6008E11CA /* SQSSendMessageResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC80C163F06B6008E11CA /* SQSSendMessageResponse.m */; };
+		384FC868163F06B6008E11CA /* SQSSendMessageResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC80D163F06B6008E11CA /* SQSSendMessageResponseUnmarshaller.m */; };
+		384FC869163F06B6008E11CA /* SQSSetQueueAttributesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC80E163F06B6008E11CA /* SQSSetQueueAttributesRequest.m */; };
+		384FC86A163F06B6008E11CA /* SQSSetQueueAttributesRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC80F163F06B6008E11CA /* SQSSetQueueAttributesRequestMarshaller.m */; };
+		384FC86B163F06B6008E11CA /* SQSSetQueueAttributesResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC810163F06B6008E11CA /* SQSSetQueueAttributesResponse.m */; };
+		384FC86C163F06B6008E11CA /* SQSSetQueueAttributesResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC811163F06B6008E11CA /* SQSSetQueueAttributesResponseUnmarshaller.m */; };
+		384FC86D163F06B6008E11CA /* SQSTooManyEntriesInBatchRequestException.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC812163F06B6008E11CA /* SQSTooManyEntriesInBatchRequestException.m */; };
+		384FC86E163F06B6008E11CA /* SQSRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC813163F06B6008E11CA /* SQSRequest.m */; };
+		384FC86F163F06B6008E11CA /* SQSResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC814163F06B6008E11CA /* SQSResponse.m */; };
+		384FC870163F06B6008E11CA /* SQSResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 384FC815163F06B6008E11CA /* SQSResponseUnmarshaller.m */; };
+		384FC8CD163F06C9008E11CA /* AmazonSQSClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC872163F06C9008E11CA /* AmazonSQSClient.h */; };
+		384FC8CE163F06C9008E11CA /* SQSAddPermissionRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC873163F06C9008E11CA /* SQSAddPermissionRequest.h */; };
+		384FC8CF163F06C9008E11CA /* SQSAddPermissionRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC874163F06C9008E11CA /* SQSAddPermissionRequestMarshaller.h */; };
+		384FC8D0163F06C9008E11CA /* SQSAddPermissionResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC875163F06C9008E11CA /* SQSAddPermissionResponse.h */; };
+		384FC8D1163F06C9008E11CA /* SQSAddPermissionResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC876163F06C9008E11CA /* SQSAddPermissionResponseUnmarshaller.h */; };
+		384FC8D2163F06C9008E11CA /* SQSBatchEntryIdsNotDistinctException.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC877163F06C9008E11CA /* SQSBatchEntryIdsNotDistinctException.h */; };
+		384FC8D3163F06C9008E11CA /* SQSBatchRequestTooLongException.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC878163F06C9008E11CA /* SQSBatchRequestTooLongException.h */; };
+		384FC8D4163F06C9008E11CA /* SQSBatchResponseErrorEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC879163F06C9008E11CA /* SQSBatchResponseErrorEntry.h */; };
+		384FC8D5163F06C9008E11CA /* SQSBatchResponseErrorEntryUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC87A163F06C9008E11CA /* SQSBatchResponseErrorEntryUnmarshaller.h */; };
+		384FC8D6163F06C9008E11CA /* SQSChangeMessageVisibilityBatchRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC87B163F06C9008E11CA /* SQSChangeMessageVisibilityBatchRequest.h */; };
+		384FC8D7163F06C9008E11CA /* SQSChangeMessageVisibilityBatchRequestEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC87C163F06C9008E11CA /* SQSChangeMessageVisibilityBatchRequestEntry.h */; };
+		384FC8D8163F06C9008E11CA /* SQSChangeMessageVisibilityBatchRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC87D163F06C9008E11CA /* SQSChangeMessageVisibilityBatchRequestMarshaller.h */; };
+		384FC8D9163F06C9008E11CA /* SQSChangeMessageVisibilityBatchResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC87E163F06C9008E11CA /* SQSChangeMessageVisibilityBatchResponse.h */; };
+		384FC8DA163F06C9008E11CA /* SQSChangeMessageVisibilityBatchResponseEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC87F163F06C9008E11CA /* SQSChangeMessageVisibilityBatchResponseEntry.h */; };
+		384FC8DB163F06C9008E11CA /* SQSChangeMessageVisibilityBatchResponseEntryUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC880163F06C9008E11CA /* SQSChangeMessageVisibilityBatchResponseEntryUnmarshaller.h */; };
+		384FC8DC163F06C9008E11CA /* SQSChangeMessageVisibilityBatchResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC881163F06C9008E11CA /* SQSChangeMessageVisibilityBatchResponseUnmarshaller.h */; };
+		384FC8DD163F06C9008E11CA /* SQSChangeMessageVisibilityRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC882163F06C9008E11CA /* SQSChangeMessageVisibilityRequest.h */; };
+		384FC8DE163F06C9008E11CA /* SQSChangeMessageVisibilityRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC883163F06C9008E11CA /* SQSChangeMessageVisibilityRequestMarshaller.h */; };
+		384FC8DF163F06C9008E11CA /* SQSChangeMessageVisibilityResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC884163F06C9008E11CA /* SQSChangeMessageVisibilityResponse.h */; };
+		384FC8E0163F06C9008E11CA /* SQSChangeMessageVisibilityResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC885163F06C9008E11CA /* SQSChangeMessageVisibilityResponseUnmarshaller.h */; };
+		384FC8E1163F06C9008E11CA /* SQSCreateQueueRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC886163F06C9008E11CA /* SQSCreateQueueRequest.h */; };
+		384FC8E2163F06C9008E11CA /* SQSCreateQueueRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC887163F06C9008E11CA /* SQSCreateQueueRequestMarshaller.h */; };
+		384FC8E3163F06C9008E11CA /* SQSCreateQueueResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC888163F06C9008E11CA /* SQSCreateQueueResponse.h */; };
+		384FC8E4163F06C9008E11CA /* SQSCreateQueueResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC889163F06C9008E11CA /* SQSCreateQueueResponseUnmarshaller.h */; };
+		384FC8E5163F06C9008E11CA /* SQSDeleteMessageBatchRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC88A163F06C9008E11CA /* SQSDeleteMessageBatchRequest.h */; };
+		384FC8E6163F06C9008E11CA /* SQSDeleteMessageBatchRequestEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC88B163F06C9008E11CA /* SQSDeleteMessageBatchRequestEntry.h */; };
+		384FC8E7163F06C9008E11CA /* SQSDeleteMessageBatchRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC88C163F06C9008E11CA /* SQSDeleteMessageBatchRequestMarshaller.h */; };
+		384FC8E8163F06C9008E11CA /* SQSDeleteMessageBatchResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC88D163F06C9008E11CA /* SQSDeleteMessageBatchResponse.h */; };
+		384FC8E9163F06C9008E11CA /* SQSDeleteMessageBatchResponseEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC88E163F06C9008E11CA /* SQSDeleteMessageBatchResponseEntry.h */; };
+		384FC8EA163F06C9008E11CA /* SQSDeleteMessageBatchResponseEntryUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC88F163F06C9008E11CA /* SQSDeleteMessageBatchResponseEntryUnmarshaller.h */; };
+		384FC8EB163F06C9008E11CA /* SQSDeleteMessageBatchResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC890163F06C9008E11CA /* SQSDeleteMessageBatchResponseUnmarshaller.h */; };
+		384FC8EC163F06C9008E11CA /* SQSDeleteMessageRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC891163F06C9008E11CA /* SQSDeleteMessageRequest.h */; };
+		384FC8ED163F06C9008E11CA /* SQSDeleteMessageRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC892163F06C9008E11CA /* SQSDeleteMessageRequestMarshaller.h */; };
+		384FC8EE163F06C9008E11CA /* SQSDeleteMessageResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC893163F06C9008E11CA /* SQSDeleteMessageResponse.h */; };
+		384FC8EF163F06C9008E11CA /* SQSDeleteMessageResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC894163F06C9008E11CA /* SQSDeleteMessageResponseUnmarshaller.h */; };
+		384FC8F0163F06C9008E11CA /* SQSDeleteQueueRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC895163F06C9008E11CA /* SQSDeleteQueueRequest.h */; };
+		384FC8F1163F06C9008E11CA /* SQSDeleteQueueRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC896163F06C9008E11CA /* SQSDeleteQueueRequestMarshaller.h */; };
+		384FC8F2163F06C9008E11CA /* SQSDeleteQueueResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC897163F06C9008E11CA /* SQSDeleteQueueResponse.h */; };
+		384FC8F3163F06C9008E11CA /* SQSDeleteQueueResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC898163F06C9008E11CA /* SQSDeleteQueueResponseUnmarshaller.h */; };
+		384FC8F4163F06C9008E11CA /* SQSEmptyBatchRequestException.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC899163F06C9008E11CA /* SQSEmptyBatchRequestException.h */; };
+		384FC8F5163F06C9008E11CA /* SQSGetQueueAttributesRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC89A163F06C9008E11CA /* SQSGetQueueAttributesRequest.h */; };
+		384FC8F6163F06C9008E11CA /* SQSGetQueueAttributesRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC89B163F06C9008E11CA /* SQSGetQueueAttributesRequestMarshaller.h */; };
+		384FC8F7163F06C9008E11CA /* SQSGetQueueAttributesResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC89C163F06C9008E11CA /* SQSGetQueueAttributesResponse.h */; };
+		384FC8F8163F06C9008E11CA /* SQSGetQueueAttributesResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC89D163F06C9008E11CA /* SQSGetQueueAttributesResponseUnmarshaller.h */; };
+		384FC8F9163F06C9008E11CA /* SQSGetQueueUrlRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC89E163F06C9008E11CA /* SQSGetQueueUrlRequest.h */; };
+		384FC8FA163F06C9008E11CA /* SQSGetQueueUrlRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC89F163F06C9008E11CA /* SQSGetQueueUrlRequestMarshaller.h */; };
+		384FC8FB163F06C9008E11CA /* SQSGetQueueUrlResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8A0163F06C9008E11CA /* SQSGetQueueUrlResponse.h */; };
+		384FC8FC163F06C9008E11CA /* SQSGetQueueUrlResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8A1163F06C9008E11CA /* SQSGetQueueUrlResponseUnmarshaller.h */; };
+		384FC8FD163F06C9008E11CA /* SQSInvalidAttributeNameException.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8A2163F06C9008E11CA /* SQSInvalidAttributeNameException.h */; };
+		384FC8FE163F06C9008E11CA /* SQSInvalidBatchEntryIdException.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8A3163F06C9008E11CA /* SQSInvalidBatchEntryIdException.h */; };
+		384FC8FF163F06C9008E11CA /* SQSInvalidIdFormatException.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8A4163F06C9008E11CA /* SQSInvalidIdFormatException.h */; };
+		384FC900163F06C9008E11CA /* SQSInvalidMessageContentsException.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8A5163F06C9008E11CA /* SQSInvalidMessageContentsException.h */; };
+		384FC901163F06C9008E11CA /* SQSListQueuesRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8A6163F06C9008E11CA /* SQSListQueuesRequest.h */; };
+		384FC902163F06C9008E11CA /* SQSListQueuesRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8A7163F06C9008E11CA /* SQSListQueuesRequestMarshaller.h */; };
+		384FC903163F06C9008E11CA /* SQSListQueuesResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8A8163F06C9008E11CA /* SQSListQueuesResponse.h */; };
+		384FC904163F06C9008E11CA /* SQSListQueuesResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8A9163F06C9008E11CA /* SQSListQueuesResponseUnmarshaller.h */; };
+		384FC905163F06C9008E11CA /* SQSMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8AA163F06C9008E11CA /* SQSMessage.h */; };
+		384FC906163F06C9008E11CA /* SQSMessageNotInflightException.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8AB163F06C9008E11CA /* SQSMessageNotInflightException.h */; };
+		384FC907163F06C9008E11CA /* SQSMessageUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8AC163F06C9008E11CA /* SQSMessageUnmarshaller.h */; };
+		384FC908163F06C9008E11CA /* SQSOverLimitException.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8AD163F06C9008E11CA /* SQSOverLimitException.h */; };
+		384FC909163F06C9008E11CA /* SQSQueueDeletedRecentlyException.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8AE163F06C9008E11CA /* SQSQueueDeletedRecentlyException.h */; };
+		384FC90A163F06C9008E11CA /* SQSQueueDoesNotExistException.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8AF163F06C9008E11CA /* SQSQueueDoesNotExistException.h */; };
+		384FC90B163F06C9008E11CA /* SQSQueueNameExistsException.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8B0163F06C9008E11CA /* SQSQueueNameExistsException.h */; };
+		384FC90C163F06C9008E11CA /* SQSReceiptHandleIsInvalidException.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8B1163F06C9008E11CA /* SQSReceiptHandleIsInvalidException.h */; };
+		384FC90D163F06C9008E11CA /* SQSReceiveMessageRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8B2163F06C9008E11CA /* SQSReceiveMessageRequest.h */; };
+		384FC90E163F06C9008E11CA /* SQSReceiveMessageRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8B3163F06C9008E11CA /* SQSReceiveMessageRequestMarshaller.h */; };
+		384FC90F163F06C9008E11CA /* SQSReceiveMessageResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8B4163F06C9008E11CA /* SQSReceiveMessageResponse.h */; };
+		384FC910163F06C9008E11CA /* SQSReceiveMessageResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8B5163F06C9008E11CA /* SQSReceiveMessageResponseUnmarshaller.h */; };
+		384FC911163F06C9008E11CA /* SQSRemovePermissionRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8B6163F06C9008E11CA /* SQSRemovePermissionRequest.h */; };
+		384FC912163F06C9008E11CA /* SQSRemovePermissionRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8B7163F06C9008E11CA /* SQSRemovePermissionRequestMarshaller.h */; };
+		384FC913163F06C9008E11CA /* SQSRemovePermissionResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8B8163F06C9008E11CA /* SQSRemovePermissionResponse.h */; };
+		384FC914163F06C9008E11CA /* SQSRemovePermissionResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8B9163F06C9008E11CA /* SQSRemovePermissionResponseUnmarshaller.h */; };
+		384FC915163F06C9008E11CA /* SQSRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8BA163F06C9008E11CA /* SQSRequest.h */; };
+		384FC916163F06C9008E11CA /* SQSResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8BB163F06C9008E11CA /* SQSResponse.h */; };
+		384FC917163F06C9008E11CA /* SQSResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8BC163F06C9008E11CA /* SQSResponseUnmarshaller.h */; };
+		384FC918163F06C9008E11CA /* SQSSendMessageBatchRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8BD163F06C9008E11CA /* SQSSendMessageBatchRequest.h */; };
+		384FC919163F06C9008E11CA /* SQSSendMessageBatchRequestEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8BE163F06C9008E11CA /* SQSSendMessageBatchRequestEntry.h */; };
+		384FC91A163F06C9008E11CA /* SQSSendMessageBatchRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8BF163F06C9008E11CA /* SQSSendMessageBatchRequestMarshaller.h */; };
+		384FC91B163F06C9008E11CA /* SQSSendMessageBatchResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8C0163F06C9008E11CA /* SQSSendMessageBatchResponse.h */; };
+		384FC91C163F06C9008E11CA /* SQSSendMessageBatchResponseEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8C1163F06C9008E11CA /* SQSSendMessageBatchResponseEntry.h */; };
+		384FC91D163F06C9008E11CA /* SQSSendMessageBatchResponseEntryUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8C2163F06C9008E11CA /* SQSSendMessageBatchResponseEntryUnmarshaller.h */; };
+		384FC91E163F06C9008E11CA /* SQSSendMessageBatchResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8C3163F06C9008E11CA /* SQSSendMessageBatchResponseUnmarshaller.h */; };
+		384FC91F163F06C9008E11CA /* SQSSendMessageRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8C4163F06C9008E11CA /* SQSSendMessageRequest.h */; };
+		384FC920163F06C9008E11CA /* SQSSendMessageRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8C5163F06C9008E11CA /* SQSSendMessageRequestMarshaller.h */; };
+		384FC921163F06C9008E11CA /* SQSSendMessageResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8C6163F06C9008E11CA /* SQSSendMessageResponse.h */; };
+		384FC922163F06C9008E11CA /* SQSSendMessageResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8C7163F06C9008E11CA /* SQSSendMessageResponseUnmarshaller.h */; };
+		384FC923163F06C9008E11CA /* SQSSetQueueAttributesRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8C8163F06C9008E11CA /* SQSSetQueueAttributesRequest.h */; };
+		384FC924163F06C9008E11CA /* SQSSetQueueAttributesRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8C9163F06C9008E11CA /* SQSSetQueueAttributesRequestMarshaller.h */; };
+		384FC925163F06C9008E11CA /* SQSSetQueueAttributesResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8CA163F06C9008E11CA /* SQSSetQueueAttributesResponse.h */; };
+		384FC926163F06C9008E11CA /* SQSSetQueueAttributesResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8CB163F06C9008E11CA /* SQSSetQueueAttributesResponseUnmarshaller.h */; };
+		384FC927163F06C9008E11CA /* SQSTooManyEntriesInBatchRequestException.h in Headers */ = {isa = PBXBuildFile; fileRef = 384FC8CC163F06C9008E11CA /* SQSTooManyEntriesInBatchRequestException.h */; };
+		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		CE2CDC06170370890013DE5F /* AWSSQS.h in Headers */ = {isa = PBXBuildFile; fileRef = CE2CDC05170370890013DE5F /* AWSSQS.h */; };
+		CE96C1B7158BD58A0084D3CB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE96C1A9158BC2A70084D3CB /* MobileCoreServices.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0AFD8DC0128462A0004B7863 /* Framework.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Framework.plist; sourceTree = "<group>"; };
+		0AFD8DC312846390004B7863 /* Framework.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = Framework.sh; sourceTree = "<group>"; };
+		384FC7BA163F06B6008E11CA /* AmazonSQSClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonSQSClient.m; sourceTree = "<group>"; };
+		384FC7BC163F06B6008E11CA /* SQSAddPermissionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSAddPermissionRequest.m; sourceTree = "<group>"; };
+		384FC7BD163F06B6008E11CA /* SQSAddPermissionRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSAddPermissionRequestMarshaller.m; sourceTree = "<group>"; };
+		384FC7BE163F06B6008E11CA /* SQSAddPermissionResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSAddPermissionResponse.m; sourceTree = "<group>"; };
+		384FC7BF163F06B6008E11CA /* SQSAddPermissionResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSAddPermissionResponseUnmarshaller.m; sourceTree = "<group>"; };
+		384FC7C0163F06B6008E11CA /* SQSBatchEntryIdsNotDistinctException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSBatchEntryIdsNotDistinctException.m; sourceTree = "<group>"; };
+		384FC7C1163F06B6008E11CA /* SQSBatchRequestTooLongException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSBatchRequestTooLongException.m; sourceTree = "<group>"; };
+		384FC7C2163F06B6008E11CA /* SQSBatchResponseErrorEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSBatchResponseErrorEntry.m; sourceTree = "<group>"; };
+		384FC7C3163F06B6008E11CA /* SQSBatchResponseErrorEntryUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSBatchResponseErrorEntryUnmarshaller.m; sourceTree = "<group>"; };
+		384FC7C4163F06B6008E11CA /* SQSChangeMessageVisibilityBatchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSChangeMessageVisibilityBatchRequest.m; sourceTree = "<group>"; };
+		384FC7C5163F06B6008E11CA /* SQSChangeMessageVisibilityBatchRequestEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSChangeMessageVisibilityBatchRequestEntry.m; sourceTree = "<group>"; };
+		384FC7C6163F06B6008E11CA /* SQSChangeMessageVisibilityBatchRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSChangeMessageVisibilityBatchRequestMarshaller.m; sourceTree = "<group>"; };
+		384FC7C7163F06B6008E11CA /* SQSChangeMessageVisibilityBatchResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSChangeMessageVisibilityBatchResponse.m; sourceTree = "<group>"; };
+		384FC7C8163F06B6008E11CA /* SQSChangeMessageVisibilityBatchResponseEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSChangeMessageVisibilityBatchResponseEntry.m; sourceTree = "<group>"; };
+		384FC7C9163F06B6008E11CA /* SQSChangeMessageVisibilityBatchResponseEntryUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSChangeMessageVisibilityBatchResponseEntryUnmarshaller.m; sourceTree = "<group>"; };
+		384FC7CA163F06B6008E11CA /* SQSChangeMessageVisibilityBatchResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSChangeMessageVisibilityBatchResponseUnmarshaller.m; sourceTree = "<group>"; };
+		384FC7CB163F06B6008E11CA /* SQSChangeMessageVisibilityRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSChangeMessageVisibilityRequest.m; sourceTree = "<group>"; };
+		384FC7CC163F06B6008E11CA /* SQSChangeMessageVisibilityRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSChangeMessageVisibilityRequestMarshaller.m; sourceTree = "<group>"; };
+		384FC7CD163F06B6008E11CA /* SQSChangeMessageVisibilityResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSChangeMessageVisibilityResponse.m; sourceTree = "<group>"; };
+		384FC7CE163F06B6008E11CA /* SQSChangeMessageVisibilityResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSChangeMessageVisibilityResponseUnmarshaller.m; sourceTree = "<group>"; };
+		384FC7CF163F06B6008E11CA /* SQSCreateQueueRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSCreateQueueRequest.m; sourceTree = "<group>"; };
+		384FC7D0163F06B6008E11CA /* SQSCreateQueueRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSCreateQueueRequestMarshaller.m; sourceTree = "<group>"; };
+		384FC7D1163F06B6008E11CA /* SQSCreateQueueResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSCreateQueueResponse.m; sourceTree = "<group>"; };
+		384FC7D2163F06B6008E11CA /* SQSCreateQueueResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSCreateQueueResponseUnmarshaller.m; sourceTree = "<group>"; };
+		384FC7D3163F06B6008E11CA /* SQSDeleteMessageBatchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSDeleteMessageBatchRequest.m; sourceTree = "<group>"; };
+		384FC7D4163F06B6008E11CA /* SQSDeleteMessageBatchRequestEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSDeleteMessageBatchRequestEntry.m; sourceTree = "<group>"; };
+		384FC7D5163F06B6008E11CA /* SQSDeleteMessageBatchRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSDeleteMessageBatchRequestMarshaller.m; sourceTree = "<group>"; };
+		384FC7D6163F06B6008E11CA /* SQSDeleteMessageBatchResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSDeleteMessageBatchResponse.m; sourceTree = "<group>"; };
+		384FC7D7163F06B6008E11CA /* SQSDeleteMessageBatchResponseEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSDeleteMessageBatchResponseEntry.m; sourceTree = "<group>"; };
+		384FC7D8163F06B6008E11CA /* SQSDeleteMessageBatchResponseEntryUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSDeleteMessageBatchResponseEntryUnmarshaller.m; sourceTree = "<group>"; };
+		384FC7D9163F06B6008E11CA /* SQSDeleteMessageBatchResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSDeleteMessageBatchResponseUnmarshaller.m; sourceTree = "<group>"; };
+		384FC7DA163F06B6008E11CA /* SQSDeleteMessageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSDeleteMessageRequest.m; sourceTree = "<group>"; };
+		384FC7DB163F06B6008E11CA /* SQSDeleteMessageRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSDeleteMessageRequestMarshaller.m; sourceTree = "<group>"; };
+		384FC7DC163F06B6008E11CA /* SQSDeleteMessageResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSDeleteMessageResponse.m; sourceTree = "<group>"; };
+		384FC7DD163F06B6008E11CA /* SQSDeleteMessageResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSDeleteMessageResponseUnmarshaller.m; sourceTree = "<group>"; };
+		384FC7DE163F06B6008E11CA /* SQSDeleteQueueRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSDeleteQueueRequest.m; sourceTree = "<group>"; };
+		384FC7DF163F06B6008E11CA /* SQSDeleteQueueRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSDeleteQueueRequestMarshaller.m; sourceTree = "<group>"; };
+		384FC7E0163F06B6008E11CA /* SQSDeleteQueueResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSDeleteQueueResponse.m; sourceTree = "<group>"; };
+		384FC7E1163F06B6008E11CA /* SQSDeleteQueueResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSDeleteQueueResponseUnmarshaller.m; sourceTree = "<group>"; };
+		384FC7E2163F06B6008E11CA /* SQSEmptyBatchRequestException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSEmptyBatchRequestException.m; sourceTree = "<group>"; };
+		384FC7E3163F06B6008E11CA /* SQSGetQueueAttributesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSGetQueueAttributesRequest.m; sourceTree = "<group>"; };
+		384FC7E4163F06B6008E11CA /* SQSGetQueueAttributesRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSGetQueueAttributesRequestMarshaller.m; sourceTree = "<group>"; };
+		384FC7E5163F06B6008E11CA /* SQSGetQueueAttributesResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSGetQueueAttributesResponse.m; sourceTree = "<group>"; };
+		384FC7E6163F06B6008E11CA /* SQSGetQueueAttributesResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSGetQueueAttributesResponseUnmarshaller.m; sourceTree = "<group>"; };
+		384FC7E7163F06B6008E11CA /* SQSGetQueueUrlRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSGetQueueUrlRequest.m; sourceTree = "<group>"; };
+		384FC7E8163F06B6008E11CA /* SQSGetQueueUrlRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSGetQueueUrlRequestMarshaller.m; sourceTree = "<group>"; };
+		384FC7E9163F06B6008E11CA /* SQSGetQueueUrlResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSGetQueueUrlResponse.m; sourceTree = "<group>"; };
+		384FC7EA163F06B6008E11CA /* SQSGetQueueUrlResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSGetQueueUrlResponseUnmarshaller.m; sourceTree = "<group>"; };
+		384FC7EB163F06B6008E11CA /* SQSInvalidAttributeNameException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSInvalidAttributeNameException.m; sourceTree = "<group>"; };
+		384FC7EC163F06B6008E11CA /* SQSInvalidBatchEntryIdException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSInvalidBatchEntryIdException.m; sourceTree = "<group>"; };
+		384FC7ED163F06B6008E11CA /* SQSInvalidIdFormatException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSInvalidIdFormatException.m; sourceTree = "<group>"; };
+		384FC7EE163F06B6008E11CA /* SQSInvalidMessageContentsException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSInvalidMessageContentsException.m; sourceTree = "<group>"; };
+		384FC7EF163F06B6008E11CA /* SQSListQueuesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSListQueuesRequest.m; sourceTree = "<group>"; };
+		384FC7F0163F06B6008E11CA /* SQSListQueuesRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSListQueuesRequestMarshaller.m; sourceTree = "<group>"; };
+		384FC7F1163F06B6008E11CA /* SQSListQueuesResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSListQueuesResponse.m; sourceTree = "<group>"; };
+		384FC7F2163F06B6008E11CA /* SQSListQueuesResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSListQueuesResponseUnmarshaller.m; sourceTree = "<group>"; };
+		384FC7F3163F06B6008E11CA /* SQSMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSMessage.m; sourceTree = "<group>"; };
+		384FC7F4163F06B6008E11CA /* SQSMessageNotInflightException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSMessageNotInflightException.m; sourceTree = "<group>"; };
+		384FC7F5163F06B6008E11CA /* SQSMessageUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSMessageUnmarshaller.m; sourceTree = "<group>"; };
+		384FC7F6163F06B6008E11CA /* SQSOverLimitException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSOverLimitException.m; sourceTree = "<group>"; };
+		384FC7F7163F06B6008E11CA /* SQSQueueDeletedRecentlyException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSQueueDeletedRecentlyException.m; sourceTree = "<group>"; };
+		384FC7F8163F06B6008E11CA /* SQSQueueDoesNotExistException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSQueueDoesNotExistException.m; sourceTree = "<group>"; };
+		384FC7F9163F06B6008E11CA /* SQSQueueNameExistsException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSQueueNameExistsException.m; sourceTree = "<group>"; };
+		384FC7FA163F06B6008E11CA /* SQSReceiptHandleIsInvalidException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSReceiptHandleIsInvalidException.m; sourceTree = "<group>"; };
+		384FC7FB163F06B6008E11CA /* SQSReceiveMessageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSReceiveMessageRequest.m; sourceTree = "<group>"; };
+		384FC7FC163F06B6008E11CA /* SQSReceiveMessageRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSReceiveMessageRequestMarshaller.m; sourceTree = "<group>"; };
+		384FC7FD163F06B6008E11CA /* SQSReceiveMessageResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSReceiveMessageResponse.m; sourceTree = "<group>"; };
+		384FC7FE163F06B6008E11CA /* SQSReceiveMessageResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSReceiveMessageResponseUnmarshaller.m; sourceTree = "<group>"; };
+		384FC7FF163F06B6008E11CA /* SQSRemovePermissionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSRemovePermissionRequest.m; sourceTree = "<group>"; };
+		384FC800163F06B6008E11CA /* SQSRemovePermissionRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSRemovePermissionRequestMarshaller.m; sourceTree = "<group>"; };
+		384FC801163F06B6008E11CA /* SQSRemovePermissionResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSRemovePermissionResponse.m; sourceTree = "<group>"; };
+		384FC802163F06B6008E11CA /* SQSRemovePermissionResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSRemovePermissionResponseUnmarshaller.m; sourceTree = "<group>"; };
+		384FC803163F06B6008E11CA /* SQSSendMessageBatchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSSendMessageBatchRequest.m; sourceTree = "<group>"; };
+		384FC804163F06B6008E11CA /* SQSSendMessageBatchRequestEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSSendMessageBatchRequestEntry.m; sourceTree = "<group>"; };
+		384FC805163F06B6008E11CA /* SQSSendMessageBatchRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSSendMessageBatchRequestMarshaller.m; sourceTree = "<group>"; };
+		384FC806163F06B6008E11CA /* SQSSendMessageBatchResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSSendMessageBatchResponse.m; sourceTree = "<group>"; };
+		384FC807163F06B6008E11CA /* SQSSendMessageBatchResponseEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSSendMessageBatchResponseEntry.m; sourceTree = "<group>"; };
+		384FC808163F06B6008E11CA /* SQSSendMessageBatchResponseEntryUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSSendMessageBatchResponseEntryUnmarshaller.m; sourceTree = "<group>"; };
+		384FC809163F06B6008E11CA /* SQSSendMessageBatchResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSSendMessageBatchResponseUnmarshaller.m; sourceTree = "<group>"; };
+		384FC80A163F06B6008E11CA /* SQSSendMessageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSSendMessageRequest.m; sourceTree = "<group>"; };
+		384FC80B163F06B6008E11CA /* SQSSendMessageRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSSendMessageRequestMarshaller.m; sourceTree = "<group>"; };
+		384FC80C163F06B6008E11CA /* SQSSendMessageResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSSendMessageResponse.m; sourceTree = "<group>"; };
+		384FC80D163F06B6008E11CA /* SQSSendMessageResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSSendMessageResponseUnmarshaller.m; sourceTree = "<group>"; };
+		384FC80E163F06B6008E11CA /* SQSSetQueueAttributesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSSetQueueAttributesRequest.m; sourceTree = "<group>"; };
+		384FC80F163F06B6008E11CA /* SQSSetQueueAttributesRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSSetQueueAttributesRequestMarshaller.m; sourceTree = "<group>"; };
+		384FC810163F06B6008E11CA /* SQSSetQueueAttributesResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSSetQueueAttributesResponse.m; sourceTree = "<group>"; };
+		384FC811163F06B6008E11CA /* SQSSetQueueAttributesResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSSetQueueAttributesResponseUnmarshaller.m; sourceTree = "<group>"; };
+		384FC812163F06B6008E11CA /* SQSTooManyEntriesInBatchRequestException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSTooManyEntriesInBatchRequestException.m; sourceTree = "<group>"; };
+		384FC813163F06B6008E11CA /* SQSRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSRequest.m; sourceTree = "<group>"; };
+		384FC814163F06B6008E11CA /* SQSResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSResponse.m; sourceTree = "<group>"; };
+		384FC815163F06B6008E11CA /* SQSResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQSResponseUnmarshaller.m; sourceTree = "<group>"; };
+		384FC872163F06C9008E11CA /* AmazonSQSClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmazonSQSClient.h; path = SQS/AmazonSQSClient.h; sourceTree = "<group>"; };
+		384FC873163F06C9008E11CA /* SQSAddPermissionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSAddPermissionRequest.h; path = SQS/SQSAddPermissionRequest.h; sourceTree = "<group>"; };
+		384FC874163F06C9008E11CA /* SQSAddPermissionRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSAddPermissionRequestMarshaller.h; path = SQS/SQSAddPermissionRequestMarshaller.h; sourceTree = "<group>"; };
+		384FC875163F06C9008E11CA /* SQSAddPermissionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSAddPermissionResponse.h; path = SQS/SQSAddPermissionResponse.h; sourceTree = "<group>"; };
+		384FC876163F06C9008E11CA /* SQSAddPermissionResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSAddPermissionResponseUnmarshaller.h; path = SQS/SQSAddPermissionResponseUnmarshaller.h; sourceTree = "<group>"; };
+		384FC877163F06C9008E11CA /* SQSBatchEntryIdsNotDistinctException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSBatchEntryIdsNotDistinctException.h; path = SQS/SQSBatchEntryIdsNotDistinctException.h; sourceTree = "<group>"; };
+		384FC878163F06C9008E11CA /* SQSBatchRequestTooLongException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSBatchRequestTooLongException.h; path = SQS/SQSBatchRequestTooLongException.h; sourceTree = "<group>"; };
+		384FC879163F06C9008E11CA /* SQSBatchResponseErrorEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSBatchResponseErrorEntry.h; path = SQS/SQSBatchResponseErrorEntry.h; sourceTree = "<group>"; };
+		384FC87A163F06C9008E11CA /* SQSBatchResponseErrorEntryUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSBatchResponseErrorEntryUnmarshaller.h; path = SQS/SQSBatchResponseErrorEntryUnmarshaller.h; sourceTree = "<group>"; };
+		384FC87B163F06C9008E11CA /* SQSChangeMessageVisibilityBatchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSChangeMessageVisibilityBatchRequest.h; path = SQS/SQSChangeMessageVisibilityBatchRequest.h; sourceTree = "<group>"; };
+		384FC87C163F06C9008E11CA /* SQSChangeMessageVisibilityBatchRequestEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSChangeMessageVisibilityBatchRequestEntry.h; path = SQS/SQSChangeMessageVisibilityBatchRequestEntry.h; sourceTree = "<group>"; };
+		384FC87D163F06C9008E11CA /* SQSChangeMessageVisibilityBatchRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSChangeMessageVisibilityBatchRequestMarshaller.h; path = SQS/SQSChangeMessageVisibilityBatchRequestMarshaller.h; sourceTree = "<group>"; };
+		384FC87E163F06C9008E11CA /* SQSChangeMessageVisibilityBatchResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSChangeMessageVisibilityBatchResponse.h; path = SQS/SQSChangeMessageVisibilityBatchResponse.h; sourceTree = "<group>"; };
+		384FC87F163F06C9008E11CA /* SQSChangeMessageVisibilityBatchResponseEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSChangeMessageVisibilityBatchResponseEntry.h; path = SQS/SQSChangeMessageVisibilityBatchResponseEntry.h; sourceTree = "<group>"; };
+		384FC880163F06C9008E11CA /* SQSChangeMessageVisibilityBatchResponseEntryUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSChangeMessageVisibilityBatchResponseEntryUnmarshaller.h; path = SQS/SQSChangeMessageVisibilityBatchResponseEntryUnmarshaller.h; sourceTree = "<group>"; };
+		384FC881163F06C9008E11CA /* SQSChangeMessageVisibilityBatchResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSChangeMessageVisibilityBatchResponseUnmarshaller.h; path = SQS/SQSChangeMessageVisibilityBatchResponseUnmarshaller.h; sourceTree = "<group>"; };
+		384FC882163F06C9008E11CA /* SQSChangeMessageVisibilityRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSChangeMessageVisibilityRequest.h; path = SQS/SQSChangeMessageVisibilityRequest.h; sourceTree = "<group>"; };
+		384FC883163F06C9008E11CA /* SQSChangeMessageVisibilityRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSChangeMessageVisibilityRequestMarshaller.h; path = SQS/SQSChangeMessageVisibilityRequestMarshaller.h; sourceTree = "<group>"; };
+		384FC884163F06C9008E11CA /* SQSChangeMessageVisibilityResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSChangeMessageVisibilityResponse.h; path = SQS/SQSChangeMessageVisibilityResponse.h; sourceTree = "<group>"; };
+		384FC885163F06C9008E11CA /* SQSChangeMessageVisibilityResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSChangeMessageVisibilityResponseUnmarshaller.h; path = SQS/SQSChangeMessageVisibilityResponseUnmarshaller.h; sourceTree = "<group>"; };
+		384FC886163F06C9008E11CA /* SQSCreateQueueRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSCreateQueueRequest.h; path = SQS/SQSCreateQueueRequest.h; sourceTree = "<group>"; };
+		384FC887163F06C9008E11CA /* SQSCreateQueueRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSCreateQueueRequestMarshaller.h; path = SQS/SQSCreateQueueRequestMarshaller.h; sourceTree = "<group>"; };
+		384FC888163F06C9008E11CA /* SQSCreateQueueResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSCreateQueueResponse.h; path = SQS/SQSCreateQueueResponse.h; sourceTree = "<group>"; };
+		384FC889163F06C9008E11CA /* SQSCreateQueueResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSCreateQueueResponseUnmarshaller.h; path = SQS/SQSCreateQueueResponseUnmarshaller.h; sourceTree = "<group>"; };
+		384FC88A163F06C9008E11CA /* SQSDeleteMessageBatchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSDeleteMessageBatchRequest.h; path = SQS/SQSDeleteMessageBatchRequest.h; sourceTree = "<group>"; };
+		384FC88B163F06C9008E11CA /* SQSDeleteMessageBatchRequestEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSDeleteMessageBatchRequestEntry.h; path = SQS/SQSDeleteMessageBatchRequestEntry.h; sourceTree = "<group>"; };
+		384FC88C163F06C9008E11CA /* SQSDeleteMessageBatchRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSDeleteMessageBatchRequestMarshaller.h; path = SQS/SQSDeleteMessageBatchRequestMarshaller.h; sourceTree = "<group>"; };
+		384FC88D163F06C9008E11CA /* SQSDeleteMessageBatchResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSDeleteMessageBatchResponse.h; path = SQS/SQSDeleteMessageBatchResponse.h; sourceTree = "<group>"; };
+		384FC88E163F06C9008E11CA /* SQSDeleteMessageBatchResponseEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSDeleteMessageBatchResponseEntry.h; path = SQS/SQSDeleteMessageBatchResponseEntry.h; sourceTree = "<group>"; };
+		384FC88F163F06C9008E11CA /* SQSDeleteMessageBatchResponseEntryUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSDeleteMessageBatchResponseEntryUnmarshaller.h; path = SQS/SQSDeleteMessageBatchResponseEntryUnmarshaller.h; sourceTree = "<group>"; };
+		384FC890163F06C9008E11CA /* SQSDeleteMessageBatchResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSDeleteMessageBatchResponseUnmarshaller.h; path = SQS/SQSDeleteMessageBatchResponseUnmarshaller.h; sourceTree = "<group>"; };
+		384FC891163F06C9008E11CA /* SQSDeleteMessageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSDeleteMessageRequest.h; path = SQS/SQSDeleteMessageRequest.h; sourceTree = "<group>"; };
+		384FC892163F06C9008E11CA /* SQSDeleteMessageRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSDeleteMessageRequestMarshaller.h; path = SQS/SQSDeleteMessageRequestMarshaller.h; sourceTree = "<group>"; };
+		384FC893163F06C9008E11CA /* SQSDeleteMessageResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSDeleteMessageResponse.h; path = SQS/SQSDeleteMessageResponse.h; sourceTree = "<group>"; };
+		384FC894163F06C9008E11CA /* SQSDeleteMessageResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSDeleteMessageResponseUnmarshaller.h; path = SQS/SQSDeleteMessageResponseUnmarshaller.h; sourceTree = "<group>"; };
+		384FC895163F06C9008E11CA /* SQSDeleteQueueRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSDeleteQueueRequest.h; path = SQS/SQSDeleteQueueRequest.h; sourceTree = "<group>"; };
+		384FC896163F06C9008E11CA /* SQSDeleteQueueRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSDeleteQueueRequestMarshaller.h; path = SQS/SQSDeleteQueueRequestMarshaller.h; sourceTree = "<group>"; };
+		384FC897163F06C9008E11CA /* SQSDeleteQueueResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSDeleteQueueResponse.h; path = SQS/SQSDeleteQueueResponse.h; sourceTree = "<group>"; };
+		384FC898163F06C9008E11CA /* SQSDeleteQueueResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSDeleteQueueResponseUnmarshaller.h; path = SQS/SQSDeleteQueueResponseUnmarshaller.h; sourceTree = "<group>"; };
+		384FC899163F06C9008E11CA /* SQSEmptyBatchRequestException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSEmptyBatchRequestException.h; path = SQS/SQSEmptyBatchRequestException.h; sourceTree = "<group>"; };
+		384FC89A163F06C9008E11CA /* SQSGetQueueAttributesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSGetQueueAttributesRequest.h; path = SQS/SQSGetQueueAttributesRequest.h; sourceTree = "<group>"; };
+		384FC89B163F06C9008E11CA /* SQSGetQueueAttributesRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSGetQueueAttributesRequestMarshaller.h; path = SQS/SQSGetQueueAttributesRequestMarshaller.h; sourceTree = "<group>"; };
+		384FC89C163F06C9008E11CA /* SQSGetQueueAttributesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSGetQueueAttributesResponse.h; path = SQS/SQSGetQueueAttributesResponse.h; sourceTree = "<group>"; };
+		384FC89D163F06C9008E11CA /* SQSGetQueueAttributesResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSGetQueueAttributesResponseUnmarshaller.h; path = SQS/SQSGetQueueAttributesResponseUnmarshaller.h; sourceTree = "<group>"; };
+		384FC89E163F06C9008E11CA /* SQSGetQueueUrlRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSGetQueueUrlRequest.h; path = SQS/SQSGetQueueUrlRequest.h; sourceTree = "<group>"; };
+		384FC89F163F06C9008E11CA /* SQSGetQueueUrlRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSGetQueueUrlRequestMarshaller.h; path = SQS/SQSGetQueueUrlRequestMarshaller.h; sourceTree = "<group>"; };
+		384FC8A0163F06C9008E11CA /* SQSGetQueueUrlResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSGetQueueUrlResponse.h; path = SQS/SQSGetQueueUrlResponse.h; sourceTree = "<group>"; };
+		384FC8A1163F06C9008E11CA /* SQSGetQueueUrlResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSGetQueueUrlResponseUnmarshaller.h; path = SQS/SQSGetQueueUrlResponseUnmarshaller.h; sourceTree = "<group>"; };
+		384FC8A2163F06C9008E11CA /* SQSInvalidAttributeNameException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSInvalidAttributeNameException.h; path = SQS/SQSInvalidAttributeNameException.h; sourceTree = "<group>"; };
+		384FC8A3163F06C9008E11CA /* SQSInvalidBatchEntryIdException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSInvalidBatchEntryIdException.h; path = SQS/SQSInvalidBatchEntryIdException.h; sourceTree = "<group>"; };
+		384FC8A4163F06C9008E11CA /* SQSInvalidIdFormatException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSInvalidIdFormatException.h; path = SQS/SQSInvalidIdFormatException.h; sourceTree = "<group>"; };
+		384FC8A5163F06C9008E11CA /* SQSInvalidMessageContentsException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSInvalidMessageContentsException.h; path = SQS/SQSInvalidMessageContentsException.h; sourceTree = "<group>"; };
+		384FC8A6163F06C9008E11CA /* SQSListQueuesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSListQueuesRequest.h; path = SQS/SQSListQueuesRequest.h; sourceTree = "<group>"; };
+		384FC8A7163F06C9008E11CA /* SQSListQueuesRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSListQueuesRequestMarshaller.h; path = SQS/SQSListQueuesRequestMarshaller.h; sourceTree = "<group>"; };
+		384FC8A8163F06C9008E11CA /* SQSListQueuesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSListQueuesResponse.h; path = SQS/SQSListQueuesResponse.h; sourceTree = "<group>"; };
+		384FC8A9163F06C9008E11CA /* SQSListQueuesResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSListQueuesResponseUnmarshaller.h; path = SQS/SQSListQueuesResponseUnmarshaller.h; sourceTree = "<group>"; };
+		384FC8AA163F06C9008E11CA /* SQSMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSMessage.h; path = SQS/SQSMessage.h; sourceTree = "<group>"; };
+		384FC8AB163F06C9008E11CA /* SQSMessageNotInflightException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSMessageNotInflightException.h; path = SQS/SQSMessageNotInflightException.h; sourceTree = "<group>"; };
+		384FC8AC163F06C9008E11CA /* SQSMessageUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSMessageUnmarshaller.h; path = SQS/SQSMessageUnmarshaller.h; sourceTree = "<group>"; };
+		384FC8AD163F06C9008E11CA /* SQSOverLimitException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSOverLimitException.h; path = SQS/SQSOverLimitException.h; sourceTree = "<group>"; };
+		384FC8AE163F06C9008E11CA /* SQSQueueDeletedRecentlyException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSQueueDeletedRecentlyException.h; path = SQS/SQSQueueDeletedRecentlyException.h; sourceTree = "<group>"; };
+		384FC8AF163F06C9008E11CA /* SQSQueueDoesNotExistException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSQueueDoesNotExistException.h; path = SQS/SQSQueueDoesNotExistException.h; sourceTree = "<group>"; };
+		384FC8B0163F06C9008E11CA /* SQSQueueNameExistsException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSQueueNameExistsException.h; path = SQS/SQSQueueNameExistsException.h; sourceTree = "<group>"; };
+		384FC8B1163F06C9008E11CA /* SQSReceiptHandleIsInvalidException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSReceiptHandleIsInvalidException.h; path = SQS/SQSReceiptHandleIsInvalidException.h; sourceTree = "<group>"; };
+		384FC8B2163F06C9008E11CA /* SQSReceiveMessageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSReceiveMessageRequest.h; path = SQS/SQSReceiveMessageRequest.h; sourceTree = "<group>"; };
+		384FC8B3163F06C9008E11CA /* SQSReceiveMessageRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSReceiveMessageRequestMarshaller.h; path = SQS/SQSReceiveMessageRequestMarshaller.h; sourceTree = "<group>"; };
+		384FC8B4163F06C9008E11CA /* SQSReceiveMessageResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSReceiveMessageResponse.h; path = SQS/SQSReceiveMessageResponse.h; sourceTree = "<group>"; };
+		384FC8B5163F06C9008E11CA /* SQSReceiveMessageResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSReceiveMessageResponseUnmarshaller.h; path = SQS/SQSReceiveMessageResponseUnmarshaller.h; sourceTree = "<group>"; };
+		384FC8B6163F06C9008E11CA /* SQSRemovePermissionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSRemovePermissionRequest.h; path = SQS/SQSRemovePermissionRequest.h; sourceTree = "<group>"; };
+		384FC8B7163F06C9008E11CA /* SQSRemovePermissionRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSRemovePermissionRequestMarshaller.h; path = SQS/SQSRemovePermissionRequestMarshaller.h; sourceTree = "<group>"; };
+		384FC8B8163F06C9008E11CA /* SQSRemovePermissionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSRemovePermissionResponse.h; path = SQS/SQSRemovePermissionResponse.h; sourceTree = "<group>"; };
+		384FC8B9163F06C9008E11CA /* SQSRemovePermissionResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSRemovePermissionResponseUnmarshaller.h; path = SQS/SQSRemovePermissionResponseUnmarshaller.h; sourceTree = "<group>"; };
+		384FC8BA163F06C9008E11CA /* SQSRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSRequest.h; path = SQS/SQSRequest.h; sourceTree = "<group>"; };
+		384FC8BB163F06C9008E11CA /* SQSResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSResponse.h; path = SQS/SQSResponse.h; sourceTree = "<group>"; };
+		384FC8BC163F06C9008E11CA /* SQSResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSResponseUnmarshaller.h; path = SQS/SQSResponseUnmarshaller.h; sourceTree = "<group>"; };
+		384FC8BD163F06C9008E11CA /* SQSSendMessageBatchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSSendMessageBatchRequest.h; path = SQS/SQSSendMessageBatchRequest.h; sourceTree = "<group>"; };
+		384FC8BE163F06C9008E11CA /* SQSSendMessageBatchRequestEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSSendMessageBatchRequestEntry.h; path = SQS/SQSSendMessageBatchRequestEntry.h; sourceTree = "<group>"; };
+		384FC8BF163F06C9008E11CA /* SQSSendMessageBatchRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSSendMessageBatchRequestMarshaller.h; path = SQS/SQSSendMessageBatchRequestMarshaller.h; sourceTree = "<group>"; };
+		384FC8C0163F06C9008E11CA /* SQSSendMessageBatchResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSSendMessageBatchResponse.h; path = SQS/SQSSendMessageBatchResponse.h; sourceTree = "<group>"; };
+		384FC8C1163F06C9008E11CA /* SQSSendMessageBatchResponseEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSSendMessageBatchResponseEntry.h; path = SQS/SQSSendMessageBatchResponseEntry.h; sourceTree = "<group>"; };
+		384FC8C2163F06C9008E11CA /* SQSSendMessageBatchResponseEntryUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSSendMessageBatchResponseEntryUnmarshaller.h; path = SQS/SQSSendMessageBatchResponseEntryUnmarshaller.h; sourceTree = "<group>"; };
+		384FC8C3163F06C9008E11CA /* SQSSendMessageBatchResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSSendMessageBatchResponseUnmarshaller.h; path = SQS/SQSSendMessageBatchResponseUnmarshaller.h; sourceTree = "<group>"; };
+		384FC8C4163F06C9008E11CA /* SQSSendMessageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSSendMessageRequest.h; path = SQS/SQSSendMessageRequest.h; sourceTree = "<group>"; };
+		384FC8C5163F06C9008E11CA /* SQSSendMessageRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSSendMessageRequestMarshaller.h; path = SQS/SQSSendMessageRequestMarshaller.h; sourceTree = "<group>"; };
+		384FC8C6163F06C9008E11CA /* SQSSendMessageResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSSendMessageResponse.h; path = SQS/SQSSendMessageResponse.h; sourceTree = "<group>"; };
+		384FC8C7163F06C9008E11CA /* SQSSendMessageResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSSendMessageResponseUnmarshaller.h; path = SQS/SQSSendMessageResponseUnmarshaller.h; sourceTree = "<group>"; };
+		384FC8C8163F06C9008E11CA /* SQSSetQueueAttributesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSSetQueueAttributesRequest.h; path = SQS/SQSSetQueueAttributesRequest.h; sourceTree = "<group>"; };
+		384FC8C9163F06C9008E11CA /* SQSSetQueueAttributesRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSSetQueueAttributesRequestMarshaller.h; path = SQS/SQSSetQueueAttributesRequestMarshaller.h; sourceTree = "<group>"; };
+		384FC8CA163F06C9008E11CA /* SQSSetQueueAttributesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSSetQueueAttributesResponse.h; path = SQS/SQSSetQueueAttributesResponse.h; sourceTree = "<group>"; };
+		384FC8CB163F06C9008E11CA /* SQSSetQueueAttributesResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSSetQueueAttributesResponseUnmarshaller.h; path = SQS/SQSSetQueueAttributesResponseUnmarshaller.h; sourceTree = "<group>"; };
+		384FC8CC163F06C9008E11CA /* SQSTooManyEntriesInBatchRequestException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQSTooManyEntriesInBatchRequestException.h; path = SQS/SQSTooManyEntriesInBatchRequestException.h; sourceTree = "<group>"; };
+		AA747D9E0F9514B9006C5449 /* SQS_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQS_Prefix.pch; sourceTree = "<group>"; };
+		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CE2CDC05170370890013DE5F /* AWSSQS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSSQS.h; path = SQS/AWSSQS.h; sourceTree = "<group>"; };
+		CE96C1A9158BC2A70084D3CB /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		D069663F1234D53400BFBB1E /* libSQS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSQS.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE96C1B7158BD58A0084D3CB /* MobileCoreServices.framework in Frameworks */,
+				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D069663F1234D53400BFBB1E /* libSQS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* s3 */ = {
+			isa = PBXGroup;
+			children = (
+				384FC7B9163F06B6008E11CA /* Amazon.SQS */,
+				0AFD9561128471A4004B7863 /* include */,
+				0AFD8DC212846372004B7863 /* Scripts */,
+				0AFD8DBF128462A0004B7863 /* Resources */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
+			);
+			name = s3;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE96C1A9158BC2A70084D3CB /* MobileCoreServices.framework */,
+				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0AFD8DBF128462A0004B7863 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0AFD8DC0128462A0004B7863 /* Framework.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0AFD8DC212846372004B7863 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				0AFD8DC312846390004B7863 /* Framework.sh */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
+		0AFD9561128471A4004B7863 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				CE2CDC05170370890013DE5F /* AWSSQS.h */,
+				384FC872163F06C9008E11CA /* AmazonSQSClient.h */,
+				384FC873163F06C9008E11CA /* SQSAddPermissionRequest.h */,
+				384FC874163F06C9008E11CA /* SQSAddPermissionRequestMarshaller.h */,
+				384FC875163F06C9008E11CA /* SQSAddPermissionResponse.h */,
+				384FC876163F06C9008E11CA /* SQSAddPermissionResponseUnmarshaller.h */,
+				384FC877163F06C9008E11CA /* SQSBatchEntryIdsNotDistinctException.h */,
+				384FC878163F06C9008E11CA /* SQSBatchRequestTooLongException.h */,
+				384FC879163F06C9008E11CA /* SQSBatchResponseErrorEntry.h */,
+				384FC87A163F06C9008E11CA /* SQSBatchResponseErrorEntryUnmarshaller.h */,
+				384FC87B163F06C9008E11CA /* SQSChangeMessageVisibilityBatchRequest.h */,
+				384FC87C163F06C9008E11CA /* SQSChangeMessageVisibilityBatchRequestEntry.h */,
+				384FC87D163F06C9008E11CA /* SQSChangeMessageVisibilityBatchRequestMarshaller.h */,
+				384FC87E163F06C9008E11CA /* SQSChangeMessageVisibilityBatchResponse.h */,
+				384FC87F163F06C9008E11CA /* SQSChangeMessageVisibilityBatchResponseEntry.h */,
+				384FC880163F06C9008E11CA /* SQSChangeMessageVisibilityBatchResponseEntryUnmarshaller.h */,
+				384FC881163F06C9008E11CA /* SQSChangeMessageVisibilityBatchResponseUnmarshaller.h */,
+				384FC882163F06C9008E11CA /* SQSChangeMessageVisibilityRequest.h */,
+				384FC883163F06C9008E11CA /* SQSChangeMessageVisibilityRequestMarshaller.h */,
+				384FC884163F06C9008E11CA /* SQSChangeMessageVisibilityResponse.h */,
+				384FC885163F06C9008E11CA /* SQSChangeMessageVisibilityResponseUnmarshaller.h */,
+				384FC886163F06C9008E11CA /* SQSCreateQueueRequest.h */,
+				384FC887163F06C9008E11CA /* SQSCreateQueueRequestMarshaller.h */,
+				384FC888163F06C9008E11CA /* SQSCreateQueueResponse.h */,
+				384FC889163F06C9008E11CA /* SQSCreateQueueResponseUnmarshaller.h */,
+				384FC88A163F06C9008E11CA /* SQSDeleteMessageBatchRequest.h */,
+				384FC88B163F06C9008E11CA /* SQSDeleteMessageBatchRequestEntry.h */,
+				384FC88C163F06C9008E11CA /* SQSDeleteMessageBatchRequestMarshaller.h */,
+				384FC88D163F06C9008E11CA /* SQSDeleteMessageBatchResponse.h */,
+				384FC88E163F06C9008E11CA /* SQSDeleteMessageBatchResponseEntry.h */,
+				384FC88F163F06C9008E11CA /* SQSDeleteMessageBatchResponseEntryUnmarshaller.h */,
+				384FC890163F06C9008E11CA /* SQSDeleteMessageBatchResponseUnmarshaller.h */,
+				384FC891163F06C9008E11CA /* SQSDeleteMessageRequest.h */,
+				384FC892163F06C9008E11CA /* SQSDeleteMessageRequestMarshaller.h */,
+				384FC893163F06C9008E11CA /* SQSDeleteMessageResponse.h */,
+				384FC894163F06C9008E11CA /* SQSDeleteMessageResponseUnmarshaller.h */,
+				384FC895163F06C9008E11CA /* SQSDeleteQueueRequest.h */,
+				384FC896163F06C9008E11CA /* SQSDeleteQueueRequestMarshaller.h */,
+				384FC897163F06C9008E11CA /* SQSDeleteQueueResponse.h */,
+				384FC898163F06C9008E11CA /* SQSDeleteQueueResponseUnmarshaller.h */,
+				384FC899163F06C9008E11CA /* SQSEmptyBatchRequestException.h */,
+				384FC89A163F06C9008E11CA /* SQSGetQueueAttributesRequest.h */,
+				384FC89B163F06C9008E11CA /* SQSGetQueueAttributesRequestMarshaller.h */,
+				384FC89C163F06C9008E11CA /* SQSGetQueueAttributesResponse.h */,
+				384FC89D163F06C9008E11CA /* SQSGetQueueAttributesResponseUnmarshaller.h */,
+				384FC89E163F06C9008E11CA /* SQSGetQueueUrlRequest.h */,
+				384FC89F163F06C9008E11CA /* SQSGetQueueUrlRequestMarshaller.h */,
+				384FC8A0163F06C9008E11CA /* SQSGetQueueUrlResponse.h */,
+				384FC8A1163F06C9008E11CA /* SQSGetQueueUrlResponseUnmarshaller.h */,
+				384FC8A2163F06C9008E11CA /* SQSInvalidAttributeNameException.h */,
+				384FC8A3163F06C9008E11CA /* SQSInvalidBatchEntryIdException.h */,
+				384FC8A4163F06C9008E11CA /* SQSInvalidIdFormatException.h */,
+				384FC8A5163F06C9008E11CA /* SQSInvalidMessageContentsException.h */,
+				384FC8A6163F06C9008E11CA /* SQSListQueuesRequest.h */,
+				384FC8A7163F06C9008E11CA /* SQSListQueuesRequestMarshaller.h */,
+				384FC8A8163F06C9008E11CA /* SQSListQueuesResponse.h */,
+				384FC8A9163F06C9008E11CA /* SQSListQueuesResponseUnmarshaller.h */,
+				384FC8AA163F06C9008E11CA /* SQSMessage.h */,
+				384FC8AB163F06C9008E11CA /* SQSMessageNotInflightException.h */,
+				384FC8AC163F06C9008E11CA /* SQSMessageUnmarshaller.h */,
+				384FC8AD163F06C9008E11CA /* SQSOverLimitException.h */,
+				384FC8AE163F06C9008E11CA /* SQSQueueDeletedRecentlyException.h */,
+				384FC8AF163F06C9008E11CA /* SQSQueueDoesNotExistException.h */,
+				384FC8B0163F06C9008E11CA /* SQSQueueNameExistsException.h */,
+				384FC8B1163F06C9008E11CA /* SQSReceiptHandleIsInvalidException.h */,
+				384FC8B2163F06C9008E11CA /* SQSReceiveMessageRequest.h */,
+				384FC8B3163F06C9008E11CA /* SQSReceiveMessageRequestMarshaller.h */,
+				384FC8B4163F06C9008E11CA /* SQSReceiveMessageResponse.h */,
+				384FC8B5163F06C9008E11CA /* SQSReceiveMessageResponseUnmarshaller.h */,
+				384FC8B6163F06C9008E11CA /* SQSRemovePermissionRequest.h */,
+				384FC8B7163F06C9008E11CA /* SQSRemovePermissionRequestMarshaller.h */,
+				384FC8B8163F06C9008E11CA /* SQSRemovePermissionResponse.h */,
+				384FC8B9163F06C9008E11CA /* SQSRemovePermissionResponseUnmarshaller.h */,
+				384FC8BA163F06C9008E11CA /* SQSRequest.h */,
+				384FC8BB163F06C9008E11CA /* SQSResponse.h */,
+				384FC8BC163F06C9008E11CA /* SQSResponseUnmarshaller.h */,
+				384FC8BD163F06C9008E11CA /* SQSSendMessageBatchRequest.h */,
+				384FC8BE163F06C9008E11CA /* SQSSendMessageBatchRequestEntry.h */,
+				384FC8BF163F06C9008E11CA /* SQSSendMessageBatchRequestMarshaller.h */,
+				384FC8C0163F06C9008E11CA /* SQSSendMessageBatchResponse.h */,
+				384FC8C1163F06C9008E11CA /* SQSSendMessageBatchResponseEntry.h */,
+				384FC8C2163F06C9008E11CA /* SQSSendMessageBatchResponseEntryUnmarshaller.h */,
+				384FC8C3163F06C9008E11CA /* SQSSendMessageBatchResponseUnmarshaller.h */,
+				384FC8C4163F06C9008E11CA /* SQSSendMessageRequest.h */,
+				384FC8C5163F06C9008E11CA /* SQSSendMessageRequestMarshaller.h */,
+				384FC8C6163F06C9008E11CA /* SQSSendMessageResponse.h */,
+				384FC8C7163F06C9008E11CA /* SQSSendMessageResponseUnmarshaller.h */,
+				384FC8C8163F06C9008E11CA /* SQSSetQueueAttributesRequest.h */,
+				384FC8C9163F06C9008E11CA /* SQSSetQueueAttributesRequestMarshaller.h */,
+				384FC8CA163F06C9008E11CA /* SQSSetQueueAttributesResponse.h */,
+				384FC8CB163F06C9008E11CA /* SQSSetQueueAttributesResponseUnmarshaller.h */,
+				384FC8CC163F06C9008E11CA /* SQSTooManyEntriesInBatchRequestException.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				034768DFFF38A50411DB9C8B /* Products */,
+				AA747D9E0F9514B9006C5449 /* SQS_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		384FC7B9163F06B6008E11CA /* Amazon.SQS */ = {
+			isa = PBXGroup;
+			children = (
+				384FC7BA163F06B6008E11CA /* AmazonSQSClient.m */,
+				384FC7BB163F06B6008E11CA /* Model */,
+				384FC813163F06B6008E11CA /* SQSRequest.m */,
+				384FC814163F06B6008E11CA /* SQSResponse.m */,
+				384FC815163F06B6008E11CA /* SQSResponseUnmarshaller.m */,
+			);
+			path = Amazon.SQS;
+			sourceTree = "<group>";
+		};
+		384FC7BB163F06B6008E11CA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				384FC7BC163F06B6008E11CA /* SQSAddPermissionRequest.m */,
+				384FC7BD163F06B6008E11CA /* SQSAddPermissionRequestMarshaller.m */,
+				384FC7BE163F06B6008E11CA /* SQSAddPermissionResponse.m */,
+				384FC7BF163F06B6008E11CA /* SQSAddPermissionResponseUnmarshaller.m */,
+				384FC7C0163F06B6008E11CA /* SQSBatchEntryIdsNotDistinctException.m */,
+				384FC7C1163F06B6008E11CA /* SQSBatchRequestTooLongException.m */,
+				384FC7C2163F06B6008E11CA /* SQSBatchResponseErrorEntry.m */,
+				384FC7C3163F06B6008E11CA /* SQSBatchResponseErrorEntryUnmarshaller.m */,
+				384FC7C4163F06B6008E11CA /* SQSChangeMessageVisibilityBatchRequest.m */,
+				384FC7C5163F06B6008E11CA /* SQSChangeMessageVisibilityBatchRequestEntry.m */,
+				384FC7C6163F06B6008E11CA /* SQSChangeMessageVisibilityBatchRequestMarshaller.m */,
+				384FC7C7163F06B6008E11CA /* SQSChangeMessageVisibilityBatchResponse.m */,
+				384FC7C8163F06B6008E11CA /* SQSChangeMessageVisibilityBatchResponseEntry.m */,
+				384FC7C9163F06B6008E11CA /* SQSChangeMessageVisibilityBatchResponseEntryUnmarshaller.m */,
+				384FC7CA163F06B6008E11CA /* SQSChangeMessageVisibilityBatchResponseUnmarshaller.m */,
+				384FC7CB163F06B6008E11CA /* SQSChangeMessageVisibilityRequest.m */,
+				384FC7CC163F06B6008E11CA /* SQSChangeMessageVisibilityRequestMarshaller.m */,
+				384FC7CD163F06B6008E11CA /* SQSChangeMessageVisibilityResponse.m */,
+				384FC7CE163F06B6008E11CA /* SQSChangeMessageVisibilityResponseUnmarshaller.m */,
+				384FC7CF163F06B6008E11CA /* SQSCreateQueueRequest.m */,
+				384FC7D0163F06B6008E11CA /* SQSCreateQueueRequestMarshaller.m */,
+				384FC7D1163F06B6008E11CA /* SQSCreateQueueResponse.m */,
+				384FC7D2163F06B6008E11CA /* SQSCreateQueueResponseUnmarshaller.m */,
+				384FC7D3163F06B6008E11CA /* SQSDeleteMessageBatchRequest.m */,
+				384FC7D4163F06B6008E11CA /* SQSDeleteMessageBatchRequestEntry.m */,
+				384FC7D5163F06B6008E11CA /* SQSDeleteMessageBatchRequestMarshaller.m */,
+				384FC7D6163F06B6008E11CA /* SQSDeleteMessageBatchResponse.m */,
+				384FC7D7163F06B6008E11CA /* SQSDeleteMessageBatchResponseEntry.m */,
+				384FC7D8163F06B6008E11CA /* SQSDeleteMessageBatchResponseEntryUnmarshaller.m */,
+				384FC7D9163F06B6008E11CA /* SQSDeleteMessageBatchResponseUnmarshaller.m */,
+				384FC7DA163F06B6008E11CA /* SQSDeleteMessageRequest.m */,
+				384FC7DB163F06B6008E11CA /* SQSDeleteMessageRequestMarshaller.m */,
+				384FC7DC163F06B6008E11CA /* SQSDeleteMessageResponse.m */,
+				384FC7DD163F06B6008E11CA /* SQSDeleteMessageResponseUnmarshaller.m */,
+				384FC7DE163F06B6008E11CA /* SQSDeleteQueueRequest.m */,
+				384FC7DF163F06B6008E11CA /* SQSDeleteQueueRequestMarshaller.m */,
+				384FC7E0163F06B6008E11CA /* SQSDeleteQueueResponse.m */,
+				384FC7E1163F06B6008E11CA /* SQSDeleteQueueResponseUnmarshaller.m */,
+				384FC7E2163F06B6008E11CA /* SQSEmptyBatchRequestException.m */,
+				384FC7E3163F06B6008E11CA /* SQSGetQueueAttributesRequest.m */,
+				384FC7E4163F06B6008E11CA /* SQSGetQueueAttributesRequestMarshaller.m */,
+				384FC7E5163F06B6008E11CA /* SQSGetQueueAttributesResponse.m */,
+				384FC7E6163F06B6008E11CA /* SQSGetQueueAttributesResponseUnmarshaller.m */,
+				384FC7E7163F06B6008E11CA /* SQSGetQueueUrlRequest.m */,
+				384FC7E8163F06B6008E11CA /* SQSGetQueueUrlRequestMarshaller.m */,
+				384FC7E9163F06B6008E11CA /* SQSGetQueueUrlResponse.m */,
+				384FC7EA163F06B6008E11CA /* SQSGetQueueUrlResponseUnmarshaller.m */,
+				384FC7EB163F06B6008E11CA /* SQSInvalidAttributeNameException.m */,
+				384FC7EC163F06B6008E11CA /* SQSInvalidBatchEntryIdException.m */,
+				384FC7ED163F06B6008E11CA /* SQSInvalidIdFormatException.m */,
+				384FC7EE163F06B6008E11CA /* SQSInvalidMessageContentsException.m */,
+				384FC7EF163F06B6008E11CA /* SQSListQueuesRequest.m */,
+				384FC7F0163F06B6008E11CA /* SQSListQueuesRequestMarshaller.m */,
+				384FC7F1163F06B6008E11CA /* SQSListQueuesResponse.m */,
+				384FC7F2163F06B6008E11CA /* SQSListQueuesResponseUnmarshaller.m */,
+				384FC7F3163F06B6008E11CA /* SQSMessage.m */,
+				384FC7F4163F06B6008E11CA /* SQSMessageNotInflightException.m */,
+				384FC7F5163F06B6008E11CA /* SQSMessageUnmarshaller.m */,
+				384FC7F6163F06B6008E11CA /* SQSOverLimitException.m */,
+				384FC7F7163F06B6008E11CA /* SQSQueueDeletedRecentlyException.m */,
+				384FC7F8163F06B6008E11CA /* SQSQueueDoesNotExistException.m */,
+				384FC7F9163F06B6008E11CA /* SQSQueueNameExistsException.m */,
+				384FC7FA163F06B6008E11CA /* SQSReceiptHandleIsInvalidException.m */,
+				384FC7FB163F06B6008E11CA /* SQSReceiveMessageRequest.m */,
+				384FC7FC163F06B6008E11CA /* SQSReceiveMessageRequestMarshaller.m */,
+				384FC7FD163F06B6008E11CA /* SQSReceiveMessageResponse.m */,
+				384FC7FE163F06B6008E11CA /* SQSReceiveMessageResponseUnmarshaller.m */,
+				384FC7FF163F06B6008E11CA /* SQSRemovePermissionRequest.m */,
+				384FC800163F06B6008E11CA /* SQSRemovePermissionRequestMarshaller.m */,
+				384FC801163F06B6008E11CA /* SQSRemovePermissionResponse.m */,
+				384FC802163F06B6008E11CA /* SQSRemovePermissionResponseUnmarshaller.m */,
+				384FC803163F06B6008E11CA /* SQSSendMessageBatchRequest.m */,
+				384FC804163F06B6008E11CA /* SQSSendMessageBatchRequestEntry.m */,
+				384FC805163F06B6008E11CA /* SQSSendMessageBatchRequestMarshaller.m */,
+				384FC806163F06B6008E11CA /* SQSSendMessageBatchResponse.m */,
+				384FC807163F06B6008E11CA /* SQSSendMessageBatchResponseEntry.m */,
+				384FC808163F06B6008E11CA /* SQSSendMessageBatchResponseEntryUnmarshaller.m */,
+				384FC809163F06B6008E11CA /* SQSSendMessageBatchResponseUnmarshaller.m */,
+				384FC80A163F06B6008E11CA /* SQSSendMessageRequest.m */,
+				384FC80B163F06B6008E11CA /* SQSSendMessageRequestMarshaller.m */,
+				384FC80C163F06B6008E11CA /* SQSSendMessageResponse.m */,
+				384FC80D163F06B6008E11CA /* SQSSendMessageResponseUnmarshaller.m */,
+				384FC80E163F06B6008E11CA /* SQSSetQueueAttributesRequest.m */,
+				384FC80F163F06B6008E11CA /* SQSSetQueueAttributesRequestMarshaller.m */,
+				384FC810163F06B6008E11CA /* SQSSetQueueAttributesResponse.m */,
+				384FC811163F06B6008E11CA /* SQSSetQueueAttributesResponseUnmarshaller.m */,
+				384FC812163F06B6008E11CA /* SQSTooManyEntriesInBatchRequestException.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				384FC8CD163F06C9008E11CA /* AmazonSQSClient.h in Headers */,
+				384FC8CE163F06C9008E11CA /* SQSAddPermissionRequest.h in Headers */,
+				384FC8CF163F06C9008E11CA /* SQSAddPermissionRequestMarshaller.h in Headers */,
+				384FC8D0163F06C9008E11CA /* SQSAddPermissionResponse.h in Headers */,
+				384FC8D1163F06C9008E11CA /* SQSAddPermissionResponseUnmarshaller.h in Headers */,
+				384FC8D2163F06C9008E11CA /* SQSBatchEntryIdsNotDistinctException.h in Headers */,
+				384FC8D3163F06C9008E11CA /* SQSBatchRequestTooLongException.h in Headers */,
+				384FC8D4163F06C9008E11CA /* SQSBatchResponseErrorEntry.h in Headers */,
+				384FC8D5163F06C9008E11CA /* SQSBatchResponseErrorEntryUnmarshaller.h in Headers */,
+				384FC8D6163F06C9008E11CA /* SQSChangeMessageVisibilityBatchRequest.h in Headers */,
+				384FC8D7163F06C9008E11CA /* SQSChangeMessageVisibilityBatchRequestEntry.h in Headers */,
+				384FC8D8163F06C9008E11CA /* SQSChangeMessageVisibilityBatchRequestMarshaller.h in Headers */,
+				384FC8D9163F06C9008E11CA /* SQSChangeMessageVisibilityBatchResponse.h in Headers */,
+				384FC8DA163F06C9008E11CA /* SQSChangeMessageVisibilityBatchResponseEntry.h in Headers */,
+				384FC8DB163F06C9008E11CA /* SQSChangeMessageVisibilityBatchResponseEntryUnmarshaller.h in Headers */,
+				384FC8DC163F06C9008E11CA /* SQSChangeMessageVisibilityBatchResponseUnmarshaller.h in Headers */,
+				384FC8DD163F06C9008E11CA /* SQSChangeMessageVisibilityRequest.h in Headers */,
+				384FC8DE163F06C9008E11CA /* SQSChangeMessageVisibilityRequestMarshaller.h in Headers */,
+				384FC8DF163F06C9008E11CA /* SQSChangeMessageVisibilityResponse.h in Headers */,
+				384FC8E0163F06C9008E11CA /* SQSChangeMessageVisibilityResponseUnmarshaller.h in Headers */,
+				384FC8E1163F06C9008E11CA /* SQSCreateQueueRequest.h in Headers */,
+				384FC8E2163F06C9008E11CA /* SQSCreateQueueRequestMarshaller.h in Headers */,
+				384FC8E3163F06C9008E11CA /* SQSCreateQueueResponse.h in Headers */,
+				384FC8E4163F06C9008E11CA /* SQSCreateQueueResponseUnmarshaller.h in Headers */,
+				384FC8E5163F06C9008E11CA /* SQSDeleteMessageBatchRequest.h in Headers */,
+				384FC8E6163F06C9008E11CA /* SQSDeleteMessageBatchRequestEntry.h in Headers */,
+				384FC8E7163F06C9008E11CA /* SQSDeleteMessageBatchRequestMarshaller.h in Headers */,
+				384FC8E8163F06C9008E11CA /* SQSDeleteMessageBatchResponse.h in Headers */,
+				384FC8E9163F06C9008E11CA /* SQSDeleteMessageBatchResponseEntry.h in Headers */,
+				384FC8EA163F06C9008E11CA /* SQSDeleteMessageBatchResponseEntryUnmarshaller.h in Headers */,
+				384FC8EB163F06C9008E11CA /* SQSDeleteMessageBatchResponseUnmarshaller.h in Headers */,
+				384FC8EC163F06C9008E11CA /* SQSDeleteMessageRequest.h in Headers */,
+				384FC8ED163F06C9008E11CA /* SQSDeleteMessageRequestMarshaller.h in Headers */,
+				384FC8EE163F06C9008E11CA /* SQSDeleteMessageResponse.h in Headers */,
+				384FC8EF163F06C9008E11CA /* SQSDeleteMessageResponseUnmarshaller.h in Headers */,
+				384FC8F0163F06C9008E11CA /* SQSDeleteQueueRequest.h in Headers */,
+				384FC8F1163F06C9008E11CA /* SQSDeleteQueueRequestMarshaller.h in Headers */,
+				384FC8F2163F06C9008E11CA /* SQSDeleteQueueResponse.h in Headers */,
+				384FC8F3163F06C9008E11CA /* SQSDeleteQueueResponseUnmarshaller.h in Headers */,
+				384FC8F4163F06C9008E11CA /* SQSEmptyBatchRequestException.h in Headers */,
+				384FC8F5163F06C9008E11CA /* SQSGetQueueAttributesRequest.h in Headers */,
+				384FC8F6163F06C9008E11CA /* SQSGetQueueAttributesRequestMarshaller.h in Headers */,
+				384FC8F7163F06C9008E11CA /* SQSGetQueueAttributesResponse.h in Headers */,
+				384FC8F8163F06C9008E11CA /* SQSGetQueueAttributesResponseUnmarshaller.h in Headers */,
+				384FC8F9163F06C9008E11CA /* SQSGetQueueUrlRequest.h in Headers */,
+				384FC8FA163F06C9008E11CA /* SQSGetQueueUrlRequestMarshaller.h in Headers */,
+				384FC8FB163F06C9008E11CA /* SQSGetQueueUrlResponse.h in Headers */,
+				384FC8FC163F06C9008E11CA /* SQSGetQueueUrlResponseUnmarshaller.h in Headers */,
+				384FC8FD163F06C9008E11CA /* SQSInvalidAttributeNameException.h in Headers */,
+				384FC8FE163F06C9008E11CA /* SQSInvalidBatchEntryIdException.h in Headers */,
+				384FC8FF163F06C9008E11CA /* SQSInvalidIdFormatException.h in Headers */,
+				384FC900163F06C9008E11CA /* SQSInvalidMessageContentsException.h in Headers */,
+				384FC901163F06C9008E11CA /* SQSListQueuesRequest.h in Headers */,
+				384FC902163F06C9008E11CA /* SQSListQueuesRequestMarshaller.h in Headers */,
+				384FC903163F06C9008E11CA /* SQSListQueuesResponse.h in Headers */,
+				384FC904163F06C9008E11CA /* SQSListQueuesResponseUnmarshaller.h in Headers */,
+				384FC905163F06C9008E11CA /* SQSMessage.h in Headers */,
+				384FC906163F06C9008E11CA /* SQSMessageNotInflightException.h in Headers */,
+				384FC907163F06C9008E11CA /* SQSMessageUnmarshaller.h in Headers */,
+				384FC908163F06C9008E11CA /* SQSOverLimitException.h in Headers */,
+				384FC909163F06C9008E11CA /* SQSQueueDeletedRecentlyException.h in Headers */,
+				384FC90A163F06C9008E11CA /* SQSQueueDoesNotExistException.h in Headers */,
+				384FC90B163F06C9008E11CA /* SQSQueueNameExistsException.h in Headers */,
+				384FC90C163F06C9008E11CA /* SQSReceiptHandleIsInvalidException.h in Headers */,
+				384FC90D163F06C9008E11CA /* SQSReceiveMessageRequest.h in Headers */,
+				384FC90E163F06C9008E11CA /* SQSReceiveMessageRequestMarshaller.h in Headers */,
+				384FC90F163F06C9008E11CA /* SQSReceiveMessageResponse.h in Headers */,
+				384FC910163F06C9008E11CA /* SQSReceiveMessageResponseUnmarshaller.h in Headers */,
+				384FC911163F06C9008E11CA /* SQSRemovePermissionRequest.h in Headers */,
+				384FC912163F06C9008E11CA /* SQSRemovePermissionRequestMarshaller.h in Headers */,
+				384FC913163F06C9008E11CA /* SQSRemovePermissionResponse.h in Headers */,
+				384FC914163F06C9008E11CA /* SQSRemovePermissionResponseUnmarshaller.h in Headers */,
+				384FC915163F06C9008E11CA /* SQSRequest.h in Headers */,
+				384FC916163F06C9008E11CA /* SQSResponse.h in Headers */,
+				384FC917163F06C9008E11CA /* SQSResponseUnmarshaller.h in Headers */,
+				384FC918163F06C9008E11CA /* SQSSendMessageBatchRequest.h in Headers */,
+				384FC919163F06C9008E11CA /* SQSSendMessageBatchRequestEntry.h in Headers */,
+				384FC91A163F06C9008E11CA /* SQSSendMessageBatchRequestMarshaller.h in Headers */,
+				384FC91B163F06C9008E11CA /* SQSSendMessageBatchResponse.h in Headers */,
+				384FC91C163F06C9008E11CA /* SQSSendMessageBatchResponseEntry.h in Headers */,
+				384FC91D163F06C9008E11CA /* SQSSendMessageBatchResponseEntryUnmarshaller.h in Headers */,
+				384FC91E163F06C9008E11CA /* SQSSendMessageBatchResponseUnmarshaller.h in Headers */,
+				384FC91F163F06C9008E11CA /* SQSSendMessageRequest.h in Headers */,
+				384FC920163F06C9008E11CA /* SQSSendMessageRequestMarshaller.h in Headers */,
+				384FC921163F06C9008E11CA /* SQSSendMessageResponse.h in Headers */,
+				384FC922163F06C9008E11CA /* SQSSendMessageResponseUnmarshaller.h in Headers */,
+				384FC923163F06C9008E11CA /* SQSSetQueueAttributesRequest.h in Headers */,
+				384FC924163F06C9008E11CA /* SQSSetQueueAttributesRequestMarshaller.h in Headers */,
+				384FC925163F06C9008E11CA /* SQSSetQueueAttributesResponse.h in Headers */,
+				384FC926163F06C9008E11CA /* SQSSetQueueAttributesResponseUnmarshaller.h in Headers */,
+				384FC927163F06C9008E11CA /* SQSTooManyEntriesInBatchRequestException.h in Headers */,
+				CE2CDC06170370890013DE5F /* AWSSQS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXLegacyTarget section */
+		0AFD8DD7128465B4004B7863 /* Framework */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 0AFD8DDC128465EB004B7863 /* Build configuration list for PBXLegacyTarget "Framework" */;
+			buildPhases = (
+			);
+			buildToolPath = Scripts/Framework.sh;
+			dependencies = (
+			);
+			name = Framework;
+			passBuildSettingsInEnvironment = 1;
+			productName = Framework;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC07D0554694100DB518D /* SQS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "SQS" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SQS;
+			productName = s3;
+			productReference = D069663F1234D53400BFBB1E /* libSQS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+			};
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "SQS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* s3 */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2AAC07D0554694100DB518D /* SQS */,
+				0AFD8DD7128465B4004B7863 /* Framework */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				384FC816163F06B6008E11CA /* AmazonSQSClient.m in Sources */,
+				384FC817163F06B6008E11CA /* SQSAddPermissionRequest.m in Sources */,
+				384FC818163F06B6008E11CA /* SQSAddPermissionRequestMarshaller.m in Sources */,
+				384FC819163F06B6008E11CA /* SQSAddPermissionResponse.m in Sources */,
+				384FC81A163F06B6008E11CA /* SQSAddPermissionResponseUnmarshaller.m in Sources */,
+				384FC81B163F06B6008E11CA /* SQSBatchEntryIdsNotDistinctException.m in Sources */,
+				384FC81C163F06B6008E11CA /* SQSBatchRequestTooLongException.m in Sources */,
+				384FC81D163F06B6008E11CA /* SQSBatchResponseErrorEntry.m in Sources */,
+				384FC81E163F06B6008E11CA /* SQSBatchResponseErrorEntryUnmarshaller.m in Sources */,
+				384FC81F163F06B6008E11CA /* SQSChangeMessageVisibilityBatchRequest.m in Sources */,
+				384FC820163F06B6008E11CA /* SQSChangeMessageVisibilityBatchRequestEntry.m in Sources */,
+				384FC821163F06B6008E11CA /* SQSChangeMessageVisibilityBatchRequestMarshaller.m in Sources */,
+				384FC822163F06B6008E11CA /* SQSChangeMessageVisibilityBatchResponse.m in Sources */,
+				384FC823163F06B6008E11CA /* SQSChangeMessageVisibilityBatchResponseEntry.m in Sources */,
+				384FC824163F06B6008E11CA /* SQSChangeMessageVisibilityBatchResponseEntryUnmarshaller.m in Sources */,
+				384FC825163F06B6008E11CA /* SQSChangeMessageVisibilityBatchResponseUnmarshaller.m in Sources */,
+				384FC826163F06B6008E11CA /* SQSChangeMessageVisibilityRequest.m in Sources */,
+				384FC827163F06B6008E11CA /* SQSChangeMessageVisibilityRequestMarshaller.m in Sources */,
+				384FC828163F06B6008E11CA /* SQSChangeMessageVisibilityResponse.m in Sources */,
+				384FC829163F06B6008E11CA /* SQSChangeMessageVisibilityResponseUnmarshaller.m in Sources */,
+				384FC82A163F06B6008E11CA /* SQSCreateQueueRequest.m in Sources */,
+				384FC82B163F06B6008E11CA /* SQSCreateQueueRequestMarshaller.m in Sources */,
+				384FC82C163F06B6008E11CA /* SQSCreateQueueResponse.m in Sources */,
+				384FC82D163F06B6008E11CA /* SQSCreateQueueResponseUnmarshaller.m in Sources */,
+				384FC82E163F06B6008E11CA /* SQSDeleteMessageBatchRequest.m in Sources */,
+				384FC82F163F06B6008E11CA /* SQSDeleteMessageBatchRequestEntry.m in Sources */,
+				384FC830163F06B6008E11CA /* SQSDeleteMessageBatchRequestMarshaller.m in Sources */,
+				384FC831163F06B6008E11CA /* SQSDeleteMessageBatchResponse.m in Sources */,
+				384FC832163F06B6008E11CA /* SQSDeleteMessageBatchResponseEntry.m in Sources */,
+				384FC833163F06B6008E11CA /* SQSDeleteMessageBatchResponseEntryUnmarshaller.m in Sources */,
+				384FC834163F06B6008E11CA /* SQSDeleteMessageBatchResponseUnmarshaller.m in Sources */,
+				384FC835163F06B6008E11CA /* SQSDeleteMessageRequest.m in Sources */,
+				384FC836163F06B6008E11CA /* SQSDeleteMessageRequestMarshaller.m in Sources */,
+				384FC837163F06B6008E11CA /* SQSDeleteMessageResponse.m in Sources */,
+				384FC838163F06B6008E11CA /* SQSDeleteMessageResponseUnmarshaller.m in Sources */,
+				384FC839163F06B6008E11CA /* SQSDeleteQueueRequest.m in Sources */,
+				384FC83A163F06B6008E11CA /* SQSDeleteQueueRequestMarshaller.m in Sources */,
+				384FC83B163F06B6008E11CA /* SQSDeleteQueueResponse.m in Sources */,
+				384FC83C163F06B6008E11CA /* SQSDeleteQueueResponseUnmarshaller.m in Sources */,
+				384FC83D163F06B6008E11CA /* SQSEmptyBatchRequestException.m in Sources */,
+				384FC83E163F06B6008E11CA /* SQSGetQueueAttributesRequest.m in Sources */,
+				384FC83F163F06B6008E11CA /* SQSGetQueueAttributesRequestMarshaller.m in Sources */,
+				384FC840163F06B6008E11CA /* SQSGetQueueAttributesResponse.m in Sources */,
+				384FC841163F06B6008E11CA /* SQSGetQueueAttributesResponseUnmarshaller.m in Sources */,
+				384FC842163F06B6008E11CA /* SQSGetQueueUrlRequest.m in Sources */,
+				384FC843163F06B6008E11CA /* SQSGetQueueUrlRequestMarshaller.m in Sources */,
+				384FC844163F06B6008E11CA /* SQSGetQueueUrlResponse.m in Sources */,
+				384FC845163F06B6008E11CA /* SQSGetQueueUrlResponseUnmarshaller.m in Sources */,
+				384FC846163F06B6008E11CA /* SQSInvalidAttributeNameException.m in Sources */,
+				384FC847163F06B6008E11CA /* SQSInvalidBatchEntryIdException.m in Sources */,
+				384FC848163F06B6008E11CA /* SQSInvalidIdFormatException.m in Sources */,
+				384FC849163F06B6008E11CA /* SQSInvalidMessageContentsException.m in Sources */,
+				384FC84A163F06B6008E11CA /* SQSListQueuesRequest.m in Sources */,
+				384FC84B163F06B6008E11CA /* SQSListQueuesRequestMarshaller.m in Sources */,
+				384FC84C163F06B6008E11CA /* SQSListQueuesResponse.m in Sources */,
+				384FC84D163F06B6008E11CA /* SQSListQueuesResponseUnmarshaller.m in Sources */,
+				384FC84E163F06B6008E11CA /* SQSMessage.m in Sources */,
+				384FC84F163F06B6008E11CA /* SQSMessageNotInflightException.m in Sources */,
+				384FC850163F06B6008E11CA /* SQSMessageUnmarshaller.m in Sources */,
+				384FC851163F06B6008E11CA /* SQSOverLimitException.m in Sources */,
+				384FC852163F06B6008E11CA /* SQSQueueDeletedRecentlyException.m in Sources */,
+				384FC853163F06B6008E11CA /* SQSQueueDoesNotExistException.m in Sources */,
+				384FC854163F06B6008E11CA /* SQSQueueNameExistsException.m in Sources */,
+				384FC855163F06B6008E11CA /* SQSReceiptHandleIsInvalidException.m in Sources */,
+				384FC856163F06B6008E11CA /* SQSReceiveMessageRequest.m in Sources */,
+				384FC857163F06B6008E11CA /* SQSReceiveMessageRequestMarshaller.m in Sources */,
+				384FC858163F06B6008E11CA /* SQSReceiveMessageResponse.m in Sources */,
+				384FC859163F06B6008E11CA /* SQSReceiveMessageResponseUnmarshaller.m in Sources */,
+				384FC85A163F06B6008E11CA /* SQSRemovePermissionRequest.m in Sources */,
+				384FC85B163F06B6008E11CA /* SQSRemovePermissionRequestMarshaller.m in Sources */,
+				384FC85C163F06B6008E11CA /* SQSRemovePermissionResponse.m in Sources */,
+				384FC85D163F06B6008E11CA /* SQSRemovePermissionResponseUnmarshaller.m in Sources */,
+				384FC85E163F06B6008E11CA /* SQSSendMessageBatchRequest.m in Sources */,
+				384FC85F163F06B6008E11CA /* SQSSendMessageBatchRequestEntry.m in Sources */,
+				384FC860163F06B6008E11CA /* SQSSendMessageBatchRequestMarshaller.m in Sources */,
+				384FC861163F06B6008E11CA /* SQSSendMessageBatchResponse.m in Sources */,
+				384FC862163F06B6008E11CA /* SQSSendMessageBatchResponseEntry.m in Sources */,
+				384FC863163F06B6008E11CA /* SQSSendMessageBatchResponseEntryUnmarshaller.m in Sources */,
+				384FC864163F06B6008E11CA /* SQSSendMessageBatchResponseUnmarshaller.m in Sources */,
+				384FC865163F06B6008E11CA /* SQSSendMessageRequest.m in Sources */,
+				384FC866163F06B6008E11CA /* SQSSendMessageRequestMarshaller.m in Sources */,
+				384FC867163F06B6008E11CA /* SQSSendMessageResponse.m in Sources */,
+				384FC868163F06B6008E11CA /* SQSSendMessageResponseUnmarshaller.m in Sources */,
+				384FC869163F06B6008E11CA /* SQSSetQueueAttributesRequest.m in Sources */,
+				384FC86A163F06B6008E11CA /* SQSSetQueueAttributesRequestMarshaller.m in Sources */,
+				384FC86B163F06B6008E11CA /* SQSSetQueueAttributesResponse.m in Sources */,
+				384FC86C163F06B6008E11CA /* SQSSetQueueAttributesResponseUnmarshaller.m in Sources */,
+				384FC86D163F06B6008E11CA /* SQSTooManyEntriesInBatchRequestException.m in Sources */,
+				384FC86E163F06B6008E11CA /* SQSRequest.m in Sources */,
+				384FC86F163F06B6008E11CA /* SQSResponse.m in Sources */,
+				384FC870163F06B6008E11CA /* SQSResponseUnmarshaller.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0AFD8DD8128465B4004B7863 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Framework;
+			};
+			name = Debug;
+		};
+		0AFD8DD9128465B4004B7863 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				PRODUCT_NAME = Framework;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"ARCHS[sdk=*]" = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DOXYGEN_PATH = /Applications/Doxygen.app/Contents/Resources/doxygen;
+				DSTROOT = /tmp/s3.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/..\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SQS_Prefix.pch;
+				GCC_THUMB_SUPPORT = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				PRODUCT_NAME = SQS;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"ARCHS[sdk=*]" = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DSTROOT = /tmp/s3.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/..\"",
+				);
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SQS_Prefix.pch;
+				GCC_THUMB_SUPPORT = NO;
+				HEADER_SEARCH_PATHS = (
+					"include/**",
+					"ThirdParty/**",
+				);
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				PRODUCT_NAME = SQS;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					ThirdParty,
+					"include/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					ThirdParty,
+					"include/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0AFD8DDC128465EB004B7863 /* Build configuration list for PBXLegacyTarget "Framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0AFD8DD8128465B4004B7863 /* Debug */,
+				0AFD8DD9128465B4004B7863 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "SQS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "SQS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}

@@ -35,7 +35,11 @@
 #import "CloudWatchSetAlarmStateResponse.h"
 #import "CloudWatchSetAlarmStateRequest.h"
 
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonWebServiceClient.h>
+#else
 #import "../AmazonWebServiceClient.h"
+#endif
 
 /** \defgroup CloudWatch Amazon CloudWatch */
 

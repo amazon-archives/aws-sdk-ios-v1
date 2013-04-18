@@ -16,8 +16,13 @@
 #import <Foundation/Foundation.h>
 #import "EC2ExportTask.h"
 #import "EC2ResponseUnmarshaller.h"
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonValueUnmarshaller.h>
+#import <AWSRuntime/AmazonBoolValueUnmarshaller.h>
+#else
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
+#endif
 #import "EC2InstanceExportDetailsUnmarshaller.h"
 #import "EC2ExportToS3TaskUnmarshaller.h"
 

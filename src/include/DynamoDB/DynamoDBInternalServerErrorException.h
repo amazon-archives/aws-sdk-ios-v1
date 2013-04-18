@@ -13,16 +13,17 @@
  * permissions and limitations under the License.
  */
 
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonServiceException.h>
+#else
 #import "../AmazonServiceException.h"
+#endif
 
 
 
 
 /**
- * <p>
- * This exception is thrown when the service has a problem when trying to
- * process the request.
- * </p>
+ * AmazonDynamoDB exception
  */
 @interface DynamoDBInternalServerErrorException:AmazonServiceException
 {

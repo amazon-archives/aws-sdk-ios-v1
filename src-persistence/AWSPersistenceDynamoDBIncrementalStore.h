@@ -14,7 +14,7 @@
  */
 
 #import <CoreData/CoreData.h>
-#import <AWSiOSSDK/AmazonCredentialsProvider.h>
+#import <AWSRuntime/AWSRuntime.h>
 
 extern NSString *const AWSPersistenceDynamoDBIncrementalStoreType;
 extern NSString *const AWSPersistenceDynamoDBHashKey;

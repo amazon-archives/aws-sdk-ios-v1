@@ -18,23 +18,27 @@
 
 @implementation DynamoDBCreateTableRequest
 
+@synthesize attributeDefinitions;
 @synthesize tableName;
 @synthesize keySchema;
+@synthesize localSecondaryIndexes;
 @synthesize provisionedThroughput;
 
 
 -(id)init
 {
     if (self = [super init]) {
+        attributeDefinitions  = [[NSMutableArray alloc] initWithCapacity:1];
         tableName             = nil;
-        keySchema             = nil;
+        keySchema             = [[NSMutableArray alloc] initWithCapacity:1];
+        localSecondaryIndexes = [[NSMutableArray alloc] initWithCapacity:1];
         provisionedThroughput = nil;
     }
 
     return self;
 }
 
--(id)initWithTableName:(NSString *)theTableName andKeySchema:(DynamoDBKeySchema *)theKeySchema
+-(id)initWithTableName:(NSString *)theTableName andKeySchema:(NSMutableArray *)theKeySchema
 {
     if (self = [self init]) {
         self.tableName = theTableName;
@@ -44,7 +48,7 @@
     return self;
 }
 
--(id)initWithTableName:(NSString *)theTableName andKeySchema:(DynamoDBKeySchema *)theKeySchema andProvisionedThroughput:(DynamoDBProvisionedThroughput *)theProvisionedThroughput
+-(id)initWithTableName:(NSString *)theTableName andKeySchema:(NSMutableArray *)theKeySchema andProvisionedThroughput:(DynamoDBProvisionedThroughput *)theProvisionedThroughput
 {
     if (self = [self init]) {
         self.tableName             = theTableName;
@@ -56,14 +60,43 @@
 }
 
 
+-(void)addAttributeDefinition:(DynamoDBAttributeDefinition *)attributeDefinitionObject
+{
+    if (attributeDefinitions == nil) {
+        attributeDefinitions = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [attributeDefinitions addObject:attributeDefinitionObject];
+}
+
+-(void)addKeySchema:(DynamoDBKeySchemaElement *)keySchemaObject
+{
+    if (keySchema == nil) {
+        keySchema = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [keySchema addObject:keySchemaObject];
+}
+
+-(void)addLocalSecondaryIndexe:(DynamoDBLocalSecondaryIndex *)localSecondaryIndexeObject
+{
+    if (localSecondaryIndexes == nil) {
+        localSecondaryIndexes = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [localSecondaryIndexes addObject:localSecondaryIndexeObject];
+}
+
 
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
 
     [buffer appendString:@"{"];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"AttributeDefinitions: %@,", attributeDefinitions] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"TableName: %@,", tableName] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"KeySchema: %@,", keySchema] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"LocalSecondaryIndexes: %@,", localSecondaryIndexes] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ProvisionedThroughput: %@,", provisionedThroughput] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
@@ -75,8 +108,10 @@
 
 -(void)dealloc
 {
+    [attributeDefinitions release];
     [tableName release];
     [keySchema release];
+    [localSecondaryIndexes release];
     [provisionedThroughput release];
 
     [super dealloc];

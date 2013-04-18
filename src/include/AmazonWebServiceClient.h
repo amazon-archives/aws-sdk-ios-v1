@@ -23,6 +23,9 @@
  *
  * @param accessKey The AWS Access Key
  * @param secretKey The AWS Secret Key
+ *
+ * See our blog to learn more about Managing Credentials in Mobile Applications.
+ * @see http://mobile.awsblog.com/post/Tx31X75XISXHRH8/Managing-Credentials-in-Mobile-Applications
  */
 -(id)initWithAccessKey:(NSString *)accessKey withSecretKey:(NSString *)secretKey;
 

@@ -19,24 +19,24 @@
 @implementation DynamoDBKeySchemaElement
 
 @synthesize attributeName;
-@synthesize attributeType;
+@synthesize keyType;
 
 
 -(id)init
 {
     if (self = [super init]) {
         attributeName = nil;
-        attributeType = nil;
+        keyType       = nil;
     }
 
     return self;
 }
 
--(id)initWithAttributeName:(NSString *)theAttributeName andAttributeType:(NSString *)theAttributeType
+-(id)initWithAttributeName:(NSString *)theAttributeName andKeyType:(NSString *)theKeyType
 {
     if (self = [self init]) {
         self.attributeName = theAttributeName;
-        self.attributeType = theAttributeType;
+        self.keyType       = theKeyType;
     }
 
     return self;
@@ -50,7 +50,7 @@
 
     [buffer appendString:@"{"];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"AttributeName: %@,", attributeName] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"AttributeType: %@,", attributeType] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"KeyType: %@,", keyType] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -62,7 +62,7 @@
 -(void)dealloc
 {
     [attributeName release];
-    [attributeType release];
+    [keyType release];
 
     [super dealloc];
 }

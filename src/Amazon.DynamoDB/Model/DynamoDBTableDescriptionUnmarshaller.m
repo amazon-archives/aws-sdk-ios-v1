@@ -15,9 +15,14 @@
 
 #import "DynamoDBTableDescriptionUnmarshaller.h"
 #import "DynamoDBExceptionUnmarshaller.h"
-#import "../AmazonSDKUtil.h"
-#import "DynamoDBKeySchemaUnmarshaller.h"
+
+#import "AmazonSDKUtil.h"
+#import "DynamoDBAttributeDefinitionUnmarshaller.h"
+#import "DynamoDBKeySchemaElementUnmarshaller.h"
 #import "DynamoDBProvisionedThroughputDescriptionUnmarshaller.h"
+#import "DynamoDBLocalSecondaryIndexDescriptionUnmarshaller.h"
+#import "DynamoDBKeySchemaElementUnmarshaller.h"
+#import "DynamoDBProjectionUnmarshaller.h"
 
 
 @implementation DynamoDBTableDescriptionUnmarshaller
@@ -29,13 +34,20 @@
 
 
 
+    NSArray *attributeDefinitionsArray = [jsonObject valueForKey:@"AttributeDefinitions"];
+    for (NSDictionary *memberObject in attributeDefinitionsArray) {
+        [tableDescription.attributeDefinitions addObject:[DynamoDBAttributeDefinitionUnmarshaller unmarshall:memberObject]];
+    }
+
+
     if ([jsonObject valueForKey:@"TableName"] != nil) {
         tableDescription.tableName = [jsonObject valueForKey:@"TableName"];
     }
 
 
-    if ([jsonObject valueForKey:@"KeySchema"] != nil) {
-        tableDescription.keySchema = [DynamoDBKeySchemaUnmarshaller unmarshall:[jsonObject valueForKey:@"KeySchema"]];
+    NSArray *keySchemaArray = [jsonObject valueForKey:@"KeySchema"];
+    for (NSDictionary *memberObject in keySchemaArray) {
+        [tableDescription.keySchema addObject:[DynamoDBKeySchemaElementUnmarshaller unmarshall:memberObject]];
     }
 
 
@@ -61,6 +73,12 @@
 
     if ([jsonObject valueForKey:@"ItemCount"] != nil) {
         tableDescription.itemCount = [jsonObject valueForKey:@"ItemCount"];
+    }
+
+
+    NSArray *localSecondaryIndexesArray = [jsonObject valueForKey:@"LocalSecondaryIndexes"];
+    for (NSDictionary *memberObject in localSecondaryIndexesArray) {
+        [tableDescription.localSecondaryIndexes addObject:[DynamoDBLocalSecondaryIndexDescriptionUnmarshaller unmarshall:memberObject]];
     }
 
     return tableDescription;

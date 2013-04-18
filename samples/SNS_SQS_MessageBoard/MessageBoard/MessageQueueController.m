@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
 
 #import "MessageQueueController.h"
 #import "MessageBoard.h"
-#import <AWSiOSSDK/AWS_SBJsonParser.h>
+#import <AWSRuntime/AWSRuntime.h>
 
 // View used to display the messages in the queue.
 @implementation MessageQueueController

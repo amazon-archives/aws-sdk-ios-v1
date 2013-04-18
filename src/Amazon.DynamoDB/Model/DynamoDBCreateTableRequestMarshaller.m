@@ -15,8 +15,9 @@
 
 
 #import "DynamoDBCreateTableRequestMarshaller.h"
+#import "DynamoDBAttributeValue.h"
 #import "AmazonJSON.h"
-#import "../AmazonSDKUtil.h"
+#import "AmazonSDKUtil.h"
 
 @implementation DynamoDBCreateTableRequestMarshaller
 
@@ -30,50 +31,114 @@
     [request setRequestTag:[createTableRequest requestTag]];
 
 
-    [request addValue:@"DynamoDB_20111205.CreateTable" forHeader:@"X-Amz-Target"];
+    [request addValue:@"DynamoDB_20120810.CreateTable" forHeader:@"X-Amz-Target"];
     [request addValue:@"application/x-amz-json-1.0"     forHeader:@"Content-Type"];
 
 
     NSMutableDictionary *json = [[[NSMutableDictionary alloc] init] autorelease];
 
+
+    if (createTableRequest.attributeDefinitions != nil) {
+        NSArray *attributeDefinitionsList = createTableRequest.attributeDefinitions;
+        if (attributeDefinitionsList != nil && [attributeDefinitionsList count] > 0) {
+            NSMutableArray *attributeDefinitionsArray = [[[NSMutableArray alloc] init] autorelease];
+            [json setValue:attributeDefinitionsArray forKey:@"AttributeDefinitions"];
+            for (DynamoDBAttributeDefinition *attributeDefinitionsListValue in attributeDefinitionsList) {
+                NSMutableDictionary *attributeDefinitionsArrayObject = [[[NSMutableDictionary alloc] init] autorelease];
+                [attributeDefinitionsArray addObject:attributeDefinitionsArrayObject];
+
+                if (attributeDefinitionsListValue.attributeName != nil) {
+                    [attributeDefinitionsArrayObject setValue:attributeDefinitionsListValue.attributeName forKey:@"AttributeName"];
+                }
+
+                if (attributeDefinitionsListValue.attributeType != nil) {
+                    [attributeDefinitionsArrayObject setValue:attributeDefinitionsListValue.attributeType forKey:@"AttributeType"];
+                }
+            }
+        }
+    }
+
     if (createTableRequest.tableName != nil) {
         [json setValue:createTableRequest.tableName forKey:@"TableName"];
     }
-    if (createTableRequest != nil) {
-        DynamoDBKeySchema *keySchema = createTableRequest.keySchema;
-        if (keySchema != nil) {
-            NSMutableDictionary *keySchemaJson = [[[NSMutableDictionary alloc] init] autorelease];
-            [json setValue:keySchemaJson forKey:@"KeySchema"];
-
-            if (keySchema != nil) {
-                DynamoDBKeySchemaElement *hashKeyElement = keySchema.hashKeyElement;
-                if (hashKeyElement != nil) {
-                    NSMutableDictionary *hashKeyElementJson = [[[NSMutableDictionary alloc] init] autorelease];
-                    [keySchemaJson setValue:hashKeyElementJson forKey:@"HashKeyElement"];
 
 
-                    if (hashKeyElement.attributeName != nil) {
-                        [hashKeyElementJson setValue:hashKeyElement.attributeName forKey:@"AttributeName"];
-                    }
+    if (createTableRequest.keySchema != nil) {
+        NSArray *keySchemaList = createTableRequest.keySchema;
+        if (keySchemaList != nil && [keySchemaList count] > 0) {
+            NSMutableArray *keySchemaArray = [[[NSMutableArray alloc] init] autorelease];
+            [json setValue:keySchemaArray forKey:@"KeySchema"];
+            for (DynamoDBKeySchemaElement *keySchemaListValue in keySchemaList) {
+                NSMutableDictionary *keySchemaArrayObject = [[[NSMutableDictionary alloc] init] autorelease];
+                [keySchemaArray addObject:keySchemaArrayObject];
 
-                    if (hashKeyElement.attributeType != nil) {
-                        [hashKeyElementJson setValue:hashKeyElement.attributeType forKey:@"AttributeType"];
-                    }
+                if (keySchemaListValue.attributeName != nil) {
+                    [keySchemaArrayObject setValue:keySchemaListValue.attributeName forKey:@"AttributeName"];
+                }
+
+                if (keySchemaListValue.keyType != nil) {
+                    [keySchemaArrayObject setValue:keySchemaListValue.keyType forKey:@"KeyType"];
                 }
             }
-            if (keySchema != nil) {
-                DynamoDBKeySchemaElement *rangeKeyElement = keySchema.rangeKeyElement;
-                if (rangeKeyElement != nil) {
-                    NSMutableDictionary *rangeKeyElementJson = [[[NSMutableDictionary alloc] init] autorelease];
-                    [keySchemaJson setValue:rangeKeyElementJson forKey:@"RangeKeyElement"];
+        }
+    }
 
 
-                    if (rangeKeyElement.attributeName != nil) {
-                        [rangeKeyElementJson setValue:rangeKeyElement.attributeName forKey:@"AttributeName"];
+    if (createTableRequest.localSecondaryIndexes != nil) {
+        NSArray *localSecondaryIndexesList = createTableRequest.localSecondaryIndexes;
+        if (localSecondaryIndexesList != nil && [localSecondaryIndexesList count] > 0) {
+            NSMutableArray *localSecondaryIndexesArray = [[[NSMutableArray alloc] init] autorelease];
+            [json setValue:localSecondaryIndexesArray forKey:@"LocalSecondaryIndexes"];
+            for (DynamoDBLocalSecondaryIndex *localSecondaryIndexesListValue in localSecondaryIndexesList) {
+                NSMutableDictionary *localSecondaryIndexesArrayObject = [[[NSMutableDictionary alloc] init] autorelease];
+                [localSecondaryIndexesArray addObject:localSecondaryIndexesArrayObject];
+
+                if (localSecondaryIndexesListValue.indexName != nil) {
+                    [localSecondaryIndexesArrayObject setValue:localSecondaryIndexesListValue.indexName forKey:@"IndexName"];
+                }
+
+
+                if (localSecondaryIndexesListValue.keySchema != nil) {
+                    NSArray *keySchemaList = localSecondaryIndexesListValue.keySchema;
+                    if (keySchemaList != nil && [keySchemaList count] > 0) {
+                        NSMutableArray *keySchemaArray = [[[NSMutableArray alloc] init] autorelease];
+                        [localSecondaryIndexesArrayObject setValue:keySchemaArray forKey:@"KeySchema"];
+                        for (DynamoDBKeySchemaElement *keySchemaListValue in keySchemaList) {
+                            NSMutableDictionary *keySchemaArrayObject = [[[NSMutableDictionary alloc] init] autorelease];
+                            [keySchemaArray addObject:keySchemaArrayObject];
+
+                            if (keySchemaListValue.attributeName != nil) {
+                                [keySchemaArrayObject setValue:keySchemaListValue.attributeName forKey:@"AttributeName"];
+                            }
+
+                            if (keySchemaListValue.keyType != nil) {
+                                [keySchemaArrayObject setValue:keySchemaListValue.keyType forKey:@"KeyType"];
+                            }
+                        }
                     }
+                }
+                if (localSecondaryIndexesListValue != nil) {
+                    DynamoDBProjection *projection = localSecondaryIndexesListValue.projection;
+                    if (projection != nil) {
+                        NSMutableDictionary *projectionJson = [[[NSMutableDictionary alloc] init] autorelease];
+                        [localSecondaryIndexesArrayObject setValue:projectionJson forKey:@"Projection"];
 
-                    if (rangeKeyElement.attributeType != nil) {
-                        [rangeKeyElementJson setValue:rangeKeyElement.attributeType forKey:@"AttributeType"];
+
+                        if (projection.projectionType != nil) {
+                            [projectionJson setValue:projection.projectionType forKey:@"ProjectionType"];
+                        }
+                        if (projection != nil) {
+                            NSArray *nonKeyAttributesList = projection.nonKeyAttributes;
+                            if (nonKeyAttributesList != nil && [nonKeyAttributesList count] > 0) {
+                                NSMutableArray *nonKeyAttributesArray = [[[NSMutableArray alloc] init] autorelease];
+                                [projectionJson setValue:nonKeyAttributesArray forKey:@"NonKeyAttributes"];
+                                for (NSString *nonKeyAttributesListValue in nonKeyAttributesList) {
+                                    if (nonKeyAttributesListValue != nil) {
+                                        [nonKeyAttributesArray addObject:nonKeyAttributesListValue];
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }

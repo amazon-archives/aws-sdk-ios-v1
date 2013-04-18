@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -22,17 +22,18 @@
 }
 
 @property (nonatomic, assign) NSInteger retryCount;
+@property (nonatomic, assign) id<AmazonServiceRequestDelegate> delegate;
 
 @end
 
 @implementation S3PutObjectOperation_Internal
 
-@synthesize delegate = _delegate;
 @synthesize s3 = _s3;
 @synthesize request = _request;
 @synthesize response = _response;
 
 @synthesize retryCount = _retryCount;
+@synthesize delegate = _delegate;
 
 #pragma mark - Class Lifecycle
 
@@ -79,7 +80,9 @@
     _isExecuting = YES;
     [self didChangeValueForKey:@"isExecuting"];
 
+    self.delegate = self.request.delegate;
     self.request.delegate = self;
+    
     [self.s3 putObject:self.request];
 }
 

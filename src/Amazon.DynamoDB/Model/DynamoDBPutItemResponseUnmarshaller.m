@@ -15,9 +15,12 @@
 
 #import "DynamoDBPutItemResponseUnmarshaller.h"
 #import "DynamoDBExceptionUnmarshaller.h"
-#import "../AmazonSDKUtil.h"
+
+#import "AmazonSDKUtil.h"
 #import "DynamoDBAttributeValueUnmarshaller.h"
 #import "DynamoDBAttributeValueUnmarshaller.h"
+#import "DynamoDBConsumedCapacityUnmarshaller.h"
+#import "DynamoDBItemCollectionMetricsUnmarshaller.h"
 
 
 @implementation DynamoDBPutItemResponseUnmarshaller
@@ -39,8 +42,13 @@
         }
 
 
-        if ([jsonObject valueForKey:@"ConsumedCapacityUnits"] != nil) {
-            putItemResult.consumedCapacityUnits = [jsonObject valueForKey:@"ConsumedCapacityUnits"];
+        if ([jsonObject valueForKey:@"ConsumedCapacity"] != nil) {
+            putItemResult.consumedCapacity = [DynamoDBConsumedCapacityUnmarshaller unmarshall:[jsonObject valueForKey:@"ConsumedCapacity"]];
+        }
+
+
+        if ([jsonObject valueForKey:@"ItemCollectionMetrics"] != nil) {
+            putItemResult.itemCollectionMetrics = [DynamoDBItemCollectionMetricsUnmarshaller unmarshall:[jsonObject valueForKey:@"ItemCollectionMetrics"]];
         }
     }
 

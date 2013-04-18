@@ -13,9 +13,13 @@
  * permissions and limitations under the License.
  */
 
-#import <Foundation/Foundation.h>
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonServiceRequest.h>
+#import <AWSRuntime/AmazonAuthUtils.h>
+#else
 #import "../AmazonServiceRequest.h"
 #import "../AmazonAuthUtils.h"
+#endif
 
 
 /**

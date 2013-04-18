@@ -14,8 +14,8 @@
  */
 
 #import "AmazonSNSClient.h"
-#import "../AmazonEndpoints.h"
-#import "../AmazonServiceRequest.h"
+#import "AmazonEndpoints.h"
+#import "AmazonServiceRequest.h"
 #import "SNSConfirmSubscriptionResponseUnmarshaller.h"
 #import "SNSConfirmSubscriptionRequestMarshaller.h"
 #import "SNSGetTopicAttributesResponseUnmarshaller.h"

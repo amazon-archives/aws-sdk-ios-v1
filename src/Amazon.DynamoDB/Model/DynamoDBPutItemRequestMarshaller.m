@@ -15,8 +15,9 @@
 
 
 #import "DynamoDBPutItemRequestMarshaller.h"
+#import "DynamoDBAttributeValue.h"
 #import "AmazonJSON.h"
-#import "../AmazonSDKUtil.h"
+#import "AmazonSDKUtil.h"
 
 @implementation DynamoDBPutItemRequestMarshaller
 
@@ -30,7 +31,7 @@
     [request setRequestTag:[putItemRequest requestTag]];
 
 
-    [request addValue:@"DynamoDB_20111205.PutItem" forHeader:@"X-Amz-Target"];
+    [request addValue:@"DynamoDB_20120810.PutItem" forHeader:@"X-Amz-Target"];
     [request addValue:@"application/x-amz-json-1.0"     forHeader:@"Content-Type"];
 
 
@@ -39,7 +40,7 @@
     if (putItemRequest.tableName != nil) {
         [json setValue:putItemRequest.tableName forKey:@"TableName"];
     }
-    if (putItemRequest.item != nil) {
+    if (putItemRequest.item != nil && [putItemRequest.item count] > 0) {
         NSMutableDictionary *itemJson = [[[NSMutableDictionary alloc] init] autorelease];
         [json setValue:itemJson forKey:@"Item"];
         for (NSString *itemListValue in putItemRequest.item) {
@@ -96,7 +97,7 @@
             }
         }
     }
-    if (putItemRequest.expected != nil) {
+    if (putItemRequest.expected != nil && [putItemRequest.expected count] > 0) {
         NSMutableDictionary *expectedJson = [[[NSMutableDictionary alloc] init] autorelease];
         [json setValue:expectedJson forKey:@"Expected"];
         for (NSString *expectedListValue in putItemRequest.expected) {
@@ -168,6 +169,14 @@
 
     if (putItemRequest.returnValues != nil) {
         [json setValue:putItemRequest.returnValues forKey:@"ReturnValues"];
+    }
+
+    if (putItemRequest.returnConsumedCapacity != nil) {
+        [json setValue:putItemRequest.returnConsumedCapacity forKey:@"ReturnConsumedCapacity"];
+    }
+
+    if (putItemRequest.returnItemCollectionMetrics != nil) {
+        [json setValue:putItemRequest.returnItemCollectionMetrics forKey:@"ReturnItemCollectionMetrics"];
     }
 
 

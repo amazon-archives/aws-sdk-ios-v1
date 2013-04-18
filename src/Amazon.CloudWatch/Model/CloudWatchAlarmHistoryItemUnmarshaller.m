@@ -14,7 +14,11 @@
  */
 
 #import "CloudWatchAlarmHistoryItemUnmarshaller.h"
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonServiceExceptionUnmarshaller.h>
+#else
 #import "../AmazonServiceExceptionUnmarshaller.h"
+#endif
 
 @implementation CloudWatchAlarmHistoryItemUnmarshaller
 

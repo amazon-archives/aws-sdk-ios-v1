@@ -21,22 +21,22 @@
 @synthesize tableName;
 @synthesize attributesToGet;
 @synthesize limit;
-@synthesize count;
-@synthesize countIsSet;
+@synthesize select;
 @synthesize scanFilter;
 @synthesize exclusiveStartKey;
+@synthesize returnConsumedCapacity;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        tableName         = nil;
-        attributesToGet   = [[NSMutableArray alloc] initWithCapacity:1];
-        limit             = nil;
-        count             = NO;
-        countIsSet        = NO;
-        scanFilter        = [[NSMutableDictionary alloc] initWithCapacity:1];
-        exclusiveStartKey = nil;
+        tableName              = nil;
+        attributesToGet        = [[NSMutableArray alloc] initWithCapacity:1];
+        limit                  = nil;
+        select                 = nil;
+        scanFilter             = [[NSMutableDictionary alloc] initWithCapacity:1];
+        exclusiveStartKey      = [[NSMutableDictionary alloc] initWithCapacity:1];
+        returnConsumedCapacity = nil;
     }
 
     return self;
@@ -70,6 +70,15 @@
     [scanFilter setValue:theValue forKey:theKey];
 }
 
+-(void)setExclusiveStartKeyValue:(DynamoDBAttributeValue *)theValue forKey:(NSString *)theKey
+{
+    if (exclusiveStartKey == nil) {
+        exclusiveStartKey = [[NSMutableDictionary alloc] initWithCapacity:1];
+    }
+
+    [exclusiveStartKey setValue:theValue forKey:theKey];
+}
+
 
 -(NSString *)description
 {
@@ -79,9 +88,10 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"TableName: %@,", tableName] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"AttributesToGet: %@,", attributesToGet] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Limit: %@,", limit] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Count: %d,", count] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Select: %@,", select] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ScanFilter: %@,", scanFilter] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ExclusiveStartKey: %@,", exclusiveStartKey] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"ReturnConsumedCapacity: %@,", returnConsumedCapacity] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -89,20 +99,16 @@
 }
 
 
--(void)setCount:(bool)theValue
-{
-    count      = theValue;
-    countIsSet = YES;
-}
-
 
 -(void)dealloc
 {
     [tableName release];
     [attributesToGet release];
     [limit release];
+    [select release];
     [scanFilter release];
     [exclusiveStartKey release];
+    [returnConsumedCapacity release];
 
     [super dealloc];
 }

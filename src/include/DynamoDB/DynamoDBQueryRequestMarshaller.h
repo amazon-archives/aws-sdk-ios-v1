@@ -13,32 +13,14 @@
  * permissions and limitations under the License.
  */
 
-
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonServiceRequest.h>
+#else
 #import "../AmazonServiceRequest.h"
+#endif
 
 #import "DynamoDBRequest.h"
 #import "DynamoDBQueryRequest.h"
-#import "DynamoDBAttributeValue.h"
-#import "DynamoDBAttributeValue.h"
-#import "DynamoDBAttributeValue.h"
-#import "DynamoDBAttributeValue.h"
-#import "DynamoDBAttributeValue.h"
-#import "DynamoDBAttributeValue.h"
-#import "DynamoDBAttributeValue.h"
-#import "DynamoDBCondition.h"
-#import "DynamoDBAttributeValue.h"
-#import "DynamoDBAttributeValue.h"
-#import "DynamoDBAttributeValue.h"
-#import "DynamoDBAttributeValue.h"
-#import "DynamoDBAttributeValue.h"
-#import "DynamoDBAttributeValue.h"
-#import "DynamoDBKey.h"
-#import "DynamoDBAttributeValue.h"
-#import "DynamoDBAttributeValue.h"
-#import "DynamoDBAttributeValue.h"
-#import "DynamoDBAttributeValue.h"
-#import "DynamoDBAttributeValue.h"
-#import "DynamoDBAttributeValue.h"
 
 
 /**

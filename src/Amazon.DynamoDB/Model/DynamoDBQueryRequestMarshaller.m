@@ -15,8 +15,9 @@
 
 
 #import "DynamoDBQueryRequestMarshaller.h"
+#import "DynamoDBAttributeValue.h"
 #import "AmazonJSON.h"
-#import "../AmazonSDKUtil.h"
+#import "AmazonSDKUtil.h"
 
 @implementation DynamoDBQueryRequestMarshaller
 
@@ -30,7 +31,7 @@
     [request setRequestTag:[queryRequest requestTag]];
 
 
-    [request addValue:@"DynamoDB_20111205.Query" forHeader:@"X-Amz-Target"];
+    [request addValue:@"DynamoDB_20120810.Query" forHeader:@"X-Amz-Target"];
     [request addValue:@"application/x-amz-json-1.0"     forHeader:@"Content-Type"];
 
 
@@ -38,6 +39,14 @@
 
     if (queryRequest.tableName != nil) {
         [json setValue:queryRequest.tableName forKey:@"TableName"];
+    }
+
+    if (queryRequest.indexName != nil) {
+        [json setValue:queryRequest.indexName forKey:@"IndexName"];
+    }
+
+    if (queryRequest.select != nil) {
+        [json setValue:queryRequest.select forKey:@"Select"];
     }
     if (queryRequest != nil) {
         NSArray *attributesToGetList = queryRequest.attributesToGet;
@@ -59,79 +68,20 @@
     if (queryRequest.consistentReadIsSet) {
         [json setValue:(queryRequest.consistentRead ? @"true":@"false") forKey:@"ConsistentRead"];
     }
-
-    if (queryRequest.countIsSet) {
-        [json setValue:(queryRequest.count ? @"true":@"false") forKey:@"Count"];
-    }
-    if (queryRequest != nil) {
-        DynamoDBAttributeValue *hashKeyValue = queryRequest.hashKeyValue;
-        if (hashKeyValue != nil) {
-            NSMutableDictionary *hashKeyValueJson = [[[NSMutableDictionary alloc] init] autorelease];
-            [json setValue:hashKeyValueJson forKey:@"HashKeyValue"];
+    if (queryRequest.keyConditions != nil && [queryRequest.keyConditions count] > 0) {
+        NSMutableDictionary *keyConditionsJson = [[[NSMutableDictionary alloc] init] autorelease];
+        [json setValue:keyConditionsJson forKey:@"KeyConditions"];
+        for (NSString *keyConditionsListValue in queryRequest.keyConditions) {
+            NSMutableDictionary *keyConditionsListValueJson = [[[NSMutableDictionary alloc] init] autorelease];
+            [keyConditionsJson setValue:keyConditionsListValueJson forKey:keyConditionsListValue];
+            DynamoDBCondition   *keyConditionsListValueValue = [queryRequest.keyConditions valueForKey:keyConditionsListValue];
 
 
-            if (hashKeyValue.s != nil) {
-                [hashKeyValueJson setValue:hashKeyValue.s forKey:@"S"];
-            }
-
-            if (hashKeyValue.n != nil) {
-                [hashKeyValueJson setValue:hashKeyValue.n forKey:@"N"];
-            }
-
-            if (hashKeyValue.b != nil) {
-                [hashKeyValueJson setValue:[hashKeyValue.b base64EncodedString] forKey:@"B"];
-            }
-            if (hashKeyValue != nil) {
-                NSArray *sSList = hashKeyValue.sS;
-                if (sSList != nil && [sSList count] > 0) {
-                    NSMutableArray *sSArray = [[[NSMutableArray alloc] init] autorelease];
-                    [hashKeyValueJson setValue:sSArray forKey:@"SS"];
-                    for (NSString *sSListValue in sSList) {
-                        if (sSListValue != nil) {
-                            [sSArray addObject:sSListValue];
-                        }
-                    }
-                }
-            }
-            if (hashKeyValue != nil) {
-                NSArray *nSList = hashKeyValue.nS;
-                if (nSList != nil && [nSList count] > 0) {
-                    NSMutableArray *nSArray = [[[NSMutableArray alloc] init] autorelease];
-                    [hashKeyValueJson setValue:nSArray forKey:@"NS"];
-                    for (NSString *nSListValue in nSList) {
-                        if (nSListValue != nil) {
-                            [nSArray addObject:nSListValue];
-                        }
-                    }
-                }
-            }
-            if (hashKeyValue != nil) {
-                NSArray *bSList = hashKeyValue.bS;
-                if (bSList != nil && [bSList count] > 0) {
-                    NSMutableArray *bSArray = [[[NSMutableArray alloc] init] autorelease];
-                    [hashKeyValueJson setValue:bSArray forKey:@"BS"];
-                    for (NSData *bSListValue in bSList) {
-                        if (bSListValue != nil) {
-                            [bSArray addObject:[bSListValue base64EncodedString]];
-                        }
-                    }
-                }
-            }
-        }
-    }
-    if (queryRequest != nil) {
-        DynamoDBCondition *rangeKeyCondition = queryRequest.rangeKeyCondition;
-        if (rangeKeyCondition != nil) {
-            NSMutableDictionary *rangeKeyConditionJson = [[[NSMutableDictionary alloc] init] autorelease];
-            [json setValue:rangeKeyConditionJson forKey:@"RangeKeyCondition"];
-
-
-
-            if (rangeKeyCondition != nil) {
-                NSArray *attributeValueListList = rangeKeyCondition.attributeValueList;
+            if (keyConditionsListValueValue.attributeValueList != nil) {
+                NSArray *attributeValueListList = keyConditionsListValueValue.attributeValueList;
                 if (attributeValueListList != nil && [attributeValueListList count] > 0) {
                     NSMutableArray *attributeValueListArray = [[[NSMutableArray alloc] init] autorelease];
-                    [rangeKeyConditionJson setValue:attributeValueListArray forKey:@"AttributeValueList"];
+                    [keyConditionsListValueJson setValue:attributeValueListArray forKey:@"AttributeValueList"];
                     for (DynamoDBAttributeValue *attributeValueListListValue in attributeValueListList) {
                         NSMutableDictionary *attributeValueListArrayObject = [[[NSMutableDictionary alloc] init] autorelease];
                         [attributeValueListArray addObject:attributeValueListArrayObject];
@@ -187,8 +137,8 @@
                 }
             }
 
-            if (rangeKeyCondition.comparisonOperator != nil) {
-                [rangeKeyConditionJson setValue:rangeKeyCondition.comparisonOperator forKey:@"ComparisonOperator"];
+            if (keyConditionsListValueValue.comparisonOperator != nil) {
+                [keyConditionsListValueJson setValue:keyConditionsListValueValue.comparisonOperator forKey:@"ComparisonOperator"];
             }
         }
     }
@@ -196,125 +146,66 @@
     if (queryRequest.scanIndexForwardIsSet) {
         [json setValue:(queryRequest.scanIndexForward ? @"true":@"false") forKey:@"ScanIndexForward"];
     }
-    if (queryRequest != nil) {
-        DynamoDBKey *exclusiveStartKey = queryRequest.exclusiveStartKey;
-        if (exclusiveStartKey != nil) {
-            NSMutableDictionary *exclusiveStartKeyJson = [[[NSMutableDictionary alloc] init] autorelease];
-            [json setValue:exclusiveStartKeyJson forKey:@"ExclusiveStartKey"];
+    if (queryRequest.exclusiveStartKey != nil && [queryRequest.exclusiveStartKey count] > 0) {
+        NSMutableDictionary *exclusiveStartKeyJson = [[[NSMutableDictionary alloc] init] autorelease];
+        [json setValue:exclusiveStartKeyJson forKey:@"ExclusiveStartKey"];
+        for (NSString *exclusiveStartKeyListValue in queryRequest.exclusiveStartKey) {
+            NSMutableDictionary    *exclusiveStartKeyListValueJson = [[[NSMutableDictionary alloc] init] autorelease];
+            [exclusiveStartKeyJson setValue:exclusiveStartKeyListValueJson forKey:exclusiveStartKeyListValue];
+            DynamoDBAttributeValue *exclusiveStartKeyListValueValue = [queryRequest.exclusiveStartKey valueForKey:exclusiveStartKeyListValue];
 
-            if (exclusiveStartKey != nil) {
-                DynamoDBAttributeValue *hashKeyElement = exclusiveStartKey.hashKeyElement;
-                if (hashKeyElement != nil) {
-                    NSMutableDictionary *hashKeyElementJson = [[[NSMutableDictionary alloc] init] autorelease];
-                    [exclusiveStartKeyJson setValue:hashKeyElementJson forKey:@"HashKeyElement"];
+            if (exclusiveStartKeyListValueValue.s != nil) {
+                [exclusiveStartKeyListValueJson setValue:exclusiveStartKeyListValueValue.s forKey:@"S"];
+            }
 
+            if (exclusiveStartKeyListValueValue.n != nil) {
+                [exclusiveStartKeyListValueJson setValue:exclusiveStartKeyListValueValue.n forKey:@"N"];
+            }
 
-                    if (hashKeyElement.s != nil) {
-                        [hashKeyElementJson setValue:hashKeyElement.s forKey:@"S"];
-                    }
-
-                    if (hashKeyElement.n != nil) {
-                        [hashKeyElementJson setValue:hashKeyElement.n forKey:@"N"];
-                    }
-
-                    if (hashKeyElement.b != nil) {
-                        [hashKeyElementJson setValue:[hashKeyElement.b base64EncodedString] forKey:@"B"];
-                    }
-                    if (hashKeyElement != nil) {
-                        NSArray *sSList = hashKeyElement.sS;
-                        if (sSList != nil && [sSList count] > 0) {
-                            NSMutableArray *sSArray = [[[NSMutableArray alloc] init] autorelease];
-                            [hashKeyElementJson setValue:sSArray forKey:@"SS"];
-                            for (NSString *sSListValue in sSList) {
-                                if (sSListValue != nil) {
-                                    [sSArray addObject:sSListValue];
-                                }
-                            }
-                        }
-                    }
-                    if (hashKeyElement != nil) {
-                        NSArray *nSList = hashKeyElement.nS;
-                        if (nSList != nil && [nSList count] > 0) {
-                            NSMutableArray *nSArray = [[[NSMutableArray alloc] init] autorelease];
-                            [hashKeyElementJson setValue:nSArray forKey:@"NS"];
-                            for (NSString *nSListValue in nSList) {
-                                if (nSListValue != nil) {
-                                    [nSArray addObject:nSListValue];
-                                }
-                            }
-                        }
-                    }
-                    if (hashKeyElement != nil) {
-                        NSArray *bSList = hashKeyElement.bS;
-                        if (bSList != nil && [bSList count] > 0) {
-                            NSMutableArray *bSArray = [[[NSMutableArray alloc] init] autorelease];
-                            [hashKeyElementJson setValue:bSArray forKey:@"BS"];
-                            for (NSData *bSListValue in bSList) {
-                                if (bSListValue != nil) {
-                                    [bSArray addObject:[bSListValue base64EncodedString]];
-                                }
-                            }
+            if (exclusiveStartKeyListValueValue.b != nil) {
+                [exclusiveStartKeyListValueJson setValue:[exclusiveStartKeyListValueValue.b base64EncodedString] forKey:@"B"];
+            }
+            if (exclusiveStartKeyListValueValue != nil) {
+                NSArray *sSList = exclusiveStartKeyListValueValue.sS;
+                if (sSList != nil && [sSList count] > 0) {
+                    NSMutableArray *sSArray = [[[NSMutableArray alloc] init] autorelease];
+                    [exclusiveStartKeyListValueJson setValue:sSArray forKey:@"SS"];
+                    for (NSString *sSListValue in sSList) {
+                        if (sSListValue != nil) {
+                            [sSArray addObject:sSListValue];
                         }
                     }
                 }
             }
-            if (exclusiveStartKey != nil) {
-                DynamoDBAttributeValue *rangeKeyElement = exclusiveStartKey.rangeKeyElement;
-                if (rangeKeyElement != nil) {
-                    NSMutableDictionary *rangeKeyElementJson = [[[NSMutableDictionary alloc] init] autorelease];
-                    [exclusiveStartKeyJson setValue:rangeKeyElementJson forKey:@"RangeKeyElement"];
-
-
-                    if (rangeKeyElement.s != nil) {
-                        [rangeKeyElementJson setValue:rangeKeyElement.s forKey:@"S"];
-                    }
-
-                    if (rangeKeyElement.n != nil) {
-                        [rangeKeyElementJson setValue:rangeKeyElement.n forKey:@"N"];
-                    }
-
-                    if (rangeKeyElement.b != nil) {
-                        [rangeKeyElementJson setValue:[rangeKeyElement.b base64EncodedString] forKey:@"B"];
-                    }
-                    if (rangeKeyElement != nil) {
-                        NSArray *sSList = rangeKeyElement.sS;
-                        if (sSList != nil && [sSList count] > 0) {
-                            NSMutableArray *sSArray = [[[NSMutableArray alloc] init] autorelease];
-                            [rangeKeyElementJson setValue:sSArray forKey:@"SS"];
-                            for (NSString *sSListValue in sSList) {
-                                if (sSListValue != nil) {
-                                    [sSArray addObject:sSListValue];
-                                }
-                            }
+            if (exclusiveStartKeyListValueValue != nil) {
+                NSArray *nSList = exclusiveStartKeyListValueValue.nS;
+                if (nSList != nil && [nSList count] > 0) {
+                    NSMutableArray *nSArray = [[[NSMutableArray alloc] init] autorelease];
+                    [exclusiveStartKeyListValueJson setValue:nSArray forKey:@"NS"];
+                    for (NSString *nSListValue in nSList) {
+                        if (nSListValue != nil) {
+                            [nSArray addObject:nSListValue];
                         }
                     }
-                    if (rangeKeyElement != nil) {
-                        NSArray *nSList = rangeKeyElement.nS;
-                        if (nSList != nil && [nSList count] > 0) {
-                            NSMutableArray *nSArray = [[[NSMutableArray alloc] init] autorelease];
-                            [rangeKeyElementJson setValue:nSArray forKey:@"NS"];
-                            for (NSString *nSListValue in nSList) {
-                                if (nSListValue != nil) {
-                                    [nSArray addObject:nSListValue];
-                                }
-                            }
-                        }
-                    }
-                    if (rangeKeyElement != nil) {
-                        NSArray *bSList = rangeKeyElement.bS;
-                        if (bSList != nil && [bSList count] > 0) {
-                            NSMutableArray *bSArray = [[[NSMutableArray alloc] init] autorelease];
-                            [rangeKeyElementJson setValue:bSArray forKey:@"BS"];
-                            for (NSData *bSListValue in bSList) {
-                                if (bSListValue != nil) {
-                                    [bSArray addObject:[bSListValue base64EncodedString]];
-                                }
-                            }
+                }
+            }
+            if (exclusiveStartKeyListValueValue != nil) {
+                NSArray *bSList = exclusiveStartKeyListValueValue.bS;
+                if (bSList != nil && [bSList count] > 0) {
+                    NSMutableArray *bSArray = [[[NSMutableArray alloc] init] autorelease];
+                    [exclusiveStartKeyListValueJson setValue:bSArray forKey:@"BS"];
+                    for (NSData *bSListValue in bSList) {
+                        if (bSListValue != nil) {
+                            [bSArray addObject:[bSListValue base64EncodedString]];
                         }
                     }
                 }
             }
         }
+    }
+
+    if (queryRequest.returnConsumedCapacity != nil) {
+        [json setValue:queryRequest.returnConsumedCapacity forKey:@"ReturnConsumedCapacity"];
     }
 
 

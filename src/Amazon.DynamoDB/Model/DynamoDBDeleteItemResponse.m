@@ -19,14 +19,16 @@
 @implementation DynamoDBDeleteItemResponse
 
 @synthesize attributes;
-@synthesize consumedCapacityUnits;
+@synthesize consumedCapacity;
+@synthesize itemCollectionMetrics;
 
 
 -(id)init
 {
     if (self = [super init]) {
         attributes            = [[NSMutableDictionary alloc] initWithCapacity:1];
-        consumedCapacityUnits = nil;
+        consumedCapacity      = nil;
+        itemCollectionMetrics = nil;
     }
 
     return self;
@@ -37,9 +39,14 @@
 {
     AmazonServiceException *newException = nil;
 
-    if ([[theException errorCode] isEqualToString:@"ProvisionedThroughputExceededException"]) {
+    if ([[theException errorCode] isEqualToString:@"ItemCollectionSizeLimitExceededException"]) {
         [newException release];
-        newException = [[DynamoDBProvisionedThroughputExceededException alloc] initWithMessage:@""];
+        newException = [[DynamoDBItemCollectionSizeLimitExceededException alloc] initWithMessage:@""];
+    }
+
+    if ([[theException errorCode] isEqualToString:@"ResourceNotFoundException"]) {
+        [newException release];
+        newException = [[DynamoDBResourceNotFoundException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"ConditionalCheckFailedException"]) {
@@ -47,14 +54,14 @@
         newException = [[DynamoDBConditionalCheckFailedException alloc] initWithMessage:@""];
     }
 
+    if ([[theException errorCode] isEqualToString:@"ProvisionedThroughputExceededException"]) {
+        [newException release];
+        newException = [[DynamoDBProvisionedThroughputExceededException alloc] initWithMessage:@""];
+    }
+
     if ([[theException errorCode] isEqualToString:@"InternalServerError"]) {
         [newException release];
         newException = [[DynamoDBInternalServerErrorException alloc] initWithMessage:@""];
-    }
-
-    if ([[theException errorCode] isEqualToString:@"ResourceNotFoundException"]) {
-        [newException release];
-        newException = [[DynamoDBResourceNotFoundException alloc] initWithMessage:@""];
     }
 
     if (newException != nil) {
@@ -81,7 +88,8 @@
 
     [buffer appendString:@"{"];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Attributes: %@,", attributes] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"ConsumedCapacityUnits: %@,", consumedCapacityUnits] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"ConsumedCapacity: %@,", consumedCapacity] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"ItemCollectionMetrics: %@,", itemCollectionMetrics] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -93,7 +101,8 @@
 -(void)dealloc
 {
     [attributes release];
-    [consumedCapacityUnits release];
+    [consumedCapacity release];
+    [itemCollectionMetrics release];
 
     [super dealloc];
 }

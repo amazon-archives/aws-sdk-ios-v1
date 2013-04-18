@@ -14,8 +14,8 @@
  */
 
 #import "AmazonSQSClient.h"
-#import "../AmazonEndpoints.h"
-#import "../AmazonServiceRequest.h"
+#import "AmazonEndpoints.h"
+#import "AmazonServiceRequest.h"
 #import "SQSSetQueueAttributesResponseUnmarshaller.h"
 #import "SQSSetQueueAttributesRequestMarshaller.h"
 #import "SQSChangeMessageVisibilityBatchResponseUnmarshaller.h"

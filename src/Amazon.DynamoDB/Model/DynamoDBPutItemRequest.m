@@ -22,15 +22,19 @@
 @synthesize item;
 @synthesize expected;
 @synthesize returnValues;
+@synthesize returnConsumedCapacity;
+@synthesize returnItemCollectionMetrics;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        tableName    = nil;
-        item         = [[NSMutableDictionary alloc] initWithCapacity:1];
-        expected     = [[NSMutableDictionary alloc] initWithCapacity:1];
-        returnValues = nil;
+        tableName                   = nil;
+        item                        = [[NSMutableDictionary alloc] initWithCapacity:1];
+        expected                    = [[NSMutableDictionary alloc] initWithCapacity:1];
+        returnValues                = nil;
+        returnConsumedCapacity      = nil;
+        returnItemCollectionMetrics = nil;
     }
 
     return self;
@@ -75,6 +79,8 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Item: %@,", item] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Expected: %@,", expected] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ReturnValues: %@,", returnValues] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"ReturnConsumedCapacity: %@,", returnConsumedCapacity] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"ReturnItemCollectionMetrics: %@,", returnItemCollectionMetrics] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -89,6 +95,8 @@
     [item release];
     [expected release];
     [returnValues release];
+    [returnConsumedCapacity release];
+    [returnItemCollectionMetrics release];
 
     [super dealloc];
 }

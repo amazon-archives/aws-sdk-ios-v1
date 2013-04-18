@@ -15,8 +15,7 @@
 
 #import "AWSPersistenceDynamoDBIncrementalStore.h"
 #import <objc/message.h>
-#import <AWSiOSSDK/AmazonErrorHandler.h>
-#import <AWSiOSSDK/DynamoDB/AmazonDynamoDBClient.h>
+#import <AWSDynamoDB/AWSDynamoDB.h>
 
 // Public Constants
 NSString *const AWSPersistenceDynamoDBIncrementalStoreType = @"AWSPersistenceDynamoDBIncrementalStore";
@@ -221,7 +220,8 @@ NSString *const AWSPersistenceDynamoDBUserAgentPrefix = @"Persistence Framework"
     @try
     {
         DynamoDBAttributeValue *attributeValue = [self attributeValueFromObject:[objectIdToHashKey valueForKey:objectID.URIRepresentation.description]];
-        DynamoDBKey *key = [[DynamoDBKey alloc] initWithHashKeyElement:attributeValue];
+        NSMutableDictionary *key = [NSMutableDictionary dictionaryWithObject:attributeValue
+                                                                      forKey:[self hashKeyForEntityName:objectID.entity.name]];
         DynamoDBGetItemRequest *getItemRequest = [[DynamoDBGetItemRequest alloc] initWithTableName:[self tableNameForEntityName:objectID.entity.name]
                                                                                             andKey:key];
         getItemRequest.consistentRead = YES;
@@ -330,7 +330,8 @@ NSString *const AWSPersistenceDynamoDBUserAgentPrefix = @"Persistence Framework"
     @try
     {
         DynamoDBAttributeValue *attributeValue = [self attributeValueFromObject:[objectIdToHashKey valueForKey:objectID.URIRepresentation.description]];
-        DynamoDBKey *key = [[DynamoDBKey alloc] initWithHashKeyElement:attributeValue];
+        NSMutableDictionary *key = [NSMutableDictionary dictionaryWithObject:attributeValue
+                                                                      forKey:[self hashKeyForEntityName:objectID.entity.name]];
         DynamoDBGetItemRequest *getItemRequest = [[DynamoDBGetItemRequest alloc] initWithTableName:[self tableNameForEntityName:objectID.entity.name]
                                                                                             andKey:key];
         getItemRequest.consistentRead = YES;
@@ -451,13 +452,20 @@ NSString *const AWSPersistenceDynamoDBUserAgentPrefix = @"Persistence Framework"
         DynamoDBScanRequest  *scanRequest  = [[DynamoDBScanRequest alloc] initWithTableName:[self tableNameForEntityName:request.entityName]];
         scanRequest.attributesToGet = [NSMutableArray arrayWithObject:[self hashKeyForEntityName:request.entity.name]];
 
-        DynamoDBKey *lastEvaluatedKey = nil;
+        NSMutableDictionary *lastEvaluatedKey = nil;
         DynamoDBScanResponse *response = nil;
 
         NSDictionary *attributeClasses = [self attributeClassesForClassName:request.entityName];
 
         do {
-            scanRequest.exclusiveStartKey = lastEvaluatedKey;
+            if([lastEvaluatedKey count] > 0)
+            {
+                scanRequest.exclusiveStartKey = lastEvaluatedKey;
+            }
+            else
+            {
+                scanRequest.exclusiveStartKey = nil;
+            }
 
             response = [self.ddb scan:scanRequest];
 
@@ -496,7 +504,7 @@ NSString *const AWSPersistenceDynamoDBUserAgentPrefix = @"Persistence Framework"
                 *error = response.error;
                 return nil;
             }
-        } while (lastEvaluatedKey != nil);
+        } while ([lastEvaluatedKey count] > 0);
 
         return resultArray;
     }
@@ -515,7 +523,8 @@ NSString *const AWSPersistenceDynamoDBUserAgentPrefix = @"Persistence Framework"
         NSMutableArray *resultArray = [NSMutableArray array];
 
         DynamoDBAttributeValue *attributeValue = [self attributeValueFromObject:hashKey];
-        DynamoDBKey *key = [[DynamoDBKey alloc] initWithHashKeyElement:attributeValue];
+        NSMutableDictionary *key = [NSMutableDictionary dictionaryWithObject:attributeValue
+                                                                      forKey:[self hashKeyForEntityName:request.entity.name]];
         DynamoDBGetItemRequest *getItemRequest = [[DynamoDBGetItemRequest alloc] initWithTableName:[self tableNameForEntityName:request.entity.name]
                                                                                             andKey:key];
         getItemRequest.consistentRead = YES;
@@ -585,8 +594,14 @@ NSString *const AWSPersistenceDynamoDBUserAgentPrefix = @"Persistence Framework"
                 if([o isKindOfClass:[NSAttributeDescription class]])
                 {
                     NSAttributeDescription *ad = (NSAttributeDescription *)o;
+                    DynamoDBAttributeValue *attributeValue = [self attributeValueFromObject:[managedObject valueForKey:ad.name]];
 
-                    [userDic setValue:[self attributeValueFromObject:[managedObject valueForKey:ad.name]] forKey:ad.name];
+                    if(attributeValue.s != nil || attributeValue.n != nil || attributeValue.b != nil
+                       || ![attributeValue.s isEqualToString:@""]
+                       || ![attributeValue.n isEqualToString:@""])
+                    {
+                        [userDic setValue:attributeValue forKey:ad.name];
+                    }
                 }
                 else if([o isKindOfClass:[NSRelationshipDescription class]])
                 {
@@ -793,7 +808,8 @@ NSString *const AWSPersistenceDynamoDBUserAgentPrefix = @"Persistence Framework"
             [userDic setValue:attributeValueUpdate forKey:[self versionKeyForEntityName:managedObject.entity.name]];
 
             attributeValue = [self attributeValueFromObject:[managedObject valueForKey:[self hashKeyForEntityName:managedObject.entity.name]]];
-            DynamoDBKey *hashKey = [[DynamoDBKey alloc] initWithHashKeyElement:attributeValue];
+            NSMutableDictionary *hashKey = [NSMutableDictionary dictionaryWithObject:attributeValue
+                                                                              forKey:[self hashKeyForEntityName:managedObject.entity.name]];
             DynamoDBUpdateItemRequest *updateItemRequest = [[DynamoDBUpdateItemRequest alloc] initWithTableName:[self tableNameForEntityName:managedObject.entity.name]
                                                                                                          andKey:hashKey
                                                                                             andAttributeUpdates:userDic];
@@ -843,7 +859,8 @@ NSString *const AWSPersistenceDynamoDBUserAgentPrefix = @"Persistence Framework"
         for(NSManagedObject *managedObject in deletedObjects)
         {
             DynamoDBAttributeValue *attributeValue = [self attributeValueFromObject:[managedObject valueForKey:[self hashKeyForEntityName:managedObject.entity.name]]];
-            DynamoDBKey *hashKey = [[DynamoDBKey alloc] initWithHashKeyElement:attributeValue];
+            NSMutableDictionary *hashKey = [NSMutableDictionary dictionaryWithObject:attributeValue
+                                                                              forKey:[self hashKeyForEntityName:managedObject.entity.name]];
 
             DynamoDBDeleteRequest *deleteRequest = [DynamoDBDeleteRequest new];
             deleteRequest.key = hashKey;

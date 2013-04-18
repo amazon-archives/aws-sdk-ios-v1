@@ -13,14 +13,16 @@
  * permissions and limitations under the License.
  */
 
-#import "DynamoDBBatchWriteResponse.h"
 #import "DynamoDBWriteRequest.h"
+#import "DynamoDBItemCollectionMetrics.h"
+#import "DynamoDBConsumedCapacity.h"
 
 #import "DynamoDBResponse.h"
 
+#import "DynamoDBItemCollectionSizeLimitExceededException.h"
+#import "DynamoDBResourceNotFoundException.h"
 #import "DynamoDBProvisionedThroughputExceededException.h"
 #import "DynamoDBInternalServerErrorException.h"
-#import "DynamoDBResourceNotFoundException.h"
 
 
 /**
@@ -30,8 +32,9 @@
 @interface DynamoDBBatchWriteItemResponse:DynamoDBResponse
 
 {
-    NSMutableDictionary *responses;
     NSMutableDictionary *unprocessedItems;
+    NSMutableDictionary *itemCollectionMetrics;
+    NSMutableArray      *consumedCapacity;
 }
 
 
@@ -46,16 +49,7 @@
 -(id)init;
 
 /**
- * The response object as a result of <code>BatchWriteItem</code> call.
- * This is essentially a map of table name to
- * <code>ConsumedCapacityUnits</code>.
- */
-@property (nonatomic, retain) NSMutableDictionary *responses;
-
-/**
- * The Items which we could not successfully process in a
- * <code>BatchWriteItem</code> call is returned as
- * <code>UnprocessedItems</code>
+ * The value of the UnprocessedItems property for this object.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 25<br/>
@@ -63,14 +57,31 @@
 @property (nonatomic, retain) NSMutableDictionary *unprocessedItems;
 
 /**
- * Returns a value from the responses dictionary for the specified key.
+ * The value of the ItemCollectionMetrics property for this object.
  */
--(DynamoDBBatchWriteResponse *)responsesValueForKey:(NSString *)theKey;
+@property (nonatomic, retain) NSMutableDictionary *itemCollectionMetrics;
+
+/**
+ * The value of the ConsumedCapacity property for this object.
+ */
+@property (nonatomic, retain) NSMutableArray *consumedCapacity;
 
 /**
  * Returns a value from the unprocessedItems dictionary for the specified key.
  */
 -(NSArray *)unprocessedItemsValueForKey:(NSString *)theKey;
+
+/**
+ * Returns a value from the itemCollectionMetrics dictionary for the specified key.
+ */
+-(NSArray *)itemCollectionMetricsValueForKey:(NSString *)theKey;
+
+
+
+/**
+ * Returns a value from the consumedCapacity array for the specified index
+ */
+-(DynamoDBConsumedCapacity *)consumedCapacityObjectAtIndex:(int)index;
 
 /**
  * Returns a string representation of this object; useful for testing and

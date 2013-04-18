@@ -21,16 +21,16 @@
 @synthesize items;
 @synthesize count;
 @synthesize lastEvaluatedKey;
-@synthesize consumedCapacityUnits;
+@synthesize consumedCapacity;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        items                 = [[NSMutableArray alloc] initWithCapacity:1];
-        count                 = nil;
-        lastEvaluatedKey      = nil;
-        consumedCapacityUnits = nil;
+        items            = [[NSMutableArray alloc] initWithCapacity:1];
+        count            = nil;
+        lastEvaluatedKey = [[NSMutableDictionary alloc] initWithCapacity:1];
+        consumedCapacity = nil;
     }
 
     return self;
@@ -41,6 +41,11 @@
 {
     AmazonServiceException *newException = nil;
 
+    if ([[theException errorCode] isEqualToString:@"ResourceNotFoundException"]) {
+        [newException release];
+        newException = [[DynamoDBResourceNotFoundException alloc] initWithMessage:@""];
+    }
+
     if ([[theException errorCode] isEqualToString:@"ProvisionedThroughputExceededException"]) {
         [newException release];
         newException = [[DynamoDBProvisionedThroughputExceededException alloc] initWithMessage:@""];
@@ -49,11 +54,6 @@
     if ([[theException errorCode] isEqualToString:@"InternalServerError"]) {
         [newException release];
         newException = [[DynamoDBInternalServerErrorException alloc] initWithMessage:@""];
-    }
-
-    if ([[theException errorCode] isEqualToString:@"ResourceNotFoundException"]) {
-        [newException release];
-        newException = [[DynamoDBResourceNotFoundException alloc] initWithMessage:@""];
     }
 
     if (newException != nil) {
@@ -74,6 +74,11 @@
     return (NSDictionary *)[items objectAtIndex:index];
 }
 
+-(DynamoDBAttributeValue *)lastEvaluatedKeyValueForKey:(NSString *)theKey
+{
+    return (DynamoDBAttributeValue *)[lastEvaluatedKey valueForKey:theKey];
+}
+
 
 -(NSString *)description
 {
@@ -83,7 +88,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Items: %@,", items] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Count: %@,", count] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"LastEvaluatedKey: %@,", lastEvaluatedKey] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"ConsumedCapacityUnits: %@,", consumedCapacityUnits] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"ConsumedCapacity: %@,", consumedCapacity] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -97,7 +102,7 @@
     [items release];
     [count release];
     [lastEvaluatedKey release];
-    [consumedCapacityUnits release];
+    [consumedCapacity release];
 
     [super dealloc];
 }

@@ -15,7 +15,8 @@
 
 #import "DynamoDBKeySchemaElementUnmarshaller.h"
 #import "DynamoDBExceptionUnmarshaller.h"
-#import "../AmazonSDKUtil.h"
+
+#import "AmazonSDKUtil.h"
 
 
 @implementation DynamoDBKeySchemaElementUnmarshaller
@@ -32,8 +33,8 @@
     }
 
 
-    if ([jsonObject valueForKey:@"AttributeType"] != nil) {
-        keySchemaElement.attributeType = [jsonObject valueForKey:@"AttributeType"];
+    if ([jsonObject valueForKey:@"KeyType"] != nil) {
+        keySchemaElement.keyType = [jsonObject valueForKey:@"KeyType"];
     }
 
     return keySchemaElement;

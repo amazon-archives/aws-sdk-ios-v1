@@ -14,7 +14,11 @@
  */
 
 #import "EC2DescribeTagsResponseUnmarshaller.h"
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonServiceExceptionUnmarshaller.h>
+#else
 #import "../AmazonServiceExceptionUnmarshaller.h"
+#endif
 
 @implementation EC2DescribeTagsResponseUnmarshaller
 

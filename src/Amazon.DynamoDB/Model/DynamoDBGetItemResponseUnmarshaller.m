@@ -15,9 +15,11 @@
 
 #import "DynamoDBGetItemResponseUnmarshaller.h"
 #import "DynamoDBExceptionUnmarshaller.h"
-#import "../AmazonSDKUtil.h"
+
+#import "AmazonSDKUtil.h"
 #import "DynamoDBAttributeValueUnmarshaller.h"
 #import "DynamoDBAttributeValueUnmarshaller.h"
+#import "DynamoDBConsumedCapacityUnmarshaller.h"
 
 
 @implementation DynamoDBGetItemResponseUnmarshaller
@@ -39,8 +41,8 @@
         }
 
 
-        if ([jsonObject valueForKey:@"ConsumedCapacityUnits"] != nil) {
-            getItemResult.consumedCapacityUnits = [jsonObject valueForKey:@"ConsumedCapacityUnits"];
+        if ([jsonObject valueForKey:@"ConsumedCapacity"] != nil) {
+            getItemResult.consumedCapacity = [DynamoDBConsumedCapacityUnmarshaller unmarshall:[jsonObject valueForKey:@"ConsumedCapacity"]];
         }
     }
 

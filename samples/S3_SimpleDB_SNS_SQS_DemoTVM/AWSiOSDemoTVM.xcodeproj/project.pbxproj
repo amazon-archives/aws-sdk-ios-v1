@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE56927117062BD200322C51 /* AWSRuntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE56926C17062BD200322C51 /* AWSRuntime.framework */; };
+		CE56927217062BD200322C51 /* AWSS3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE56926D17062BD200322C51 /* AWSS3.framework */; };
+		CE56927317062BD200322C51 /* AWSSimpleDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE56926E17062BD200322C51 /* AWSSimpleDB.framework */; };
+		CE56927417062BD200322C51 /* AWSSNS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE56926F17062BD200322C51 /* AWSSNS.framework */; };
+		CE56927517062BD200322C51 /* AWSSQS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE56927017062BD200322C51 /* AWSSQS.framework */; };
 		CE65E80C160B969E000F1A54 /* DomainList.m in Sources */ = {isa = PBXBuildFile; fileRef = CE65E802160B969E000F1A54 /* DomainList.m */; };
 		CE65E80D160B969E000F1A54 /* ItemListing.m in Sources */ = {isa = PBXBuildFile; fileRef = CE65E804160B969E000F1A54 /* ItemListing.m */; };
 		CE65E80E160B969E000F1A54 /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE65E806160B969E000F1A54 /* ItemViewController.m */; };
@@ -62,13 +67,17 @@
 		D02A9FBB13E762850007810F /* RequestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A9FAD13E762850007810F /* RequestDelegate.m */; };
 		D02A9FBC13E762850007810F /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A9FAF13E762850007810F /* Response.m */; };
 		D02A9FBD13E762850007810F /* ResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A9FB113E762850007810F /* ResponseHandler.m */; };
-		D06CCDC813E8763100BF4E49 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06CCDC713E8763100BF4E49 /* AWSiOSSDK.framework */; };
 		D0B715F413E73AC3006220BB /* AmazonClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B715B813E73AC2006220BB /* AmazonClientManager.m */; };
 		D0B715F513E73AC3006220BB /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B715BA13E73AC2006220BB /* Constants.m */; };
 		D0B7163713E7445B006220BB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B7163613E7445B006220BB /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE56926C17062BD200322C51 /* AWSRuntime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSRuntime.framework; path = ../../AWSRuntime.framework; sourceTree = "<group>"; };
+		CE56926D17062BD200322C51 /* AWSS3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSS3.framework; path = ../../AWSS3.framework; sourceTree = "<group>"; };
+		CE56926E17062BD200322C51 /* AWSSimpleDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSSimpleDB.framework; path = ../../AWSSimpleDB.framework; sourceTree = "<group>"; };
+		CE56926F17062BD200322C51 /* AWSSNS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSSNS.framework; path = ../../AWSSNS.framework; sourceTree = "<group>"; };
+		CE56927017062BD200322C51 /* AWSSQS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSSQS.framework; path = ../../AWSSQS.framework; sourceTree = "<group>"; };
 		CE65E801160B969E000F1A54 /* DomainList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DomainList.h; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/SDB/DomainList.h; sourceTree = "<group>"; };
 		CE65E802160B969E000F1A54 /* DomainList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DomainList.m; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/SDB/DomainList.m; sourceTree = "<group>"; };
 		CE65E803160B969E000F1A54 /* ItemListing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemListing.h; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/SDB/ItemListing.h; sourceTree = "<group>"; };
@@ -162,7 +171,6 @@
 		D02A9FAF13E762850007810F /* Response.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Response.m; sourceTree = "<group>"; };
 		D02A9FB013E762850007810F /* ResponseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseHandler.h; sourceTree = "<group>"; };
 		D02A9FB113E762850007810F /* ResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseHandler.m; sourceTree = "<group>"; };
-		D06CCDC713E8763100BF4E49 /* AWSiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSiOSSDK.framework; path = ../../AWSiOSSDK.framework; sourceTree = "<group>"; };
 		D0B715B713E73AC2006220BB /* AmazonClientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonClientManager.h; sourceTree = "<group>"; };
 		D0B715B813E73AC2006220BB /* AmazonClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonClientManager.m; sourceTree = "<group>"; };
 		D0B715B913E73AC2006220BB /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -179,7 +187,11 @@
 				D00F7D3813E737B900C72263 /* UIKit.framework in Frameworks */,
 				D00F7D3A13E737B900C72263 /* Foundation.framework in Frameworks */,
 				D00F7D3C13E737B900C72263 /* CoreGraphics.framework in Frameworks */,
-				D06CCDC813E8763100BF4E49 /* AWSiOSSDK.framework in Frameworks */,
+				CE56927117062BD200322C51 /* AWSRuntime.framework in Frameworks */,
+				CE56927217062BD200322C51 /* AWSS3.framework in Frameworks */,
+				CE56927317062BD200322C51 /* AWSSimpleDB.framework in Frameworks */,
+				CE56927417062BD200322C51 /* AWSSNS.framework in Frameworks */,
+				CE56927517062BD200322C51 /* AWSSQS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,7 +308,11 @@
 		D00F7D3613E737B900C72263 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D06CCDC713E8763100BF4E49 /* AWSiOSSDK.framework */,
+				CE56926C17062BD200322C51 /* AWSRuntime.framework */,
+				CE56926D17062BD200322C51 /* AWSS3.framework */,
+				CE56926E17062BD200322C51 /* AWSSimpleDB.framework */,
+				CE56926F17062BD200322C51 /* AWSSNS.framework */,
+				CE56927017062BD200322C51 /* AWSSQS.framework */,
 				D0B7163613E7445B006220BB /* Security.framework */,
 				D00F7D3713E737B900C72263 /* UIKit.framework */,
 				D00F7D3913E737B900C72263 /* Foundation.framework */,

@@ -31,21 +31,12 @@
 
 
 /**
- * AttributeValue can be <code>String</code>, <code>Number</code>,
- * <code>Binary</code>, <code>StringSet</code>, <code>NumberSet</code>,
- * <code>BinarySet</code>.
+ * The value of the Value property for this object.
  */
 @property (nonatomic, retain) DynamoDBAttributeValue *value;
 
 /**
- * The type of action for an item update operation. Only use the add
- * action for numbers or sets; the specified value is added to the
- * existing value. If a set of values is specified, the values are added
- * to the existing set. Adds the specified attribute. If the attribute
- * exists, it is replaced by the new value. If no value is specified,
- * this removes the attribute and its value. If a set of values is
- * specified, then the values in the specified set are removed from the
- * old set.
+ * The value of the Action property for this object.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Allowed Values: </b>ADD, PUT, DELETE
@@ -63,17 +54,8 @@
  * Constructs a new AttributeValueUpdate object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theValue AttributeValue can be <code>String</code>,
- * <code>Number</code>, <code>Binary</code>, <code>StringSet</code>,
- * <code>NumberSet</code>, <code>BinarySet</code>.
- * @param theAction The type of action for an item update operation. Only
- * use the add action for numbers or sets; the specified value is added
- * to the existing value. If a set of values is specified, the values are
- * added to the existing set. Adds the specified attribute. If the
- * attribute exists, it is replaced by the new value. If no value is
- * specified, this removes the attribute and its value. If a set of
- * values is specified, then the values in the specified set are removed
- * from the old set.
+ * @param theValue
+ * @param theAction
  */
 -(id)initWithValue:(DynamoDBAttributeValue *)theValue andAction:(NSString *)theAction;
 

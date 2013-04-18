@@ -13,16 +13,17 @@
  * permissions and limitations under the License.
  */
 
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonServiceException.h>
+#else
 #import "../AmazonServiceException.h"
+#endif
 
 
 
 
 /**
- * <p>
- * This exception is thrown when the subscriber exceeded the limits on
- * the number of objects or operations.
- * </p>
+ * AmazonDynamoDB exception
  */
 @interface DynamoDBLimitExceededException:AmazonServiceException
 {

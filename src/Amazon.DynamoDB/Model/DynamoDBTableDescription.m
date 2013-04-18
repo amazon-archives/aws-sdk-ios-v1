@@ -18,6 +18,7 @@
 
 @implementation DynamoDBTableDescription
 
+@synthesize attributeDefinitions;
 @synthesize tableName;
 @synthesize keySchema;
 @synthesize tableStatus;
@@ -25,23 +26,53 @@
 @synthesize provisionedThroughput;
 @synthesize tableSizeBytes;
 @synthesize itemCount;
+@synthesize localSecondaryIndexes;
 
 
 -(id)init
 {
     if (self = [super init]) {
+        attributeDefinitions  = [[NSMutableArray alloc] initWithCapacity:1];
         tableName             = nil;
-        keySchema             = nil;
+        keySchema             = [[NSMutableArray alloc] initWithCapacity:1];
         tableStatus           = nil;
         creationDateTime      = nil;
         provisionedThroughput = nil;
         tableSizeBytes        = nil;
         itemCount             = nil;
+        localSecondaryIndexes = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
     return self;
 }
 
+
+-(void)addAttributeDefinition:(DynamoDBAttributeDefinition *)attributeDefinitionObject
+{
+    if (attributeDefinitions == nil) {
+        attributeDefinitions = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [attributeDefinitions addObject:attributeDefinitionObject];
+}
+
+-(void)addKeySchema:(DynamoDBKeySchemaElement *)keySchemaObject
+{
+    if (keySchema == nil) {
+        keySchema = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [keySchema addObject:keySchemaObject];
+}
+
+-(void)addLocalSecondaryIndexe:(DynamoDBLocalSecondaryIndexDescription *)localSecondaryIndexeObject
+{
+    if (localSecondaryIndexes == nil) {
+        localSecondaryIndexes = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [localSecondaryIndexes addObject:localSecondaryIndexeObject];
+}
 
 
 -(NSString *)description
@@ -49,6 +80,7 @@
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
 
     [buffer appendString:@"{"];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"AttributeDefinitions: %@,", attributeDefinitions] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"TableName: %@,", tableName] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"KeySchema: %@,", keySchema] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"TableStatus: %@,", tableStatus] autorelease]];
@@ -56,6 +88,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ProvisionedThroughput: %@,", provisionedThroughput] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"TableSizeBytes: %@,", tableSizeBytes] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ItemCount: %@,", itemCount] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"LocalSecondaryIndexes: %@,", localSecondaryIndexes] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -66,6 +99,7 @@
 
 -(void)dealloc
 {
+    [attributeDefinitions release];
     [tableName release];
     [keySchema release];
     [tableStatus release];
@@ -73,6 +107,7 @@
     [provisionedThroughput release];
     [tableSizeBytes release];
     [itemCount release];
+    [localSecondaryIndexes release];
 
     [super dealloc];
 }

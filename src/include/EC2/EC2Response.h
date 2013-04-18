@@ -13,8 +13,11 @@
  * permissions and limitations under the License.
  */
 
-#import <Foundation/Foundation.h>
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonServiceResponse.h>
+#else
 #import "../AmazonServiceResponse.h"
+#endif
 #import "EC2LaunchSpecification.h"
 #import "EC2Reservation.h"
 #import "EC2SpotInstanceRequest.h"

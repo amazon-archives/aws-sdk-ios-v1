@@ -14,8 +14,8 @@
  */
 
 #import "AmazonAutoScalingClient.h"
-#import "../AmazonEndpoints.h"
-#import "../AmazonServiceRequest.h"
+#import "AmazonEndpoints.h"
+#import "AmazonServiceRequest.h"
 #import "AutoScalingDescribeAutoScalingGroupsResponseUnmarshaller.h"
 #import "AutoScalingDescribeAutoScalingGroupsRequestMarshaller.h"
 #import "AutoScalingEnableMetricsCollectionResponseUnmarshaller.h"

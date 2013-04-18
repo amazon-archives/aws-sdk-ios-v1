@@ -195,7 +195,11 @@
 #import "EC2RegisterImageResponse.h"
 #import "EC2RegisterImageRequest.h"
 
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonWebServiceClient.h>
+#else
 #import "../AmazonWebServiceClient.h"
+#endif
 
 /** \defgroup EC2 Amazon EC2 */
 

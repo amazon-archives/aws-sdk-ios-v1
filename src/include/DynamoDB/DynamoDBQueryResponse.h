@@ -13,13 +13,14 @@
  * permissions and limitations under the License.
  */
 
-#import "DynamoDBKey.h"
+#import "DynamoDBAttributeValue.h"
+#import "DynamoDBConsumedCapacity.h"
 
 #import "DynamoDBResponse.h"
 
+#import "DynamoDBResourceNotFoundException.h"
 #import "DynamoDBProvisionedThroughputExceededException.h"
 #import "DynamoDBInternalServerErrorException.h"
-#import "DynamoDBResourceNotFoundException.h"
 
 
 /**
@@ -29,10 +30,10 @@
 @interface DynamoDBQueryResponse:DynamoDBResponse
 
 {
-    NSMutableArray *items;
-    NSNumber       *count;
-    DynamoDBKey    *lastEvaluatedKey;
-    NSNumber       *consumedCapacityUnits;
+    NSMutableArray           *items;
+    NSNumber                 *count;
+    NSMutableDictionary      *lastEvaluatedKey;
+    DynamoDBConsumedCapacity *consumedCapacity;
 }
 
 
@@ -52,29 +53,19 @@
 @property (nonatomic, retain) NSMutableArray *items;
 
 /**
- * Number of items in the response.
+ * The value of the Count property for this object.
  */
 @property (nonatomic, retain) NSNumber *count;
 
 /**
- * Primary key of the item where the query operation stopped, inclusive
- * of the previous result set. Use this value to start a new operation
- * excluding this value in the new request. The
- * <code>LastEvaluatedKey</code> is null when the entire query result set
- * is complete (i.e. the operation processed the "last page").
+ * The value of the LastEvaluatedKey property for this object.
  */
-@property (nonatomic, retain) DynamoDBKey *lastEvaluatedKey;
+@property (nonatomic, retain) NSMutableDictionary *lastEvaluatedKey;
 
 /**
- * The number of Capacity Units of the provisioned throughput of the
- * table consumed during the operation. <code>GetItem</code>,
- * <code>BatchGetItem</code>, <code>BatchWriteItem</code>,
- * <code>Query</code>, and <code>Scan</code> operations consume
- * <code>ReadCapacityUnits</code>, while <code>PutItem</code>,
- * <code>UpdateItem</code>, and <code>DeleteItem</code> operations
- * consume <code>WriteCapacityUnits</code>.
+ * The value of the ConsumedCapacity property for this object.
  */
-@property (nonatomic, retain) NSNumber *consumedCapacityUnits;
+@property (nonatomic, retain) DynamoDBConsumedCapacity *consumedCapacity;
 
 
 
@@ -82,6 +73,11 @@
  * Returns a value from the items array for the specified index
  */
 -(NSDictionary *)itemsObjectAtIndex:(int)index;
+
+/**
+ * Returns a value from the lastEvaluatedKey dictionary for the specified key.
+ */
+-(DynamoDBAttributeValue *)lastEvaluatedKeyValueForKey:(NSString *)theKey;
 
 /**
  * Returns a string representation of this object; useful for testing and

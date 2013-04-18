@@ -1,0 +1,915 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0AE6F19812E4C0B700465F92 /* AmazonCloudWatchClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F15B12E4C0B700465F92 /* AmazonCloudWatchClient.m */; };
+		0AE6F19912E4C0B700465F92 /* CloudWatchAlarmHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F15D12E4C0B700465F92 /* CloudWatchAlarmHistoryItem.m */; };
+		0AE6F19A12E4C0B700465F92 /* CloudWatchAlarmHistoryItemUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F15E12E4C0B700465F92 /* CloudWatchAlarmHistoryItemUnmarshaller.m */; };
+		0AE6F19B12E4C0B700465F92 /* CloudWatchDatapoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F15F12E4C0B700465F92 /* CloudWatchDatapoint.m */; };
+		0AE6F19C12E4C0B700465F92 /* CloudWatchDatapointUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F16012E4C0B700465F92 /* CloudWatchDatapointUnmarshaller.m */; };
+		0AE6F19D12E4C0B700465F92 /* CloudWatchDeleteAlarmsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F16112E4C0B700465F92 /* CloudWatchDeleteAlarmsRequest.m */; };
+		0AE6F19F12E4C0B700465F92 /* CloudWatchDeleteAlarmsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F16312E4C0B700465F92 /* CloudWatchDeleteAlarmsResponse.m */; };
+		0AE6F1A012E4C0B700465F92 /* CloudWatchDeleteAlarmsResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F16412E4C0B700465F92 /* CloudWatchDeleteAlarmsResponseUnmarshaller.m */; };
+		0AE6F1A112E4C0B700465F92 /* CloudWatchDescribeAlarmHistoryRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F16512E4C0B700465F92 /* CloudWatchDescribeAlarmHistoryRequest.m */; };
+		0AE6F1A312E4C0B700465F92 /* CloudWatchDescribeAlarmHistoryResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F16712E4C0B700465F92 /* CloudWatchDescribeAlarmHistoryResponse.m */; };
+		0AE6F1A412E4C0B700465F92 /* CloudWatchDescribeAlarmHistoryResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F16812E4C0B700465F92 /* CloudWatchDescribeAlarmHistoryResponseUnmarshaller.m */; };
+		0AE6F1A512E4C0B700465F92 /* CloudWatchDescribeAlarmsForMetricRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F16912E4C0B700465F92 /* CloudWatchDescribeAlarmsForMetricRequest.m */; };
+		0AE6F1A712E4C0B700465F92 /* CloudWatchDescribeAlarmsForMetricResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F16B12E4C0B700465F92 /* CloudWatchDescribeAlarmsForMetricResponse.m */; };
+		0AE6F1A812E4C0B700465F92 /* CloudWatchDescribeAlarmsForMetricResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F16C12E4C0B700465F92 /* CloudWatchDescribeAlarmsForMetricResponseUnmarshaller.m */; };
+		0AE6F1A912E4C0B700465F92 /* CloudWatchDescribeAlarmsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F16D12E4C0B700465F92 /* CloudWatchDescribeAlarmsRequest.m */; };
+		0AE6F1AB12E4C0B700465F92 /* CloudWatchDescribeAlarmsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F16F12E4C0B700465F92 /* CloudWatchDescribeAlarmsResponse.m */; };
+		0AE6F1AC12E4C0B700465F92 /* CloudWatchDescribeAlarmsResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F17012E4C0B700465F92 /* CloudWatchDescribeAlarmsResponseUnmarshaller.m */; };
+		0AE6F1AD12E4C0B700465F92 /* CloudWatchDimension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F17112E4C0B700465F92 /* CloudWatchDimension.m */; };
+		0AE6F1AE12E4C0B700465F92 /* CloudWatchDimensionFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F17212E4C0B700465F92 /* CloudWatchDimensionFilter.m */; };
+		0AE6F1AF12E4C0B700465F92 /* CloudWatchDimensionUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F17312E4C0B700465F92 /* CloudWatchDimensionUnmarshaller.m */; };
+		0AE6F1B012E4C0B700465F92 /* CloudWatchDisableAlarmActionsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F17412E4C0B700465F92 /* CloudWatchDisableAlarmActionsRequest.m */; };
+		0AE6F1B212E4C0B700465F92 /* CloudWatchDisableAlarmActionsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F17612E4C0B700465F92 /* CloudWatchDisableAlarmActionsResponse.m */; };
+		0AE6F1B312E4C0B700465F92 /* CloudWatchDisableAlarmActionsResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F17712E4C0B700465F92 /* CloudWatchDisableAlarmActionsResponseUnmarshaller.m */; };
+		0AE6F1B412E4C0B700465F92 /* CloudWatchEnableAlarmActionsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F17812E4C0B700465F92 /* CloudWatchEnableAlarmActionsRequest.m */; };
+		0AE6F1B612E4C0B700465F92 /* CloudWatchEnableAlarmActionsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F17A12E4C0B700465F92 /* CloudWatchEnableAlarmActionsResponse.m */; };
+		0AE6F1B712E4C0B700465F92 /* CloudWatchEnableAlarmActionsResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F17B12E4C0B700465F92 /* CloudWatchEnableAlarmActionsResponseUnmarshaller.m */; };
+		0AE6F1B812E4C0B700465F92 /* CloudWatchGetMetricStatisticsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F17C12E4C0B700465F92 /* CloudWatchGetMetricStatisticsRequest.m */; };
+		0AE6F1BA12E4C0B700465F92 /* CloudWatchGetMetricStatisticsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F17E12E4C0B700465F92 /* CloudWatchGetMetricStatisticsResponse.m */; };
+		0AE6F1BB12E4C0B700465F92 /* CloudWatchGetMetricStatisticsResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F17F12E4C0B700465F92 /* CloudWatchGetMetricStatisticsResponseUnmarshaller.m */; };
+		0AE6F1BC12E4C0B700465F92 /* CloudWatchInternalServiceException.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F18012E4C0B700465F92 /* CloudWatchInternalServiceException.m */; };
+		0AE6F1BD12E4C0B700465F92 /* CloudWatchInvalidFormatException.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F18112E4C0B700465F92 /* CloudWatchInvalidFormatException.m */; };
+		0AE6F1BE12E4C0B700465F92 /* CloudWatchInvalidNextTokenException.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F18212E4C0B700465F92 /* CloudWatchInvalidNextTokenException.m */; };
+		0AE6F1BF12E4C0B700465F92 /* CloudWatchInvalidParameterCombinationException.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F18312E4C0B700465F92 /* CloudWatchInvalidParameterCombinationException.m */; };
+		0AE6F1C012E4C0B700465F92 /* CloudWatchInvalidParameterValueException.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F18412E4C0B700465F92 /* CloudWatchInvalidParameterValueException.m */; };
+		0AE6F1C112E4C0B700465F92 /* CloudWatchLimitExceededException.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F18512E4C0B700465F92 /* CloudWatchLimitExceededException.m */; };
+		0AE6F1C212E4C0B700465F92 /* CloudWatchListMetricsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F18612E4C0B700465F92 /* CloudWatchListMetricsRequest.m */; };
+		0AE6F1C412E4C0B700465F92 /* CloudWatchListMetricsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F18812E4C0B700465F92 /* CloudWatchListMetricsResponse.m */; };
+		0AE6F1C512E4C0B700465F92 /* CloudWatchListMetricsResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F18912E4C0B700465F92 /* CloudWatchListMetricsResponseUnmarshaller.m */; };
+		0AE6F1C612E4C0B700465F92 /* CloudWatchMetric.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F18A12E4C0B700465F92 /* CloudWatchMetric.m */; };
+		0AE6F1C712E4C0B700465F92 /* CloudWatchMetricAlarm.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F18B12E4C0B700465F92 /* CloudWatchMetricAlarm.m */; };
+		0AE6F1C812E4C0B700465F92 /* CloudWatchMetricAlarmUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F18C12E4C0B700465F92 /* CloudWatchMetricAlarmUnmarshaller.m */; };
+		0AE6F1C912E4C0B700465F92 /* CloudWatchMetricUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F18D12E4C0B700465F92 /* CloudWatchMetricUnmarshaller.m */; };
+		0AE6F1CA12E4C0B700465F92 /* CloudWatchMissingRequiredParameterException.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F18E12E4C0B700465F92 /* CloudWatchMissingRequiredParameterException.m */; };
+		0AE6F1CB12E4C0B700465F92 /* CloudWatchPutMetricAlarmRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F18F12E4C0B700465F92 /* CloudWatchPutMetricAlarmRequest.m */; };
+		0AE6F1CD12E4C0B700465F92 /* CloudWatchPutMetricAlarmResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F19112E4C0B700465F92 /* CloudWatchPutMetricAlarmResponse.m */; };
+		0AE6F1CE12E4C0B700465F92 /* CloudWatchPutMetricAlarmResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F19212E4C0B700465F92 /* CloudWatchPutMetricAlarmResponseUnmarshaller.m */; };
+		0AE6F1CF12E4C0B700465F92 /* CloudWatchResourceNotFoundException.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F19312E4C0B700465F92 /* CloudWatchResourceNotFoundException.m */; };
+		0AE6F1D012E4C0B700465F92 /* CloudWatchSetAlarmStateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F19412E4C0B700465F92 /* CloudWatchSetAlarmStateRequest.m */; };
+		0AE6F1D212E4C0B700465F92 /* CloudWatchSetAlarmStateResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F19612E4C0B700465F92 /* CloudWatchSetAlarmStateResponse.m */; };
+		0AE6F1D312E4C0B700465F92 /* CloudWatchSetAlarmStateResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F19712E4C0B700465F92 /* CloudWatchSetAlarmStateResponseUnmarshaller.m */; };
+		0AE6F21112E4C0CC00465F92 /* AmazonCloudWatchClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1D512E4C0CB00465F92 /* AmazonCloudWatchClient.h */; };
+		0AE6F21212E4C0CC00465F92 /* CloudWatchAlarmHistoryItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1D612E4C0CB00465F92 /* CloudWatchAlarmHistoryItem.h */; };
+		0AE6F21312E4C0CC00465F92 /* CloudWatchAlarmHistoryItemUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1D712E4C0CB00465F92 /* CloudWatchAlarmHistoryItemUnmarshaller.h */; };
+		0AE6F21412E4C0CC00465F92 /* CloudWatchDatapoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1D812E4C0CB00465F92 /* CloudWatchDatapoint.h */; };
+		0AE6F21512E4C0CC00465F92 /* CloudWatchDatapointUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1D912E4C0CB00465F92 /* CloudWatchDatapointUnmarshaller.h */; };
+		0AE6F21612E4C0CC00465F92 /* CloudWatchDeleteAlarmsRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1DA12E4C0CB00465F92 /* CloudWatchDeleteAlarmsRequest.h */; };
+		0AE6F21812E4C0CC00465F92 /* CloudWatchDeleteAlarmsResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1DC12E4C0CB00465F92 /* CloudWatchDeleteAlarmsResponse.h */; };
+		0AE6F21912E4C0CC00465F92 /* CloudWatchDeleteAlarmsResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1DD12E4C0CB00465F92 /* CloudWatchDeleteAlarmsResponseUnmarshaller.h */; };
+		0AE6F21A12E4C0CC00465F92 /* CloudWatchDescribeAlarmHistoryRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1DE12E4C0CB00465F92 /* CloudWatchDescribeAlarmHistoryRequest.h */; };
+		0AE6F21C12E4C0CC00465F92 /* CloudWatchDescribeAlarmHistoryResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1E012E4C0CB00465F92 /* CloudWatchDescribeAlarmHistoryResponse.h */; };
+		0AE6F21D12E4C0CC00465F92 /* CloudWatchDescribeAlarmHistoryResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1E112E4C0CB00465F92 /* CloudWatchDescribeAlarmHistoryResponseUnmarshaller.h */; };
+		0AE6F21E12E4C0CC00465F92 /* CloudWatchDescribeAlarmsForMetricRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1E212E4C0CC00465F92 /* CloudWatchDescribeAlarmsForMetricRequest.h */; };
+		0AE6F22012E4C0CC00465F92 /* CloudWatchDescribeAlarmsForMetricResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1E412E4C0CC00465F92 /* CloudWatchDescribeAlarmsForMetricResponse.h */; };
+		0AE6F22112E4C0CC00465F92 /* CloudWatchDescribeAlarmsForMetricResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1E512E4C0CC00465F92 /* CloudWatchDescribeAlarmsForMetricResponseUnmarshaller.h */; };
+		0AE6F22212E4C0CC00465F92 /* CloudWatchDescribeAlarmsRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1E612E4C0CC00465F92 /* CloudWatchDescribeAlarmsRequest.h */; };
+		0AE6F22412E4C0CC00465F92 /* CloudWatchDescribeAlarmsResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1E812E4C0CC00465F92 /* CloudWatchDescribeAlarmsResponse.h */; };
+		0AE6F22512E4C0CC00465F92 /* CloudWatchDescribeAlarmsResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1E912E4C0CC00465F92 /* CloudWatchDescribeAlarmsResponseUnmarshaller.h */; };
+		0AE6F22612E4C0CC00465F92 /* CloudWatchDimension.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1EA12E4C0CC00465F92 /* CloudWatchDimension.h */; };
+		0AE6F22712E4C0CC00465F92 /* CloudWatchDimensionFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1EB12E4C0CC00465F92 /* CloudWatchDimensionFilter.h */; };
+		0AE6F22812E4C0CC00465F92 /* CloudWatchDimensionUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1EC12E4C0CC00465F92 /* CloudWatchDimensionUnmarshaller.h */; };
+		0AE6F22912E4C0CC00465F92 /* CloudWatchDisableAlarmActionsRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1ED12E4C0CC00465F92 /* CloudWatchDisableAlarmActionsRequest.h */; };
+		0AE6F22B12E4C0CC00465F92 /* CloudWatchDisableAlarmActionsResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1EF12E4C0CC00465F92 /* CloudWatchDisableAlarmActionsResponse.h */; };
+		0AE6F22C12E4C0CC00465F92 /* CloudWatchDisableAlarmActionsResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1F012E4C0CC00465F92 /* CloudWatchDisableAlarmActionsResponseUnmarshaller.h */; };
+		0AE6F22D12E4C0CC00465F92 /* CloudWatchEnableAlarmActionsRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1F112E4C0CC00465F92 /* CloudWatchEnableAlarmActionsRequest.h */; };
+		0AE6F22F12E4C0CC00465F92 /* CloudWatchEnableAlarmActionsResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1F312E4C0CC00465F92 /* CloudWatchEnableAlarmActionsResponse.h */; };
+		0AE6F23012E4C0CC00465F92 /* CloudWatchEnableAlarmActionsResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1F412E4C0CC00465F92 /* CloudWatchEnableAlarmActionsResponseUnmarshaller.h */; };
+		0AE6F23112E4C0CC00465F92 /* CloudWatchGetMetricStatisticsRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1F512E4C0CC00465F92 /* CloudWatchGetMetricStatisticsRequest.h */; };
+		0AE6F23312E4C0CC00465F92 /* CloudWatchGetMetricStatisticsResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1F712E4C0CC00465F92 /* CloudWatchGetMetricStatisticsResponse.h */; };
+		0AE6F23412E4C0CC00465F92 /* CloudWatchGetMetricStatisticsResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1F812E4C0CC00465F92 /* CloudWatchGetMetricStatisticsResponseUnmarshaller.h */; };
+		0AE6F23512E4C0CC00465F92 /* CloudWatchInternalServiceException.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1F912E4C0CC00465F92 /* CloudWatchInternalServiceException.h */; };
+		0AE6F23612E4C0CC00465F92 /* CloudWatchInvalidFormatException.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1FA12E4C0CC00465F92 /* CloudWatchInvalidFormatException.h */; };
+		0AE6F23712E4C0CC00465F92 /* CloudWatchInvalidNextTokenException.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1FB12E4C0CC00465F92 /* CloudWatchInvalidNextTokenException.h */; };
+		0AE6F23812E4C0CC00465F92 /* CloudWatchInvalidParameterCombinationException.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1FC12E4C0CC00465F92 /* CloudWatchInvalidParameterCombinationException.h */; };
+		0AE6F23912E4C0CC00465F92 /* CloudWatchInvalidParameterValueException.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1FD12E4C0CC00465F92 /* CloudWatchInvalidParameterValueException.h */; };
+		0AE6F23A12E4C0CC00465F92 /* CloudWatchLimitExceededException.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1FE12E4C0CC00465F92 /* CloudWatchLimitExceededException.h */; };
+		0AE6F23B12E4C0CC00465F92 /* CloudWatchListMetricsRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F1FF12E4C0CC00465F92 /* CloudWatchListMetricsRequest.h */; };
+		0AE6F23D12E4C0CC00465F92 /* CloudWatchListMetricsResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F20112E4C0CC00465F92 /* CloudWatchListMetricsResponse.h */; };
+		0AE6F23E12E4C0CC00465F92 /* CloudWatchListMetricsResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F20212E4C0CC00465F92 /* CloudWatchListMetricsResponseUnmarshaller.h */; };
+		0AE6F23F12E4C0CC00465F92 /* CloudWatchMetric.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F20312E4C0CC00465F92 /* CloudWatchMetric.h */; };
+		0AE6F24012E4C0CC00465F92 /* CloudWatchMetricAlarm.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F20412E4C0CC00465F92 /* CloudWatchMetricAlarm.h */; };
+		0AE6F24112E4C0CC00465F92 /* CloudWatchMetricAlarmUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F20512E4C0CC00465F92 /* CloudWatchMetricAlarmUnmarshaller.h */; };
+		0AE6F24212E4C0CC00465F92 /* CloudWatchMetricUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F20612E4C0CC00465F92 /* CloudWatchMetricUnmarshaller.h */; };
+		0AE6F24312E4C0CC00465F92 /* CloudWatchMissingRequiredParameterException.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F20712E4C0CC00465F92 /* CloudWatchMissingRequiredParameterException.h */; };
+		0AE6F24412E4C0CC00465F92 /* CloudWatchPutMetricAlarmRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F20812E4C0CC00465F92 /* CloudWatchPutMetricAlarmRequest.h */; };
+		0AE6F24612E4C0CC00465F92 /* CloudWatchPutMetricAlarmResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F20A12E4C0CC00465F92 /* CloudWatchPutMetricAlarmResponse.h */; };
+		0AE6F24712E4C0CC00465F92 /* CloudWatchPutMetricAlarmResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F20B12E4C0CC00465F92 /* CloudWatchPutMetricAlarmResponseUnmarshaller.h */; };
+		0AE6F24812E4C0CC00465F92 /* CloudWatchResourceNotFoundException.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F20C12E4C0CC00465F92 /* CloudWatchResourceNotFoundException.h */; };
+		0AE6F24912E4C0CC00465F92 /* CloudWatchSetAlarmStateRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F20D12E4C0CC00465F92 /* CloudWatchSetAlarmStateRequest.h */; };
+		0AE6F24B12E4C0CC00465F92 /* CloudWatchSetAlarmStateResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F20F12E4C0CC00465F92 /* CloudWatchSetAlarmStateResponse.h */; };
+		0AE6F24C12E4C0CC00465F92 /* CloudWatchSetAlarmStateResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F21012E4C0CC00465F92 /* CloudWatchSetAlarmStateResponseUnmarshaller.h */; };
+		0AE6F25112E4C22F00465F92 /* CloudWatchRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE6F25012E4C22F00465F92 /* CloudWatchRequest.h */; };
+		0AE6F25712E4C29500465F92 /* CloudWatchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6F25612E4C29500465F92 /* CloudWatchRequest.m */; };
+		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		CE2CDBF617036A5B0013DE5F /* AWSCloudWatch.h in Headers */ = {isa = PBXBuildFile; fileRef = CE2CDBF517036A5B0013DE5F /* AWSCloudWatch.h */; };
+		CE96C1B7158BD58A0084D3CB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE96C1A9158BC2A70084D3CB /* MobileCoreServices.framework */; };
+		CEDA40F5151D519A002CBB54 /* CloudWatchMetricDatum.h in Headers */ = {isa = PBXBuildFile; fileRef = CEDA40EF151D519A002CBB54 /* CloudWatchMetricDatum.h */; };
+		CEDA40F6151D519A002CBB54 /* CloudWatchPutMetricDataRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CEDA40F0151D519A002CBB54 /* CloudWatchPutMetricDataRequest.h */; };
+		CEDA40F7151D519A002CBB54 /* CloudWatchPutMetricDataRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CEDA40F1151D519A002CBB54 /* CloudWatchPutMetricDataRequestMarshaller.h */; };
+		CEDA40F8151D519A002CBB54 /* CloudWatchPutMetricDataResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CEDA40F2151D519A002CBB54 /* CloudWatchPutMetricDataResponse.h */; };
+		CEDA40F9151D519A002CBB54 /* CloudWatchPutMetricDataResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CEDA40F3151D519A002CBB54 /* CloudWatchPutMetricDataResponseUnmarshaller.h */; };
+		CEDA40FA151D519A002CBB54 /* CloudWatchStatisticSet.h in Headers */ = {isa = PBXBuildFile; fileRef = CEDA40F4151D519A002CBB54 /* CloudWatchStatisticSet.h */; };
+		D03F192E1377310500891BD9 /* CloudWatchDeleteAlarmsRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F19241377310500891BD9 /* CloudWatchDeleteAlarmsRequestMarshaller.m */; };
+		D03F192F1377310500891BD9 /* CloudWatchDescribeAlarmHistoryRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F19251377310500891BD9 /* CloudWatchDescribeAlarmHistoryRequestMarshaller.m */; };
+		D03F19301377310500891BD9 /* CloudWatchDescribeAlarmsForMetricRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F19261377310500891BD9 /* CloudWatchDescribeAlarmsForMetricRequestMarshaller.m */; };
+		D03F19311377310500891BD9 /* CloudWatchDescribeAlarmsRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F19271377310500891BD9 /* CloudWatchDescribeAlarmsRequestMarshaller.m */; };
+		D03F19321377310500891BD9 /* CloudWatchDisableAlarmActionsRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F19281377310500891BD9 /* CloudWatchDisableAlarmActionsRequestMarshaller.m */; };
+		D03F19331377310500891BD9 /* CloudWatchEnableAlarmActionsRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F19291377310500891BD9 /* CloudWatchEnableAlarmActionsRequestMarshaller.m */; };
+		D03F19341377310500891BD9 /* CloudWatchGetMetricStatisticsRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F192A1377310500891BD9 /* CloudWatchGetMetricStatisticsRequestMarshaller.m */; };
+		D03F19351377310500891BD9 /* CloudWatchListMetricsRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F192B1377310500891BD9 /* CloudWatchListMetricsRequestMarshaller.m */; };
+		D03F19361377310500891BD9 /* CloudWatchPutMetricAlarmRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F192C1377310500891BD9 /* CloudWatchPutMetricAlarmRequestMarshaller.m */; };
+		D03F19371377310500891BD9 /* CloudWatchSetAlarmStateRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F192D1377310500891BD9 /* CloudWatchSetAlarmStateRequestMarshaller.m */; };
+		D03F1AEA1377336900891BD9 /* CloudWatchDeleteAlarmsRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1AE01377336900891BD9 /* CloudWatchDeleteAlarmsRequestMarshaller.h */; };
+		D03F1AEB1377336900891BD9 /* CloudWatchDescribeAlarmHistoryRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1AE11377336900891BD9 /* CloudWatchDescribeAlarmHistoryRequestMarshaller.h */; };
+		D03F1AEC1377336900891BD9 /* CloudWatchDescribeAlarmsForMetricRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1AE21377336900891BD9 /* CloudWatchDescribeAlarmsForMetricRequestMarshaller.h */; };
+		D03F1AED1377336900891BD9 /* CloudWatchDescribeAlarmsRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1AE31377336900891BD9 /* CloudWatchDescribeAlarmsRequestMarshaller.h */; };
+		D03F1AEE1377336900891BD9 /* CloudWatchDisableAlarmActionsRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1AE41377336900891BD9 /* CloudWatchDisableAlarmActionsRequestMarshaller.h */; };
+		D03F1AEF1377336900891BD9 /* CloudWatchEnableAlarmActionsRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1AE51377336900891BD9 /* CloudWatchEnableAlarmActionsRequestMarshaller.h */; };
+		D03F1AF01377336900891BD9 /* CloudWatchGetMetricStatisticsRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1AE61377336900891BD9 /* CloudWatchGetMetricStatisticsRequestMarshaller.h */; };
+		D03F1AF11377336900891BD9 /* CloudWatchListMetricsRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1AE71377336900891BD9 /* CloudWatchListMetricsRequestMarshaller.h */; };
+		D03F1AF21377336900891BD9 /* CloudWatchPutMetricAlarmRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1AE81377336900891BD9 /* CloudWatchPutMetricAlarmRequestMarshaller.h */; };
+		D03F1AF31377336900891BD9 /* CloudWatchSetAlarmStateRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1AE91377336900891BD9 /* CloudWatchSetAlarmStateRequestMarshaller.h */; };
+		D04C86411371D66200F08418 /* CloudWatchResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D04C86401371D66200F08418 /* CloudWatchResponseUnmarshaller.m */; };
+		D04C864F1371D71900F08418 /* CloudWatchResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D04C864E1371D71900F08418 /* CloudWatchResponseUnmarshaller.h */; };
+		D0A0EA791344E709007721F9 /* CloudWatchResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D0A0EA781344E709007721F9 /* CloudWatchResponse.h */; };
+		D0A0EA811344E793007721F9 /* CloudWatchResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0EA801344E793007721F9 /* CloudWatchResponse.m */; };
+		D0F2C44E1378873300552FD4 /* CloudWatchMetricDatum.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F2C4481378873300552FD4 /* CloudWatchMetricDatum.m */; };
+		D0F2C44F1378873300552FD4 /* CloudWatchPutMetricDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F2C4491378873300552FD4 /* CloudWatchPutMetricDataRequest.m */; };
+		D0F2C4501378873300552FD4 /* CloudWatchPutMetricDataRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F2C44A1378873300552FD4 /* CloudWatchPutMetricDataRequestMarshaller.m */; };
+		D0F2C4511378873300552FD4 /* CloudWatchPutMetricDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F2C44B1378873300552FD4 /* CloudWatchPutMetricDataResponse.m */; };
+		D0F2C4521378873300552FD4 /* CloudWatchPutMetricDataResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F2C44C1378873300552FD4 /* CloudWatchPutMetricDataResponseUnmarshaller.m */; };
+		D0F2C4531378873300552FD4 /* CloudWatchStatisticSet.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F2C44D1378873300552FD4 /* CloudWatchStatisticSet.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0AE6F15B12E4C0B700465F92 /* AmazonCloudWatchClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonCloudWatchClient.m; sourceTree = "<group>"; };
+		0AE6F15D12E4C0B700465F92 /* CloudWatchAlarmHistoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchAlarmHistoryItem.m; sourceTree = "<group>"; };
+		0AE6F15E12E4C0B700465F92 /* CloudWatchAlarmHistoryItemUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchAlarmHistoryItemUnmarshaller.m; sourceTree = "<group>"; };
+		0AE6F15F12E4C0B700465F92 /* CloudWatchDatapoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchDatapoint.m; sourceTree = "<group>"; };
+		0AE6F16012E4C0B700465F92 /* CloudWatchDatapointUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchDatapointUnmarshaller.m; sourceTree = "<group>"; };
+		0AE6F16112E4C0B700465F92 /* CloudWatchDeleteAlarmsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchDeleteAlarmsRequest.m; sourceTree = "<group>"; };
+		0AE6F16312E4C0B700465F92 /* CloudWatchDeleteAlarmsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchDeleteAlarmsResponse.m; sourceTree = "<group>"; };
+		0AE6F16412E4C0B700465F92 /* CloudWatchDeleteAlarmsResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchDeleteAlarmsResponseUnmarshaller.m; sourceTree = "<group>"; };
+		0AE6F16512E4C0B700465F92 /* CloudWatchDescribeAlarmHistoryRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchDescribeAlarmHistoryRequest.m; sourceTree = "<group>"; };
+		0AE6F16712E4C0B700465F92 /* CloudWatchDescribeAlarmHistoryResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchDescribeAlarmHistoryResponse.m; sourceTree = "<group>"; };
+		0AE6F16812E4C0B700465F92 /* CloudWatchDescribeAlarmHistoryResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchDescribeAlarmHistoryResponseUnmarshaller.m; sourceTree = "<group>"; };
+		0AE6F16912E4C0B700465F92 /* CloudWatchDescribeAlarmsForMetricRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchDescribeAlarmsForMetricRequest.m; sourceTree = "<group>"; };
+		0AE6F16B12E4C0B700465F92 /* CloudWatchDescribeAlarmsForMetricResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchDescribeAlarmsForMetricResponse.m; sourceTree = "<group>"; };
+		0AE6F16C12E4C0B700465F92 /* CloudWatchDescribeAlarmsForMetricResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchDescribeAlarmsForMetricResponseUnmarshaller.m; sourceTree = "<group>"; };
+		0AE6F16D12E4C0B700465F92 /* CloudWatchDescribeAlarmsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchDescribeAlarmsRequest.m; sourceTree = "<group>"; };
+		0AE6F16F12E4C0B700465F92 /* CloudWatchDescribeAlarmsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchDescribeAlarmsResponse.m; sourceTree = "<group>"; };
+		0AE6F17012E4C0B700465F92 /* CloudWatchDescribeAlarmsResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchDescribeAlarmsResponseUnmarshaller.m; sourceTree = "<group>"; };
+		0AE6F17112E4C0B700465F92 /* CloudWatchDimension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchDimension.m; sourceTree = "<group>"; };
+		0AE6F17212E4C0B700465F92 /* CloudWatchDimensionFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchDimensionFilter.m; sourceTree = "<group>"; };
+		0AE6F17312E4C0B700465F92 /* CloudWatchDimensionUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchDimensionUnmarshaller.m; sourceTree = "<group>"; };
+		0AE6F17412E4C0B700465F92 /* CloudWatchDisableAlarmActionsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchDisableAlarmActionsRequest.m; sourceTree = "<group>"; };
+		0AE6F17612E4C0B700465F92 /* CloudWatchDisableAlarmActionsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchDisableAlarmActionsResponse.m; sourceTree = "<group>"; };
+		0AE6F17712E4C0B700465F92 /* CloudWatchDisableAlarmActionsResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchDisableAlarmActionsResponseUnmarshaller.m; sourceTree = "<group>"; };
+		0AE6F17812E4C0B700465F92 /* CloudWatchEnableAlarmActionsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchEnableAlarmActionsRequest.m; sourceTree = "<group>"; };
+		0AE6F17A12E4C0B700465F92 /* CloudWatchEnableAlarmActionsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchEnableAlarmActionsResponse.m; sourceTree = "<group>"; };
+		0AE6F17B12E4C0B700465F92 /* CloudWatchEnableAlarmActionsResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchEnableAlarmActionsResponseUnmarshaller.m; sourceTree = "<group>"; };
+		0AE6F17C12E4C0B700465F92 /* CloudWatchGetMetricStatisticsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchGetMetricStatisticsRequest.m; sourceTree = "<group>"; };
+		0AE6F17E12E4C0B700465F92 /* CloudWatchGetMetricStatisticsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchGetMetricStatisticsResponse.m; sourceTree = "<group>"; };
+		0AE6F17F12E4C0B700465F92 /* CloudWatchGetMetricStatisticsResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchGetMetricStatisticsResponseUnmarshaller.m; sourceTree = "<group>"; };
+		0AE6F18012E4C0B700465F92 /* CloudWatchInternalServiceException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchInternalServiceException.m; sourceTree = "<group>"; };
+		0AE6F18112E4C0B700465F92 /* CloudWatchInvalidFormatException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchInvalidFormatException.m; sourceTree = "<group>"; };
+		0AE6F18212E4C0B700465F92 /* CloudWatchInvalidNextTokenException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchInvalidNextTokenException.m; sourceTree = "<group>"; };
+		0AE6F18312E4C0B700465F92 /* CloudWatchInvalidParameterCombinationException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchInvalidParameterCombinationException.m; sourceTree = "<group>"; };
+		0AE6F18412E4C0B700465F92 /* CloudWatchInvalidParameterValueException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchInvalidParameterValueException.m; sourceTree = "<group>"; };
+		0AE6F18512E4C0B700465F92 /* CloudWatchLimitExceededException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchLimitExceededException.m; sourceTree = "<group>"; };
+		0AE6F18612E4C0B700465F92 /* CloudWatchListMetricsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchListMetricsRequest.m; sourceTree = "<group>"; };
+		0AE6F18812E4C0B700465F92 /* CloudWatchListMetricsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchListMetricsResponse.m; sourceTree = "<group>"; };
+		0AE6F18912E4C0B700465F92 /* CloudWatchListMetricsResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchListMetricsResponseUnmarshaller.m; sourceTree = "<group>"; };
+		0AE6F18A12E4C0B700465F92 /* CloudWatchMetric.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchMetric.m; sourceTree = "<group>"; };
+		0AE6F18B12E4C0B700465F92 /* CloudWatchMetricAlarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchMetricAlarm.m; sourceTree = "<group>"; };
+		0AE6F18C12E4C0B700465F92 /* CloudWatchMetricAlarmUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchMetricAlarmUnmarshaller.m; sourceTree = "<group>"; };
+		0AE6F18D12E4C0B700465F92 /* CloudWatchMetricUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchMetricUnmarshaller.m; sourceTree = "<group>"; };
+		0AE6F18E12E4C0B700465F92 /* CloudWatchMissingRequiredParameterException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchMissingRequiredParameterException.m; sourceTree = "<group>"; };
+		0AE6F18F12E4C0B700465F92 /* CloudWatchPutMetricAlarmRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchPutMetricAlarmRequest.m; sourceTree = "<group>"; };
+		0AE6F19112E4C0B700465F92 /* CloudWatchPutMetricAlarmResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchPutMetricAlarmResponse.m; sourceTree = "<group>"; };
+		0AE6F19212E4C0B700465F92 /* CloudWatchPutMetricAlarmResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchPutMetricAlarmResponseUnmarshaller.m; sourceTree = "<group>"; };
+		0AE6F19312E4C0B700465F92 /* CloudWatchResourceNotFoundException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchResourceNotFoundException.m; sourceTree = "<group>"; };
+		0AE6F19412E4C0B700465F92 /* CloudWatchSetAlarmStateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchSetAlarmStateRequest.m; sourceTree = "<group>"; };
+		0AE6F19612E4C0B700465F92 /* CloudWatchSetAlarmStateResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchSetAlarmStateResponse.m; sourceTree = "<group>"; };
+		0AE6F19712E4C0B700465F92 /* CloudWatchSetAlarmStateResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchSetAlarmStateResponseUnmarshaller.m; sourceTree = "<group>"; };
+		0AE6F1D512E4C0CB00465F92 /* AmazonCloudWatchClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmazonCloudWatchClient.h; path = CloudWatch/AmazonCloudWatchClient.h; sourceTree = "<group>"; };
+		0AE6F1D612E4C0CB00465F92 /* CloudWatchAlarmHistoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchAlarmHistoryItem.h; path = CloudWatch/CloudWatchAlarmHistoryItem.h; sourceTree = "<group>"; };
+		0AE6F1D712E4C0CB00465F92 /* CloudWatchAlarmHistoryItemUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchAlarmHistoryItemUnmarshaller.h; path = CloudWatch/CloudWatchAlarmHistoryItemUnmarshaller.h; sourceTree = "<group>"; };
+		0AE6F1D812E4C0CB00465F92 /* CloudWatchDatapoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchDatapoint.h; path = CloudWatch/CloudWatchDatapoint.h; sourceTree = "<group>"; };
+		0AE6F1D912E4C0CB00465F92 /* CloudWatchDatapointUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchDatapointUnmarshaller.h; path = CloudWatch/CloudWatchDatapointUnmarshaller.h; sourceTree = "<group>"; };
+		0AE6F1DA12E4C0CB00465F92 /* CloudWatchDeleteAlarmsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchDeleteAlarmsRequest.h; path = CloudWatch/CloudWatchDeleteAlarmsRequest.h; sourceTree = "<group>"; };
+		0AE6F1DC12E4C0CB00465F92 /* CloudWatchDeleteAlarmsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchDeleteAlarmsResponse.h; path = CloudWatch/CloudWatchDeleteAlarmsResponse.h; sourceTree = "<group>"; };
+		0AE6F1DD12E4C0CB00465F92 /* CloudWatchDeleteAlarmsResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchDeleteAlarmsResponseUnmarshaller.h; path = CloudWatch/CloudWatchDeleteAlarmsResponseUnmarshaller.h; sourceTree = "<group>"; };
+		0AE6F1DE12E4C0CB00465F92 /* CloudWatchDescribeAlarmHistoryRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchDescribeAlarmHistoryRequest.h; path = CloudWatch/CloudWatchDescribeAlarmHistoryRequest.h; sourceTree = "<group>"; };
+		0AE6F1E012E4C0CB00465F92 /* CloudWatchDescribeAlarmHistoryResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchDescribeAlarmHistoryResponse.h; path = CloudWatch/CloudWatchDescribeAlarmHistoryResponse.h; sourceTree = "<group>"; };
+		0AE6F1E112E4C0CB00465F92 /* CloudWatchDescribeAlarmHistoryResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchDescribeAlarmHistoryResponseUnmarshaller.h; path = CloudWatch/CloudWatchDescribeAlarmHistoryResponseUnmarshaller.h; sourceTree = "<group>"; };
+		0AE6F1E212E4C0CC00465F92 /* CloudWatchDescribeAlarmsForMetricRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchDescribeAlarmsForMetricRequest.h; path = CloudWatch/CloudWatchDescribeAlarmsForMetricRequest.h; sourceTree = "<group>"; };
+		0AE6F1E412E4C0CC00465F92 /* CloudWatchDescribeAlarmsForMetricResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchDescribeAlarmsForMetricResponse.h; path = CloudWatch/CloudWatchDescribeAlarmsForMetricResponse.h; sourceTree = "<group>"; };
+		0AE6F1E512E4C0CC00465F92 /* CloudWatchDescribeAlarmsForMetricResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchDescribeAlarmsForMetricResponseUnmarshaller.h; path = CloudWatch/CloudWatchDescribeAlarmsForMetricResponseUnmarshaller.h; sourceTree = "<group>"; };
+		0AE6F1E612E4C0CC00465F92 /* CloudWatchDescribeAlarmsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchDescribeAlarmsRequest.h; path = CloudWatch/CloudWatchDescribeAlarmsRequest.h; sourceTree = "<group>"; };
+		0AE6F1E812E4C0CC00465F92 /* CloudWatchDescribeAlarmsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchDescribeAlarmsResponse.h; path = CloudWatch/CloudWatchDescribeAlarmsResponse.h; sourceTree = "<group>"; };
+		0AE6F1E912E4C0CC00465F92 /* CloudWatchDescribeAlarmsResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchDescribeAlarmsResponseUnmarshaller.h; path = CloudWatch/CloudWatchDescribeAlarmsResponseUnmarshaller.h; sourceTree = "<group>"; };
+		0AE6F1EA12E4C0CC00465F92 /* CloudWatchDimension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchDimension.h; path = CloudWatch/CloudWatchDimension.h; sourceTree = "<group>"; };
+		0AE6F1EB12E4C0CC00465F92 /* CloudWatchDimensionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchDimensionFilter.h; path = CloudWatch/CloudWatchDimensionFilter.h; sourceTree = "<group>"; };
+		0AE6F1EC12E4C0CC00465F92 /* CloudWatchDimensionUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchDimensionUnmarshaller.h; path = CloudWatch/CloudWatchDimensionUnmarshaller.h; sourceTree = "<group>"; };
+		0AE6F1ED12E4C0CC00465F92 /* CloudWatchDisableAlarmActionsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchDisableAlarmActionsRequest.h; path = CloudWatch/CloudWatchDisableAlarmActionsRequest.h; sourceTree = "<group>"; };
+		0AE6F1EF12E4C0CC00465F92 /* CloudWatchDisableAlarmActionsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchDisableAlarmActionsResponse.h; path = CloudWatch/CloudWatchDisableAlarmActionsResponse.h; sourceTree = "<group>"; };
+		0AE6F1F012E4C0CC00465F92 /* CloudWatchDisableAlarmActionsResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchDisableAlarmActionsResponseUnmarshaller.h; path = CloudWatch/CloudWatchDisableAlarmActionsResponseUnmarshaller.h; sourceTree = "<group>"; };
+		0AE6F1F112E4C0CC00465F92 /* CloudWatchEnableAlarmActionsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchEnableAlarmActionsRequest.h; path = CloudWatch/CloudWatchEnableAlarmActionsRequest.h; sourceTree = "<group>"; };
+		0AE6F1F312E4C0CC00465F92 /* CloudWatchEnableAlarmActionsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchEnableAlarmActionsResponse.h; path = CloudWatch/CloudWatchEnableAlarmActionsResponse.h; sourceTree = "<group>"; };
+		0AE6F1F412E4C0CC00465F92 /* CloudWatchEnableAlarmActionsResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchEnableAlarmActionsResponseUnmarshaller.h; path = CloudWatch/CloudWatchEnableAlarmActionsResponseUnmarshaller.h; sourceTree = "<group>"; };
+		0AE6F1F512E4C0CC00465F92 /* CloudWatchGetMetricStatisticsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchGetMetricStatisticsRequest.h; path = CloudWatch/CloudWatchGetMetricStatisticsRequest.h; sourceTree = "<group>"; };
+		0AE6F1F712E4C0CC00465F92 /* CloudWatchGetMetricStatisticsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchGetMetricStatisticsResponse.h; path = CloudWatch/CloudWatchGetMetricStatisticsResponse.h; sourceTree = "<group>"; };
+		0AE6F1F812E4C0CC00465F92 /* CloudWatchGetMetricStatisticsResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchGetMetricStatisticsResponseUnmarshaller.h; path = CloudWatch/CloudWatchGetMetricStatisticsResponseUnmarshaller.h; sourceTree = "<group>"; };
+		0AE6F1F912E4C0CC00465F92 /* CloudWatchInternalServiceException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchInternalServiceException.h; path = CloudWatch/CloudWatchInternalServiceException.h; sourceTree = "<group>"; };
+		0AE6F1FA12E4C0CC00465F92 /* CloudWatchInvalidFormatException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchInvalidFormatException.h; path = CloudWatch/CloudWatchInvalidFormatException.h; sourceTree = "<group>"; };
+		0AE6F1FB12E4C0CC00465F92 /* CloudWatchInvalidNextTokenException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchInvalidNextTokenException.h; path = CloudWatch/CloudWatchInvalidNextTokenException.h; sourceTree = "<group>"; };
+		0AE6F1FC12E4C0CC00465F92 /* CloudWatchInvalidParameterCombinationException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchInvalidParameterCombinationException.h; path = CloudWatch/CloudWatchInvalidParameterCombinationException.h; sourceTree = "<group>"; };
+		0AE6F1FD12E4C0CC00465F92 /* CloudWatchInvalidParameterValueException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchInvalidParameterValueException.h; path = CloudWatch/CloudWatchInvalidParameterValueException.h; sourceTree = "<group>"; };
+		0AE6F1FE12E4C0CC00465F92 /* CloudWatchLimitExceededException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchLimitExceededException.h; path = CloudWatch/CloudWatchLimitExceededException.h; sourceTree = "<group>"; };
+		0AE6F1FF12E4C0CC00465F92 /* CloudWatchListMetricsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchListMetricsRequest.h; path = CloudWatch/CloudWatchListMetricsRequest.h; sourceTree = "<group>"; };
+		0AE6F20112E4C0CC00465F92 /* CloudWatchListMetricsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchListMetricsResponse.h; path = CloudWatch/CloudWatchListMetricsResponse.h; sourceTree = "<group>"; };
+		0AE6F20212E4C0CC00465F92 /* CloudWatchListMetricsResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchListMetricsResponseUnmarshaller.h; path = CloudWatch/CloudWatchListMetricsResponseUnmarshaller.h; sourceTree = "<group>"; };
+		0AE6F20312E4C0CC00465F92 /* CloudWatchMetric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchMetric.h; path = CloudWatch/CloudWatchMetric.h; sourceTree = "<group>"; };
+		0AE6F20412E4C0CC00465F92 /* CloudWatchMetricAlarm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchMetricAlarm.h; path = CloudWatch/CloudWatchMetricAlarm.h; sourceTree = "<group>"; };
+		0AE6F20512E4C0CC00465F92 /* CloudWatchMetricAlarmUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchMetricAlarmUnmarshaller.h; path = CloudWatch/CloudWatchMetricAlarmUnmarshaller.h; sourceTree = "<group>"; };
+		0AE6F20612E4C0CC00465F92 /* CloudWatchMetricUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchMetricUnmarshaller.h; path = CloudWatch/CloudWatchMetricUnmarshaller.h; sourceTree = "<group>"; };
+		0AE6F20712E4C0CC00465F92 /* CloudWatchMissingRequiredParameterException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchMissingRequiredParameterException.h; path = CloudWatch/CloudWatchMissingRequiredParameterException.h; sourceTree = "<group>"; };
+		0AE6F20812E4C0CC00465F92 /* CloudWatchPutMetricAlarmRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchPutMetricAlarmRequest.h; path = CloudWatch/CloudWatchPutMetricAlarmRequest.h; sourceTree = "<group>"; };
+		0AE6F20A12E4C0CC00465F92 /* CloudWatchPutMetricAlarmResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchPutMetricAlarmResponse.h; path = CloudWatch/CloudWatchPutMetricAlarmResponse.h; sourceTree = "<group>"; };
+		0AE6F20B12E4C0CC00465F92 /* CloudWatchPutMetricAlarmResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchPutMetricAlarmResponseUnmarshaller.h; path = CloudWatch/CloudWatchPutMetricAlarmResponseUnmarshaller.h; sourceTree = "<group>"; };
+		0AE6F20C12E4C0CC00465F92 /* CloudWatchResourceNotFoundException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchResourceNotFoundException.h; path = CloudWatch/CloudWatchResourceNotFoundException.h; sourceTree = "<group>"; };
+		0AE6F20D12E4C0CC00465F92 /* CloudWatchSetAlarmStateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchSetAlarmStateRequest.h; path = CloudWatch/CloudWatchSetAlarmStateRequest.h; sourceTree = "<group>"; };
+		0AE6F20F12E4C0CC00465F92 /* CloudWatchSetAlarmStateResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchSetAlarmStateResponse.h; path = CloudWatch/CloudWatchSetAlarmStateResponse.h; sourceTree = "<group>"; };
+		0AE6F21012E4C0CC00465F92 /* CloudWatchSetAlarmStateResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchSetAlarmStateResponseUnmarshaller.h; path = CloudWatch/CloudWatchSetAlarmStateResponseUnmarshaller.h; sourceTree = "<group>"; };
+		0AE6F25012E4C22F00465F92 /* CloudWatchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchRequest.h; path = CloudWatch/CloudWatchRequest.h; sourceTree = "<group>"; };
+		0AE6F25612E4C29500465F92 /* CloudWatchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchRequest.m; sourceTree = "<group>"; };
+		0AFD8DC0128462A0004B7863 /* Framework.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Framework.plist; sourceTree = "<group>"; };
+		0AFD8DC312846390004B7863 /* Framework.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = Framework.sh; sourceTree = "<group>"; };
+		AA747D9E0F9514B9006C5449 /* CloudWatch_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloudWatch_Prefix.pch; sourceTree = "<group>"; };
+		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CE2CDBF517036A5B0013DE5F /* AWSCloudWatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSCloudWatch.h; path = CloudWatch/AWSCloudWatch.h; sourceTree = "<group>"; };
+		CE96C1A9158BC2A70084D3CB /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		CEDA40EF151D519A002CBB54 /* CloudWatchMetricDatum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchMetricDatum.h; path = CloudWatch/CloudWatchMetricDatum.h; sourceTree = "<group>"; };
+		CEDA40F0151D519A002CBB54 /* CloudWatchPutMetricDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchPutMetricDataRequest.h; path = CloudWatch/CloudWatchPutMetricDataRequest.h; sourceTree = "<group>"; };
+		CEDA40F1151D519A002CBB54 /* CloudWatchPutMetricDataRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchPutMetricDataRequestMarshaller.h; path = CloudWatch/CloudWatchPutMetricDataRequestMarshaller.h; sourceTree = "<group>"; };
+		CEDA40F2151D519A002CBB54 /* CloudWatchPutMetricDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchPutMetricDataResponse.h; path = CloudWatch/CloudWatchPutMetricDataResponse.h; sourceTree = "<group>"; };
+		CEDA40F3151D519A002CBB54 /* CloudWatchPutMetricDataResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchPutMetricDataResponseUnmarshaller.h; path = CloudWatch/CloudWatchPutMetricDataResponseUnmarshaller.h; sourceTree = "<group>"; };
+		CEDA40F4151D519A002CBB54 /* CloudWatchStatisticSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchStatisticSet.h; path = CloudWatch/CloudWatchStatisticSet.h; sourceTree = "<group>"; };
+		D03F19241377310500891BD9 /* CloudWatchDeleteAlarmsRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchDeleteAlarmsRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F19251377310500891BD9 /* CloudWatchDescribeAlarmHistoryRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchDescribeAlarmHistoryRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F19261377310500891BD9 /* CloudWatchDescribeAlarmsForMetricRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchDescribeAlarmsForMetricRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F19271377310500891BD9 /* CloudWatchDescribeAlarmsRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchDescribeAlarmsRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F19281377310500891BD9 /* CloudWatchDisableAlarmActionsRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchDisableAlarmActionsRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F19291377310500891BD9 /* CloudWatchEnableAlarmActionsRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchEnableAlarmActionsRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F192A1377310500891BD9 /* CloudWatchGetMetricStatisticsRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchGetMetricStatisticsRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F192B1377310500891BD9 /* CloudWatchListMetricsRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchListMetricsRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F192C1377310500891BD9 /* CloudWatchPutMetricAlarmRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchPutMetricAlarmRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F192D1377310500891BD9 /* CloudWatchSetAlarmStateRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchSetAlarmStateRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F1AE01377336900891BD9 /* CloudWatchDeleteAlarmsRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchDeleteAlarmsRequestMarshaller.h; path = CloudWatch/CloudWatchDeleteAlarmsRequestMarshaller.h; sourceTree = "<group>"; };
+		D03F1AE11377336900891BD9 /* CloudWatchDescribeAlarmHistoryRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchDescribeAlarmHistoryRequestMarshaller.h; path = CloudWatch/CloudWatchDescribeAlarmHistoryRequestMarshaller.h; sourceTree = "<group>"; };
+		D03F1AE21377336900891BD9 /* CloudWatchDescribeAlarmsForMetricRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchDescribeAlarmsForMetricRequestMarshaller.h; path = CloudWatch/CloudWatchDescribeAlarmsForMetricRequestMarshaller.h; sourceTree = "<group>"; };
+		D03F1AE31377336900891BD9 /* CloudWatchDescribeAlarmsRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchDescribeAlarmsRequestMarshaller.h; path = CloudWatch/CloudWatchDescribeAlarmsRequestMarshaller.h; sourceTree = "<group>"; };
+		D03F1AE41377336900891BD9 /* CloudWatchDisableAlarmActionsRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchDisableAlarmActionsRequestMarshaller.h; path = CloudWatch/CloudWatchDisableAlarmActionsRequestMarshaller.h; sourceTree = "<group>"; };
+		D03F1AE51377336900891BD9 /* CloudWatchEnableAlarmActionsRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchEnableAlarmActionsRequestMarshaller.h; path = CloudWatch/CloudWatchEnableAlarmActionsRequestMarshaller.h; sourceTree = "<group>"; };
+		D03F1AE61377336900891BD9 /* CloudWatchGetMetricStatisticsRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchGetMetricStatisticsRequestMarshaller.h; path = CloudWatch/CloudWatchGetMetricStatisticsRequestMarshaller.h; sourceTree = "<group>"; };
+		D03F1AE71377336900891BD9 /* CloudWatchListMetricsRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchListMetricsRequestMarshaller.h; path = CloudWatch/CloudWatchListMetricsRequestMarshaller.h; sourceTree = "<group>"; };
+		D03F1AE81377336900891BD9 /* CloudWatchPutMetricAlarmRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchPutMetricAlarmRequestMarshaller.h; path = CloudWatch/CloudWatchPutMetricAlarmRequestMarshaller.h; sourceTree = "<group>"; };
+		D03F1AE91377336900891BD9 /* CloudWatchSetAlarmStateRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchSetAlarmStateRequestMarshaller.h; path = CloudWatch/CloudWatchSetAlarmStateRequestMarshaller.h; sourceTree = "<group>"; };
+		D04C86401371D66200F08418 /* CloudWatchResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchResponseUnmarshaller.m; sourceTree = "<group>"; };
+		D04C864E1371D71900F08418 /* CloudWatchResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchResponseUnmarshaller.h; path = CloudWatch/CloudWatchResponseUnmarshaller.h; sourceTree = "<group>"; };
+		D069663F1234D53400BFBB1E /* libCloudWatch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCloudWatch.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0A0EA781344E709007721F9 /* CloudWatchResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudWatchResponse.h; path = CloudWatch/CloudWatchResponse.h; sourceTree = "<group>"; };
+		D0A0EA801344E793007721F9 /* CloudWatchResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchResponse.m; sourceTree = "<group>"; };
+		D0F2C4481378873300552FD4 /* CloudWatchMetricDatum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchMetricDatum.m; sourceTree = "<group>"; };
+		D0F2C4491378873300552FD4 /* CloudWatchPutMetricDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchPutMetricDataRequest.m; sourceTree = "<group>"; };
+		D0F2C44A1378873300552FD4 /* CloudWatchPutMetricDataRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchPutMetricDataRequestMarshaller.m; sourceTree = "<group>"; };
+		D0F2C44B1378873300552FD4 /* CloudWatchPutMetricDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchPutMetricDataResponse.m; sourceTree = "<group>"; };
+		D0F2C44C1378873300552FD4 /* CloudWatchPutMetricDataResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchPutMetricDataResponseUnmarshaller.m; sourceTree = "<group>"; };
+		D0F2C44D1378873300552FD4 /* CloudWatchStatisticSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudWatchStatisticSet.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE96C1B7158BD58A0084D3CB /* MobileCoreServices.framework in Frameworks */,
+				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D069663F1234D53400BFBB1E /* libCloudWatch.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* s3 */ = {
+			isa = PBXGroup;
+			children = (
+				0AE6F15A12E4C0B700465F92 /* Amazon.CloudWatch */,
+				0AFD9561128471A4004B7863 /* include */,
+				0AFD8DC212846372004B7863 /* Scripts */,
+				0AFD8DBF128462A0004B7863 /* Resources */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
+			);
+			name = s3;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE96C1A9158BC2A70084D3CB /* MobileCoreServices.framework */,
+				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0AE6F15A12E4C0B700465F92 /* Amazon.CloudWatch */ = {
+			isa = PBXGroup;
+			children = (
+				D04C86401371D66200F08418 /* CloudWatchResponseUnmarshaller.m */,
+				D0A0EA801344E793007721F9 /* CloudWatchResponse.m */,
+				0AE6F15B12E4C0B700465F92 /* AmazonCloudWatchClient.m */,
+				0AE6F15C12E4C0B700465F92 /* Model */,
+				0AE6F25612E4C29500465F92 /* CloudWatchRequest.m */,
+			);
+			path = Amazon.CloudWatch;
+			sourceTree = "<group>";
+		};
+		0AE6F15C12E4C0B700465F92 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D0F2C4481378873300552FD4 /* CloudWatchMetricDatum.m */,
+				D0F2C4491378873300552FD4 /* CloudWatchPutMetricDataRequest.m */,
+				D0F2C44A1378873300552FD4 /* CloudWatchPutMetricDataRequestMarshaller.m */,
+				D0F2C44B1378873300552FD4 /* CloudWatchPutMetricDataResponse.m */,
+				D0F2C44C1378873300552FD4 /* CloudWatchPutMetricDataResponseUnmarshaller.m */,
+				D0F2C44D1378873300552FD4 /* CloudWatchStatisticSet.m */,
+				D03F19241377310500891BD9 /* CloudWatchDeleteAlarmsRequestMarshaller.m */,
+				D03F19251377310500891BD9 /* CloudWatchDescribeAlarmHistoryRequestMarshaller.m */,
+				D03F19261377310500891BD9 /* CloudWatchDescribeAlarmsForMetricRequestMarshaller.m */,
+				D03F19271377310500891BD9 /* CloudWatchDescribeAlarmsRequestMarshaller.m */,
+				D03F19281377310500891BD9 /* CloudWatchDisableAlarmActionsRequestMarshaller.m */,
+				D03F19291377310500891BD9 /* CloudWatchEnableAlarmActionsRequestMarshaller.m */,
+				D03F192A1377310500891BD9 /* CloudWatchGetMetricStatisticsRequestMarshaller.m */,
+				D03F192B1377310500891BD9 /* CloudWatchListMetricsRequestMarshaller.m */,
+				D03F192C1377310500891BD9 /* CloudWatchPutMetricAlarmRequestMarshaller.m */,
+				D03F192D1377310500891BD9 /* CloudWatchSetAlarmStateRequestMarshaller.m */,
+				0AE6F15D12E4C0B700465F92 /* CloudWatchAlarmHistoryItem.m */,
+				0AE6F15E12E4C0B700465F92 /* CloudWatchAlarmHistoryItemUnmarshaller.m */,
+				0AE6F15F12E4C0B700465F92 /* CloudWatchDatapoint.m */,
+				0AE6F16012E4C0B700465F92 /* CloudWatchDatapointUnmarshaller.m */,
+				0AE6F16112E4C0B700465F92 /* CloudWatchDeleteAlarmsRequest.m */,
+				0AE6F16312E4C0B700465F92 /* CloudWatchDeleteAlarmsResponse.m */,
+				0AE6F16412E4C0B700465F92 /* CloudWatchDeleteAlarmsResponseUnmarshaller.m */,
+				0AE6F16512E4C0B700465F92 /* CloudWatchDescribeAlarmHistoryRequest.m */,
+				0AE6F16712E4C0B700465F92 /* CloudWatchDescribeAlarmHistoryResponse.m */,
+				0AE6F16812E4C0B700465F92 /* CloudWatchDescribeAlarmHistoryResponseUnmarshaller.m */,
+				0AE6F16912E4C0B700465F92 /* CloudWatchDescribeAlarmsForMetricRequest.m */,
+				0AE6F16B12E4C0B700465F92 /* CloudWatchDescribeAlarmsForMetricResponse.m */,
+				0AE6F16C12E4C0B700465F92 /* CloudWatchDescribeAlarmsForMetricResponseUnmarshaller.m */,
+				0AE6F16D12E4C0B700465F92 /* CloudWatchDescribeAlarmsRequest.m */,
+				0AE6F16F12E4C0B700465F92 /* CloudWatchDescribeAlarmsResponse.m */,
+				0AE6F17012E4C0B700465F92 /* CloudWatchDescribeAlarmsResponseUnmarshaller.m */,
+				0AE6F17112E4C0B700465F92 /* CloudWatchDimension.m */,
+				0AE6F17212E4C0B700465F92 /* CloudWatchDimensionFilter.m */,
+				0AE6F17312E4C0B700465F92 /* CloudWatchDimensionUnmarshaller.m */,
+				0AE6F17412E4C0B700465F92 /* CloudWatchDisableAlarmActionsRequest.m */,
+				0AE6F17612E4C0B700465F92 /* CloudWatchDisableAlarmActionsResponse.m */,
+				0AE6F17712E4C0B700465F92 /* CloudWatchDisableAlarmActionsResponseUnmarshaller.m */,
+				0AE6F17812E4C0B700465F92 /* CloudWatchEnableAlarmActionsRequest.m */,
+				0AE6F17A12E4C0B700465F92 /* CloudWatchEnableAlarmActionsResponse.m */,
+				0AE6F17B12E4C0B700465F92 /* CloudWatchEnableAlarmActionsResponseUnmarshaller.m */,
+				0AE6F17C12E4C0B700465F92 /* CloudWatchGetMetricStatisticsRequest.m */,
+				0AE6F17E12E4C0B700465F92 /* CloudWatchGetMetricStatisticsResponse.m */,
+				0AE6F17F12E4C0B700465F92 /* CloudWatchGetMetricStatisticsResponseUnmarshaller.m */,
+				0AE6F18012E4C0B700465F92 /* CloudWatchInternalServiceException.m */,
+				0AE6F18112E4C0B700465F92 /* CloudWatchInvalidFormatException.m */,
+				0AE6F18212E4C0B700465F92 /* CloudWatchInvalidNextTokenException.m */,
+				0AE6F18312E4C0B700465F92 /* CloudWatchInvalidParameterCombinationException.m */,
+				0AE6F18412E4C0B700465F92 /* CloudWatchInvalidParameterValueException.m */,
+				0AE6F18512E4C0B700465F92 /* CloudWatchLimitExceededException.m */,
+				0AE6F18612E4C0B700465F92 /* CloudWatchListMetricsRequest.m */,
+				0AE6F18812E4C0B700465F92 /* CloudWatchListMetricsResponse.m */,
+				0AE6F18912E4C0B700465F92 /* CloudWatchListMetricsResponseUnmarshaller.m */,
+				0AE6F18A12E4C0B700465F92 /* CloudWatchMetric.m */,
+				0AE6F18B12E4C0B700465F92 /* CloudWatchMetricAlarm.m */,
+				0AE6F18C12E4C0B700465F92 /* CloudWatchMetricAlarmUnmarshaller.m */,
+				0AE6F18D12E4C0B700465F92 /* CloudWatchMetricUnmarshaller.m */,
+				0AE6F18E12E4C0B700465F92 /* CloudWatchMissingRequiredParameterException.m */,
+				0AE6F18F12E4C0B700465F92 /* CloudWatchPutMetricAlarmRequest.m */,
+				0AE6F19112E4C0B700465F92 /* CloudWatchPutMetricAlarmResponse.m */,
+				0AE6F19212E4C0B700465F92 /* CloudWatchPutMetricAlarmResponseUnmarshaller.m */,
+				0AE6F19312E4C0B700465F92 /* CloudWatchResourceNotFoundException.m */,
+				0AE6F19412E4C0B700465F92 /* CloudWatchSetAlarmStateRequest.m */,
+				0AE6F19612E4C0B700465F92 /* CloudWatchSetAlarmStateResponse.m */,
+				0AE6F19712E4C0B700465F92 /* CloudWatchSetAlarmStateResponseUnmarshaller.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0AFD8DBF128462A0004B7863 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0AFD8DC0128462A0004B7863 /* Framework.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0AFD8DC212846372004B7863 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				0AFD8DC312846390004B7863 /* Framework.sh */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
+		0AFD9561128471A4004B7863 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				CE2CDBF517036A5B0013DE5F /* AWSCloudWatch.h */,
+				0AE6F1D512E4C0CB00465F92 /* AmazonCloudWatchClient.h */,
+				0AE6F1D612E4C0CB00465F92 /* CloudWatchAlarmHistoryItem.h */,
+				0AE6F1D712E4C0CB00465F92 /* CloudWatchAlarmHistoryItemUnmarshaller.h */,
+				0AE6F1D812E4C0CB00465F92 /* CloudWatchDatapoint.h */,
+				0AE6F1D912E4C0CB00465F92 /* CloudWatchDatapointUnmarshaller.h */,
+				0AE6F1DA12E4C0CB00465F92 /* CloudWatchDeleteAlarmsRequest.h */,
+				D03F1AE01377336900891BD9 /* CloudWatchDeleteAlarmsRequestMarshaller.h */,
+				0AE6F1DC12E4C0CB00465F92 /* CloudWatchDeleteAlarmsResponse.h */,
+				0AE6F1DD12E4C0CB00465F92 /* CloudWatchDeleteAlarmsResponseUnmarshaller.h */,
+				0AE6F1DE12E4C0CB00465F92 /* CloudWatchDescribeAlarmHistoryRequest.h */,
+				D03F1AE11377336900891BD9 /* CloudWatchDescribeAlarmHistoryRequestMarshaller.h */,
+				0AE6F1E012E4C0CB00465F92 /* CloudWatchDescribeAlarmHistoryResponse.h */,
+				0AE6F1E112E4C0CB00465F92 /* CloudWatchDescribeAlarmHistoryResponseUnmarshaller.h */,
+				0AE6F1E212E4C0CC00465F92 /* CloudWatchDescribeAlarmsForMetricRequest.h */,
+				D03F1AE21377336900891BD9 /* CloudWatchDescribeAlarmsForMetricRequestMarshaller.h */,
+				0AE6F1E412E4C0CC00465F92 /* CloudWatchDescribeAlarmsForMetricResponse.h */,
+				0AE6F1E512E4C0CC00465F92 /* CloudWatchDescribeAlarmsForMetricResponseUnmarshaller.h */,
+				0AE6F1E612E4C0CC00465F92 /* CloudWatchDescribeAlarmsRequest.h */,
+				D03F1AE31377336900891BD9 /* CloudWatchDescribeAlarmsRequestMarshaller.h */,
+				0AE6F1E812E4C0CC00465F92 /* CloudWatchDescribeAlarmsResponse.h */,
+				0AE6F1E912E4C0CC00465F92 /* CloudWatchDescribeAlarmsResponseUnmarshaller.h */,
+				0AE6F1EA12E4C0CC00465F92 /* CloudWatchDimension.h */,
+				0AE6F1EB12E4C0CC00465F92 /* CloudWatchDimensionFilter.h */,
+				0AE6F1EC12E4C0CC00465F92 /* CloudWatchDimensionUnmarshaller.h */,
+				0AE6F1ED12E4C0CC00465F92 /* CloudWatchDisableAlarmActionsRequest.h */,
+				D03F1AE41377336900891BD9 /* CloudWatchDisableAlarmActionsRequestMarshaller.h */,
+				0AE6F1EF12E4C0CC00465F92 /* CloudWatchDisableAlarmActionsResponse.h */,
+				0AE6F1F012E4C0CC00465F92 /* CloudWatchDisableAlarmActionsResponseUnmarshaller.h */,
+				0AE6F1F112E4C0CC00465F92 /* CloudWatchEnableAlarmActionsRequest.h */,
+				D03F1AE51377336900891BD9 /* CloudWatchEnableAlarmActionsRequestMarshaller.h */,
+				0AE6F1F312E4C0CC00465F92 /* CloudWatchEnableAlarmActionsResponse.h */,
+				0AE6F1F412E4C0CC00465F92 /* CloudWatchEnableAlarmActionsResponseUnmarshaller.h */,
+				0AE6F1F512E4C0CC00465F92 /* CloudWatchGetMetricStatisticsRequest.h */,
+				D03F1AE61377336900891BD9 /* CloudWatchGetMetricStatisticsRequestMarshaller.h */,
+				0AE6F1F712E4C0CC00465F92 /* CloudWatchGetMetricStatisticsResponse.h */,
+				0AE6F1F812E4C0CC00465F92 /* CloudWatchGetMetricStatisticsResponseUnmarshaller.h */,
+				0AE6F1F912E4C0CC00465F92 /* CloudWatchInternalServiceException.h */,
+				0AE6F1FA12E4C0CC00465F92 /* CloudWatchInvalidFormatException.h */,
+				0AE6F1FB12E4C0CC00465F92 /* CloudWatchInvalidNextTokenException.h */,
+				0AE6F1FC12E4C0CC00465F92 /* CloudWatchInvalidParameterCombinationException.h */,
+				0AE6F1FD12E4C0CC00465F92 /* CloudWatchInvalidParameterValueException.h */,
+				0AE6F1FE12E4C0CC00465F92 /* CloudWatchLimitExceededException.h */,
+				0AE6F1FF12E4C0CC00465F92 /* CloudWatchListMetricsRequest.h */,
+				D03F1AE71377336900891BD9 /* CloudWatchListMetricsRequestMarshaller.h */,
+				0AE6F20112E4C0CC00465F92 /* CloudWatchListMetricsResponse.h */,
+				0AE6F20212E4C0CC00465F92 /* CloudWatchListMetricsResponseUnmarshaller.h */,
+				0AE6F20312E4C0CC00465F92 /* CloudWatchMetric.h */,
+				0AE6F20412E4C0CC00465F92 /* CloudWatchMetricAlarm.h */,
+				0AE6F20512E4C0CC00465F92 /* CloudWatchMetricAlarmUnmarshaller.h */,
+				CEDA40EF151D519A002CBB54 /* CloudWatchMetricDatum.h */,
+				0AE6F20612E4C0CC00465F92 /* CloudWatchMetricUnmarshaller.h */,
+				0AE6F20712E4C0CC00465F92 /* CloudWatchMissingRequiredParameterException.h */,
+				0AE6F20812E4C0CC00465F92 /* CloudWatchPutMetricAlarmRequest.h */,
+				D03F1AE81377336900891BD9 /* CloudWatchPutMetricAlarmRequestMarshaller.h */,
+				0AE6F20A12E4C0CC00465F92 /* CloudWatchPutMetricAlarmResponse.h */,
+				0AE6F20B12E4C0CC00465F92 /* CloudWatchPutMetricAlarmResponseUnmarshaller.h */,
+				CEDA40F0151D519A002CBB54 /* CloudWatchPutMetricDataRequest.h */,
+				CEDA40F1151D519A002CBB54 /* CloudWatchPutMetricDataRequestMarshaller.h */,
+				CEDA40F2151D519A002CBB54 /* CloudWatchPutMetricDataResponse.h */,
+				CEDA40F3151D519A002CBB54 /* CloudWatchPutMetricDataResponseUnmarshaller.h */,
+				0AE6F25012E4C22F00465F92 /* CloudWatchRequest.h */,
+				0AE6F20C12E4C0CC00465F92 /* CloudWatchResourceNotFoundException.h */,
+				D0A0EA781344E709007721F9 /* CloudWatchResponse.h */,
+				D04C864E1371D71900F08418 /* CloudWatchResponseUnmarshaller.h */,
+				0AE6F20D12E4C0CC00465F92 /* CloudWatchSetAlarmStateRequest.h */,
+				D03F1AE91377336900891BD9 /* CloudWatchSetAlarmStateRequestMarshaller.h */,
+				0AE6F20F12E4C0CC00465F92 /* CloudWatchSetAlarmStateResponse.h */,
+				0AE6F21012E4C0CC00465F92 /* CloudWatchSetAlarmStateResponseUnmarshaller.h */,
+				CEDA40F4151D519A002CBB54 /* CloudWatchStatisticSet.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				034768DFFF38A50411DB9C8B /* Products */,
+				AA747D9E0F9514B9006C5449 /* CloudWatch_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AE6F21112E4C0CC00465F92 /* AmazonCloudWatchClient.h in Headers */,
+				0AE6F21212E4C0CC00465F92 /* CloudWatchAlarmHistoryItem.h in Headers */,
+				0AE6F21312E4C0CC00465F92 /* CloudWatchAlarmHistoryItemUnmarshaller.h in Headers */,
+				0AE6F21412E4C0CC00465F92 /* CloudWatchDatapoint.h in Headers */,
+				0AE6F21512E4C0CC00465F92 /* CloudWatchDatapointUnmarshaller.h in Headers */,
+				0AE6F21612E4C0CC00465F92 /* CloudWatchDeleteAlarmsRequest.h in Headers */,
+				0AE6F21812E4C0CC00465F92 /* CloudWatchDeleteAlarmsResponse.h in Headers */,
+				0AE6F21912E4C0CC00465F92 /* CloudWatchDeleteAlarmsResponseUnmarshaller.h in Headers */,
+				0AE6F21A12E4C0CC00465F92 /* CloudWatchDescribeAlarmHistoryRequest.h in Headers */,
+				0AE6F21C12E4C0CC00465F92 /* CloudWatchDescribeAlarmHistoryResponse.h in Headers */,
+				0AE6F21D12E4C0CC00465F92 /* CloudWatchDescribeAlarmHistoryResponseUnmarshaller.h in Headers */,
+				0AE6F21E12E4C0CC00465F92 /* CloudWatchDescribeAlarmsForMetricRequest.h in Headers */,
+				0AE6F22012E4C0CC00465F92 /* CloudWatchDescribeAlarmsForMetricResponse.h in Headers */,
+				0AE6F22112E4C0CC00465F92 /* CloudWatchDescribeAlarmsForMetricResponseUnmarshaller.h in Headers */,
+				0AE6F22212E4C0CC00465F92 /* CloudWatchDescribeAlarmsRequest.h in Headers */,
+				0AE6F22412E4C0CC00465F92 /* CloudWatchDescribeAlarmsResponse.h in Headers */,
+				0AE6F22512E4C0CC00465F92 /* CloudWatchDescribeAlarmsResponseUnmarshaller.h in Headers */,
+				0AE6F22612E4C0CC00465F92 /* CloudWatchDimension.h in Headers */,
+				0AE6F22712E4C0CC00465F92 /* CloudWatchDimensionFilter.h in Headers */,
+				0AE6F22812E4C0CC00465F92 /* CloudWatchDimensionUnmarshaller.h in Headers */,
+				0AE6F22912E4C0CC00465F92 /* CloudWatchDisableAlarmActionsRequest.h in Headers */,
+				0AE6F22B12E4C0CC00465F92 /* CloudWatchDisableAlarmActionsResponse.h in Headers */,
+				0AE6F22C12E4C0CC00465F92 /* CloudWatchDisableAlarmActionsResponseUnmarshaller.h in Headers */,
+				0AE6F22D12E4C0CC00465F92 /* CloudWatchEnableAlarmActionsRequest.h in Headers */,
+				0AE6F22F12E4C0CC00465F92 /* CloudWatchEnableAlarmActionsResponse.h in Headers */,
+				0AE6F23012E4C0CC00465F92 /* CloudWatchEnableAlarmActionsResponseUnmarshaller.h in Headers */,
+				0AE6F23112E4C0CC00465F92 /* CloudWatchGetMetricStatisticsRequest.h in Headers */,
+				0AE6F23312E4C0CC00465F92 /* CloudWatchGetMetricStatisticsResponse.h in Headers */,
+				0AE6F23412E4C0CC00465F92 /* CloudWatchGetMetricStatisticsResponseUnmarshaller.h in Headers */,
+				0AE6F23512E4C0CC00465F92 /* CloudWatchInternalServiceException.h in Headers */,
+				0AE6F23612E4C0CC00465F92 /* CloudWatchInvalidFormatException.h in Headers */,
+				0AE6F23712E4C0CC00465F92 /* CloudWatchInvalidNextTokenException.h in Headers */,
+				0AE6F23812E4C0CC00465F92 /* CloudWatchInvalidParameterCombinationException.h in Headers */,
+				0AE6F23912E4C0CC00465F92 /* CloudWatchInvalidParameterValueException.h in Headers */,
+				0AE6F23A12E4C0CC00465F92 /* CloudWatchLimitExceededException.h in Headers */,
+				0AE6F23B12E4C0CC00465F92 /* CloudWatchListMetricsRequest.h in Headers */,
+				0AE6F23D12E4C0CC00465F92 /* CloudWatchListMetricsResponse.h in Headers */,
+				0AE6F23E12E4C0CC00465F92 /* CloudWatchListMetricsResponseUnmarshaller.h in Headers */,
+				0AE6F23F12E4C0CC00465F92 /* CloudWatchMetric.h in Headers */,
+				0AE6F24012E4C0CC00465F92 /* CloudWatchMetricAlarm.h in Headers */,
+				0AE6F24112E4C0CC00465F92 /* CloudWatchMetricAlarmUnmarshaller.h in Headers */,
+				0AE6F24212E4C0CC00465F92 /* CloudWatchMetricUnmarshaller.h in Headers */,
+				0AE6F24312E4C0CC00465F92 /* CloudWatchMissingRequiredParameterException.h in Headers */,
+				0AE6F24412E4C0CC00465F92 /* CloudWatchPutMetricAlarmRequest.h in Headers */,
+				0AE6F24612E4C0CC00465F92 /* CloudWatchPutMetricAlarmResponse.h in Headers */,
+				0AE6F24712E4C0CC00465F92 /* CloudWatchPutMetricAlarmResponseUnmarshaller.h in Headers */,
+				0AE6F24812E4C0CC00465F92 /* CloudWatchResourceNotFoundException.h in Headers */,
+				0AE6F24912E4C0CC00465F92 /* CloudWatchSetAlarmStateRequest.h in Headers */,
+				0AE6F24B12E4C0CC00465F92 /* CloudWatchSetAlarmStateResponse.h in Headers */,
+				0AE6F24C12E4C0CC00465F92 /* CloudWatchSetAlarmStateResponseUnmarshaller.h in Headers */,
+				0AE6F25112E4C22F00465F92 /* CloudWatchRequest.h in Headers */,
+				D0A0EA791344E709007721F9 /* CloudWatchResponse.h in Headers */,
+				D04C864F1371D71900F08418 /* CloudWatchResponseUnmarshaller.h in Headers */,
+				D03F1AEA1377336900891BD9 /* CloudWatchDeleteAlarmsRequestMarshaller.h in Headers */,
+				D03F1AEB1377336900891BD9 /* CloudWatchDescribeAlarmHistoryRequestMarshaller.h in Headers */,
+				D03F1AEC1377336900891BD9 /* CloudWatchDescribeAlarmsForMetricRequestMarshaller.h in Headers */,
+				D03F1AED1377336900891BD9 /* CloudWatchDescribeAlarmsRequestMarshaller.h in Headers */,
+				D03F1AEE1377336900891BD9 /* CloudWatchDisableAlarmActionsRequestMarshaller.h in Headers */,
+				D03F1AEF1377336900891BD9 /* CloudWatchEnableAlarmActionsRequestMarshaller.h in Headers */,
+				D03F1AF01377336900891BD9 /* CloudWatchGetMetricStatisticsRequestMarshaller.h in Headers */,
+				D03F1AF11377336900891BD9 /* CloudWatchListMetricsRequestMarshaller.h in Headers */,
+				D03F1AF21377336900891BD9 /* CloudWatchPutMetricAlarmRequestMarshaller.h in Headers */,
+				D03F1AF31377336900891BD9 /* CloudWatchSetAlarmStateRequestMarshaller.h in Headers */,
+				CEDA40F5151D519A002CBB54 /* CloudWatchMetricDatum.h in Headers */,
+				CEDA40F6151D519A002CBB54 /* CloudWatchPutMetricDataRequest.h in Headers */,
+				CEDA40F7151D519A002CBB54 /* CloudWatchPutMetricDataRequestMarshaller.h in Headers */,
+				CEDA40F8151D519A002CBB54 /* CloudWatchPutMetricDataResponse.h in Headers */,
+				CEDA40F9151D519A002CBB54 /* CloudWatchPutMetricDataResponseUnmarshaller.h in Headers */,
+				CEDA40FA151D519A002CBB54 /* CloudWatchStatisticSet.h in Headers */,
+				CE2CDBF617036A5B0013DE5F /* AWSCloudWatch.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXLegacyTarget section */
+		0AFD8DD7128465B4004B7863 /* Framework */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 0AFD8DDC128465EB004B7863 /* Build configuration list for PBXLegacyTarget "Framework" */;
+			buildPhases = (
+			);
+			buildToolPath = Scripts/Framework.sh;
+			dependencies = (
+			);
+			name = Framework;
+			passBuildSettingsInEnvironment = 1;
+			productName = Framework;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC07D0554694100DB518D /* CloudWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "CloudWatch" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CloudWatch;
+			productName = s3;
+			productReference = D069663F1234D53400BFBB1E /* libCloudWatch.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+			};
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "CloudWatch" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* s3 */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2AAC07D0554694100DB518D /* CloudWatch */,
+				0AFD8DD7128465B4004B7863 /* Framework */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AE6F19812E4C0B700465F92 /* AmazonCloudWatchClient.m in Sources */,
+				0AE6F19912E4C0B700465F92 /* CloudWatchAlarmHistoryItem.m in Sources */,
+				0AE6F19A12E4C0B700465F92 /* CloudWatchAlarmHistoryItemUnmarshaller.m in Sources */,
+				0AE6F19B12E4C0B700465F92 /* CloudWatchDatapoint.m in Sources */,
+				0AE6F19C12E4C0B700465F92 /* CloudWatchDatapointUnmarshaller.m in Sources */,
+				0AE6F19D12E4C0B700465F92 /* CloudWatchDeleteAlarmsRequest.m in Sources */,
+				0AE6F19F12E4C0B700465F92 /* CloudWatchDeleteAlarmsResponse.m in Sources */,
+				0AE6F1A012E4C0B700465F92 /* CloudWatchDeleteAlarmsResponseUnmarshaller.m in Sources */,
+				0AE6F1A112E4C0B700465F92 /* CloudWatchDescribeAlarmHistoryRequest.m in Sources */,
+				0AE6F1A312E4C0B700465F92 /* CloudWatchDescribeAlarmHistoryResponse.m in Sources */,
+				0AE6F1A412E4C0B700465F92 /* CloudWatchDescribeAlarmHistoryResponseUnmarshaller.m in Sources */,
+				0AE6F1A512E4C0B700465F92 /* CloudWatchDescribeAlarmsForMetricRequest.m in Sources */,
+				0AE6F1A712E4C0B700465F92 /* CloudWatchDescribeAlarmsForMetricResponse.m in Sources */,
+				0AE6F1A812E4C0B700465F92 /* CloudWatchDescribeAlarmsForMetricResponseUnmarshaller.m in Sources */,
+				0AE6F1A912E4C0B700465F92 /* CloudWatchDescribeAlarmsRequest.m in Sources */,
+				0AE6F1AB12E4C0B700465F92 /* CloudWatchDescribeAlarmsResponse.m in Sources */,
+				0AE6F1AC12E4C0B700465F92 /* CloudWatchDescribeAlarmsResponseUnmarshaller.m in Sources */,
+				0AE6F1AD12E4C0B700465F92 /* CloudWatchDimension.m in Sources */,
+				0AE6F1AE12E4C0B700465F92 /* CloudWatchDimensionFilter.m in Sources */,
+				0AE6F1AF12E4C0B700465F92 /* CloudWatchDimensionUnmarshaller.m in Sources */,
+				0AE6F1B012E4C0B700465F92 /* CloudWatchDisableAlarmActionsRequest.m in Sources */,
+				0AE6F1B212E4C0B700465F92 /* CloudWatchDisableAlarmActionsResponse.m in Sources */,
+				0AE6F1B312E4C0B700465F92 /* CloudWatchDisableAlarmActionsResponseUnmarshaller.m in Sources */,
+				0AE6F1B412E4C0B700465F92 /* CloudWatchEnableAlarmActionsRequest.m in Sources */,
+				0AE6F1B612E4C0B700465F92 /* CloudWatchEnableAlarmActionsResponse.m in Sources */,
+				0AE6F1B712E4C0B700465F92 /* CloudWatchEnableAlarmActionsResponseUnmarshaller.m in Sources */,
+				0AE6F1B812E4C0B700465F92 /* CloudWatchGetMetricStatisticsRequest.m in Sources */,
+				0AE6F1BA12E4C0B700465F92 /* CloudWatchGetMetricStatisticsResponse.m in Sources */,
+				0AE6F1BB12E4C0B700465F92 /* CloudWatchGetMetricStatisticsResponseUnmarshaller.m in Sources */,
+				0AE6F1BC12E4C0B700465F92 /* CloudWatchInternalServiceException.m in Sources */,
+				0AE6F1BD12E4C0B700465F92 /* CloudWatchInvalidFormatException.m in Sources */,
+				0AE6F1BE12E4C0B700465F92 /* CloudWatchInvalidNextTokenException.m in Sources */,
+				0AE6F1BF12E4C0B700465F92 /* CloudWatchInvalidParameterCombinationException.m in Sources */,
+				0AE6F1C012E4C0B700465F92 /* CloudWatchInvalidParameterValueException.m in Sources */,
+				0AE6F1C112E4C0B700465F92 /* CloudWatchLimitExceededException.m in Sources */,
+				0AE6F1C212E4C0B700465F92 /* CloudWatchListMetricsRequest.m in Sources */,
+				0AE6F1C412E4C0B700465F92 /* CloudWatchListMetricsResponse.m in Sources */,
+				0AE6F1C512E4C0B700465F92 /* CloudWatchListMetricsResponseUnmarshaller.m in Sources */,
+				0AE6F1C612E4C0B700465F92 /* CloudWatchMetric.m in Sources */,
+				0AE6F1C712E4C0B700465F92 /* CloudWatchMetricAlarm.m in Sources */,
+				0AE6F1C812E4C0B700465F92 /* CloudWatchMetricAlarmUnmarshaller.m in Sources */,
+				0AE6F1C912E4C0B700465F92 /* CloudWatchMetricUnmarshaller.m in Sources */,
+				0AE6F1CA12E4C0B700465F92 /* CloudWatchMissingRequiredParameterException.m in Sources */,
+				0AE6F1CB12E4C0B700465F92 /* CloudWatchPutMetricAlarmRequest.m in Sources */,
+				0AE6F1CD12E4C0B700465F92 /* CloudWatchPutMetricAlarmResponse.m in Sources */,
+				0AE6F1CE12E4C0B700465F92 /* CloudWatchPutMetricAlarmResponseUnmarshaller.m in Sources */,
+				0AE6F1CF12E4C0B700465F92 /* CloudWatchResourceNotFoundException.m in Sources */,
+				0AE6F1D012E4C0B700465F92 /* CloudWatchSetAlarmStateRequest.m in Sources */,
+				0AE6F1D212E4C0B700465F92 /* CloudWatchSetAlarmStateResponse.m in Sources */,
+				0AE6F1D312E4C0B700465F92 /* CloudWatchSetAlarmStateResponseUnmarshaller.m in Sources */,
+				0AE6F25712E4C29500465F92 /* CloudWatchRequest.m in Sources */,
+				D0A0EA811344E793007721F9 /* CloudWatchResponse.m in Sources */,
+				D04C86411371D66200F08418 /* CloudWatchResponseUnmarshaller.m in Sources */,
+				D03F192E1377310500891BD9 /* CloudWatchDeleteAlarmsRequestMarshaller.m in Sources */,
+				D03F192F1377310500891BD9 /* CloudWatchDescribeAlarmHistoryRequestMarshaller.m in Sources */,
+				D03F19301377310500891BD9 /* CloudWatchDescribeAlarmsForMetricRequestMarshaller.m in Sources */,
+				D03F19311377310500891BD9 /* CloudWatchDescribeAlarmsRequestMarshaller.m in Sources */,
+				D03F19321377310500891BD9 /* CloudWatchDisableAlarmActionsRequestMarshaller.m in Sources */,
+				D03F19331377310500891BD9 /* CloudWatchEnableAlarmActionsRequestMarshaller.m in Sources */,
+				D03F19341377310500891BD9 /* CloudWatchGetMetricStatisticsRequestMarshaller.m in Sources */,
+				D03F19351377310500891BD9 /* CloudWatchListMetricsRequestMarshaller.m in Sources */,
+				D03F19361377310500891BD9 /* CloudWatchPutMetricAlarmRequestMarshaller.m in Sources */,
+				D03F19371377310500891BD9 /* CloudWatchSetAlarmStateRequestMarshaller.m in Sources */,
+				D0F2C44E1378873300552FD4 /* CloudWatchMetricDatum.m in Sources */,
+				D0F2C44F1378873300552FD4 /* CloudWatchPutMetricDataRequest.m in Sources */,
+				D0F2C4501378873300552FD4 /* CloudWatchPutMetricDataRequestMarshaller.m in Sources */,
+				D0F2C4511378873300552FD4 /* CloudWatchPutMetricDataResponse.m in Sources */,
+				D0F2C4521378873300552FD4 /* CloudWatchPutMetricDataResponseUnmarshaller.m in Sources */,
+				D0F2C4531378873300552FD4 /* CloudWatchStatisticSet.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0AFD8DD8128465B4004B7863 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Framework;
+			};
+			name = Debug;
+		};
+		0AFD8DD9128465B4004B7863 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				PRODUCT_NAME = Framework;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"ARCHS[sdk=*]" = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DOXYGEN_PATH = /Applications/Doxygen.app/Contents/Resources/doxygen;
+				DSTROOT = /tmp/s3.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/..\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = CloudWatch_Prefix.pch;
+				GCC_THUMB_SUPPORT = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				PRODUCT_NAME = CloudWatch;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"ARCHS[sdk=*]" = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DSTROOT = /tmp/s3.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/..\"",
+				);
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = CloudWatch_Prefix.pch;
+				GCC_THUMB_SUPPORT = NO;
+				HEADER_SEARCH_PATHS = (
+					"include/**",
+					"ThirdParty/**",
+				);
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				PRODUCT_NAME = CloudWatch;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					ThirdParty,
+					"include/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					ThirdParty,
+					"include/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0AFD8DDC128465EB004B7863 /* Build configuration list for PBXLegacyTarget "Framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0AFD8DD8128465B4004B7863 /* Debug */,
+				0AFD8DD9128465B4004B7863 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "CloudWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "CloudWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}

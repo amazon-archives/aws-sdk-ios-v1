@@ -14,8 +14,8 @@
  */
 
 #import "AmazonCloudWatchClient.h"
-#import "../AmazonEndpoints.h"
-#import "../AmazonServiceRequest.h"
+#import "AmazonEndpoints.h"
+#import "AmazonServiceRequest.h"
 #import "CloudWatchPutMetricAlarmResponseUnmarshaller.h"
 #import "CloudWatchPutMetricAlarmRequestMarshaller.h"
 #import "CloudWatchPutMetricDataResponseUnmarshaller.h"

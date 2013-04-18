@@ -15,7 +15,11 @@
 
 #import <Foundation/Foundation.h>
 
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonLogger.h>
+#else
 #import "../AmazonLogger.h"
+#endif
 
 #import "S3AbstractPutRequest.h"
 #import "S3Constants.h"

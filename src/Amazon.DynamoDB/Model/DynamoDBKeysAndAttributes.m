@@ -37,7 +37,7 @@
 }
 
 
--(void)addKey:(DynamoDBKey *)keyObject
+-(void)addKey:(NSMutableDictionary *)keyObject
 {
     if (keys == nil) {
         keys = [[NSMutableArray alloc] initWithCapacity:1];

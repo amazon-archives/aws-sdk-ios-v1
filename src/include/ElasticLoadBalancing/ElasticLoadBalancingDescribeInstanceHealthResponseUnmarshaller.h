@@ -16,9 +16,19 @@
 #import <Foundation/Foundation.h>
 #import "ElasticLoadBalancingDescribeInstanceHealthResponse.h"
 #import "ElasticLoadBalancingResponseUnmarshaller.h"
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonValueUnmarshaller.h>
+#import <AWSRuntime/AmazonBoolValueUnmarshaller.h>
+#else
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
+#endif
+
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonListUnmarshaller.h>
+#else
 #import "../AmazonListUnmarshaller.h"
+#endif
 #import "ElasticLoadBalancingInstanceStateUnmarshaller.h"
 
 

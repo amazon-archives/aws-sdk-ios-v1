@@ -15,6 +15,8 @@
 
 #import "S3BucketLifecycleConfigurationRule.h"
 
+#import "AmazonSDKUtil.h"
+
 @implementation S3BucketLifecycleConfigurationRule
 
 @synthesize ruleId=_ruleId;

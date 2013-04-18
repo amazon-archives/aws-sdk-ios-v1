@@ -13,7 +13,12 @@
  * permissions and limitations under the License.
  */
 
+
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonSDKUtil.h>
+#else
 #import "../AmazonSDKUtil.h"
+#endif
 
 
 
@@ -35,36 +40,32 @@
 
 
 /**
- * Strings are Unicode with UTF-8 binary encoding. The maximum size is
- * limited by the size of the primary key (1024 bytes as a range part of
- * a key or 2048 bytes as a single part hash key) or the item size (64k).
+ * The value of the S property for this object.
  */
 @property (nonatomic, retain) NSString *s;
 
 /**
- * Numbers are positive or negative exact-value decimals and integers. A
- * number can have up to 38 digits precision and can be between 10^-128
- * to 10^+126.
+ * The value of the N property for this object.
  */
 @property (nonatomic, retain) NSString *n;
 
 /**
- * Binary attributes are sequences of unsigned bytes.
+ * The value of the B property for this object.
  */
 @property (nonatomic, retain) NSData *b;
 
 /**
- * A set of strings.
+ * The value of the SS property for this object.
  */
 @property (nonatomic, retain) NSMutableArray *sS;
 
 /**
- * A set of numbers.
+ * The value of the NS property for this object.
  */
 @property (nonatomic, retain) NSMutableArray *nS;
 
 /**
- * A set of binary attributes.
+ * The value of the BS property for this object.
  */
 @property (nonatomic, retain) NSMutableArray *bS;
 
@@ -79,10 +80,7 @@
  * Constructs a new AttributeValue object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theS Strings are Unicode with UTF-8 binary encoding. The
- * maximum size is limited by the size of the primary key (1024 bytes as
- * a range part of a key or 2048 bytes as a single part hash key) or the
- * item size (64k).
+ * @param theS
  */
 -(id)initWithS:(NSString *)theS;
 
@@ -90,7 +88,7 @@
  * Constructs a new AttributeValue object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theSS A set of strings.
+ * @param theSS
  */
 -(id)initWithSS:(NSMutableArray *)theSS;
 
@@ -98,9 +96,7 @@
  * Constructs a new AttributeValue object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theN Numbers are positive or negative exact-value decimals and
- * integers. A number can have up to 38 digits precision and can be
- * between 10^-128 to 10^+126.
+ * @param theN
  */
 -(id)initWithN:(NSString *)theN;
 
@@ -108,7 +104,7 @@
  * Constructs a new AttributeValue object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theNS A set of numbers.
+ * @param theNS
  */
 -(id)initWithNS:(NSMutableArray *)theNS;
 
@@ -116,7 +112,7 @@
  * Constructs a new AttributeValue object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theB Binary attributes are sequences of unsigned bytes.
+ * @param theB
  */
 -(id)initWithB:(NSData *)theB;
 
@@ -124,7 +120,7 @@
  * Constructs a new AttributeValue object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theBS A set of binary attributes.
+ * @param theBS
  */
 -(id)initWithBS:(NSMutableArray *)theBS;
 

@@ -15,10 +15,13 @@
 
 #import "DynamoDBScanResponseUnmarshaller.h"
 #import "DynamoDBExceptionUnmarshaller.h"
-#import "../AmazonSDKUtil.h"
+
+#import "AmazonSDKUtil.h"
 #import "DynamoDBAttributeValueUnmarshaller.h"
 #import "DynamoDBAttributeValueUnmarshaller.h"
-#import "DynamoDBKeyUnmarshaller.h"
+#import "DynamoDBAttributeValueUnmarshaller.h"
+#import "DynamoDBAttributeValueUnmarshaller.h"
+#import "DynamoDBConsumedCapacityUnmarshaller.h"
 
 
 @implementation DynamoDBScanResponseUnmarshaller
@@ -56,13 +59,15 @@
         }
 
 
-        if ([jsonObject valueForKey:@"LastEvaluatedKey"] != nil) {
-            scanResult.lastEvaluatedKey = [DynamoDBKeyUnmarshaller unmarshall:[jsonObject valueForKey:@"LastEvaluatedKey"]];
+        NSDictionary *lastEvaluatedKeyObject = [jsonObject valueForKey:@"LastEvaluatedKey"];
+        for (NSString *key in [lastEvaluatedKeyObject allKeys]) {
+            NSDictionary *value = [lastEvaluatedKeyObject valueForKey:key];
+            [scanResult.lastEvaluatedKey setValue:[DynamoDBAttributeValueUnmarshaller unmarshall:value] forKey:key];
         }
 
 
-        if ([jsonObject valueForKey:@"ConsumedCapacityUnits"] != nil) {
-            scanResult.consumedCapacityUnits = [jsonObject valueForKey:@"ConsumedCapacityUnits"];
+        if ([jsonObject valueForKey:@"ConsumedCapacity"] != nil) {
+            scanResult.consumedCapacity = [DynamoDBConsumedCapacityUnmarshaller unmarshall:[jsonObject valueForKey:@"ConsumedCapacity"]];
         }
     }
 

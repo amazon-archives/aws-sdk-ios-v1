@@ -15,6 +15,7 @@
 
 #import "S3BucketLifecycleConfigurationRuleUnmarshaller.h"
 #import "S3BucketLifecycleConfigurationTransitionUnmarshaller.h"
+#import "AmazonSDKUtil.h"
 
 @implementation S3BucketLifecycleConfigurationRuleUnmarshaller
 

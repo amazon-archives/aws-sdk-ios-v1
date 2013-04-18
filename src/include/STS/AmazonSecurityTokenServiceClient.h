@@ -19,7 +19,11 @@
 #import "SecurityTokenServiceAssumeRoleResponse.h"
 #import "SecurityTokenServiceAssumeRoleRequest.h"
 
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonWebServiceClient.h>
+#else
 #import "../AmazonWebServiceClient.h"
+#endif
 
 /** \defgroup SecurityTokenService AWS Security Token Service */
 

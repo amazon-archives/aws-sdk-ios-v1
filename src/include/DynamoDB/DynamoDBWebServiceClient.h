@@ -13,7 +13,11 @@
  * permissions and limitations under the License.
  */
 
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonAbstractJsonWebServiceClient.h>
+#else
 #import "../AmazonAbstractJsonWebServiceClient.h"
+#endif
 
 @interface DynamoDBWebServiceClient:AmazonAbstractJsonWebServiceClient
 {

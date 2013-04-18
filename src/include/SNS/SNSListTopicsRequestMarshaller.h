@@ -13,7 +13,11 @@
  * permissions and limitations under the License.
  */
 
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonServiceRequest.h>
+#else
 #import "../AmazonServiceRequest.h"
+#endif
 
 #import "SNSRequest.h"
 #import "SNSListTopicsRequest.h"

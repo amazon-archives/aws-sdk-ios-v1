@@ -13,11 +13,15 @@
  * permissions and limitations under the License.
  */
 
-#import "DynamoDBKey.h"
+#import "DynamoDBAttributeValue.h"
 #import "DynamoDBAttributeValueUpdate.h"
 #import "DynamoDBExpectedAttributeValue.h"
 
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonServiceRequestConfig.h>
+#else
 #import "../AmazonServiceRequestConfig.h"
+#endif
 
 
 
@@ -29,19 +33,18 @@
 
 {
     NSString            *tableName;
-    DynamoDBKey         *key;
+    NSMutableDictionary *key;
     NSMutableDictionary *attributeUpdates;
     NSMutableDictionary *expected;
     NSString            *returnValues;
+    NSString            *returnConsumedCapacity;
+    NSString            *returnItemCollectionMetrics;
 }
 
 
 
 /**
- * The name of the table in which you want to update an item. Allowed
- * characters are <code>a-z</code>, <code>A-Z</code>, <code>0-9</code>,
- * <code>_</code> (underscore), <code>-</code> (hyphen) and
- * <code>.</code> (period).
+ * The value of the TableName property for this object.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>3 - 255<br/>
@@ -50,48 +53,43 @@
 @property (nonatomic, retain) NSString *tableName;
 
 /**
- * The primary key that uniquely identifies each item in a table. A
- * primary key can be a one attribute (hash) primary key or a two
- * attribute (hash-and-range) primary key.
+ * The value of the Key property for this object.
  */
-@property (nonatomic, retain) DynamoDBKey *key;
+@property (nonatomic, retain) NSMutableDictionary *key;
 
 /**
- * Map of attribute name to the new value and action for the update. The
- * attribute names specify the attributes to modify, and cannot contain
- * any primary key attributes.
+ * The value of the AttributeUpdates property for this object.
  */
 @property (nonatomic, retain) NSMutableDictionary *attributeUpdates;
 
 /**
- * Designates an attribute for a conditional modification. The
- * <code>Expected</code> parameter allows you to provide an attribute
- * name, and whether or not Amazon DynamoDB should check to see if the
- * attribute has a particular value before modifying it.
+ * The value of the Expected property for this object.
  */
 @property (nonatomic, retain) NSMutableDictionary *expected;
 
 /**
- * Use this parameter if you want to get the attribute name-value pairs
- * before or after they are modified. For <code>PUT</code> operations,
- * the possible parameter values are <code>NONE</code> (default) or
- * <code>ALL_OLD</code>. For update operations, the possible parameter
- * values are <code>NONE</code> (default) or <code>ALL_OLD</code>,
- * <code>UPDATED_OLD</code>, <code>ALL_NEW</code> or
- * <code>UPDATED_NEW</code>. <ul> <li><code>NONE</code>: Nothing is
- * returned.</li> <li><code>ALL_OLD</code>: Returns the attributes of the
- * item as they were before the operation.</li>
- * <li><code>UPDATED_OLD</code>: Returns the values of the updated
- * attributes, only, as they were before the operation.</li>
- * <li><code>ALL_NEW</code>: Returns all the attributes and their new
- * values after the operation.</li> <li><code>UPDATED_NEW</code>: Returns
- * the values of the updated attributes, only, as they are after the
- * operation.</li> </ul>
+ * The value of the ReturnValues property for this object.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Allowed Values: </b>NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW
  */
 @property (nonatomic, retain) NSString *returnValues;
+
+/**
+ * The value of the ReturnConsumedCapacity property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>TOTAL, NONE
+ */
+@property (nonatomic, retain) NSString *returnConsumedCapacity;
+
+/**
+ * The value of the ReturnItemCollectionMetrics property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>SIZE, NONE
+ */
+@property (nonatomic, retain) NSString *returnItemCollectionMetrics;
 
 
 /**
@@ -104,18 +102,18 @@
  * Constructs a new UpdateItemRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theTableName The name of the table in which you want to update
- * an item. Allowed characters are <code>a-z</code>, <code>A-Z</code>,
- * <code>0-9</code>, <code>_</code> (underscore), <code>-</code> (hyphen)
- * and <code>.</code> (period).
- * @param theKey The primary key that uniquely identifies each item in a
- * table. A primary key can be a one attribute (hash) primary key or a
- * two attribute (hash-and-range) primary key.
- * @param theAttributeUpdates Map of attribute name to the new value and
- * action for the update. The attribute names specify the attributes to
- * modify, and cannot contain any primary key attributes.
+ * @param theTableName
+ * @param theKey
+ * @param theAttributeUpdates
  */
--(id)initWithTableName:(NSString *)theTableName andKey:(DynamoDBKey *)theKey andAttributeUpdates:(NSMutableDictionary *)theAttributeUpdates;
+-(id)initWithTableName:(NSString *)theTableName andKey:(NSMutableDictionary *)theKey andAttributeUpdates:(NSMutableDictionary *)theAttributeUpdates;
+
+
+/**
+ * Set a value in the dictionary key for the specified key.
+ * This function will alloc and init key if not already done.
+ */
+-(void)setKeyValue:(DynamoDBAttributeValue *)theValue forKey:(NSString *)theKey;
 
 
 /**

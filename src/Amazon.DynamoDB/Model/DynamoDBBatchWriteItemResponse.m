@@ -18,15 +18,17 @@
 
 @implementation DynamoDBBatchWriteItemResponse
 
-@synthesize responses;
 @synthesize unprocessedItems;
+@synthesize itemCollectionMetrics;
+@synthesize consumedCapacity;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        responses        = [[NSMutableDictionary alloc] initWithCapacity:1];
-        unprocessedItems = [[NSMutableDictionary alloc] initWithCapacity:1];
+        unprocessedItems      = [[NSMutableDictionary alloc] initWithCapacity:1];
+        itemCollectionMetrics = [[NSMutableDictionary alloc] initWithCapacity:1];
+        consumedCapacity      = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
     return self;
@@ -37,6 +39,16 @@
 {
     AmazonServiceException *newException = nil;
 
+    if ([[theException errorCode] isEqualToString:@"ItemCollectionSizeLimitExceededException"]) {
+        [newException release];
+        newException = [[DynamoDBItemCollectionSizeLimitExceededException alloc] initWithMessage:@""];
+    }
+
+    if ([[theException errorCode] isEqualToString:@"ResourceNotFoundException"]) {
+        [newException release];
+        newException = [[DynamoDBResourceNotFoundException alloc] initWithMessage:@""];
+    }
+
     if ([[theException errorCode] isEqualToString:@"ProvisionedThroughputExceededException"]) {
         [newException release];
         newException = [[DynamoDBProvisionedThroughputExceededException alloc] initWithMessage:@""];
@@ -45,11 +57,6 @@
     if ([[theException errorCode] isEqualToString:@"InternalServerError"]) {
         [newException release];
         newException = [[DynamoDBInternalServerErrorException alloc] initWithMessage:@""];
-    }
-
-    if ([[theException errorCode] isEqualToString:@"ResourceNotFoundException"]) {
-        [newException release];
-        newException = [[DynamoDBResourceNotFoundException alloc] initWithMessage:@""];
     }
 
     if (newException != nil) {
@@ -64,14 +71,20 @@
 }
 
 
--(DynamoDBBatchWriteResponse *)responsesValueForKey:(NSString *)theKey
-{
-    return (DynamoDBBatchWriteResponse *)[responses valueForKey:theKey];
-}
-
 -(NSArray *)unprocessedItemsValueForKey:(NSString *)theKey
 {
     return (NSArray *)[unprocessedItems valueForKey:theKey];
+}
+
+-(NSArray *)itemCollectionMetricsValueForKey:(NSString *)theKey
+{
+    return (NSArray *)[itemCollectionMetrics valueForKey:theKey];
+}
+
+
+-(DynamoDBConsumedCapacity *)consumedCapacityObjectAtIndex:(int)index
+{
+    return (DynamoDBConsumedCapacity *)[consumedCapacity objectAtIndex:index];
 }
 
 
@@ -80,8 +93,9 @@
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
 
     [buffer appendString:@"{"];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Responses: %@,", responses] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"UnprocessedItems: %@,", unprocessedItems] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"ItemCollectionMetrics: %@,", itemCollectionMetrics] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"ConsumedCapacity: %@,", consumedCapacity] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -92,8 +106,9 @@
 
 -(void)dealloc
 {
-    [responses release];
     [unprocessedItems release];
+    [itemCollectionMetrics release];
+    [consumedCapacity release];
 
     [super dealloc];
 }

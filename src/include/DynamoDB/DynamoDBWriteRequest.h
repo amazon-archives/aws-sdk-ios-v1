@@ -16,7 +16,11 @@
 #import "DynamoDBPutRequest.h"
 #import "DynamoDBDeleteRequest.h"
 
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonServiceRequestConfig.h>
+#else
 #import "../AmazonServiceRequestConfig.h"
+#endif
 
 
 
@@ -41,12 +45,12 @@
 -(id)init;
 
 /**
- * A container for a Put BatchWrite request
+ * The value of the PutRequest property for this object.
  */
 @property (nonatomic, retain) DynamoDBPutRequest *putRequest;
 
 /**
- * A container for a Delete BatchWrite request
+ * The value of the DeleteRequest property for this object.
  */
 @property (nonatomic, retain) DynamoDBDeleteRequest *deleteRequest;
 

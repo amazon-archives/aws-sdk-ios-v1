@@ -15,7 +15,11 @@
 
 #import <Foundation/Foundation.h>
 
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonClientException.h>
+#else
 #import "../AmazonClientException.h"
+#endif
 
 #define kS3RegionUSWest1         @"us-west-1"
 #define kS3RegionUSWest2         @"us-west-2"

@@ -43,7 +43,11 @@
 #import "SNSPublishResponse.h"
 #import "SNSPublishRequest.h"
 
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonWebServiceClient.h>
+#else
 #import "../AmazonWebServiceClient.h"
+#endif
 
 /** \defgroup SNS Amazon SNS */
 

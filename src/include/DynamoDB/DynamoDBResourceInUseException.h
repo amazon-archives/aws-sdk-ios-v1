@@ -13,16 +13,17 @@
  * permissions and limitations under the License.
  */
 
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonServiceException.h>
+#else
 #import "../AmazonServiceException.h"
+#endif
 
 
 
 
 /**
- * <p>
- * This exception is thrown when the resource which is being attempted to
- * be changed is in use.
- * </p>
+ * AmazonDynamoDB exception
  */
 @interface DynamoDBResourceInUseException:AmazonServiceException
 {

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CE1B8398161A16C100856E2F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE1B8397161A16C100856E2F /* Default-568h@2x.png */; };
+		CED997A416FA95EE0048B41E /* AWSRuntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED997A216FA95EE0048B41E /* AWSRuntime.framework */; };
+		CED997A916FA9AC60048B41E /* AWSS3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED997A816FA9AC60048B41E /* AWSS3.framework */; };
 		D00F6B9E141FEA1800A058E8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00F6B9D141FEA1800A058E8 /* UIKit.framework */; };
 		D00F6BA0141FEA1800A058E8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00F6B9F141FEA1800A058E8 /* Foundation.framework */; };
 		D00F6BA2141FEA1800A058E8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00F6BA1141FEA1800A058E8 /* CoreGraphics.framework */; };
@@ -17,11 +19,12 @@
 		D00F6BB4141FEA1800A058E8 /* S3UploaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D00F6BB3141FEA1800A058E8 /* S3UploaderViewController.m */; };
 		D00F6BB7141FEA1800A058E8 /* S3UploaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D00F6BB5141FEA1800A058E8 /* S3UploaderViewController.xib */; };
 		D00F6BC8141FF06500A058E8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = D00F6BC7141FF06400A058E8 /* Constants.m */; };
-		D073ECA8143F7EC300479840 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D073ECA7143F7EC300479840 /* AWSiOSSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CE1B8397161A16C100856E2F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		CED997A216FA95EE0048B41E /* AWSRuntime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSRuntime.framework; path = ../../AWSRuntime.framework; sourceTree = "<group>"; };
+		CED997A816FA9AC60048B41E /* AWSS3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSS3.framework; path = ../../AWSS3.framework; sourceTree = "<group>"; };
 		D00F6B99141FEA1800A058E8 /* S3Uploader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = S3Uploader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D00F6B9D141FEA1800A058E8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D00F6B9F141FEA1800A058E8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -37,7 +40,6 @@
 		D00F6BB6141FEA1800A058E8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/S3UploaderViewController.xib; sourceTree = "<group>"; };
 		D00F6BC5141FECC300A058E8 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		D00F6BC7141FF06400A058E8 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
-		D073ECA7143F7EC300479840 /* AWSiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSiOSSDK.framework; path = ../../AWSiOSSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +50,8 @@
 				D00F6B9E141FEA1800A058E8 /* UIKit.framework in Frameworks */,
 				D00F6BA0141FEA1800A058E8 /* Foundation.framework in Frameworks */,
 				D00F6BA2141FEA1800A058E8 /* CoreGraphics.framework in Frameworks */,
-				D073ECA8143F7EC300479840 /* AWSiOSSDK.framework in Frameworks */,
+				CED997A416FA95EE0048B41E /* AWSRuntime.framework in Frameworks */,
+				CED997A916FA9AC60048B41E /* AWSS3.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,7 +78,8 @@
 		D00F6B9C141FEA1800A058E8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D073ECA7143F7EC300479840 /* AWSiOSSDK.framework */,
+				CED997A816FA9AC60048B41E /* AWSS3.framework */,
+				CED997A216FA95EE0048B41E /* AWSRuntime.framework */,
 				D00F6B9D141FEA1800A058E8 /* UIKit.framework */,
 				D00F6B9F141FEA1800A058E8 /* Foundation.framework */,
 				D00F6BA1141FEA1800A058E8 /* CoreGraphics.framework */,
@@ -246,7 +250,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "S3Uploader/S3Uploader-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "S3Uploader/S3Uploader-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -266,7 +270,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "S3Uploader/S3Uploader-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "S3Uploader/S3Uploader-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";

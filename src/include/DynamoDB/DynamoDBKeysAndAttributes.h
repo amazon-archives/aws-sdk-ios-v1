@@ -13,7 +13,6 @@
  * permissions and limitations under the License.
  */
 
-#import "DynamoDBKey.h"
 
 
 
@@ -48,9 +47,7 @@
 @property (nonatomic, retain) NSMutableArray *keys;
 
 /**
- * List of <code>Attribute</code> names. If attribute names are not
- * specified then all attributes will be returned. If some attributes are
- * not found, they will not appear in the result.
+ * The value of the AttributesToGet property for this object.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - <br/>
@@ -58,8 +55,7 @@
 @property (nonatomic, retain) NSMutableArray *attributesToGet;
 
 /**
- * If set to <code>true</code>, then a consistent read is issued.
- * Otherwise eventually-consistent is used.
+ * The value of the ConsistentRead property for this object.
  */
 @property (nonatomic) bool           consistentRead;
 
@@ -69,7 +65,7 @@
  * Adds a single object to keys.
  * This function will alloc and init keys if not already done.
  */
--(void)addKey:(DynamoDBKey *)keyObject;
+-(void)addKey:(NSMutableDictionary *)keyObject;
 
 /**
  * Adds a single object to attributesToGet.

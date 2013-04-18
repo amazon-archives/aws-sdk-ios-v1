@@ -13,8 +13,6 @@
  * permissions and limitations under the License.
  */
 
-#import <Foundation/Foundation.h>
-#import "AWS_SBJson.h"
 
 @interface AmazonJSON:NSObject {
 }

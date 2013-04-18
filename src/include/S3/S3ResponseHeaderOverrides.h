@@ -14,7 +14,12 @@
  */
 
 #import <Foundation/Foundation.h>
+
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonSDKUtil.h>
+#else
 #import "../AmazonSDKUtil.h"
+#endif
 
 #define kS3ResponseHdrContentType           @"response-content-type"
 #define kS3ResponseHdrContentLanguage       @"response-content-language"

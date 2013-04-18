@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -15,14 +15,19 @@
 
 #import <Foundation/Foundation.h>
 #import "AmazonS3Client.h"
+
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonServiceRequest.h>
+#else
 #import "../AmazonServiceRequest.h"
+#endif
 
 /**
  * S3TransferManager is an easy-to-use, high level component that is designed to efficiently upload many large files to Amazon S3.
  *
  * Underneath, it uses NSOperationQueue to handle multiple uploads efficiently, and automatically choose the right upload mode: multi-part uploads for large files, and put requests for small files.
  */
-@interface S3TransferManager : NSObject <AmazonServiceRequestDelegate>
+@interface S3TransferManager : NSObject
 {
 }
 

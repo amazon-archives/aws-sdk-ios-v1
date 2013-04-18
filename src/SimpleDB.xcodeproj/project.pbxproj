@@ -1,0 +1,915 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0A481A0B12A451F900DA1278 /* SimpleDBRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D07CEC4A129B330B008FF534 /* SimpleDBRequest.m */; };
+		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		CE2CDC0017036FAC0013DE5F /* AWSSimpleDB.h in Headers */ = {isa = PBXBuildFile; fileRef = CE2CDBFF17036FAC0013DE5F /* AWSSimpleDB.h */; };
+		CE96C1B7158BD58A0084D3CB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE96C1A9158BC2A70084D3CB /* MobileCoreServices.framework */; };
+		D01995EA12A72B0D00CB8012 /* SimpleDBBatchDeleteAttributesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D01995E512A72B0D00CB8012 /* SimpleDBBatchDeleteAttributesRequest.m */; };
+		D01995EC12A72B0D00CB8012 /* SimpleDBBatchDeleteAttributesResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D01995E712A72B0D00CB8012 /* SimpleDBBatchDeleteAttributesResponse.m */; };
+		D01995ED12A72B0D00CB8012 /* SimpleDBBatchDeleteAttributesResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D01995E812A72B0D00CB8012 /* SimpleDBBatchDeleteAttributesResponseUnmarshaller.m */; };
+		D01995EE12A72B0D00CB8012 /* SimpleDBDeletableItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D01995E912A72B0D00CB8012 /* SimpleDBDeletableItem.m */; };
+		D01995F412A72B3100CB8012 /* SimpleDBBatchDeleteAttributesRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D01995EF12A72B3100CB8012 /* SimpleDBBatchDeleteAttributesRequest.h */; };
+		D01995F612A72B3100CB8012 /* SimpleDBBatchDeleteAttributesResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D01995F112A72B3100CB8012 /* SimpleDBBatchDeleteAttributesResponse.h */; };
+		D01995F712A72B3100CB8012 /* SimpleDBBatchDeleteAttributesResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D01995F212A72B3100CB8012 /* SimpleDBBatchDeleteAttributesResponseUnmarshaller.h */; };
+		D01995F812A72B3100CB8012 /* SimpleDBDeletableItem.h in Headers */ = {isa = PBXBuildFile; fileRef = D01995F312A72B3100CB8012 /* SimpleDBDeletableItem.h */; };
+		D03F195C1377315300891BD9 /* SimpleDBBatchDeleteAttributesRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F19521377315200891BD9 /* SimpleDBBatchDeleteAttributesRequestMarshaller.m */; };
+		D03F195D1377315300891BD9 /* SimpleDBBatchPutAttributesRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F19531377315200891BD9 /* SimpleDBBatchPutAttributesRequestMarshaller.m */; };
+		D03F195E1377315300891BD9 /* SimpleDBCreateDomainRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F19541377315200891BD9 /* SimpleDBCreateDomainRequestMarshaller.m */; };
+		D03F195F1377315300891BD9 /* SimpleDBDeleteAttributesRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F19551377315200891BD9 /* SimpleDBDeleteAttributesRequestMarshaller.m */; };
+		D03F19601377315300891BD9 /* SimpleDBDeleteDomainRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F19561377315200891BD9 /* SimpleDBDeleteDomainRequestMarshaller.m */; };
+		D03F19611377315300891BD9 /* SimpleDBDomainMetadataRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F19571377315200891BD9 /* SimpleDBDomainMetadataRequestMarshaller.m */; };
+		D03F19621377315300891BD9 /* SimpleDBGetAttributesRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F19581377315200891BD9 /* SimpleDBGetAttributesRequestMarshaller.m */; };
+		D03F19631377315300891BD9 /* SimpleDBListDomainsRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F19591377315200891BD9 /* SimpleDBListDomainsRequestMarshaller.m */; };
+		D03F19641377315300891BD9 /* SimpleDBPutAttributesRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F195A1377315300891BD9 /* SimpleDBPutAttributesRequestMarshaller.m */; };
+		D03F19651377315300891BD9 /* SimpleDBSelectRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F195B1377315300891BD9 /* SimpleDBSelectRequestMarshaller.m */; };
+		D03F1B2E137733B300891BD9 /* SimpleDBBatchDeleteAttributesRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1B24137733B300891BD9 /* SimpleDBBatchDeleteAttributesRequestMarshaller.h */; };
+		D03F1B2F137733B300891BD9 /* SimpleDBBatchPutAttributesRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1B25137733B300891BD9 /* SimpleDBBatchPutAttributesRequestMarshaller.h */; };
+		D03F1B30137733B300891BD9 /* SimpleDBCreateDomainRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1B26137733B300891BD9 /* SimpleDBCreateDomainRequestMarshaller.h */; };
+		D03F1B31137733B300891BD9 /* SimpleDBDeleteAttributesRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1B27137733B300891BD9 /* SimpleDBDeleteAttributesRequestMarshaller.h */; };
+		D03F1B32137733B300891BD9 /* SimpleDBDeleteDomainRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1B28137733B300891BD9 /* SimpleDBDeleteDomainRequestMarshaller.h */; };
+		D03F1B33137733B300891BD9 /* SimpleDBDomainMetadataRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1B29137733B300891BD9 /* SimpleDBDomainMetadataRequestMarshaller.h */; };
+		D03F1B34137733B300891BD9 /* SimpleDBGetAttributesRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1B2A137733B300891BD9 /* SimpleDBGetAttributesRequestMarshaller.h */; };
+		D03F1B35137733B300891BD9 /* SimpleDBListDomainsRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1B2B137733B300891BD9 /* SimpleDBListDomainsRequestMarshaller.h */; };
+		D03F1B36137733B300891BD9 /* SimpleDBPutAttributesRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1B2C137733B300891BD9 /* SimpleDBPutAttributesRequestMarshaller.h */; };
+		D03F1B37137733B300891BD9 /* SimpleDBSelectRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1B2D137733B300891BD9 /* SimpleDBSelectRequestMarshaller.h */; };
+		D054D4C5128C8AD5009B5334 /* AmazonSimpleDBClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D472128C8AD5009B5334 /* AmazonSimpleDBClient.m */; };
+		D054D4C8128C8AD5009B5334 /* SimpleDBAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D476128C8AD5009B5334 /* SimpleDBAttribute.m */; };
+		D054D4C9128C8AD5009B5334 /* SimpleDBAttributeDoesNotExistException.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D477128C8AD5009B5334 /* SimpleDBAttributeDoesNotExistException.m */; };
+		D054D4CB128C8AD5009B5334 /* SimpleDBAttributeUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D479128C8AD5009B5334 /* SimpleDBAttributeUnmarshaller.m */; };
+		D054D4CC128C8AD5009B5334 /* SimpleDBBatchPutAttributesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D47A128C8AD5009B5334 /* SimpleDBBatchPutAttributesRequest.m */; };
+		D054D4CE128C8AD5009B5334 /* SimpleDBBatchPutAttributesResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D47C128C8AD5009B5334 /* SimpleDBBatchPutAttributesResponse.m */; };
+		D054D4CF128C8AD5009B5334 /* SimpleDBBatchPutAttributesResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D47D128C8AD5009B5334 /* SimpleDBBatchPutAttributesResponseUnmarshaller.m */; };
+		D054D4D0128C8AD5009B5334 /* SimpleDBCreateDomainRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D47E128C8AD5009B5334 /* SimpleDBCreateDomainRequest.m */; };
+		D054D4D2128C8AD5009B5334 /* SimpleDBCreateDomainResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D480128C8AD5009B5334 /* SimpleDBCreateDomainResponse.m */; };
+		D054D4D3128C8AD5009B5334 /* SimpleDBCreateDomainResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D481128C8AD5009B5334 /* SimpleDBCreateDomainResponseUnmarshaller.m */; };
+		D054D4D4128C8AD5009B5334 /* SimpleDBDeleteAttributesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D482128C8AD5009B5334 /* SimpleDBDeleteAttributesRequest.m */; };
+		D054D4D6128C8AD5009B5334 /* SimpleDBDeleteAttributesResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D484128C8AD5009B5334 /* SimpleDBDeleteAttributesResponse.m */; };
+		D054D4D7128C8AD5009B5334 /* SimpleDBDeleteAttributesResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D485128C8AD5009B5334 /* SimpleDBDeleteAttributesResponseUnmarshaller.m */; };
+		D054D4D8128C8AD5009B5334 /* SimpleDBDeleteDomainRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D486128C8AD5009B5334 /* SimpleDBDeleteDomainRequest.m */; };
+		D054D4DA128C8AD5009B5334 /* SimpleDBDeleteDomainResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D488128C8AD5009B5334 /* SimpleDBDeleteDomainResponse.m */; };
+		D054D4DB128C8AD5009B5334 /* SimpleDBDeleteDomainResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D489128C8AD5009B5334 /* SimpleDBDeleteDomainResponseUnmarshaller.m */; };
+		D054D4DC128C8AD5009B5334 /* SimpleDBDomainMetadataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D48A128C8AD5009B5334 /* SimpleDBDomainMetadataRequest.m */; };
+		D054D4DE128C8AD5009B5334 /* SimpleDBDomainMetadataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D48C128C8AD5009B5334 /* SimpleDBDomainMetadataResponse.m */; };
+		D054D4DF128C8AD5009B5334 /* SimpleDBDomainMetadataResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D48D128C8AD5009B5334 /* SimpleDBDomainMetadataResponseUnmarshaller.m */; };
+		D054D4E0128C8AD5009B5334 /* SimpleDBDuplicateItemNameException.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D48E128C8AD5009B5334 /* SimpleDBDuplicateItemNameException.m */; };
+		D054D4E4128C8AD5009B5334 /* SimpleDBGetAttributesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D492128C8AD5009B5334 /* SimpleDBGetAttributesRequest.m */; };
+		D054D4E6128C8AD5009B5334 /* SimpleDBGetAttributesResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D494128C8AD5009B5334 /* SimpleDBGetAttributesResponse.m */; };
+		D054D4E7128C8AD5009B5334 /* SimpleDBGetAttributesResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D495128C8AD5009B5334 /* SimpleDBGetAttributesResponseUnmarshaller.m */; };
+		D054D4E8128C8AD5009B5334 /* SimpleDBInvalidNextTokenException.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D496128C8AD5009B5334 /* SimpleDBInvalidNextTokenException.m */; };
+		D054D4EA128C8AD5009B5334 /* SimpleDBInvalidNumberPredicatesException.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D498128C8AD5009B5334 /* SimpleDBInvalidNumberPredicatesException.m */; };
+		D054D4EC128C8AD5009B5334 /* SimpleDBInvalidNumberValueTestsException.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D49A128C8AD5009B5334 /* SimpleDBInvalidNumberValueTestsException.m */; };
+		D054D4EE128C8AD5009B5334 /* SimpleDBInvalidParameterValueException.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D49C128C8AD5009B5334 /* SimpleDBInvalidParameterValueException.m */; };
+		D054D4F0128C8AD5009B5334 /* SimpleDBInvalidQueryExpressionException.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D49E128C8AD5009B5334 /* SimpleDBInvalidQueryExpressionException.m */; };
+		D054D4F2128C8AD5009B5334 /* SimpleDBItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D4A0128C8AD5009B5334 /* SimpleDBItem.m */; };
+		D054D4F3128C8AD5009B5334 /* SimpleDBItemUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D4A1128C8AD5009B5334 /* SimpleDBItemUnmarshaller.m */; };
+		D054D4F4128C8AD5009B5334 /* SimpleDBListDomainsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D4A2128C8AD5009B5334 /* SimpleDBListDomainsRequest.m */; };
+		D054D4F6128C8AD5009B5334 /* SimpleDBListDomainsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D4A4128C8AD5009B5334 /* SimpleDBListDomainsResponse.m */; };
+		D054D4F7128C8AD5009B5334 /* SimpleDBListDomainsResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D4A5128C8AD5009B5334 /* SimpleDBListDomainsResponseUnmarshaller.m */; };
+		D054D4F8128C8AD5009B5334 /* SimpleDBMissingParameterException.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D4A6128C8AD5009B5334 /* SimpleDBMissingParameterException.m */; };
+		D054D4FA128C8AD5009B5334 /* SimpleDBNoSuchDomainException.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D4A8128C8AD5009B5334 /* SimpleDBNoSuchDomainException.m */; };
+		D054D4FC128C8AD5009B5334 /* SimpleDBNumberDomainAttributesExceededException.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D4AA128C8AD5009B5334 /* SimpleDBNumberDomainAttributesExceededException.m */; };
+		D054D4FE128C8AD5009B5334 /* SimpleDBNumberDomainBytesExceededException.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D4AC128C8AD5009B5334 /* SimpleDBNumberDomainBytesExceededException.m */; };
+		D054D500128C8AD5009B5334 /* SimpleDBNumberDomainsExceededException.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D4AE128C8AD5009B5334 /* SimpleDBNumberDomainsExceededException.m */; };
+		D054D502128C8AD5009B5334 /* SimpleDBNumberItemAttributesExceededException.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D4B0128C8AD5009B5334 /* SimpleDBNumberItemAttributesExceededException.m */; };
+		D054D504128C8AD5009B5334 /* SimpleDBNumberSubmittedAttributesExceededException.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D4B2128C8AD5009B5334 /* SimpleDBNumberSubmittedAttributesExceededException.m */; };
+		D054D506128C8AD5009B5334 /* SimpleDBNumberSubmittedItemsExceededException.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D4B4128C8AD5009B5334 /* SimpleDBNumberSubmittedItemsExceededException.m */; };
+		D054D508128C8AD5009B5334 /* SimpleDBPutAttributesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D4B6128C8AD5009B5334 /* SimpleDBPutAttributesRequest.m */; };
+		D054D50A128C8AD5009B5334 /* SimpleDBPutAttributesResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D4B8128C8AD5009B5334 /* SimpleDBPutAttributesResponse.m */; };
+		D054D50B128C8AD5009B5334 /* SimpleDBPutAttributesResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D4B9128C8AD5009B5334 /* SimpleDBPutAttributesResponseUnmarshaller.m */; };
+		D054D50C128C8AD5009B5334 /* SimpleDBReplaceableAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D4BA128C8AD5009B5334 /* SimpleDBReplaceableAttribute.m */; };
+		D054D50D128C8AD5009B5334 /* SimpleDBReplaceableItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D4BB128C8AD5009B5334 /* SimpleDBReplaceableItem.m */; };
+		D054D50E128C8AD5009B5334 /* SimpleDBRequestTimeoutException.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D4BC128C8AD5009B5334 /* SimpleDBRequestTimeoutException.m */; };
+		D054D510128C8AD5009B5334 /* SimpleDBSelectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D4BE128C8AD5009B5334 /* SimpleDBSelectRequest.m */; };
+		D054D512128C8AD5009B5334 /* SimpleDBSelectResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D4C0128C8AD5009B5334 /* SimpleDBSelectResponse.m */; };
+		D054D513128C8AD5009B5334 /* SimpleDBSelectResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D4C1128C8AD5009B5334 /* SimpleDBSelectResponseUnmarshaller.m */; };
+		D054D514128C8AD5009B5334 /* SimpleDBTooManyRequestedAttributesException.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D4C2128C8AD5009B5334 /* SimpleDBTooManyRequestedAttributesException.m */; };
+		D054D516128C8AD5009B5334 /* SimpleDBUpdateCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = D054D4C4128C8AD5009B5334 /* SimpleDBUpdateCondition.m */; };
+		D054D569128C8AFE009B5334 /* AmazonSimpleDBClient.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D517128C8AFE009B5334 /* AmazonSimpleDBClient.h */; };
+		D054D56C128C8AFE009B5334 /* SimpleDBAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D51A128C8AFE009B5334 /* SimpleDBAttribute.h */; };
+		D054D56D128C8AFE009B5334 /* SimpleDBAttributeDoesNotExistException.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D51B128C8AFE009B5334 /* SimpleDBAttributeDoesNotExistException.h */; };
+		D054D56F128C8AFE009B5334 /* SimpleDBAttributeUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D51D128C8AFE009B5334 /* SimpleDBAttributeUnmarshaller.h */; };
+		D054D570128C8AFE009B5334 /* SimpleDBBatchPutAttributesRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D51E128C8AFE009B5334 /* SimpleDBBatchPutAttributesRequest.h */; };
+		D054D572128C8AFE009B5334 /* SimpleDBBatchPutAttributesResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D520128C8AFE009B5334 /* SimpleDBBatchPutAttributesResponse.h */; };
+		D054D573128C8AFE009B5334 /* SimpleDBBatchPutAttributesResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D521128C8AFE009B5334 /* SimpleDBBatchPutAttributesResponseUnmarshaller.h */; };
+		D054D574128C8AFE009B5334 /* SimpleDBCreateDomainRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D522128C8AFE009B5334 /* SimpleDBCreateDomainRequest.h */; };
+		D054D576128C8AFE009B5334 /* SimpleDBCreateDomainResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D524128C8AFE009B5334 /* SimpleDBCreateDomainResponse.h */; };
+		D054D577128C8AFE009B5334 /* SimpleDBCreateDomainResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D525128C8AFE009B5334 /* SimpleDBCreateDomainResponseUnmarshaller.h */; };
+		D054D578128C8AFE009B5334 /* SimpleDBDeleteAttributesRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D526128C8AFE009B5334 /* SimpleDBDeleteAttributesRequest.h */; };
+		D054D57A128C8AFE009B5334 /* SimpleDBDeleteAttributesResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D528128C8AFE009B5334 /* SimpleDBDeleteAttributesResponse.h */; };
+		D054D57B128C8AFE009B5334 /* SimpleDBDeleteAttributesResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D529128C8AFE009B5334 /* SimpleDBDeleteAttributesResponseUnmarshaller.h */; };
+		D054D57C128C8AFE009B5334 /* SimpleDBDeleteDomainRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D52A128C8AFE009B5334 /* SimpleDBDeleteDomainRequest.h */; };
+		D054D57E128C8AFE009B5334 /* SimpleDBDeleteDomainResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D52C128C8AFE009B5334 /* SimpleDBDeleteDomainResponse.h */; };
+		D054D57F128C8AFE009B5334 /* SimpleDBDeleteDomainResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D52D128C8AFE009B5334 /* SimpleDBDeleteDomainResponseUnmarshaller.h */; };
+		D054D580128C8AFE009B5334 /* SimpleDBDomainMetadataRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D52E128C8AFE009B5334 /* SimpleDBDomainMetadataRequest.h */; };
+		D054D582128C8AFE009B5334 /* SimpleDBDomainMetadataResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D530128C8AFE009B5334 /* SimpleDBDomainMetadataResponse.h */; };
+		D054D583128C8AFE009B5334 /* SimpleDBDomainMetadataResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D531128C8AFE009B5334 /* SimpleDBDomainMetadataResponseUnmarshaller.h */; };
+		D054D584128C8AFE009B5334 /* SimpleDBDuplicateItemNameException.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D532128C8AFE009B5334 /* SimpleDBDuplicateItemNameException.h */; };
+		D054D588128C8AFE009B5334 /* SimpleDBGetAttributesRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D536128C8AFE009B5334 /* SimpleDBGetAttributesRequest.h */; };
+		D054D58A128C8AFE009B5334 /* SimpleDBGetAttributesResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D538128C8AFE009B5334 /* SimpleDBGetAttributesResponse.h */; };
+		D054D58B128C8AFE009B5334 /* SimpleDBGetAttributesResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D539128C8AFE009B5334 /* SimpleDBGetAttributesResponseUnmarshaller.h */; };
+		D054D58C128C8AFE009B5334 /* SimpleDBInvalidNextTokenException.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D53A128C8AFE009B5334 /* SimpleDBInvalidNextTokenException.h */; };
+		D054D58E128C8AFE009B5334 /* SimpleDBInvalidNumberPredicatesException.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D53C128C8AFE009B5334 /* SimpleDBInvalidNumberPredicatesException.h */; };
+		D054D590128C8AFE009B5334 /* SimpleDBInvalidNumberValueTestsException.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D53E128C8AFE009B5334 /* SimpleDBInvalidNumberValueTestsException.h */; };
+		D054D592128C8AFE009B5334 /* SimpleDBInvalidParameterValueException.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D540128C8AFE009B5334 /* SimpleDBInvalidParameterValueException.h */; };
+		D054D594128C8AFE009B5334 /* SimpleDBInvalidQueryExpressionException.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D542128C8AFE009B5334 /* SimpleDBInvalidQueryExpressionException.h */; };
+		D054D596128C8AFE009B5334 /* SimpleDBItem.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D544128C8AFE009B5334 /* SimpleDBItem.h */; };
+		D054D597128C8AFE009B5334 /* SimpleDBItemUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D545128C8AFE009B5334 /* SimpleDBItemUnmarshaller.h */; };
+		D054D598128C8AFE009B5334 /* SimpleDBListDomainsRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D546128C8AFE009B5334 /* SimpleDBListDomainsRequest.h */; };
+		D054D59A128C8AFE009B5334 /* SimpleDBListDomainsResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D548128C8AFE009B5334 /* SimpleDBListDomainsResponse.h */; };
+		D054D59B128C8AFE009B5334 /* SimpleDBListDomainsResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D549128C8AFE009B5334 /* SimpleDBListDomainsResponseUnmarshaller.h */; };
+		D054D59C128C8AFE009B5334 /* SimpleDBMissingParameterException.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D54A128C8AFE009B5334 /* SimpleDBMissingParameterException.h */; };
+		D054D59E128C8AFE009B5334 /* SimpleDBNoSuchDomainException.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D54C128C8AFE009B5334 /* SimpleDBNoSuchDomainException.h */; };
+		D054D5A0128C8AFE009B5334 /* SimpleDBNumberDomainAttributesExceededException.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D54E128C8AFE009B5334 /* SimpleDBNumberDomainAttributesExceededException.h */; };
+		D054D5A2128C8AFE009B5334 /* SimpleDBNumberDomainBytesExceededException.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D550128C8AFE009B5334 /* SimpleDBNumberDomainBytesExceededException.h */; };
+		D054D5A4128C8AFE009B5334 /* SimpleDBNumberDomainsExceededException.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D552128C8AFE009B5334 /* SimpleDBNumberDomainsExceededException.h */; };
+		D054D5A6128C8AFE009B5334 /* SimpleDBNumberItemAttributesExceededException.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D554128C8AFE009B5334 /* SimpleDBNumberItemAttributesExceededException.h */; };
+		D054D5A8128C8AFE009B5334 /* SimpleDBNumberSubmittedAttributesExceededException.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D556128C8AFE009B5334 /* SimpleDBNumberSubmittedAttributesExceededException.h */; };
+		D054D5AA128C8AFE009B5334 /* SimpleDBNumberSubmittedItemsExceededException.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D558128C8AFE009B5334 /* SimpleDBNumberSubmittedItemsExceededException.h */; };
+		D054D5AC128C8AFE009B5334 /* SimpleDBPutAttributesRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D55A128C8AFE009B5334 /* SimpleDBPutAttributesRequest.h */; };
+		D054D5AE128C8AFE009B5334 /* SimpleDBPutAttributesResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D55C128C8AFE009B5334 /* SimpleDBPutAttributesResponse.h */; };
+		D054D5AF128C8AFE009B5334 /* SimpleDBPutAttributesResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D55D128C8AFE009B5334 /* SimpleDBPutAttributesResponseUnmarshaller.h */; };
+		D054D5B0128C8AFE009B5334 /* SimpleDBReplaceableAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D55E128C8AFE009B5334 /* SimpleDBReplaceableAttribute.h */; };
+		D054D5B1128C8AFE009B5334 /* SimpleDBReplaceableItem.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D55F128C8AFE009B5334 /* SimpleDBReplaceableItem.h */; };
+		D054D5B2128C8AFE009B5334 /* SimpleDBRequestTimeoutException.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D560128C8AFE009B5334 /* SimpleDBRequestTimeoutException.h */; };
+		D054D5B4128C8AFE009B5334 /* SimpleDBSelectRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D562128C8AFE009B5334 /* SimpleDBSelectRequest.h */; };
+		D054D5B6128C8AFE009B5334 /* SimpleDBSelectResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D564128C8AFE009B5334 /* SimpleDBSelectResponse.h */; };
+		D054D5B7128C8AFE009B5334 /* SimpleDBSelectResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D565128C8AFE009B5334 /* SimpleDBSelectResponseUnmarshaller.h */; };
+		D054D5B8128C8AFE009B5334 /* SimpleDBTooManyRequestedAttributesException.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D566128C8AFE009B5334 /* SimpleDBTooManyRequestedAttributesException.h */; };
+		D054D5BA128C8AFE009B5334 /* SimpleDBUpdateCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = D054D568128C8AFE009B5334 /* SimpleDBUpdateCondition.h */; };
+		D07CEC7E129B3737008FF534 /* SimpleDBRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D07CEC7D129B3737008FF534 /* SimpleDBRequest.h */; };
+		D0A0EA7F1344E734007721F9 /* SimpleDBResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D0A0EA7E1344E734007721F9 /* SimpleDBResponse.h */; };
+		D0A0EA871344E7B5007721F9 /* SimpleDBResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0EA861344E7B5007721F9 /* SimpleDBResponse.m */; };
+		D0E647D21371BB2D0096DF65 /* SimpleDBResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E647D11371BB2D0096DF65 /* SimpleDBResponseUnmarshaller.m */; };
+		D0E647D51371BB520096DF65 /* SimpleDBResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D0E647D41371BB520096DF65 /* SimpleDBResponseUnmarshaller.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0AFD8DC0128462A0004B7863 /* Framework.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Framework.plist; sourceTree = "<group>"; };
+		0AFD8DC312846390004B7863 /* Framework.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = Framework.sh; sourceTree = "<group>"; };
+		AA747D9E0F9514B9006C5449 /* SimpleDB_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleDB_Prefix.pch; sourceTree = "<group>"; };
+		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CE2CDBFF17036FAC0013DE5F /* AWSSimpleDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSSimpleDB.h; path = SimpleDB/AWSSimpleDB.h; sourceTree = "<group>"; };
+		CE96C1A9158BC2A70084D3CB /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		D01995E512A72B0D00CB8012 /* SimpleDBBatchDeleteAttributesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBBatchDeleteAttributesRequest.m; sourceTree = "<group>"; };
+		D01995E712A72B0D00CB8012 /* SimpleDBBatchDeleteAttributesResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBBatchDeleteAttributesResponse.m; sourceTree = "<group>"; };
+		D01995E812A72B0D00CB8012 /* SimpleDBBatchDeleteAttributesResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBBatchDeleteAttributesResponseUnmarshaller.m; sourceTree = "<group>"; };
+		D01995E912A72B0D00CB8012 /* SimpleDBDeletableItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBDeletableItem.m; sourceTree = "<group>"; };
+		D01995EF12A72B3100CB8012 /* SimpleDBBatchDeleteAttributesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBBatchDeleteAttributesRequest.h; path = SimpleDB/SimpleDBBatchDeleteAttributesRequest.h; sourceTree = "<group>"; };
+		D01995F112A72B3100CB8012 /* SimpleDBBatchDeleteAttributesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBBatchDeleteAttributesResponse.h; path = SimpleDB/SimpleDBBatchDeleteAttributesResponse.h; sourceTree = "<group>"; };
+		D01995F212A72B3100CB8012 /* SimpleDBBatchDeleteAttributesResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBBatchDeleteAttributesResponseUnmarshaller.h; path = SimpleDB/SimpleDBBatchDeleteAttributesResponseUnmarshaller.h; sourceTree = "<group>"; };
+		D01995F312A72B3100CB8012 /* SimpleDBDeletableItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBDeletableItem.h; path = SimpleDB/SimpleDBDeletableItem.h; sourceTree = "<group>"; };
+		D03F19521377315200891BD9 /* SimpleDBBatchDeleteAttributesRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBBatchDeleteAttributesRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F19531377315200891BD9 /* SimpleDBBatchPutAttributesRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBBatchPutAttributesRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F19541377315200891BD9 /* SimpleDBCreateDomainRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBCreateDomainRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F19551377315200891BD9 /* SimpleDBDeleteAttributesRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBDeleteAttributesRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F19561377315200891BD9 /* SimpleDBDeleteDomainRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBDeleteDomainRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F19571377315200891BD9 /* SimpleDBDomainMetadataRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBDomainMetadataRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F19581377315200891BD9 /* SimpleDBGetAttributesRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBGetAttributesRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F19591377315200891BD9 /* SimpleDBListDomainsRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBListDomainsRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F195A1377315300891BD9 /* SimpleDBPutAttributesRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBPutAttributesRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F195B1377315300891BD9 /* SimpleDBSelectRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBSelectRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F1B24137733B300891BD9 /* SimpleDBBatchDeleteAttributesRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBBatchDeleteAttributesRequestMarshaller.h; path = SimpleDB/SimpleDBBatchDeleteAttributesRequestMarshaller.h; sourceTree = "<group>"; };
+		D03F1B25137733B300891BD9 /* SimpleDBBatchPutAttributesRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBBatchPutAttributesRequestMarshaller.h; path = SimpleDB/SimpleDBBatchPutAttributesRequestMarshaller.h; sourceTree = "<group>"; };
+		D03F1B26137733B300891BD9 /* SimpleDBCreateDomainRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBCreateDomainRequestMarshaller.h; path = SimpleDB/SimpleDBCreateDomainRequestMarshaller.h; sourceTree = "<group>"; };
+		D03F1B27137733B300891BD9 /* SimpleDBDeleteAttributesRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBDeleteAttributesRequestMarshaller.h; path = SimpleDB/SimpleDBDeleteAttributesRequestMarshaller.h; sourceTree = "<group>"; };
+		D03F1B28137733B300891BD9 /* SimpleDBDeleteDomainRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBDeleteDomainRequestMarshaller.h; path = SimpleDB/SimpleDBDeleteDomainRequestMarshaller.h; sourceTree = "<group>"; };
+		D03F1B29137733B300891BD9 /* SimpleDBDomainMetadataRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBDomainMetadataRequestMarshaller.h; path = SimpleDB/SimpleDBDomainMetadataRequestMarshaller.h; sourceTree = "<group>"; };
+		D03F1B2A137733B300891BD9 /* SimpleDBGetAttributesRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBGetAttributesRequestMarshaller.h; path = SimpleDB/SimpleDBGetAttributesRequestMarshaller.h; sourceTree = "<group>"; };
+		D03F1B2B137733B300891BD9 /* SimpleDBListDomainsRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBListDomainsRequestMarshaller.h; path = SimpleDB/SimpleDBListDomainsRequestMarshaller.h; sourceTree = "<group>"; };
+		D03F1B2C137733B300891BD9 /* SimpleDBPutAttributesRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBPutAttributesRequestMarshaller.h; path = SimpleDB/SimpleDBPutAttributesRequestMarshaller.h; sourceTree = "<group>"; };
+		D03F1B2D137733B300891BD9 /* SimpleDBSelectRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBSelectRequestMarshaller.h; path = SimpleDB/SimpleDBSelectRequestMarshaller.h; sourceTree = "<group>"; };
+		D054D472128C8AD5009B5334 /* AmazonSimpleDBClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonSimpleDBClient.m; sourceTree = "<group>"; };
+		D054D476128C8AD5009B5334 /* SimpleDBAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBAttribute.m; sourceTree = "<group>"; };
+		D054D477128C8AD5009B5334 /* SimpleDBAttributeDoesNotExistException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBAttributeDoesNotExistException.m; sourceTree = "<group>"; };
+		D054D479128C8AD5009B5334 /* SimpleDBAttributeUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBAttributeUnmarshaller.m; sourceTree = "<group>"; };
+		D054D47A128C8AD5009B5334 /* SimpleDBBatchPutAttributesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBBatchPutAttributesRequest.m; sourceTree = "<group>"; };
+		D054D47C128C8AD5009B5334 /* SimpleDBBatchPutAttributesResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBBatchPutAttributesResponse.m; sourceTree = "<group>"; };
+		D054D47D128C8AD5009B5334 /* SimpleDBBatchPutAttributesResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBBatchPutAttributesResponseUnmarshaller.m; sourceTree = "<group>"; };
+		D054D47E128C8AD5009B5334 /* SimpleDBCreateDomainRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBCreateDomainRequest.m; sourceTree = "<group>"; };
+		D054D480128C8AD5009B5334 /* SimpleDBCreateDomainResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBCreateDomainResponse.m; sourceTree = "<group>"; };
+		D054D481128C8AD5009B5334 /* SimpleDBCreateDomainResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBCreateDomainResponseUnmarshaller.m; sourceTree = "<group>"; };
+		D054D482128C8AD5009B5334 /* SimpleDBDeleteAttributesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBDeleteAttributesRequest.m; sourceTree = "<group>"; };
+		D054D484128C8AD5009B5334 /* SimpleDBDeleteAttributesResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBDeleteAttributesResponse.m; sourceTree = "<group>"; };
+		D054D485128C8AD5009B5334 /* SimpleDBDeleteAttributesResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBDeleteAttributesResponseUnmarshaller.m; sourceTree = "<group>"; };
+		D054D486128C8AD5009B5334 /* SimpleDBDeleteDomainRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBDeleteDomainRequest.m; sourceTree = "<group>"; };
+		D054D488128C8AD5009B5334 /* SimpleDBDeleteDomainResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBDeleteDomainResponse.m; sourceTree = "<group>"; };
+		D054D489128C8AD5009B5334 /* SimpleDBDeleteDomainResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBDeleteDomainResponseUnmarshaller.m; sourceTree = "<group>"; };
+		D054D48A128C8AD5009B5334 /* SimpleDBDomainMetadataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBDomainMetadataRequest.m; sourceTree = "<group>"; };
+		D054D48C128C8AD5009B5334 /* SimpleDBDomainMetadataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBDomainMetadataResponse.m; sourceTree = "<group>"; };
+		D054D48D128C8AD5009B5334 /* SimpleDBDomainMetadataResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBDomainMetadataResponseUnmarshaller.m; sourceTree = "<group>"; };
+		D054D48E128C8AD5009B5334 /* SimpleDBDuplicateItemNameException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBDuplicateItemNameException.m; sourceTree = "<group>"; };
+		D054D492128C8AD5009B5334 /* SimpleDBGetAttributesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBGetAttributesRequest.m; sourceTree = "<group>"; };
+		D054D494128C8AD5009B5334 /* SimpleDBGetAttributesResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBGetAttributesResponse.m; sourceTree = "<group>"; };
+		D054D495128C8AD5009B5334 /* SimpleDBGetAttributesResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBGetAttributesResponseUnmarshaller.m; sourceTree = "<group>"; };
+		D054D496128C8AD5009B5334 /* SimpleDBInvalidNextTokenException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBInvalidNextTokenException.m; sourceTree = "<group>"; };
+		D054D498128C8AD5009B5334 /* SimpleDBInvalidNumberPredicatesException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBInvalidNumberPredicatesException.m; sourceTree = "<group>"; };
+		D054D49A128C8AD5009B5334 /* SimpleDBInvalidNumberValueTestsException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBInvalidNumberValueTestsException.m; sourceTree = "<group>"; };
+		D054D49C128C8AD5009B5334 /* SimpleDBInvalidParameterValueException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBInvalidParameterValueException.m; sourceTree = "<group>"; };
+		D054D49E128C8AD5009B5334 /* SimpleDBInvalidQueryExpressionException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBInvalidQueryExpressionException.m; sourceTree = "<group>"; };
+		D054D4A0128C8AD5009B5334 /* SimpleDBItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBItem.m; sourceTree = "<group>"; };
+		D054D4A1128C8AD5009B5334 /* SimpleDBItemUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBItemUnmarshaller.m; sourceTree = "<group>"; };
+		D054D4A2128C8AD5009B5334 /* SimpleDBListDomainsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBListDomainsRequest.m; sourceTree = "<group>"; };
+		D054D4A4128C8AD5009B5334 /* SimpleDBListDomainsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBListDomainsResponse.m; sourceTree = "<group>"; };
+		D054D4A5128C8AD5009B5334 /* SimpleDBListDomainsResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBListDomainsResponseUnmarshaller.m; sourceTree = "<group>"; };
+		D054D4A6128C8AD5009B5334 /* SimpleDBMissingParameterException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBMissingParameterException.m; sourceTree = "<group>"; };
+		D054D4A8128C8AD5009B5334 /* SimpleDBNoSuchDomainException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBNoSuchDomainException.m; sourceTree = "<group>"; };
+		D054D4AA128C8AD5009B5334 /* SimpleDBNumberDomainAttributesExceededException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBNumberDomainAttributesExceededException.m; sourceTree = "<group>"; };
+		D054D4AC128C8AD5009B5334 /* SimpleDBNumberDomainBytesExceededException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBNumberDomainBytesExceededException.m; sourceTree = "<group>"; };
+		D054D4AE128C8AD5009B5334 /* SimpleDBNumberDomainsExceededException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBNumberDomainsExceededException.m; sourceTree = "<group>"; };
+		D054D4B0128C8AD5009B5334 /* SimpleDBNumberItemAttributesExceededException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBNumberItemAttributesExceededException.m; sourceTree = "<group>"; };
+		D054D4B2128C8AD5009B5334 /* SimpleDBNumberSubmittedAttributesExceededException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBNumberSubmittedAttributesExceededException.m; sourceTree = "<group>"; };
+		D054D4B4128C8AD5009B5334 /* SimpleDBNumberSubmittedItemsExceededException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBNumberSubmittedItemsExceededException.m; sourceTree = "<group>"; };
+		D054D4B6128C8AD5009B5334 /* SimpleDBPutAttributesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBPutAttributesRequest.m; sourceTree = "<group>"; };
+		D054D4B8128C8AD5009B5334 /* SimpleDBPutAttributesResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBPutAttributesResponse.m; sourceTree = "<group>"; };
+		D054D4B9128C8AD5009B5334 /* SimpleDBPutAttributesResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBPutAttributesResponseUnmarshaller.m; sourceTree = "<group>"; };
+		D054D4BA128C8AD5009B5334 /* SimpleDBReplaceableAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBReplaceableAttribute.m; sourceTree = "<group>"; };
+		D054D4BB128C8AD5009B5334 /* SimpleDBReplaceableItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBReplaceableItem.m; sourceTree = "<group>"; };
+		D054D4BC128C8AD5009B5334 /* SimpleDBRequestTimeoutException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBRequestTimeoutException.m; sourceTree = "<group>"; };
+		D054D4BE128C8AD5009B5334 /* SimpleDBSelectRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBSelectRequest.m; sourceTree = "<group>"; };
+		D054D4C0128C8AD5009B5334 /* SimpleDBSelectResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBSelectResponse.m; sourceTree = "<group>"; };
+		D054D4C1128C8AD5009B5334 /* SimpleDBSelectResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBSelectResponseUnmarshaller.m; sourceTree = "<group>"; };
+		D054D4C2128C8AD5009B5334 /* SimpleDBTooManyRequestedAttributesException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBTooManyRequestedAttributesException.m; sourceTree = "<group>"; };
+		D054D4C4128C8AD5009B5334 /* SimpleDBUpdateCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBUpdateCondition.m; sourceTree = "<group>"; };
+		D054D517128C8AFE009B5334 /* AmazonSimpleDBClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmazonSimpleDBClient.h; path = SimpleDB/AmazonSimpleDBClient.h; sourceTree = "<group>"; };
+		D054D51A128C8AFE009B5334 /* SimpleDBAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBAttribute.h; path = SimpleDB/SimpleDBAttribute.h; sourceTree = "<group>"; };
+		D054D51B128C8AFE009B5334 /* SimpleDBAttributeDoesNotExistException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBAttributeDoesNotExistException.h; path = SimpleDB/SimpleDBAttributeDoesNotExistException.h; sourceTree = "<group>"; };
+		D054D51D128C8AFE009B5334 /* SimpleDBAttributeUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBAttributeUnmarshaller.h; path = SimpleDB/SimpleDBAttributeUnmarshaller.h; sourceTree = "<group>"; };
+		D054D51E128C8AFE009B5334 /* SimpleDBBatchPutAttributesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBBatchPutAttributesRequest.h; path = SimpleDB/SimpleDBBatchPutAttributesRequest.h; sourceTree = "<group>"; };
+		D054D520128C8AFE009B5334 /* SimpleDBBatchPutAttributesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBBatchPutAttributesResponse.h; path = SimpleDB/SimpleDBBatchPutAttributesResponse.h; sourceTree = "<group>"; };
+		D054D521128C8AFE009B5334 /* SimpleDBBatchPutAttributesResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBBatchPutAttributesResponseUnmarshaller.h; path = SimpleDB/SimpleDBBatchPutAttributesResponseUnmarshaller.h; sourceTree = "<group>"; };
+		D054D522128C8AFE009B5334 /* SimpleDBCreateDomainRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBCreateDomainRequest.h; path = SimpleDB/SimpleDBCreateDomainRequest.h; sourceTree = "<group>"; };
+		D054D524128C8AFE009B5334 /* SimpleDBCreateDomainResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBCreateDomainResponse.h; path = SimpleDB/SimpleDBCreateDomainResponse.h; sourceTree = "<group>"; };
+		D054D525128C8AFE009B5334 /* SimpleDBCreateDomainResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBCreateDomainResponseUnmarshaller.h; path = SimpleDB/SimpleDBCreateDomainResponseUnmarshaller.h; sourceTree = "<group>"; };
+		D054D526128C8AFE009B5334 /* SimpleDBDeleteAttributesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBDeleteAttributesRequest.h; path = SimpleDB/SimpleDBDeleteAttributesRequest.h; sourceTree = "<group>"; };
+		D054D528128C8AFE009B5334 /* SimpleDBDeleteAttributesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBDeleteAttributesResponse.h; path = SimpleDB/SimpleDBDeleteAttributesResponse.h; sourceTree = "<group>"; };
+		D054D529128C8AFE009B5334 /* SimpleDBDeleteAttributesResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBDeleteAttributesResponseUnmarshaller.h; path = SimpleDB/SimpleDBDeleteAttributesResponseUnmarshaller.h; sourceTree = "<group>"; };
+		D054D52A128C8AFE009B5334 /* SimpleDBDeleteDomainRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBDeleteDomainRequest.h; path = SimpleDB/SimpleDBDeleteDomainRequest.h; sourceTree = "<group>"; };
+		D054D52C128C8AFE009B5334 /* SimpleDBDeleteDomainResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBDeleteDomainResponse.h; path = SimpleDB/SimpleDBDeleteDomainResponse.h; sourceTree = "<group>"; };
+		D054D52D128C8AFE009B5334 /* SimpleDBDeleteDomainResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBDeleteDomainResponseUnmarshaller.h; path = SimpleDB/SimpleDBDeleteDomainResponseUnmarshaller.h; sourceTree = "<group>"; };
+		D054D52E128C8AFE009B5334 /* SimpleDBDomainMetadataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBDomainMetadataRequest.h; path = SimpleDB/SimpleDBDomainMetadataRequest.h; sourceTree = "<group>"; };
+		D054D530128C8AFE009B5334 /* SimpleDBDomainMetadataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBDomainMetadataResponse.h; path = SimpleDB/SimpleDBDomainMetadataResponse.h; sourceTree = "<group>"; };
+		D054D531128C8AFE009B5334 /* SimpleDBDomainMetadataResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBDomainMetadataResponseUnmarshaller.h; path = SimpleDB/SimpleDBDomainMetadataResponseUnmarshaller.h; sourceTree = "<group>"; };
+		D054D532128C8AFE009B5334 /* SimpleDBDuplicateItemNameException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBDuplicateItemNameException.h; path = SimpleDB/SimpleDBDuplicateItemNameException.h; sourceTree = "<group>"; };
+		D054D536128C8AFE009B5334 /* SimpleDBGetAttributesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBGetAttributesRequest.h; path = SimpleDB/SimpleDBGetAttributesRequest.h; sourceTree = "<group>"; };
+		D054D538128C8AFE009B5334 /* SimpleDBGetAttributesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBGetAttributesResponse.h; path = SimpleDB/SimpleDBGetAttributesResponse.h; sourceTree = "<group>"; };
+		D054D539128C8AFE009B5334 /* SimpleDBGetAttributesResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBGetAttributesResponseUnmarshaller.h; path = SimpleDB/SimpleDBGetAttributesResponseUnmarshaller.h; sourceTree = "<group>"; };
+		D054D53A128C8AFE009B5334 /* SimpleDBInvalidNextTokenException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBInvalidNextTokenException.h; path = SimpleDB/SimpleDBInvalidNextTokenException.h; sourceTree = "<group>"; };
+		D054D53C128C8AFE009B5334 /* SimpleDBInvalidNumberPredicatesException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBInvalidNumberPredicatesException.h; path = SimpleDB/SimpleDBInvalidNumberPredicatesException.h; sourceTree = "<group>"; };
+		D054D53E128C8AFE009B5334 /* SimpleDBInvalidNumberValueTestsException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBInvalidNumberValueTestsException.h; path = SimpleDB/SimpleDBInvalidNumberValueTestsException.h; sourceTree = "<group>"; };
+		D054D540128C8AFE009B5334 /* SimpleDBInvalidParameterValueException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBInvalidParameterValueException.h; path = SimpleDB/SimpleDBInvalidParameterValueException.h; sourceTree = "<group>"; };
+		D054D542128C8AFE009B5334 /* SimpleDBInvalidQueryExpressionException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBInvalidQueryExpressionException.h; path = SimpleDB/SimpleDBInvalidQueryExpressionException.h; sourceTree = "<group>"; };
+		D054D544128C8AFE009B5334 /* SimpleDBItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBItem.h; path = SimpleDB/SimpleDBItem.h; sourceTree = "<group>"; };
+		D054D545128C8AFE009B5334 /* SimpleDBItemUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBItemUnmarshaller.h; path = SimpleDB/SimpleDBItemUnmarshaller.h; sourceTree = "<group>"; };
+		D054D546128C8AFE009B5334 /* SimpleDBListDomainsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBListDomainsRequest.h; path = SimpleDB/SimpleDBListDomainsRequest.h; sourceTree = "<group>"; };
+		D054D548128C8AFE009B5334 /* SimpleDBListDomainsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBListDomainsResponse.h; path = SimpleDB/SimpleDBListDomainsResponse.h; sourceTree = "<group>"; };
+		D054D549128C8AFE009B5334 /* SimpleDBListDomainsResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBListDomainsResponseUnmarshaller.h; path = SimpleDB/SimpleDBListDomainsResponseUnmarshaller.h; sourceTree = "<group>"; };
+		D054D54A128C8AFE009B5334 /* SimpleDBMissingParameterException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBMissingParameterException.h; path = SimpleDB/SimpleDBMissingParameterException.h; sourceTree = "<group>"; };
+		D054D54C128C8AFE009B5334 /* SimpleDBNoSuchDomainException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBNoSuchDomainException.h; path = SimpleDB/SimpleDBNoSuchDomainException.h; sourceTree = "<group>"; };
+		D054D54E128C8AFE009B5334 /* SimpleDBNumberDomainAttributesExceededException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBNumberDomainAttributesExceededException.h; path = SimpleDB/SimpleDBNumberDomainAttributesExceededException.h; sourceTree = "<group>"; };
+		D054D550128C8AFE009B5334 /* SimpleDBNumberDomainBytesExceededException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBNumberDomainBytesExceededException.h; path = SimpleDB/SimpleDBNumberDomainBytesExceededException.h; sourceTree = "<group>"; };
+		D054D552128C8AFE009B5334 /* SimpleDBNumberDomainsExceededException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBNumberDomainsExceededException.h; path = SimpleDB/SimpleDBNumberDomainsExceededException.h; sourceTree = "<group>"; };
+		D054D554128C8AFE009B5334 /* SimpleDBNumberItemAttributesExceededException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBNumberItemAttributesExceededException.h; path = SimpleDB/SimpleDBNumberItemAttributesExceededException.h; sourceTree = "<group>"; };
+		D054D556128C8AFE009B5334 /* SimpleDBNumberSubmittedAttributesExceededException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBNumberSubmittedAttributesExceededException.h; path = SimpleDB/SimpleDBNumberSubmittedAttributesExceededException.h; sourceTree = "<group>"; };
+		D054D558128C8AFE009B5334 /* SimpleDBNumberSubmittedItemsExceededException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBNumberSubmittedItemsExceededException.h; path = SimpleDB/SimpleDBNumberSubmittedItemsExceededException.h; sourceTree = "<group>"; };
+		D054D55A128C8AFE009B5334 /* SimpleDBPutAttributesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBPutAttributesRequest.h; path = SimpleDB/SimpleDBPutAttributesRequest.h; sourceTree = "<group>"; };
+		D054D55C128C8AFE009B5334 /* SimpleDBPutAttributesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBPutAttributesResponse.h; path = SimpleDB/SimpleDBPutAttributesResponse.h; sourceTree = "<group>"; };
+		D054D55D128C8AFE009B5334 /* SimpleDBPutAttributesResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBPutAttributesResponseUnmarshaller.h; path = SimpleDB/SimpleDBPutAttributesResponseUnmarshaller.h; sourceTree = "<group>"; };
+		D054D55E128C8AFE009B5334 /* SimpleDBReplaceableAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBReplaceableAttribute.h; path = SimpleDB/SimpleDBReplaceableAttribute.h; sourceTree = "<group>"; };
+		D054D55F128C8AFE009B5334 /* SimpleDBReplaceableItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBReplaceableItem.h; path = SimpleDB/SimpleDBReplaceableItem.h; sourceTree = "<group>"; };
+		D054D560128C8AFE009B5334 /* SimpleDBRequestTimeoutException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBRequestTimeoutException.h; path = SimpleDB/SimpleDBRequestTimeoutException.h; sourceTree = "<group>"; };
+		D054D562128C8AFE009B5334 /* SimpleDBSelectRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBSelectRequest.h; path = SimpleDB/SimpleDBSelectRequest.h; sourceTree = "<group>"; };
+		D054D564128C8AFE009B5334 /* SimpleDBSelectResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBSelectResponse.h; path = SimpleDB/SimpleDBSelectResponse.h; sourceTree = "<group>"; };
+		D054D565128C8AFE009B5334 /* SimpleDBSelectResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBSelectResponseUnmarshaller.h; path = SimpleDB/SimpleDBSelectResponseUnmarshaller.h; sourceTree = "<group>"; };
+		D054D566128C8AFE009B5334 /* SimpleDBTooManyRequestedAttributesException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBTooManyRequestedAttributesException.h; path = SimpleDB/SimpleDBTooManyRequestedAttributesException.h; sourceTree = "<group>"; };
+		D054D568128C8AFE009B5334 /* SimpleDBUpdateCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBUpdateCondition.h; path = SimpleDB/SimpleDBUpdateCondition.h; sourceTree = "<group>"; };
+		D069663F1234D53400BFBB1E /* libSimpleDB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSimpleDB.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D07CEC4A129B330B008FF534 /* SimpleDBRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBRequest.m; sourceTree = "<group>"; };
+		D07CEC7D129B3737008FF534 /* SimpleDBRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBRequest.h; path = SimpleDB/SimpleDBRequest.h; sourceTree = "<group>"; };
+		D0A0EA7E1344E734007721F9 /* SimpleDBResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBResponse.h; path = SimpleDB/SimpleDBResponse.h; sourceTree = "<group>"; };
+		D0A0EA861344E7B5007721F9 /* SimpleDBResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBResponse.m; sourceTree = "<group>"; };
+		D0E647D11371BB2D0096DF65 /* SimpleDBResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBResponseUnmarshaller.m; sourceTree = "<group>"; };
+		D0E647D41371BB520096DF65 /* SimpleDBResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleDBResponseUnmarshaller.h; path = SimpleDB/SimpleDBResponseUnmarshaller.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE96C1B7158BD58A0084D3CB /* MobileCoreServices.framework in Frameworks */,
+				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D069663F1234D53400BFBB1E /* libSimpleDB.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* s3 */ = {
+			isa = PBXGroup;
+			children = (
+				D0C84EB9128C845F00A68AD4 /* Amazon.SimpleDB */,
+				0AFD9561128471A4004B7863 /* include */,
+				0AFD8DC212846372004B7863 /* Scripts */,
+				0AFD8DBF128462A0004B7863 /* Resources */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
+			);
+			name = s3;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE96C1A9158BC2A70084D3CB /* MobileCoreServices.framework */,
+				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0AFD8DBF128462A0004B7863 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0AFD8DC0128462A0004B7863 /* Framework.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0AFD8DC212846372004B7863 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				0AFD8DC312846390004B7863 /* Framework.sh */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
+		0AFD9561128471A4004B7863 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				CE2CDBFF17036FAC0013DE5F /* AWSSimpleDB.h */,
+				D054D517128C8AFE009B5334 /* AmazonSimpleDBClient.h */,
+				D054D51A128C8AFE009B5334 /* SimpleDBAttribute.h */,
+				D054D51B128C8AFE009B5334 /* SimpleDBAttributeDoesNotExistException.h */,
+				D054D51D128C8AFE009B5334 /* SimpleDBAttributeUnmarshaller.h */,
+				D01995EF12A72B3100CB8012 /* SimpleDBBatchDeleteAttributesRequest.h */,
+				D03F1B24137733B300891BD9 /* SimpleDBBatchDeleteAttributesRequestMarshaller.h */,
+				D01995F112A72B3100CB8012 /* SimpleDBBatchDeleteAttributesResponse.h */,
+				D01995F212A72B3100CB8012 /* SimpleDBBatchDeleteAttributesResponseUnmarshaller.h */,
+				D054D51E128C8AFE009B5334 /* SimpleDBBatchPutAttributesRequest.h */,
+				D03F1B25137733B300891BD9 /* SimpleDBBatchPutAttributesRequestMarshaller.h */,
+				D054D520128C8AFE009B5334 /* SimpleDBBatchPutAttributesResponse.h */,
+				D054D521128C8AFE009B5334 /* SimpleDBBatchPutAttributesResponseUnmarshaller.h */,
+				D054D522128C8AFE009B5334 /* SimpleDBCreateDomainRequest.h */,
+				D03F1B26137733B300891BD9 /* SimpleDBCreateDomainRequestMarshaller.h */,
+				D054D524128C8AFE009B5334 /* SimpleDBCreateDomainResponse.h */,
+				D054D525128C8AFE009B5334 /* SimpleDBCreateDomainResponseUnmarshaller.h */,
+				D01995F312A72B3100CB8012 /* SimpleDBDeletableItem.h */,
+				D054D526128C8AFE009B5334 /* SimpleDBDeleteAttributesRequest.h */,
+				D03F1B27137733B300891BD9 /* SimpleDBDeleteAttributesRequestMarshaller.h */,
+				D054D528128C8AFE009B5334 /* SimpleDBDeleteAttributesResponse.h */,
+				D054D529128C8AFE009B5334 /* SimpleDBDeleteAttributesResponseUnmarshaller.h */,
+				D054D52A128C8AFE009B5334 /* SimpleDBDeleteDomainRequest.h */,
+				D03F1B28137733B300891BD9 /* SimpleDBDeleteDomainRequestMarshaller.h */,
+				D054D52C128C8AFE009B5334 /* SimpleDBDeleteDomainResponse.h */,
+				D054D52D128C8AFE009B5334 /* SimpleDBDeleteDomainResponseUnmarshaller.h */,
+				D054D52E128C8AFE009B5334 /* SimpleDBDomainMetadataRequest.h */,
+				D03F1B29137733B300891BD9 /* SimpleDBDomainMetadataRequestMarshaller.h */,
+				D054D530128C8AFE009B5334 /* SimpleDBDomainMetadataResponse.h */,
+				D054D531128C8AFE009B5334 /* SimpleDBDomainMetadataResponseUnmarshaller.h */,
+				D054D532128C8AFE009B5334 /* SimpleDBDuplicateItemNameException.h */,
+				D054D536128C8AFE009B5334 /* SimpleDBGetAttributesRequest.h */,
+				D03F1B2A137733B300891BD9 /* SimpleDBGetAttributesRequestMarshaller.h */,
+				D054D538128C8AFE009B5334 /* SimpleDBGetAttributesResponse.h */,
+				D054D539128C8AFE009B5334 /* SimpleDBGetAttributesResponseUnmarshaller.h */,
+				D054D53A128C8AFE009B5334 /* SimpleDBInvalidNextTokenException.h */,
+				D054D53C128C8AFE009B5334 /* SimpleDBInvalidNumberPredicatesException.h */,
+				D054D53E128C8AFE009B5334 /* SimpleDBInvalidNumberValueTestsException.h */,
+				D054D540128C8AFE009B5334 /* SimpleDBInvalidParameterValueException.h */,
+				D054D542128C8AFE009B5334 /* SimpleDBInvalidQueryExpressionException.h */,
+				D054D544128C8AFE009B5334 /* SimpleDBItem.h */,
+				D054D545128C8AFE009B5334 /* SimpleDBItemUnmarshaller.h */,
+				D054D546128C8AFE009B5334 /* SimpleDBListDomainsRequest.h */,
+				D03F1B2B137733B300891BD9 /* SimpleDBListDomainsRequestMarshaller.h */,
+				D054D548128C8AFE009B5334 /* SimpleDBListDomainsResponse.h */,
+				D054D549128C8AFE009B5334 /* SimpleDBListDomainsResponseUnmarshaller.h */,
+				D054D54A128C8AFE009B5334 /* SimpleDBMissingParameterException.h */,
+				D054D54C128C8AFE009B5334 /* SimpleDBNoSuchDomainException.h */,
+				D054D54E128C8AFE009B5334 /* SimpleDBNumberDomainAttributesExceededException.h */,
+				D054D550128C8AFE009B5334 /* SimpleDBNumberDomainBytesExceededException.h */,
+				D054D552128C8AFE009B5334 /* SimpleDBNumberDomainsExceededException.h */,
+				D054D554128C8AFE009B5334 /* SimpleDBNumberItemAttributesExceededException.h */,
+				D054D556128C8AFE009B5334 /* SimpleDBNumberSubmittedAttributesExceededException.h */,
+				D054D558128C8AFE009B5334 /* SimpleDBNumberSubmittedItemsExceededException.h */,
+				D054D55A128C8AFE009B5334 /* SimpleDBPutAttributesRequest.h */,
+				D03F1B2C137733B300891BD9 /* SimpleDBPutAttributesRequestMarshaller.h */,
+				D054D55C128C8AFE009B5334 /* SimpleDBPutAttributesResponse.h */,
+				D054D55D128C8AFE009B5334 /* SimpleDBPutAttributesResponseUnmarshaller.h */,
+				D054D55E128C8AFE009B5334 /* SimpleDBReplaceableAttribute.h */,
+				D054D55F128C8AFE009B5334 /* SimpleDBReplaceableItem.h */,
+				D07CEC7D129B3737008FF534 /* SimpleDBRequest.h */,
+				D054D560128C8AFE009B5334 /* SimpleDBRequestTimeoutException.h */,
+				D0A0EA7E1344E734007721F9 /* SimpleDBResponse.h */,
+				D0E647D41371BB520096DF65 /* SimpleDBResponseUnmarshaller.h */,
+				D054D562128C8AFE009B5334 /* SimpleDBSelectRequest.h */,
+				D03F1B2D137733B300891BD9 /* SimpleDBSelectRequestMarshaller.h */,
+				D054D564128C8AFE009B5334 /* SimpleDBSelectResponse.h */,
+				D054D565128C8AFE009B5334 /* SimpleDBSelectResponseUnmarshaller.h */,
+				D054D566128C8AFE009B5334 /* SimpleDBTooManyRequestedAttributesException.h */,
+				D054D568128C8AFE009B5334 /* SimpleDBUpdateCondition.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				034768DFFF38A50411DB9C8B /* Products */,
+				AA747D9E0F9514B9006C5449 /* SimpleDB_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		D054D473128C8AD5009B5334 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D03F19521377315200891BD9 /* SimpleDBBatchDeleteAttributesRequestMarshaller.m */,
+				D03F19531377315200891BD9 /* SimpleDBBatchPutAttributesRequestMarshaller.m */,
+				D03F19541377315200891BD9 /* SimpleDBCreateDomainRequestMarshaller.m */,
+				D03F19551377315200891BD9 /* SimpleDBDeleteAttributesRequestMarshaller.m */,
+				D03F19561377315200891BD9 /* SimpleDBDeleteDomainRequestMarshaller.m */,
+				D03F19571377315200891BD9 /* SimpleDBDomainMetadataRequestMarshaller.m */,
+				D03F19581377315200891BD9 /* SimpleDBGetAttributesRequestMarshaller.m */,
+				D03F19591377315200891BD9 /* SimpleDBListDomainsRequestMarshaller.m */,
+				D03F195A1377315300891BD9 /* SimpleDBPutAttributesRequestMarshaller.m */,
+				D03F195B1377315300891BD9 /* SimpleDBSelectRequestMarshaller.m */,
+				D01995E512A72B0D00CB8012 /* SimpleDBBatchDeleteAttributesRequest.m */,
+				D01995E712A72B0D00CB8012 /* SimpleDBBatchDeleteAttributesResponse.m */,
+				D01995E812A72B0D00CB8012 /* SimpleDBBatchDeleteAttributesResponseUnmarshaller.m */,
+				D01995E912A72B0D00CB8012 /* SimpleDBDeletableItem.m */,
+				D054D476128C8AD5009B5334 /* SimpleDBAttribute.m */,
+				D054D477128C8AD5009B5334 /* SimpleDBAttributeDoesNotExistException.m */,
+				D054D479128C8AD5009B5334 /* SimpleDBAttributeUnmarshaller.m */,
+				D054D47A128C8AD5009B5334 /* SimpleDBBatchPutAttributesRequest.m */,
+				D054D47C128C8AD5009B5334 /* SimpleDBBatchPutAttributesResponse.m */,
+				D054D47D128C8AD5009B5334 /* SimpleDBBatchPutAttributesResponseUnmarshaller.m */,
+				D054D47E128C8AD5009B5334 /* SimpleDBCreateDomainRequest.m */,
+				D054D480128C8AD5009B5334 /* SimpleDBCreateDomainResponse.m */,
+				D054D481128C8AD5009B5334 /* SimpleDBCreateDomainResponseUnmarshaller.m */,
+				D054D482128C8AD5009B5334 /* SimpleDBDeleteAttributesRequest.m */,
+				D054D484128C8AD5009B5334 /* SimpleDBDeleteAttributesResponse.m */,
+				D054D485128C8AD5009B5334 /* SimpleDBDeleteAttributesResponseUnmarshaller.m */,
+				D054D486128C8AD5009B5334 /* SimpleDBDeleteDomainRequest.m */,
+				D054D488128C8AD5009B5334 /* SimpleDBDeleteDomainResponse.m */,
+				D054D489128C8AD5009B5334 /* SimpleDBDeleteDomainResponseUnmarshaller.m */,
+				D054D48A128C8AD5009B5334 /* SimpleDBDomainMetadataRequest.m */,
+				D054D48C128C8AD5009B5334 /* SimpleDBDomainMetadataResponse.m */,
+				D054D48D128C8AD5009B5334 /* SimpleDBDomainMetadataResponseUnmarshaller.m */,
+				D054D48E128C8AD5009B5334 /* SimpleDBDuplicateItemNameException.m */,
+				D054D492128C8AD5009B5334 /* SimpleDBGetAttributesRequest.m */,
+				D054D494128C8AD5009B5334 /* SimpleDBGetAttributesResponse.m */,
+				D054D495128C8AD5009B5334 /* SimpleDBGetAttributesResponseUnmarshaller.m */,
+				D054D496128C8AD5009B5334 /* SimpleDBInvalidNextTokenException.m */,
+				D054D498128C8AD5009B5334 /* SimpleDBInvalidNumberPredicatesException.m */,
+				D054D49A128C8AD5009B5334 /* SimpleDBInvalidNumberValueTestsException.m */,
+				D054D49C128C8AD5009B5334 /* SimpleDBInvalidParameterValueException.m */,
+				D054D49E128C8AD5009B5334 /* SimpleDBInvalidQueryExpressionException.m */,
+				D054D4A0128C8AD5009B5334 /* SimpleDBItem.m */,
+				D054D4A1128C8AD5009B5334 /* SimpleDBItemUnmarshaller.m */,
+				D054D4A2128C8AD5009B5334 /* SimpleDBListDomainsRequest.m */,
+				D054D4A4128C8AD5009B5334 /* SimpleDBListDomainsResponse.m */,
+				D054D4A5128C8AD5009B5334 /* SimpleDBListDomainsResponseUnmarshaller.m */,
+				D054D4A6128C8AD5009B5334 /* SimpleDBMissingParameterException.m */,
+				D054D4A8128C8AD5009B5334 /* SimpleDBNoSuchDomainException.m */,
+				D054D4AA128C8AD5009B5334 /* SimpleDBNumberDomainAttributesExceededException.m */,
+				D054D4AC128C8AD5009B5334 /* SimpleDBNumberDomainBytesExceededException.m */,
+				D054D4AE128C8AD5009B5334 /* SimpleDBNumberDomainsExceededException.m */,
+				D054D4B0128C8AD5009B5334 /* SimpleDBNumberItemAttributesExceededException.m */,
+				D054D4B2128C8AD5009B5334 /* SimpleDBNumberSubmittedAttributesExceededException.m */,
+				D054D4B4128C8AD5009B5334 /* SimpleDBNumberSubmittedItemsExceededException.m */,
+				D054D4B6128C8AD5009B5334 /* SimpleDBPutAttributesRequest.m */,
+				D054D4B8128C8AD5009B5334 /* SimpleDBPutAttributesResponse.m */,
+				D054D4B9128C8AD5009B5334 /* SimpleDBPutAttributesResponseUnmarshaller.m */,
+				D054D4BA128C8AD5009B5334 /* SimpleDBReplaceableAttribute.m */,
+				D054D4BB128C8AD5009B5334 /* SimpleDBReplaceableItem.m */,
+				D054D4BC128C8AD5009B5334 /* SimpleDBRequestTimeoutException.m */,
+				D054D4BE128C8AD5009B5334 /* SimpleDBSelectRequest.m */,
+				D054D4C0128C8AD5009B5334 /* SimpleDBSelectResponse.m */,
+				D054D4C1128C8AD5009B5334 /* SimpleDBSelectResponseUnmarshaller.m */,
+				D054D4C2128C8AD5009B5334 /* SimpleDBTooManyRequestedAttributesException.m */,
+				D054D4C4128C8AD5009B5334 /* SimpleDBUpdateCondition.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D0C84EB9128C845F00A68AD4 /* Amazon.SimpleDB */ = {
+			isa = PBXGroup;
+			children = (
+				D0E647D11371BB2D0096DF65 /* SimpleDBResponseUnmarshaller.m */,
+				D0A0EA861344E7B5007721F9 /* SimpleDBResponse.m */,
+				D054D472128C8AD5009B5334 /* AmazonSimpleDBClient.m */,
+				D054D473128C8AD5009B5334 /* Model */,
+				D07CEC4A129B330B008FF534 /* SimpleDBRequest.m */,
+			);
+			path = Amazon.SimpleDB;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D054D569128C8AFE009B5334 /* AmazonSimpleDBClient.h in Headers */,
+				D054D56C128C8AFE009B5334 /* SimpleDBAttribute.h in Headers */,
+				D054D56D128C8AFE009B5334 /* SimpleDBAttributeDoesNotExistException.h in Headers */,
+				D054D56F128C8AFE009B5334 /* SimpleDBAttributeUnmarshaller.h in Headers */,
+				D054D570128C8AFE009B5334 /* SimpleDBBatchPutAttributesRequest.h in Headers */,
+				D054D572128C8AFE009B5334 /* SimpleDBBatchPutAttributesResponse.h in Headers */,
+				D054D573128C8AFE009B5334 /* SimpleDBBatchPutAttributesResponseUnmarshaller.h in Headers */,
+				D054D574128C8AFE009B5334 /* SimpleDBCreateDomainRequest.h in Headers */,
+				D054D576128C8AFE009B5334 /* SimpleDBCreateDomainResponse.h in Headers */,
+				D054D577128C8AFE009B5334 /* SimpleDBCreateDomainResponseUnmarshaller.h in Headers */,
+				D054D578128C8AFE009B5334 /* SimpleDBDeleteAttributesRequest.h in Headers */,
+				D054D57A128C8AFE009B5334 /* SimpleDBDeleteAttributesResponse.h in Headers */,
+				D054D57B128C8AFE009B5334 /* SimpleDBDeleteAttributesResponseUnmarshaller.h in Headers */,
+				D054D57C128C8AFE009B5334 /* SimpleDBDeleteDomainRequest.h in Headers */,
+				D054D57E128C8AFE009B5334 /* SimpleDBDeleteDomainResponse.h in Headers */,
+				D054D57F128C8AFE009B5334 /* SimpleDBDeleteDomainResponseUnmarshaller.h in Headers */,
+				D054D580128C8AFE009B5334 /* SimpleDBDomainMetadataRequest.h in Headers */,
+				D054D582128C8AFE009B5334 /* SimpleDBDomainMetadataResponse.h in Headers */,
+				D054D583128C8AFE009B5334 /* SimpleDBDomainMetadataResponseUnmarshaller.h in Headers */,
+				D054D584128C8AFE009B5334 /* SimpleDBDuplicateItemNameException.h in Headers */,
+				D054D588128C8AFE009B5334 /* SimpleDBGetAttributesRequest.h in Headers */,
+				D054D58A128C8AFE009B5334 /* SimpleDBGetAttributesResponse.h in Headers */,
+				D054D58B128C8AFE009B5334 /* SimpleDBGetAttributesResponseUnmarshaller.h in Headers */,
+				D054D58C128C8AFE009B5334 /* SimpleDBInvalidNextTokenException.h in Headers */,
+				D054D58E128C8AFE009B5334 /* SimpleDBInvalidNumberPredicatesException.h in Headers */,
+				D054D590128C8AFE009B5334 /* SimpleDBInvalidNumberValueTestsException.h in Headers */,
+				D054D592128C8AFE009B5334 /* SimpleDBInvalidParameterValueException.h in Headers */,
+				D054D594128C8AFE009B5334 /* SimpleDBInvalidQueryExpressionException.h in Headers */,
+				D054D596128C8AFE009B5334 /* SimpleDBItem.h in Headers */,
+				D054D597128C8AFE009B5334 /* SimpleDBItemUnmarshaller.h in Headers */,
+				D054D598128C8AFE009B5334 /* SimpleDBListDomainsRequest.h in Headers */,
+				D054D59A128C8AFE009B5334 /* SimpleDBListDomainsResponse.h in Headers */,
+				D054D59B128C8AFE009B5334 /* SimpleDBListDomainsResponseUnmarshaller.h in Headers */,
+				D054D59C128C8AFE009B5334 /* SimpleDBMissingParameterException.h in Headers */,
+				D054D59E128C8AFE009B5334 /* SimpleDBNoSuchDomainException.h in Headers */,
+				D054D5A0128C8AFE009B5334 /* SimpleDBNumberDomainAttributesExceededException.h in Headers */,
+				D054D5A2128C8AFE009B5334 /* SimpleDBNumberDomainBytesExceededException.h in Headers */,
+				D054D5A4128C8AFE009B5334 /* SimpleDBNumberDomainsExceededException.h in Headers */,
+				D054D5A6128C8AFE009B5334 /* SimpleDBNumberItemAttributesExceededException.h in Headers */,
+				D054D5A8128C8AFE009B5334 /* SimpleDBNumberSubmittedAttributesExceededException.h in Headers */,
+				D054D5AA128C8AFE009B5334 /* SimpleDBNumberSubmittedItemsExceededException.h in Headers */,
+				D054D5AC128C8AFE009B5334 /* SimpleDBPutAttributesRequest.h in Headers */,
+				D054D5AE128C8AFE009B5334 /* SimpleDBPutAttributesResponse.h in Headers */,
+				D054D5AF128C8AFE009B5334 /* SimpleDBPutAttributesResponseUnmarshaller.h in Headers */,
+				D054D5B0128C8AFE009B5334 /* SimpleDBReplaceableAttribute.h in Headers */,
+				D054D5B1128C8AFE009B5334 /* SimpleDBReplaceableItem.h in Headers */,
+				D054D5B2128C8AFE009B5334 /* SimpleDBRequestTimeoutException.h in Headers */,
+				D054D5B4128C8AFE009B5334 /* SimpleDBSelectRequest.h in Headers */,
+				D054D5B6128C8AFE009B5334 /* SimpleDBSelectResponse.h in Headers */,
+				D054D5B7128C8AFE009B5334 /* SimpleDBSelectResponseUnmarshaller.h in Headers */,
+				D054D5B8128C8AFE009B5334 /* SimpleDBTooManyRequestedAttributesException.h in Headers */,
+				D054D5BA128C8AFE009B5334 /* SimpleDBUpdateCondition.h in Headers */,
+				D07CEC7E129B3737008FF534 /* SimpleDBRequest.h in Headers */,
+				D01995F412A72B3100CB8012 /* SimpleDBBatchDeleteAttributesRequest.h in Headers */,
+				D01995F612A72B3100CB8012 /* SimpleDBBatchDeleteAttributesResponse.h in Headers */,
+				D01995F712A72B3100CB8012 /* SimpleDBBatchDeleteAttributesResponseUnmarshaller.h in Headers */,
+				D01995F812A72B3100CB8012 /* SimpleDBDeletableItem.h in Headers */,
+				D0A0EA7F1344E734007721F9 /* SimpleDBResponse.h in Headers */,
+				D0E647D51371BB520096DF65 /* SimpleDBResponseUnmarshaller.h in Headers */,
+				D03F1B2E137733B300891BD9 /* SimpleDBBatchDeleteAttributesRequestMarshaller.h in Headers */,
+				D03F1B2F137733B300891BD9 /* SimpleDBBatchPutAttributesRequestMarshaller.h in Headers */,
+				D03F1B30137733B300891BD9 /* SimpleDBCreateDomainRequestMarshaller.h in Headers */,
+				D03F1B31137733B300891BD9 /* SimpleDBDeleteAttributesRequestMarshaller.h in Headers */,
+				D03F1B32137733B300891BD9 /* SimpleDBDeleteDomainRequestMarshaller.h in Headers */,
+				D03F1B33137733B300891BD9 /* SimpleDBDomainMetadataRequestMarshaller.h in Headers */,
+				D03F1B34137733B300891BD9 /* SimpleDBGetAttributesRequestMarshaller.h in Headers */,
+				D03F1B35137733B300891BD9 /* SimpleDBListDomainsRequestMarshaller.h in Headers */,
+				D03F1B36137733B300891BD9 /* SimpleDBPutAttributesRequestMarshaller.h in Headers */,
+				D03F1B37137733B300891BD9 /* SimpleDBSelectRequestMarshaller.h in Headers */,
+				CE2CDC0017036FAC0013DE5F /* AWSSimpleDB.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXLegacyTarget section */
+		0AFD8DD7128465B4004B7863 /* Framework */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 0AFD8DDC128465EB004B7863 /* Build configuration list for PBXLegacyTarget "Framework" */;
+			buildPhases = (
+			);
+			buildToolPath = Scripts/Framework.sh;
+			dependencies = (
+			);
+			name = Framework;
+			passBuildSettingsInEnvironment = 1;
+			productName = Framework;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC07D0554694100DB518D /* SimpleDB */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "SimpleDB" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SimpleDB;
+			productName = s3;
+			productReference = D069663F1234D53400BFBB1E /* libSimpleDB.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+			};
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "SimpleDB" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* s3 */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2AAC07D0554694100DB518D /* SimpleDB */,
+				0AFD8DD7128465B4004B7863 /* Framework */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D054D4C5128C8AD5009B5334 /* AmazonSimpleDBClient.m in Sources */,
+				D054D4C8128C8AD5009B5334 /* SimpleDBAttribute.m in Sources */,
+				D054D4C9128C8AD5009B5334 /* SimpleDBAttributeDoesNotExistException.m in Sources */,
+				D054D4CB128C8AD5009B5334 /* SimpleDBAttributeUnmarshaller.m in Sources */,
+				D054D4CC128C8AD5009B5334 /* SimpleDBBatchPutAttributesRequest.m in Sources */,
+				D054D4CE128C8AD5009B5334 /* SimpleDBBatchPutAttributesResponse.m in Sources */,
+				D054D4CF128C8AD5009B5334 /* SimpleDBBatchPutAttributesResponseUnmarshaller.m in Sources */,
+				D054D4D0128C8AD5009B5334 /* SimpleDBCreateDomainRequest.m in Sources */,
+				D054D4D2128C8AD5009B5334 /* SimpleDBCreateDomainResponse.m in Sources */,
+				D054D4D3128C8AD5009B5334 /* SimpleDBCreateDomainResponseUnmarshaller.m in Sources */,
+				D054D4D4128C8AD5009B5334 /* SimpleDBDeleteAttributesRequest.m in Sources */,
+				D054D4D6128C8AD5009B5334 /* SimpleDBDeleteAttributesResponse.m in Sources */,
+				D054D4D7128C8AD5009B5334 /* SimpleDBDeleteAttributesResponseUnmarshaller.m in Sources */,
+				D054D4D8128C8AD5009B5334 /* SimpleDBDeleteDomainRequest.m in Sources */,
+				D054D4DA128C8AD5009B5334 /* SimpleDBDeleteDomainResponse.m in Sources */,
+				D054D4DB128C8AD5009B5334 /* SimpleDBDeleteDomainResponseUnmarshaller.m in Sources */,
+				D054D4DC128C8AD5009B5334 /* SimpleDBDomainMetadataRequest.m in Sources */,
+				D054D4DE128C8AD5009B5334 /* SimpleDBDomainMetadataResponse.m in Sources */,
+				D054D4DF128C8AD5009B5334 /* SimpleDBDomainMetadataResponseUnmarshaller.m in Sources */,
+				D054D4E0128C8AD5009B5334 /* SimpleDBDuplicateItemNameException.m in Sources */,
+				D054D4E4128C8AD5009B5334 /* SimpleDBGetAttributesRequest.m in Sources */,
+				D054D4E6128C8AD5009B5334 /* SimpleDBGetAttributesResponse.m in Sources */,
+				D054D4E7128C8AD5009B5334 /* SimpleDBGetAttributesResponseUnmarshaller.m in Sources */,
+				D054D4E8128C8AD5009B5334 /* SimpleDBInvalidNextTokenException.m in Sources */,
+				D054D4EA128C8AD5009B5334 /* SimpleDBInvalidNumberPredicatesException.m in Sources */,
+				D054D4EC128C8AD5009B5334 /* SimpleDBInvalidNumberValueTestsException.m in Sources */,
+				D054D4EE128C8AD5009B5334 /* SimpleDBInvalidParameterValueException.m in Sources */,
+				D054D4F0128C8AD5009B5334 /* SimpleDBInvalidQueryExpressionException.m in Sources */,
+				D054D4F2128C8AD5009B5334 /* SimpleDBItem.m in Sources */,
+				D054D4F3128C8AD5009B5334 /* SimpleDBItemUnmarshaller.m in Sources */,
+				D054D4F4128C8AD5009B5334 /* SimpleDBListDomainsRequest.m in Sources */,
+				D054D4F6128C8AD5009B5334 /* SimpleDBListDomainsResponse.m in Sources */,
+				D054D4F7128C8AD5009B5334 /* SimpleDBListDomainsResponseUnmarshaller.m in Sources */,
+				D054D4F8128C8AD5009B5334 /* SimpleDBMissingParameterException.m in Sources */,
+				D054D4FA128C8AD5009B5334 /* SimpleDBNoSuchDomainException.m in Sources */,
+				D054D4FC128C8AD5009B5334 /* SimpleDBNumberDomainAttributesExceededException.m in Sources */,
+				D054D4FE128C8AD5009B5334 /* SimpleDBNumberDomainBytesExceededException.m in Sources */,
+				D054D500128C8AD5009B5334 /* SimpleDBNumberDomainsExceededException.m in Sources */,
+				D054D502128C8AD5009B5334 /* SimpleDBNumberItemAttributesExceededException.m in Sources */,
+				D054D504128C8AD5009B5334 /* SimpleDBNumberSubmittedAttributesExceededException.m in Sources */,
+				D054D506128C8AD5009B5334 /* SimpleDBNumberSubmittedItemsExceededException.m in Sources */,
+				D054D508128C8AD5009B5334 /* SimpleDBPutAttributesRequest.m in Sources */,
+				D054D50A128C8AD5009B5334 /* SimpleDBPutAttributesResponse.m in Sources */,
+				D054D50B128C8AD5009B5334 /* SimpleDBPutAttributesResponseUnmarshaller.m in Sources */,
+				D054D50C128C8AD5009B5334 /* SimpleDBReplaceableAttribute.m in Sources */,
+				D054D50D128C8AD5009B5334 /* SimpleDBReplaceableItem.m in Sources */,
+				D054D50E128C8AD5009B5334 /* SimpleDBRequestTimeoutException.m in Sources */,
+				D054D510128C8AD5009B5334 /* SimpleDBSelectRequest.m in Sources */,
+				D054D512128C8AD5009B5334 /* SimpleDBSelectResponse.m in Sources */,
+				D054D513128C8AD5009B5334 /* SimpleDBSelectResponseUnmarshaller.m in Sources */,
+				D054D514128C8AD5009B5334 /* SimpleDBTooManyRequestedAttributesException.m in Sources */,
+				D054D516128C8AD5009B5334 /* SimpleDBUpdateCondition.m in Sources */,
+				0A481A0B12A451F900DA1278 /* SimpleDBRequest.m in Sources */,
+				D01995EA12A72B0D00CB8012 /* SimpleDBBatchDeleteAttributesRequest.m in Sources */,
+				D01995EC12A72B0D00CB8012 /* SimpleDBBatchDeleteAttributesResponse.m in Sources */,
+				D01995ED12A72B0D00CB8012 /* SimpleDBBatchDeleteAttributesResponseUnmarshaller.m in Sources */,
+				D01995EE12A72B0D00CB8012 /* SimpleDBDeletableItem.m in Sources */,
+				D0A0EA871344E7B5007721F9 /* SimpleDBResponse.m in Sources */,
+				D0E647D21371BB2D0096DF65 /* SimpleDBResponseUnmarshaller.m in Sources */,
+				D03F195C1377315300891BD9 /* SimpleDBBatchDeleteAttributesRequestMarshaller.m in Sources */,
+				D03F195D1377315300891BD9 /* SimpleDBBatchPutAttributesRequestMarshaller.m in Sources */,
+				D03F195E1377315300891BD9 /* SimpleDBCreateDomainRequestMarshaller.m in Sources */,
+				D03F195F1377315300891BD9 /* SimpleDBDeleteAttributesRequestMarshaller.m in Sources */,
+				D03F19601377315300891BD9 /* SimpleDBDeleteDomainRequestMarshaller.m in Sources */,
+				D03F19611377315300891BD9 /* SimpleDBDomainMetadataRequestMarshaller.m in Sources */,
+				D03F19621377315300891BD9 /* SimpleDBGetAttributesRequestMarshaller.m in Sources */,
+				D03F19631377315300891BD9 /* SimpleDBListDomainsRequestMarshaller.m in Sources */,
+				D03F19641377315300891BD9 /* SimpleDBPutAttributesRequestMarshaller.m in Sources */,
+				D03F19651377315300891BD9 /* SimpleDBSelectRequestMarshaller.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0AFD8DD8128465B4004B7863 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Framework;
+			};
+			name = Debug;
+		};
+		0AFD8DD9128465B4004B7863 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				PRODUCT_NAME = Framework;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"ARCHS[sdk=*]" = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DOXYGEN_PATH = /Applications/Doxygen.app/Contents/Resources/doxygen;
+				DSTROOT = /tmp/s3.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/..\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SimpleDB_Prefix.pch;
+				GCC_THUMB_SUPPORT = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				PRODUCT_NAME = SimpleDB;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"ARCHS[sdk=*]" = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DSTROOT = /tmp/s3.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/..\"",
+				);
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SimpleDB_Prefix.pch;
+				GCC_THUMB_SUPPORT = NO;
+				HEADER_SEARCH_PATHS = (
+					"include/**",
+					"ThirdParty/**",
+				);
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				PRODUCT_NAME = SimpleDB;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					ThirdParty,
+					"include/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					ThirdParty,
+					"include/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0AFD8DDC128465EB004B7863 /* Build configuration list for PBXLegacyTarget "Framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0AFD8DD8128465B4004B7863 /* Debug */,
+				0AFD8DD9128465B4004B7863 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "SimpleDB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "SimpleDB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}

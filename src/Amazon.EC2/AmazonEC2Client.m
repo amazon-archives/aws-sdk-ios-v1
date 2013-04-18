@@ -14,8 +14,8 @@
  */
 
 #import "AmazonEC2Client.h"
-#import "../AmazonEndpoints.h"
-#import "../AmazonServiceRequest.h"
+#import "AmazonEndpoints.h"
+#import "AmazonServiceRequest.h"
 #import "EC2RebootInstancesResponseUnmarshaller.h"
 #import "EC2RebootInstancesRequestMarshaller.h"
 #import "EC2DescribeReservedInstancesResponseUnmarshaller.h"
