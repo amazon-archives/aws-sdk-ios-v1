@@ -14,7 +14,11 @@
  */
 
 
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonServiceRequestConfig.h>
+#else
 #import "../AmazonServiceRequestConfig.h"
+#endif
 
 
 
@@ -31,9 +35,7 @@
 
 
 /**
- * The name of the table you want to delete. Allowed characters are
- * <code>a-z</code>, <code>A-Z</code>, <code>0-9</code>, <code>_</code>
- * (underscore), <code>-</code> (hyphen) and <code>.</code> (period).
+ * The value of the TableName property for this object.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>3 - 255<br/>
@@ -52,10 +54,7 @@
  * Constructs a new DeleteTableRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theTableName The name of the table you want to delete. Allowed
- * characters are <code>a-z</code>, <code>A-Z</code>, <code>0-9</code>,
- * <code>_</code> (underscore), <code>-</code> (hyphen) and
- * <code>.</code> (period).
+ * @param theTableName
  */
 -(id)initWithTableName:(NSString *)theTableName;
 

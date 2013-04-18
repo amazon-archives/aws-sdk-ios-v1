@@ -47,10 +47,7 @@
 @property (nonatomic, retain) NSMutableArray *tableNames;
 
 /**
- * The name of the last table in the current list. Use this value as the
- * <code>ExclusiveStartTableName</code> in a new request to continue the
- * list until all the table names are returned. If this value is null,
- * all table names have been returned.
+ * The value of the LastEvaluatedTableName property for this object.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>3 - 255<br/>

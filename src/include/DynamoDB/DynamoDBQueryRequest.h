@@ -13,11 +13,14 @@
  * permissions and limitations under the License.
  */
 
-#import "DynamoDBAttributeValue.h"
 #import "DynamoDBCondition.h"
-#import "DynamoDBKey.h"
+#import "DynamoDBAttributeValue.h"
 
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonServiceRequestConfig.h>
+#else
 #import "../AmazonServiceRequestConfig.h"
+#endif
 
 
 
@@ -28,27 +31,24 @@
 @interface DynamoDBQueryRequest:AmazonServiceRequestConfig
 
 {
-    NSString               *tableName;
-    NSMutableArray         *attributesToGet;
-    NSNumber               *limit;
-    bool                   consistentRead;
-    bool                   consistentReadIsSet;
-    bool                   count;
-    bool                   countIsSet;
-    DynamoDBAttributeValue *hashKeyValue;
-    DynamoDBCondition      *rangeKeyCondition;
-    bool                   scanIndexForward;
-    bool                   scanIndexForwardIsSet;
-    DynamoDBKey            *exclusiveStartKey;
+    NSString            *tableName;
+    NSString            *indexName;
+    NSString            *select;
+    NSMutableArray      *attributesToGet;
+    NSNumber            *limit;
+    bool                consistentRead;
+    bool                consistentReadIsSet;
+    NSMutableDictionary *keyConditions;
+    bool                scanIndexForward;
+    bool                scanIndexForwardIsSet;
+    NSMutableDictionary *exclusiveStartKey;
+    NSString            *returnConsumedCapacity;
 }
 
 
 
 /**
- * The name of the table in which you want to query. Allowed characters
- * are <code>a-z</code>, <code>A-Z</code>, <code>0-9</code>,
- * <code>_</code> (underscore), <code>-</code> (hyphen) and
- * <code>.</code> (period).
+ * The value of the TableName property for this object.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>3 - 255<br/>
@@ -57,9 +57,24 @@
 @property (nonatomic, retain) NSString *tableName;
 
 /**
- * List of <code>Attribute</code> names. If attribute names are not
- * specified then all attributes will be returned. If some attributes are
- * not found, they will not appear in the result.
+ * The value of the IndexName property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Length: </b>3 - 255<br/>
+ * <b>Pattern: </b>[a-zA-Z0-9_.-]+<br/>
+ */
+@property (nonatomic, retain) NSString *indexName;
+
+/**
+ * The value of the Select property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>ALL_ATTRIBUTES, ALL_PROJECTED_ATTRIBUTES, SPECIFIC_ATTRIBUTES, COUNT
+ */
+@property (nonatomic, retain) NSString *select;
+
+/**
+ * The value of the AttributesToGet property for this object.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - <br/>
@@ -67,14 +82,7 @@
 @property (nonatomic, retain) NSMutableArray *attributesToGet;
 
 /**
- * The maximum number of items to return. If Amazon DynamoDB hits this
- * limit while querying the table, it stops the query and returns the
- * matching values up to the limit, and a <code>LastEvaluatedKey</code>
- * to apply in a subsequent operation to continue the query. Also, if the
- * result set size exceeds 1MB before Amazon DynamoDB hits this limit, it
- * stops the query and returns the matching values, and a
- * <code>LastEvaluatedKey</code> to apply in a subsequent operation to
- * continue the query.
+ * The value of the Limit property for this object.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Range: </b>1 - <br/>
@@ -82,55 +90,36 @@
 @property (nonatomic, retain) NSNumber *limit;
 
 /**
- * If set to <code>true</code>, then a consistent read is issued.
- * Otherwise eventually-consistent is used.
+ * The value of the ConsistentRead property for this object.
  */
 @property (nonatomic) bool           consistentRead;
 
 @property (nonatomic, readonly) bool consistentReadIsSet;
 
 /**
- * If set to <code>true</code>, Amazon DynamoDB returns a total number of
- * items that match the query parameters, instead of a list of the
- * matching items and their attributes. Do not set <code>Count</code> to
- * <code>true</code> while providing a list of
- * <code>AttributesToGet</code>, otherwise Amazon DynamoDB returns a
- * validation error.
+ * The value of the KeyConditions property for this object.
  */
-@property (nonatomic) bool           count;
-
-@property (nonatomic, readonly) bool countIsSet;
+@property (nonatomic, retain) NSMutableDictionary *keyConditions;
 
 /**
- * Attribute value of the hash component of the composite primary key.
- */
-@property (nonatomic, retain) DynamoDBAttributeValue *hashKeyValue;
-
-/**
- * A container for the attribute values and comparison operators to use
- * for the query.
- */
-@property (nonatomic, retain) DynamoDBCondition *rangeKeyCondition;
-
-/**
- * Specifies forward or backward traversal of the index. Amazon DynamoDB
- * returns results reflecting the requested order, determined by the
- * range key. The default value is <code>true</code> (forward).
+ * The value of the ScanIndexForward property for this object.
  */
 @property (nonatomic) bool           scanIndexForward;
 
 @property (nonatomic, readonly) bool scanIndexForwardIsSet;
 
 /**
- * Primary key of the item from which to continue an earlier query. An
- * earlier query might provide this value as the
- * <code>LastEvaluatedKey</code> if that query operation was interrupted
- * before completing the query; either because of the result set size or
- * the <code>Limit</code> parameter. The <code>LastEvaluatedKey</code>
- * can be passed back in a new query request to continue the operation
- * from that point.
+ * The value of the ExclusiveStartKey property for this object.
  */
-@property (nonatomic, retain) DynamoDBKey *exclusiveStartKey;
+@property (nonatomic, retain) NSMutableDictionary *exclusiveStartKey;
+
+/**
+ * The value of the ReturnConsumedCapacity property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>TOTAL, NONE
+ */
+@property (nonatomic, retain) NSString *returnConsumedCapacity;
 
 
 /**
@@ -143,20 +132,29 @@
  * Constructs a new QueryRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theTableName The name of the table in which you want to query.
- * Allowed characters are <code>a-z</code>, <code>A-Z</code>,
- * <code>0-9</code>, <code>_</code> (underscore), <code>-</code> (hyphen)
- * and <code>.</code> (period).
- * @param theHashKeyValue Attribute value of the hash component of the
- * composite primary key.
+ * @param theTableName
  */
--(id)initWithTableName:(NSString *)theTableName andHashKeyValue:(DynamoDBAttributeValue *)theHashKeyValue;
+-(id)initWithTableName:(NSString *)theTableName;
 
 /**
  * Adds a single object to attributesToGet.
  * This function will alloc and init attributesToGet if not already done.
  */
 -(void)addAttributesToGet:(NSString *)attributesToGetObject;
+
+
+/**
+ * Set a value in the dictionary keyConditions for the specified key.
+ * This function will alloc and init keyConditions if not already done.
+ */
+-(void)setKeyConditionsValue:(DynamoDBCondition *)theValue forKey:(NSString *)theKey;
+
+
+/**
+ * Set a value in the dictionary exclusiveStartKey for the specified key.
+ * This function will alloc and init exclusiveStartKey if not already done.
+ */
+-(void)setExclusiveStartKeyValue:(DynamoDBAttributeValue *)theValue forKey:(NSString *)theKey;
 
 /**
  * Returns a string representation of this object; useful for testing and

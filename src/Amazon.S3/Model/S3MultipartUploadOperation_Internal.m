@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -39,7 +39,6 @@ typedef void (^AbortMultipartUploadBlock)();
 
 @implementation S3MultipartUploadOperation_Internal
 
-@synthesize delegate = _delegate;
 @synthesize s3 = _s3;
 
 @synthesize contentLength = _contentLength;
@@ -123,20 +122,7 @@ typedef void (^AbortMultipartUploadBlock)();
     self.initRequest =
     [[[S3InitiateMultipartUploadRequest alloc] initWithKey:self.request.key
                                                   inBucket:self.request.bucket] autorelease];
-    self.initRequest.cannedACL = self.request.cannedACL;
-    self.initRequest.storageClass = self.request.storageClass;
-    self.initRequest.serverSideEncryption = self.request.serverSideEncryption;
-    self.initRequest.fullACL = self.request.fullACL;
-    self.initRequest.authorization = self.request.authorization;
-    self.initRequest.contentType = self.request.contentType;
-    self.initRequest.securityToken = self.request.securityToken;
-    self.initRequest.subResource = self.request.subResource;
-
-    self.initRequest.cacheControl = self.request.cacheControl;
-    self.initRequest.contentDisposition = self.request.contentDisposition;
-    self.initRequest.contentEncoding = self.request.contentEncoding;
-    self.initRequest.redirectLocation = self.request.redirectLocation;
-
+    [self updateProperties:self.initRequest];
     self.initRequest.delegate = self;
 
     self.retryCount = 0;
@@ -150,6 +136,7 @@ typedef void (^AbortMultipartUploadBlock)();
 - (void)startUploadingParts
 {
     self.completeRequest = [[[S3CompleteMultipartUploadRequest alloc] initWithMultipartUpload:self.multipartUpload] autorelease];
+    [self updateProperties:self.completeRequest];
     self.completeRequest.delegate = self;
 
     self.abortMultipartUpload = ^{
@@ -188,6 +175,7 @@ typedef void (^AbortMultipartUploadBlock)();
     }
 
     S3UploadPartRequest *uploadRequest = [[S3UploadPartRequest alloc] initWithMultipartUpload:self.multipartUpload];
+    [self updateProperties:uploadRequest];
     uploadRequest.partNumber = partNo;
 
     if(self.dataForPart == nil)
@@ -291,9 +279,9 @@ typedef void (^AbortMultipartUploadBlock)();
         }
         else if([response isKindOfClass:[S3CompleteMultipartUploadResponse class]])
         {
-            if([self.delegate respondsToSelector:@selector(request:didCompleteWithResponse:)])
+            if([self.request.delegate respondsToSelector:@selector(request:didCompleteWithResponse:)])
             {
-                [self.delegate request:request
+                [self.request.delegate request:request
                didCompleteWithResponse:response];
             }
 
@@ -308,9 +296,9 @@ typedef void (^AbortMultipartUploadBlock)();
     {
         if([request isKindOfClass:[S3UploadPartRequest class]])
         {
-            if([self.delegate respondsToSelector:@selector(request:didSendData:totalBytesWritten:totalBytesExpectedToWrite:)])
+            if([self.request.delegate respondsToSelector:@selector(request:didSendData:totalBytesWritten:totalBytesExpectedToWrite:)])
             {
-                [self.delegate request:request
+                [self.request.delegate request:request
                            didSendData:bytesWritten
                      totalBytesWritten:(self.currentPartNo - 1) * self.partSize + totalBytesWritten
              totalBytesExpectedToWrite:self.contentLength];
@@ -363,9 +351,9 @@ typedef void (^AbortMultipartUploadBlock)();
             dispatch_async(queue, self.abortMultipartUpload);
         }
 
-        if([self.delegate respondsToSelector:@selector(request:didFailWithError:)])
+        if([self.request.delegate respondsToSelector:@selector(request:didFailWithError:)])
         {
-            [self.delegate request:request didFailWithError:error];
+            [self.request.delegate request:request didFailWithError:error];
         }
 
         [self finish];
@@ -415,9 +403,9 @@ typedef void (^AbortMultipartUploadBlock)();
             dispatch_async(queue, self.abortMultipartUpload);
         }
 
-        if([self.delegate respondsToSelector:@selector(request:didFailWithServiceException:)])
+        if([self.request.delegate respondsToSelector:@selector(request:didFailWithServiceException:)])
         {
-            [self.delegate request:request didFailWithServiceException:exception];
+            [self.request.delegate request:request didFailWithServiceException:exception];
         }
 
         [self finish];
@@ -467,6 +455,48 @@ typedef void (^AbortMultipartUploadBlock)();
 - (NSUInteger)numberOfParts:(NSUInteger)contentLength
 {
     return (NSUInteger)ceil((double)contentLength / self.partSize);
+}
+
+- (void)updateProperties:(AmazonServiceRequest *)serviceRequest
+{
+    serviceRequest.requestTag = self.request.requestTag;
+
+    if([serviceRequest isKindOfClass:[S3Request class]])
+    {
+        S3Request *s3Request = (S3Request *)serviceRequest;
+        s3Request.authorization = self.request.authorization;
+        s3Request.contentType = self.request.contentType;
+        s3Request.securityToken = self.request.securityToken;
+        s3Request.subResource = self.request.subResource;
+
+        if([serviceRequest isKindOfClass:[S3AbstractPutRequest class]])
+        {
+            S3AbstractPutRequest *abstractPutRequest = (S3AbstractPutRequest *)serviceRequest;
+
+            abstractPutRequest.cannedACL = self.request.cannedACL;
+            abstractPutRequest.storageClass = self.request.storageClass;
+            abstractPutRequest.serverSideEncryption = self.request.serverSideEncryption;
+            abstractPutRequest.fullACL = self.request.fullACL;
+
+            if([serviceRequest isKindOfClass:[S3InitiateMultipartUploadRequest class]])
+            {
+                S3InitiateMultipartUploadRequest *initRequest = (S3InitiateMultipartUploadRequest *)serviceRequest;
+
+                initRequest.cacheControl = self.request.cacheControl;
+                initRequest.contentDisposition = self.request.contentDisposition;
+                initRequest.contentEncoding = self.request.contentEncoding;
+                initRequest.redirectLocation = self.request.redirectLocation;
+            }
+        }
+        else if([serviceRequest isKindOfClass:[S3UploadPartRequest class]])
+        {
+            // No property to update.
+        }
+        else if([serviceRequest isKindOfClass:[S3CompleteMultipartUploadRequest class]])
+        {
+            // No property to update.
+        }
+    }
 }
 
 #pragma mark -

@@ -16,7 +16,6 @@
 #import <Foundation/Foundation.h>
 #import "DynamoDBResponseUnmarshaller.h"
 #import "DynamoDBQueryResponse.h"
-#import "../AmazonSDKUtil.h"
 
 
 /**

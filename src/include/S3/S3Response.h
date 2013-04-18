@@ -15,9 +15,14 @@
 
 #import <Foundation/Foundation.h>
 #import <objc/runtime.h>
-#import "../AmazonServiceResponse.h"
 #import "S3Constants.h"
 #import "S3Request.h"
+
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonServiceResponse.h>
+#else
+#import "../AmazonServiceResponse.h"
+#endif
 
 
 /** response headers that are common to Amazon S3 responses.

@@ -14,12 +14,13 @@
  */
 
 #import "DynamoDBAttributeValue.h"
+#import "DynamoDBConsumedCapacity.h"
 
 #import "DynamoDBResponse.h"
 
+#import "DynamoDBResourceNotFoundException.h"
 #import "DynamoDBProvisionedThroughputExceededException.h"
 #import "DynamoDBInternalServerErrorException.h"
-#import "DynamoDBResourceNotFoundException.h"
 
 
 /**
@@ -29,8 +30,8 @@
 @interface DynamoDBGetItemResponse:DynamoDBResponse
 
 {
-    NSMutableDictionary *item;
-    NSNumber            *consumedCapacityUnits;
+    NSMutableDictionary      *item;
+    DynamoDBConsumedCapacity *consumedCapacity;
 }
 
 
@@ -45,20 +46,14 @@
 -(id)init;
 
 /**
- * Contains the requested attributes.
+ * The value of the Item property for this object.
  */
 @property (nonatomic, retain) NSMutableDictionary *item;
 
 /**
- * The number of Capacity Units of the provisioned throughput of the
- * table consumed during the operation. <code>GetItem</code>,
- * <code>BatchGetItem</code>, <code>BatchWriteItem</code>,
- * <code>Query</code>, and <code>Scan</code> operations consume
- * <code>ReadCapacityUnits</code>, while <code>PutItem</code>,
- * <code>UpdateItem</code>, and <code>DeleteItem</code> operations
- * consume <code>WriteCapacityUnits</code>.
+ * The value of the ConsumedCapacity property for this object.
  */
-@property (nonatomic, retain) NSNumber *consumedCapacityUnits;
+@property (nonatomic, retain) DynamoDBConsumedCapacity *consumedCapacity;
 
 /**
  * Returns a value from the item dictionary for the specified key.

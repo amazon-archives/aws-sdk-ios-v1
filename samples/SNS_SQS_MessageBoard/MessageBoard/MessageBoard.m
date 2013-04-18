@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -13,12 +13,10 @@
  * permissions and limitations under the License.
  */
 
-
 #import "MessageBoard.h"
 #import "Constants.h"
 
-#import <AWSiOSSDK/AWS_SBJsonWriter.h>
-#import <AWSiOSSDK/AmazonEndpoints.h>
+#import <AWSRuntime/AWSRuntime.h>
 
 
 // This singleton class provides all the functionality to manipulate the Amazon

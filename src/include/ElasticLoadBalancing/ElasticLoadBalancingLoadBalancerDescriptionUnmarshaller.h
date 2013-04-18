@@ -16,20 +16,55 @@
 #import <Foundation/Foundation.h>
 #import "ElasticLoadBalancingLoadBalancerDescription.h"
 #import "ElasticLoadBalancingResponseUnmarshaller.h"
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonValueUnmarshaller.h>
+#import <AWSRuntime/AmazonBoolValueUnmarshaller.h>
+#else
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
+#endif
+
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonListUnmarshaller.h>
+#else
 #import "../AmazonListUnmarshaller.h"
+#endif
 #import "ElasticLoadBalancingListenerDescriptionUnmarshaller.h"
 #import "ElasticLoadBalancingPoliciesUnmarshaller.h"
+
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonListUnmarshaller.h>
+#else
 #import "../AmazonListUnmarshaller.h"
+#endif
 #import "ElasticLoadBalancingBackendServerDescriptionUnmarshaller.h"
+
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonListUnmarshaller.h>
+#else
 #import "../AmazonListUnmarshaller.h"
+#endif
+
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonListUnmarshaller.h>
+#else
 #import "../AmazonListUnmarshaller.h"
+#endif
+
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonListUnmarshaller.h>
+#else
 #import "../AmazonListUnmarshaller.h"
+#endif
 #import "ElasticLoadBalancingInstanceUnmarshaller.h"
 #import "ElasticLoadBalancingHealthCheckUnmarshaller.h"
 #import "ElasticLoadBalancingSourceSecurityGroupUnmarshaller.h"
+
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonListUnmarshaller.h>
+#else
 #import "../AmazonListUnmarshaller.h"
+#endif
 
 
 /**

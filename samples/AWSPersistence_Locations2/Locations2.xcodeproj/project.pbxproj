@@ -27,8 +27,9 @@
 		38770FA415407E29005EE56C /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 38770FA315407E29005EE56C /* Location.m */; };
 		38770FA715407F22005EE56C /* CheckinsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38770FA615407F22005EE56C /* CheckinsViewController.m */; };
 		38770FB71540CF3E005EE56C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 38770FB51540CF3E005EE56C /* Model.xcdatamodeld */; };
-		388E52FA1552E7CB0051D5EC /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 388E52F91552E7CB0051D5EC /* AWSiOSSDK.framework */; };
-		CE73884A156428480038D66F /* AWSPersistence.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE738849156428480038D66F /* AWSPersistence.framework */; };
+		CE12D31C1705269500E9313E /* AWSDynamoDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE12D3191705269500E9313E /* AWSDynamoDB.framework */; };
+		CE12D31D1705269500E9313E /* AWSPersistence.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE12D31A1705269500E9313E /* AWSPersistence.framework */; };
+		CE12D31E1705269500E9313E /* AWSRuntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE12D31B1705269500E9313E /* AWSRuntime.framework */; };
 		CEBD178114F71C6000BA2870 /* AmazonClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBD176814F71C6000BA2870 /* AmazonClientManager.m */; };
 		CEBD178214F71C6000BA2870 /* AmazonKeyChainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBD176A14F71C6000BA2870 /* AmazonKeyChainWrapper.m */; };
 		CEBD178314F71C6000BA2870 /* AmazonTVMClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBD176C14F71C6000BA2870 /* AmazonTVMClient.m */; };
@@ -77,9 +78,10 @@
 		38770FA515407F22005EE56C /* CheckinsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckinsViewController.h; sourceTree = "<group>"; };
 		38770FA615407F22005EE56C /* CheckinsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckinsViewController.m; sourceTree = "<group>"; };
 		38770FB61540CF3E005EE56C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		388E52F91552E7CB0051D5EC /* AWSiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSiOSSDK.framework; path = ../../AWSiOSSDK.framework; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
-		CE738849156428480038D66F /* AWSPersistence.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSPersistence.framework; path = ../../AWSPersistence.framework; sourceTree = "<group>"; };
+		CE12D3191705269500E9313E /* AWSDynamoDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSDynamoDB.framework; path = ../../AWSDynamoDB.framework; sourceTree = "<group>"; };
+		CE12D31A1705269500E9313E /* AWSPersistence.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSPersistence.framework; path = ../../AWSPersistence.framework; sourceTree = "<group>"; };
+		CE12D31B1705269500E9313E /* AWSRuntime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSRuntime.framework; path = ../../AWSRuntime.framework; sourceTree = "<group>"; };
 		CEBD176714F71C6000BA2870 /* AmazonClientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonClientManager.h; sourceTree = "<group>"; };
 		CEBD176814F71C6000BA2870 /* AmazonClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonClientManager.m; sourceTree = "<group>"; };
 		CEBD176914F71C6000BA2870 /* AmazonKeyChainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonKeyChainWrapper.h; sourceTree = "<group>"; };
@@ -125,8 +127,9 @@
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
 				28A9E88C0F43C7410016529B /* CoreData.framework in Frameworks */,
 				28A9E8BA0F43C7B50016529B /* CoreLocation.framework in Frameworks */,
-				388E52FA1552E7CB0051D5EC /* AWSiOSSDK.framework in Frameworks */,
-				CE73884A156428480038D66F /* AWSPersistence.framework in Frameworks */,
+				CE12D31C1705269500E9313E /* AWSDynamoDB.framework in Frameworks */,
+				CE12D31D1705269500E9313E /* AWSPersistence.framework in Frameworks */,
+				CE12D31E1705269500E9313E /* AWSRuntime.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,8 +209,9 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CE738849156428480038D66F /* AWSPersistence.framework */,
-				388E52F91552E7CB0051D5EC /* AWSiOSSDK.framework */,
+				CE12D31B1705269500E9313E /* AWSRuntime.framework */,
+				CE12D3191705269500E9313E /* AWSDynamoDB.framework */,
+				CE12D31A1705269500E9313E /* AWSPersistence.framework */,
 				CEBD179114F720A200BA2870 /* Security.framework */,
 				28A9E8B90F43C7B50016529B /* CoreLocation.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,

@@ -14,8 +14,8 @@
  */
 
 #import "AmazonSESClient.h"
-#import "../AmazonEndpoints.h"
-#import "../AmazonServiceRequest.h"
+#import "AmazonEndpoints.h"
+#import "AmazonServiceRequest.h"
 #import "SESDeleteIdentityResponseUnmarshaller.h"
 #import "SESDeleteIdentityRequestMarshaller.h"
 #import "SESListVerifiedEmailAddressesResponseUnmarshaller.h"

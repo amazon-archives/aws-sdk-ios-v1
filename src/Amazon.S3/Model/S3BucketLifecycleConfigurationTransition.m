@@ -15,6 +15,9 @@
 
 #import "S3BucketLifecycleConfigurationTransition.h"
 
+#import "AmazonSDKUtil.h"
+
+
 @implementation S3BucketLifecycleConfigurationTransition
 
 

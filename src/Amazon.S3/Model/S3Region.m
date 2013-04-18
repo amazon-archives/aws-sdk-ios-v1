@@ -14,6 +14,7 @@
  */
 
 #import "S3Region.h"
+#import "AmazonLogger.h"
 
 
 @implementation S3Region

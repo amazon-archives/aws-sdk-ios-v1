@@ -81,7 +81,11 @@
 #import "AutoScalingTerminateInstanceInAutoScalingGroupResponse.h"
 #import "AutoScalingTerminateInstanceInAutoScalingGroupRequest.h"
 
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonWebServiceClient.h>
+#else
 #import "../AmazonWebServiceClient.h"
+#endif
 
 /** \defgroup AutoScaling Auto Scaling */
 

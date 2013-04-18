@@ -14,7 +14,11 @@
  */
 
 #import "EC2StorageUnmarshaller.h"
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonServiceExceptionUnmarshaller.h>
+#else
 #import "../AmazonServiceExceptionUnmarshaller.h"
+#endif
 
 @implementation EC2StorageUnmarshaller
 

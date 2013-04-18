@@ -13,10 +13,16 @@
  * permissions and limitations under the License.
  */
 
-#import "DynamoDBKeySchema.h"
+#import "DynamoDBAttributeDefinition.h"
+#import "DynamoDBKeySchemaElement.h"
+#import "DynamoDBLocalSecondaryIndex.h"
 #import "DynamoDBProvisionedThroughput.h"
 
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonServiceRequestConfig.h>
+#else
 #import "../AmazonServiceRequestConfig.h"
+#endif
 
 
 
@@ -27,17 +33,22 @@
 @interface DynamoDBCreateTableRequest:AmazonServiceRequestConfig
 
 {
+    NSMutableArray                *attributeDefinitions;
     NSString                      *tableName;
-    DynamoDBKeySchema             *keySchema;
+    NSMutableArray                *keySchema;
+    NSMutableArray                *localSecondaryIndexes;
     DynamoDBProvisionedThroughput *provisionedThroughput;
 }
 
 
 
 /**
- * The name of the table you want to create. Allowed characters are
- * <code>a-z</code>, <code>A-Z</code>, <code>0-9</code>, <code>_</code>
- * (underscore), <code>-</code> (hyphen) and <code>.</code> (period).
+ * The value of the AttributeDefinitions property for this object.
+ */
+@property (nonatomic, retain) NSMutableArray *attributeDefinitions;
+
+/**
+ * The value of the TableName property for this object.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>3 - 255<br/>
@@ -46,25 +57,20 @@
 @property (nonatomic, retain) NSString *tableName;
 
 /**
- * The KeySchema identifies the primary key as a one attribute primary
- * key (hash) or a composite two attribute (hash-and-range) primary key.
- * Single attribute primary keys have one index value: a
- * <code>HashKeyElement</code>. A composite hash-and-range primary key
- * contains two attribute values: a <code>HashKeyElement</code> and a
- * <code>RangeKeyElement</code>.
+ * The value of the KeySchema property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Length: </b>1 - 2<br/>
  */
-@property (nonatomic, retain) DynamoDBKeySchema *keySchema;
+@property (nonatomic, retain) NSMutableArray *keySchema;
 
 /**
- * Provisioned throughput reserves the required read and write resources
- * for your table in terms of <code>ReadCapacityUnits</code> and
- * <code>WriteCapacityUnits</code>. Values for provisioned throughput
- * depend upon your expected read/write rates, item size, and
- * consistency. Provide the expected number of read and write operations,
- * assuming an item size of 1k and strictly consistent reads. For 2k item
- * size, double the value. For 3k, triple the value, etc.
- * Eventually-consistent reads consume half the resources of strictly
- * consistent reads.
+ * The value of the LocalSecondaryIndexes property for this object.
+ */
+@property (nonatomic, retain) NSMutableArray *localSecondaryIndexes;
+
+/**
+ * The value of the ProvisionedThroughput property for this object.
  */
 @property (nonatomic, retain) DynamoDBProvisionedThroughput *provisionedThroughput;
 
@@ -79,44 +85,38 @@
  * Constructs a new CreateTableRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theTableName The name of the table you want to create. Allowed
- * characters are <code>a-z</code>, <code>A-Z</code>, <code>0-9</code>,
- * <code>_</code> (underscore), <code>-</code> (hyphen) and
- * <code>.</code> (period).
- * @param theKeySchema The KeySchema identifies the primary key as a one
- * attribute primary key (hash) or a composite two attribute
- * (hash-and-range) primary key. Single attribute primary keys have one
- * index value: a <code>HashKeyElement</code>. A composite hash-and-range
- * primary key contains two attribute values: a
- * <code>HashKeyElement</code> and a <code>RangeKeyElement</code>.
+ * @param theTableName
+ * @param theKeySchema
  */
--(id)initWithTableName:(NSString *)theTableName andKeySchema:(DynamoDBKeySchema *)theKeySchema;
+-(id)initWithTableName:(NSString *)theTableName andKeySchema:(NSMutableArray *)theKeySchema;
 
 /**
  * Constructs a new CreateTableRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theTableName The name of the table you want to create. Allowed
- * characters are <code>a-z</code>, <code>A-Z</code>, <code>0-9</code>,
- * <code>_</code> (underscore), <code>-</code> (hyphen) and
- * <code>.</code> (period).
- * @param theKeySchema The KeySchema identifies the primary key as a one
- * attribute primary key (hash) or a composite two attribute
- * (hash-and-range) primary key. Single attribute primary keys have one
- * index value: a <code>HashKeyElement</code>. A composite hash-and-range
- * primary key contains two attribute values: a
- * <code>HashKeyElement</code> and a <code>RangeKeyElement</code>.
- * @param theProvisionedThroughput Provisioned throughput reserves the
- * required read and write resources for your table in terms of
- * <code>ReadCapacityUnits</code> and <code>WriteCapacityUnits</code>.
- * Values for provisioned throughput depend upon your expected read/write
- * rates, item size, and consistency. Provide the expected number of read
- * and write operations, assuming an item size of 1k and strictly
- * consistent reads. For 2k item size, double the value. For 3k, triple
- * the value, etc. Eventually-consistent reads consume half the resources
- * of strictly consistent reads.
+ * @param theTableName
+ * @param theKeySchema
+ * @param theProvisionedThroughput
  */
--(id)initWithTableName:(NSString *)theTableName andKeySchema:(DynamoDBKeySchema *)theKeySchema andProvisionedThroughput:(DynamoDBProvisionedThroughput *)theProvisionedThroughput;
+-(id)initWithTableName:(NSString *)theTableName andKeySchema:(NSMutableArray *)theKeySchema andProvisionedThroughput:(DynamoDBProvisionedThroughput *)theProvisionedThroughput;
+
+/**
+ * Adds a single object to attributeDefinitions.
+ * This function will alloc and init attributeDefinitions if not already done.
+ */
+-(void)addAttributeDefinition:(DynamoDBAttributeDefinition *)attributeDefinitionObject;
+
+/**
+ * Adds a single object to keySchema.
+ * This function will alloc and init keySchema if not already done.
+ */
+-(void)addKeySchema:(DynamoDBKeySchemaElement *)keySchemaObject;
+
+/**
+ * Adds a single object to localSecondaryIndexes.
+ * This function will alloc and init localSecondaryIndexes if not already done.
+ */
+-(void)addLocalSecondaryIndexe:(DynamoDBLocalSecondaryIndex *)localSecondaryIndexeObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

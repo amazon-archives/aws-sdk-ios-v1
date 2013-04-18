@@ -16,8 +16,13 @@
 #import <Foundation/Foundation.h>
 #import <CommonCrypto/CommonHMAC.h>
 
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonWebServiceClient.h>
+#import <AWSRuntime/AmazonSDKUtil.h>
+#else
 #import "../AmazonWebServiceClient.h"
 #import "../AmazonSDKUtil.h"
+#endif
 
 #import "S3Constants.h"
 #import "S3AbstractPutRequest.h"
@@ -135,6 +140,8 @@
  * fast, inexpensive data storage infrastructure that Amazon uses to run its own global network of web sites.
  * The service aims to maximize benefits of scale and to pass those benefits on to developers.
  *
+ * See our blog to learn more about Managing Credentials in Mobile Applications.
+ * @see http://mobile.awsblog.com/post/Tx31X75XISXHRH8/Managing-Credentials-in-Mobile-Applications
  */
 @interface AmazonS3Client:AmazonWebServiceClient {}
 

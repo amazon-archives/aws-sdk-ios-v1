@@ -40,6 +40,11 @@
         newException = [[DynamoDBResourceInUseException alloc] initWithMessage:@""];
     }
 
+    if ([[theException errorCode] isEqualToString:@"ResourceNotFoundException"]) {
+        [newException release];
+        newException = [[DynamoDBResourceNotFoundException alloc] initWithMessage:@""];
+    }
+
     if ([[theException errorCode] isEqualToString:@"LimitExceededException"]) {
         [newException release];
         newException = [[DynamoDBLimitExceededException alloc] initWithMessage:@""];
@@ -48,11 +53,6 @@
     if ([[theException errorCode] isEqualToString:@"InternalServerError"]) {
         [newException release];
         newException = [[DynamoDBInternalServerErrorException alloc] initWithMessage:@""];
-    }
-
-    if ([[theException errorCode] isEqualToString:@"ResourceNotFoundException"]) {
-        [newException release];
-        newException = [[DynamoDBResourceNotFoundException alloc] initWithMessage:@""];
     }
 
     if (newException != nil) {

@@ -16,8 +16,13 @@
 #import <Foundation/Foundation.h>
 #import "ElasticLoadBalancingCreateLBCookieStickinessPolicyResponse.h"
 #import "ElasticLoadBalancingResponseUnmarshaller.h"
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonValueUnmarshaller.h>
+#import <AWSRuntime/AmazonBoolValueUnmarshaller.h>
+#else
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
+#endif
 
 
 /**

@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -23,12 +23,6 @@
 // Private Constants
 NSUInteger const S3MultipartMinimumUploadSize = 5242880;
 NSInteger const S3DefaultMaxConcurrentOperationCount = 3;
-
-@interface S3TransferManager ()
-{
-}
-
-@end
 
 @implementation S3TransferManager
 
@@ -75,6 +69,8 @@ NSInteger const S3DefaultMaxConcurrentOperationCount = 3;
         return [response autorelease];
     }
 
+    putObjectRequest.delegate = nil;
+
     [putObjectRequest validate];
 
     if([self shouldUseMutipartUpload:putObjectRequest])
@@ -84,7 +80,6 @@ NSInteger const S3DefaultMaxConcurrentOperationCount = 3;
         multipartUploadOperation.s3 = self.s3;
         multipartUploadOperation.request = putObjectRequest;
         multipartUploadOperation.partSize = self.minimumUploadPartSize;
-        multipartUploadOperation.delegate = self.delegate;
 
         [self.operationQueue addOperations:[NSArray arrayWithObject:multipartUploadOperation] waitUntilFinished:YES];
         [multipartUploadOperation autorelease];
@@ -111,7 +106,6 @@ NSInteger const S3DefaultMaxConcurrentOperationCount = 3;
         S3PutObjectOperation_Internal *putObjectOperation = [S3PutObjectOperation_Internal new];
         putObjectOperation.s3 = self.s3;
         putObjectOperation.request = putObjectRequest;
-        putObjectOperation.delegate = self.delegate;
 
         [self.operationQueue addOperations:[NSArray arrayWithObject:putObjectOperation] waitUntilFinished:YES];
         [putObjectOperation autorelease];
@@ -171,6 +165,11 @@ NSInteger const S3DefaultMaxConcurrentOperationCount = 3;
 
 - (void)upload:(S3PutObjectRequest *)putObjectRequest
 {
+    if(putObjectRequest.delegate == nil && self.delegate != nil)
+    {
+        putObjectRequest.delegate = self.delegate;
+    }
+    
     [putObjectRequest validate];
 
     if([self shouldUseMutipartUpload:putObjectRequest])
@@ -181,15 +180,6 @@ NSInteger const S3DefaultMaxConcurrentOperationCount = 3;
         multipartUploadOperation.request = putObjectRequest;
         multipartUploadOperation.partSize = self.minimumUploadPartSize;
 
-        if(putObjectRequest.delegate == nil)
-        {
-            multipartUploadOperation.delegate = self.delegate;
-        }
-        else
-        {
-            multipartUploadOperation.delegate = putObjectRequest.delegate;
-        }
-
         [self.operationQueue addOperation:multipartUploadOperation];
         [multipartUploadOperation release];
     }
@@ -199,13 +189,6 @@ NSInteger const S3DefaultMaxConcurrentOperationCount = 3;
         S3PutObjectOperation_Internal *putObjectOperation = [S3PutObjectOperation_Internal new];
         putObjectOperation.s3 = self.s3;
         putObjectOperation.request = putObjectRequest;
-        
-        if(putObjectRequest.delegate == nil)
-        {
-            putObjectOperation.delegate = self.delegate;
-        } else {
-            putObjectOperation.delegate = putObjectRequest.delegate;
-        }
 
         [self.operationQueue addOperation:putObjectOperation];
         [putObjectOperation release];
@@ -274,19 +257,13 @@ NSInteger const S3DefaultMaxConcurrentOperationCount = 3;
 - (NSOperationQueue *)operationQueue
 {
     static NSOperationQueue *_operationQueue = nil;
-
-    if(_operationQueue == nil)
-    {
-        @synchronized(self)
-        {
-            if(_operationQueue == nil)
-            {
-                _operationQueue = [NSOperationQueue new];
-                _operationQueue.maxConcurrentOperationCount = S3DefaultMaxConcurrentOperationCount;
-            }
-        }
-    }
-
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        _operationQueue = [NSOperationQueue new];
+        _operationQueue.maxConcurrentOperationCount = S3DefaultMaxConcurrentOperationCount;
+    });
+    
     return _operationQueue;
 }
 

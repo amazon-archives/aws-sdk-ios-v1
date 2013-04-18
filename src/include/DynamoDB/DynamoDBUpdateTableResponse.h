@@ -18,9 +18,9 @@
 #import "DynamoDBResponse.h"
 
 #import "DynamoDBResourceInUseException.h"
+#import "DynamoDBResourceNotFoundException.h"
 #import "DynamoDBLimitExceededException.h"
 #import "DynamoDBInternalServerErrorException.h"
-#import "DynamoDBResourceNotFoundException.h"
 
 
 /**

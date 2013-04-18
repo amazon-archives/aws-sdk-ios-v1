@@ -14,9 +14,13 @@
  */
 
 #import "DynamoDBCondition.h"
-#import "DynamoDBKey.h"
+#import "DynamoDBAttributeValue.h"
 
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonServiceRequestConfig.h>
+#else
 #import "../AmazonServiceRequestConfig.h"
+#endif
 
 
 
@@ -30,19 +34,16 @@
     NSString            *tableName;
     NSMutableArray      *attributesToGet;
     NSNumber            *limit;
-    bool                count;
-    bool                countIsSet;
+    NSString            *select;
     NSMutableDictionary *scanFilter;
-    DynamoDBKey         *exclusiveStartKey;
+    NSMutableDictionary *exclusiveStartKey;
+    NSString            *returnConsumedCapacity;
 }
 
 
 
 /**
- * The name of the table in which you want to scan. Allowed characters
- * are <code>a-z</code>, <code>A-Z</code>, <code>0-9</code>,
- * <code>_</code> (underscore), <code>-</code> (hyphen) and
- * <code>.</code> (period).
+ * The value of the TableName property for this object.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>3 - 255<br/>
@@ -51,9 +52,7 @@
 @property (nonatomic, retain) NSString *tableName;
 
 /**
- * List of <code>Attribute</code> names. If attribute names are not
- * specified then all attributes will be returned. If some attributes are
- * not found, they will not appear in the result.
+ * The value of the AttributesToGet property for this object.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - <br/>
@@ -61,14 +60,7 @@
 @property (nonatomic, retain) NSMutableArray *attributesToGet;
 
 /**
- * The maximum number of items to return. If Amazon DynamoDB hits this
- * limit while scanning the table, it stops the scan and returns the
- * matching values up to the limit, and a <code>LastEvaluatedKey</code>
- * to apply in a subsequent operation to continue the scan. Also, if the
- * scanned data set size exceeds 1 MB before Amazon DynamoDB hits this
- * limit, it stops the scan and returns the matching values up to the
- * limit, and a <code>LastEvaluatedKey</code> to apply in a subsequent
- * operation to continue the scan.
+ * The value of the Limit property for this object.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Range: </b>1 - <br/>
@@ -76,31 +68,30 @@
 @property (nonatomic, retain) NSNumber *limit;
 
 /**
- * If set to <code>true</code>, Amazon DynamoDB returns a total number of
- * items for the <code>Scan</code> operation, even if the operation has
- * no matching items for the assigned filter. Do not set
- * <code>Count</code> to <code>true</code> while providing a list of
- * <code>AttributesToGet</code>, otherwise Amazon DynamoDB returns a
- * validation error.
+ * The value of the Select property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>ALL_ATTRIBUTES, ALL_PROJECTED_ATTRIBUTES, SPECIFIC_ATTRIBUTES, COUNT
  */
-@property (nonatomic) bool           count;
-
-@property (nonatomic, readonly) bool countIsSet;
+@property (nonatomic, retain) NSString *select;
 
 /**
- * Evaluates the scan results and returns only the desired values.
+ * The value of the ScanFilter property for this object.
  */
 @property (nonatomic, retain) NSMutableDictionary *scanFilter;
 
 /**
- * Primary key of the item from which to continue an earlier scan. An
- * earlier scan might provide this value if that scan operation was
- * interrupted before scanning the entire table; either because of the
- * result set size or the <code>Limit</code> parameter. The
- * <code>LastEvaluatedKey</code> can be passed back in a new scan request
- * to continue the operation from that point.
+ * The value of the ExclusiveStartKey property for this object.
  */
-@property (nonatomic, retain) DynamoDBKey *exclusiveStartKey;
+@property (nonatomic, retain) NSMutableDictionary *exclusiveStartKey;
+
+/**
+ * The value of the ReturnConsumedCapacity property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>TOTAL, NONE
+ */
+@property (nonatomic, retain) NSString *returnConsumedCapacity;
 
 
 /**
@@ -113,10 +104,7 @@
  * Constructs a new ScanRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theTableName The name of the table in which you want to scan.
- * Allowed characters are <code>a-z</code>, <code>A-Z</code>,
- * <code>0-9</code>, <code>_</code> (underscore), <code>-</code> (hyphen)
- * and <code>.</code> (period).
+ * @param theTableName
  */
 -(id)initWithTableName:(NSString *)theTableName;
 
@@ -132,6 +120,13 @@
  * This function will alloc and init scanFilter if not already done.
  */
 -(void)setScanFilterValue:(DynamoDBCondition *)theValue forKey:(NSString *)theKey;
+
+
+/**
+ * Set a value in the dictionary exclusiveStartKey for the specified key.
+ * This function will alloc and init exclusiveStartKey if not already done.
+ */
+-(void)setExclusiveStartKeyValue:(DynamoDBAttributeValue *)theValue forKey:(NSString *)theKey;
 
 /**
  * Returns a string representation of this object; useful for testing and

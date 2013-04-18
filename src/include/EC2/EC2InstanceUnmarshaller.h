@@ -16,25 +16,60 @@
 #import <Foundation/Foundation.h>
 #import "EC2Instance.h"
 #import "EC2ResponseUnmarshaller.h"
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonValueUnmarshaller.h>
+#import <AWSRuntime/AmazonBoolValueUnmarshaller.h>
+#else
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
+#endif
 #import "EC2InstanceStateUnmarshaller.h"
+
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonListUnmarshaller.h>
+#else
 #import "../AmazonListUnmarshaller.h"
+#endif
 #import "EC2ProductCodeUnmarshaller.h"
 #import "EC2PlacementUnmarshaller.h"
 #import "EC2MonitoringUnmarshaller.h"
 #import "EC2StateReasonUnmarshaller.h"
+
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonListUnmarshaller.h>
+#else
 #import "../AmazonListUnmarshaller.h"
+#endif
 #import "EC2InstanceBlockDeviceMappingUnmarshaller.h"
 #import "EC2InstanceLicenseUnmarshaller.h"
+
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonListUnmarshaller.h>
+#else
 #import "../AmazonListUnmarshaller.h"
+#endif
 #import "EC2TagUnmarshaller.h"
+
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonListUnmarshaller.h>
+#else
 #import "../AmazonListUnmarshaller.h"
+#endif
 #import "EC2GroupIdentifierUnmarshaller.h"
+
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonListUnmarshaller.h>
+#else
 #import "../AmazonListUnmarshaller.h"
+#endif
 #import "EC2InstanceNetworkInterfaceUnmarshaller.h"
 #import "EC2IamInstanceProfileUnmarshaller.h"
+
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonSDKUtil.h>
+#else
 #import "../AmazonSDKUtil.h"
+#endif
 
 
 /**

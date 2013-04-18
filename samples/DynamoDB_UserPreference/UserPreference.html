@@ -145,24 +145,24 @@ AmazonDynamoDBClient ddb = new AmazonDynamoDBClient(credentials);
             <p style="padding-left:2cm;">
                 <table class="sample"><tr><td align="left" >
                     <pre>
-DynamoDBKeySchemaElement *kse = [[[DynamoDBKeySchemaElement alloc] 
-				initWithAttributeName:@"userNo" 
-				andAttributeType:@"N"] autorelease];
+DynamoDBCreateTableRequest *createTableRequest = [[DynamoDBCreateTableRequest new] autorelease];
 
-DynamoDBKeySchema *ks = [[[DynamoDBKeySchema alloc] 
-			initWithHashKeyElement:kse] autorelease];
+DynamoDBProvisionedThroughput *provisionedThroughput = [[DynamoDBProvisionedThroughput new] autorelease];
+provisionedThroughput.readCapacityUnits  = [NSNumber numberWithInt:10];
+provisionedThroughput.writeCapacityUnits = [NSNumber numberWithInt:5];
 
-DynamoDBProvisionedThroughput *pt = [[[DynamoDBProvisionedThroughput alloc] init] autorelease];
-pt.readCapacityUnits  = [NSNumber numberWithInt:10];
-pt.writeCapacityUnits = [NSNumber numberWithInt:5];
+DynamoDBKeySchemaElement *keySchemaElement = [[[DynamoDBKeySchemaElement alloc] initWithAttributeName:TEST_TABLE_HASH_KEY
+                                                                                           andKeyType:@"HASH"] autorelease];
+DynamoDBAttributeDefinition *attributeDefinition = [[DynamoDBAttributeDefinition new] autorelease];
+attributeDefinition.attributeName = TEST_TABLE_HASH_KEY;
+attributeDefinition.attributeType = @"N";
 
-DynamoDBCreateTableRequest *request = [[DynamoDBCreateTableRequest alloc] 
-				      initWithTableName:TEST_TABLE_NAME 
-				      andKeySchema:ks 
-				      andProvisionedThroughput:pt];
+createTableRequest.tableName = TEST_TABLE_NAME;
+createTableRequest.provisionedThroughput = provisionedThroughput;
+[createTableRequest addKeySchema:keySchemaElement];
+[createTableRequest addAttributeDefinition:attributeDefinition];
 
-DynamoDBCreateTableResponse *response = [[AmazonClientManager ddb] createTable:request];
-[request release];</pre></td></tr>
+DynamoDBCreateTableResponse *response = [[AmazonClientManager ddb] createTable:createTableRequest];</pre></td></tr>
                 </table>
             </p>
     <ul><li>Android</li></ul>
@@ -172,17 +172,19 @@ DynamoDBCreateTableResponse *response = [[AmazonClientManager ddb] createTable:r
 AmazonDynamoDBClient ddb = UserPreferenceDemoActivity.clientManager.ddb();
 
 KeySchemaElement kse = new KeySchemaElement().withAttributeName(
-		"userNo").withAttributeType(ScalarAttributeType.N);
-KeySchema ks = new KeySchema().withHashKeyElement(kse);
+        "userNo").withKeyType(KeyType.HASH);
+AttributeDefinition ad = new AttributeDefinition().withAttributeName(
+        "userNo").withAttributeType(ScalarAttributeType.N);
 ProvisionedThroughput pt = new ProvisionedThroughput()
-		.withReadCapacityUnits(10l).withWriteCapacityUnits(5l);
+        .withReadCapacityUnits(10l).withWriteCapacityUnits(5l);
 
 CreateTableRequest request = new CreateTableRequest()
-		.withTableName(PropertyLoader.getInstance().getTestTableName())
-		.withKeySchema(ks).withProvisionedThroughput(pt);
+        .withTableName(PropertyLoader.getInstance().getTestTableName())
+        .withKeySchema(kse).withAttributeDefinitions(ad)
+        .withProvisionedThroughput(pt);
 
 ddb.createTable(request);
-		    </pre></td></tr>
+</pre></td></tr>
                 </table>
             </p>
     </p>
@@ -208,12 +210,12 @@ NSString *status = response.table.tableStatus;
 AmazonDynamoDBClient ddb = UserPreferenceDemoActivity.clientManager.ddb();
 
 DescribeTableRequest request = new DescribeTableRequest()
-		.withTableName(PropertyLoader.getInstance()
-				.getTestTableName());
+        .withTableName(PropertyLoader.getInstance()
+                .getTestTableName());
 DescribeTableResult result = ddb.describeTable(request);
 
 String status = result.getTable().getTableStatus();
-		    </pre></td></tr>
+</pre></td></tr>
                 </table>
             </p>
 
@@ -226,21 +228,15 @@ String status = result.getTable().getTableStatus();
             <p style="padding-left:2cm;">
                 <table class="sample"><tr><td align="left" >
                     <pre>
-NSMutableDictionary *userDic = 
+NSMutableDictionary *userDic =
 [NSDictionary dictionaryWithObjectsAndKeys:
-    [[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", i]] autorelease],
-    @"userNo",
-    [[[DynamoDBAttributeValue alloc] initWithS:[Constants getRandomName]] autorelease], 
-    @"firstName", 
-    [[[DynamoDBAttributeValue alloc] initWithS:[Constants getRandomName]] autorelease], 
-    @"lastName",
-    nil];
-DynamoDBPutItemRequest *request =
-    [[DynamoDBPutItemRequest alloc] 
-	initWithTableName:TEST_TABLE_NAME 
-	andItem:userDic];
-[[AmazonClientManager ddb] putItem:request];
-[request release];</pre></td></tr>
+ [[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", i]] autorelease], TEST_TABLE_HASH_KEY,
+ [[[DynamoDBAttributeValue alloc] initWithS:[Constants getRandomName]] autorelease], @"firstName",
+ [[[DynamoDBAttributeValue alloc] initWithS:[Constants getRandomName]] autorelease], @"lastName",
+ nil];
+
+DynamoDBPutItemRequest *request = [[[DynamoDBPutItemRequest alloc] initWithTableName:TEST_TABLE_NAME andItem:userDic] autorelease];
+DynamoDBPutItemResponse *response = [[AmazonClientManager ddb] putItem:request];</pre></td></tr>
                 </table>
             </p>
     <ul><li>Android</li></ul>
@@ -250,23 +246,23 @@ DynamoDBPutItemRequest *request =
 HashMap&lt;String, AttributeValue&gt; item = new HashMap&lt;String, AttributeValue&gt;();
 
 AttributeValue userNo = new AttributeValue().withN(String
-		.valueOf(i));
+        .valueOf(i));
 item.put("userNo", userNo);
 
 AttributeValue firstName = new AttributeValue().withS(Constants
-		.getRandomName());
+        .getRandomName());
 item.put("firstName", firstName);
 
 AttributeValue lastName = new AttributeValue().withS(Constants
-		.getRandomName());
+        .getRandomName());
 item.put("lastName", lastName);
 
 PutItemRequest request = new PutItemRequest().withTableName(
-		PropertyLoader.getInstance().getTestTableName()).withItem(
-		item);
+        PropertyLoader.getInstance().getTestTableName()).withItem(
+        item);
 
 ddb.putItem(request);
-		    </pre></td></tr>
+</pre></td></tr>
                 </table>
             </p>
 
@@ -277,12 +273,13 @@ ddb.putItem(request);
             <p style="padding-left:2cm;">
                 <table class="sample"><tr><td align="left" >
                     <pre>
-DynamoDBDeleteItemRequest *request = [[DynamoDBDeleteItemRequest alloc] 
-				    initWithTableName:TEST_TABLE_NAME 
-				    andKey:[[[DynamoDBKey alloc] initWithHashKeyElement:aPrimaryKey] autorelease]];
+DynamoDBDeleteItemRequest *deleteItemRequest = [[DynamoDBDeleteItemRequest new] autorelease];
 
-[[AmazonClientManager ddb] deleteItem:request];
-[request release];</pre></td></tr>
+deleteItemRequest.tableName = TEST_TABLE_NAME;
+deleteItemRequest.key = [NSMutableDictionary dictionaryWithObject:aPrimaryKey
+                                                           forKey:TEST_TABLE_HASH_KEY];
+
+DynamoDBDeleteItemResponse *deleteItemResponse = [[AmazonClientManager ddb] deleteItem:deleteItemRequest];</pre></td></tr>
                 </table>
             </p>
     <ul><li>Android</li></ul>
@@ -291,12 +288,13 @@ DynamoDBDeleteItemRequest *request = [[DynamoDBDeleteItemRequest alloc]
                     <pre>
 AmazonDynamoDBClient ddb = UserPreferenceDemoActivity.clientManager.ddb();
 
-Key primaryKey = new Key().withHashKeyElement(targetValue);
+HashMap&lt;String, AttributeValue&gt; keyMap = new HashMap&lt;String, AttributeValue&gt;();
+keyMap.put("userNo", targetValue);
 DeleteItemRequest request = new DeleteItemRequest().withTableName(
 		PropertyLoader.getInstance().getTestTableName()).withKey(
-		primaryKey);
+		keyMap);
 ddb.deleteItem(request);
-		    </pre></td></tr>
+</pre></td></tr>
                 </table>
             </p>
     </p>
@@ -328,7 +326,7 @@ request.setTableName(PropertyLoader.getInstance().getTestTableName());
 ScanResult result = ddb.scan(request);
 
 ArrayList&lt;HashMap&lt;String, AttributeValue&gt;&gt; users = (ArrayList&lt;HashMap&lt;String, AttributeValue&gt;&gt;) result.getItems();
-		    </pre>
+</pre>
 		</td></tr>
                 </table>
             </p>
@@ -342,14 +340,17 @@ ArrayList&lt;HashMap&lt;String, AttributeValue&gt;&gt; users = (ArrayList&lt;Has
             <p style="padding-left:2cm;">
                 <table class="sample"><tr><td align="left" >
                     <pre>
-DynamoDBGetItemRequest *request = [[DynamoDBGetItemRequest alloc] 
-				initWithTableName:TEST_TABLE_NAME 
-				andKey:[[[DynamoDBKey alloc] initWithHashKeyElement:
-					 [[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", userNo]] autorelease]]autorelease]];
-DynamoDBGetItemResponse *response = [[AmazonClientManager ddb] getItem:request];
-[request release];
+DynamoDBGetItemRequest *getItemRequest = [[DynamoDBGetItemRequest new] autorelease];
 
-NSMutableDictionary *userPreferences = response.item;
+DynamoDBAttributeValue *attributeValue = [[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%d", userNo]] autorelease];
+
+getItemRequest.tableName = TEST_TABLE_NAME;
+getItemRequest.key = [NSMutableDictionary dictionaryWithObject:attributeValue
+                                                        forKey:TEST_TABLE_HASH_KEY];
+
+DynamoDBGetItemResponse *getItemResponse = [[AmazonClientManager ddb] getItem:getItemRequest];
+
+NSMutableDictionary *userPreferences = getItemResponse.item;
 		    </pre></td></tr>
                 </table>
             </p>
@@ -360,16 +361,17 @@ NSMutableDictionary *userPreferences = response.item;
 AmazonDynamoDBClient ddb = UserPreferenceDemoActivity.clientManager.ddb();
 
 AttributeValue userNoAttr = new AttributeValue().withN(String
-		.valueOf(userNo));
-Key primaryKey = new Key().withHashKeyElement(userNoAttr);
+        .valueOf(userNo));
+HashMap&lt;String, AttributeValue&gt; keyMap = new HashMap&lt;String, AttributeValue&gt;();
+keyMap.put("userNo", userNoAttr);
 GetItemRequest request = new GetItemRequest().withTableName(
-		PropertyLoader.getInstance().getTestTableName()).withKey(
-		primaryKey);
+        PropertyLoader.getInstance().getTestTableName()).withKey(
+        keyMap);
 
 GetItemResult result = ddb.getItem(request);
 
 HashMap&lt;String, AttributeValue&gt; userPreferences = (HashMap&lt;String, AttributeValue&gt;) result.getItem();
-		    </pre></td></tr>
+</pre></td></tr>
                 </table>
             </p>
     </p>
@@ -381,22 +383,19 @@ HashMap&lt;String, AttributeValue&gt; userPreferences = (HashMap&lt;String, Attr
             <p style="padding-left:2cm;">
                 <table class="sample"><tr><td align="left" >
                     <pre>
-DynamoDBAttributeValue *attr = [[DynamoDBAttributeValue alloc] initWithS:aValue];
-DynamoDBAttributeValueUpdate *attrUpdate = [[DynamoDBAttributeValueUpdate alloc] 
-						   initWithValue:attr 
-						   andAction:@"PUT"];
-[attr release];
-DynamoDBUpdateItemRequest *request = [[DynamoDBUpdateItemRequest alloc] 
-				      initWithTableName:TEST_TABLE_NAME 
-				      andKey:[[[DynamoDBKey alloc] 
-					       initWithHashKeyElement:aPrimaryKey] autorelease]
-				      andAttributeUpdates:[NSMutableDictionary
-							   dictionaryWithObject: attrUpdate
-							   forKey:aKey]];
-[attrUpdate release];
-[[AmazonClientManager ddb] updateItem:request];
-[request release];
-		    </pre></td></tr>
+DynamoDBUpdateItemRequest *updateItemRequest = [[DynamoDBUpdateItemRequest new] autorelease];
+
+DynamoDBAttributeValue *attributeValue = [[[DynamoDBAttributeValue alloc] initWithS:aValue] autorelease];
+DynamoDBAttributeValueUpdate *attributeValueUpdate = [[[DynamoDBAttributeValueUpdate alloc] initWithValue:attributeValue
+                                                                                                andAction:@"PUT"] autorelease];
+
+updateItemRequest.tableName = TEST_TABLE_NAME;
+updateItemRequest.attributeUpdates = [NSMutableDictionary dictionaryWithObject:attributeValueUpdate
+                                                                        forKey:aKey];
+updateItemRequest.key = [NSMutableDictionary dictionaryWithObject:aPrimaryKey
+                                                           forKey:TEST_TABLE_HASH_KEY];
+
+DynamoDBUpdateItemResponse *updateItemResponse = [[AmazonClientManager ddb] updateItem:updateItemRequest];</pre></td></tr>
                 </table>
             </p>
     <ul><li>Android</li></ul>
@@ -407,17 +406,18 @@ AmazonDynamoDBClient ddb = UserPreferenceDemoActivity.clientManager.ddb();
 
 AttributeValue av = new AttributeValue().withS(value);
 AttributeValueUpdate avu = new AttributeValueUpdate().withValue(av)
-		.withAction(AttributeAction.PUT);
-Key primaryKey = new Key().withHashKeyElement(targetValue);
+        .withAction(AttributeAction.PUT);
+HashMap&lt;String, AttributeValue&gt; keyMap = new HashMap&lt;String, AttributeValue&gt;();
+keyMap.put("userNo", targetValue);
 HashMap&lt;String, AttributeValueUpdate&gt; updates = new HashMap&lt;String, AttributeValueUpdate&gt;();
 updates.put(key, avu);
 
 UpdateItemRequest request = new UpdateItemRequest()
-		.withTableName(PropertyLoader.getInstance().getTestTableName())
-		.withKey(primaryKey).withAttributeUpdates(updates);
+        .withTableName(PropertyLoader.getInstance().getTestTableName())
+        .withKey(keyMap).withAttributeUpdates(updates);
 
 ddb.updateItem(request);
-		    </pre></td></tr>
+</pre></td></tr>
                 </table>
             </p>
     </p>
@@ -429,10 +429,8 @@ ddb.updateItem(request);
             <p style="padding-left:2cm;">
                 <table class="sample"><tr><td align="left" >
                     <pre>
-DynamoDBDeleteTableRequest *request = [[DynamoDBDeleteTableRequest alloc] initWithTableName:TEST_TABLE_NAME];
-        [[AmazonClientManager ddb] deleteTable:request];
-        [request release];
-		    </pre></td></tr>
+DynamoDBDeleteTableRequest *request = [[[DynamoDBDeleteTableRequest alloc] initWithTableName:TEST_TABLE_NAME] autorelease];
+DynamoDBDeleteTableResponse *response = [[AmazonClientManager ddb] deleteTable:request];</pre></td></tr>
                 </table>
             </p>
     <ul><li>Android</li></ul>
@@ -442,9 +440,9 @@ DynamoDBDeleteTableRequest *request = [[DynamoDBDeleteTableRequest alloc] initWi
 AmazonDynamoDBClient ddb = UserPreferenceDemoActivity.clientManager.ddb();
 
 DeleteTableRequest request = new DeleteTableRequest()
-		.withTableName(PropertyLoader.getInstance().getTestTableName());
+        .withTableName(PropertyLoader.getInstance().getTestTableName());
 ddb.deleteTable(request);
-		    </pre></td></tr>
+</pre></td></tr>
                 </table>
             </p>
     </p>

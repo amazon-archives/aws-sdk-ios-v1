@@ -92,7 +92,7 @@
     BOOL sortKeys, humanReadable;
 }
 
-@property (nonatomic, assign) __weak AWS_SBJsonStreamWriterState *state; // Internal
+@property (nonatomic, assign) __unsafe_unretained AWS_SBJsonStreamWriterState *state; // Internal
 @property (nonatomic, readonly, retain) NSMutableArray *stateStack; // Internal 
 
 /**

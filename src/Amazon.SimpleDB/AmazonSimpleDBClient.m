@@ -14,8 +14,8 @@
  */
 
 #import "AmazonSimpleDBClient.h"
-#import "../AmazonEndpoints.h"
-#import "../AmazonServiceRequest.h"
+#import "AmazonEndpoints.h"
+#import "AmazonServiceRequest.h"
 #import "SimpleDBSelectResponseUnmarshaller.h"
 #import "SimpleDBSelectRequestMarshaller.h"
 #import "SimpleDBPutAttributesResponseUnmarshaller.h"

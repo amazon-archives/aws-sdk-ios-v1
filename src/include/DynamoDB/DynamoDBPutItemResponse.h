@@ -14,13 +14,16 @@
  */
 
 #import "DynamoDBAttributeValue.h"
+#import "DynamoDBConsumedCapacity.h"
+#import "DynamoDBItemCollectionMetrics.h"
 
 #import "DynamoDBResponse.h"
 
-#import "DynamoDBProvisionedThroughputExceededException.h"
-#import "DynamoDBConditionalCheckFailedException.h"
-#import "DynamoDBInternalServerErrorException.h"
+#import "DynamoDBItemCollectionSizeLimitExceededException.h"
 #import "DynamoDBResourceNotFoundException.h"
+#import "DynamoDBConditionalCheckFailedException.h"
+#import "DynamoDBProvisionedThroughputExceededException.h"
+#import "DynamoDBInternalServerErrorException.h"
 
 
 /**
@@ -30,8 +33,9 @@
 @interface DynamoDBPutItemResponse:DynamoDBResponse
 
 {
-    NSMutableDictionary *attributes;
-    NSNumber            *consumedCapacityUnits;
+    NSMutableDictionary           *attributes;
+    DynamoDBConsumedCapacity      *consumedCapacity;
+    DynamoDBItemCollectionMetrics *itemCollectionMetrics;
 }
 
 
@@ -46,22 +50,19 @@
 -(id)init;
 
 /**
- * Attribute values before the put operation, but only if the
- * <code>ReturnValues</code> parameter is specified as
- * <code>ALL_OLD</code> in the request.
+ * The value of the Attributes property for this object.
  */
 @property (nonatomic, retain) NSMutableDictionary *attributes;
 
 /**
- * The number of Capacity Units of the provisioned throughput of the
- * table consumed during the operation. <code>GetItem</code>,
- * <code>BatchGetItem</code>, <code>BatchWriteItem</code>,
- * <code>Query</code>, and <code>Scan</code> operations consume
- * <code>ReadCapacityUnits</code>, while <code>PutItem</code>,
- * <code>UpdateItem</code>, and <code>DeleteItem</code> operations
- * consume <code>WriteCapacityUnits</code>.
+ * The value of the ConsumedCapacity property for this object.
  */
-@property (nonatomic, retain) NSNumber *consumedCapacityUnits;
+@property (nonatomic, retain) DynamoDBConsumedCapacity *consumedCapacity;
+
+/**
+ * The value of the ItemCollectionMetrics property for this object.
+ */
+@property (nonatomic, retain) DynamoDBItemCollectionMetrics *itemCollectionMetrics;
 
 /**
  * Returns a value from the attributes dictionary for the specified key.

@@ -14,7 +14,7 @@
  */
 
 #import "S3ErrorResponseHandler.h"
-#import "../AmazonUnmarshallerXMLParserDelegate.h"
+#import "AmazonUnmarshallerXMLParserDelegate.h"
 
 
 @implementation S3ErrorResponseHandler

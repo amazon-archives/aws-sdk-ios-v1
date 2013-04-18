@@ -14,8 +14,8 @@
  */
 
 #import "AmazonElasticLoadBalancingClient.h"
-#import "../AmazonEndpoints.h"
-#import "../AmazonServiceRequest.h"
+#import "AmazonEndpoints.h"
+#import "AmazonServiceRequest.h"
 #import "ElasticLoadBalancingDeleteLoadBalancerListenersResponseUnmarshaller.h"
 #import "ElasticLoadBalancingDeleteLoadBalancerListenersRequestMarshaller.h"
 #import "ElasticLoadBalancingSetLoadBalancerPoliciesOfListenerResponseUnmarshaller.h"

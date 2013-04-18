@@ -1,0 +1,1602 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3804CABA165194CA00FB6515 /* S3BucketLifecycleConfigurationTransitionUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFF1751625DC390069348B /* S3BucketLifecycleConfigurationTransitionUnmarshaller.m */; };
+		3804CABB165194CA00FB6515 /* S3BucketLifecycleConfigurationTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFF1761625DC390069348B /* S3BucketLifecycleConfigurationTransition.m */; };
+		3804CABC165194CA00FB6515 /* S3RestoreObjectResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3830E61F1628801A000C443F /* S3RestoreObjectResponse.m */; };
+		3804CABD165194CA00FB6515 /* S3RestoreObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3830E6201628801A000C443F /* S3RestoreObjectRequest.m */; };
+		38EFE867161F53FF0069348B /* AmazonS3Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7D1161F53FF0069348B /* AmazonS3Client.m */; };
+		38EFE868161F53FF0069348B /* BucketWebsiteConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7D3161F53FF0069348B /* BucketWebsiteConfiguration.m */; };
+		38EFE869161F53FF0069348B /* DeletedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7D4161F53FF0069348B /* DeletedObject.m */; };
+		38EFE86A161F53FF0069348B /* DeleteError.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7D5161F53FF0069348B /* DeleteError.m */; };
+		38EFE86B161F53FF0069348B /* S3AbortMultipartUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7D6161F53FF0069348B /* S3AbortMultipartUploadRequest.m */; };
+		38EFE86C161F53FF0069348B /* S3AbortMultipartUploadResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7D7161F53FF0069348B /* S3AbortMultipartUploadResponse.m */; };
+		38EFE86D161F53FF0069348B /* S3AbstractPutRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7D8161F53FF0069348B /* S3AbstractPutRequest.m */; };
+		38EFE86E161F53FF0069348B /* S3AccessControlList.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7D9161F53FF0069348B /* S3AccessControlList.m */; };
+		38EFE86F161F53FF0069348B /* S3AccessControlListUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7DA161F53FF0069348B /* S3AccessControlListUnmarshaller.m */; };
+		38EFE870161F53FF0069348B /* S3Bucket.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7DB161F53FF0069348B /* S3Bucket.m */; };
+		38EFE871161F53FF0069348B /* S3BucketCrossOriginConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7DC161F53FF0069348B /* S3BucketCrossOriginConfiguration.m */; };
+		38EFE872161F53FF0069348B /* S3BucketCrossOriginConfigurationUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7DD161F53FF0069348B /* S3BucketCrossOriginConfigurationUnmarshaller.m */; };
+		38EFE873161F53FF0069348B /* S3BucketLifecycleConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7DE161F53FF0069348B /* S3BucketLifecycleConfiguration.m */; };
+		38EFE874161F53FF0069348B /* S3BucketLifecycleConfigurationRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7DF161F53FF0069348B /* S3BucketLifecycleConfigurationRule.m */; };
+		38EFE875161F53FF0069348B /* S3BucketLifecycleConfigurationRuleUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7E0161F53FF0069348B /* S3BucketLifecycleConfigurationRuleUnmarshaller.m */; };
+		38EFE876161F53FF0069348B /* S3BucketLifecycleConfigurationUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7E1161F53FF0069348B /* S3BucketLifecycleConfigurationUnmarshaller.m */; };
+		38EFE877161F53FF0069348B /* S3BucketNameUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7E2161F53FF0069348B /* S3BucketNameUtilities.m */; };
+		38EFE878161F53FF0069348B /* S3BucketPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7E3161F53FF0069348B /* S3BucketPolicy.m */; };
+		38EFE879161F53FF0069348B /* S3BucketTaggingConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7E4161F53FF0069348B /* S3BucketTaggingConfiguration.m */; };
+		38EFE87A161F53FF0069348B /* S3BucketTaggingConfigurationUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7E5161F53FF0069348B /* S3BucketTaggingConfigurationUnmarshaller.m */; };
+		38EFE87B161F53FF0069348B /* S3BucketTagSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7E6161F53FF0069348B /* S3BucketTagSet.m */; };
+		38EFE87C161F53FF0069348B /* S3BucketTagSetUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7E7161F53FF0069348B /* S3BucketTagSetUnmarshaller.m */; };
+		38EFE87D161F53FF0069348B /* S3BucketUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7E8161F53FF0069348B /* S3BucketUnmarshaller.m */; };
+		38EFE87E161F53FF0069348B /* S3BucketVersioningConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7E9161F53FF0069348B /* S3BucketVersioningConfiguration.m */; };
+		38EFE87F161F53FF0069348B /* S3BucketVersioningConfigurationUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7EA161F53FF0069348B /* S3BucketVersioningConfigurationUnmarshaller.m */; };
+		38EFE880161F53FF0069348B /* S3CannedACL.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7EB161F53FF0069348B /* S3CannedACL.m */; };
+		38EFE881161F53FF0069348B /* S3CommonPrefixesUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7EC161F53FF0069348B /* S3CommonPrefixesUnmarshaller.m */; };
+		38EFE882161F53FF0069348B /* S3CompleteMultipartUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7ED161F53FF0069348B /* S3CompleteMultipartUploadRequest.m */; };
+		38EFE883161F53FF0069348B /* S3CompleteMultipartUploadResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7EE161F53FF0069348B /* S3CompleteMultipartUploadResponse.m */; };
+		38EFE884161F53FF0069348B /* S3CompleteMultipartUploadResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7EF161F53FF0069348B /* S3CompleteMultipartUploadResult.m */; };
+		38EFE885161F53FF0069348B /* S3CompleteMultipartUploadResultUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7F0161F53FF0069348B /* S3CompleteMultipartUploadResultUnmarshaller.m */; };
+		38EFE886161F53FF0069348B /* S3CopyObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7F1161F53FF0069348B /* S3CopyObjectRequest.m */; };
+		38EFE887161F53FF0069348B /* S3CopyObjectResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7F2161F53FF0069348B /* S3CopyObjectResponse.m */; };
+		38EFE888161F53FF0069348B /* S3CopyObjectResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7F3161F53FF0069348B /* S3CopyObjectResult.m */; };
+		38EFE889161F53FF0069348B /* S3CopyObjectResultUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7F4161F53FF0069348B /* S3CopyObjectResultUnmarshaller.m */; };
+		38EFE88A161F53FF0069348B /* S3CopyPartRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7F5161F53FF0069348B /* S3CopyPartRequest.m */; };
+		38EFE88B161F53FF0069348B /* S3CopyPartResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7F6161F53FF0069348B /* S3CopyPartResponse.m */; };
+		38EFE88C161F53FF0069348B /* S3CopyPartResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7F7161F53FF0069348B /* S3CopyPartResult.m */; };
+		38EFE88D161F53FF0069348B /* S3CopyPartResultUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7F8161F53FF0069348B /* S3CopyPartResultUnmarshaller.m */; };
+		38EFE88E161F53FF0069348B /* S3CORSRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7F9161F53FF0069348B /* S3CORSRule.m */; };
+		38EFE88F161F53FF0069348B /* S3CORSRuleUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7FA161F53FF0069348B /* S3CORSRuleUnmarshaller.m */; };
+		38EFE890161F53FF0069348B /* S3CreateBucketRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7FB161F53FF0069348B /* S3CreateBucketRequest.m */; };
+		38EFE891161F53FF0069348B /* S3CreateBucketResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7FC161F53FF0069348B /* S3CreateBucketResponse.m */; };
+		38EFE892161F53FF0069348B /* S3DeleteBucketCrossOriginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7FD161F53FF0069348B /* S3DeleteBucketCrossOriginRequest.m */; };
+		38EFE893161F53FF0069348B /* S3DeleteBucketCrossOriginResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7FE161F53FF0069348B /* S3DeleteBucketCrossOriginResponse.m */; };
+		38EFE894161F53FF0069348B /* S3DeleteBucketLifecycleConfigurationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE7FF161F53FF0069348B /* S3DeleteBucketLifecycleConfigurationRequest.m */; };
+		38EFE895161F53FF0069348B /* S3DeleteBucketLifecycleConfigurationResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE800161F53FF0069348B /* S3DeleteBucketLifecycleConfigurationResponse.m */; };
+		38EFE896161F53FF0069348B /* S3DeleteBucketPolicyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE801161F53FF0069348B /* S3DeleteBucketPolicyRequest.m */; };
+		38EFE897161F53FF0069348B /* S3DeleteBucketPolicyResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE802161F53FF0069348B /* S3DeleteBucketPolicyResponse.m */; };
+		38EFE898161F53FF0069348B /* S3DeleteBucketRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE803161F53FF0069348B /* S3DeleteBucketRequest.m */; };
+		38EFE899161F53FF0069348B /* S3DeleteBucketResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE804161F53FF0069348B /* S3DeleteBucketResponse.m */; };
+		38EFE89A161F53FF0069348B /* S3DeleteBucketTaggingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE805161F53FF0069348B /* S3DeleteBucketTaggingRequest.m */; };
+		38EFE89B161F53FF0069348B /* S3DeleteBucketTaggingResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE806161F53FF0069348B /* S3DeleteBucketTaggingResponse.m */; };
+		38EFE89C161F53FF0069348B /* S3DeleteBucketWebsiteConfigurationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE807161F53FF0069348B /* S3DeleteBucketWebsiteConfigurationRequest.m */; };
+		38EFE89D161F53FF0069348B /* S3DeleteBucketWebsiteConfigurationResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE808161F53FF0069348B /* S3DeleteBucketWebsiteConfigurationResponse.m */; };
+		38EFE89E161F53FF0069348B /* S3DeletedObjectUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE809161F53FF0069348B /* S3DeletedObjectUnmarshaller.m */; };
+		38EFE89F161F53FF0069348B /* S3DeleteErrorUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE80A161F53FF0069348B /* S3DeleteErrorUnmarshaller.m */; };
+		38EFE8A0161F53FF0069348B /* S3DeleteObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE80B161F53FF0069348B /* S3DeleteObjectRequest.m */; };
+		38EFE8A1161F53FF0069348B /* S3DeleteObjectResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE80C161F53FF0069348B /* S3DeleteObjectResponse.m */; };
+		38EFE8A2161F53FF0069348B /* S3DeleteObjectsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE80D161F53FF0069348B /* S3DeleteObjectsRequest.m */; };
+		38EFE8A3161F53FF0069348B /* S3DeleteObjectsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE80E161F53FF0069348B /* S3DeleteObjectsResponse.m */; };
+		38EFE8A4161F53FF0069348B /* S3DeleteObjectsResultUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE80F161F53FF0069348B /* S3DeleteObjectsResultUnmarshaller.m */; };
+		38EFE8A5161F53FF0069348B /* S3DeleteVersionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE810161F53FF0069348B /* S3DeleteVersionRequest.m */; };
+		38EFE8A6161F53FF0069348B /* S3DeleteVersionResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE811161F53FF0069348B /* S3DeleteVersionResponse.m */; };
+		38EFE8A7161F53FF0069348B /* S3ErrorResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE812161F53FF0069348B /* S3ErrorResponseHandler.m */; };
+		38EFE8A8161F53FF0069348B /* S3GetACLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE813161F53FF0069348B /* S3GetACLRequest.m */; };
+		38EFE8A9161F53FF0069348B /* S3GetACLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE814161F53FF0069348B /* S3GetACLResponse.m */; };
+		38EFE8AA161F53FF0069348B /* S3GetBucketCrossOriginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE815161F53FF0069348B /* S3GetBucketCrossOriginRequest.m */; };
+		38EFE8AB161F53FF0069348B /* S3GetBucketCrossOriginResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE816161F53FF0069348B /* S3GetBucketCrossOriginResponse.m */; };
+		38EFE8AC161F53FF0069348B /* S3GetBucketLifecycleConfigurationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE817161F53FF0069348B /* S3GetBucketLifecycleConfigurationRequest.m */; };
+		38EFE8AD161F53FF0069348B /* S3GetBucketLifecycleConfigurationResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE818161F53FF0069348B /* S3GetBucketLifecycleConfigurationResponse.m */; };
+		38EFE8AE161F53FF0069348B /* S3GetBucketPolicyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE819161F53FF0069348B /* S3GetBucketPolicyRequest.m */; };
+		38EFE8AF161F53FF0069348B /* S3GetBucketPolicyResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE81A161F53FF0069348B /* S3GetBucketPolicyResponse.m */; };
+		38EFE8B0161F53FF0069348B /* S3GetBucketTaggingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE81B161F53FF0069348B /* S3GetBucketTaggingRequest.m */; };
+		38EFE8B1161F53FF0069348B /* S3GetBucketTaggingResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE81C161F53FF0069348B /* S3GetBucketTaggingResponse.m */; };
+		38EFE8B2161F53FF0069348B /* S3GetBucketVersioningConfigurationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE81D161F53FF0069348B /* S3GetBucketVersioningConfigurationRequest.m */; };
+		38EFE8B3161F53FF0069348B /* S3GetBucketVersioningConfigurationResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE81E161F53FF0069348B /* S3GetBucketVersioningConfigurationResponse.m */; };
+		38EFE8B4161F54000069348B /* S3GetBucketWebsiteConfigurationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE81F161F53FF0069348B /* S3GetBucketWebsiteConfigurationRequest.m */; };
+		38EFE8B5161F54000069348B /* S3GetBucketWebsiteConfigurationResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE820161F53FF0069348B /* S3GetBucketWebsiteConfigurationResponse.m */; };
+		38EFE8B6161F54000069348B /* S3GetBucketWebsiteConfigurationResultUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE821161F53FF0069348B /* S3GetBucketWebsiteConfigurationResultUnmarshaller.m */; };
+		38EFE8B7161F54000069348B /* S3GetObjectMetadataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE822161F53FF0069348B /* S3GetObjectMetadataRequest.m */; };
+		38EFE8B8161F54000069348B /* S3GetObjectMetadataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE823161F53FF0069348B /* S3GetObjectMetadataResponse.m */; };
+		38EFE8B9161F54000069348B /* S3GetObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE824161F53FF0069348B /* S3GetObjectRequest.m */; };
+		38EFE8BA161F54000069348B /* S3GetObjectResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE825161F53FF0069348B /* S3GetObjectResponse.m */; };
+		38EFE8BB161F54000069348B /* S3GetPreSignedURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE826161F53FF0069348B /* S3GetPreSignedURLRequest.m */; };
+		38EFE8BC161F54000069348B /* S3Grant.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE827161F53FF0069348B /* S3Grant.m */; };
+		38EFE8BD161F54000069348B /* S3Grantee.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE828161F53FF0069348B /* S3Grantee.m */; };
+		38EFE8BE161F54000069348B /* S3GrantUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE829161F53FF0069348B /* S3GrantUnmarshaller.m */; };
+		38EFE8BF161F54000069348B /* S3InitiateMultipartUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE82A161F53FF0069348B /* S3InitiateMultipartUploadRequest.m */; };
+		38EFE8C0161F54000069348B /* S3InitiateMultipartUploadResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE82B161F53FF0069348B /* S3InitiateMultipartUploadResponse.m */; };
+		38EFE8C1161F54000069348B /* S3InitiateMultipartUploadResultUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE82C161F53FF0069348B /* S3InitiateMultipartUploadResultUnmarshaller.m */; };
+		38EFE8C2161F54000069348B /* S3KeyVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE82D161F53FF0069348B /* S3KeyVersion.m */; };
+		38EFE8C3161F54000069348B /* S3ListBucketResultUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE82E161F53FF0069348B /* S3ListBucketResultUnmarshaller.m */; };
+		38EFE8C4161F54000069348B /* S3ListBucketsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE82F161F53FF0069348B /* S3ListBucketsRequest.m */; };
+		38EFE8C5161F54000069348B /* S3ListBucketsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE830161F53FF0069348B /* S3ListBucketsResponse.m */; };
+		38EFE8C6161F54000069348B /* S3ListBucketsResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE831161F53FF0069348B /* S3ListBucketsResult.m */; };
+		38EFE8C7161F54000069348B /* S3ListBucketsResultUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE832161F53FF0069348B /* S3ListBucketsResultUnmarshaller.m */; };
+		38EFE8C8161F54000069348B /* S3ListMultipartUploadsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE833161F53FF0069348B /* S3ListMultipartUploadsRequest.m */; };
+		38EFE8C9161F54000069348B /* S3ListMultipartUploadsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE834161F53FF0069348B /* S3ListMultipartUploadsResponse.m */; };
+		38EFE8CA161F54000069348B /* S3ListMultipartUploadsResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE835161F53FF0069348B /* S3ListMultipartUploadsResult.m */; };
+		38EFE8CB161F54000069348B /* S3ListMultipartUploadsResultUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE836161F53FF0069348B /* S3ListMultipartUploadsResultUnmarshaller.m */; };
+		38EFE8CC161F54000069348B /* S3ListObjectsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE837161F53FF0069348B /* S3ListObjectsRequest.m */; };
+		38EFE8CD161F54000069348B /* S3ListObjectsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE838161F53FF0069348B /* S3ListObjectsResponse.m */; };
+		38EFE8CE161F54000069348B /* S3ListObjectsResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE839161F53FF0069348B /* S3ListObjectsResult.m */; };
+		38EFE8CF161F54000069348B /* S3ListPartsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE83A161F53FF0069348B /* S3ListPartsRequest.m */; };
+		38EFE8D0161F54000069348B /* S3ListPartsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE83B161F53FF0069348B /* S3ListPartsResponse.m */; };
+		38EFE8D1161F54000069348B /* S3ListPartsResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE83C161F53FF0069348B /* S3ListPartsResult.m */; };
+		38EFE8D2161F54000069348B /* S3ListPartsResultUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE83D161F53FF0069348B /* S3ListPartsResultUnmarshaller.m */; };
+		38EFE8D3161F54000069348B /* S3ListVersionsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE83E161F53FF0069348B /* S3ListVersionsRequest.m */; };
+		38EFE8D4161F54000069348B /* S3ListVersionsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE83F161F53FF0069348B /* S3ListVersionsResponse.m */; };
+		38EFE8D5161F54000069348B /* S3ListVersionsResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE840161F53FF0069348B /* S3ListVersionsResult.m */; };
+		38EFE8D6161F54000069348B /* S3ListVersionsResultUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE841161F53FF0069348B /* S3ListVersionsResultUnmarshaller.m */; };
+		38EFE8D7161F54000069348B /* S3LocationConstraintUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE842161F53FF0069348B /* S3LocationConstraintUnmarshaller.m */; };
+		38EFE8D8161F54000069348B /* S3MultiFactorAuthentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE843161F53FF0069348B /* S3MultiFactorAuthentication.m */; };
+		38EFE8D9161F54000069348B /* S3MultipartUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE844161F53FF0069348B /* S3MultipartUpload.m */; };
+		38EFE8DA161F54000069348B /* S3MultipartUploadUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE845161F53FF0069348B /* S3MultipartUploadUnmarshaller.m */; };
+		38EFE8DB161F54000069348B /* S3ObjectSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE846161F53FF0069348B /* S3ObjectSummary.m */; };
+		38EFE8DC161F54000069348B /* S3ObjectSummaryUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE847161F53FF0069348B /* S3ObjectSummaryUnmarshaller.m */; };
+		38EFE8DD161F54000069348B /* S3Owner.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE848161F53FF0069348B /* S3Owner.m */; };
+		38EFE8DE161F54000069348B /* S3OwnerUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE849161F53FF0069348B /* S3OwnerUnmarshaller.m */; };
+		38EFE8DF161F54000069348B /* S3Part.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE84A161F53FF0069348B /* S3Part.m */; };
+		38EFE8E0161F54000069348B /* S3PartUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE84B161F53FF0069348B /* S3PartUnmarshaller.m */; };
+		38EFE8E1161F54000069348B /* S3Permission.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE84C161F53FF0069348B /* S3Permission.m */; };
+		38EFE8E2161F54000069348B /* S3PutObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE84D161F53FF0069348B /* S3PutObjectRequest.m */; };
+		38EFE8E3161F54000069348B /* S3PutObjectResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE84E161F53FF0069348B /* S3PutObjectResponse.m */; };
+		38EFE8E4161F54000069348B /* S3Region.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE84F161F53FF0069348B /* S3Region.m */; };
+		38EFE8E5161F54000069348B /* S3Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE850161F53FF0069348B /* S3Request.m */; };
+		38EFE8E6161F54000069348B /* S3Response.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE851161F53FF0069348B /* S3Response.m */; };
+		38EFE8E7161F54000069348B /* S3ResponseHeaderOverrides.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE852161F53FF0069348B /* S3ResponseHeaderOverrides.m */; };
+		38EFE8E8161F54000069348B /* S3SetACLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE853161F53FF0069348B /* S3SetACLRequest.m */; };
+		38EFE8E9161F54000069348B /* S3SetACLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE854161F53FF0069348B /* S3SetACLResponse.m */; };
+		38EFE8EA161F54000069348B /* S3SetBucketCrossOriginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE855161F53FF0069348B /* S3SetBucketCrossOriginRequest.m */; };
+		38EFE8EB161F54000069348B /* S3SetBucketCrossOriginResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE856161F53FF0069348B /* S3SetBucketCrossOriginResponse.m */; };
+		38EFE8EC161F54000069348B /* S3SetBucketLifecycleConfigurationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE857161F53FF0069348B /* S3SetBucketLifecycleConfigurationRequest.m */; };
+		38EFE8ED161F54000069348B /* S3SetBucketLifecycleConfigurationResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE858161F53FF0069348B /* S3SetBucketLifecycleConfigurationResponse.m */; };
+		38EFE8EE161F54000069348B /* S3SetBucketPolicyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE859161F53FF0069348B /* S3SetBucketPolicyRequest.m */; };
+		38EFE8EF161F54000069348B /* S3SetBucketPolicyResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE85A161F53FF0069348B /* S3SetBucketPolicyResponse.m */; };
+		38EFE8F0161F54000069348B /* S3SetBucketTaggingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE85B161F53FF0069348B /* S3SetBucketTaggingRequest.m */; };
+		38EFE8F1161F54000069348B /* S3SetBucketTaggingResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE85C161F53FF0069348B /* S3SetBucketTaggingResponse.m */; };
+		38EFE8F2161F54000069348B /* S3SetBucketVersioningConfigurationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE85D161F53FF0069348B /* S3SetBucketVersioningConfigurationRequest.m */; };
+		38EFE8F3161F54000069348B /* S3SetBucketVersioningConfigurationResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE85E161F53FF0069348B /* S3SetBucketVersioningConfigurationResponse.m */; };
+		38EFE8F4161F54000069348B /* S3SetBucketWebsiteConfigurationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE85F161F53FF0069348B /* S3SetBucketWebsiteConfigurationRequest.m */; };
+		38EFE8F5161F54000069348B /* S3SetBucketWebsiteConfigurationResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE860161F53FF0069348B /* S3SetBucketWebsiteConfigurationResponse.m */; };
+		38EFE8F6161F54000069348B /* S3UploadInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE861161F53FF0069348B /* S3UploadInputStream.m */; };
+		38EFE8F7161F54000069348B /* S3UploadPartRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE862161F53FF0069348B /* S3UploadPartRequest.m */; };
+		38EFE8F8161F54000069348B /* S3UploadPartResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE863161F53FF0069348B /* S3UploadPartResponse.m */; };
+		38EFE8F9161F54000069348B /* S3VersionSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE864161F53FF0069348B /* S3VersionSummary.m */; };
+		38EFE8FA161F54000069348B /* S3VersionSummaryUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE865161F53FF0069348B /* S3VersionSummaryUnmarshaller.m */; };
+		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		CE2BF33C16CB32C2005189A8 /* S3AbortMultiplartUploadsOperation_Internal.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF33616CB32C2005189A8 /* S3AbortMultiplartUploadsOperation_Internal.m */; };
+		CE2BF33E16CB32C2005189A8 /* S3MultipartUploadOperation_Internal.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF33816CB32C2005189A8 /* S3MultipartUploadOperation_Internal.m */; };
+		CE2BF34016CB32C2005189A8 /* S3PutObjectOperation_Internal.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF33A16CB32C2005189A8 /* S3PutObjectOperation_Internal.m */; };
+		CE2BF34216CB32CF005189A8 /* S3TransferManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF34116CB32CF005189A8 /* S3TransferManager.m */; };
+		CE2CDBFE17036F640013DE5F /* AWSS3.h in Headers */ = {isa = PBXBuildFile; fileRef = CE2CDBFD17036F640013DE5F /* AWSS3.h */; };
+		CE8EF5F016F941A4007BF85E /* AmazonS3Client.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF55216F941A3007BF85E /* AmazonS3Client.h */; };
+		CE8EF5F116F941A4007BF85E /* BucketWebsiteConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF55316F941A3007BF85E /* BucketWebsiteConfiguration.h */; };
+		CE8EF5F216F941A4007BF85E /* DeletedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF55416F941A3007BF85E /* DeletedObject.h */; };
+		CE8EF5F316F941A4007BF85E /* DeleteError.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF55516F941A3007BF85E /* DeleteError.h */; };
+		CE8EF5F416F941A4007BF85E /* S3AbortMultipartUploadRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF55616F941A3007BF85E /* S3AbortMultipartUploadRequest.h */; };
+		CE8EF5F516F941A4007BF85E /* S3AbortMultipartUploadResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF55716F941A3007BF85E /* S3AbortMultipartUploadResponse.h */; };
+		CE8EF5F616F941A4007BF85E /* S3AbortMultiplartUploadsOperation_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF55816F941A3007BF85E /* S3AbortMultiplartUploadsOperation_Internal.h */; };
+		CE8EF5F716F941A4007BF85E /* S3AbstractPutRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF55916F941A3007BF85E /* S3AbstractPutRequest.h */; };
+		CE8EF5F816F941A4007BF85E /* S3AccessControlList.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF55A16F941A3007BF85E /* S3AccessControlList.h */; };
+		CE8EF5F916F941A4007BF85E /* S3AccessControlListUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF55B16F941A3007BF85E /* S3AccessControlListUnmarshaller.h */; };
+		CE8EF5FA16F941A4007BF85E /* S3Bucket.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF55C16F941A3007BF85E /* S3Bucket.h */; };
+		CE8EF5FB16F941A4007BF85E /* S3BucketCrossOriginConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF55D16F941A3007BF85E /* S3BucketCrossOriginConfiguration.h */; };
+		CE8EF5FC16F941A4007BF85E /* S3BucketCrossOriginConfigurationUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF55E16F941A3007BF85E /* S3BucketCrossOriginConfigurationUnmarshaller.h */; };
+		CE8EF5FD16F941A4007BF85E /* S3BucketLifecycleConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF55F16F941A3007BF85E /* S3BucketLifecycleConfiguration.h */; };
+		CE8EF5FE16F941A4007BF85E /* S3BucketLifecycleConfigurationRule.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF56016F941A3007BF85E /* S3BucketLifecycleConfigurationRule.h */; };
+		CE8EF5FF16F941A4007BF85E /* S3BucketLifecycleConfigurationRuleUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF56116F941A3007BF85E /* S3BucketLifecycleConfigurationRuleUnmarshaller.h */; };
+		CE8EF60016F941A4007BF85E /* S3BucketLifecycleConfigurationTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF56216F941A3007BF85E /* S3BucketLifecycleConfigurationTransition.h */; };
+		CE8EF60116F941A4007BF85E /* S3BucketLifecycleConfigurationTransitionUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF56316F941A3007BF85E /* S3BucketLifecycleConfigurationTransitionUnmarshaller.h */; };
+		CE8EF60216F941A4007BF85E /* S3BucketLifecycleConfigurationUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF56416F941A3007BF85E /* S3BucketLifecycleConfigurationUnmarshaller.h */; };
+		CE8EF60316F941A4007BF85E /* S3BucketNameUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF56516F941A3007BF85E /* S3BucketNameUtilities.h */; };
+		CE8EF60416F941A4007BF85E /* S3BucketPolicy.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF56616F941A3007BF85E /* S3BucketPolicy.h */; };
+		CE8EF60516F941A4007BF85E /* S3BucketTaggingConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF56716F941A3007BF85E /* S3BucketTaggingConfiguration.h */; };
+		CE8EF60616F941A4007BF85E /* S3BucketTaggingConfigurationUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF56816F941A3007BF85E /* S3BucketTaggingConfigurationUnmarshaller.h */; };
+		CE8EF60716F941A4007BF85E /* S3BucketTagSet.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF56916F941A3007BF85E /* S3BucketTagSet.h */; };
+		CE8EF60816F941A4007BF85E /* S3BucketTagSetUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF56A16F941A3007BF85E /* S3BucketTagSetUnmarshaller.h */; };
+		CE8EF60916F941A4007BF85E /* S3BucketUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF56B16F941A4007BF85E /* S3BucketUnmarshaller.h */; };
+		CE8EF60A16F941A4007BF85E /* S3BucketVersioningConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF56C16F941A4007BF85E /* S3BucketVersioningConfiguration.h */; };
+		CE8EF60B16F941A4007BF85E /* S3BucketVersioningConfigurationUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF56D16F941A4007BF85E /* S3BucketVersioningConfigurationUnmarshaller.h */; };
+		CE8EF60C16F941A4007BF85E /* S3CannedACL.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF56E16F941A4007BF85E /* S3CannedACL.h */; };
+		CE8EF60D16F941A4007BF85E /* S3CommonPrefixesUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF56F16F941A4007BF85E /* S3CommonPrefixesUnmarshaller.h */; };
+		CE8EF60E16F941A4007BF85E /* S3CompleteMultipartUploadRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF57016F941A4007BF85E /* S3CompleteMultipartUploadRequest.h */; };
+		CE8EF60F16F941A4007BF85E /* S3CompleteMultipartUploadResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF57116F941A4007BF85E /* S3CompleteMultipartUploadResponse.h */; };
+		CE8EF61016F941A4007BF85E /* S3CompleteMultipartUploadResult.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF57216F941A4007BF85E /* S3CompleteMultipartUploadResult.h */; };
+		CE8EF61116F941A4007BF85E /* S3CompleteMultipartUploadResultUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF57316F941A4007BF85E /* S3CompleteMultipartUploadResultUnmarshaller.h */; };
+		CE8EF61216F941A4007BF85E /* S3Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF57416F941A4007BF85E /* S3Constants.h */; };
+		CE8EF61316F941A4007BF85E /* S3CopyObjectRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF57516F941A4007BF85E /* S3CopyObjectRequest.h */; };
+		CE8EF61416F941A4007BF85E /* S3CopyObjectResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF57616F941A4007BF85E /* S3CopyObjectResponse.h */; };
+		CE8EF61516F941A4007BF85E /* S3CopyObjectResult.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF57716F941A4007BF85E /* S3CopyObjectResult.h */; };
+		CE8EF61616F941A4007BF85E /* S3CopyObjectResultUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF57816F941A4007BF85E /* S3CopyObjectResultUnmarshaller.h */; };
+		CE8EF61716F941A4007BF85E /* S3CopyPartRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF57916F941A4007BF85E /* S3CopyPartRequest.h */; };
+		CE8EF61816F941A4007BF85E /* S3CopyPartResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF57A16F941A4007BF85E /* S3CopyPartResponse.h */; };
+		CE8EF61916F941A4007BF85E /* S3CopyPartResult.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF57B16F941A4007BF85E /* S3CopyPartResult.h */; };
+		CE8EF61A16F941A4007BF85E /* S3CopyPartResultUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF57C16F941A4007BF85E /* S3CopyPartResultUnmarshaller.h */; };
+		CE8EF61B16F941A4007BF85E /* S3CORSRule.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF57D16F941A4007BF85E /* S3CORSRule.h */; };
+		CE8EF61C16F941A4007BF85E /* S3CORSRuleUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF57E16F941A4007BF85E /* S3CORSRuleUnmarshaller.h */; };
+		CE8EF61D16F941A4007BF85E /* S3CreateBucketRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF57F16F941A4007BF85E /* S3CreateBucketRequest.h */; };
+		CE8EF61E16F941A4007BF85E /* S3CreateBucketResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF58016F941A4007BF85E /* S3CreateBucketResponse.h */; };
+		CE8EF61F16F941A4007BF85E /* S3DeleteBucketCrossOriginRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF58116F941A4007BF85E /* S3DeleteBucketCrossOriginRequest.h */; };
+		CE8EF62016F941A4007BF85E /* S3DeleteBucketCrossOriginResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF58216F941A4007BF85E /* S3DeleteBucketCrossOriginResponse.h */; };
+		CE8EF62116F941A4007BF85E /* S3DeleteBucketLifecycleConfigurationRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF58316F941A4007BF85E /* S3DeleteBucketLifecycleConfigurationRequest.h */; };
+		CE8EF62216F941A4007BF85E /* S3DeleteBucketLifecycleConfigurationResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF58416F941A4007BF85E /* S3DeleteBucketLifecycleConfigurationResponse.h */; };
+		CE8EF62316F941A4007BF85E /* S3DeleteBucketPolicyRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF58516F941A4007BF85E /* S3DeleteBucketPolicyRequest.h */; };
+		CE8EF62416F941A4007BF85E /* S3DeleteBucketPolicyResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF58616F941A4007BF85E /* S3DeleteBucketPolicyResponse.h */; };
+		CE8EF62516F941A4007BF85E /* S3DeleteBucketRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF58716F941A4007BF85E /* S3DeleteBucketRequest.h */; };
+		CE8EF62616F941A4007BF85E /* S3DeleteBucketResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF58816F941A4007BF85E /* S3DeleteBucketResponse.h */; };
+		CE8EF62716F941A4007BF85E /* S3DeleteBucketTaggingRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF58916F941A4007BF85E /* S3DeleteBucketTaggingRequest.h */; };
+		CE8EF62816F941A4007BF85E /* S3DeleteBucketTaggingResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF58A16F941A4007BF85E /* S3DeleteBucketTaggingResponse.h */; };
+		CE8EF62916F941A4007BF85E /* S3DeleteBucketWebsiteConfigurationRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF58B16F941A4007BF85E /* S3DeleteBucketWebsiteConfigurationRequest.h */; };
+		CE8EF62A16F941A4007BF85E /* S3DeleteBucketWebsiteConfigurationResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF58C16F941A4007BF85E /* S3DeleteBucketWebsiteConfigurationResponse.h */; };
+		CE8EF62B16F941A4007BF85E /* S3DeletedObjectUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF58D16F941A4007BF85E /* S3DeletedObjectUnmarshaller.h */; };
+		CE8EF62C16F941A4007BF85E /* S3DeleteErrorUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF58E16F941A4007BF85E /* S3DeleteErrorUnmarshaller.h */; };
+		CE8EF62D16F941A4007BF85E /* S3DeleteObjectRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF58F16F941A4007BF85E /* S3DeleteObjectRequest.h */; };
+		CE8EF62E16F941A4007BF85E /* S3DeleteObjectResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF59016F941A4007BF85E /* S3DeleteObjectResponse.h */; };
+		CE8EF62F16F941A4007BF85E /* S3DeleteObjectsRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF59116F941A4007BF85E /* S3DeleteObjectsRequest.h */; };
+		CE8EF63016F941A4007BF85E /* S3DeleteObjectsResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF59216F941A4007BF85E /* S3DeleteObjectsResponse.h */; };
+		CE8EF63116F941A4007BF85E /* S3DeleteObjectsResultUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF59316F941A4007BF85E /* S3DeleteObjectsResultUnmarshaller.h */; };
+		CE8EF63216F941A4007BF85E /* S3DeleteVersionRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF59416F941A4007BF85E /* S3DeleteVersionRequest.h */; };
+		CE8EF63316F941A4007BF85E /* S3DeleteVersionResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF59516F941A4007BF85E /* S3DeleteVersionResponse.h */; };
+		CE8EF63416F941A4007BF85E /* S3ErrorResponseHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF59616F941A4007BF85E /* S3ErrorResponseHandler.h */; };
+		CE8EF63516F941A4007BF85E /* S3GetACLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF59716F941A4007BF85E /* S3GetACLRequest.h */; };
+		CE8EF63616F941A4007BF85E /* S3GetACLResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF59816F941A4007BF85E /* S3GetACLResponse.h */; };
+		CE8EF63716F941A4007BF85E /* S3GetBucketCrossOriginRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF59916F941A4007BF85E /* S3GetBucketCrossOriginRequest.h */; };
+		CE8EF63816F941A4007BF85E /* S3GetBucketCrossOriginResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF59A16F941A4007BF85E /* S3GetBucketCrossOriginResponse.h */; };
+		CE8EF63916F941A4007BF85E /* S3GetBucketLifecycleConfigurationRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF59B16F941A4007BF85E /* S3GetBucketLifecycleConfigurationRequest.h */; };
+		CE8EF63A16F941A4007BF85E /* S3GetBucketLifecycleConfigurationResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF59C16F941A4007BF85E /* S3GetBucketLifecycleConfigurationResponse.h */; };
+		CE8EF63B16F941A4007BF85E /* S3GetBucketPolicyRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF59D16F941A4007BF85E /* S3GetBucketPolicyRequest.h */; };
+		CE8EF63C16F941A4007BF85E /* S3GetBucketPolicyResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF59E16F941A4007BF85E /* S3GetBucketPolicyResponse.h */; };
+		CE8EF63D16F941A4007BF85E /* S3GetBucketTaggingRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF59F16F941A4007BF85E /* S3GetBucketTaggingRequest.h */; };
+		CE8EF63E16F941A4007BF85E /* S3GetBucketTaggingResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5A016F941A4007BF85E /* S3GetBucketTaggingResponse.h */; };
+		CE8EF63F16F941A4007BF85E /* S3GetBucketVersioningConfigurationRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5A116F941A4007BF85E /* S3GetBucketVersioningConfigurationRequest.h */; };
+		CE8EF64016F941A4007BF85E /* S3GetBucketVersioningConfigurationResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5A216F941A4007BF85E /* S3GetBucketVersioningConfigurationResponse.h */; };
+		CE8EF64116F941A4007BF85E /* S3GetBucketWebsiteConfigurationRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5A316F941A4007BF85E /* S3GetBucketWebsiteConfigurationRequest.h */; };
+		CE8EF64216F941A4007BF85E /* S3GetBucketWebsiteConfigurationResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5A416F941A4007BF85E /* S3GetBucketWebsiteConfigurationResponse.h */; };
+		CE8EF64316F941A4007BF85E /* S3GetBucketWebsiteConfigurationResultUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5A516F941A4007BF85E /* S3GetBucketWebsiteConfigurationResultUnmarshaller.h */; };
+		CE8EF64416F941A4007BF85E /* S3GetObjectMetadataRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5A616F941A4007BF85E /* S3GetObjectMetadataRequest.h */; };
+		CE8EF64516F941A4007BF85E /* S3GetObjectMetadataResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5A716F941A4007BF85E /* S3GetObjectMetadataResponse.h */; };
+		CE8EF64616F941A4007BF85E /* S3GetObjectRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5A816F941A4007BF85E /* S3GetObjectRequest.h */; };
+		CE8EF64716F941A4007BF85E /* S3GetObjectResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5A916F941A4007BF85E /* S3GetObjectResponse.h */; };
+		CE8EF64816F941A4007BF85E /* S3GetPreSignedURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5AA16F941A4007BF85E /* S3GetPreSignedURLRequest.h */; };
+		CE8EF64916F941A4007BF85E /* S3Grant.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5AB16F941A4007BF85E /* S3Grant.h */; };
+		CE8EF64A16F941A4007BF85E /* S3Grantee.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5AC16F941A4007BF85E /* S3Grantee.h */; };
+		CE8EF64B16F941A4007BF85E /* S3GrantUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5AD16F941A4007BF85E /* S3GrantUnmarshaller.h */; };
+		CE8EF64C16F941A4007BF85E /* S3InitiateMultipartUploadRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5AE16F941A4007BF85E /* S3InitiateMultipartUploadRequest.h */; };
+		CE8EF64D16F941A4007BF85E /* S3InitiateMultipartUploadResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5AF16F941A4007BF85E /* S3InitiateMultipartUploadResponse.h */; };
+		CE8EF64E16F941A4007BF85E /* S3InitiateMultipartUploadResultUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5B016F941A4007BF85E /* S3InitiateMultipartUploadResultUnmarshaller.h */; };
+		CE8EF64F16F941A4007BF85E /* S3KeyVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5B116F941A4007BF85E /* S3KeyVersion.h */; };
+		CE8EF65016F941A4007BF85E /* S3ListBucketResultUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5B216F941A4007BF85E /* S3ListBucketResultUnmarshaller.h */; };
+		CE8EF65116F941A4007BF85E /* S3ListBucketsRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5B316F941A4007BF85E /* S3ListBucketsRequest.h */; };
+		CE8EF65216F941A4007BF85E /* S3ListBucketsResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5B416F941A4007BF85E /* S3ListBucketsResponse.h */; };
+		CE8EF65316F941A4007BF85E /* S3ListBucketsResult.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5B516F941A4007BF85E /* S3ListBucketsResult.h */; };
+		CE8EF65416F941A4007BF85E /* S3ListBucketsResultUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5B616F941A4007BF85E /* S3ListBucketsResultUnmarshaller.h */; };
+		CE8EF65516F941A4007BF85E /* S3ListMultipartUploadsRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5B716F941A4007BF85E /* S3ListMultipartUploadsRequest.h */; };
+		CE8EF65616F941A4007BF85E /* S3ListMultipartUploadsResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5B816F941A4007BF85E /* S3ListMultipartUploadsResponse.h */; };
+		CE8EF65716F941A4007BF85E /* S3ListMultipartUploadsResult.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5B916F941A4007BF85E /* S3ListMultipartUploadsResult.h */; };
+		CE8EF65816F941A4007BF85E /* S3ListMultipartUploadsResultUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5BA16F941A4007BF85E /* S3ListMultipartUploadsResultUnmarshaller.h */; };
+		CE8EF65916F941A4007BF85E /* S3ListObjectsRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5BB16F941A4007BF85E /* S3ListObjectsRequest.h */; };
+		CE8EF65A16F941A4007BF85E /* S3ListObjectsResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5BC16F941A4007BF85E /* S3ListObjectsResponse.h */; };
+		CE8EF65B16F941A4007BF85E /* S3ListObjectsResult.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5BD16F941A4007BF85E /* S3ListObjectsResult.h */; };
+		CE8EF65C16F941A4007BF85E /* S3ListPartsRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5BE16F941A4007BF85E /* S3ListPartsRequest.h */; };
+		CE8EF65D16F941A4007BF85E /* S3ListPartsResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5BF16F941A4007BF85E /* S3ListPartsResponse.h */; };
+		CE8EF65E16F941A4007BF85E /* S3ListPartsResult.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5C016F941A4007BF85E /* S3ListPartsResult.h */; };
+		CE8EF65F16F941A4007BF85E /* S3ListPartsResultUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5C116F941A4007BF85E /* S3ListPartsResultUnmarshaller.h */; };
+		CE8EF66016F941A4007BF85E /* S3ListVersionsRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5C216F941A4007BF85E /* S3ListVersionsRequest.h */; };
+		CE8EF66116F941A4007BF85E /* S3ListVersionsResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5C316F941A4007BF85E /* S3ListVersionsResponse.h */; };
+		CE8EF66216F941A4007BF85E /* S3ListVersionsResult.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5C416F941A4007BF85E /* S3ListVersionsResult.h */; };
+		CE8EF66316F941A4007BF85E /* S3ListVersionsResultUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5C516F941A4007BF85E /* S3ListVersionsResultUnmarshaller.h */; };
+		CE8EF66416F941A4007BF85E /* S3LocationConstraintUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5C616F941A4007BF85E /* S3LocationConstraintUnmarshaller.h */; };
+		CE8EF66516F941A4007BF85E /* S3MultiFactorAuthentication.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5C716F941A4007BF85E /* S3MultiFactorAuthentication.h */; };
+		CE8EF66616F941A4007BF85E /* S3MultipartUpload.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5C816F941A4007BF85E /* S3MultipartUpload.h */; };
+		CE8EF66716F941A4007BF85E /* S3MultipartUploadOperation_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5C916F941A4007BF85E /* S3MultipartUploadOperation_Internal.h */; };
+		CE8EF66816F941A4007BF85E /* S3MultipartUploadUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5CA16F941A4007BF85E /* S3MultipartUploadUnmarshaller.h */; };
+		CE8EF66916F941A4007BF85E /* S3ObjectSummary.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5CB16F941A4007BF85E /* S3ObjectSummary.h */; };
+		CE8EF66A16F941A4007BF85E /* S3ObjectSummaryUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5CC16F941A4007BF85E /* S3ObjectSummaryUnmarshaller.h */; };
+		CE8EF66B16F941A4007BF85E /* S3Owner.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5CD16F941A4007BF85E /* S3Owner.h */; };
+		CE8EF66C16F941A4007BF85E /* S3OwnerUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5CE16F941A4007BF85E /* S3OwnerUnmarshaller.h */; };
+		CE8EF66D16F941A4007BF85E /* S3Part.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5CF16F941A4007BF85E /* S3Part.h */; };
+		CE8EF66E16F941A4007BF85E /* S3PartUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5D016F941A4007BF85E /* S3PartUnmarshaller.h */; };
+		CE8EF66F16F941A4007BF85E /* S3Permission.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5D116F941A4007BF85E /* S3Permission.h */; };
+		CE8EF67016F941A4007BF85E /* S3PutObjectOperation_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5D216F941A4007BF85E /* S3PutObjectOperation_Internal.h */; };
+		CE8EF67116F941A4007BF85E /* S3PutObjectRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5D316F941A4007BF85E /* S3PutObjectRequest.h */; };
+		CE8EF67216F941A4007BF85E /* S3PutObjectResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5D416F941A4007BF85E /* S3PutObjectResponse.h */; };
+		CE8EF67316F941A4007BF85E /* S3Region.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5D516F941A4007BF85E /* S3Region.h */; };
+		CE8EF67416F941A4007BF85E /* S3Request.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5D616F941A4007BF85E /* S3Request.h */; };
+		CE8EF67516F941A4007BF85E /* S3Response.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5D716F941A4007BF85E /* S3Response.h */; };
+		CE8EF67616F941A4007BF85E /* S3ResponseHeaderOverrides.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5D816F941A4007BF85E /* S3ResponseHeaderOverrides.h */; };
+		CE8EF67716F941A4007BF85E /* S3RestoreObjectRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5D916F941A4007BF85E /* S3RestoreObjectRequest.h */; };
+		CE8EF67816F941A4007BF85E /* S3RestoreObjectResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5DA16F941A4007BF85E /* S3RestoreObjectResponse.h */; };
+		CE8EF67916F941A4007BF85E /* S3ServiceModel.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5DB16F941A4007BF85E /* S3ServiceModel.h */; };
+		CE8EF67A16F941A4007BF85E /* S3SetACLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5DC16F941A4007BF85E /* S3SetACLRequest.h */; };
+		CE8EF67B16F941A4007BF85E /* S3SetACLResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5DD16F941A4007BF85E /* S3SetACLResponse.h */; };
+		CE8EF67C16F941A4007BF85E /* S3SetBucketCrossOriginRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5DE16F941A4007BF85E /* S3SetBucketCrossOriginRequest.h */; };
+		CE8EF67D16F941A4007BF85E /* S3SetBucketCrossOriginResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5DF16F941A4007BF85E /* S3SetBucketCrossOriginResponse.h */; };
+		CE8EF67E16F941A4007BF85E /* S3SetBucketLifecycleConfigurationRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5E016F941A4007BF85E /* S3SetBucketLifecycleConfigurationRequest.h */; };
+		CE8EF67F16F941A4007BF85E /* S3SetBucketLifecycleConfigurationResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5E116F941A4007BF85E /* S3SetBucketLifecycleConfigurationResponse.h */; };
+		CE8EF68016F941A4007BF85E /* S3SetBucketPolicyRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5E216F941A4007BF85E /* S3SetBucketPolicyRequest.h */; };
+		CE8EF68116F941A4007BF85E /* S3SetBucketPolicyResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5E316F941A4007BF85E /* S3SetBucketPolicyResponse.h */; };
+		CE8EF68216F941A4007BF85E /* S3SetBucketTaggingRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5E416F941A4007BF85E /* S3SetBucketTaggingRequest.h */; };
+		CE8EF68316F941A4007BF85E /* S3SetBucketTaggingResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5E516F941A4007BF85E /* S3SetBucketTaggingResponse.h */; };
+		CE8EF68416F941A4007BF85E /* S3SetBucketVersioningConfigurationRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5E616F941A4007BF85E /* S3SetBucketVersioningConfigurationRequest.h */; };
+		CE8EF68516F941A4007BF85E /* S3SetBucketVersioningConfigurationResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5E716F941A4007BF85E /* S3SetBucketVersioningConfigurationResponse.h */; };
+		CE8EF68616F941A4007BF85E /* S3SetBucketWebsiteConfigurationRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5E816F941A4007BF85E /* S3SetBucketWebsiteConfigurationRequest.h */; };
+		CE8EF68716F941A4007BF85E /* S3SetBucketWebsiteConfigurationResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5E916F941A4007BF85E /* S3SetBucketWebsiteConfigurationResponse.h */; };
+		CE8EF68816F941A4007BF85E /* S3TransferManager.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5EA16F941A4007BF85E /* S3TransferManager.h */; };
+		CE8EF68916F941A4007BF85E /* S3UploadInputStream.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5EB16F941A4007BF85E /* S3UploadInputStream.h */; };
+		CE8EF68A16F941A4007BF85E /* S3UploadPartRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5EC16F941A4007BF85E /* S3UploadPartRequest.h */; };
+		CE8EF68B16F941A4007BF85E /* S3UploadPartResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5ED16F941A4007BF85E /* S3UploadPartResponse.h */; };
+		CE8EF68C16F941A4007BF85E /* S3VersionSummary.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5EE16F941A4007BF85E /* S3VersionSummary.h */; };
+		CE8EF68D16F941A4007BF85E /* S3VersionSummaryUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF5EF16F941A4007BF85E /* S3VersionSummaryUnmarshaller.h */; };
+		CE96C1B7158BD58A0084D3CB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE96C1A9158BC2A70084D3CB /* MobileCoreServices.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0AFD8DC0128462A0004B7863 /* Framework.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Framework.plist; sourceTree = "<group>"; };
+		3830E61F1628801A000C443F /* S3RestoreObjectResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3RestoreObjectResponse.m; sourceTree = "<group>"; };
+		3830E6201628801A000C443F /* S3RestoreObjectRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3RestoreObjectRequest.m; sourceTree = "<group>"; };
+		38EFE7D1161F53FF0069348B /* AmazonS3Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AmazonS3Client.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		38EFE7D3161F53FF0069348B /* BucketWebsiteConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BucketWebsiteConfiguration.m; sourceTree = "<group>"; };
+		38EFE7D4161F53FF0069348B /* DeletedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeletedObject.m; sourceTree = "<group>"; };
+		38EFE7D5161F53FF0069348B /* DeleteError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteError.m; sourceTree = "<group>"; };
+		38EFE7D6161F53FF0069348B /* S3AbortMultipartUploadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3AbortMultipartUploadRequest.m; sourceTree = "<group>"; };
+		38EFE7D7161F53FF0069348B /* S3AbortMultipartUploadResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3AbortMultipartUploadResponse.m; sourceTree = "<group>"; };
+		38EFE7D8161F53FF0069348B /* S3AbstractPutRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3AbstractPutRequest.m; sourceTree = "<group>"; };
+		38EFE7D9161F53FF0069348B /* S3AccessControlList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3AccessControlList.m; sourceTree = "<group>"; };
+		38EFE7DA161F53FF0069348B /* S3AccessControlListUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3AccessControlListUnmarshaller.m; sourceTree = "<group>"; };
+		38EFE7DB161F53FF0069348B /* S3Bucket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3Bucket.m; sourceTree = "<group>"; };
+		38EFE7DC161F53FF0069348B /* S3BucketCrossOriginConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3BucketCrossOriginConfiguration.m; sourceTree = "<group>"; };
+		38EFE7DD161F53FF0069348B /* S3BucketCrossOriginConfigurationUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3BucketCrossOriginConfigurationUnmarshaller.m; sourceTree = "<group>"; };
+		38EFE7DE161F53FF0069348B /* S3BucketLifecycleConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3BucketLifecycleConfiguration.m; sourceTree = "<group>"; };
+		38EFE7DF161F53FF0069348B /* S3BucketLifecycleConfigurationRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3BucketLifecycleConfigurationRule.m; sourceTree = "<group>"; };
+		38EFE7E0161F53FF0069348B /* S3BucketLifecycleConfigurationRuleUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3BucketLifecycleConfigurationRuleUnmarshaller.m; sourceTree = "<group>"; };
+		38EFE7E1161F53FF0069348B /* S3BucketLifecycleConfigurationUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3BucketLifecycleConfigurationUnmarshaller.m; sourceTree = "<group>"; };
+		38EFE7E2161F53FF0069348B /* S3BucketNameUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3BucketNameUtilities.m; sourceTree = "<group>"; };
+		38EFE7E3161F53FF0069348B /* S3BucketPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3BucketPolicy.m; sourceTree = "<group>"; };
+		38EFE7E4161F53FF0069348B /* S3BucketTaggingConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3BucketTaggingConfiguration.m; sourceTree = "<group>"; };
+		38EFE7E5161F53FF0069348B /* S3BucketTaggingConfigurationUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3BucketTaggingConfigurationUnmarshaller.m; sourceTree = "<group>"; };
+		38EFE7E6161F53FF0069348B /* S3BucketTagSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3BucketTagSet.m; sourceTree = "<group>"; };
+		38EFE7E7161F53FF0069348B /* S3BucketTagSetUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3BucketTagSetUnmarshaller.m; sourceTree = "<group>"; };
+		38EFE7E8161F53FF0069348B /* S3BucketUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3BucketUnmarshaller.m; sourceTree = "<group>"; };
+		38EFE7E9161F53FF0069348B /* S3BucketVersioningConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3BucketVersioningConfiguration.m; sourceTree = "<group>"; };
+		38EFE7EA161F53FF0069348B /* S3BucketVersioningConfigurationUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3BucketVersioningConfigurationUnmarshaller.m; sourceTree = "<group>"; };
+		38EFE7EB161F53FF0069348B /* S3CannedACL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3CannedACL.m; sourceTree = "<group>"; };
+		38EFE7EC161F53FF0069348B /* S3CommonPrefixesUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3CommonPrefixesUnmarshaller.m; sourceTree = "<group>"; };
+		38EFE7ED161F53FF0069348B /* S3CompleteMultipartUploadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3CompleteMultipartUploadRequest.m; sourceTree = "<group>"; };
+		38EFE7EE161F53FF0069348B /* S3CompleteMultipartUploadResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3CompleteMultipartUploadResponse.m; sourceTree = "<group>"; };
+		38EFE7EF161F53FF0069348B /* S3CompleteMultipartUploadResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3CompleteMultipartUploadResult.m; sourceTree = "<group>"; };
+		38EFE7F0161F53FF0069348B /* S3CompleteMultipartUploadResultUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3CompleteMultipartUploadResultUnmarshaller.m; sourceTree = "<group>"; };
+		38EFE7F1161F53FF0069348B /* S3CopyObjectRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3CopyObjectRequest.m; sourceTree = "<group>"; };
+		38EFE7F2161F53FF0069348B /* S3CopyObjectResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3CopyObjectResponse.m; sourceTree = "<group>"; };
+		38EFE7F3161F53FF0069348B /* S3CopyObjectResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3CopyObjectResult.m; sourceTree = "<group>"; };
+		38EFE7F4161F53FF0069348B /* S3CopyObjectResultUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3CopyObjectResultUnmarshaller.m; sourceTree = "<group>"; };
+		38EFE7F5161F53FF0069348B /* S3CopyPartRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3CopyPartRequest.m; sourceTree = "<group>"; };
+		38EFE7F6161F53FF0069348B /* S3CopyPartResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3CopyPartResponse.m; sourceTree = "<group>"; };
+		38EFE7F7161F53FF0069348B /* S3CopyPartResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3CopyPartResult.m; sourceTree = "<group>"; };
+		38EFE7F8161F53FF0069348B /* S3CopyPartResultUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3CopyPartResultUnmarshaller.m; sourceTree = "<group>"; };
+		38EFE7F9161F53FF0069348B /* S3CORSRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3CORSRule.m; sourceTree = "<group>"; };
+		38EFE7FA161F53FF0069348B /* S3CORSRuleUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3CORSRuleUnmarshaller.m; sourceTree = "<group>"; };
+		38EFE7FB161F53FF0069348B /* S3CreateBucketRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3CreateBucketRequest.m; sourceTree = "<group>"; };
+		38EFE7FC161F53FF0069348B /* S3CreateBucketResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3CreateBucketResponse.m; sourceTree = "<group>"; };
+		38EFE7FD161F53FF0069348B /* S3DeleteBucketCrossOriginRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3DeleteBucketCrossOriginRequest.m; sourceTree = "<group>"; };
+		38EFE7FE161F53FF0069348B /* S3DeleteBucketCrossOriginResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3DeleteBucketCrossOriginResponse.m; sourceTree = "<group>"; };
+		38EFE7FF161F53FF0069348B /* S3DeleteBucketLifecycleConfigurationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3DeleteBucketLifecycleConfigurationRequest.m; sourceTree = "<group>"; };
+		38EFE800161F53FF0069348B /* S3DeleteBucketLifecycleConfigurationResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3DeleteBucketLifecycleConfigurationResponse.m; sourceTree = "<group>"; };
+		38EFE801161F53FF0069348B /* S3DeleteBucketPolicyRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3DeleteBucketPolicyRequest.m; sourceTree = "<group>"; };
+		38EFE802161F53FF0069348B /* S3DeleteBucketPolicyResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3DeleteBucketPolicyResponse.m; sourceTree = "<group>"; };
+		38EFE803161F53FF0069348B /* S3DeleteBucketRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3DeleteBucketRequest.m; sourceTree = "<group>"; };
+		38EFE804161F53FF0069348B /* S3DeleteBucketResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3DeleteBucketResponse.m; sourceTree = "<group>"; };
+		38EFE805161F53FF0069348B /* S3DeleteBucketTaggingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3DeleteBucketTaggingRequest.m; sourceTree = "<group>"; };
+		38EFE806161F53FF0069348B /* S3DeleteBucketTaggingResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3DeleteBucketTaggingResponse.m; sourceTree = "<group>"; };
+		38EFE807161F53FF0069348B /* S3DeleteBucketWebsiteConfigurationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3DeleteBucketWebsiteConfigurationRequest.m; sourceTree = "<group>"; };
+		38EFE808161F53FF0069348B /* S3DeleteBucketWebsiteConfigurationResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3DeleteBucketWebsiteConfigurationResponse.m; sourceTree = "<group>"; };
+		38EFE809161F53FF0069348B /* S3DeletedObjectUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3DeletedObjectUnmarshaller.m; sourceTree = "<group>"; };
+		38EFE80A161F53FF0069348B /* S3DeleteErrorUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3DeleteErrorUnmarshaller.m; sourceTree = "<group>"; };
+		38EFE80B161F53FF0069348B /* S3DeleteObjectRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3DeleteObjectRequest.m; sourceTree = "<group>"; };
+		38EFE80C161F53FF0069348B /* S3DeleteObjectResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3DeleteObjectResponse.m; sourceTree = "<group>"; };
+		38EFE80D161F53FF0069348B /* S3DeleteObjectsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3DeleteObjectsRequest.m; sourceTree = "<group>"; };
+		38EFE80E161F53FF0069348B /* S3DeleteObjectsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3DeleteObjectsResponse.m; sourceTree = "<group>"; };
+		38EFE80F161F53FF0069348B /* S3DeleteObjectsResultUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3DeleteObjectsResultUnmarshaller.m; sourceTree = "<group>"; };
+		38EFE810161F53FF0069348B /* S3DeleteVersionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3DeleteVersionRequest.m; sourceTree = "<group>"; };
+		38EFE811161F53FF0069348B /* S3DeleteVersionResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3DeleteVersionResponse.m; sourceTree = "<group>"; };
+		38EFE812161F53FF0069348B /* S3ErrorResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3ErrorResponseHandler.m; sourceTree = "<group>"; };
+		38EFE813161F53FF0069348B /* S3GetACLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3GetACLRequest.m; sourceTree = "<group>"; };
+		38EFE814161F53FF0069348B /* S3GetACLResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3GetACLResponse.m; sourceTree = "<group>"; };
+		38EFE815161F53FF0069348B /* S3GetBucketCrossOriginRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3GetBucketCrossOriginRequest.m; sourceTree = "<group>"; };
+		38EFE816161F53FF0069348B /* S3GetBucketCrossOriginResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3GetBucketCrossOriginResponse.m; sourceTree = "<group>"; };
+		38EFE817161F53FF0069348B /* S3GetBucketLifecycleConfigurationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3GetBucketLifecycleConfigurationRequest.m; sourceTree = "<group>"; };
+		38EFE818161F53FF0069348B /* S3GetBucketLifecycleConfigurationResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3GetBucketLifecycleConfigurationResponse.m; sourceTree = "<group>"; };
+		38EFE819161F53FF0069348B /* S3GetBucketPolicyRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3GetBucketPolicyRequest.m; sourceTree = "<group>"; };
+		38EFE81A161F53FF0069348B /* S3GetBucketPolicyResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3GetBucketPolicyResponse.m; sourceTree = "<group>"; };
+		38EFE81B161F53FF0069348B /* S3GetBucketTaggingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3GetBucketTaggingRequest.m; sourceTree = "<group>"; };
+		38EFE81C161F53FF0069348B /* S3GetBucketTaggingResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3GetBucketTaggingResponse.m; sourceTree = "<group>"; };
+		38EFE81D161F53FF0069348B /* S3GetBucketVersioningConfigurationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3GetBucketVersioningConfigurationRequest.m; sourceTree = "<group>"; };
+		38EFE81E161F53FF0069348B /* S3GetBucketVersioningConfigurationResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3GetBucketVersioningConfigurationResponse.m; sourceTree = "<group>"; };
+		38EFE81F161F53FF0069348B /* S3GetBucketWebsiteConfigurationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3GetBucketWebsiteConfigurationRequest.m; sourceTree = "<group>"; };
+		38EFE820161F53FF0069348B /* S3GetBucketWebsiteConfigurationResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3GetBucketWebsiteConfigurationResponse.m; sourceTree = "<group>"; };
+		38EFE821161F53FF0069348B /* S3GetBucketWebsiteConfigurationResultUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3GetBucketWebsiteConfigurationResultUnmarshaller.m; sourceTree = "<group>"; };
+		38EFE822161F53FF0069348B /* S3GetObjectMetadataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3GetObjectMetadataRequest.m; sourceTree = "<group>"; };
+		38EFE823161F53FF0069348B /* S3GetObjectMetadataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3GetObjectMetadataResponse.m; sourceTree = "<group>"; };
+		38EFE824161F53FF0069348B /* S3GetObjectRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3GetObjectRequest.m; sourceTree = "<group>"; };
+		38EFE825161F53FF0069348B /* S3GetObjectResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3GetObjectResponse.m; sourceTree = "<group>"; };
+		38EFE826161F53FF0069348B /* S3GetPreSignedURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3GetPreSignedURLRequest.m; sourceTree = "<group>"; };
+		38EFE827161F53FF0069348B /* S3Grant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3Grant.m; sourceTree = "<group>"; };
+		38EFE828161F53FF0069348B /* S3Grantee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3Grantee.m; sourceTree = "<group>"; };
+		38EFE829161F53FF0069348B /* S3GrantUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3GrantUnmarshaller.m; sourceTree = "<group>"; };
+		38EFE82A161F53FF0069348B /* S3InitiateMultipartUploadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3InitiateMultipartUploadRequest.m; sourceTree = "<group>"; };
+		38EFE82B161F53FF0069348B /* S3InitiateMultipartUploadResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3InitiateMultipartUploadResponse.m; sourceTree = "<group>"; };
+		38EFE82C161F53FF0069348B /* S3InitiateMultipartUploadResultUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3InitiateMultipartUploadResultUnmarshaller.m; sourceTree = "<group>"; };
+		38EFE82D161F53FF0069348B /* S3KeyVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3KeyVersion.m; sourceTree = "<group>"; };
+		38EFE82E161F53FF0069348B /* S3ListBucketResultUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3ListBucketResultUnmarshaller.m; sourceTree = "<group>"; };
+		38EFE82F161F53FF0069348B /* S3ListBucketsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3ListBucketsRequest.m; sourceTree = "<group>"; };
+		38EFE830161F53FF0069348B /* S3ListBucketsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3ListBucketsResponse.m; sourceTree = "<group>"; };
+		38EFE831161F53FF0069348B /* S3ListBucketsResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3ListBucketsResult.m; sourceTree = "<group>"; };
+		38EFE832161F53FF0069348B /* S3ListBucketsResultUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3ListBucketsResultUnmarshaller.m; sourceTree = "<group>"; };
+		38EFE833161F53FF0069348B /* S3ListMultipartUploadsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3ListMultipartUploadsRequest.m; sourceTree = "<group>"; };
+		38EFE834161F53FF0069348B /* S3ListMultipartUploadsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3ListMultipartUploadsResponse.m; sourceTree = "<group>"; };
+		38EFE835161F53FF0069348B /* S3ListMultipartUploadsResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3ListMultipartUploadsResult.m; sourceTree = "<group>"; };
+		38EFE836161F53FF0069348B /* S3ListMultipartUploadsResultUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3ListMultipartUploadsResultUnmarshaller.m; sourceTree = "<group>"; };
+		38EFE837161F53FF0069348B /* S3ListObjectsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3ListObjectsRequest.m; sourceTree = "<group>"; };
+		38EFE838161F53FF0069348B /* S3ListObjectsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3ListObjectsResponse.m; sourceTree = "<group>"; };
+		38EFE839161F53FF0069348B /* S3ListObjectsResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3ListObjectsResult.m; sourceTree = "<group>"; };
+		38EFE83A161F53FF0069348B /* S3ListPartsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3ListPartsRequest.m; sourceTree = "<group>"; };
+		38EFE83B161F53FF0069348B /* S3ListPartsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3ListPartsResponse.m; sourceTree = "<group>"; };
+		38EFE83C161F53FF0069348B /* S3ListPartsResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3ListPartsResult.m; sourceTree = "<group>"; };
+		38EFE83D161F53FF0069348B /* S3ListPartsResultUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3ListPartsResultUnmarshaller.m; sourceTree = "<group>"; };
+		38EFE83E161F53FF0069348B /* S3ListVersionsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3ListVersionsRequest.m; sourceTree = "<group>"; };
+		38EFE83F161F53FF0069348B /* S3ListVersionsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3ListVersionsResponse.m; sourceTree = "<group>"; };
+		38EFE840161F53FF0069348B /* S3ListVersionsResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3ListVersionsResult.m; sourceTree = "<group>"; };
+		38EFE841161F53FF0069348B /* S3ListVersionsResultUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3ListVersionsResultUnmarshaller.m; sourceTree = "<group>"; };
+		38EFE842161F53FF0069348B /* S3LocationConstraintUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3LocationConstraintUnmarshaller.m; sourceTree = "<group>"; };
+		38EFE843161F53FF0069348B /* S3MultiFactorAuthentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3MultiFactorAuthentication.m; sourceTree = "<group>"; };
+		38EFE844161F53FF0069348B /* S3MultipartUpload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3MultipartUpload.m; sourceTree = "<group>"; };
+		38EFE845161F53FF0069348B /* S3MultipartUploadUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3MultipartUploadUnmarshaller.m; sourceTree = "<group>"; };
+		38EFE846161F53FF0069348B /* S3ObjectSummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3ObjectSummary.m; sourceTree = "<group>"; };
+		38EFE847161F53FF0069348B /* S3ObjectSummaryUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3ObjectSummaryUnmarshaller.m; sourceTree = "<group>"; };
+		38EFE848161F53FF0069348B /* S3Owner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3Owner.m; sourceTree = "<group>"; };
+		38EFE849161F53FF0069348B /* S3OwnerUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3OwnerUnmarshaller.m; sourceTree = "<group>"; };
+		38EFE84A161F53FF0069348B /* S3Part.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3Part.m; sourceTree = "<group>"; };
+		38EFE84B161F53FF0069348B /* S3PartUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3PartUnmarshaller.m; sourceTree = "<group>"; };
+		38EFE84C161F53FF0069348B /* S3Permission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3Permission.m; sourceTree = "<group>"; };
+		38EFE84D161F53FF0069348B /* S3PutObjectRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3PutObjectRequest.m; sourceTree = "<group>"; };
+		38EFE84E161F53FF0069348B /* S3PutObjectResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3PutObjectResponse.m; sourceTree = "<group>"; };
+		38EFE84F161F53FF0069348B /* S3Region.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3Region.m; sourceTree = "<group>"; };
+		38EFE850161F53FF0069348B /* S3Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3Request.m; sourceTree = "<group>"; };
+		38EFE851161F53FF0069348B /* S3Response.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3Response.m; sourceTree = "<group>"; };
+		38EFE852161F53FF0069348B /* S3ResponseHeaderOverrides.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3ResponseHeaderOverrides.m; sourceTree = "<group>"; };
+		38EFE853161F53FF0069348B /* S3SetACLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3SetACLRequest.m; sourceTree = "<group>"; };
+		38EFE854161F53FF0069348B /* S3SetACLResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3SetACLResponse.m; sourceTree = "<group>"; };
+		38EFE855161F53FF0069348B /* S3SetBucketCrossOriginRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3SetBucketCrossOriginRequest.m; sourceTree = "<group>"; };
+		38EFE856161F53FF0069348B /* S3SetBucketCrossOriginResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3SetBucketCrossOriginResponse.m; sourceTree = "<group>"; };
+		38EFE857161F53FF0069348B /* S3SetBucketLifecycleConfigurationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3SetBucketLifecycleConfigurationRequest.m; sourceTree = "<group>"; };
+		38EFE858161F53FF0069348B /* S3SetBucketLifecycleConfigurationResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3SetBucketLifecycleConfigurationResponse.m; sourceTree = "<group>"; };
+		38EFE859161F53FF0069348B /* S3SetBucketPolicyRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3SetBucketPolicyRequest.m; sourceTree = "<group>"; };
+		38EFE85A161F53FF0069348B /* S3SetBucketPolicyResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3SetBucketPolicyResponse.m; sourceTree = "<group>"; };
+		38EFE85B161F53FF0069348B /* S3SetBucketTaggingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3SetBucketTaggingRequest.m; sourceTree = "<group>"; };
+		38EFE85C161F53FF0069348B /* S3SetBucketTaggingResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3SetBucketTaggingResponse.m; sourceTree = "<group>"; };
+		38EFE85D161F53FF0069348B /* S3SetBucketVersioningConfigurationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3SetBucketVersioningConfigurationRequest.m; sourceTree = "<group>"; };
+		38EFE85E161F53FF0069348B /* S3SetBucketVersioningConfigurationResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3SetBucketVersioningConfigurationResponse.m; sourceTree = "<group>"; };
+		38EFE85F161F53FF0069348B /* S3SetBucketWebsiteConfigurationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3SetBucketWebsiteConfigurationRequest.m; sourceTree = "<group>"; };
+		38EFE860161F53FF0069348B /* S3SetBucketWebsiteConfigurationResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3SetBucketWebsiteConfigurationResponse.m; sourceTree = "<group>"; };
+		38EFE861161F53FF0069348B /* S3UploadInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3UploadInputStream.m; sourceTree = "<group>"; };
+		38EFE862161F53FF0069348B /* S3UploadPartRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3UploadPartRequest.m; sourceTree = "<group>"; };
+		38EFE863161F53FF0069348B /* S3UploadPartResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3UploadPartResponse.m; sourceTree = "<group>"; };
+		38EFE864161F53FF0069348B /* S3VersionSummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3VersionSummary.m; sourceTree = "<group>"; };
+		38EFE865161F53FF0069348B /* S3VersionSummaryUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3VersionSummaryUnmarshaller.m; sourceTree = "<group>"; };
+		38EFF1751625DC390069348B /* S3BucketLifecycleConfigurationTransitionUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3BucketLifecycleConfigurationTransitionUnmarshaller.m; sourceTree = "<group>"; };
+		38EFF1761625DC390069348B /* S3BucketLifecycleConfigurationTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3BucketLifecycleConfigurationTransition.m; sourceTree = "<group>"; };
+		AA747D9E0F9514B9006C5449 /* S3_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3_Prefix.pch; sourceTree = "<group>"; };
+		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CE2BF33616CB32C2005189A8 /* S3AbortMultiplartUploadsOperation_Internal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3AbortMultiplartUploadsOperation_Internal.m; sourceTree = "<group>"; };
+		CE2BF33816CB32C2005189A8 /* S3MultipartUploadOperation_Internal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3MultipartUploadOperation_Internal.m; sourceTree = "<group>"; };
+		CE2BF33A16CB32C2005189A8 /* S3PutObjectOperation_Internal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3PutObjectOperation_Internal.m; sourceTree = "<group>"; };
+		CE2BF34116CB32CF005189A8 /* S3TransferManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3TransferManager.m; sourceTree = "<group>"; };
+		CE2CDBFD17036F640013DE5F /* AWSS3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSS3.h; path = S3/AWSS3.h; sourceTree = "<group>"; };
+		CE8EF55216F941A3007BF85E /* AmazonS3Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmazonS3Client.h; path = S3/AmazonS3Client.h; sourceTree = "<group>"; };
+		CE8EF55316F941A3007BF85E /* BucketWebsiteConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BucketWebsiteConfiguration.h; path = S3/BucketWebsiteConfiguration.h; sourceTree = "<group>"; };
+		CE8EF55416F941A3007BF85E /* DeletedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeletedObject.h; path = S3/DeletedObject.h; sourceTree = "<group>"; };
+		CE8EF55516F941A3007BF85E /* DeleteError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeleteError.h; path = S3/DeleteError.h; sourceTree = "<group>"; };
+		CE8EF55616F941A3007BF85E /* S3AbortMultipartUploadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3AbortMultipartUploadRequest.h; path = S3/S3AbortMultipartUploadRequest.h; sourceTree = "<group>"; };
+		CE8EF55716F941A3007BF85E /* S3AbortMultipartUploadResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3AbortMultipartUploadResponse.h; path = S3/S3AbortMultipartUploadResponse.h; sourceTree = "<group>"; };
+		CE8EF55816F941A3007BF85E /* S3AbortMultiplartUploadsOperation_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3AbortMultiplartUploadsOperation_Internal.h; path = S3/S3AbortMultiplartUploadsOperation_Internal.h; sourceTree = "<group>"; };
+		CE8EF55916F941A3007BF85E /* S3AbstractPutRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3AbstractPutRequest.h; path = S3/S3AbstractPutRequest.h; sourceTree = "<group>"; };
+		CE8EF55A16F941A3007BF85E /* S3AccessControlList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3AccessControlList.h; path = S3/S3AccessControlList.h; sourceTree = "<group>"; };
+		CE8EF55B16F941A3007BF85E /* S3AccessControlListUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3AccessControlListUnmarshaller.h; path = S3/S3AccessControlListUnmarshaller.h; sourceTree = "<group>"; };
+		CE8EF55C16F941A3007BF85E /* S3Bucket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3Bucket.h; path = S3/S3Bucket.h; sourceTree = "<group>"; };
+		CE8EF55D16F941A3007BF85E /* S3BucketCrossOriginConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3BucketCrossOriginConfiguration.h; path = S3/S3BucketCrossOriginConfiguration.h; sourceTree = "<group>"; };
+		CE8EF55E16F941A3007BF85E /* S3BucketCrossOriginConfigurationUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3BucketCrossOriginConfigurationUnmarshaller.h; path = S3/S3BucketCrossOriginConfigurationUnmarshaller.h; sourceTree = "<group>"; };
+		CE8EF55F16F941A3007BF85E /* S3BucketLifecycleConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3BucketLifecycleConfiguration.h; path = S3/S3BucketLifecycleConfiguration.h; sourceTree = "<group>"; };
+		CE8EF56016F941A3007BF85E /* S3BucketLifecycleConfigurationRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3BucketLifecycleConfigurationRule.h; path = S3/S3BucketLifecycleConfigurationRule.h; sourceTree = "<group>"; };
+		CE8EF56116F941A3007BF85E /* S3BucketLifecycleConfigurationRuleUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3BucketLifecycleConfigurationRuleUnmarshaller.h; path = S3/S3BucketLifecycleConfigurationRuleUnmarshaller.h; sourceTree = "<group>"; };
+		CE8EF56216F941A3007BF85E /* S3BucketLifecycleConfigurationTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3BucketLifecycleConfigurationTransition.h; path = S3/S3BucketLifecycleConfigurationTransition.h; sourceTree = "<group>"; };
+		CE8EF56316F941A3007BF85E /* S3BucketLifecycleConfigurationTransitionUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3BucketLifecycleConfigurationTransitionUnmarshaller.h; path = S3/S3BucketLifecycleConfigurationTransitionUnmarshaller.h; sourceTree = "<group>"; };
+		CE8EF56416F941A3007BF85E /* S3BucketLifecycleConfigurationUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3BucketLifecycleConfigurationUnmarshaller.h; path = S3/S3BucketLifecycleConfigurationUnmarshaller.h; sourceTree = "<group>"; };
+		CE8EF56516F941A3007BF85E /* S3BucketNameUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3BucketNameUtilities.h; path = S3/S3BucketNameUtilities.h; sourceTree = "<group>"; };
+		CE8EF56616F941A3007BF85E /* S3BucketPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3BucketPolicy.h; path = S3/S3BucketPolicy.h; sourceTree = "<group>"; };
+		CE8EF56716F941A3007BF85E /* S3BucketTaggingConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3BucketTaggingConfiguration.h; path = S3/S3BucketTaggingConfiguration.h; sourceTree = "<group>"; };
+		CE8EF56816F941A3007BF85E /* S3BucketTaggingConfigurationUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3BucketTaggingConfigurationUnmarshaller.h; path = S3/S3BucketTaggingConfigurationUnmarshaller.h; sourceTree = "<group>"; };
+		CE8EF56916F941A3007BF85E /* S3BucketTagSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3BucketTagSet.h; path = S3/S3BucketTagSet.h; sourceTree = "<group>"; };
+		CE8EF56A16F941A3007BF85E /* S3BucketTagSetUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3BucketTagSetUnmarshaller.h; path = S3/S3BucketTagSetUnmarshaller.h; sourceTree = "<group>"; };
+		CE8EF56B16F941A4007BF85E /* S3BucketUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3BucketUnmarshaller.h; path = S3/S3BucketUnmarshaller.h; sourceTree = "<group>"; };
+		CE8EF56C16F941A4007BF85E /* S3BucketVersioningConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3BucketVersioningConfiguration.h; path = S3/S3BucketVersioningConfiguration.h; sourceTree = "<group>"; };
+		CE8EF56D16F941A4007BF85E /* S3BucketVersioningConfigurationUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3BucketVersioningConfigurationUnmarshaller.h; path = S3/S3BucketVersioningConfigurationUnmarshaller.h; sourceTree = "<group>"; };
+		CE8EF56E16F941A4007BF85E /* S3CannedACL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3CannedACL.h; path = S3/S3CannedACL.h; sourceTree = "<group>"; };
+		CE8EF56F16F941A4007BF85E /* S3CommonPrefixesUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3CommonPrefixesUnmarshaller.h; path = S3/S3CommonPrefixesUnmarshaller.h; sourceTree = "<group>"; };
+		CE8EF57016F941A4007BF85E /* S3CompleteMultipartUploadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3CompleteMultipartUploadRequest.h; path = S3/S3CompleteMultipartUploadRequest.h; sourceTree = "<group>"; };
+		CE8EF57116F941A4007BF85E /* S3CompleteMultipartUploadResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3CompleteMultipartUploadResponse.h; path = S3/S3CompleteMultipartUploadResponse.h; sourceTree = "<group>"; };
+		CE8EF57216F941A4007BF85E /* S3CompleteMultipartUploadResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3CompleteMultipartUploadResult.h; path = S3/S3CompleteMultipartUploadResult.h; sourceTree = "<group>"; };
+		CE8EF57316F941A4007BF85E /* S3CompleteMultipartUploadResultUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3CompleteMultipartUploadResultUnmarshaller.h; path = S3/S3CompleteMultipartUploadResultUnmarshaller.h; sourceTree = "<group>"; };
+		CE8EF57416F941A4007BF85E /* S3Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3Constants.h; path = S3/S3Constants.h; sourceTree = "<group>"; };
+		CE8EF57516F941A4007BF85E /* S3CopyObjectRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3CopyObjectRequest.h; path = S3/S3CopyObjectRequest.h; sourceTree = "<group>"; };
+		CE8EF57616F941A4007BF85E /* S3CopyObjectResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3CopyObjectResponse.h; path = S3/S3CopyObjectResponse.h; sourceTree = "<group>"; };
+		CE8EF57716F941A4007BF85E /* S3CopyObjectResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3CopyObjectResult.h; path = S3/S3CopyObjectResult.h; sourceTree = "<group>"; };
+		CE8EF57816F941A4007BF85E /* S3CopyObjectResultUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3CopyObjectResultUnmarshaller.h; path = S3/S3CopyObjectResultUnmarshaller.h; sourceTree = "<group>"; };
+		CE8EF57916F941A4007BF85E /* S3CopyPartRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3CopyPartRequest.h; path = S3/S3CopyPartRequest.h; sourceTree = "<group>"; };
+		CE8EF57A16F941A4007BF85E /* S3CopyPartResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3CopyPartResponse.h; path = S3/S3CopyPartResponse.h; sourceTree = "<group>"; };
+		CE8EF57B16F941A4007BF85E /* S3CopyPartResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3CopyPartResult.h; path = S3/S3CopyPartResult.h; sourceTree = "<group>"; };
+		CE8EF57C16F941A4007BF85E /* S3CopyPartResultUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3CopyPartResultUnmarshaller.h; path = S3/S3CopyPartResultUnmarshaller.h; sourceTree = "<group>"; };
+		CE8EF57D16F941A4007BF85E /* S3CORSRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3CORSRule.h; path = S3/S3CORSRule.h; sourceTree = "<group>"; };
+		CE8EF57E16F941A4007BF85E /* S3CORSRuleUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3CORSRuleUnmarshaller.h; path = S3/S3CORSRuleUnmarshaller.h; sourceTree = "<group>"; };
+		CE8EF57F16F941A4007BF85E /* S3CreateBucketRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3CreateBucketRequest.h; path = S3/S3CreateBucketRequest.h; sourceTree = "<group>"; };
+		CE8EF58016F941A4007BF85E /* S3CreateBucketResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3CreateBucketResponse.h; path = S3/S3CreateBucketResponse.h; sourceTree = "<group>"; };
+		CE8EF58116F941A4007BF85E /* S3DeleteBucketCrossOriginRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3DeleteBucketCrossOriginRequest.h; path = S3/S3DeleteBucketCrossOriginRequest.h; sourceTree = "<group>"; };
+		CE8EF58216F941A4007BF85E /* S3DeleteBucketCrossOriginResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3DeleteBucketCrossOriginResponse.h; path = S3/S3DeleteBucketCrossOriginResponse.h; sourceTree = "<group>"; };
+		CE8EF58316F941A4007BF85E /* S3DeleteBucketLifecycleConfigurationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3DeleteBucketLifecycleConfigurationRequest.h; path = S3/S3DeleteBucketLifecycleConfigurationRequest.h; sourceTree = "<group>"; };
+		CE8EF58416F941A4007BF85E /* S3DeleteBucketLifecycleConfigurationResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3DeleteBucketLifecycleConfigurationResponse.h; path = S3/S3DeleteBucketLifecycleConfigurationResponse.h; sourceTree = "<group>"; };
+		CE8EF58516F941A4007BF85E /* S3DeleteBucketPolicyRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3DeleteBucketPolicyRequest.h; path = S3/S3DeleteBucketPolicyRequest.h; sourceTree = "<group>"; };
+		CE8EF58616F941A4007BF85E /* S3DeleteBucketPolicyResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3DeleteBucketPolicyResponse.h; path = S3/S3DeleteBucketPolicyResponse.h; sourceTree = "<group>"; };
+		CE8EF58716F941A4007BF85E /* S3DeleteBucketRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3DeleteBucketRequest.h; path = S3/S3DeleteBucketRequest.h; sourceTree = "<group>"; };
+		CE8EF58816F941A4007BF85E /* S3DeleteBucketResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3DeleteBucketResponse.h; path = S3/S3DeleteBucketResponse.h; sourceTree = "<group>"; };
+		CE8EF58916F941A4007BF85E /* S3DeleteBucketTaggingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3DeleteBucketTaggingRequest.h; path = S3/S3DeleteBucketTaggingRequest.h; sourceTree = "<group>"; };
+		CE8EF58A16F941A4007BF85E /* S3DeleteBucketTaggingResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3DeleteBucketTaggingResponse.h; path = S3/S3DeleteBucketTaggingResponse.h; sourceTree = "<group>"; };
+		CE8EF58B16F941A4007BF85E /* S3DeleteBucketWebsiteConfigurationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3DeleteBucketWebsiteConfigurationRequest.h; path = S3/S3DeleteBucketWebsiteConfigurationRequest.h; sourceTree = "<group>"; };
+		CE8EF58C16F941A4007BF85E /* S3DeleteBucketWebsiteConfigurationResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3DeleteBucketWebsiteConfigurationResponse.h; path = S3/S3DeleteBucketWebsiteConfigurationResponse.h; sourceTree = "<group>"; };
+		CE8EF58D16F941A4007BF85E /* S3DeletedObjectUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3DeletedObjectUnmarshaller.h; path = S3/S3DeletedObjectUnmarshaller.h; sourceTree = "<group>"; };
+		CE8EF58E16F941A4007BF85E /* S3DeleteErrorUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3DeleteErrorUnmarshaller.h; path = S3/S3DeleteErrorUnmarshaller.h; sourceTree = "<group>"; };
+		CE8EF58F16F941A4007BF85E /* S3DeleteObjectRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3DeleteObjectRequest.h; path = S3/S3DeleteObjectRequest.h; sourceTree = "<group>"; };
+		CE8EF59016F941A4007BF85E /* S3DeleteObjectResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3DeleteObjectResponse.h; path = S3/S3DeleteObjectResponse.h; sourceTree = "<group>"; };
+		CE8EF59116F941A4007BF85E /* S3DeleteObjectsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3DeleteObjectsRequest.h; path = S3/S3DeleteObjectsRequest.h; sourceTree = "<group>"; };
+		CE8EF59216F941A4007BF85E /* S3DeleteObjectsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3DeleteObjectsResponse.h; path = S3/S3DeleteObjectsResponse.h; sourceTree = "<group>"; };
+		CE8EF59316F941A4007BF85E /* S3DeleteObjectsResultUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3DeleteObjectsResultUnmarshaller.h; path = S3/S3DeleteObjectsResultUnmarshaller.h; sourceTree = "<group>"; };
+		CE8EF59416F941A4007BF85E /* S3DeleteVersionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3DeleteVersionRequest.h; path = S3/S3DeleteVersionRequest.h; sourceTree = "<group>"; };
+		CE8EF59516F941A4007BF85E /* S3DeleteVersionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3DeleteVersionResponse.h; path = S3/S3DeleteVersionResponse.h; sourceTree = "<group>"; };
+		CE8EF59616F941A4007BF85E /* S3ErrorResponseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3ErrorResponseHandler.h; path = S3/S3ErrorResponseHandler.h; sourceTree = "<group>"; };
+		CE8EF59716F941A4007BF85E /* S3GetACLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3GetACLRequest.h; path = S3/S3GetACLRequest.h; sourceTree = "<group>"; };
+		CE8EF59816F941A4007BF85E /* S3GetACLResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3GetACLResponse.h; path = S3/S3GetACLResponse.h; sourceTree = "<group>"; };
+		CE8EF59916F941A4007BF85E /* S3GetBucketCrossOriginRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3GetBucketCrossOriginRequest.h; path = S3/S3GetBucketCrossOriginRequest.h; sourceTree = "<group>"; };
+		CE8EF59A16F941A4007BF85E /* S3GetBucketCrossOriginResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3GetBucketCrossOriginResponse.h; path = S3/S3GetBucketCrossOriginResponse.h; sourceTree = "<group>"; };
+		CE8EF59B16F941A4007BF85E /* S3GetBucketLifecycleConfigurationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3GetBucketLifecycleConfigurationRequest.h; path = S3/S3GetBucketLifecycleConfigurationRequest.h; sourceTree = "<group>"; };
+		CE8EF59C16F941A4007BF85E /* S3GetBucketLifecycleConfigurationResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3GetBucketLifecycleConfigurationResponse.h; path = S3/S3GetBucketLifecycleConfigurationResponse.h; sourceTree = "<group>"; };
+		CE8EF59D16F941A4007BF85E /* S3GetBucketPolicyRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3GetBucketPolicyRequest.h; path = S3/S3GetBucketPolicyRequest.h; sourceTree = "<group>"; };
+		CE8EF59E16F941A4007BF85E /* S3GetBucketPolicyResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3GetBucketPolicyResponse.h; path = S3/S3GetBucketPolicyResponse.h; sourceTree = "<group>"; };
+		CE8EF59F16F941A4007BF85E /* S3GetBucketTaggingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3GetBucketTaggingRequest.h; path = S3/S3GetBucketTaggingRequest.h; sourceTree = "<group>"; };
+		CE8EF5A016F941A4007BF85E /* S3GetBucketTaggingResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3GetBucketTaggingResponse.h; path = S3/S3GetBucketTaggingResponse.h; sourceTree = "<group>"; };
+		CE8EF5A116F941A4007BF85E /* S3GetBucketVersioningConfigurationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3GetBucketVersioningConfigurationRequest.h; path = S3/S3GetBucketVersioningConfigurationRequest.h; sourceTree = "<group>"; };
+		CE8EF5A216F941A4007BF85E /* S3GetBucketVersioningConfigurationResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3GetBucketVersioningConfigurationResponse.h; path = S3/S3GetBucketVersioningConfigurationResponse.h; sourceTree = "<group>"; };
+		CE8EF5A316F941A4007BF85E /* S3GetBucketWebsiteConfigurationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3GetBucketWebsiteConfigurationRequest.h; path = S3/S3GetBucketWebsiteConfigurationRequest.h; sourceTree = "<group>"; };
+		CE8EF5A416F941A4007BF85E /* S3GetBucketWebsiteConfigurationResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3GetBucketWebsiteConfigurationResponse.h; path = S3/S3GetBucketWebsiteConfigurationResponse.h; sourceTree = "<group>"; };
+		CE8EF5A516F941A4007BF85E /* S3GetBucketWebsiteConfigurationResultUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3GetBucketWebsiteConfigurationResultUnmarshaller.h; path = S3/S3GetBucketWebsiteConfigurationResultUnmarshaller.h; sourceTree = "<group>"; };
+		CE8EF5A616F941A4007BF85E /* S3GetObjectMetadataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3GetObjectMetadataRequest.h; path = S3/S3GetObjectMetadataRequest.h; sourceTree = "<group>"; };
+		CE8EF5A716F941A4007BF85E /* S3GetObjectMetadataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3GetObjectMetadataResponse.h; path = S3/S3GetObjectMetadataResponse.h; sourceTree = "<group>"; };
+		CE8EF5A816F941A4007BF85E /* S3GetObjectRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3GetObjectRequest.h; path = S3/S3GetObjectRequest.h; sourceTree = "<group>"; };
+		CE8EF5A916F941A4007BF85E /* S3GetObjectResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3GetObjectResponse.h; path = S3/S3GetObjectResponse.h; sourceTree = "<group>"; };
+		CE8EF5AA16F941A4007BF85E /* S3GetPreSignedURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3GetPreSignedURLRequest.h; path = S3/S3GetPreSignedURLRequest.h; sourceTree = "<group>"; };
+		CE8EF5AB16F941A4007BF85E /* S3Grant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3Grant.h; path = S3/S3Grant.h; sourceTree = "<group>"; };
+		CE8EF5AC16F941A4007BF85E /* S3Grantee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3Grantee.h; path = S3/S3Grantee.h; sourceTree = "<group>"; };
+		CE8EF5AD16F941A4007BF85E /* S3GrantUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3GrantUnmarshaller.h; path = S3/S3GrantUnmarshaller.h; sourceTree = "<group>"; };
+		CE8EF5AE16F941A4007BF85E /* S3InitiateMultipartUploadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3InitiateMultipartUploadRequest.h; path = S3/S3InitiateMultipartUploadRequest.h; sourceTree = "<group>"; };
+		CE8EF5AF16F941A4007BF85E /* S3InitiateMultipartUploadResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3InitiateMultipartUploadResponse.h; path = S3/S3InitiateMultipartUploadResponse.h; sourceTree = "<group>"; };
+		CE8EF5B016F941A4007BF85E /* S3InitiateMultipartUploadResultUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3InitiateMultipartUploadResultUnmarshaller.h; path = S3/S3InitiateMultipartUploadResultUnmarshaller.h; sourceTree = "<group>"; };
+		CE8EF5B116F941A4007BF85E /* S3KeyVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3KeyVersion.h; path = S3/S3KeyVersion.h; sourceTree = "<group>"; };
+		CE8EF5B216F941A4007BF85E /* S3ListBucketResultUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3ListBucketResultUnmarshaller.h; path = S3/S3ListBucketResultUnmarshaller.h; sourceTree = "<group>"; };
+		CE8EF5B316F941A4007BF85E /* S3ListBucketsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3ListBucketsRequest.h; path = S3/S3ListBucketsRequest.h; sourceTree = "<group>"; };
+		CE8EF5B416F941A4007BF85E /* S3ListBucketsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3ListBucketsResponse.h; path = S3/S3ListBucketsResponse.h; sourceTree = "<group>"; };
+		CE8EF5B516F941A4007BF85E /* S3ListBucketsResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3ListBucketsResult.h; path = S3/S3ListBucketsResult.h; sourceTree = "<group>"; };
+		CE8EF5B616F941A4007BF85E /* S3ListBucketsResultUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3ListBucketsResultUnmarshaller.h; path = S3/S3ListBucketsResultUnmarshaller.h; sourceTree = "<group>"; };
+		CE8EF5B716F941A4007BF85E /* S3ListMultipartUploadsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3ListMultipartUploadsRequest.h; path = S3/S3ListMultipartUploadsRequest.h; sourceTree = "<group>"; };
+		CE8EF5B816F941A4007BF85E /* S3ListMultipartUploadsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3ListMultipartUploadsResponse.h; path = S3/S3ListMultipartUploadsResponse.h; sourceTree = "<group>"; };
+		CE8EF5B916F941A4007BF85E /* S3ListMultipartUploadsResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3ListMultipartUploadsResult.h; path = S3/S3ListMultipartUploadsResult.h; sourceTree = "<group>"; };
+		CE8EF5BA16F941A4007BF85E /* S3ListMultipartUploadsResultUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3ListMultipartUploadsResultUnmarshaller.h; path = S3/S3ListMultipartUploadsResultUnmarshaller.h; sourceTree = "<group>"; };
+		CE8EF5BB16F941A4007BF85E /* S3ListObjectsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3ListObjectsRequest.h; path = S3/S3ListObjectsRequest.h; sourceTree = "<group>"; };
+		CE8EF5BC16F941A4007BF85E /* S3ListObjectsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3ListObjectsResponse.h; path = S3/S3ListObjectsResponse.h; sourceTree = "<group>"; };
+		CE8EF5BD16F941A4007BF85E /* S3ListObjectsResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3ListObjectsResult.h; path = S3/S3ListObjectsResult.h; sourceTree = "<group>"; };
+		CE8EF5BE16F941A4007BF85E /* S3ListPartsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3ListPartsRequest.h; path = S3/S3ListPartsRequest.h; sourceTree = "<group>"; };
+		CE8EF5BF16F941A4007BF85E /* S3ListPartsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3ListPartsResponse.h; path = S3/S3ListPartsResponse.h; sourceTree = "<group>"; };
+		CE8EF5C016F941A4007BF85E /* S3ListPartsResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3ListPartsResult.h; path = S3/S3ListPartsResult.h; sourceTree = "<group>"; };
+		CE8EF5C116F941A4007BF85E /* S3ListPartsResultUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3ListPartsResultUnmarshaller.h; path = S3/S3ListPartsResultUnmarshaller.h; sourceTree = "<group>"; };
+		CE8EF5C216F941A4007BF85E /* S3ListVersionsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3ListVersionsRequest.h; path = S3/S3ListVersionsRequest.h; sourceTree = "<group>"; };
+		CE8EF5C316F941A4007BF85E /* S3ListVersionsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3ListVersionsResponse.h; path = S3/S3ListVersionsResponse.h; sourceTree = "<group>"; };
+		CE8EF5C416F941A4007BF85E /* S3ListVersionsResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3ListVersionsResult.h; path = S3/S3ListVersionsResult.h; sourceTree = "<group>"; };
+		CE8EF5C516F941A4007BF85E /* S3ListVersionsResultUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3ListVersionsResultUnmarshaller.h; path = S3/S3ListVersionsResultUnmarshaller.h; sourceTree = "<group>"; };
+		CE8EF5C616F941A4007BF85E /* S3LocationConstraintUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3LocationConstraintUnmarshaller.h; path = S3/S3LocationConstraintUnmarshaller.h; sourceTree = "<group>"; };
+		CE8EF5C716F941A4007BF85E /* S3MultiFactorAuthentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3MultiFactorAuthentication.h; path = S3/S3MultiFactorAuthentication.h; sourceTree = "<group>"; };
+		CE8EF5C816F941A4007BF85E /* S3MultipartUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3MultipartUpload.h; path = S3/S3MultipartUpload.h; sourceTree = "<group>"; };
+		CE8EF5C916F941A4007BF85E /* S3MultipartUploadOperation_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3MultipartUploadOperation_Internal.h; path = S3/S3MultipartUploadOperation_Internal.h; sourceTree = "<group>"; };
+		CE8EF5CA16F941A4007BF85E /* S3MultipartUploadUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3MultipartUploadUnmarshaller.h; path = S3/S3MultipartUploadUnmarshaller.h; sourceTree = "<group>"; };
+		CE8EF5CB16F941A4007BF85E /* S3ObjectSummary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3ObjectSummary.h; path = S3/S3ObjectSummary.h; sourceTree = "<group>"; };
+		CE8EF5CC16F941A4007BF85E /* S3ObjectSummaryUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3ObjectSummaryUnmarshaller.h; path = S3/S3ObjectSummaryUnmarshaller.h; sourceTree = "<group>"; };
+		CE8EF5CD16F941A4007BF85E /* S3Owner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3Owner.h; path = S3/S3Owner.h; sourceTree = "<group>"; };
+		CE8EF5CE16F941A4007BF85E /* S3OwnerUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3OwnerUnmarshaller.h; path = S3/S3OwnerUnmarshaller.h; sourceTree = "<group>"; };
+		CE8EF5CF16F941A4007BF85E /* S3Part.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3Part.h; path = S3/S3Part.h; sourceTree = "<group>"; };
+		CE8EF5D016F941A4007BF85E /* S3PartUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3PartUnmarshaller.h; path = S3/S3PartUnmarshaller.h; sourceTree = "<group>"; };
+		CE8EF5D116F941A4007BF85E /* S3Permission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3Permission.h; path = S3/S3Permission.h; sourceTree = "<group>"; };
+		CE8EF5D216F941A4007BF85E /* S3PutObjectOperation_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3PutObjectOperation_Internal.h; path = S3/S3PutObjectOperation_Internal.h; sourceTree = "<group>"; };
+		CE8EF5D316F941A4007BF85E /* S3PutObjectRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3PutObjectRequest.h; path = S3/S3PutObjectRequest.h; sourceTree = "<group>"; };
+		CE8EF5D416F941A4007BF85E /* S3PutObjectResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3PutObjectResponse.h; path = S3/S3PutObjectResponse.h; sourceTree = "<group>"; };
+		CE8EF5D516F941A4007BF85E /* S3Region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3Region.h; path = S3/S3Region.h; sourceTree = "<group>"; };
+		CE8EF5D616F941A4007BF85E /* S3Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3Request.h; path = S3/S3Request.h; sourceTree = "<group>"; };
+		CE8EF5D716F941A4007BF85E /* S3Response.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3Response.h; path = S3/S3Response.h; sourceTree = "<group>"; };
+		CE8EF5D816F941A4007BF85E /* S3ResponseHeaderOverrides.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3ResponseHeaderOverrides.h; path = S3/S3ResponseHeaderOverrides.h; sourceTree = "<group>"; };
+		CE8EF5D916F941A4007BF85E /* S3RestoreObjectRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3RestoreObjectRequest.h; path = S3/S3RestoreObjectRequest.h; sourceTree = "<group>"; };
+		CE8EF5DA16F941A4007BF85E /* S3RestoreObjectResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3RestoreObjectResponse.h; path = S3/S3RestoreObjectResponse.h; sourceTree = "<group>"; };
+		CE8EF5DB16F941A4007BF85E /* S3ServiceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3ServiceModel.h; path = S3/S3ServiceModel.h; sourceTree = "<group>"; };
+		CE8EF5DC16F941A4007BF85E /* S3SetACLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3SetACLRequest.h; path = S3/S3SetACLRequest.h; sourceTree = "<group>"; };
+		CE8EF5DD16F941A4007BF85E /* S3SetACLResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3SetACLResponse.h; path = S3/S3SetACLResponse.h; sourceTree = "<group>"; };
+		CE8EF5DE16F941A4007BF85E /* S3SetBucketCrossOriginRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3SetBucketCrossOriginRequest.h; path = S3/S3SetBucketCrossOriginRequest.h; sourceTree = "<group>"; };
+		CE8EF5DF16F941A4007BF85E /* S3SetBucketCrossOriginResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3SetBucketCrossOriginResponse.h; path = S3/S3SetBucketCrossOriginResponse.h; sourceTree = "<group>"; };
+		CE8EF5E016F941A4007BF85E /* S3SetBucketLifecycleConfigurationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3SetBucketLifecycleConfigurationRequest.h; path = S3/S3SetBucketLifecycleConfigurationRequest.h; sourceTree = "<group>"; };
+		CE8EF5E116F941A4007BF85E /* S3SetBucketLifecycleConfigurationResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3SetBucketLifecycleConfigurationResponse.h; path = S3/S3SetBucketLifecycleConfigurationResponse.h; sourceTree = "<group>"; };
+		CE8EF5E216F941A4007BF85E /* S3SetBucketPolicyRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3SetBucketPolicyRequest.h; path = S3/S3SetBucketPolicyRequest.h; sourceTree = "<group>"; };
+		CE8EF5E316F941A4007BF85E /* S3SetBucketPolicyResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3SetBucketPolicyResponse.h; path = S3/S3SetBucketPolicyResponse.h; sourceTree = "<group>"; };
+		CE8EF5E416F941A4007BF85E /* S3SetBucketTaggingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3SetBucketTaggingRequest.h; path = S3/S3SetBucketTaggingRequest.h; sourceTree = "<group>"; };
+		CE8EF5E516F941A4007BF85E /* S3SetBucketTaggingResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3SetBucketTaggingResponse.h; path = S3/S3SetBucketTaggingResponse.h; sourceTree = "<group>"; };
+		CE8EF5E616F941A4007BF85E /* S3SetBucketVersioningConfigurationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3SetBucketVersioningConfigurationRequest.h; path = S3/S3SetBucketVersioningConfigurationRequest.h; sourceTree = "<group>"; };
+		CE8EF5E716F941A4007BF85E /* S3SetBucketVersioningConfigurationResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3SetBucketVersioningConfigurationResponse.h; path = S3/S3SetBucketVersioningConfigurationResponse.h; sourceTree = "<group>"; };
+		CE8EF5E816F941A4007BF85E /* S3SetBucketWebsiteConfigurationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3SetBucketWebsiteConfigurationRequest.h; path = S3/S3SetBucketWebsiteConfigurationRequest.h; sourceTree = "<group>"; };
+		CE8EF5E916F941A4007BF85E /* S3SetBucketWebsiteConfigurationResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3SetBucketWebsiteConfigurationResponse.h; path = S3/S3SetBucketWebsiteConfigurationResponse.h; sourceTree = "<group>"; };
+		CE8EF5EA16F941A4007BF85E /* S3TransferManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3TransferManager.h; path = S3/S3TransferManager.h; sourceTree = "<group>"; };
+		CE8EF5EB16F941A4007BF85E /* S3UploadInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3UploadInputStream.h; path = S3/S3UploadInputStream.h; sourceTree = "<group>"; };
+		CE8EF5EC16F941A4007BF85E /* S3UploadPartRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3UploadPartRequest.h; path = S3/S3UploadPartRequest.h; sourceTree = "<group>"; };
+		CE8EF5ED16F941A4007BF85E /* S3UploadPartResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3UploadPartResponse.h; path = S3/S3UploadPartResponse.h; sourceTree = "<group>"; };
+		CE8EF5EE16F941A4007BF85E /* S3VersionSummary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3VersionSummary.h; path = S3/S3VersionSummary.h; sourceTree = "<group>"; };
+		CE8EF5EF16F941A4007BF85E /* S3VersionSummaryUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3VersionSummaryUnmarshaller.h; path = S3/S3VersionSummaryUnmarshaller.h; sourceTree = "<group>"; };
+		CE96C1A9158BC2A70084D3CB /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		D069663F1234D53400BFBB1E /* libS3.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libS3.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE96C1B7158BD58A0084D3CB /* MobileCoreServices.framework in Frameworks */,
+				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D069663F1234D53400BFBB1E /* libS3.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* s3 */ = {
+			isa = PBXGroup;
+			children = (
+				38EFE7D0161F53FF0069348B /* Amazon.S3 */,
+				0AFD9561128471A4004B7863 /* include */,
+				0AFD8DBF128462A0004B7863 /* Resources */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
+			);
+			name = s3;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE96C1A9158BC2A70084D3CB /* MobileCoreServices.framework */,
+				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0AFD8DBF128462A0004B7863 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0AFD8DC0128462A0004B7863 /* Framework.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0AFD9561128471A4004B7863 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				CE2CDBFD17036F640013DE5F /* AWSS3.h */,
+				CE8EF55216F941A3007BF85E /* AmazonS3Client.h */,
+				CE8EF55316F941A3007BF85E /* BucketWebsiteConfiguration.h */,
+				CE8EF55416F941A3007BF85E /* DeletedObject.h */,
+				CE8EF55516F941A3007BF85E /* DeleteError.h */,
+				CE8EF55616F941A3007BF85E /* S3AbortMultipartUploadRequest.h */,
+				CE8EF55716F941A3007BF85E /* S3AbortMultipartUploadResponse.h */,
+				CE8EF55816F941A3007BF85E /* S3AbortMultiplartUploadsOperation_Internal.h */,
+				CE8EF55916F941A3007BF85E /* S3AbstractPutRequest.h */,
+				CE8EF55A16F941A3007BF85E /* S3AccessControlList.h */,
+				CE8EF55B16F941A3007BF85E /* S3AccessControlListUnmarshaller.h */,
+				CE8EF55C16F941A3007BF85E /* S3Bucket.h */,
+				CE8EF55D16F941A3007BF85E /* S3BucketCrossOriginConfiguration.h */,
+				CE8EF55E16F941A3007BF85E /* S3BucketCrossOriginConfigurationUnmarshaller.h */,
+				CE8EF55F16F941A3007BF85E /* S3BucketLifecycleConfiguration.h */,
+				CE8EF56016F941A3007BF85E /* S3BucketLifecycleConfigurationRule.h */,
+				CE8EF56116F941A3007BF85E /* S3BucketLifecycleConfigurationRuleUnmarshaller.h */,
+				CE8EF56216F941A3007BF85E /* S3BucketLifecycleConfigurationTransition.h */,
+				CE8EF56316F941A3007BF85E /* S3BucketLifecycleConfigurationTransitionUnmarshaller.h */,
+				CE8EF56416F941A3007BF85E /* S3BucketLifecycleConfigurationUnmarshaller.h */,
+				CE8EF56516F941A3007BF85E /* S3BucketNameUtilities.h */,
+				CE8EF56616F941A3007BF85E /* S3BucketPolicy.h */,
+				CE8EF56716F941A3007BF85E /* S3BucketTaggingConfiguration.h */,
+				CE8EF56816F941A3007BF85E /* S3BucketTaggingConfigurationUnmarshaller.h */,
+				CE8EF56916F941A3007BF85E /* S3BucketTagSet.h */,
+				CE8EF56A16F941A3007BF85E /* S3BucketTagSetUnmarshaller.h */,
+				CE8EF56B16F941A4007BF85E /* S3BucketUnmarshaller.h */,
+				CE8EF56C16F941A4007BF85E /* S3BucketVersioningConfiguration.h */,
+				CE8EF56D16F941A4007BF85E /* S3BucketVersioningConfigurationUnmarshaller.h */,
+				CE8EF56E16F941A4007BF85E /* S3CannedACL.h */,
+				CE8EF56F16F941A4007BF85E /* S3CommonPrefixesUnmarshaller.h */,
+				CE8EF57016F941A4007BF85E /* S3CompleteMultipartUploadRequest.h */,
+				CE8EF57116F941A4007BF85E /* S3CompleteMultipartUploadResponse.h */,
+				CE8EF57216F941A4007BF85E /* S3CompleteMultipartUploadResult.h */,
+				CE8EF57316F941A4007BF85E /* S3CompleteMultipartUploadResultUnmarshaller.h */,
+				CE8EF57416F941A4007BF85E /* S3Constants.h */,
+				CE8EF57516F941A4007BF85E /* S3CopyObjectRequest.h */,
+				CE8EF57616F941A4007BF85E /* S3CopyObjectResponse.h */,
+				CE8EF57716F941A4007BF85E /* S3CopyObjectResult.h */,
+				CE8EF57816F941A4007BF85E /* S3CopyObjectResultUnmarshaller.h */,
+				CE8EF57916F941A4007BF85E /* S3CopyPartRequest.h */,
+				CE8EF57A16F941A4007BF85E /* S3CopyPartResponse.h */,
+				CE8EF57B16F941A4007BF85E /* S3CopyPartResult.h */,
+				CE8EF57C16F941A4007BF85E /* S3CopyPartResultUnmarshaller.h */,
+				CE8EF57D16F941A4007BF85E /* S3CORSRule.h */,
+				CE8EF57E16F941A4007BF85E /* S3CORSRuleUnmarshaller.h */,
+				CE8EF57F16F941A4007BF85E /* S3CreateBucketRequest.h */,
+				CE8EF58016F941A4007BF85E /* S3CreateBucketResponse.h */,
+				CE8EF58116F941A4007BF85E /* S3DeleteBucketCrossOriginRequest.h */,
+				CE8EF58216F941A4007BF85E /* S3DeleteBucketCrossOriginResponse.h */,
+				CE8EF58316F941A4007BF85E /* S3DeleteBucketLifecycleConfigurationRequest.h */,
+				CE8EF58416F941A4007BF85E /* S3DeleteBucketLifecycleConfigurationResponse.h */,
+				CE8EF58516F941A4007BF85E /* S3DeleteBucketPolicyRequest.h */,
+				CE8EF58616F941A4007BF85E /* S3DeleteBucketPolicyResponse.h */,
+				CE8EF58716F941A4007BF85E /* S3DeleteBucketRequest.h */,
+				CE8EF58816F941A4007BF85E /* S3DeleteBucketResponse.h */,
+				CE8EF58916F941A4007BF85E /* S3DeleteBucketTaggingRequest.h */,
+				CE8EF58A16F941A4007BF85E /* S3DeleteBucketTaggingResponse.h */,
+				CE8EF58B16F941A4007BF85E /* S3DeleteBucketWebsiteConfigurationRequest.h */,
+				CE8EF58C16F941A4007BF85E /* S3DeleteBucketWebsiteConfigurationResponse.h */,
+				CE8EF58D16F941A4007BF85E /* S3DeletedObjectUnmarshaller.h */,
+				CE8EF58E16F941A4007BF85E /* S3DeleteErrorUnmarshaller.h */,
+				CE8EF58F16F941A4007BF85E /* S3DeleteObjectRequest.h */,
+				CE8EF59016F941A4007BF85E /* S3DeleteObjectResponse.h */,
+				CE8EF59116F941A4007BF85E /* S3DeleteObjectsRequest.h */,
+				CE8EF59216F941A4007BF85E /* S3DeleteObjectsResponse.h */,
+				CE8EF59316F941A4007BF85E /* S3DeleteObjectsResultUnmarshaller.h */,
+				CE8EF59416F941A4007BF85E /* S3DeleteVersionRequest.h */,
+				CE8EF59516F941A4007BF85E /* S3DeleteVersionResponse.h */,
+				CE8EF59616F941A4007BF85E /* S3ErrorResponseHandler.h */,
+				CE8EF59716F941A4007BF85E /* S3GetACLRequest.h */,
+				CE8EF59816F941A4007BF85E /* S3GetACLResponse.h */,
+				CE8EF59916F941A4007BF85E /* S3GetBucketCrossOriginRequest.h */,
+				CE8EF59A16F941A4007BF85E /* S3GetBucketCrossOriginResponse.h */,
+				CE8EF59B16F941A4007BF85E /* S3GetBucketLifecycleConfigurationRequest.h */,
+				CE8EF59C16F941A4007BF85E /* S3GetBucketLifecycleConfigurationResponse.h */,
+				CE8EF59D16F941A4007BF85E /* S3GetBucketPolicyRequest.h */,
+				CE8EF59E16F941A4007BF85E /* S3GetBucketPolicyResponse.h */,
+				CE8EF59F16F941A4007BF85E /* S3GetBucketTaggingRequest.h */,
+				CE8EF5A016F941A4007BF85E /* S3GetBucketTaggingResponse.h */,
+				CE8EF5A116F941A4007BF85E /* S3GetBucketVersioningConfigurationRequest.h */,
+				CE8EF5A216F941A4007BF85E /* S3GetBucketVersioningConfigurationResponse.h */,
+				CE8EF5A316F941A4007BF85E /* S3GetBucketWebsiteConfigurationRequest.h */,
+				CE8EF5A416F941A4007BF85E /* S3GetBucketWebsiteConfigurationResponse.h */,
+				CE8EF5A516F941A4007BF85E /* S3GetBucketWebsiteConfigurationResultUnmarshaller.h */,
+				CE8EF5A616F941A4007BF85E /* S3GetObjectMetadataRequest.h */,
+				CE8EF5A716F941A4007BF85E /* S3GetObjectMetadataResponse.h */,
+				CE8EF5A816F941A4007BF85E /* S3GetObjectRequest.h */,
+				CE8EF5A916F941A4007BF85E /* S3GetObjectResponse.h */,
+				CE8EF5AA16F941A4007BF85E /* S3GetPreSignedURLRequest.h */,
+				CE8EF5AB16F941A4007BF85E /* S3Grant.h */,
+				CE8EF5AC16F941A4007BF85E /* S3Grantee.h */,
+				CE8EF5AD16F941A4007BF85E /* S3GrantUnmarshaller.h */,
+				CE8EF5AE16F941A4007BF85E /* S3InitiateMultipartUploadRequest.h */,
+				CE8EF5AF16F941A4007BF85E /* S3InitiateMultipartUploadResponse.h */,
+				CE8EF5B016F941A4007BF85E /* S3InitiateMultipartUploadResultUnmarshaller.h */,
+				CE8EF5B116F941A4007BF85E /* S3KeyVersion.h */,
+				CE8EF5B216F941A4007BF85E /* S3ListBucketResultUnmarshaller.h */,
+				CE8EF5B316F941A4007BF85E /* S3ListBucketsRequest.h */,
+				CE8EF5B416F941A4007BF85E /* S3ListBucketsResponse.h */,
+				CE8EF5B516F941A4007BF85E /* S3ListBucketsResult.h */,
+				CE8EF5B616F941A4007BF85E /* S3ListBucketsResultUnmarshaller.h */,
+				CE8EF5B716F941A4007BF85E /* S3ListMultipartUploadsRequest.h */,
+				CE8EF5B816F941A4007BF85E /* S3ListMultipartUploadsResponse.h */,
+				CE8EF5B916F941A4007BF85E /* S3ListMultipartUploadsResult.h */,
+				CE8EF5BA16F941A4007BF85E /* S3ListMultipartUploadsResultUnmarshaller.h */,
+				CE8EF5BB16F941A4007BF85E /* S3ListObjectsRequest.h */,
+				CE8EF5BC16F941A4007BF85E /* S3ListObjectsResponse.h */,
+				CE8EF5BD16F941A4007BF85E /* S3ListObjectsResult.h */,
+				CE8EF5BE16F941A4007BF85E /* S3ListPartsRequest.h */,
+				CE8EF5BF16F941A4007BF85E /* S3ListPartsResponse.h */,
+				CE8EF5C016F941A4007BF85E /* S3ListPartsResult.h */,
+				CE8EF5C116F941A4007BF85E /* S3ListPartsResultUnmarshaller.h */,
+				CE8EF5C216F941A4007BF85E /* S3ListVersionsRequest.h */,
+				CE8EF5C316F941A4007BF85E /* S3ListVersionsResponse.h */,
+				CE8EF5C416F941A4007BF85E /* S3ListVersionsResult.h */,
+				CE8EF5C516F941A4007BF85E /* S3ListVersionsResultUnmarshaller.h */,
+				CE8EF5C616F941A4007BF85E /* S3LocationConstraintUnmarshaller.h */,
+				CE8EF5C716F941A4007BF85E /* S3MultiFactorAuthentication.h */,
+				CE8EF5C816F941A4007BF85E /* S3MultipartUpload.h */,
+				CE8EF5C916F941A4007BF85E /* S3MultipartUploadOperation_Internal.h */,
+				CE8EF5CA16F941A4007BF85E /* S3MultipartUploadUnmarshaller.h */,
+				CE8EF5CB16F941A4007BF85E /* S3ObjectSummary.h */,
+				CE8EF5CC16F941A4007BF85E /* S3ObjectSummaryUnmarshaller.h */,
+				CE8EF5CD16F941A4007BF85E /* S3Owner.h */,
+				CE8EF5CE16F941A4007BF85E /* S3OwnerUnmarshaller.h */,
+				CE8EF5CF16F941A4007BF85E /* S3Part.h */,
+				CE8EF5D016F941A4007BF85E /* S3PartUnmarshaller.h */,
+				CE8EF5D116F941A4007BF85E /* S3Permission.h */,
+				CE8EF5D216F941A4007BF85E /* S3PutObjectOperation_Internal.h */,
+				CE8EF5D316F941A4007BF85E /* S3PutObjectRequest.h */,
+				CE8EF5D416F941A4007BF85E /* S3PutObjectResponse.h */,
+				CE8EF5D516F941A4007BF85E /* S3Region.h */,
+				CE8EF5D616F941A4007BF85E /* S3Request.h */,
+				CE8EF5D716F941A4007BF85E /* S3Response.h */,
+				CE8EF5D816F941A4007BF85E /* S3ResponseHeaderOverrides.h */,
+				CE8EF5D916F941A4007BF85E /* S3RestoreObjectRequest.h */,
+				CE8EF5DA16F941A4007BF85E /* S3RestoreObjectResponse.h */,
+				CE8EF5DB16F941A4007BF85E /* S3ServiceModel.h */,
+				CE8EF5DC16F941A4007BF85E /* S3SetACLRequest.h */,
+				CE8EF5DD16F941A4007BF85E /* S3SetACLResponse.h */,
+				CE8EF5DE16F941A4007BF85E /* S3SetBucketCrossOriginRequest.h */,
+				CE8EF5DF16F941A4007BF85E /* S3SetBucketCrossOriginResponse.h */,
+				CE8EF5E016F941A4007BF85E /* S3SetBucketLifecycleConfigurationRequest.h */,
+				CE8EF5E116F941A4007BF85E /* S3SetBucketLifecycleConfigurationResponse.h */,
+				CE8EF5E216F941A4007BF85E /* S3SetBucketPolicyRequest.h */,
+				CE8EF5E316F941A4007BF85E /* S3SetBucketPolicyResponse.h */,
+				CE8EF5E416F941A4007BF85E /* S3SetBucketTaggingRequest.h */,
+				CE8EF5E516F941A4007BF85E /* S3SetBucketTaggingResponse.h */,
+				CE8EF5E616F941A4007BF85E /* S3SetBucketVersioningConfigurationRequest.h */,
+				CE8EF5E716F941A4007BF85E /* S3SetBucketVersioningConfigurationResponse.h */,
+				CE8EF5E816F941A4007BF85E /* S3SetBucketWebsiteConfigurationRequest.h */,
+				CE8EF5E916F941A4007BF85E /* S3SetBucketWebsiteConfigurationResponse.h */,
+				CE8EF5EA16F941A4007BF85E /* S3TransferManager.h */,
+				CE8EF5EB16F941A4007BF85E /* S3UploadInputStream.h */,
+				CE8EF5EC16F941A4007BF85E /* S3UploadPartRequest.h */,
+				CE8EF5ED16F941A4007BF85E /* S3UploadPartResponse.h */,
+				CE8EF5EE16F941A4007BF85E /* S3VersionSummary.h */,
+				CE8EF5EF16F941A4007BF85E /* S3VersionSummaryUnmarshaller.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				034768DFFF38A50411DB9C8B /* Products */,
+				AA747D9E0F9514B9006C5449 /* S3_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		38EFE7D0161F53FF0069348B /* Amazon.S3 */ = {
+			isa = PBXGroup;
+			children = (
+				38EFE7D1161F53FF0069348B /* AmazonS3Client.m */,
+				CE2BF34116CB32CF005189A8 /* S3TransferManager.m */,
+				38EFE7D2161F53FF0069348B /* Model */,
+			);
+			path = Amazon.S3;
+			sourceTree = "<group>";
+		};
+		38EFE7D2161F53FF0069348B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				38EFE7D3161F53FF0069348B /* BucketWebsiteConfiguration.m */,
+				38EFE7D4161F53FF0069348B /* DeletedObject.m */,
+				38EFE7D5161F53FF0069348B /* DeleteError.m */,
+				38EFE7D6161F53FF0069348B /* S3AbortMultipartUploadRequest.m */,
+				38EFE7D7161F53FF0069348B /* S3AbortMultipartUploadResponse.m */,
+				CE2BF33616CB32C2005189A8 /* S3AbortMultiplartUploadsOperation_Internal.m */,
+				38EFE7D8161F53FF0069348B /* S3AbstractPutRequest.m */,
+				38EFE7D9161F53FF0069348B /* S3AccessControlList.m */,
+				38EFE7DA161F53FF0069348B /* S3AccessControlListUnmarshaller.m */,
+				38EFE7DB161F53FF0069348B /* S3Bucket.m */,
+				38EFE7DC161F53FF0069348B /* S3BucketCrossOriginConfiguration.m */,
+				38EFE7DD161F53FF0069348B /* S3BucketCrossOriginConfigurationUnmarshaller.m */,
+				38EFE7DE161F53FF0069348B /* S3BucketLifecycleConfiguration.m */,
+				38EFE7DF161F53FF0069348B /* S3BucketLifecycleConfigurationRule.m */,
+				38EFE7E0161F53FF0069348B /* S3BucketLifecycleConfigurationRuleUnmarshaller.m */,
+				38EFF1761625DC390069348B /* S3BucketLifecycleConfigurationTransition.m */,
+				38EFF1751625DC390069348B /* S3BucketLifecycleConfigurationTransitionUnmarshaller.m */,
+				38EFE7E1161F53FF0069348B /* S3BucketLifecycleConfigurationUnmarshaller.m */,
+				38EFE7E2161F53FF0069348B /* S3BucketNameUtilities.m */,
+				38EFE7E3161F53FF0069348B /* S3BucketPolicy.m */,
+				38EFE7E4161F53FF0069348B /* S3BucketTaggingConfiguration.m */,
+				38EFE7E5161F53FF0069348B /* S3BucketTaggingConfigurationUnmarshaller.m */,
+				38EFE7E6161F53FF0069348B /* S3BucketTagSet.m */,
+				38EFE7E7161F53FF0069348B /* S3BucketTagSetUnmarshaller.m */,
+				38EFE7E8161F53FF0069348B /* S3BucketUnmarshaller.m */,
+				38EFE7E9161F53FF0069348B /* S3BucketVersioningConfiguration.m */,
+				38EFE7EA161F53FF0069348B /* S3BucketVersioningConfigurationUnmarshaller.m */,
+				38EFE7EB161F53FF0069348B /* S3CannedACL.m */,
+				38EFE7EC161F53FF0069348B /* S3CommonPrefixesUnmarshaller.m */,
+				38EFE7ED161F53FF0069348B /* S3CompleteMultipartUploadRequest.m */,
+				38EFE7EE161F53FF0069348B /* S3CompleteMultipartUploadResponse.m */,
+				38EFE7EF161F53FF0069348B /* S3CompleteMultipartUploadResult.m */,
+				38EFE7F0161F53FF0069348B /* S3CompleteMultipartUploadResultUnmarshaller.m */,
+				38EFE7F1161F53FF0069348B /* S3CopyObjectRequest.m */,
+				38EFE7F2161F53FF0069348B /* S3CopyObjectResponse.m */,
+				38EFE7F3161F53FF0069348B /* S3CopyObjectResult.m */,
+				38EFE7F4161F53FF0069348B /* S3CopyObjectResultUnmarshaller.m */,
+				38EFE7F5161F53FF0069348B /* S3CopyPartRequest.m */,
+				38EFE7F6161F53FF0069348B /* S3CopyPartResponse.m */,
+				38EFE7F7161F53FF0069348B /* S3CopyPartResult.m */,
+				38EFE7F8161F53FF0069348B /* S3CopyPartResultUnmarshaller.m */,
+				38EFE7F9161F53FF0069348B /* S3CORSRule.m */,
+				38EFE7FA161F53FF0069348B /* S3CORSRuleUnmarshaller.m */,
+				38EFE7FB161F53FF0069348B /* S3CreateBucketRequest.m */,
+				38EFE7FC161F53FF0069348B /* S3CreateBucketResponse.m */,
+				38EFE7FD161F53FF0069348B /* S3DeleteBucketCrossOriginRequest.m */,
+				38EFE7FE161F53FF0069348B /* S3DeleteBucketCrossOriginResponse.m */,
+				38EFE7FF161F53FF0069348B /* S3DeleteBucketLifecycleConfigurationRequest.m */,
+				38EFE800161F53FF0069348B /* S3DeleteBucketLifecycleConfigurationResponse.m */,
+				38EFE801161F53FF0069348B /* S3DeleteBucketPolicyRequest.m */,
+				38EFE802161F53FF0069348B /* S3DeleteBucketPolicyResponse.m */,
+				38EFE803161F53FF0069348B /* S3DeleteBucketRequest.m */,
+				38EFE804161F53FF0069348B /* S3DeleteBucketResponse.m */,
+				38EFE805161F53FF0069348B /* S3DeleteBucketTaggingRequest.m */,
+				38EFE806161F53FF0069348B /* S3DeleteBucketTaggingResponse.m */,
+				38EFE807161F53FF0069348B /* S3DeleteBucketWebsiteConfigurationRequest.m */,
+				38EFE808161F53FF0069348B /* S3DeleteBucketWebsiteConfigurationResponse.m */,
+				38EFE809161F53FF0069348B /* S3DeletedObjectUnmarshaller.m */,
+				38EFE80A161F53FF0069348B /* S3DeleteErrorUnmarshaller.m */,
+				38EFE80B161F53FF0069348B /* S3DeleteObjectRequest.m */,
+				38EFE80C161F53FF0069348B /* S3DeleteObjectResponse.m */,
+				38EFE80D161F53FF0069348B /* S3DeleteObjectsRequest.m */,
+				38EFE80E161F53FF0069348B /* S3DeleteObjectsResponse.m */,
+				38EFE80F161F53FF0069348B /* S3DeleteObjectsResultUnmarshaller.m */,
+				38EFE810161F53FF0069348B /* S3DeleteVersionRequest.m */,
+				38EFE811161F53FF0069348B /* S3DeleteVersionResponse.m */,
+				38EFE812161F53FF0069348B /* S3ErrorResponseHandler.m */,
+				38EFE813161F53FF0069348B /* S3GetACLRequest.m */,
+				38EFE814161F53FF0069348B /* S3GetACLResponse.m */,
+				38EFE815161F53FF0069348B /* S3GetBucketCrossOriginRequest.m */,
+				38EFE816161F53FF0069348B /* S3GetBucketCrossOriginResponse.m */,
+				38EFE817161F53FF0069348B /* S3GetBucketLifecycleConfigurationRequest.m */,
+				38EFE818161F53FF0069348B /* S3GetBucketLifecycleConfigurationResponse.m */,
+				38EFE819161F53FF0069348B /* S3GetBucketPolicyRequest.m */,
+				38EFE81A161F53FF0069348B /* S3GetBucketPolicyResponse.m */,
+				38EFE81B161F53FF0069348B /* S3GetBucketTaggingRequest.m */,
+				38EFE81C161F53FF0069348B /* S3GetBucketTaggingResponse.m */,
+				38EFE81D161F53FF0069348B /* S3GetBucketVersioningConfigurationRequest.m */,
+				38EFE81E161F53FF0069348B /* S3GetBucketVersioningConfigurationResponse.m */,
+				38EFE81F161F53FF0069348B /* S3GetBucketWebsiteConfigurationRequest.m */,
+				38EFE820161F53FF0069348B /* S3GetBucketWebsiteConfigurationResponse.m */,
+				38EFE821161F53FF0069348B /* S3GetBucketWebsiteConfigurationResultUnmarshaller.m */,
+				38EFE822161F53FF0069348B /* S3GetObjectMetadataRequest.m */,
+				38EFE823161F53FF0069348B /* S3GetObjectMetadataResponse.m */,
+				38EFE824161F53FF0069348B /* S3GetObjectRequest.m */,
+				38EFE825161F53FF0069348B /* S3GetObjectResponse.m */,
+				38EFE826161F53FF0069348B /* S3GetPreSignedURLRequest.m */,
+				38EFE827161F53FF0069348B /* S3Grant.m */,
+				38EFE828161F53FF0069348B /* S3Grantee.m */,
+				38EFE829161F53FF0069348B /* S3GrantUnmarshaller.m */,
+				38EFE82A161F53FF0069348B /* S3InitiateMultipartUploadRequest.m */,
+				38EFE82B161F53FF0069348B /* S3InitiateMultipartUploadResponse.m */,
+				38EFE82C161F53FF0069348B /* S3InitiateMultipartUploadResultUnmarshaller.m */,
+				38EFE82D161F53FF0069348B /* S3KeyVersion.m */,
+				38EFE82E161F53FF0069348B /* S3ListBucketResultUnmarshaller.m */,
+				38EFE82F161F53FF0069348B /* S3ListBucketsRequest.m */,
+				38EFE830161F53FF0069348B /* S3ListBucketsResponse.m */,
+				38EFE831161F53FF0069348B /* S3ListBucketsResult.m */,
+				38EFE832161F53FF0069348B /* S3ListBucketsResultUnmarshaller.m */,
+				38EFE833161F53FF0069348B /* S3ListMultipartUploadsRequest.m */,
+				38EFE834161F53FF0069348B /* S3ListMultipartUploadsResponse.m */,
+				38EFE835161F53FF0069348B /* S3ListMultipartUploadsResult.m */,
+				38EFE836161F53FF0069348B /* S3ListMultipartUploadsResultUnmarshaller.m */,
+				38EFE837161F53FF0069348B /* S3ListObjectsRequest.m */,
+				38EFE838161F53FF0069348B /* S3ListObjectsResponse.m */,
+				38EFE839161F53FF0069348B /* S3ListObjectsResult.m */,
+				38EFE83A161F53FF0069348B /* S3ListPartsRequest.m */,
+				38EFE83B161F53FF0069348B /* S3ListPartsResponse.m */,
+				38EFE83C161F53FF0069348B /* S3ListPartsResult.m */,
+				38EFE83D161F53FF0069348B /* S3ListPartsResultUnmarshaller.m */,
+				38EFE83E161F53FF0069348B /* S3ListVersionsRequest.m */,
+				38EFE83F161F53FF0069348B /* S3ListVersionsResponse.m */,
+				38EFE840161F53FF0069348B /* S3ListVersionsResult.m */,
+				38EFE841161F53FF0069348B /* S3ListVersionsResultUnmarshaller.m */,
+				38EFE842161F53FF0069348B /* S3LocationConstraintUnmarshaller.m */,
+				38EFE843161F53FF0069348B /* S3MultiFactorAuthentication.m */,
+				38EFE844161F53FF0069348B /* S3MultipartUpload.m */,
+				CE2BF33816CB32C2005189A8 /* S3MultipartUploadOperation_Internal.m */,
+				38EFE845161F53FF0069348B /* S3MultipartUploadUnmarshaller.m */,
+				38EFE846161F53FF0069348B /* S3ObjectSummary.m */,
+				38EFE847161F53FF0069348B /* S3ObjectSummaryUnmarshaller.m */,
+				38EFE848161F53FF0069348B /* S3Owner.m */,
+				38EFE849161F53FF0069348B /* S3OwnerUnmarshaller.m */,
+				38EFE84A161F53FF0069348B /* S3Part.m */,
+				38EFE84B161F53FF0069348B /* S3PartUnmarshaller.m */,
+				38EFE84C161F53FF0069348B /* S3Permission.m */,
+				CE2BF33A16CB32C2005189A8 /* S3PutObjectOperation_Internal.m */,
+				38EFE84D161F53FF0069348B /* S3PutObjectRequest.m */,
+				38EFE84E161F53FF0069348B /* S3PutObjectResponse.m */,
+				38EFE84F161F53FF0069348B /* S3Region.m */,
+				38EFE850161F53FF0069348B /* S3Request.m */,
+				38EFE851161F53FF0069348B /* S3Response.m */,
+				38EFE852161F53FF0069348B /* S3ResponseHeaderOverrides.m */,
+				3830E6201628801A000C443F /* S3RestoreObjectRequest.m */,
+				3830E61F1628801A000C443F /* S3RestoreObjectResponse.m */,
+				38EFE853161F53FF0069348B /* S3SetACLRequest.m */,
+				38EFE854161F53FF0069348B /* S3SetACLResponse.m */,
+				38EFE855161F53FF0069348B /* S3SetBucketCrossOriginRequest.m */,
+				38EFE856161F53FF0069348B /* S3SetBucketCrossOriginResponse.m */,
+				38EFE857161F53FF0069348B /* S3SetBucketLifecycleConfigurationRequest.m */,
+				38EFE858161F53FF0069348B /* S3SetBucketLifecycleConfigurationResponse.m */,
+				38EFE859161F53FF0069348B /* S3SetBucketPolicyRequest.m */,
+				38EFE85A161F53FF0069348B /* S3SetBucketPolicyResponse.m */,
+				38EFE85B161F53FF0069348B /* S3SetBucketTaggingRequest.m */,
+				38EFE85C161F53FF0069348B /* S3SetBucketTaggingResponse.m */,
+				38EFE85D161F53FF0069348B /* S3SetBucketVersioningConfigurationRequest.m */,
+				38EFE85E161F53FF0069348B /* S3SetBucketVersioningConfigurationResponse.m */,
+				38EFE85F161F53FF0069348B /* S3SetBucketWebsiteConfigurationRequest.m */,
+				38EFE860161F53FF0069348B /* S3SetBucketWebsiteConfigurationResponse.m */,
+				38EFE861161F53FF0069348B /* S3UploadInputStream.m */,
+				38EFE862161F53FF0069348B /* S3UploadPartRequest.m */,
+				38EFE863161F53FF0069348B /* S3UploadPartResponse.m */,
+				38EFE864161F53FF0069348B /* S3VersionSummary.m */,
+				38EFE865161F53FF0069348B /* S3VersionSummaryUnmarshaller.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE8EF5F016F941A4007BF85E /* AmazonS3Client.h in Headers */,
+				CE8EF5F116F941A4007BF85E /* BucketWebsiteConfiguration.h in Headers */,
+				CE8EF5F216F941A4007BF85E /* DeletedObject.h in Headers */,
+				CE8EF5F316F941A4007BF85E /* DeleteError.h in Headers */,
+				CE8EF5F416F941A4007BF85E /* S3AbortMultipartUploadRequest.h in Headers */,
+				CE8EF5F516F941A4007BF85E /* S3AbortMultipartUploadResponse.h in Headers */,
+				CE8EF5F616F941A4007BF85E /* S3AbortMultiplartUploadsOperation_Internal.h in Headers */,
+				CE8EF5F716F941A4007BF85E /* S3AbstractPutRequest.h in Headers */,
+				CE8EF5F816F941A4007BF85E /* S3AccessControlList.h in Headers */,
+				CE8EF5F916F941A4007BF85E /* S3AccessControlListUnmarshaller.h in Headers */,
+				CE8EF5FA16F941A4007BF85E /* S3Bucket.h in Headers */,
+				CE8EF5FB16F941A4007BF85E /* S3BucketCrossOriginConfiguration.h in Headers */,
+				CE8EF5FC16F941A4007BF85E /* S3BucketCrossOriginConfigurationUnmarshaller.h in Headers */,
+				CE8EF5FD16F941A4007BF85E /* S3BucketLifecycleConfiguration.h in Headers */,
+				CE8EF5FE16F941A4007BF85E /* S3BucketLifecycleConfigurationRule.h in Headers */,
+				CE8EF5FF16F941A4007BF85E /* S3BucketLifecycleConfigurationRuleUnmarshaller.h in Headers */,
+				CE8EF60016F941A4007BF85E /* S3BucketLifecycleConfigurationTransition.h in Headers */,
+				CE8EF60116F941A4007BF85E /* S3BucketLifecycleConfigurationTransitionUnmarshaller.h in Headers */,
+				CE8EF60216F941A4007BF85E /* S3BucketLifecycleConfigurationUnmarshaller.h in Headers */,
+				CE8EF60316F941A4007BF85E /* S3BucketNameUtilities.h in Headers */,
+				CE8EF60416F941A4007BF85E /* S3BucketPolicy.h in Headers */,
+				CE8EF60516F941A4007BF85E /* S3BucketTaggingConfiguration.h in Headers */,
+				CE8EF60616F941A4007BF85E /* S3BucketTaggingConfigurationUnmarshaller.h in Headers */,
+				CE8EF60716F941A4007BF85E /* S3BucketTagSet.h in Headers */,
+				CE8EF60816F941A4007BF85E /* S3BucketTagSetUnmarshaller.h in Headers */,
+				CE8EF60916F941A4007BF85E /* S3BucketUnmarshaller.h in Headers */,
+				CE8EF60A16F941A4007BF85E /* S3BucketVersioningConfiguration.h in Headers */,
+				CE8EF60B16F941A4007BF85E /* S3BucketVersioningConfigurationUnmarshaller.h in Headers */,
+				CE8EF60C16F941A4007BF85E /* S3CannedACL.h in Headers */,
+				CE8EF60D16F941A4007BF85E /* S3CommonPrefixesUnmarshaller.h in Headers */,
+				CE8EF60E16F941A4007BF85E /* S3CompleteMultipartUploadRequest.h in Headers */,
+				CE8EF60F16F941A4007BF85E /* S3CompleteMultipartUploadResponse.h in Headers */,
+				CE8EF61016F941A4007BF85E /* S3CompleteMultipartUploadResult.h in Headers */,
+				CE8EF61116F941A4007BF85E /* S3CompleteMultipartUploadResultUnmarshaller.h in Headers */,
+				CE8EF61216F941A4007BF85E /* S3Constants.h in Headers */,
+				CE8EF61316F941A4007BF85E /* S3CopyObjectRequest.h in Headers */,
+				CE8EF61416F941A4007BF85E /* S3CopyObjectResponse.h in Headers */,
+				CE8EF61516F941A4007BF85E /* S3CopyObjectResult.h in Headers */,
+				CE8EF61616F941A4007BF85E /* S3CopyObjectResultUnmarshaller.h in Headers */,
+				CE8EF61716F941A4007BF85E /* S3CopyPartRequest.h in Headers */,
+				CE8EF61816F941A4007BF85E /* S3CopyPartResponse.h in Headers */,
+				CE8EF61916F941A4007BF85E /* S3CopyPartResult.h in Headers */,
+				CE8EF61A16F941A4007BF85E /* S3CopyPartResultUnmarshaller.h in Headers */,
+				CE8EF61B16F941A4007BF85E /* S3CORSRule.h in Headers */,
+				CE8EF61C16F941A4007BF85E /* S3CORSRuleUnmarshaller.h in Headers */,
+				CE8EF61D16F941A4007BF85E /* S3CreateBucketRequest.h in Headers */,
+				CE8EF61E16F941A4007BF85E /* S3CreateBucketResponse.h in Headers */,
+				CE8EF61F16F941A4007BF85E /* S3DeleteBucketCrossOriginRequest.h in Headers */,
+				CE8EF62016F941A4007BF85E /* S3DeleteBucketCrossOriginResponse.h in Headers */,
+				CE8EF62116F941A4007BF85E /* S3DeleteBucketLifecycleConfigurationRequest.h in Headers */,
+				CE8EF62216F941A4007BF85E /* S3DeleteBucketLifecycleConfigurationResponse.h in Headers */,
+				CE8EF62316F941A4007BF85E /* S3DeleteBucketPolicyRequest.h in Headers */,
+				CE8EF62416F941A4007BF85E /* S3DeleteBucketPolicyResponse.h in Headers */,
+				CE8EF62516F941A4007BF85E /* S3DeleteBucketRequest.h in Headers */,
+				CE8EF62616F941A4007BF85E /* S3DeleteBucketResponse.h in Headers */,
+				CE8EF62716F941A4007BF85E /* S3DeleteBucketTaggingRequest.h in Headers */,
+				CE8EF62816F941A4007BF85E /* S3DeleteBucketTaggingResponse.h in Headers */,
+				CE8EF62916F941A4007BF85E /* S3DeleteBucketWebsiteConfigurationRequest.h in Headers */,
+				CE8EF62A16F941A4007BF85E /* S3DeleteBucketWebsiteConfigurationResponse.h in Headers */,
+				CE8EF62B16F941A4007BF85E /* S3DeletedObjectUnmarshaller.h in Headers */,
+				CE8EF62C16F941A4007BF85E /* S3DeleteErrorUnmarshaller.h in Headers */,
+				CE8EF62D16F941A4007BF85E /* S3DeleteObjectRequest.h in Headers */,
+				CE8EF62E16F941A4007BF85E /* S3DeleteObjectResponse.h in Headers */,
+				CE8EF62F16F941A4007BF85E /* S3DeleteObjectsRequest.h in Headers */,
+				CE8EF63016F941A4007BF85E /* S3DeleteObjectsResponse.h in Headers */,
+				CE8EF63116F941A4007BF85E /* S3DeleteObjectsResultUnmarshaller.h in Headers */,
+				CE8EF63216F941A4007BF85E /* S3DeleteVersionRequest.h in Headers */,
+				CE8EF63316F941A4007BF85E /* S3DeleteVersionResponse.h in Headers */,
+				CE8EF63416F941A4007BF85E /* S3ErrorResponseHandler.h in Headers */,
+				CE8EF63516F941A4007BF85E /* S3GetACLRequest.h in Headers */,
+				CE8EF63616F941A4007BF85E /* S3GetACLResponse.h in Headers */,
+				CE8EF63716F941A4007BF85E /* S3GetBucketCrossOriginRequest.h in Headers */,
+				CE8EF63816F941A4007BF85E /* S3GetBucketCrossOriginResponse.h in Headers */,
+				CE8EF63916F941A4007BF85E /* S3GetBucketLifecycleConfigurationRequest.h in Headers */,
+				CE8EF63A16F941A4007BF85E /* S3GetBucketLifecycleConfigurationResponse.h in Headers */,
+				CE8EF63B16F941A4007BF85E /* S3GetBucketPolicyRequest.h in Headers */,
+				CE8EF63C16F941A4007BF85E /* S3GetBucketPolicyResponse.h in Headers */,
+				CE8EF63D16F941A4007BF85E /* S3GetBucketTaggingRequest.h in Headers */,
+				CE8EF63E16F941A4007BF85E /* S3GetBucketTaggingResponse.h in Headers */,
+				CE8EF63F16F941A4007BF85E /* S3GetBucketVersioningConfigurationRequest.h in Headers */,
+				CE8EF64016F941A4007BF85E /* S3GetBucketVersioningConfigurationResponse.h in Headers */,
+				CE8EF64116F941A4007BF85E /* S3GetBucketWebsiteConfigurationRequest.h in Headers */,
+				CE8EF64216F941A4007BF85E /* S3GetBucketWebsiteConfigurationResponse.h in Headers */,
+				CE8EF64316F941A4007BF85E /* S3GetBucketWebsiteConfigurationResultUnmarshaller.h in Headers */,
+				CE8EF64416F941A4007BF85E /* S3GetObjectMetadataRequest.h in Headers */,
+				CE8EF64516F941A4007BF85E /* S3GetObjectMetadataResponse.h in Headers */,
+				CE8EF64616F941A4007BF85E /* S3GetObjectRequest.h in Headers */,
+				CE8EF64716F941A4007BF85E /* S3GetObjectResponse.h in Headers */,
+				CE8EF64816F941A4007BF85E /* S3GetPreSignedURLRequest.h in Headers */,
+				CE8EF64916F941A4007BF85E /* S3Grant.h in Headers */,
+				CE8EF64A16F941A4007BF85E /* S3Grantee.h in Headers */,
+				CE8EF64B16F941A4007BF85E /* S3GrantUnmarshaller.h in Headers */,
+				CE8EF64C16F941A4007BF85E /* S3InitiateMultipartUploadRequest.h in Headers */,
+				CE8EF64D16F941A4007BF85E /* S3InitiateMultipartUploadResponse.h in Headers */,
+				CE8EF64E16F941A4007BF85E /* S3InitiateMultipartUploadResultUnmarshaller.h in Headers */,
+				CE8EF64F16F941A4007BF85E /* S3KeyVersion.h in Headers */,
+				CE8EF65016F941A4007BF85E /* S3ListBucketResultUnmarshaller.h in Headers */,
+				CE8EF65116F941A4007BF85E /* S3ListBucketsRequest.h in Headers */,
+				CE8EF65216F941A4007BF85E /* S3ListBucketsResponse.h in Headers */,
+				CE8EF65316F941A4007BF85E /* S3ListBucketsResult.h in Headers */,
+				CE8EF65416F941A4007BF85E /* S3ListBucketsResultUnmarshaller.h in Headers */,
+				CE8EF65516F941A4007BF85E /* S3ListMultipartUploadsRequest.h in Headers */,
+				CE8EF65616F941A4007BF85E /* S3ListMultipartUploadsResponse.h in Headers */,
+				CE8EF65716F941A4007BF85E /* S3ListMultipartUploadsResult.h in Headers */,
+				CE8EF65816F941A4007BF85E /* S3ListMultipartUploadsResultUnmarshaller.h in Headers */,
+				CE8EF65916F941A4007BF85E /* S3ListObjectsRequest.h in Headers */,
+				CE8EF65A16F941A4007BF85E /* S3ListObjectsResponse.h in Headers */,
+				CE8EF65B16F941A4007BF85E /* S3ListObjectsResult.h in Headers */,
+				CE8EF65C16F941A4007BF85E /* S3ListPartsRequest.h in Headers */,
+				CE8EF65D16F941A4007BF85E /* S3ListPartsResponse.h in Headers */,
+				CE8EF65E16F941A4007BF85E /* S3ListPartsResult.h in Headers */,
+				CE8EF65F16F941A4007BF85E /* S3ListPartsResultUnmarshaller.h in Headers */,
+				CE8EF66016F941A4007BF85E /* S3ListVersionsRequest.h in Headers */,
+				CE8EF66116F941A4007BF85E /* S3ListVersionsResponse.h in Headers */,
+				CE8EF66216F941A4007BF85E /* S3ListVersionsResult.h in Headers */,
+				CE8EF66316F941A4007BF85E /* S3ListVersionsResultUnmarshaller.h in Headers */,
+				CE8EF66416F941A4007BF85E /* S3LocationConstraintUnmarshaller.h in Headers */,
+				CE8EF66516F941A4007BF85E /* S3MultiFactorAuthentication.h in Headers */,
+				CE8EF66616F941A4007BF85E /* S3MultipartUpload.h in Headers */,
+				CE8EF66716F941A4007BF85E /* S3MultipartUploadOperation_Internal.h in Headers */,
+				CE8EF66816F941A4007BF85E /* S3MultipartUploadUnmarshaller.h in Headers */,
+				CE8EF66916F941A4007BF85E /* S3ObjectSummary.h in Headers */,
+				CE8EF66A16F941A4007BF85E /* S3ObjectSummaryUnmarshaller.h in Headers */,
+				CE8EF66B16F941A4007BF85E /* S3Owner.h in Headers */,
+				CE8EF66C16F941A4007BF85E /* S3OwnerUnmarshaller.h in Headers */,
+				CE8EF66D16F941A4007BF85E /* S3Part.h in Headers */,
+				CE8EF66E16F941A4007BF85E /* S3PartUnmarshaller.h in Headers */,
+				CE8EF66F16F941A4007BF85E /* S3Permission.h in Headers */,
+				CE8EF67016F941A4007BF85E /* S3PutObjectOperation_Internal.h in Headers */,
+				CE8EF67116F941A4007BF85E /* S3PutObjectRequest.h in Headers */,
+				CE8EF67216F941A4007BF85E /* S3PutObjectResponse.h in Headers */,
+				CE8EF67316F941A4007BF85E /* S3Region.h in Headers */,
+				CE8EF67416F941A4007BF85E /* S3Request.h in Headers */,
+				CE8EF67516F941A4007BF85E /* S3Response.h in Headers */,
+				CE8EF67616F941A4007BF85E /* S3ResponseHeaderOverrides.h in Headers */,
+				CE8EF67716F941A4007BF85E /* S3RestoreObjectRequest.h in Headers */,
+				CE8EF67816F941A4007BF85E /* S3RestoreObjectResponse.h in Headers */,
+				CE8EF67916F941A4007BF85E /* S3ServiceModel.h in Headers */,
+				CE8EF67A16F941A4007BF85E /* S3SetACLRequest.h in Headers */,
+				CE8EF67B16F941A4007BF85E /* S3SetACLResponse.h in Headers */,
+				CE8EF67C16F941A4007BF85E /* S3SetBucketCrossOriginRequest.h in Headers */,
+				CE8EF67D16F941A4007BF85E /* S3SetBucketCrossOriginResponse.h in Headers */,
+				CE8EF67E16F941A4007BF85E /* S3SetBucketLifecycleConfigurationRequest.h in Headers */,
+				CE8EF67F16F941A4007BF85E /* S3SetBucketLifecycleConfigurationResponse.h in Headers */,
+				CE8EF68016F941A4007BF85E /* S3SetBucketPolicyRequest.h in Headers */,
+				CE8EF68116F941A4007BF85E /* S3SetBucketPolicyResponse.h in Headers */,
+				CE8EF68216F941A4007BF85E /* S3SetBucketTaggingRequest.h in Headers */,
+				CE8EF68316F941A4007BF85E /* S3SetBucketTaggingResponse.h in Headers */,
+				CE8EF68416F941A4007BF85E /* S3SetBucketVersioningConfigurationRequest.h in Headers */,
+				CE8EF68516F941A4007BF85E /* S3SetBucketVersioningConfigurationResponse.h in Headers */,
+				CE8EF68616F941A4007BF85E /* S3SetBucketWebsiteConfigurationRequest.h in Headers */,
+				CE8EF68716F941A4007BF85E /* S3SetBucketWebsiteConfigurationResponse.h in Headers */,
+				CE8EF68816F941A4007BF85E /* S3TransferManager.h in Headers */,
+				CE8EF68916F941A4007BF85E /* S3UploadInputStream.h in Headers */,
+				CE8EF68A16F941A4007BF85E /* S3UploadPartRequest.h in Headers */,
+				CE8EF68B16F941A4007BF85E /* S3UploadPartResponse.h in Headers */,
+				CE8EF68C16F941A4007BF85E /* S3VersionSummary.h in Headers */,
+				CE8EF68D16F941A4007BF85E /* S3VersionSummaryUnmarshaller.h in Headers */,
+				CE2CDBFE17036F640013DE5F /* AWSS3.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXLegacyTarget section */
+		0AFD8DD7128465B4004B7863 /* Framework */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 0AFD8DDC128465EB004B7863 /* Build configuration list for PBXLegacyTarget "Framework" */;
+			buildPhases = (
+			);
+			buildToolPath = Scripts/Framework.sh;
+			dependencies = (
+			);
+			name = Framework;
+			passBuildSettingsInEnvironment = 1;
+			productName = Framework;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC07D0554694100DB518D /* S3 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "S3" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = S3;
+			productName = s3;
+			productReference = D069663F1234D53400BFBB1E /* libS3.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+			};
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "S3" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* s3 */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2AAC07D0554694100DB518D /* S3 */,
+				0AFD8DD7128465B4004B7863 /* Framework */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3804CABA165194CA00FB6515 /* S3BucketLifecycleConfigurationTransitionUnmarshaller.m in Sources */,
+				3804CABB165194CA00FB6515 /* S3BucketLifecycleConfigurationTransition.m in Sources */,
+				3804CABC165194CA00FB6515 /* S3RestoreObjectResponse.m in Sources */,
+				3804CABD165194CA00FB6515 /* S3RestoreObjectRequest.m in Sources */,
+				38EFE867161F53FF0069348B /* AmazonS3Client.m in Sources */,
+				38EFE868161F53FF0069348B /* BucketWebsiteConfiguration.m in Sources */,
+				38EFE869161F53FF0069348B /* DeletedObject.m in Sources */,
+				38EFE86A161F53FF0069348B /* DeleteError.m in Sources */,
+				38EFE86B161F53FF0069348B /* S3AbortMultipartUploadRequest.m in Sources */,
+				38EFE86C161F53FF0069348B /* S3AbortMultipartUploadResponse.m in Sources */,
+				38EFE86D161F53FF0069348B /* S3AbstractPutRequest.m in Sources */,
+				38EFE86E161F53FF0069348B /* S3AccessControlList.m in Sources */,
+				38EFE86F161F53FF0069348B /* S3AccessControlListUnmarshaller.m in Sources */,
+				38EFE870161F53FF0069348B /* S3Bucket.m in Sources */,
+				38EFE871161F53FF0069348B /* S3BucketCrossOriginConfiguration.m in Sources */,
+				38EFE872161F53FF0069348B /* S3BucketCrossOriginConfigurationUnmarshaller.m in Sources */,
+				38EFE873161F53FF0069348B /* S3BucketLifecycleConfiguration.m in Sources */,
+				38EFE874161F53FF0069348B /* S3BucketLifecycleConfigurationRule.m in Sources */,
+				38EFE875161F53FF0069348B /* S3BucketLifecycleConfigurationRuleUnmarshaller.m in Sources */,
+				38EFE876161F53FF0069348B /* S3BucketLifecycleConfigurationUnmarshaller.m in Sources */,
+				38EFE877161F53FF0069348B /* S3BucketNameUtilities.m in Sources */,
+				38EFE878161F53FF0069348B /* S3BucketPolicy.m in Sources */,
+				38EFE879161F53FF0069348B /* S3BucketTaggingConfiguration.m in Sources */,
+				38EFE87A161F53FF0069348B /* S3BucketTaggingConfigurationUnmarshaller.m in Sources */,
+				38EFE87B161F53FF0069348B /* S3BucketTagSet.m in Sources */,
+				38EFE87C161F53FF0069348B /* S3BucketTagSetUnmarshaller.m in Sources */,
+				38EFE87D161F53FF0069348B /* S3BucketUnmarshaller.m in Sources */,
+				38EFE87E161F53FF0069348B /* S3BucketVersioningConfiguration.m in Sources */,
+				38EFE87F161F53FF0069348B /* S3BucketVersioningConfigurationUnmarshaller.m in Sources */,
+				38EFE880161F53FF0069348B /* S3CannedACL.m in Sources */,
+				38EFE881161F53FF0069348B /* S3CommonPrefixesUnmarshaller.m in Sources */,
+				38EFE882161F53FF0069348B /* S3CompleteMultipartUploadRequest.m in Sources */,
+				38EFE883161F53FF0069348B /* S3CompleteMultipartUploadResponse.m in Sources */,
+				38EFE884161F53FF0069348B /* S3CompleteMultipartUploadResult.m in Sources */,
+				38EFE885161F53FF0069348B /* S3CompleteMultipartUploadResultUnmarshaller.m in Sources */,
+				38EFE886161F53FF0069348B /* S3CopyObjectRequest.m in Sources */,
+				38EFE887161F53FF0069348B /* S3CopyObjectResponse.m in Sources */,
+				38EFE888161F53FF0069348B /* S3CopyObjectResult.m in Sources */,
+				38EFE889161F53FF0069348B /* S3CopyObjectResultUnmarshaller.m in Sources */,
+				38EFE88A161F53FF0069348B /* S3CopyPartRequest.m in Sources */,
+				38EFE88B161F53FF0069348B /* S3CopyPartResponse.m in Sources */,
+				38EFE88C161F53FF0069348B /* S3CopyPartResult.m in Sources */,
+				38EFE88D161F53FF0069348B /* S3CopyPartResultUnmarshaller.m in Sources */,
+				38EFE88E161F53FF0069348B /* S3CORSRule.m in Sources */,
+				38EFE88F161F53FF0069348B /* S3CORSRuleUnmarshaller.m in Sources */,
+				38EFE890161F53FF0069348B /* S3CreateBucketRequest.m in Sources */,
+				38EFE891161F53FF0069348B /* S3CreateBucketResponse.m in Sources */,
+				38EFE892161F53FF0069348B /* S3DeleteBucketCrossOriginRequest.m in Sources */,
+				38EFE893161F53FF0069348B /* S3DeleteBucketCrossOriginResponse.m in Sources */,
+				38EFE894161F53FF0069348B /* S3DeleteBucketLifecycleConfigurationRequest.m in Sources */,
+				38EFE895161F53FF0069348B /* S3DeleteBucketLifecycleConfigurationResponse.m in Sources */,
+				38EFE896161F53FF0069348B /* S3DeleteBucketPolicyRequest.m in Sources */,
+				38EFE897161F53FF0069348B /* S3DeleteBucketPolicyResponse.m in Sources */,
+				38EFE898161F53FF0069348B /* S3DeleteBucketRequest.m in Sources */,
+				38EFE899161F53FF0069348B /* S3DeleteBucketResponse.m in Sources */,
+				38EFE89A161F53FF0069348B /* S3DeleteBucketTaggingRequest.m in Sources */,
+				38EFE89B161F53FF0069348B /* S3DeleteBucketTaggingResponse.m in Sources */,
+				38EFE89C161F53FF0069348B /* S3DeleteBucketWebsiteConfigurationRequest.m in Sources */,
+				38EFE89D161F53FF0069348B /* S3DeleteBucketWebsiteConfigurationResponse.m in Sources */,
+				38EFE89E161F53FF0069348B /* S3DeletedObjectUnmarshaller.m in Sources */,
+				38EFE89F161F53FF0069348B /* S3DeleteErrorUnmarshaller.m in Sources */,
+				38EFE8A0161F53FF0069348B /* S3DeleteObjectRequest.m in Sources */,
+				38EFE8A1161F53FF0069348B /* S3DeleteObjectResponse.m in Sources */,
+				38EFE8A2161F53FF0069348B /* S3DeleteObjectsRequest.m in Sources */,
+				38EFE8A3161F53FF0069348B /* S3DeleteObjectsResponse.m in Sources */,
+				38EFE8A4161F53FF0069348B /* S3DeleteObjectsResultUnmarshaller.m in Sources */,
+				38EFE8A5161F53FF0069348B /* S3DeleteVersionRequest.m in Sources */,
+				38EFE8A6161F53FF0069348B /* S3DeleteVersionResponse.m in Sources */,
+				38EFE8A7161F53FF0069348B /* S3ErrorResponseHandler.m in Sources */,
+				38EFE8A8161F53FF0069348B /* S3GetACLRequest.m in Sources */,
+				38EFE8A9161F53FF0069348B /* S3GetACLResponse.m in Sources */,
+				38EFE8AA161F53FF0069348B /* S3GetBucketCrossOriginRequest.m in Sources */,
+				38EFE8AB161F53FF0069348B /* S3GetBucketCrossOriginResponse.m in Sources */,
+				38EFE8AC161F53FF0069348B /* S3GetBucketLifecycleConfigurationRequest.m in Sources */,
+				38EFE8AD161F53FF0069348B /* S3GetBucketLifecycleConfigurationResponse.m in Sources */,
+				38EFE8AE161F53FF0069348B /* S3GetBucketPolicyRequest.m in Sources */,
+				38EFE8AF161F53FF0069348B /* S3GetBucketPolicyResponse.m in Sources */,
+				38EFE8B0161F53FF0069348B /* S3GetBucketTaggingRequest.m in Sources */,
+				38EFE8B1161F53FF0069348B /* S3GetBucketTaggingResponse.m in Sources */,
+				38EFE8B2161F53FF0069348B /* S3GetBucketVersioningConfigurationRequest.m in Sources */,
+				38EFE8B3161F53FF0069348B /* S3GetBucketVersioningConfigurationResponse.m in Sources */,
+				38EFE8B4161F54000069348B /* S3GetBucketWebsiteConfigurationRequest.m in Sources */,
+				38EFE8B5161F54000069348B /* S3GetBucketWebsiteConfigurationResponse.m in Sources */,
+				38EFE8B6161F54000069348B /* S3GetBucketWebsiteConfigurationResultUnmarshaller.m in Sources */,
+				38EFE8B7161F54000069348B /* S3GetObjectMetadataRequest.m in Sources */,
+				38EFE8B8161F54000069348B /* S3GetObjectMetadataResponse.m in Sources */,
+				38EFE8B9161F54000069348B /* S3GetObjectRequest.m in Sources */,
+				38EFE8BA161F54000069348B /* S3GetObjectResponse.m in Sources */,
+				38EFE8BB161F54000069348B /* S3GetPreSignedURLRequest.m in Sources */,
+				38EFE8BC161F54000069348B /* S3Grant.m in Sources */,
+				38EFE8BD161F54000069348B /* S3Grantee.m in Sources */,
+				38EFE8BE161F54000069348B /* S3GrantUnmarshaller.m in Sources */,
+				38EFE8BF161F54000069348B /* S3InitiateMultipartUploadRequest.m in Sources */,
+				38EFE8C0161F54000069348B /* S3InitiateMultipartUploadResponse.m in Sources */,
+				38EFE8C1161F54000069348B /* S3InitiateMultipartUploadResultUnmarshaller.m in Sources */,
+				38EFE8C2161F54000069348B /* S3KeyVersion.m in Sources */,
+				38EFE8C3161F54000069348B /* S3ListBucketResultUnmarshaller.m in Sources */,
+				38EFE8C4161F54000069348B /* S3ListBucketsRequest.m in Sources */,
+				38EFE8C5161F54000069348B /* S3ListBucketsResponse.m in Sources */,
+				38EFE8C6161F54000069348B /* S3ListBucketsResult.m in Sources */,
+				38EFE8C7161F54000069348B /* S3ListBucketsResultUnmarshaller.m in Sources */,
+				38EFE8C8161F54000069348B /* S3ListMultipartUploadsRequest.m in Sources */,
+				38EFE8C9161F54000069348B /* S3ListMultipartUploadsResponse.m in Sources */,
+				38EFE8CA161F54000069348B /* S3ListMultipartUploadsResult.m in Sources */,
+				38EFE8CB161F54000069348B /* S3ListMultipartUploadsResultUnmarshaller.m in Sources */,
+				38EFE8CC161F54000069348B /* S3ListObjectsRequest.m in Sources */,
+				38EFE8CD161F54000069348B /* S3ListObjectsResponse.m in Sources */,
+				38EFE8CE161F54000069348B /* S3ListObjectsResult.m in Sources */,
+				38EFE8CF161F54000069348B /* S3ListPartsRequest.m in Sources */,
+				38EFE8D0161F54000069348B /* S3ListPartsResponse.m in Sources */,
+				38EFE8D1161F54000069348B /* S3ListPartsResult.m in Sources */,
+				38EFE8D2161F54000069348B /* S3ListPartsResultUnmarshaller.m in Sources */,
+				38EFE8D3161F54000069348B /* S3ListVersionsRequest.m in Sources */,
+				38EFE8D4161F54000069348B /* S3ListVersionsResponse.m in Sources */,
+				38EFE8D5161F54000069348B /* S3ListVersionsResult.m in Sources */,
+				38EFE8D6161F54000069348B /* S3ListVersionsResultUnmarshaller.m in Sources */,
+				38EFE8D7161F54000069348B /* S3LocationConstraintUnmarshaller.m in Sources */,
+				38EFE8D8161F54000069348B /* S3MultiFactorAuthentication.m in Sources */,
+				38EFE8D9161F54000069348B /* S3MultipartUpload.m in Sources */,
+				38EFE8DA161F54000069348B /* S3MultipartUploadUnmarshaller.m in Sources */,
+				38EFE8DB161F54000069348B /* S3ObjectSummary.m in Sources */,
+				38EFE8DC161F54000069348B /* S3ObjectSummaryUnmarshaller.m in Sources */,
+				38EFE8DD161F54000069348B /* S3Owner.m in Sources */,
+				38EFE8DE161F54000069348B /* S3OwnerUnmarshaller.m in Sources */,
+				38EFE8DF161F54000069348B /* S3Part.m in Sources */,
+				38EFE8E0161F54000069348B /* S3PartUnmarshaller.m in Sources */,
+				38EFE8E1161F54000069348B /* S3Permission.m in Sources */,
+				38EFE8E2161F54000069348B /* S3PutObjectRequest.m in Sources */,
+				38EFE8E3161F54000069348B /* S3PutObjectResponse.m in Sources */,
+				38EFE8E4161F54000069348B /* S3Region.m in Sources */,
+				38EFE8E5161F54000069348B /* S3Request.m in Sources */,
+				38EFE8E6161F54000069348B /* S3Response.m in Sources */,
+				38EFE8E7161F54000069348B /* S3ResponseHeaderOverrides.m in Sources */,
+				38EFE8E8161F54000069348B /* S3SetACLRequest.m in Sources */,
+				38EFE8E9161F54000069348B /* S3SetACLResponse.m in Sources */,
+				38EFE8EA161F54000069348B /* S3SetBucketCrossOriginRequest.m in Sources */,
+				38EFE8EB161F54000069348B /* S3SetBucketCrossOriginResponse.m in Sources */,
+				38EFE8EC161F54000069348B /* S3SetBucketLifecycleConfigurationRequest.m in Sources */,
+				38EFE8ED161F54000069348B /* S3SetBucketLifecycleConfigurationResponse.m in Sources */,
+				38EFE8EE161F54000069348B /* S3SetBucketPolicyRequest.m in Sources */,
+				38EFE8EF161F54000069348B /* S3SetBucketPolicyResponse.m in Sources */,
+				38EFE8F0161F54000069348B /* S3SetBucketTaggingRequest.m in Sources */,
+				38EFE8F1161F54000069348B /* S3SetBucketTaggingResponse.m in Sources */,
+				38EFE8F2161F54000069348B /* S3SetBucketVersioningConfigurationRequest.m in Sources */,
+				38EFE8F3161F54000069348B /* S3SetBucketVersioningConfigurationResponse.m in Sources */,
+				38EFE8F4161F54000069348B /* S3SetBucketWebsiteConfigurationRequest.m in Sources */,
+				38EFE8F5161F54000069348B /* S3SetBucketWebsiteConfigurationResponse.m in Sources */,
+				38EFE8F6161F54000069348B /* S3UploadInputStream.m in Sources */,
+				38EFE8F7161F54000069348B /* S3UploadPartRequest.m in Sources */,
+				38EFE8F8161F54000069348B /* S3UploadPartResponse.m in Sources */,
+				38EFE8F9161F54000069348B /* S3VersionSummary.m in Sources */,
+				38EFE8FA161F54000069348B /* S3VersionSummaryUnmarshaller.m in Sources */,
+				CE2BF33C16CB32C2005189A8 /* S3AbortMultiplartUploadsOperation_Internal.m in Sources */,
+				CE2BF33E16CB32C2005189A8 /* S3MultipartUploadOperation_Internal.m in Sources */,
+				CE2BF34016CB32C2005189A8 /* S3PutObjectOperation_Internal.m in Sources */,
+				CE2BF34216CB32CF005189A8 /* S3TransferManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0AFD8DD8128465B4004B7863 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = "include/S3/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = Framework;
+			};
+			name = Debug;
+		};
+		0AFD8DD9128465B4004B7863 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				HEADER_SEARCH_PATHS = "include/S3/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = Framework;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"ARCHS[sdk=*]" = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/s3.dst;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = S3_Prefix.pch;
+				HEADER_SEARCH_PATHS = include;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				PRODUCT_NAME = S3;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"ARCHS[sdk=*]" = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DSTROOT = /tmp/s3.dst;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = S3_Prefix.pch;
+				HEADER_SEARCH_PATHS = include;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				PRODUCT_NAME = S3;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					ThirdParty,
+					"include/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					ThirdParty,
+					"include/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0AFD8DDC128465EB004B7863 /* Build configuration list for PBXLegacyTarget "Framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0AFD8DD8128465B4004B7863 /* Debug */,
+				0AFD8DD9128465B4004B7863 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "S3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "S3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}

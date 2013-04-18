@@ -13,16 +13,17 @@
  * permissions and limitations under the License.
  */
 
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonServiceException.h>
+#else
 #import "../AmazonServiceException.h"
+#endif
 
 
 
 
 /**
- * <p>
- * This exception is thrown when an expected value does not match what
- * was found in the system.
- * </p>
+ * AmazonDynamoDB exception
  */
 @interface DynamoDBConditionalCheckFailedException:AmazonServiceException
 {

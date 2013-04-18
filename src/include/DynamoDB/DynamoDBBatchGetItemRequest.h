@@ -15,7 +15,11 @@
 
 #import "DynamoDBKeysAndAttributes.h"
 
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonServiceRequestConfig.h>
+#else
 #import "../AmazonServiceRequestConfig.h"
+#endif
 
 
 
@@ -27,6 +31,7 @@
 
 {
     NSMutableDictionary *requestItems;
+    NSString            *returnConsumedCapacity;
 }
 
 
@@ -39,14 +44,20 @@
 -(id)init;
 
 /**
- * A map of the table name and corresponding items to get by primary key.
- * While requesting items, each table name can be invoked only once per
- * operation.
+ * The value of the RequestItems property for this object.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 100<br/>
  */
 @property (nonatomic, retain) NSMutableDictionary *requestItems;
+
+/**
+ * The value of the ReturnConsumedCapacity property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>TOTAL, NONE
+ */
+@property (nonatomic, retain) NSString *returnConsumedCapacity;
 
 
 /**

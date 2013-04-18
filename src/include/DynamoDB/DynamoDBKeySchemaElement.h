@@ -24,13 +24,13 @@
 
 {
     NSString *attributeName;
-    NSString *attributeType;
+    NSString *keyType;
 }
 
 
 
 /**
- * The <code>AttributeName</code> of the <code>KeySchemaElement</code>.
+ * The value of the AttributeName property for this object.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 255<br/>
@@ -38,13 +38,12 @@
 @property (nonatomic, retain) NSString *attributeName;
 
 /**
- * The <code>AttributeType</code> of the <code>KeySchemaElement</code>
- * which can be a <code>String</code> or a <code>Number</code>.
+ * The value of the KeyType property for this object.
  * <p>
  * <b>Constraints:</b><br/>
- * <b>Allowed Values: </b>S, N, B
+ * <b>Allowed Values: </b>HASH, RANGE
  */
-@property (nonatomic, retain) NSString *attributeType;
+@property (nonatomic, retain) NSString *keyType;
 
 
 /**
@@ -57,13 +56,10 @@
  * Constructs a new KeySchemaElement object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theAttributeName The <code>AttributeName</code> of the
- * <code>KeySchemaElement</code>.
- * @param theAttributeType The <code>AttributeType</code> of the
- * <code>KeySchemaElement</code> which can be a <code>String</code> or a
- * <code>Number</code>.
+ * @param theAttributeName
+ * @param theKeyType
  */
--(id)initWithAttributeName:(NSString *)theAttributeName andAttributeType:(NSString *)theAttributeType;
+-(id)initWithAttributeName:(NSString *)theAttributeName andKeyType:(NSString *)theKeyType;
 
 /**
  * Returns a string representation of this object; useful for testing and

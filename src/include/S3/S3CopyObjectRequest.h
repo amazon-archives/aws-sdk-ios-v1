@@ -15,7 +15,11 @@
 
 #import <Foundation/Foundation.h>
 
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonClientException.h>
+#else
 #import "../AmazonClientException.h"
+#endif
 
 #import "S3AbstractPutRequest.h"
 #import "S3Constants.h"

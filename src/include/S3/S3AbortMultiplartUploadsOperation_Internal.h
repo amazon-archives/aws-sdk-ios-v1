@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -14,8 +14,9 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "AmazonServiceRequest.h"
+
 #import "AmazonS3Client.h"
+#import "AmazonServiceRequest.h"
 
 @interface S3AbortMultiplartUploadsOperation_Internal : NSOperation <AmazonServiceRequestDelegate>
 {

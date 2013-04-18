@@ -15,11 +15,13 @@
 
 #import "DynamoDBBatchGetItemResponseUnmarshaller.h"
 #import "DynamoDBExceptionUnmarshaller.h"
-#import "../AmazonSDKUtil.h"
-#import "DynamoDBBatchResponseUnmarshaller.h"
-#import "DynamoDBBatchResponseUnmarshaller.h"
+
+#import "AmazonSDKUtil.h"
+#import "DynamoDBAttributeValueUnmarshaller.h"
+#import "DynamoDBAttributeValueUnmarshaller.h"
 #import "DynamoDBKeysAndAttributesUnmarshaller.h"
 #import "DynamoDBKeysAndAttributesUnmarshaller.h"
+#import "DynamoDBConsumedCapacityUnmarshaller.h"
 
 
 @implementation DynamoDBBatchGetItemResponseUnmarshaller
@@ -36,8 +38,22 @@
     else {
         NSDictionary *responsesObject = [jsonObject valueForKey:@"Responses"];
         for (NSString *key in [responsesObject allKeys]) {
-            NSDictionary *value = [responsesObject valueForKey:key];
-            [batchGetItemResult.responses setValue:[DynamoDBBatchResponseUnmarshaller unmarshall:value] forKey:key];
+            NSMutableArray *arrayObject = [[[NSMutableArray alloc] init] autorelease];
+            [batchGetItemResult.responses setValue:arrayObject forKey:key];
+
+
+
+            NSArray *valueArray = [responsesObject valueForKey:key];
+            for (NSDictionary *mapObject in valueArray) {
+                NSMutableDictionary *member = [[[NSMutableDictionary alloc] init] autorelease];
+                for (NSString *key in [mapObject allKeys]) {
+                    NSDictionary *value = [mapObject valueForKey:key];
+                    [member setValue:[DynamoDBAttributeValueUnmarshaller unmarshall:value] forKey:key];
+                }
+
+
+                [arrayObject addObject:member];
+            }
         }
 
 
@@ -45,6 +61,12 @@
         for (NSString *key in [unprocessedKeysObject allKeys]) {
             NSDictionary *value = [unprocessedKeysObject valueForKey:key];
             [batchGetItemResult.unprocessedKeys setValue:[DynamoDBKeysAndAttributesUnmarshaller unmarshall:value] forKey:key];
+        }
+
+
+        NSArray *consumedCapacityArray = [jsonObject valueForKey:@"ConsumedCapacity"];
+        for (NSDictionary *memberObject in consumedCapacityArray) {
+            [batchGetItemResult.consumedCapacity addObject:[DynamoDBConsumedCapacityUnmarshaller unmarshall:memberObject]];
         }
     }
 

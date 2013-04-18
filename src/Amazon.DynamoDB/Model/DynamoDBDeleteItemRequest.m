@@ -22,21 +22,25 @@
 @synthesize key;
 @synthesize expected;
 @synthesize returnValues;
+@synthesize returnConsumedCapacity;
+@synthesize returnItemCollectionMetrics;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        tableName    = nil;
-        key          = nil;
-        expected     = [[NSMutableDictionary alloc] initWithCapacity:1];
-        returnValues = nil;
+        tableName                   = nil;
+        key                         = [[NSMutableDictionary alloc] initWithCapacity:1];
+        expected                    = [[NSMutableDictionary alloc] initWithCapacity:1];
+        returnValues                = nil;
+        returnConsumedCapacity      = nil;
+        returnItemCollectionMetrics = nil;
     }
 
     return self;
 }
 
--(id)initWithTableName:(NSString *)theTableName andKey:(DynamoDBKey *)theKey
+-(id)initWithTableName:(NSString *)theTableName andKey:(NSMutableDictionary *)theKey
 {
     if (self = [self init]) {
         self.tableName = theTableName;
@@ -46,6 +50,15 @@
     return self;
 }
 
+
+-(void)setKeyValue:(DynamoDBAttributeValue *)theValue forKey:(NSString *)theKey
+{
+    if (key == nil) {
+        key = [[NSMutableDictionary alloc] initWithCapacity:1];
+    }
+
+    [key setValue:theValue forKey:theKey];
+}
 
 -(void)setExpectedValue:(DynamoDBExpectedAttributeValue *)theValue forKey:(NSString *)theKey
 {
@@ -66,6 +79,8 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Key: %@,", key] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Expected: %@,", expected] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ReturnValues: %@,", returnValues] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"ReturnConsumedCapacity: %@,", returnConsumedCapacity] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"ReturnItemCollectionMetrics: %@,", returnItemCollectionMetrics] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -80,6 +95,8 @@
     [key release];
     [expected release];
     [returnValues release];
+    [returnConsumedCapacity release];
+    [returnItemCollectionMetrics release];
 
     [super dealloc];
 }

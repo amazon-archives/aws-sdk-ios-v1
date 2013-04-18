@@ -19,7 +19,11 @@
 #import "EC2InstanceNetworkInterfaceSpecification.h"
 #import "EC2IamInstanceProfileSpecification.h"
 
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonServiceRequestConfig.h>
+#else
 #import "../AmazonServiceRequestConfig.h"
+#endif
 
 
 

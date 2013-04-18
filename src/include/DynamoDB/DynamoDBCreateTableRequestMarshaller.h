@@ -13,16 +13,41 @@
  * permissions and limitations under the License.
  */
 
-
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonServiceRequest.h>
+#else
 #import "../AmazonServiceRequest.h"
+#endif
 
 #import "DynamoDBRequest.h"
 #import "DynamoDBCreateTableRequest.h"
-#import "DynamoDBKeySchema.h"
-#import "DynamoDBKeySchemaElement.h"
-#import "DynamoDBKeySchemaElement.h"
 #import "DynamoDBProvisionedThroughput.h"
+#import "DynamoDBAttributeDefinition.h"
+#import "DynamoDBProjection.h"
 #import "DynamoDBKeySchemaElement.h"
+#import "DynamoDBKeySchemaElement.h"
+#import "DynamoDBProjection.h"
+#import "DynamoDBKeySchemaElement.h"
+#import "DynamoDBLocalSecondaryIndex.h"
+#import "DynamoDBProjection.h"
+#import "DynamoDBKeySchemaElement.h"
+#import "DynamoDBAttributeDefinition.h"
+#import "DynamoDBProjection.h"
+#import "DynamoDBKeySchemaElement.h"
+#import "DynamoDBKeySchemaElement.h"
+#import "DynamoDBProjection.h"
+#import "DynamoDBKeySchemaElement.h"
+#import "DynamoDBLocalSecondaryIndex.h"
+#import "DynamoDBProjection.h"
+#import "DynamoDBKeySchemaElement.h"
+#import "DynamoDBAttributeDefinition.h"
+#import "DynamoDBProjection.h"
+#import "DynamoDBKeySchemaElement.h"
+#import "DynamoDBKeySchemaElement.h"
+#import "DynamoDBProjection.h"
+#import "DynamoDBKeySchemaElement.h"
+#import "DynamoDBLocalSecondaryIndex.h"
+#import "DynamoDBProjection.h"
 #import "DynamoDBKeySchemaElement.h"
 
 

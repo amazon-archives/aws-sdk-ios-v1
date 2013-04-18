@@ -16,8 +16,13 @@
 #import <Foundation/Foundation.h>
 #import "CloudWatchAlarmHistoryItem.h"
 #import "CloudWatchResponseUnmarshaller.h"
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonValueUnmarshaller.h>
+#import <AWSRuntime/AmazonBoolValueUnmarshaller.h>
+#else
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
+#endif
 
 
 /**

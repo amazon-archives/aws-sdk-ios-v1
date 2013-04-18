@@ -14,7 +14,11 @@
  */
 
 
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonServiceRequestConfig.h>
+#else
 #import "../AmazonServiceRequestConfig.h"
+#endif
 
 
 
@@ -39,10 +43,7 @@
 -(id)init;
 
 /**
- * The name of the table that starts the list. If you already ran a
- * <code>ListTables</code> operation and received a
- * <code>LastEvaluatedTableName</code> value in the response, use that
- * value here to continue the list.
+ * The value of the ExclusiveStartTableName property for this object.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>3 - 255<br/>
@@ -51,7 +52,7 @@
 @property (nonatomic, retain) NSString *exclusiveStartTableName;
 
 /**
- * A number of maximum table names to return.
+ * The value of the Limit property for this object.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Range: </b>1 - 100<br/>

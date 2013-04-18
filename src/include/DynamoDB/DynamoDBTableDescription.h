@@ -13,8 +13,10 @@
  * permissions and limitations under the License.
  */
 
-#import "DynamoDBKeySchema.h"
+#import "DynamoDBAttributeDefinition.h"
+#import "DynamoDBKeySchemaElement.h"
 #import "DynamoDBProvisionedThroughputDescription.h"
+#import "DynamoDBLocalSecondaryIndexDescription.h"
 
 
 
@@ -25,19 +27,26 @@
 @interface DynamoDBTableDescription:NSObject
 
 {
+    NSMutableArray                           *attributeDefinitions;
     NSString                                 *tableName;
-    DynamoDBKeySchema                        *keySchema;
+    NSMutableArray                           *keySchema;
     NSString                                 *tableStatus;
     NSDate                                   *creationDateTime;
     DynamoDBProvisionedThroughputDescription *provisionedThroughput;
     NSNumber                                 *tableSizeBytes;
     NSNumber                                 *itemCount;
+    NSMutableArray                           *localSecondaryIndexes;
 }
 
 
 
 /**
- * The name of the table being described.
+ * The value of the AttributeDefinitions property for this object.
+ */
+@property (nonatomic, retain) NSMutableArray *attributeDefinitions;
+
+/**
+ * The value of the TableName property for this object.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>3 - 255<br/>
@@ -46,14 +55,12 @@
 @property (nonatomic, retain) NSString *tableName;
 
 /**
- * The KeySchema identifies the primary key as a one attribute primary
- * key (hash) or a composite two attribute (hash-and-range) primary key.
- * Single attribute primary keys have one index value: a
- * <code>HashKeyElement</code>. A composite hash-and-range primary key
- * contains two attribute values: a <code>HashKeyElement</code> and a
- * <code>RangeKeyElement</code>.
+ * The value of the KeySchema property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Length: </b>1 - 2<br/>
  */
-@property (nonatomic, retain) DynamoDBKeySchema *keySchema;
+@property (nonatomic, retain) NSMutableArray *keySchema;
 
 /**
  * The value of the TableStatus property for this object.
@@ -83,12 +90,35 @@
  */
 @property (nonatomic, retain) NSNumber *itemCount;
 
+/**
+ * The value of the LocalSecondaryIndexes property for this object.
+ */
+@property (nonatomic, retain) NSMutableArray *localSecondaryIndexes;
+
 
 /**
  * Default constructor for a new TableDescription object.  Callers should use the
  * property methods to initialize this object after creating it.
  */
 -(id)init;
+
+/**
+ * Adds a single object to attributeDefinitions.
+ * This function will alloc and init attributeDefinitions if not already done.
+ */
+-(void)addAttributeDefinition:(DynamoDBAttributeDefinition *)attributeDefinitionObject;
+
+/**
+ * Adds a single object to keySchema.
+ * This function will alloc and init keySchema if not already done.
+ */
+-(void)addKeySchema:(DynamoDBKeySchemaElement *)keySchemaObject;
+
+/**
+ * Adds a single object to localSecondaryIndexes.
+ * This function will alloc and init localSecondaryIndexes if not already done.
+ */
+-(void)addLocalSecondaryIndexe:(DynamoDBLocalSecondaryIndexDescription *)localSecondaryIndexeObject;
 
 /**
  * Returns a string representation of this object; useful for testing and

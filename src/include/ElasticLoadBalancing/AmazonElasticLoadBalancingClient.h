@@ -59,7 +59,11 @@
 #import "ElasticLoadBalancingCreateAppCookieStickinessPolicyResponse.h"
 #import "ElasticLoadBalancingCreateAppCookieStickinessPolicyRequest.h"
 
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonWebServiceClient.h>
+#else
 #import "../AmazonWebServiceClient.h"
+#endif
 
 /** \defgroup ElasticLoadBalancing Elastic Load Balancing */
 

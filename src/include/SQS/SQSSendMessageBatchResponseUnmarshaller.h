@@ -16,11 +16,26 @@
 #import <Foundation/Foundation.h>
 #import "SQSSendMessageBatchResponse.h"
 #import "SQSResponseUnmarshaller.h"
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonValueUnmarshaller.h>
+#import <AWSRuntime/AmazonBoolValueUnmarshaller.h>
+#else
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
+#endif
+
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonListUnmarshaller.h>
+#else
 #import "../AmazonListUnmarshaller.h"
+#endif
 #import "SQSSendMessageBatchResponseEntryUnmarshaller.h"
+
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonListUnmarshaller.h>
+#else
 #import "../AmazonListUnmarshaller.h"
+#endif
 #import "SQSBatchResponseErrorEntryUnmarshaller.h"
 
 

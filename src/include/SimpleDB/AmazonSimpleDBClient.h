@@ -33,7 +33,11 @@
 #import "SimpleDBDomainMetadataResponse.h"
 #import "SimpleDBDomainMetadataRequest.h"
 
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonWebServiceClient.h>
+#else
 #import "../AmazonWebServiceClient.h"
+#endif
 
 /** \defgroup SimpleDB Amazon SimpleDB */
 

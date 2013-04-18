@@ -15,8 +15,10 @@
 
 #import "DynamoDBDeleteRequestUnmarshaller.h"
 #import "DynamoDBExceptionUnmarshaller.h"
-#import "../AmazonSDKUtil.h"
-#import "DynamoDBKeyUnmarshaller.h"
+
+#import "AmazonSDKUtil.h"
+#import "DynamoDBAttributeValueUnmarshaller.h"
+#import "DynamoDBAttributeValueUnmarshaller.h"
 
 
 @implementation DynamoDBDeleteRequestUnmarshaller
@@ -28,8 +30,10 @@
 
 
 
-    if ([jsonObject valueForKey:@"Key"] != nil) {
-        deleteRequest.key = [DynamoDBKeyUnmarshaller unmarshall:[jsonObject valueForKey:@"Key"]];
+    NSDictionary *keyObject = [jsonObject valueForKey:@"Key"];
+    for (NSString *key in [keyObject allKeys]) {
+        NSDictionary *value = [keyObject valueForKey:key];
+        [deleteRequest.key setValue:[DynamoDBAttributeValueUnmarshaller unmarshall:value] forKey:key];
     }
 
     return deleteRequest;

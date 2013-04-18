@@ -14,7 +14,8 @@
  */
 
 #import "AmazonS3Client.h"
-#import "../AmazonEndpoints.h"
+
+#import "AmazonEndpoints.h"
 #import "S3LocationConstraintUnmarshaller.h"
 
 

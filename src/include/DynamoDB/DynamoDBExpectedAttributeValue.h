@@ -32,14 +32,12 @@
 
 
 /**
- * Specify whether or not a value already exists and has a specific
- * content for the attribute name-value pair.
+ * The value of the Value property for this object.
  */
 @property (nonatomic, retain) DynamoDBAttributeValue *value;
 
 /**
- * Specify whether or not a value already exists for the attribute
- * name-value pair.
+ * The value of the Exists property for this object.
  */
 @property (nonatomic) bool           exists;
 
@@ -56,8 +54,7 @@
  * Constructs a new ExpectedAttributeValue object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theValue Specify whether or not a value already exists and has
- * a specific content for the attribute name-value pair.
+ * @param theValue
  */
 -(id)initWithValue:(DynamoDBAttributeValue *)theValue;
 
@@ -65,8 +62,7 @@
  * Constructs a new ExpectedAttributeValue object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theExists Specify whether or not a value already exists for the
- * attribute name-value pair.
+ * @param theExists
  */
 -(id)initWithExists:(bool)theExists;
 

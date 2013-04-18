@@ -108,7 +108,7 @@ typedef enum {
 	NSString *error;
 }
 
-@property (nonatomic, assign) __weak AWS_SBJsonStreamParserState *state; // Private
+@property (nonatomic, assign) __unsafe_unretained AWS_SBJsonStreamParserState *state; // Private
 @property (nonatomic, readonly, retain) NSMutableArray *stateStack; // Private
 
 /**

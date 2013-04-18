@@ -15,7 +15,8 @@
 
 #import <Foundation/Foundation.h>
 
-#import "../AmazonUnmarshallerXMLParserDelegate.h"
+#import "AmazonUnmarshallerXMLParserDelegate.h"
+
 #import "S3BucketCrossOriginConfiguration.h"
 
 /** Creates an S3BucketCrossOriginConfiguration from an XML service repsonse. */

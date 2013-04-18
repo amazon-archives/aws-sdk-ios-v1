@@ -1,0 +1,679 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0A92B683128899D200A2F38A /* AmazonServiceResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A92B682128899D200A2F38A /* AmazonServiceResponseUnmarshaller.m */; };
+		0A99250C12DB7601000B298D /* AmazonServiceRequestConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A99250A12DB7601000B298D /* AmazonServiceRequestConfig.m */; };
+		0AFD8AF312832C77004B7863 /* AmazonSDKUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD8AEC12832C77004B7863 /* AmazonSDKUtil.m */; };
+		0AFD8AF412832C77004B7863 /* AmazonAuthUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD8AED12832C77004B7863 /* AmazonAuthUtils.m */; };
+		0AFD8AF512832C77004B7863 /* AmazonClientException.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD8AEE12832C77004B7863 /* AmazonClientException.m */; };
+		0AFD8AF612832C77004B7863 /* AmazonLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD8AEF12832C77004B7863 /* AmazonLogger.m */; };
+		0AFD8AF712832C77004B7863 /* AmazonServiceException.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD8AF012832C77004B7863 /* AmazonServiceException.m */; };
+		0AFD8AF812832C77004B7863 /* AmazonSignatureException.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD8AF112832C77004B7863 /* AmazonSignatureException.m */; };
+		0AFD8AF912832C77004B7863 /* AmazonUnmarshallerXMLParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD8AF212832C77004B7863 /* AmazonUnmarshallerXMLParserDelegate.m */; };
+		0AFD8D5612836353004B7863 /* AmazonWebServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD8D5512836353004B7863 /* AmazonWebServiceClient.m */; };
+		0AFD8D6512836644004B7863 /* AmazonServiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD8D6312836644004B7863 /* AmazonServiceRequest.m */; };
+		0AFD8D6A1283667C004B7863 /* AmazonServiceResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD8D681283667C004B7863 /* AmazonServiceResponse.m */; };
+		38E1D27E16C5B55300613C99 /* AmazonCredentialsProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 38E1D27D16C5B55300613C99 /* AmazonCredentialsProvider.h */; };
+		38E1D28616C5B73B00613C99 /* AmazonStaticCredentialsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E1D28416C5B73B00613C99 /* AmazonStaticCredentialsProvider.m */; };
+		38E1D28816C5B76200613C99 /* AmazonStaticCredentialsProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 38E1D28716C5B76200613C99 /* AmazonStaticCredentialsProvider.h */; };
+		38EFEA88161F542C0069348B /* AmazonAbstractWebServiceClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFEA6F161F542C0069348B /* AmazonAbstractWebServiceClient.h */; };
+		38EFEA89161F542C0069348B /* AmazonAuthUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFEA70161F542C0069348B /* AmazonAuthUtils.h */; };
+		38EFEA8A161F542C0069348B /* AmazonBoolValueUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFEA71161F542C0069348B /* AmazonBoolValueUnmarshaller.h */; };
+		38EFEA8B161F542D0069348B /* AmazonClientException.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFEA72161F542C0069348B /* AmazonClientException.h */; };
+		38EFEA8C161F542D0069348B /* AmazonCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFEA73161F542C0069348B /* AmazonCredentials.h */; };
+		38EFEA8D161F542D0069348B /* AmazonDictionaryUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFEA74161F542C0069348B /* AmazonDictionaryUnmarshaller.h */; };
+		38EFEA8E161F542D0069348B /* AmazonEndpoints.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFEA75161F542C0069348B /* AmazonEndpoints.h */; };
+		38EFEA8F161F542D0069348B /* AmazonErrorHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFEA76161F542C0069348B /* AmazonErrorHandler.h */; };
+		38EFEA90161F542D0069348B /* AmazonJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFEA77161F542C0069348B /* AmazonJSON.h */; };
+		38EFEA91161F542D0069348B /* AmazonListUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFEA78161F542C0069348B /* AmazonListUnmarshaller.h */; };
+		38EFEA92161F542D0069348B /* AmazonLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFEA79161F542C0069348B /* AmazonLogger.h */; };
+		38EFEA93161F542D0069348B /* AmazonMD5Util.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFEA7A161F542C0069348B /* AmazonMD5Util.h */; };
+		38EFEA94161F542D0069348B /* AmazonRequestDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFEA7B161F542C0069348B /* AmazonRequestDelegate.h */; };
+		38EFEA95161F542D0069348B /* AmazonSDKUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFEA7C161F542C0069348B /* AmazonSDKUtil.h */; };
+		38EFEA96161F542D0069348B /* AmazonServiceException.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFEA7D161F542C0069348B /* AmazonServiceException.h */; };
+		38EFEA97161F542D0069348B /* AmazonServiceExceptionUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFEA7E161F542C0069348B /* AmazonServiceExceptionUnmarshaller.h */; };
+		38EFEA98161F542D0069348B /* AmazonServiceRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFEA7F161F542C0069348B /* AmazonServiceRequest.h */; };
+		38EFEA99161F542D0069348B /* AmazonServiceRequestConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFEA80161F542C0069348B /* AmazonServiceRequestConfig.h */; };
+		38EFEA9A161F542D0069348B /* AmazonServiceResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFEA81161F542C0069348B /* AmazonServiceResponse.h */; };
+		38EFEA9B161F542D0069348B /* AmazonServiceResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFEA82161F542C0069348B /* AmazonServiceResponseUnmarshaller.h */; };
+		38EFEA9C161F542D0069348B /* AmazonSignatureException.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFEA83161F542C0069348B /* AmazonSignatureException.h */; };
+		38EFEA9D161F542D0069348B /* AmazonUnmarshallerXMLParserDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFEA84161F542C0069348B /* AmazonUnmarshallerXMLParserDelegate.h */; };
+		38EFEA9E161F542D0069348B /* AmazonURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFEA85161F542C0069348B /* AmazonURLRequest.h */; };
+		38EFEA9F161F542D0069348B /* AmazonValueUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFEA86161F542C0069348B /* AmazonValueUnmarshaller.h */; };
+		38EFEAA0161F542D0069348B /* AmazonWebServiceClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EFEA87161F542C0069348B /* AmazonWebServiceClient.h */; };
+		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		CE17329816D8132A00DEC510 /* SBJson.h in Headers */ = {isa = PBXBuildFile; fileRef = CE17329716D8132A00DEC510 /* SBJson.h */; };
+		CE2CDC0A1703AE0F0013DE5F /* AWSRuntime.h in Headers */ = {isa = PBXBuildFile; fileRef = CE2CDC091703AE0F0013DE5F /* AWSRuntime.h */; };
+		CE39A67D15B73D890008DBEA /* AmazonErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = CE39A67C15B73D890008DBEA /* AmazonErrorHandler.m */; };
+		CE96C1B7158BD58A0084D3CB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE96C1A9158BC2A70084D3CB /* MobileCoreServices.framework */; };
+		CEEDD5D214FC0EF6009BA65E /* AmazonAbstractWebServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEDD5D114FC0EF6009BA65E /* AmazonAbstractWebServiceClient.m */; };
+		D01158E313395C4F00E35D3D /* AmazonBoolValueUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D01158E213395C4F00E35D3D /* AmazonBoolValueUnmarshaller.m */; };
+		D01926E012D69A8D0045B3F1 /* AmazonEndpoints.m in Sources */ = {isa = PBXBuildFile; fileRef = D01926DF12D69A8D0045B3F1 /* AmazonEndpoints.m */; };
+		D01F6B0B12A3877C004A312D /* AmazonDictionaryUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D01F6B0A12A3877C004A312D /* AmazonDictionaryUnmarshaller.m */; };
+		D020EBF9136091CD008EB16D /* AmazonRequestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D020EBF8136091CD008EB16D /* AmazonRequestDelegate.m */; };
+		D063F1E416E53B93006AD673 /* AmazonAbstractJsonWebServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D063F1E316E53B93006AD673 /* AmazonAbstractJsonWebServiceClient.m */; };
+		D063F1E716E53B9E006AD673 /* AmazonAbstractJsonWebServiceClient.h in Headers */ = {isa = PBXBuildFile; fileRef = D063F1E616E53B9E006AD673 /* AmazonAbstractJsonWebServiceClient.h */; };
+		D07E9DA114BB9C160007304E /* AmazonJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = D07E9DA014BB9C160007304E /* AmazonJSON.m */; };
+		D0828BE012DCE1880047F0C2 /* AmazonURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D0828BDF12DCE1880047F0C2 /* AmazonURLRequest.m */; };
+		D0C5652614BB72D2002C4FEF /* AWS_SBJson.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5650E14BB72D2002C4FEF /* AWS_SBJson.h */; };
+		D0C5652714BB72D2002C4FEF /* AWS_SBJsonParser.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5650F14BB72D2002C4FEF /* AWS_SBJsonParser.h */; };
+		D0C5652814BB72D2002C4FEF /* AWS_SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5651014BB72D2002C4FEF /* AWS_SBJsonParser.m */; };
+		D0C5652914BB72D2002C4FEF /* AWS_SBJsonStreamParser.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5651114BB72D2002C4FEF /* AWS_SBJsonStreamParser.h */; };
+		D0C5652A14BB72D2002C4FEF /* AWS_SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5651214BB72D2002C4FEF /* AWS_SBJsonStreamParser.m */; };
+		D0C5652B14BB72D2002C4FEF /* AWS_SBJsonStreamParserAccumulator.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5651314BB72D2002C4FEF /* AWS_SBJsonStreamParserAccumulator.h */; };
+		D0C5652C14BB72D2002C4FEF /* AWS_SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5651414BB72D2002C4FEF /* AWS_SBJsonStreamParserAccumulator.m */; };
+		D0C5652D14BB72D2002C4FEF /* AWS_SBJsonStreamParserAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5651514BB72D2002C4FEF /* AWS_SBJsonStreamParserAdapter.h */; };
+		D0C5652E14BB72D2002C4FEF /* AWS_SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5651614BB72D2002C4FEF /* AWS_SBJsonStreamParserAdapter.m */; };
+		D0C5652F14BB72D2002C4FEF /* AWS_SBJsonStreamParserState.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5651714BB72D2002C4FEF /* AWS_SBJsonStreamParserState.h */; };
+		D0C5653014BB72D2002C4FEF /* AWS_SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5651814BB72D2002C4FEF /* AWS_SBJsonStreamParserState.m */; };
+		D0C5653114BB72D2002C4FEF /* AWS_SBJsonStreamWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5651914BB72D2002C4FEF /* AWS_SBJsonStreamWriter.h */; };
+		D0C5653214BB72D2002C4FEF /* AWS_SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5651A14BB72D2002C4FEF /* AWS_SBJsonStreamWriter.m */; };
+		D0C5653314BB72D2002C4FEF /* AWS_SBJsonStreamWriterAccumulator.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5651B14BB72D2002C4FEF /* AWS_SBJsonStreamWriterAccumulator.h */; };
+		D0C5653414BB72D2002C4FEF /* AWS_SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5651C14BB72D2002C4FEF /* AWS_SBJsonStreamWriterAccumulator.m */; };
+		D0C5653514BB72D2002C4FEF /* AWS_SBJsonStreamWriterState.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5651D14BB72D2002C4FEF /* AWS_SBJsonStreamWriterState.h */; };
+		D0C5653614BB72D2002C4FEF /* AWS_SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5651E14BB72D2002C4FEF /* AWS_SBJsonStreamWriterState.m */; };
+		D0C5653714BB72D2002C4FEF /* AWS_SBJsonTokeniser.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5651F14BB72D2002C4FEF /* AWS_SBJsonTokeniser.h */; };
+		D0C5653814BB72D2002C4FEF /* AWS_SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5652014BB72D2002C4FEF /* AWS_SBJsonTokeniser.m */; };
+		D0C5653914BB72D2002C4FEF /* AWS_SBJsonUTF8Stream.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5652114BB72D2002C4FEF /* AWS_SBJsonUTF8Stream.h */; };
+		D0C5653A14BB72D2002C4FEF /* AWS_SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5652214BB72D2002C4FEF /* AWS_SBJsonUTF8Stream.m */; };
+		D0C5653B14BB72D2002C4FEF /* AWS_SBJsonWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C5652314BB72D2002C4FEF /* AWS_SBJsonWriter.h */; };
+		D0C5653C14BB72D2002C4FEF /* AWS_SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5652414BB72D2002C4FEF /* AWS_SBJsonWriter.m */; };
+		D0C9CFDA13381003006BE1FE /* AmazonValueUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C9CFD813380FFB006BE1FE /* AmazonValueUnmarshaller.m */; };
+		D0E0A8AF128DF3E600C70564 /* AmazonServiceExceptionUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E0A8AE128DF3E600C70564 /* AmazonServiceExceptionUnmarshaller.m */; };
+		D0E4152E12FCB5AE0075DAE6 /* AmazonCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E4152D12FCB5AE0075DAE6 /* AmazonCredentials.m */; };
+		D0EA4BFD12C1445200DA572B /* AmazonMD5Util.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EA4BFC12C1445200DA572B /* AmazonMD5Util.m */; };
+		D0EB72CC12A5E01A001EF2F8 /* AmazonListUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EB72CB12A5E01A001EF2F8 /* AmazonListUnmarshaller.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0A92B682128899D200A2F38A /* AmazonServiceResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonServiceResponseUnmarshaller.m; sourceTree = "<group>"; };
+		0A99250A12DB7601000B298D /* AmazonServiceRequestConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonServiceRequestConfig.m; sourceTree = "<group>"; };
+		0AFD8AEC12832C77004B7863 /* AmazonSDKUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonSDKUtil.m; sourceTree = "<group>"; };
+		0AFD8AED12832C77004B7863 /* AmazonAuthUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonAuthUtils.m; sourceTree = "<group>"; };
+		0AFD8AEE12832C77004B7863 /* AmazonClientException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonClientException.m; sourceTree = "<group>"; };
+		0AFD8AEF12832C77004B7863 /* AmazonLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonLogger.m; sourceTree = "<group>"; };
+		0AFD8AF012832C77004B7863 /* AmazonServiceException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonServiceException.m; sourceTree = "<group>"; };
+		0AFD8AF112832C77004B7863 /* AmazonSignatureException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonSignatureException.m; sourceTree = "<group>"; };
+		0AFD8AF212832C77004B7863 /* AmazonUnmarshallerXMLParserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonUnmarshallerXMLParserDelegate.m; sourceTree = "<group>"; };
+		0AFD8D5512836353004B7863 /* AmazonWebServiceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonWebServiceClient.m; sourceTree = "<group>"; };
+		0AFD8D6312836644004B7863 /* AmazonServiceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AmazonServiceRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		0AFD8D681283667C004B7863 /* AmazonServiceResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AmazonServiceResponse.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		0AFD8DC0128462A0004B7863 /* Framework.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Framework.plist; sourceTree = "<group>"; };
+		38E1D27D16C5B55300613C99 /* AmazonCredentialsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonCredentialsProvider.h; sourceTree = "<group>"; };
+		38E1D28416C5B73B00613C99 /* AmazonStaticCredentialsProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonStaticCredentialsProvider.m; sourceTree = "<group>"; };
+		38E1D28716C5B76200613C99 /* AmazonStaticCredentialsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonStaticCredentialsProvider.h; sourceTree = "<group>"; };
+		38EFEA6F161F542C0069348B /* AmazonAbstractWebServiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonAbstractWebServiceClient.h; sourceTree = "<group>"; };
+		38EFEA70161F542C0069348B /* AmazonAuthUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonAuthUtils.h; sourceTree = "<group>"; };
+		38EFEA71161F542C0069348B /* AmazonBoolValueUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonBoolValueUnmarshaller.h; sourceTree = "<group>"; };
+		38EFEA72161F542C0069348B /* AmazonClientException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonClientException.h; sourceTree = "<group>"; };
+		38EFEA73161F542C0069348B /* AmazonCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonCredentials.h; sourceTree = "<group>"; };
+		38EFEA74161F542C0069348B /* AmazonDictionaryUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonDictionaryUnmarshaller.h; sourceTree = "<group>"; };
+		38EFEA75161F542C0069348B /* AmazonEndpoints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonEndpoints.h; sourceTree = "<group>"; };
+		38EFEA76161F542C0069348B /* AmazonErrorHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonErrorHandler.h; sourceTree = "<group>"; };
+		38EFEA77161F542C0069348B /* AmazonJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonJSON.h; sourceTree = "<group>"; };
+		38EFEA78161F542C0069348B /* AmazonListUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonListUnmarshaller.h; sourceTree = "<group>"; };
+		38EFEA79161F542C0069348B /* AmazonLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonLogger.h; sourceTree = "<group>"; };
+		38EFEA7A161F542C0069348B /* AmazonMD5Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonMD5Util.h; sourceTree = "<group>"; };
+		38EFEA7B161F542C0069348B /* AmazonRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonRequestDelegate.h; sourceTree = "<group>"; };
+		38EFEA7C161F542C0069348B /* AmazonSDKUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonSDKUtil.h; sourceTree = "<group>"; };
+		38EFEA7D161F542C0069348B /* AmazonServiceException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonServiceException.h; sourceTree = "<group>"; };
+		38EFEA7E161F542C0069348B /* AmazonServiceExceptionUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonServiceExceptionUnmarshaller.h; sourceTree = "<group>"; };
+		38EFEA7F161F542C0069348B /* AmazonServiceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AmazonServiceRequest.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		38EFEA80161F542C0069348B /* AmazonServiceRequestConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonServiceRequestConfig.h; sourceTree = "<group>"; };
+		38EFEA81161F542C0069348B /* AmazonServiceResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonServiceResponse.h; sourceTree = "<group>"; };
+		38EFEA82161F542C0069348B /* AmazonServiceResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonServiceResponseUnmarshaller.h; sourceTree = "<group>"; };
+		38EFEA83161F542C0069348B /* AmazonSignatureException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonSignatureException.h; sourceTree = "<group>"; };
+		38EFEA84161F542C0069348B /* AmazonUnmarshallerXMLParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonUnmarshallerXMLParserDelegate.h; sourceTree = "<group>"; };
+		38EFEA85161F542C0069348B /* AmazonURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonURLRequest.h; sourceTree = "<group>"; };
+		38EFEA86161F542C0069348B /* AmazonValueUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonValueUnmarshaller.h; sourceTree = "<group>"; };
+		38EFEA87161F542C0069348B /* AmazonWebServiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonWebServiceClient.h; sourceTree = "<group>"; };
+		AA747D9E0F9514B9006C5449 /* Runtime_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Runtime_Prefix.pch; sourceTree = "<group>"; };
+		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CE17329716D8132A00DEC510 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
+		CE2CDC091703AE0F0013DE5F /* AWSRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSRuntime.h; sourceTree = "<group>"; };
+		CE39A67C15B73D890008DBEA /* AmazonErrorHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonErrorHandler.m; sourceTree = "<group>"; };
+		CE96C1A9158BC2A70084D3CB /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		CEEDD5D114FC0EF6009BA65E /* AmazonAbstractWebServiceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonAbstractWebServiceClient.m; sourceTree = "<group>"; };
+		D01158E213395C4F00E35D3D /* AmazonBoolValueUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonBoolValueUnmarshaller.m; sourceTree = "<group>"; };
+		D01926DF12D69A8D0045B3F1 /* AmazonEndpoints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonEndpoints.m; sourceTree = "<group>"; };
+		D01F6B0A12A3877C004A312D /* AmazonDictionaryUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonDictionaryUnmarshaller.m; sourceTree = "<group>"; };
+		D020EBF8136091CD008EB16D /* AmazonRequestDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonRequestDelegate.m; sourceTree = "<group>"; };
+		D063F1E316E53B93006AD673 /* AmazonAbstractJsonWebServiceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonAbstractJsonWebServiceClient.m; sourceTree = "<group>"; };
+		D063F1E616E53B9E006AD673 /* AmazonAbstractJsonWebServiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonAbstractJsonWebServiceClient.h; sourceTree = "<group>"; };
+		D069663F1234D53400BFBB1E /* libRuntime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRuntime.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D07E9DA014BB9C160007304E /* AmazonJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonJSON.m; sourceTree = "<group>"; };
+		D0828BDF12DCE1880047F0C2 /* AmazonURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonURLRequest.m; sourceTree = "<group>"; };
+		D0C5650D14BB72D2002C4FEF /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		D0C5650E14BB72D2002C4FEF /* AWS_SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWS_SBJson.h; sourceTree = "<group>"; };
+		D0C5650F14BB72D2002C4FEF /* AWS_SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWS_SBJsonParser.h; sourceTree = "<group>"; };
+		D0C5651014BB72D2002C4FEF /* AWS_SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWS_SBJsonParser.m; sourceTree = "<group>"; };
+		D0C5651114BB72D2002C4FEF /* AWS_SBJsonStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWS_SBJsonStreamParser.h; sourceTree = "<group>"; };
+		D0C5651214BB72D2002C4FEF /* AWS_SBJsonStreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWS_SBJsonStreamParser.m; sourceTree = "<group>"; };
+		D0C5651314BB72D2002C4FEF /* AWS_SBJsonStreamParserAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWS_SBJsonStreamParserAccumulator.h; sourceTree = "<group>"; };
+		D0C5651414BB72D2002C4FEF /* AWS_SBJsonStreamParserAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWS_SBJsonStreamParserAccumulator.m; sourceTree = "<group>"; };
+		D0C5651514BB72D2002C4FEF /* AWS_SBJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWS_SBJsonStreamParserAdapter.h; sourceTree = "<group>"; };
+		D0C5651614BB72D2002C4FEF /* AWS_SBJsonStreamParserAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWS_SBJsonStreamParserAdapter.m; sourceTree = "<group>"; };
+		D0C5651714BB72D2002C4FEF /* AWS_SBJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWS_SBJsonStreamParserState.h; sourceTree = "<group>"; };
+		D0C5651814BB72D2002C4FEF /* AWS_SBJsonStreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWS_SBJsonStreamParserState.m; sourceTree = "<group>"; };
+		D0C5651914BB72D2002C4FEF /* AWS_SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWS_SBJsonStreamWriter.h; sourceTree = "<group>"; };
+		D0C5651A14BB72D2002C4FEF /* AWS_SBJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWS_SBJsonStreamWriter.m; sourceTree = "<group>"; };
+		D0C5651B14BB72D2002C4FEF /* AWS_SBJsonStreamWriterAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWS_SBJsonStreamWriterAccumulator.h; sourceTree = "<group>"; };
+		D0C5651C14BB72D2002C4FEF /* AWS_SBJsonStreamWriterAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWS_SBJsonStreamWriterAccumulator.m; sourceTree = "<group>"; };
+		D0C5651D14BB72D2002C4FEF /* AWS_SBJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWS_SBJsonStreamWriterState.h; sourceTree = "<group>"; };
+		D0C5651E14BB72D2002C4FEF /* AWS_SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWS_SBJsonStreamWriterState.m; sourceTree = "<group>"; };
+		D0C5651F14BB72D2002C4FEF /* AWS_SBJsonTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWS_SBJsonTokeniser.h; sourceTree = "<group>"; };
+		D0C5652014BB72D2002C4FEF /* AWS_SBJsonTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWS_SBJsonTokeniser.m; sourceTree = "<group>"; };
+		D0C5652114BB72D2002C4FEF /* AWS_SBJsonUTF8Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWS_SBJsonUTF8Stream.h; sourceTree = "<group>"; };
+		D0C5652214BB72D2002C4FEF /* AWS_SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWS_SBJsonUTF8Stream.m; sourceTree = "<group>"; };
+		D0C5652314BB72D2002C4FEF /* AWS_SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWS_SBJsonWriter.h; sourceTree = "<group>"; };
+		D0C5652414BB72D2002C4FEF /* AWS_SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWS_SBJsonWriter.m; sourceTree = "<group>"; };
+		D0C9CFD813380FFB006BE1FE /* AmazonValueUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonValueUnmarshaller.m; sourceTree = "<group>"; };
+		D0E0A8AE128DF3E600C70564 /* AmazonServiceExceptionUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonServiceExceptionUnmarshaller.m; sourceTree = "<group>"; };
+		D0E4152D12FCB5AE0075DAE6 /* AmazonCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonCredentials.m; sourceTree = "<group>"; };
+		D0EA4BFC12C1445200DA572B /* AmazonMD5Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonMD5Util.m; sourceTree = "<group>"; };
+		D0EB72CB12A5E01A001EF2F8 /* AmazonListUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonListUnmarshaller.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE96C1B7158BD58A0084D3CB /* MobileCoreServices.framework in Frameworks */,
+				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D069663F1234D53400BFBB1E /* libRuntime.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* s3 */ = {
+			isa = PBXGroup;
+			children = (
+				0AFD8AEB12832C77004B7863 /* Amazon.Runtime */,
+				0AFD9561128471A4004B7863 /* include */,
+				0AFD8DBF128462A0004B7863 /* Resources */,
+				0AFD8B5912832C97004B7863 /* ThirdParty */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
+			);
+			name = s3;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE96C1A9158BC2A70084D3CB /* MobileCoreServices.framework */,
+				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0AFD8AEB12832C77004B7863 /* Amazon.Runtime */ = {
+			isa = PBXGroup;
+			children = (
+				D063F1E316E53B93006AD673 /* AmazonAbstractJsonWebServiceClient.m */,
+				CE39A67C15B73D890008DBEA /* AmazonErrorHandler.m */,
+				D07E9DA014BB9C160007304E /* AmazonJSON.m */,
+				D020EBF8136091CD008EB16D /* AmazonRequestDelegate.m */,
+				D01158E213395C4F00E35D3D /* AmazonBoolValueUnmarshaller.m */,
+				D0C9CFD813380FFB006BE1FE /* AmazonValueUnmarshaller.m */,
+				D0E4152D12FCB5AE0075DAE6 /* AmazonCredentials.m */,
+				D0828BDF12DCE1880047F0C2 /* AmazonURLRequest.m */,
+				D01926DF12D69A8D0045B3F1 /* AmazonEndpoints.m */,
+				D0EA4BFC12C1445200DA572B /* AmazonMD5Util.m */,
+				D0EB72CB12A5E01A001EF2F8 /* AmazonListUnmarshaller.m */,
+				D01F6B0A12A3877C004A312D /* AmazonDictionaryUnmarshaller.m */,
+				D0E0A8AE128DF3E600C70564 /* AmazonServiceExceptionUnmarshaller.m */,
+				0A92B682128899D200A2F38A /* AmazonServiceResponseUnmarshaller.m */,
+				0AFD8AEC12832C77004B7863 /* AmazonSDKUtil.m */,
+				0AFD8AED12832C77004B7863 /* AmazonAuthUtils.m */,
+				0AFD8AEE12832C77004B7863 /* AmazonClientException.m */,
+				0AFD8AF012832C77004B7863 /* AmazonServiceException.m */,
+				0AFD8AEF12832C77004B7863 /* AmazonLogger.m */,
+				0AFD8AF112832C77004B7863 /* AmazonSignatureException.m */,
+				0AFD8AF212832C77004B7863 /* AmazonUnmarshallerXMLParserDelegate.m */,
+				CEEDD5D114FC0EF6009BA65E /* AmazonAbstractWebServiceClient.m */,
+				0AFD8D5512836353004B7863 /* AmazonWebServiceClient.m */,
+				0AFD8D6312836644004B7863 /* AmazonServiceRequest.m */,
+				0AFD8D681283667C004B7863 /* AmazonServiceResponse.m */,
+				0A99250A12DB7601000B298D /* AmazonServiceRequestConfig.m */,
+				38E1D28416C5B73B00613C99 /* AmazonStaticCredentialsProvider.m */,
+			);
+			path = Amazon.Runtime;
+			sourceTree = "<group>";
+		};
+		0AFD8B5912832C97004B7863 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				D0C5650B14BB72D2002C4FEF /* JSON */,
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		0AFD8DBF128462A0004B7863 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0AFD8DC0128462A0004B7863 /* Framework.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0AFD9561128471A4004B7863 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				CE2CDC091703AE0F0013DE5F /* AWSRuntime.h */,
+				D063F1E616E53B9E006AD673 /* AmazonAbstractJsonWebServiceClient.h */,
+				38EFEA6F161F542C0069348B /* AmazonAbstractWebServiceClient.h */,
+				38EFEA70161F542C0069348B /* AmazonAuthUtils.h */,
+				38EFEA71161F542C0069348B /* AmazonBoolValueUnmarshaller.h */,
+				38EFEA72161F542C0069348B /* AmazonClientException.h */,
+				38EFEA73161F542C0069348B /* AmazonCredentials.h */,
+				38E1D27D16C5B55300613C99 /* AmazonCredentialsProvider.h */,
+				38EFEA74161F542C0069348B /* AmazonDictionaryUnmarshaller.h */,
+				38EFEA75161F542C0069348B /* AmazonEndpoints.h */,
+				38EFEA76161F542C0069348B /* AmazonErrorHandler.h */,
+				38EFEA77161F542C0069348B /* AmazonJSON.h */,
+				38EFEA78161F542C0069348B /* AmazonListUnmarshaller.h */,
+				38EFEA79161F542C0069348B /* AmazonLogger.h */,
+				38EFEA7A161F542C0069348B /* AmazonMD5Util.h */,
+				38EFEA7B161F542C0069348B /* AmazonRequestDelegate.h */,
+				38EFEA7C161F542C0069348B /* AmazonSDKUtil.h */,
+				38EFEA7D161F542C0069348B /* AmazonServiceException.h */,
+				38EFEA7E161F542C0069348B /* AmazonServiceExceptionUnmarshaller.h */,
+				38EFEA7F161F542C0069348B /* AmazonServiceRequest.h */,
+				38EFEA80161F542C0069348B /* AmazonServiceRequestConfig.h */,
+				38EFEA81161F542C0069348B /* AmazonServiceResponse.h */,
+				38EFEA82161F542C0069348B /* AmazonServiceResponseUnmarshaller.h */,
+				38EFEA83161F542C0069348B /* AmazonSignatureException.h */,
+				38E1D28716C5B76200613C99 /* AmazonStaticCredentialsProvider.h */,
+				38EFEA84161F542C0069348B /* AmazonUnmarshallerXMLParserDelegate.h */,
+				38EFEA85161F542C0069348B /* AmazonURLRequest.h */,
+				38EFEA86161F542C0069348B /* AmazonValueUnmarshaller.h */,
+				38EFEA87161F542C0069348B /* AmazonWebServiceClient.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				034768DFFF38A50411DB9C8B /* Products */,
+				AA747D9E0F9514B9006C5449 /* Runtime_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		D0C5650B14BB72D2002C4FEF /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				D0C5650D14BB72D2002C4FEF /* LICENSE */,
+				CE17329716D8132A00DEC510 /* SBJson.h */,
+				D0C5650E14BB72D2002C4FEF /* AWS_SBJson.h */,
+				D0C5650F14BB72D2002C4FEF /* AWS_SBJsonParser.h */,
+				D0C5651014BB72D2002C4FEF /* AWS_SBJsonParser.m */,
+				D0C5651114BB72D2002C4FEF /* AWS_SBJsonStreamParser.h */,
+				D0C5651214BB72D2002C4FEF /* AWS_SBJsonStreamParser.m */,
+				D0C5651314BB72D2002C4FEF /* AWS_SBJsonStreamParserAccumulator.h */,
+				D0C5651414BB72D2002C4FEF /* AWS_SBJsonStreamParserAccumulator.m */,
+				D0C5651514BB72D2002C4FEF /* AWS_SBJsonStreamParserAdapter.h */,
+				D0C5651614BB72D2002C4FEF /* AWS_SBJsonStreamParserAdapter.m */,
+				D0C5651714BB72D2002C4FEF /* AWS_SBJsonStreamParserState.h */,
+				D0C5651814BB72D2002C4FEF /* AWS_SBJsonStreamParserState.m */,
+				D0C5651914BB72D2002C4FEF /* AWS_SBJsonStreamWriter.h */,
+				D0C5651A14BB72D2002C4FEF /* AWS_SBJsonStreamWriter.m */,
+				D0C5651B14BB72D2002C4FEF /* AWS_SBJsonStreamWriterAccumulator.h */,
+				D0C5651C14BB72D2002C4FEF /* AWS_SBJsonStreamWriterAccumulator.m */,
+				D0C5651D14BB72D2002C4FEF /* AWS_SBJsonStreamWriterState.h */,
+				D0C5651E14BB72D2002C4FEF /* AWS_SBJsonStreamWriterState.m */,
+				D0C5651F14BB72D2002C4FEF /* AWS_SBJsonTokeniser.h */,
+				D0C5652014BB72D2002C4FEF /* AWS_SBJsonTokeniser.m */,
+				D0C5652114BB72D2002C4FEF /* AWS_SBJsonUTF8Stream.h */,
+				D0C5652214BB72D2002C4FEF /* AWS_SBJsonUTF8Stream.m */,
+				D0C5652314BB72D2002C4FEF /* AWS_SBJsonWriter.h */,
+				D0C5652414BB72D2002C4FEF /* AWS_SBJsonWriter.m */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0C5652614BB72D2002C4FEF /* AWS_SBJson.h in Headers */,
+				D0C5652714BB72D2002C4FEF /* AWS_SBJsonParser.h in Headers */,
+				D0C5652914BB72D2002C4FEF /* AWS_SBJsonStreamParser.h in Headers */,
+				D0C5652B14BB72D2002C4FEF /* AWS_SBJsonStreamParserAccumulator.h in Headers */,
+				D0C5652D14BB72D2002C4FEF /* AWS_SBJsonStreamParserAdapter.h in Headers */,
+				D0C5652F14BB72D2002C4FEF /* AWS_SBJsonStreamParserState.h in Headers */,
+				D0C5653114BB72D2002C4FEF /* AWS_SBJsonStreamWriter.h in Headers */,
+				D0C5653314BB72D2002C4FEF /* AWS_SBJsonStreamWriterAccumulator.h in Headers */,
+				D0C5653514BB72D2002C4FEF /* AWS_SBJsonStreamWriterState.h in Headers */,
+				D0C5653714BB72D2002C4FEF /* AWS_SBJsonTokeniser.h in Headers */,
+				D0C5653914BB72D2002C4FEF /* AWS_SBJsonUTF8Stream.h in Headers */,
+				D0C5653B14BB72D2002C4FEF /* AWS_SBJsonWriter.h in Headers */,
+				38EFEA88161F542C0069348B /* AmazonAbstractWebServiceClient.h in Headers */,
+				38EFEA89161F542C0069348B /* AmazonAuthUtils.h in Headers */,
+				38EFEA8A161F542C0069348B /* AmazonBoolValueUnmarshaller.h in Headers */,
+				38EFEA8B161F542D0069348B /* AmazonClientException.h in Headers */,
+				38EFEA8C161F542D0069348B /* AmazonCredentials.h in Headers */,
+				38EFEA8D161F542D0069348B /* AmazonDictionaryUnmarshaller.h in Headers */,
+				38EFEA8E161F542D0069348B /* AmazonEndpoints.h in Headers */,
+				38EFEA8F161F542D0069348B /* AmazonErrorHandler.h in Headers */,
+				38EFEA90161F542D0069348B /* AmazonJSON.h in Headers */,
+				38EFEA91161F542D0069348B /* AmazonListUnmarshaller.h in Headers */,
+				38EFEA92161F542D0069348B /* AmazonLogger.h in Headers */,
+				38EFEA93161F542D0069348B /* AmazonMD5Util.h in Headers */,
+				38EFEA94161F542D0069348B /* AmazonRequestDelegate.h in Headers */,
+				38EFEA95161F542D0069348B /* AmazonSDKUtil.h in Headers */,
+				38EFEA96161F542D0069348B /* AmazonServiceException.h in Headers */,
+				38EFEA97161F542D0069348B /* AmazonServiceExceptionUnmarshaller.h in Headers */,
+				38EFEA98161F542D0069348B /* AmazonServiceRequest.h in Headers */,
+				38EFEA99161F542D0069348B /* AmazonServiceRequestConfig.h in Headers */,
+				38EFEA9A161F542D0069348B /* AmazonServiceResponse.h in Headers */,
+				38EFEA9B161F542D0069348B /* AmazonServiceResponseUnmarshaller.h in Headers */,
+				38EFEA9C161F542D0069348B /* AmazonSignatureException.h in Headers */,
+				38EFEA9D161F542D0069348B /* AmazonUnmarshallerXMLParserDelegate.h in Headers */,
+				38EFEA9E161F542D0069348B /* AmazonURLRequest.h in Headers */,
+				38EFEA9F161F542D0069348B /* AmazonValueUnmarshaller.h in Headers */,
+				38EFEAA0161F542D0069348B /* AmazonWebServiceClient.h in Headers */,
+				38E1D27E16C5B55300613C99 /* AmazonCredentialsProvider.h in Headers */,
+				38E1D28816C5B76200613C99 /* AmazonStaticCredentialsProvider.h in Headers */,
+				CE17329816D8132A00DEC510 /* SBJson.h in Headers */,
+				D063F1E716E53B9E006AD673 /* AmazonAbstractJsonWebServiceClient.h in Headers */,
+				CE2CDC0A1703AE0F0013DE5F /* AWSRuntime.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXLegacyTarget section */
+		0AFD8DD7128465B4004B7863 /* Framework */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 0AFD8DDC128465EB004B7863 /* Build configuration list for PBXLegacyTarget "Framework" */;
+			buildPhases = (
+			);
+			buildToolPath = Scripts/Framework.sh;
+			dependencies = (
+			);
+			name = Framework;
+			passBuildSettingsInEnvironment = 1;
+			productName = Framework;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC07D0554694100DB518D /* Runtime */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "Runtime" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Runtime;
+			productName = s3;
+			productReference = D069663F1234D53400BFBB1E /* libRuntime.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+			};
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "Runtime" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* s3 */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2AAC07D0554694100DB518D /* Runtime */,
+				0AFD8DD7128465B4004B7863 /* Framework */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AFD8AF312832C77004B7863 /* AmazonSDKUtil.m in Sources */,
+				0AFD8AF412832C77004B7863 /* AmazonAuthUtils.m in Sources */,
+				0AFD8AF512832C77004B7863 /* AmazonClientException.m in Sources */,
+				0AFD8AF612832C77004B7863 /* AmazonLogger.m in Sources */,
+				0AFD8AF712832C77004B7863 /* AmazonServiceException.m in Sources */,
+				0AFD8AF812832C77004B7863 /* AmazonSignatureException.m in Sources */,
+				0AFD8AF912832C77004B7863 /* AmazonUnmarshallerXMLParserDelegate.m in Sources */,
+				0AFD8D5612836353004B7863 /* AmazonWebServiceClient.m in Sources */,
+				0AFD8D6512836644004B7863 /* AmazonServiceRequest.m in Sources */,
+				0AFD8D6A1283667C004B7863 /* AmazonServiceResponse.m in Sources */,
+				0A92B683128899D200A2F38A /* AmazonServiceResponseUnmarshaller.m in Sources */,
+				D0E0A8AF128DF3E600C70564 /* AmazonServiceExceptionUnmarshaller.m in Sources */,
+				D01F6B0B12A3877C004A312D /* AmazonDictionaryUnmarshaller.m in Sources */,
+				D0EB72CC12A5E01A001EF2F8 /* AmazonListUnmarshaller.m in Sources */,
+				D0EA4BFD12C1445200DA572B /* AmazonMD5Util.m in Sources */,
+				0A99250C12DB7601000B298D /* AmazonServiceRequestConfig.m in Sources */,
+				D01926E012D69A8D0045B3F1 /* AmazonEndpoints.m in Sources */,
+				D0828BE012DCE1880047F0C2 /* AmazonURLRequest.m in Sources */,
+				D0E4152E12FCB5AE0075DAE6 /* AmazonCredentials.m in Sources */,
+				D0C9CFDA13381003006BE1FE /* AmazonValueUnmarshaller.m in Sources */,
+				D01158E313395C4F00E35D3D /* AmazonBoolValueUnmarshaller.m in Sources */,
+				D020EBF9136091CD008EB16D /* AmazonRequestDelegate.m in Sources */,
+				D0C5652814BB72D2002C4FEF /* AWS_SBJsonParser.m in Sources */,
+				D0C5652A14BB72D2002C4FEF /* AWS_SBJsonStreamParser.m in Sources */,
+				D0C5652C14BB72D2002C4FEF /* AWS_SBJsonStreamParserAccumulator.m in Sources */,
+				D0C5652E14BB72D2002C4FEF /* AWS_SBJsonStreamParserAdapter.m in Sources */,
+				D0C5653014BB72D2002C4FEF /* AWS_SBJsonStreamParserState.m in Sources */,
+				D0C5653214BB72D2002C4FEF /* AWS_SBJsonStreamWriter.m in Sources */,
+				D0C5653414BB72D2002C4FEF /* AWS_SBJsonStreamWriterAccumulator.m in Sources */,
+				D0C5653614BB72D2002C4FEF /* AWS_SBJsonStreamWriterState.m in Sources */,
+				D0C5653814BB72D2002C4FEF /* AWS_SBJsonTokeniser.m in Sources */,
+				D0C5653A14BB72D2002C4FEF /* AWS_SBJsonUTF8Stream.m in Sources */,
+				D0C5653C14BB72D2002C4FEF /* AWS_SBJsonWriter.m in Sources */,
+				D07E9DA114BB9C160007304E /* AmazonJSON.m in Sources */,
+				CEEDD5D214FC0EF6009BA65E /* AmazonAbstractWebServiceClient.m in Sources */,
+				CE39A67D15B73D890008DBEA /* AmazonErrorHandler.m in Sources */,
+				38E1D28616C5B73B00613C99 /* AmazonStaticCredentialsProvider.m in Sources */,
+				D063F1E416E53B93006AD673 /* AmazonAbstractJsonWebServiceClient.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0AFD8DD8128465B4004B7863 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Framework;
+			};
+			name = Debug;
+		};
+		0AFD8DD9128465B4004B7863 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				PRODUCT_NAME = Framework;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"ARCHS[sdk=*]" = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DOXYGEN_PATH = /Applications/Doxygen.app/Contents/Resources/doxygen;
+				DSTROOT = /tmp/s3.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/..\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Runtime_Prefix.pch;
+				GCC_THUMB_SUPPORT = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				PRODUCT_NAME = Runtime;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"ARCHS[sdk=*]" = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DSTROOT = /tmp/s3.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/..\"",
+				);
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Runtime_Prefix.pch;
+				GCC_THUMB_SUPPORT = NO;
+				HEADER_SEARCH_PATHS = (
+					"include/**",
+					"ThirdParty/**",
+				);
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				PRODUCT_NAME = Runtime;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					ThirdParty,
+					"include/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					ThirdParty,
+					"include/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0AFD8DDC128465EB004B7863 /* Build configuration list for PBXLegacyTarget "Framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0AFD8DD8128465B4004B7863 /* Debug */,
+				0AFD8DD9128465B4004B7863 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "Runtime" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "Runtime" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}

@@ -13,7 +13,12 @@
  * permissions and limitations under the License.
  */
 
+
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonSDKUtil.h>
+#else
 #import "../AmazonSDKUtil.h"
+#endif
 
 
 

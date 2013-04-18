@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE56927B17062CC700322C51 /* AWSRuntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE56927617062CC700322C51 /* AWSRuntime.framework */; };
+		CE56927C17062CC700322C51 /* AWSS3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE56927717062CC700322C51 /* AWSS3.framework */; };
+		CE56927D17062CC700322C51 /* AWSSimpleDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE56927817062CC700322C51 /* AWSSimpleDB.framework */; };
+		CE56927E17062CC700322C51 /* AWSSNS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE56927917062CC700322C51 /* AWSSNS.framework */; };
+		CE56927F17062CC700322C51 /* AWSSQS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE56927A17062CC700322C51 /* AWSSQS.framework */; };
 		CE65E8AE160BA931000F1A54 /* AddBucketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE65E896160BA931000F1A54 /* AddBucketViewController.m */; };
 		CE65E8AF160BA931000F1A54 /* AddBucketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE65E897160BA931000F1A54 /* AddBucketViewController.xib */; };
 		CE65E8B0160BA931000F1A54 /* AddObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE65E899160BA931000F1A54 /* AddObjectViewController.m */; };
@@ -54,7 +59,6 @@
 		D09583AA13E878CF009E4171 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = D095836A13E878CF009E4171 /* Constants.m */; };
 		D09583AB13E878CF009E4171 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D095836C13E878CF009E4171 /* LoginViewController.m */; };
 		D09583AC13E878CF009E4171 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D095836D13E878CF009E4171 /* LoginViewController.xib */; };
-		D09583D213E87981009E4171 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09583D113E87981009E4171 /* AWSiOSSDK.framework */; };
 		D09583F013E87C5D009E4171 /* AmazonKeyChainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D09583D513E87C5D009E4171 /* AmazonKeyChainWrapper.m */; };
 		D09583F113E87C5D009E4171 /* AmazonTVMClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D09583D713E87C5D009E4171 /* AmazonTVMClient.m */; };
 		D09583F213E87C5D009E4171 /* Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = D09583D913E87C5D009E4171 /* Crypto.m */; };
@@ -73,6 +77,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE56927617062CC700322C51 /* AWSRuntime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSRuntime.framework; path = ../../AWSRuntime.framework; sourceTree = "<group>"; };
+		CE56927717062CC700322C51 /* AWSS3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSS3.framework; path = ../../AWSS3.framework; sourceTree = "<group>"; };
+		CE56927817062CC700322C51 /* AWSSimpleDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSSimpleDB.framework; path = ../../AWSSimpleDB.framework; sourceTree = "<group>"; };
+		CE56927917062CC700322C51 /* AWSSNS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSSNS.framework; path = ../../AWSSNS.framework; sourceTree = "<group>"; };
+		CE56927A17062CC700322C51 /* AWSSQS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSSQS.framework; path = ../../AWSSQS.framework; sourceTree = "<group>"; };
 		CE65E895160BA931000F1A54 /* AddBucketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddBucketViewController.h; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/S3/AddBucketViewController.h; sourceTree = "<group>"; };
 		CE65E896160BA931000F1A54 /* AddBucketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddBucketViewController.m; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/S3/AddBucketViewController.m; sourceTree = "<group>"; };
 		CE65E897160BA931000F1A54 /* AddBucketViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddBucketViewController.xib; path = ../../../S3_SimpleDB_SNS_SQS_Demo/AWSiOSDemo/Classes/S3/AddBucketViewController.xib; sourceTree = "<group>"; };
@@ -149,7 +158,6 @@
 		D095836B13E878CF009E4171 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		D095836C13E878CF009E4171 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		D095836D13E878CF009E4171 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		D09583D113E87981009E4171 /* AWSiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSiOSSDK.framework; path = ../../AWSiOSSDK.framework; sourceTree = "<group>"; };
 		D09583D413E87C5D009E4171 /* AmazonKeyChainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonKeyChainWrapper.h; sourceTree = "<group>"; };
 		D09583D513E87C5D009E4171 /* AmazonKeyChainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonKeyChainWrapper.m; sourceTree = "<group>"; };
 		D09583D613E87C5D009E4171 /* AmazonTVMClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonTVMClient.h; sourceTree = "<group>"; };
@@ -190,7 +198,11 @@
 				D02B6C5913E8783D000A4055 /* UIKit.framework in Frameworks */,
 				D02B6C5B13E8783D000A4055 /* Foundation.framework in Frameworks */,
 				D02B6C5D13E8783D000A4055 /* CoreGraphics.framework in Frameworks */,
-				D09583D213E87981009E4171 /* AWSiOSSDK.framework in Frameworks */,
+				CE56927B17062CC700322C51 /* AWSRuntime.framework in Frameworks */,
+				CE56927C17062CC700322C51 /* AWSS3.framework in Frameworks */,
+				CE56927D17062CC700322C51 /* AWSSimpleDB.framework in Frameworks */,
+				CE56927E17062CC700322C51 /* AWSSNS.framework in Frameworks */,
+				CE56927F17062CC700322C51 /* AWSSQS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,8 +319,12 @@
 		D02B6C5713E8783D000A4055 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE56927617062CC700322C51 /* AWSRuntime.framework */,
+				CE56927717062CC700322C51 /* AWSS3.framework */,
+				CE56927817062CC700322C51 /* AWSSimpleDB.framework */,
+				CE56927917062CC700322C51 /* AWSSNS.framework */,
+				CE56927A17062CC700322C51 /* AWSSQS.framework */,
 				D09583FE13E87DBF009E4171 /* Security.framework */,
-				D09583D113E87981009E4171 /* AWSiOSSDK.framework */,
 				D02B6C5813E8783D000A4055 /* UIKit.framework */,
 				D02B6C5A13E8783D000A4055 /* Foundation.framework */,
 				D02B6C5C13E8783D000A4055 /* CoreGraphics.framework */,

@@ -17,7 +17,7 @@
 #import "S3GetObjectResponse.h"
 #import "AmazonLogger.h"
 #import "S3ErrorResponseHandler.h"
-
+#import "AmazonErrorHandler.h"
 
 @implementation S3Response
 

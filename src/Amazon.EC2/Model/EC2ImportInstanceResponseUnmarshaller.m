@@ -14,7 +14,11 @@
  */
 
 #import "EC2ImportInstanceResponseUnmarshaller.h"
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonServiceExceptionUnmarshaller.h>
+#else
 #import "../AmazonServiceExceptionUnmarshaller.h"
+#endif
 
 @implementation EC2ImportInstanceResponseUnmarshaller
 

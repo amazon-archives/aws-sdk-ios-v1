@@ -16,7 +16,12 @@
 #import <Foundation/Foundation.h>
 #import "DynamoDBResponseUnmarshaller.h"
 #import "DynamoDBTableDescription.h"
+
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonSDKUtil.h>
+#else
 #import "../AmazonSDKUtil.h"
+#endif
 
 
 /**

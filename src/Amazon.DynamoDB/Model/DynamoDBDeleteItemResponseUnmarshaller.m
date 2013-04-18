@@ -15,9 +15,12 @@
 
 #import "DynamoDBDeleteItemResponseUnmarshaller.h"
 #import "DynamoDBExceptionUnmarshaller.h"
-#import "../AmazonSDKUtil.h"
+
+#import "AmazonSDKUtil.h"
 #import "DynamoDBAttributeValueUnmarshaller.h"
 #import "DynamoDBAttributeValueUnmarshaller.h"
+#import "DynamoDBConsumedCapacityUnmarshaller.h"
+#import "DynamoDBItemCollectionMetricsUnmarshaller.h"
 
 
 @implementation DynamoDBDeleteItemResponseUnmarshaller
@@ -39,8 +42,13 @@
         }
 
 
-        if ([jsonObject valueForKey:@"ConsumedCapacityUnits"] != nil) {
-            deleteItemResult.consumedCapacityUnits = [jsonObject valueForKey:@"ConsumedCapacityUnits"];
+        if ([jsonObject valueForKey:@"ConsumedCapacity"] != nil) {
+            deleteItemResult.consumedCapacity = [DynamoDBConsumedCapacityUnmarshaller unmarshall:[jsonObject valueForKey:@"ConsumedCapacity"]];
+        }
+
+
+        if ([jsonObject valueForKey:@"ItemCollectionMetrics"] != nil) {
+            deleteItemResult.itemCollectionMetrics = [DynamoDBItemCollectionMetricsUnmarshaller unmarshall:[jsonObject valueForKey:@"ItemCollectionMetrics"]];
         }
     }
 

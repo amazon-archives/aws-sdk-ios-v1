@@ -19,12 +19,14 @@
 @implementation DynamoDBBatchGetItemRequest
 
 @synthesize requestItems;
+@synthesize returnConsumedCapacity;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        requestItems = [[NSMutableDictionary alloc] initWithCapacity:1];
+        requestItems           = [[NSMutableDictionary alloc] initWithCapacity:1];
+        returnConsumedCapacity = nil;
     }
 
     return self;
@@ -47,6 +49,7 @@
 
     [buffer appendString:@"{"];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"RequestItems: %@,", requestItems] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"ReturnConsumedCapacity: %@,", returnConsumedCapacity] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -58,6 +61,7 @@
 -(void)dealloc
 {
     [requestItems release];
+    [returnConsumedCapacity release];
 
     [super dealloc];
 }

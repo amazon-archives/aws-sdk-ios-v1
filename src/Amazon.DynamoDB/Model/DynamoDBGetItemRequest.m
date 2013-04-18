@@ -23,22 +23,24 @@
 @synthesize attributesToGet;
 @synthesize consistentRead;
 @synthesize consistentReadIsSet;
+@synthesize returnConsumedCapacity;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        tableName           = nil;
-        key                 = nil;
-        attributesToGet     = [[NSMutableArray alloc] initWithCapacity:1];
-        consistentRead      = NO;
-        consistentReadIsSet = NO;
+        tableName              = nil;
+        key                    = [[NSMutableDictionary alloc] initWithCapacity:1];
+        attributesToGet        = [[NSMutableArray alloc] initWithCapacity:1];
+        consistentRead         = NO;
+        consistentReadIsSet    = NO;
+        returnConsumedCapacity = nil;
     }
 
     return self;
 }
 
--(id)initWithTableName:(NSString *)theTableName andKey:(DynamoDBKey *)theKey
+-(id)initWithTableName:(NSString *)theTableName andKey:(NSMutableDictionary *)theKey
 {
     if (self = [self init]) {
         self.tableName = theTableName;
@@ -48,6 +50,15 @@
     return self;
 }
 
+
+-(void)setKeyValue:(DynamoDBAttributeValue *)theValue forKey:(NSString *)theKey
+{
+    if (key == nil) {
+        key = [[NSMutableDictionary alloc] initWithCapacity:1];
+    }
+
+    [key setValue:theValue forKey:theKey];
+}
 
 -(void)addAttributesToGet:(NSString *)attributesToGetObject
 {
@@ -68,6 +79,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Key: %@,", key] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"AttributesToGet: %@,", attributesToGet] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ConsistentRead: %d,", consistentRead] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"ReturnConsumedCapacity: %@,", returnConsumedCapacity] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -87,6 +99,7 @@
     [tableName release];
     [key release];
     [attributesToGet release];
+    [returnConsumedCapacity release];
 
     [super dealloc];
 }

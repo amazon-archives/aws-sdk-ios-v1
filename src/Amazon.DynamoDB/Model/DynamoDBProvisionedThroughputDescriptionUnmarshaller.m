@@ -15,7 +15,8 @@
 
 #import "DynamoDBProvisionedThroughputDescriptionUnmarshaller.h"
 #import "DynamoDBExceptionUnmarshaller.h"
-#import "../AmazonSDKUtil.h"
+
+#import "AmazonSDKUtil.h"
 
 
 @implementation DynamoDBProvisionedThroughputDescriptionUnmarshaller

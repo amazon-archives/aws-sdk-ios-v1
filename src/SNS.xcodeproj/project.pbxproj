@@ -1,0 +1,955 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		CE2CDC041703705C0013DE5F /* AWSSNS.h in Headers */ = {isa = PBXBuildFile; fileRef = CE2CDC031703705C0013DE5F /* AWSSNS.h */; };
+		CE96C1B7158BD58A0084D3CB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE96C1A9158BC2A70084D3CB /* MobileCoreServices.framework */; };
+		D02867B814BFB8A100184AC6 /* SNSGetSubscriptionAttributesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D02867B014BFB8A100184AC6 /* SNSGetSubscriptionAttributesRequest.m */; };
+		D02867B914BFB8A100184AC6 /* SNSGetSubscriptionAttributesRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D02867B114BFB8A100184AC6 /* SNSGetSubscriptionAttributesRequestMarshaller.m */; };
+		D02867BA14BFB8A100184AC6 /* SNSGetSubscriptionAttributesResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D02867B214BFB8A100184AC6 /* SNSGetSubscriptionAttributesResponse.m */; };
+		D02867BB14BFB8A100184AC6 /* SNSGetSubscriptionAttributesResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D02867B314BFB8A100184AC6 /* SNSGetSubscriptionAttributesResponseUnmarshaller.m */; };
+		D02867BC14BFB8A100184AC6 /* SNSSetSubscriptionAttributesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D02867B414BFB8A100184AC6 /* SNSSetSubscriptionAttributesRequest.m */; };
+		D02867BD14BFB8A100184AC6 /* SNSSetSubscriptionAttributesRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D02867B514BFB8A100184AC6 /* SNSSetSubscriptionAttributesRequestMarshaller.m */; };
+		D02867BE14BFB8A100184AC6 /* SNSSetSubscriptionAttributesResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D02867B614BFB8A100184AC6 /* SNSSetSubscriptionAttributesResponse.m */; };
+		D02867BF14BFB8A100184AC6 /* SNSSetSubscriptionAttributesResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D02867B714BFB8A100184AC6 /* SNSSetSubscriptionAttributesResponseUnmarshaller.m */; };
+		D02867E614BFB8D500184AC6 /* SNSGetSubscriptionAttributesRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D02867DE14BFB8D500184AC6 /* SNSGetSubscriptionAttributesRequest.h */; };
+		D02867E714BFB8D500184AC6 /* SNSGetSubscriptionAttributesRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D02867DF14BFB8D500184AC6 /* SNSGetSubscriptionAttributesRequestMarshaller.h */; };
+		D02867E814BFB8D500184AC6 /* SNSGetSubscriptionAttributesResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D02867E014BFB8D500184AC6 /* SNSGetSubscriptionAttributesResponse.h */; };
+		D02867E914BFB8D500184AC6 /* SNSGetSubscriptionAttributesResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D02867E114BFB8D500184AC6 /* SNSGetSubscriptionAttributesResponseUnmarshaller.h */; };
+		D02867EA14BFB8D500184AC6 /* SNSSetSubscriptionAttributesRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D02867E214BFB8D500184AC6 /* SNSSetSubscriptionAttributesRequest.h */; };
+		D02867EB14BFB8D500184AC6 /* SNSSetSubscriptionAttributesRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D02867E314BFB8D500184AC6 /* SNSSetSubscriptionAttributesRequestMarshaller.h */; };
+		D02867EC14BFB8D500184AC6 /* SNSSetSubscriptionAttributesResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D02867E414BFB8D500184AC6 /* SNSSetSubscriptionAttributesResponse.h */; };
+		D02867ED14BFB8D500184AC6 /* SNSSetSubscriptionAttributesResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D02867E514BFB8D500184AC6 /* SNSSetSubscriptionAttributesResponseUnmarshaller.h */; };
+		D03F19451377312E00891BD9 /* SNSAddPermissionRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F19381377312E00891BD9 /* SNSAddPermissionRequestMarshaller.m */; };
+		D03F19461377312E00891BD9 /* SNSConfirmSubscriptionRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F19391377312E00891BD9 /* SNSConfirmSubscriptionRequestMarshaller.m */; };
+		D03F19471377312E00891BD9 /* SNSCreateTopicRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F193A1377312E00891BD9 /* SNSCreateTopicRequestMarshaller.m */; };
+		D03F19481377312E00891BD9 /* SNSDeleteTopicRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F193B1377312E00891BD9 /* SNSDeleteTopicRequestMarshaller.m */; };
+		D03F19491377312E00891BD9 /* SNSGetTopicAttributesRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F193C1377312E00891BD9 /* SNSGetTopicAttributesRequestMarshaller.m */; };
+		D03F194A1377312E00891BD9 /* SNSListSubscriptionsByTopicRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F193D1377312E00891BD9 /* SNSListSubscriptionsByTopicRequestMarshaller.m */; };
+		D03F194B1377312E00891BD9 /* SNSListSubscriptionsRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F193E1377312E00891BD9 /* SNSListSubscriptionsRequestMarshaller.m */; };
+		D03F194C1377312E00891BD9 /* SNSListTopicsRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F193F1377312E00891BD9 /* SNSListTopicsRequestMarshaller.m */; };
+		D03F194D1377312E00891BD9 /* SNSPublishRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F19401377312E00891BD9 /* SNSPublishRequestMarshaller.m */; };
+		D03F194E1377312E00891BD9 /* SNSRemovePermissionRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F19411377312E00891BD9 /* SNSRemovePermissionRequestMarshaller.m */; };
+		D03F194F1377312E00891BD9 /* SNSSetTopicAttributesRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F19421377312E00891BD9 /* SNSSetTopicAttributesRequestMarshaller.m */; };
+		D03F19501377312E00891BD9 /* SNSSubscribeRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F19431377312E00891BD9 /* SNSSubscribeRequestMarshaller.m */; };
+		D03F19511377312E00891BD9 /* SNSUnsubscribeRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03F19441377312E00891BD9 /* SNSUnsubscribeRequestMarshaller.m */; };
+		D03F1B011377338D00891BD9 /* SNSAddPermissionRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1AF41377338D00891BD9 /* SNSAddPermissionRequestMarshaller.h */; };
+		D03F1B021377338D00891BD9 /* SNSConfirmSubscriptionRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1AF51377338D00891BD9 /* SNSConfirmSubscriptionRequestMarshaller.h */; };
+		D03F1B031377338D00891BD9 /* SNSCreateTopicRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1AF61377338D00891BD9 /* SNSCreateTopicRequestMarshaller.h */; };
+		D03F1B041377338D00891BD9 /* SNSDeleteTopicRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1AF71377338D00891BD9 /* SNSDeleteTopicRequestMarshaller.h */; };
+		D03F1B051377338D00891BD9 /* SNSGetTopicAttributesRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1AF81377338D00891BD9 /* SNSGetTopicAttributesRequestMarshaller.h */; };
+		D03F1B061377338D00891BD9 /* SNSListSubscriptionsByTopicRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1AF91377338D00891BD9 /* SNSListSubscriptionsByTopicRequestMarshaller.h */; };
+		D03F1B071377338D00891BD9 /* SNSListSubscriptionsRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1AFA1377338D00891BD9 /* SNSListSubscriptionsRequestMarshaller.h */; };
+		D03F1B081377338D00891BD9 /* SNSListTopicsRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1AFB1377338D00891BD9 /* SNSListTopicsRequestMarshaller.h */; };
+		D03F1B091377338D00891BD9 /* SNSPublishRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1AFC1377338D00891BD9 /* SNSPublishRequestMarshaller.h */; };
+		D03F1B0A1377338D00891BD9 /* SNSRemovePermissionRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1AFD1377338D00891BD9 /* SNSRemovePermissionRequestMarshaller.h */; };
+		D03F1B0B1377338D00891BD9 /* SNSSetTopicAttributesRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1AFE1377338D00891BD9 /* SNSSetTopicAttributesRequestMarshaller.h */; };
+		D03F1B0C1377338D00891BD9 /* SNSSubscribeRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1AFF1377338D00891BD9 /* SNSSubscribeRequestMarshaller.h */; };
+		D03F1B0D1377338D00891BD9 /* SNSUnsubscribeRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F1B001377338D00891BD9 /* SNSUnsubscribeRequestMarshaller.h */; };
+		D04C86451371D68E00F08418 /* SNSResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D04C86441371D68E00F08418 /* SNSResponseUnmarshaller.m */; };
+		D04C86511371D73400F08418 /* SNSResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D04C86501371D73400F08418 /* SNSResponseUnmarshaller.h */; };
+		D09F07FD1294585C00376534 /* AmazonSNSClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07B71294585C00376534 /* AmazonSNSClient.m */; };
+		D09F07FE1294585C00376534 /* SNSAddPermissionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07B91294585C00376534 /* SNSAddPermissionRequest.m */; };
+		D09F08001294585C00376534 /* SNSAddPermissionResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07BB1294585C00376534 /* SNSAddPermissionResponse.m */; };
+		D09F08011294585C00376534 /* SNSAddPermissionResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07BC1294585C00376534 /* SNSAddPermissionResponseUnmarshaller.m */; };
+		D09F08021294585C00376534 /* SNSAuthorizationErrorException.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07BD1294585C00376534 /* SNSAuthorizationErrorException.m */; };
+		D09F08041294585C00376534 /* SNSConfirmSubscriptionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07BF1294585C00376534 /* SNSConfirmSubscriptionRequest.m */; };
+		D09F08061294585C00376534 /* SNSConfirmSubscriptionResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07C11294585C00376534 /* SNSConfirmSubscriptionResponse.m */; };
+		D09F08071294585C00376534 /* SNSConfirmSubscriptionResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07C21294585C00376534 /* SNSConfirmSubscriptionResponseUnmarshaller.m */; };
+		D09F08081294585C00376534 /* SNSCreateTopicRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07C31294585C00376534 /* SNSCreateTopicRequest.m */; };
+		D09F080A1294585C00376534 /* SNSCreateTopicResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07C51294585C00376534 /* SNSCreateTopicResponse.m */; };
+		D09F080B1294585C00376534 /* SNSCreateTopicResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07C61294585C00376534 /* SNSCreateTopicResponseUnmarshaller.m */; };
+		D09F080C1294585C00376534 /* SNSDeleteTopicRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07C71294585C00376534 /* SNSDeleteTopicRequest.m */; };
+		D09F080E1294585C00376534 /* SNSDeleteTopicResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07C91294585C00376534 /* SNSDeleteTopicResponse.m */; };
+		D09F080F1294585C00376534 /* SNSDeleteTopicResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07CA1294585C00376534 /* SNSDeleteTopicResponseUnmarshaller.m */; };
+		D09F08101294585C00376534 /* SNSGetTopicAttributesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07CB1294585C00376534 /* SNSGetTopicAttributesRequest.m */; };
+		D09F08121294585C00376534 /* SNSGetTopicAttributesResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07CD1294585C00376534 /* SNSGetTopicAttributesResponse.m */; };
+		D09F08131294585C00376534 /* SNSGetTopicAttributesResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07CE1294585C00376534 /* SNSGetTopicAttributesResponseUnmarshaller.m */; };
+		D09F08141294585C00376534 /* SNSInternalErrorException.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07CF1294585C00376534 /* SNSInternalErrorException.m */; };
+		D09F08161294585C00376534 /* SNSInvalidParameterException.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07D11294585C00376534 /* SNSInvalidParameterException.m */; };
+		D09F08181294585C00376534 /* SNSListSubscriptionsByTopicRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07D31294585C00376534 /* SNSListSubscriptionsByTopicRequest.m */; };
+		D09F081A1294585C00376534 /* SNSListSubscriptionsByTopicResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07D51294585C00376534 /* SNSListSubscriptionsByTopicResponse.m */; };
+		D09F081B1294585C00376534 /* SNSListSubscriptionsByTopicResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07D61294585C00376534 /* SNSListSubscriptionsByTopicResponseUnmarshaller.m */; };
+		D09F081C1294585C00376534 /* SNSListSubscriptionsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07D71294585C00376534 /* SNSListSubscriptionsRequest.m */; };
+		D09F081E1294585C00376534 /* SNSListSubscriptionsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07D91294585C00376534 /* SNSListSubscriptionsResponse.m */; };
+		D09F081F1294585C00376534 /* SNSListSubscriptionsResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07DA1294585C00376534 /* SNSListSubscriptionsResponseUnmarshaller.m */; };
+		D09F08201294585C00376534 /* SNSListTopicsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07DB1294585C00376534 /* SNSListTopicsRequest.m */; };
+		D09F08221294585C00376534 /* SNSListTopicsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07DD1294585C00376534 /* SNSListTopicsResponse.m */; };
+		D09F08231294585C00376534 /* SNSListTopicsResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07DE1294585C00376534 /* SNSListTopicsResponseUnmarshaller.m */; };
+		D09F08241294585C00376534 /* SNSNotFoundException.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07DF1294585C00376534 /* SNSNotFoundException.m */; };
+		D09F08261294585C00376534 /* SNSPublishRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07E11294585C00376534 /* SNSPublishRequest.m */; };
+		D09F08281294585C00376534 /* SNSPublishResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07E31294585C00376534 /* SNSPublishResponse.m */; };
+		D09F08291294585C00376534 /* SNSPublishResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07E41294585C00376534 /* SNSPublishResponseUnmarshaller.m */; };
+		D09F082A1294585C00376534 /* SNSRemovePermissionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07E51294585C00376534 /* SNSRemovePermissionRequest.m */; };
+		D09F082C1294585C00376534 /* SNSRemovePermissionResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07E71294585C00376534 /* SNSRemovePermissionResponse.m */; };
+		D09F082D1294585C00376534 /* SNSRemovePermissionResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07E81294585C00376534 /* SNSRemovePermissionResponseUnmarshaller.m */; };
+		D09F082E1294585C00376534 /* SNSSetTopicAttributesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07E91294585C00376534 /* SNSSetTopicAttributesRequest.m */; };
+		D09F08301294585C00376534 /* SNSSetTopicAttributesResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07EB1294585C00376534 /* SNSSetTopicAttributesResponse.m */; };
+		D09F08311294585C00376534 /* SNSSetTopicAttributesResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07EC1294585C00376534 /* SNSSetTopicAttributesResponseUnmarshaller.m */; };
+		D09F08321294585C00376534 /* SNSSubscribeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07ED1294585C00376534 /* SNSSubscribeRequest.m */; };
+		D09F08341294585C00376534 /* SNSSubscribeResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07EF1294585C00376534 /* SNSSubscribeResponse.m */; };
+		D09F08351294585C00376534 /* SNSSubscribeResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07F01294585C00376534 /* SNSSubscribeResponseUnmarshaller.m */; };
+		D09F08361294585C00376534 /* SNSSubscription.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07F11294585C00376534 /* SNSSubscription.m */; };
+		D09F08371294585C00376534 /* SNSSubscriptionLimitExceededException.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07F21294585C00376534 /* SNSSubscriptionLimitExceededException.m */; };
+		D09F08391294585C00376534 /* SNSSubscriptionUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07F41294585C00376534 /* SNSSubscriptionUnmarshaller.m */; };
+		D09F083A1294585C00376534 /* SNSTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07F51294585C00376534 /* SNSTopic.m */; };
+		D09F083B1294585C00376534 /* SNSTopicLimitExceededException.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07F61294585C00376534 /* SNSTopicLimitExceededException.m */; };
+		D09F083D1294585C00376534 /* SNSTopicUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07F81294585C00376534 /* SNSTopicUnmarshaller.m */; };
+		D09F083E1294585C00376534 /* SNSUnsubscribeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07F91294585C00376534 /* SNSUnsubscribeRequest.m */; };
+		D09F08401294585C00376534 /* SNSUnsubscribeResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07FB1294585C00376534 /* SNSUnsubscribeResponse.m */; };
+		D09F08411294585C00376534 /* SNSUnsubscribeResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = D09F07FC1294585C00376534 /* SNSUnsubscribeResponseUnmarshaller.m */; };
+		D09F0938129458A600376534 /* AmazonSNSClient.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08B9129458A600376534 /* AmazonSNSClient.h */; };
+		D09F0939129458A600376534 /* SNSAddPermissionRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08BA129458A600376534 /* SNSAddPermissionRequest.h */; };
+		D09F093B129458A600376534 /* SNSAddPermissionResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08BC129458A600376534 /* SNSAddPermissionResponse.h */; };
+		D09F093C129458A600376534 /* SNSAddPermissionResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08BD129458A600376534 /* SNSAddPermissionResponseUnmarshaller.h */; };
+		D09F093D129458A600376534 /* SNSAuthorizationErrorException.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08BE129458A600376534 /* SNSAuthorizationErrorException.h */; };
+		D09F093F129458A600376534 /* SNSConfirmSubscriptionRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08C0129458A600376534 /* SNSConfirmSubscriptionRequest.h */; };
+		D09F0941129458A600376534 /* SNSConfirmSubscriptionResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08C2129458A600376534 /* SNSConfirmSubscriptionResponse.h */; };
+		D09F0942129458A600376534 /* SNSConfirmSubscriptionResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08C3129458A600376534 /* SNSConfirmSubscriptionResponseUnmarshaller.h */; };
+		D09F0943129458A600376534 /* SNSCreateTopicRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08C4129458A600376534 /* SNSCreateTopicRequest.h */; };
+		D09F0945129458A600376534 /* SNSCreateTopicResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08C6129458A600376534 /* SNSCreateTopicResponse.h */; };
+		D09F0946129458A600376534 /* SNSCreateTopicResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08C7129458A600376534 /* SNSCreateTopicResponseUnmarshaller.h */; };
+		D09F0947129458A600376534 /* SNSDeleteTopicRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08C8129458A600376534 /* SNSDeleteTopicRequest.h */; };
+		D09F0949129458A600376534 /* SNSDeleteTopicResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08CA129458A600376534 /* SNSDeleteTopicResponse.h */; };
+		D09F094A129458A600376534 /* SNSDeleteTopicResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08CB129458A600376534 /* SNSDeleteTopicResponseUnmarshaller.h */; };
+		D09F094B129458A600376534 /* SNSGetTopicAttributesRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08CC129458A600376534 /* SNSGetTopicAttributesRequest.h */; };
+		D09F094D129458A600376534 /* SNSGetTopicAttributesResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08CE129458A600376534 /* SNSGetTopicAttributesResponse.h */; };
+		D09F094E129458A600376534 /* SNSGetTopicAttributesResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08CF129458A600376534 /* SNSGetTopicAttributesResponseUnmarshaller.h */; };
+		D09F094F129458A600376534 /* SNSInternalErrorException.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08D0129458A600376534 /* SNSInternalErrorException.h */; };
+		D09F0951129458A600376534 /* SNSInvalidParameterException.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08D2129458A600376534 /* SNSInvalidParameterException.h */; };
+		D09F0953129458A600376534 /* SNSListSubscriptionsByTopicRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08D4129458A600376534 /* SNSListSubscriptionsByTopicRequest.h */; };
+		D09F0955129458A600376534 /* SNSListSubscriptionsByTopicResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08D6129458A600376534 /* SNSListSubscriptionsByTopicResponse.h */; };
+		D09F0956129458A600376534 /* SNSListSubscriptionsByTopicResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08D7129458A600376534 /* SNSListSubscriptionsByTopicResponseUnmarshaller.h */; };
+		D09F0957129458A600376534 /* SNSListSubscriptionsRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08D8129458A600376534 /* SNSListSubscriptionsRequest.h */; };
+		D09F0959129458A600376534 /* SNSListSubscriptionsResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08DA129458A600376534 /* SNSListSubscriptionsResponse.h */; };
+		D09F095A129458A600376534 /* SNSListSubscriptionsResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08DB129458A600376534 /* SNSListSubscriptionsResponseUnmarshaller.h */; };
+		D09F095B129458A600376534 /* SNSListTopicsRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08DC129458A600376534 /* SNSListTopicsRequest.h */; };
+		D09F095D129458A600376534 /* SNSListTopicsResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08DE129458A600376534 /* SNSListTopicsResponse.h */; };
+		D09F095E129458A600376534 /* SNSListTopicsResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08DF129458A600376534 /* SNSListTopicsResponseUnmarshaller.h */; };
+		D09F095F129458A600376534 /* SNSNotFoundException.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08E0129458A600376534 /* SNSNotFoundException.h */; };
+		D09F0961129458A600376534 /* SNSPublishRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08E2129458A600376534 /* SNSPublishRequest.h */; };
+		D09F0963129458A600376534 /* SNSPublishResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08E4129458A600376534 /* SNSPublishResponse.h */; };
+		D09F0964129458A600376534 /* SNSPublishResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08E5129458A600376534 /* SNSPublishResponseUnmarshaller.h */; };
+		D09F0965129458A600376534 /* SNSRemovePermissionRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08E6129458A600376534 /* SNSRemovePermissionRequest.h */; };
+		D09F0967129458A600376534 /* SNSRemovePermissionResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08E8129458A600376534 /* SNSRemovePermissionResponse.h */; };
+		D09F0968129458A600376534 /* SNSRemovePermissionResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08E9129458A600376534 /* SNSRemovePermissionResponseUnmarshaller.h */; };
+		D09F0969129458A600376534 /* SNSSetTopicAttributesRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08EA129458A600376534 /* SNSSetTopicAttributesRequest.h */; };
+		D09F096B129458A600376534 /* SNSSetTopicAttributesResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08EC129458A600376534 /* SNSSetTopicAttributesResponse.h */; };
+		D09F096C129458A600376534 /* SNSSetTopicAttributesResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08ED129458A600376534 /* SNSSetTopicAttributesResponseUnmarshaller.h */; };
+		D09F096D129458A600376534 /* SNSSubscribeRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08EE129458A600376534 /* SNSSubscribeRequest.h */; };
+		D09F096F129458A600376534 /* SNSSubscribeResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08F0129458A600376534 /* SNSSubscribeResponse.h */; };
+		D09F0970129458A600376534 /* SNSSubscribeResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08F1129458A600376534 /* SNSSubscribeResponseUnmarshaller.h */; };
+		D09F0971129458A600376534 /* SNSSubscription.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08F2129458A600376534 /* SNSSubscription.h */; };
+		D09F0972129458A600376534 /* SNSSubscriptionLimitExceededException.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08F3129458A600376534 /* SNSSubscriptionLimitExceededException.h */; };
+		D09F0974129458A600376534 /* SNSSubscriptionUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08F5129458A600376534 /* SNSSubscriptionUnmarshaller.h */; };
+		D09F0975129458A600376534 /* SNSTopic.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08F6129458A600376534 /* SNSTopic.h */; };
+		D09F0976129458A600376534 /* SNSTopicLimitExceededException.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08F7129458A600376534 /* SNSTopicLimitExceededException.h */; };
+		D09F0978129458A600376534 /* SNSTopicUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08F9129458A600376534 /* SNSTopicUnmarshaller.h */; };
+		D09F0979129458A600376534 /* SNSUnsubscribeRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08FA129458A600376534 /* SNSUnsubscribeRequest.h */; };
+		D09F097B129458A600376534 /* SNSUnsubscribeResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08FC129458A600376534 /* SNSUnsubscribeResponse.h */; };
+		D09F097C129458A600376534 /* SNSUnsubscribeResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = D09F08FD129458A600376534 /* SNSUnsubscribeResponseUnmarshaller.h */; };
+		D0A0EA7B1344E717007721F9 /* SNSResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = D0A0EA7A1344E717007721F9 /* SNSResponse.h */; };
+		D0A0EA851344E7AA007721F9 /* SNSResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0EA841344E7AA007721F9 /* SNSResponse.m */; };
+		D0DDA6B412A45CB5004B18C0 /* SNSRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DDA6B312A45CB5004B18C0 /* SNSRequest.m */; };
+		D0DDA6B612A45CC4004B18C0 /* SNSRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D0DDA6B512A45CC4004B18C0 /* SNSRequest.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0AFD8DC0128462A0004B7863 /* Framework.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Framework.plist; sourceTree = "<group>"; };
+		0AFD8DC312846390004B7863 /* Framework.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = Framework.sh; sourceTree = "<group>"; };
+		AA747D9E0F9514B9006C5449 /* SNS_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNS_Prefix.pch; sourceTree = "<group>"; };
+		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CE2CDC031703705C0013DE5F /* AWSSNS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSSNS.h; path = SNS/AWSSNS.h; sourceTree = "<group>"; };
+		CE96C1A9158BC2A70084D3CB /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		D02867B014BFB8A100184AC6 /* SNSGetSubscriptionAttributesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSGetSubscriptionAttributesRequest.m; sourceTree = "<group>"; };
+		D02867B114BFB8A100184AC6 /* SNSGetSubscriptionAttributesRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSGetSubscriptionAttributesRequestMarshaller.m; sourceTree = "<group>"; };
+		D02867B214BFB8A100184AC6 /* SNSGetSubscriptionAttributesResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSGetSubscriptionAttributesResponse.m; sourceTree = "<group>"; };
+		D02867B314BFB8A100184AC6 /* SNSGetSubscriptionAttributesResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSGetSubscriptionAttributesResponseUnmarshaller.m; sourceTree = "<group>"; };
+		D02867B414BFB8A100184AC6 /* SNSSetSubscriptionAttributesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSSetSubscriptionAttributesRequest.m; sourceTree = "<group>"; };
+		D02867B514BFB8A100184AC6 /* SNSSetSubscriptionAttributesRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSSetSubscriptionAttributesRequestMarshaller.m; sourceTree = "<group>"; };
+		D02867B614BFB8A100184AC6 /* SNSSetSubscriptionAttributesResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSSetSubscriptionAttributesResponse.m; sourceTree = "<group>"; };
+		D02867B714BFB8A100184AC6 /* SNSSetSubscriptionAttributesResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSSetSubscriptionAttributesResponseUnmarshaller.m; sourceTree = "<group>"; };
+		D02867DE14BFB8D500184AC6 /* SNSGetSubscriptionAttributesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSGetSubscriptionAttributesRequest.h; path = SNS/SNSGetSubscriptionAttributesRequest.h; sourceTree = "<group>"; };
+		D02867DF14BFB8D500184AC6 /* SNSGetSubscriptionAttributesRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSGetSubscriptionAttributesRequestMarshaller.h; path = SNS/SNSGetSubscriptionAttributesRequestMarshaller.h; sourceTree = "<group>"; };
+		D02867E014BFB8D500184AC6 /* SNSGetSubscriptionAttributesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSGetSubscriptionAttributesResponse.h; path = SNS/SNSGetSubscriptionAttributesResponse.h; sourceTree = "<group>"; };
+		D02867E114BFB8D500184AC6 /* SNSGetSubscriptionAttributesResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSGetSubscriptionAttributesResponseUnmarshaller.h; path = SNS/SNSGetSubscriptionAttributesResponseUnmarshaller.h; sourceTree = "<group>"; };
+		D02867E214BFB8D500184AC6 /* SNSSetSubscriptionAttributesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSSetSubscriptionAttributesRequest.h; path = SNS/SNSSetSubscriptionAttributesRequest.h; sourceTree = "<group>"; };
+		D02867E314BFB8D500184AC6 /* SNSSetSubscriptionAttributesRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSSetSubscriptionAttributesRequestMarshaller.h; path = SNS/SNSSetSubscriptionAttributesRequestMarshaller.h; sourceTree = "<group>"; };
+		D02867E414BFB8D500184AC6 /* SNSSetSubscriptionAttributesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSSetSubscriptionAttributesResponse.h; path = SNS/SNSSetSubscriptionAttributesResponse.h; sourceTree = "<group>"; };
+		D02867E514BFB8D500184AC6 /* SNSSetSubscriptionAttributesResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSSetSubscriptionAttributesResponseUnmarshaller.h; path = SNS/SNSSetSubscriptionAttributesResponseUnmarshaller.h; sourceTree = "<group>"; };
+		D03F19381377312E00891BD9 /* SNSAddPermissionRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSAddPermissionRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F19391377312E00891BD9 /* SNSConfirmSubscriptionRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSConfirmSubscriptionRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F193A1377312E00891BD9 /* SNSCreateTopicRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSCreateTopicRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F193B1377312E00891BD9 /* SNSDeleteTopicRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSDeleteTopicRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F193C1377312E00891BD9 /* SNSGetTopicAttributesRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSGetTopicAttributesRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F193D1377312E00891BD9 /* SNSListSubscriptionsByTopicRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSListSubscriptionsByTopicRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F193E1377312E00891BD9 /* SNSListSubscriptionsRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSListSubscriptionsRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F193F1377312E00891BD9 /* SNSListTopicsRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSListTopicsRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F19401377312E00891BD9 /* SNSPublishRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSPublishRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F19411377312E00891BD9 /* SNSRemovePermissionRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSRemovePermissionRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F19421377312E00891BD9 /* SNSSetTopicAttributesRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSSetTopicAttributesRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F19431377312E00891BD9 /* SNSSubscribeRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSSubscribeRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F19441377312E00891BD9 /* SNSUnsubscribeRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSUnsubscribeRequestMarshaller.m; sourceTree = "<group>"; };
+		D03F1AF41377338D00891BD9 /* SNSAddPermissionRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSAddPermissionRequestMarshaller.h; path = SNS/SNSAddPermissionRequestMarshaller.h; sourceTree = "<group>"; };
+		D03F1AF51377338D00891BD9 /* SNSConfirmSubscriptionRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSConfirmSubscriptionRequestMarshaller.h; path = SNS/SNSConfirmSubscriptionRequestMarshaller.h; sourceTree = "<group>"; };
+		D03F1AF61377338D00891BD9 /* SNSCreateTopicRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSCreateTopicRequestMarshaller.h; path = SNS/SNSCreateTopicRequestMarshaller.h; sourceTree = "<group>"; };
+		D03F1AF71377338D00891BD9 /* SNSDeleteTopicRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSDeleteTopicRequestMarshaller.h; path = SNS/SNSDeleteTopicRequestMarshaller.h; sourceTree = "<group>"; };
+		D03F1AF81377338D00891BD9 /* SNSGetTopicAttributesRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSGetTopicAttributesRequestMarshaller.h; path = SNS/SNSGetTopicAttributesRequestMarshaller.h; sourceTree = "<group>"; };
+		D03F1AF91377338D00891BD9 /* SNSListSubscriptionsByTopicRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSListSubscriptionsByTopicRequestMarshaller.h; path = SNS/SNSListSubscriptionsByTopicRequestMarshaller.h; sourceTree = "<group>"; };
+		D03F1AFA1377338D00891BD9 /* SNSListSubscriptionsRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSListSubscriptionsRequestMarshaller.h; path = SNS/SNSListSubscriptionsRequestMarshaller.h; sourceTree = "<group>"; };
+		D03F1AFB1377338D00891BD9 /* SNSListTopicsRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSListTopicsRequestMarshaller.h; path = SNS/SNSListTopicsRequestMarshaller.h; sourceTree = "<group>"; };
+		D03F1AFC1377338D00891BD9 /* SNSPublishRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSPublishRequestMarshaller.h; path = SNS/SNSPublishRequestMarshaller.h; sourceTree = "<group>"; };
+		D03F1AFD1377338D00891BD9 /* SNSRemovePermissionRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSRemovePermissionRequestMarshaller.h; path = SNS/SNSRemovePermissionRequestMarshaller.h; sourceTree = "<group>"; };
+		D03F1AFE1377338D00891BD9 /* SNSSetTopicAttributesRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSSetTopicAttributesRequestMarshaller.h; path = SNS/SNSSetTopicAttributesRequestMarshaller.h; sourceTree = "<group>"; };
+		D03F1AFF1377338D00891BD9 /* SNSSubscribeRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSSubscribeRequestMarshaller.h; path = SNS/SNSSubscribeRequestMarshaller.h; sourceTree = "<group>"; };
+		D03F1B001377338D00891BD9 /* SNSUnsubscribeRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSUnsubscribeRequestMarshaller.h; path = SNS/SNSUnsubscribeRequestMarshaller.h; sourceTree = "<group>"; };
+		D04C86441371D68E00F08418 /* SNSResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSResponseUnmarshaller.m; sourceTree = "<group>"; };
+		D04C86501371D73400F08418 /* SNSResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSResponseUnmarshaller.h; path = SNS/SNSResponseUnmarshaller.h; sourceTree = "<group>"; };
+		D069663F1234D53400BFBB1E /* libSNS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSNS.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D09F07B71294585C00376534 /* AmazonSNSClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonSNSClient.m; sourceTree = "<group>"; };
+		D09F07B91294585C00376534 /* SNSAddPermissionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSAddPermissionRequest.m; sourceTree = "<group>"; };
+		D09F07BB1294585C00376534 /* SNSAddPermissionResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSAddPermissionResponse.m; sourceTree = "<group>"; };
+		D09F07BC1294585C00376534 /* SNSAddPermissionResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSAddPermissionResponseUnmarshaller.m; sourceTree = "<group>"; };
+		D09F07BD1294585C00376534 /* SNSAuthorizationErrorException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSAuthorizationErrorException.m; sourceTree = "<group>"; };
+		D09F07BF1294585C00376534 /* SNSConfirmSubscriptionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSConfirmSubscriptionRequest.m; sourceTree = "<group>"; };
+		D09F07C11294585C00376534 /* SNSConfirmSubscriptionResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSConfirmSubscriptionResponse.m; sourceTree = "<group>"; };
+		D09F07C21294585C00376534 /* SNSConfirmSubscriptionResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSConfirmSubscriptionResponseUnmarshaller.m; sourceTree = "<group>"; };
+		D09F07C31294585C00376534 /* SNSCreateTopicRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSCreateTopicRequest.m; sourceTree = "<group>"; };
+		D09F07C51294585C00376534 /* SNSCreateTopicResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSCreateTopicResponse.m; sourceTree = "<group>"; };
+		D09F07C61294585C00376534 /* SNSCreateTopicResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSCreateTopicResponseUnmarshaller.m; sourceTree = "<group>"; };
+		D09F07C71294585C00376534 /* SNSDeleteTopicRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSDeleteTopicRequest.m; sourceTree = "<group>"; };
+		D09F07C91294585C00376534 /* SNSDeleteTopicResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSDeleteTopicResponse.m; sourceTree = "<group>"; };
+		D09F07CA1294585C00376534 /* SNSDeleteTopicResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSDeleteTopicResponseUnmarshaller.m; sourceTree = "<group>"; };
+		D09F07CB1294585C00376534 /* SNSGetTopicAttributesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSGetTopicAttributesRequest.m; sourceTree = "<group>"; };
+		D09F07CD1294585C00376534 /* SNSGetTopicAttributesResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSGetTopicAttributesResponse.m; sourceTree = "<group>"; };
+		D09F07CE1294585C00376534 /* SNSGetTopicAttributesResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSGetTopicAttributesResponseUnmarshaller.m; sourceTree = "<group>"; };
+		D09F07CF1294585C00376534 /* SNSInternalErrorException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSInternalErrorException.m; sourceTree = "<group>"; };
+		D09F07D11294585C00376534 /* SNSInvalidParameterException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSInvalidParameterException.m; sourceTree = "<group>"; };
+		D09F07D31294585C00376534 /* SNSListSubscriptionsByTopicRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSListSubscriptionsByTopicRequest.m; sourceTree = "<group>"; };
+		D09F07D51294585C00376534 /* SNSListSubscriptionsByTopicResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSListSubscriptionsByTopicResponse.m; sourceTree = "<group>"; };
+		D09F07D61294585C00376534 /* SNSListSubscriptionsByTopicResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSListSubscriptionsByTopicResponseUnmarshaller.m; sourceTree = "<group>"; };
+		D09F07D71294585C00376534 /* SNSListSubscriptionsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSListSubscriptionsRequest.m; sourceTree = "<group>"; };
+		D09F07D91294585C00376534 /* SNSListSubscriptionsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSListSubscriptionsResponse.m; sourceTree = "<group>"; };
+		D09F07DA1294585C00376534 /* SNSListSubscriptionsResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSListSubscriptionsResponseUnmarshaller.m; sourceTree = "<group>"; };
+		D09F07DB1294585C00376534 /* SNSListTopicsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSListTopicsRequest.m; sourceTree = "<group>"; };
+		D09F07DD1294585C00376534 /* SNSListTopicsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSListTopicsResponse.m; sourceTree = "<group>"; };
+		D09F07DE1294585C00376534 /* SNSListTopicsResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSListTopicsResponseUnmarshaller.m; sourceTree = "<group>"; };
+		D09F07DF1294585C00376534 /* SNSNotFoundException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSNotFoundException.m; sourceTree = "<group>"; };
+		D09F07E11294585C00376534 /* SNSPublishRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSPublishRequest.m; sourceTree = "<group>"; };
+		D09F07E31294585C00376534 /* SNSPublishResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSPublishResponse.m; sourceTree = "<group>"; };
+		D09F07E41294585C00376534 /* SNSPublishResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSPublishResponseUnmarshaller.m; sourceTree = "<group>"; };
+		D09F07E51294585C00376534 /* SNSRemovePermissionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSRemovePermissionRequest.m; sourceTree = "<group>"; };
+		D09F07E71294585C00376534 /* SNSRemovePermissionResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSRemovePermissionResponse.m; sourceTree = "<group>"; };
+		D09F07E81294585C00376534 /* SNSRemovePermissionResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSRemovePermissionResponseUnmarshaller.m; sourceTree = "<group>"; };
+		D09F07E91294585C00376534 /* SNSSetTopicAttributesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSSetTopicAttributesRequest.m; sourceTree = "<group>"; };
+		D09F07EB1294585C00376534 /* SNSSetTopicAttributesResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSSetTopicAttributesResponse.m; sourceTree = "<group>"; };
+		D09F07EC1294585C00376534 /* SNSSetTopicAttributesResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSSetTopicAttributesResponseUnmarshaller.m; sourceTree = "<group>"; };
+		D09F07ED1294585C00376534 /* SNSSubscribeRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSSubscribeRequest.m; sourceTree = "<group>"; };
+		D09F07EF1294585C00376534 /* SNSSubscribeResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSSubscribeResponse.m; sourceTree = "<group>"; };
+		D09F07F01294585C00376534 /* SNSSubscribeResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSSubscribeResponseUnmarshaller.m; sourceTree = "<group>"; };
+		D09F07F11294585C00376534 /* SNSSubscription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSSubscription.m; sourceTree = "<group>"; };
+		D09F07F21294585C00376534 /* SNSSubscriptionLimitExceededException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSSubscriptionLimitExceededException.m; sourceTree = "<group>"; };
+		D09F07F41294585C00376534 /* SNSSubscriptionUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSSubscriptionUnmarshaller.m; sourceTree = "<group>"; };
+		D09F07F51294585C00376534 /* SNSTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSTopic.m; sourceTree = "<group>"; };
+		D09F07F61294585C00376534 /* SNSTopicLimitExceededException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSTopicLimitExceededException.m; sourceTree = "<group>"; };
+		D09F07F81294585C00376534 /* SNSTopicUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSTopicUnmarshaller.m; sourceTree = "<group>"; };
+		D09F07F91294585C00376534 /* SNSUnsubscribeRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSUnsubscribeRequest.m; sourceTree = "<group>"; };
+		D09F07FB1294585C00376534 /* SNSUnsubscribeResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSUnsubscribeResponse.m; sourceTree = "<group>"; };
+		D09F07FC1294585C00376534 /* SNSUnsubscribeResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSUnsubscribeResponseUnmarshaller.m; sourceTree = "<group>"; };
+		D09F08B9129458A600376534 /* AmazonSNSClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmazonSNSClient.h; path = SNS/AmazonSNSClient.h; sourceTree = "<group>"; };
+		D09F08BA129458A600376534 /* SNSAddPermissionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSAddPermissionRequest.h; path = SNS/SNSAddPermissionRequest.h; sourceTree = "<group>"; };
+		D09F08BC129458A600376534 /* SNSAddPermissionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSAddPermissionResponse.h; path = SNS/SNSAddPermissionResponse.h; sourceTree = "<group>"; };
+		D09F08BD129458A600376534 /* SNSAddPermissionResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSAddPermissionResponseUnmarshaller.h; path = SNS/SNSAddPermissionResponseUnmarshaller.h; sourceTree = "<group>"; };
+		D09F08BE129458A600376534 /* SNSAuthorizationErrorException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSAuthorizationErrorException.h; path = SNS/SNSAuthorizationErrorException.h; sourceTree = "<group>"; };
+		D09F08C0129458A600376534 /* SNSConfirmSubscriptionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSConfirmSubscriptionRequest.h; path = SNS/SNSConfirmSubscriptionRequest.h; sourceTree = "<group>"; };
+		D09F08C2129458A600376534 /* SNSConfirmSubscriptionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSConfirmSubscriptionResponse.h; path = SNS/SNSConfirmSubscriptionResponse.h; sourceTree = "<group>"; };
+		D09F08C3129458A600376534 /* SNSConfirmSubscriptionResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSConfirmSubscriptionResponseUnmarshaller.h; path = SNS/SNSConfirmSubscriptionResponseUnmarshaller.h; sourceTree = "<group>"; };
+		D09F08C4129458A600376534 /* SNSCreateTopicRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSCreateTopicRequest.h; path = SNS/SNSCreateTopicRequest.h; sourceTree = "<group>"; };
+		D09F08C6129458A600376534 /* SNSCreateTopicResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSCreateTopicResponse.h; path = SNS/SNSCreateTopicResponse.h; sourceTree = "<group>"; };
+		D09F08C7129458A600376534 /* SNSCreateTopicResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSCreateTopicResponseUnmarshaller.h; path = SNS/SNSCreateTopicResponseUnmarshaller.h; sourceTree = "<group>"; };
+		D09F08C8129458A600376534 /* SNSDeleteTopicRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSDeleteTopicRequest.h; path = SNS/SNSDeleteTopicRequest.h; sourceTree = "<group>"; };
+		D09F08CA129458A600376534 /* SNSDeleteTopicResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSDeleteTopicResponse.h; path = SNS/SNSDeleteTopicResponse.h; sourceTree = "<group>"; };
+		D09F08CB129458A600376534 /* SNSDeleteTopicResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSDeleteTopicResponseUnmarshaller.h; path = SNS/SNSDeleteTopicResponseUnmarshaller.h; sourceTree = "<group>"; };
+		D09F08CC129458A600376534 /* SNSGetTopicAttributesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSGetTopicAttributesRequest.h; path = SNS/SNSGetTopicAttributesRequest.h; sourceTree = "<group>"; };
+		D09F08CE129458A600376534 /* SNSGetTopicAttributesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSGetTopicAttributesResponse.h; path = SNS/SNSGetTopicAttributesResponse.h; sourceTree = "<group>"; };
+		D09F08CF129458A600376534 /* SNSGetTopicAttributesResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSGetTopicAttributesResponseUnmarshaller.h; path = SNS/SNSGetTopicAttributesResponseUnmarshaller.h; sourceTree = "<group>"; };
+		D09F08D0129458A600376534 /* SNSInternalErrorException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSInternalErrorException.h; path = SNS/SNSInternalErrorException.h; sourceTree = "<group>"; };
+		D09F08D2129458A600376534 /* SNSInvalidParameterException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSInvalidParameterException.h; path = SNS/SNSInvalidParameterException.h; sourceTree = "<group>"; };
+		D09F08D4129458A600376534 /* SNSListSubscriptionsByTopicRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSListSubscriptionsByTopicRequest.h; path = SNS/SNSListSubscriptionsByTopicRequest.h; sourceTree = "<group>"; };
+		D09F08D6129458A600376534 /* SNSListSubscriptionsByTopicResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSListSubscriptionsByTopicResponse.h; path = SNS/SNSListSubscriptionsByTopicResponse.h; sourceTree = "<group>"; };
+		D09F08D7129458A600376534 /* SNSListSubscriptionsByTopicResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSListSubscriptionsByTopicResponseUnmarshaller.h; path = SNS/SNSListSubscriptionsByTopicResponseUnmarshaller.h; sourceTree = "<group>"; };
+		D09F08D8129458A600376534 /* SNSListSubscriptionsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSListSubscriptionsRequest.h; path = SNS/SNSListSubscriptionsRequest.h; sourceTree = "<group>"; };
+		D09F08DA129458A600376534 /* SNSListSubscriptionsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSListSubscriptionsResponse.h; path = SNS/SNSListSubscriptionsResponse.h; sourceTree = "<group>"; };
+		D09F08DB129458A600376534 /* SNSListSubscriptionsResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSListSubscriptionsResponseUnmarshaller.h; path = SNS/SNSListSubscriptionsResponseUnmarshaller.h; sourceTree = "<group>"; };
+		D09F08DC129458A600376534 /* SNSListTopicsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSListTopicsRequest.h; path = SNS/SNSListTopicsRequest.h; sourceTree = "<group>"; };
+		D09F08DE129458A600376534 /* SNSListTopicsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSListTopicsResponse.h; path = SNS/SNSListTopicsResponse.h; sourceTree = "<group>"; };
+		D09F08DF129458A600376534 /* SNSListTopicsResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSListTopicsResponseUnmarshaller.h; path = SNS/SNSListTopicsResponseUnmarshaller.h; sourceTree = "<group>"; };
+		D09F08E0129458A600376534 /* SNSNotFoundException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSNotFoundException.h; path = SNS/SNSNotFoundException.h; sourceTree = "<group>"; };
+		D09F08E2129458A600376534 /* SNSPublishRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSPublishRequest.h; path = SNS/SNSPublishRequest.h; sourceTree = "<group>"; };
+		D09F08E4129458A600376534 /* SNSPublishResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSPublishResponse.h; path = SNS/SNSPublishResponse.h; sourceTree = "<group>"; };
+		D09F08E5129458A600376534 /* SNSPublishResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSPublishResponseUnmarshaller.h; path = SNS/SNSPublishResponseUnmarshaller.h; sourceTree = "<group>"; };
+		D09F08E6129458A600376534 /* SNSRemovePermissionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSRemovePermissionRequest.h; path = SNS/SNSRemovePermissionRequest.h; sourceTree = "<group>"; };
+		D09F08E8129458A600376534 /* SNSRemovePermissionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSRemovePermissionResponse.h; path = SNS/SNSRemovePermissionResponse.h; sourceTree = "<group>"; };
+		D09F08E9129458A600376534 /* SNSRemovePermissionResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSRemovePermissionResponseUnmarshaller.h; path = SNS/SNSRemovePermissionResponseUnmarshaller.h; sourceTree = "<group>"; };
+		D09F08EA129458A600376534 /* SNSSetTopicAttributesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSSetTopicAttributesRequest.h; path = SNS/SNSSetTopicAttributesRequest.h; sourceTree = "<group>"; };
+		D09F08EC129458A600376534 /* SNSSetTopicAttributesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSSetTopicAttributesResponse.h; path = SNS/SNSSetTopicAttributesResponse.h; sourceTree = "<group>"; };
+		D09F08ED129458A600376534 /* SNSSetTopicAttributesResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSSetTopicAttributesResponseUnmarshaller.h; path = SNS/SNSSetTopicAttributesResponseUnmarshaller.h; sourceTree = "<group>"; };
+		D09F08EE129458A600376534 /* SNSSubscribeRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSSubscribeRequest.h; path = SNS/SNSSubscribeRequest.h; sourceTree = "<group>"; };
+		D09F08F0129458A600376534 /* SNSSubscribeResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSSubscribeResponse.h; path = SNS/SNSSubscribeResponse.h; sourceTree = "<group>"; };
+		D09F08F1129458A600376534 /* SNSSubscribeResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSSubscribeResponseUnmarshaller.h; path = SNS/SNSSubscribeResponseUnmarshaller.h; sourceTree = "<group>"; };
+		D09F08F2129458A600376534 /* SNSSubscription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSSubscription.h; path = SNS/SNSSubscription.h; sourceTree = "<group>"; };
+		D09F08F3129458A600376534 /* SNSSubscriptionLimitExceededException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSSubscriptionLimitExceededException.h; path = SNS/SNSSubscriptionLimitExceededException.h; sourceTree = "<group>"; };
+		D09F08F5129458A600376534 /* SNSSubscriptionUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSSubscriptionUnmarshaller.h; path = SNS/SNSSubscriptionUnmarshaller.h; sourceTree = "<group>"; };
+		D09F08F6129458A600376534 /* SNSTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSTopic.h; path = SNS/SNSTopic.h; sourceTree = "<group>"; };
+		D09F08F7129458A600376534 /* SNSTopicLimitExceededException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSTopicLimitExceededException.h; path = SNS/SNSTopicLimitExceededException.h; sourceTree = "<group>"; };
+		D09F08F9129458A600376534 /* SNSTopicUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSTopicUnmarshaller.h; path = SNS/SNSTopicUnmarshaller.h; sourceTree = "<group>"; };
+		D09F08FA129458A600376534 /* SNSUnsubscribeRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSUnsubscribeRequest.h; path = SNS/SNSUnsubscribeRequest.h; sourceTree = "<group>"; };
+		D09F08FC129458A600376534 /* SNSUnsubscribeResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSUnsubscribeResponse.h; path = SNS/SNSUnsubscribeResponse.h; sourceTree = "<group>"; };
+		D09F08FD129458A600376534 /* SNSUnsubscribeResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSUnsubscribeResponseUnmarshaller.h; path = SNS/SNSUnsubscribeResponseUnmarshaller.h; sourceTree = "<group>"; };
+		D0A0EA7A1344E717007721F9 /* SNSResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSResponse.h; path = SNS/SNSResponse.h; sourceTree = "<group>"; };
+		D0A0EA841344E7AA007721F9 /* SNSResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSResponse.m; sourceTree = "<group>"; };
+		D0DDA6B312A45CB5004B18C0 /* SNSRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSRequest.m; sourceTree = "<group>"; };
+		D0DDA6B512A45CC4004B18C0 /* SNSRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNSRequest.h; path = SNS/SNSRequest.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE96C1B7158BD58A0084D3CB /* MobileCoreServices.framework in Frameworks */,
+				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D069663F1234D53400BFBB1E /* libSNS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* s3 */ = {
+			isa = PBXGroup;
+			children = (
+				D09F07B61294585C00376534 /* Amazon.SNS */,
+				0AFD9561128471A4004B7863 /* include */,
+				0AFD8DC212846372004B7863 /* Scripts */,
+				0AFD8DBF128462A0004B7863 /* Resources */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
+			);
+			name = s3;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE96C1A9158BC2A70084D3CB /* MobileCoreServices.framework */,
+				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0AFD8DBF128462A0004B7863 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0AFD8DC0128462A0004B7863 /* Framework.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0AFD8DC212846372004B7863 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				0AFD8DC312846390004B7863 /* Framework.sh */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
+		0AFD9561128471A4004B7863 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				CE2CDC031703705C0013DE5F /* AWSSNS.h */,
+				D09F08B9129458A600376534 /* AmazonSNSClient.h */,
+				D09F08BA129458A600376534 /* SNSAddPermissionRequest.h */,
+				D03F1AF41377338D00891BD9 /* SNSAddPermissionRequestMarshaller.h */,
+				D09F08BC129458A600376534 /* SNSAddPermissionResponse.h */,
+				D09F08BD129458A600376534 /* SNSAddPermissionResponseUnmarshaller.h */,
+				D09F08BE129458A600376534 /* SNSAuthorizationErrorException.h */,
+				D09F08C0129458A600376534 /* SNSConfirmSubscriptionRequest.h */,
+				D03F1AF51377338D00891BD9 /* SNSConfirmSubscriptionRequestMarshaller.h */,
+				D09F08C2129458A600376534 /* SNSConfirmSubscriptionResponse.h */,
+				D09F08C3129458A600376534 /* SNSConfirmSubscriptionResponseUnmarshaller.h */,
+				D09F08C4129458A600376534 /* SNSCreateTopicRequest.h */,
+				D03F1AF61377338D00891BD9 /* SNSCreateTopicRequestMarshaller.h */,
+				D09F08C6129458A600376534 /* SNSCreateTopicResponse.h */,
+				D09F08C7129458A600376534 /* SNSCreateTopicResponseUnmarshaller.h */,
+				D09F08C8129458A600376534 /* SNSDeleteTopicRequest.h */,
+				D03F1AF71377338D00891BD9 /* SNSDeleteTopicRequestMarshaller.h */,
+				D09F08CA129458A600376534 /* SNSDeleteTopicResponse.h */,
+				D09F08CB129458A600376534 /* SNSDeleteTopicResponseUnmarshaller.h */,
+				D02867DE14BFB8D500184AC6 /* SNSGetSubscriptionAttributesRequest.h */,
+				D02867DF14BFB8D500184AC6 /* SNSGetSubscriptionAttributesRequestMarshaller.h */,
+				D02867E014BFB8D500184AC6 /* SNSGetSubscriptionAttributesResponse.h */,
+				D02867E114BFB8D500184AC6 /* SNSGetSubscriptionAttributesResponseUnmarshaller.h */,
+				D09F08CC129458A600376534 /* SNSGetTopicAttributesRequest.h */,
+				D03F1AF81377338D00891BD9 /* SNSGetTopicAttributesRequestMarshaller.h */,
+				D09F08CE129458A600376534 /* SNSGetTopicAttributesResponse.h */,
+				D09F08CF129458A600376534 /* SNSGetTopicAttributesResponseUnmarshaller.h */,
+				D09F08D0129458A600376534 /* SNSInternalErrorException.h */,
+				D09F08D2129458A600376534 /* SNSInvalidParameterException.h */,
+				D09F08D4129458A600376534 /* SNSListSubscriptionsByTopicRequest.h */,
+				D03F1AF91377338D00891BD9 /* SNSListSubscriptionsByTopicRequestMarshaller.h */,
+				D09F08D6129458A600376534 /* SNSListSubscriptionsByTopicResponse.h */,
+				D09F08D7129458A600376534 /* SNSListSubscriptionsByTopicResponseUnmarshaller.h */,
+				D09F08D8129458A600376534 /* SNSListSubscriptionsRequest.h */,
+				D03F1AFA1377338D00891BD9 /* SNSListSubscriptionsRequestMarshaller.h */,
+				D09F08DA129458A600376534 /* SNSListSubscriptionsResponse.h */,
+				D09F08DB129458A600376534 /* SNSListSubscriptionsResponseUnmarshaller.h */,
+				D09F08DC129458A600376534 /* SNSListTopicsRequest.h */,
+				D03F1AFB1377338D00891BD9 /* SNSListTopicsRequestMarshaller.h */,
+				D09F08DE129458A600376534 /* SNSListTopicsResponse.h */,
+				D09F08DF129458A600376534 /* SNSListTopicsResponseUnmarshaller.h */,
+				D09F08E0129458A600376534 /* SNSNotFoundException.h */,
+				D09F08E2129458A600376534 /* SNSPublishRequest.h */,
+				D03F1AFC1377338D00891BD9 /* SNSPublishRequestMarshaller.h */,
+				D09F08E4129458A600376534 /* SNSPublishResponse.h */,
+				D09F08E5129458A600376534 /* SNSPublishResponseUnmarshaller.h */,
+				D09F08E6129458A600376534 /* SNSRemovePermissionRequest.h */,
+				D03F1AFD1377338D00891BD9 /* SNSRemovePermissionRequestMarshaller.h */,
+				D09F08E8129458A600376534 /* SNSRemovePermissionResponse.h */,
+				D09F08E9129458A600376534 /* SNSRemovePermissionResponseUnmarshaller.h */,
+				D0DDA6B512A45CC4004B18C0 /* SNSRequest.h */,
+				D0A0EA7A1344E717007721F9 /* SNSResponse.h */,
+				D04C86501371D73400F08418 /* SNSResponseUnmarshaller.h */,
+				D02867E214BFB8D500184AC6 /* SNSSetSubscriptionAttributesRequest.h */,
+				D02867E314BFB8D500184AC6 /* SNSSetSubscriptionAttributesRequestMarshaller.h */,
+				D02867E414BFB8D500184AC6 /* SNSSetSubscriptionAttributesResponse.h */,
+				D02867E514BFB8D500184AC6 /* SNSSetSubscriptionAttributesResponseUnmarshaller.h */,
+				D09F08EA129458A600376534 /* SNSSetTopicAttributesRequest.h */,
+				D03F1AFE1377338D00891BD9 /* SNSSetTopicAttributesRequestMarshaller.h */,
+				D09F08EC129458A600376534 /* SNSSetTopicAttributesResponse.h */,
+				D09F08ED129458A600376534 /* SNSSetTopicAttributesResponseUnmarshaller.h */,
+				D09F08EE129458A600376534 /* SNSSubscribeRequest.h */,
+				D03F1AFF1377338D00891BD9 /* SNSSubscribeRequestMarshaller.h */,
+				D09F08F0129458A600376534 /* SNSSubscribeResponse.h */,
+				D09F08F1129458A600376534 /* SNSSubscribeResponseUnmarshaller.h */,
+				D09F08F2129458A600376534 /* SNSSubscription.h */,
+				D09F08F3129458A600376534 /* SNSSubscriptionLimitExceededException.h */,
+				D09F08F5129458A600376534 /* SNSSubscriptionUnmarshaller.h */,
+				D09F08F6129458A600376534 /* SNSTopic.h */,
+				D09F08F7129458A600376534 /* SNSTopicLimitExceededException.h */,
+				D09F08F9129458A600376534 /* SNSTopicUnmarshaller.h */,
+				D09F08FA129458A600376534 /* SNSUnsubscribeRequest.h */,
+				D03F1B001377338D00891BD9 /* SNSUnsubscribeRequestMarshaller.h */,
+				D09F08FC129458A600376534 /* SNSUnsubscribeResponse.h */,
+				D09F08FD129458A600376534 /* SNSUnsubscribeResponseUnmarshaller.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				034768DFFF38A50411DB9C8B /* Products */,
+				AA747D9E0F9514B9006C5449 /* SNS_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		D09F07B61294585C00376534 /* Amazon.SNS */ = {
+			isa = PBXGroup;
+			children = (
+				D04C86441371D68E00F08418 /* SNSResponseUnmarshaller.m */,
+				D0A0EA841344E7AA007721F9 /* SNSResponse.m */,
+				D0DDA6B312A45CB5004B18C0 /* SNSRequest.m */,
+				D09F07B71294585C00376534 /* AmazonSNSClient.m */,
+				D09F07B81294585C00376534 /* Model */,
+			);
+			path = Amazon.SNS;
+			sourceTree = "<group>";
+		};
+		D09F07B81294585C00376534 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D02867B014BFB8A100184AC6 /* SNSGetSubscriptionAttributesRequest.m */,
+				D02867B114BFB8A100184AC6 /* SNSGetSubscriptionAttributesRequestMarshaller.m */,
+				D02867B214BFB8A100184AC6 /* SNSGetSubscriptionAttributesResponse.m */,
+				D02867B314BFB8A100184AC6 /* SNSGetSubscriptionAttributesResponseUnmarshaller.m */,
+				D02867B414BFB8A100184AC6 /* SNSSetSubscriptionAttributesRequest.m */,
+				D02867B514BFB8A100184AC6 /* SNSSetSubscriptionAttributesRequestMarshaller.m */,
+				D02867B614BFB8A100184AC6 /* SNSSetSubscriptionAttributesResponse.m */,
+				D02867B714BFB8A100184AC6 /* SNSSetSubscriptionAttributesResponseUnmarshaller.m */,
+				D03F19381377312E00891BD9 /* SNSAddPermissionRequestMarshaller.m */,
+				D03F19391377312E00891BD9 /* SNSConfirmSubscriptionRequestMarshaller.m */,
+				D03F193A1377312E00891BD9 /* SNSCreateTopicRequestMarshaller.m */,
+				D03F193B1377312E00891BD9 /* SNSDeleteTopicRequestMarshaller.m */,
+				D03F193C1377312E00891BD9 /* SNSGetTopicAttributesRequestMarshaller.m */,
+				D03F193D1377312E00891BD9 /* SNSListSubscriptionsByTopicRequestMarshaller.m */,
+				D03F193E1377312E00891BD9 /* SNSListSubscriptionsRequestMarshaller.m */,
+				D03F193F1377312E00891BD9 /* SNSListTopicsRequestMarshaller.m */,
+				D03F19401377312E00891BD9 /* SNSPublishRequestMarshaller.m */,
+				D03F19411377312E00891BD9 /* SNSRemovePermissionRequestMarshaller.m */,
+				D03F19421377312E00891BD9 /* SNSSetTopicAttributesRequestMarshaller.m */,
+				D03F19431377312E00891BD9 /* SNSSubscribeRequestMarshaller.m */,
+				D03F19441377312E00891BD9 /* SNSUnsubscribeRequestMarshaller.m */,
+				D09F07B91294585C00376534 /* SNSAddPermissionRequest.m */,
+				D09F07BB1294585C00376534 /* SNSAddPermissionResponse.m */,
+				D09F07BC1294585C00376534 /* SNSAddPermissionResponseUnmarshaller.m */,
+				D09F07BD1294585C00376534 /* SNSAuthorizationErrorException.m */,
+				D09F07BF1294585C00376534 /* SNSConfirmSubscriptionRequest.m */,
+				D09F07C11294585C00376534 /* SNSConfirmSubscriptionResponse.m */,
+				D09F07C21294585C00376534 /* SNSConfirmSubscriptionResponseUnmarshaller.m */,
+				D09F07C31294585C00376534 /* SNSCreateTopicRequest.m */,
+				D09F07C51294585C00376534 /* SNSCreateTopicResponse.m */,
+				D09F07C61294585C00376534 /* SNSCreateTopicResponseUnmarshaller.m */,
+				D09F07C71294585C00376534 /* SNSDeleteTopicRequest.m */,
+				D09F07C91294585C00376534 /* SNSDeleteTopicResponse.m */,
+				D09F07CA1294585C00376534 /* SNSDeleteTopicResponseUnmarshaller.m */,
+				D09F07CB1294585C00376534 /* SNSGetTopicAttributesRequest.m */,
+				D09F07CD1294585C00376534 /* SNSGetTopicAttributesResponse.m */,
+				D09F07CE1294585C00376534 /* SNSGetTopicAttributesResponseUnmarshaller.m */,
+				D09F07CF1294585C00376534 /* SNSInternalErrorException.m */,
+				D09F07D11294585C00376534 /* SNSInvalidParameterException.m */,
+				D09F07D31294585C00376534 /* SNSListSubscriptionsByTopicRequest.m */,
+				D09F07D51294585C00376534 /* SNSListSubscriptionsByTopicResponse.m */,
+				D09F07D61294585C00376534 /* SNSListSubscriptionsByTopicResponseUnmarshaller.m */,
+				D09F07D71294585C00376534 /* SNSListSubscriptionsRequest.m */,
+				D09F07D91294585C00376534 /* SNSListSubscriptionsResponse.m */,
+				D09F07DA1294585C00376534 /* SNSListSubscriptionsResponseUnmarshaller.m */,
+				D09F07DB1294585C00376534 /* SNSListTopicsRequest.m */,
+				D09F07DD1294585C00376534 /* SNSListTopicsResponse.m */,
+				D09F07DE1294585C00376534 /* SNSListTopicsResponseUnmarshaller.m */,
+				D09F07DF1294585C00376534 /* SNSNotFoundException.m */,
+				D09F07E11294585C00376534 /* SNSPublishRequest.m */,
+				D09F07E31294585C00376534 /* SNSPublishResponse.m */,
+				D09F07E41294585C00376534 /* SNSPublishResponseUnmarshaller.m */,
+				D09F07E51294585C00376534 /* SNSRemovePermissionRequest.m */,
+				D09F07E71294585C00376534 /* SNSRemovePermissionResponse.m */,
+				D09F07E81294585C00376534 /* SNSRemovePermissionResponseUnmarshaller.m */,
+				D09F07E91294585C00376534 /* SNSSetTopicAttributesRequest.m */,
+				D09F07EB1294585C00376534 /* SNSSetTopicAttributesResponse.m */,
+				D09F07EC1294585C00376534 /* SNSSetTopicAttributesResponseUnmarshaller.m */,
+				D09F07ED1294585C00376534 /* SNSSubscribeRequest.m */,
+				D09F07EF1294585C00376534 /* SNSSubscribeResponse.m */,
+				D09F07F01294585C00376534 /* SNSSubscribeResponseUnmarshaller.m */,
+				D09F07F11294585C00376534 /* SNSSubscription.m */,
+				D09F07F21294585C00376534 /* SNSSubscriptionLimitExceededException.m */,
+				D09F07F41294585C00376534 /* SNSSubscriptionUnmarshaller.m */,
+				D09F07F51294585C00376534 /* SNSTopic.m */,
+				D09F07F61294585C00376534 /* SNSTopicLimitExceededException.m */,
+				D09F07F81294585C00376534 /* SNSTopicUnmarshaller.m */,
+				D09F07F91294585C00376534 /* SNSUnsubscribeRequest.m */,
+				D09F07FB1294585C00376534 /* SNSUnsubscribeResponse.m */,
+				D09F07FC1294585C00376534 /* SNSUnsubscribeResponseUnmarshaller.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D09F0938129458A600376534 /* AmazonSNSClient.h in Headers */,
+				D09F0939129458A600376534 /* SNSAddPermissionRequest.h in Headers */,
+				D09F093B129458A600376534 /* SNSAddPermissionResponse.h in Headers */,
+				D09F093C129458A600376534 /* SNSAddPermissionResponseUnmarshaller.h in Headers */,
+				D09F093D129458A600376534 /* SNSAuthorizationErrorException.h in Headers */,
+				D09F093F129458A600376534 /* SNSConfirmSubscriptionRequest.h in Headers */,
+				D09F0941129458A600376534 /* SNSConfirmSubscriptionResponse.h in Headers */,
+				D09F0942129458A600376534 /* SNSConfirmSubscriptionResponseUnmarshaller.h in Headers */,
+				D09F0943129458A600376534 /* SNSCreateTopicRequest.h in Headers */,
+				D09F0945129458A600376534 /* SNSCreateTopicResponse.h in Headers */,
+				D09F0946129458A600376534 /* SNSCreateTopicResponseUnmarshaller.h in Headers */,
+				D09F0947129458A600376534 /* SNSDeleteTopicRequest.h in Headers */,
+				D09F0949129458A600376534 /* SNSDeleteTopicResponse.h in Headers */,
+				D09F094A129458A600376534 /* SNSDeleteTopicResponseUnmarshaller.h in Headers */,
+				D09F094B129458A600376534 /* SNSGetTopicAttributesRequest.h in Headers */,
+				D09F094D129458A600376534 /* SNSGetTopicAttributesResponse.h in Headers */,
+				D09F094E129458A600376534 /* SNSGetTopicAttributesResponseUnmarshaller.h in Headers */,
+				D09F094F129458A600376534 /* SNSInternalErrorException.h in Headers */,
+				D09F0951129458A600376534 /* SNSInvalidParameterException.h in Headers */,
+				D09F0953129458A600376534 /* SNSListSubscriptionsByTopicRequest.h in Headers */,
+				D09F0955129458A600376534 /* SNSListSubscriptionsByTopicResponse.h in Headers */,
+				D09F0956129458A600376534 /* SNSListSubscriptionsByTopicResponseUnmarshaller.h in Headers */,
+				D09F0957129458A600376534 /* SNSListSubscriptionsRequest.h in Headers */,
+				D09F0959129458A600376534 /* SNSListSubscriptionsResponse.h in Headers */,
+				D09F095A129458A600376534 /* SNSListSubscriptionsResponseUnmarshaller.h in Headers */,
+				D09F095B129458A600376534 /* SNSListTopicsRequest.h in Headers */,
+				D09F095D129458A600376534 /* SNSListTopicsResponse.h in Headers */,
+				D09F095E129458A600376534 /* SNSListTopicsResponseUnmarshaller.h in Headers */,
+				D09F095F129458A600376534 /* SNSNotFoundException.h in Headers */,
+				D09F0961129458A600376534 /* SNSPublishRequest.h in Headers */,
+				D09F0963129458A600376534 /* SNSPublishResponse.h in Headers */,
+				D09F0964129458A600376534 /* SNSPublishResponseUnmarshaller.h in Headers */,
+				D09F0965129458A600376534 /* SNSRemovePermissionRequest.h in Headers */,
+				D09F0967129458A600376534 /* SNSRemovePermissionResponse.h in Headers */,
+				D09F0968129458A600376534 /* SNSRemovePermissionResponseUnmarshaller.h in Headers */,
+				D09F0969129458A600376534 /* SNSSetTopicAttributesRequest.h in Headers */,
+				D09F096B129458A600376534 /* SNSSetTopicAttributesResponse.h in Headers */,
+				D09F096C129458A600376534 /* SNSSetTopicAttributesResponseUnmarshaller.h in Headers */,
+				D09F096D129458A600376534 /* SNSSubscribeRequest.h in Headers */,
+				D09F096F129458A600376534 /* SNSSubscribeResponse.h in Headers */,
+				D09F0970129458A600376534 /* SNSSubscribeResponseUnmarshaller.h in Headers */,
+				D09F0971129458A600376534 /* SNSSubscription.h in Headers */,
+				D09F0972129458A600376534 /* SNSSubscriptionLimitExceededException.h in Headers */,
+				D09F0974129458A600376534 /* SNSSubscriptionUnmarshaller.h in Headers */,
+				D09F0975129458A600376534 /* SNSTopic.h in Headers */,
+				D09F0976129458A600376534 /* SNSTopicLimitExceededException.h in Headers */,
+				D09F0978129458A600376534 /* SNSTopicUnmarshaller.h in Headers */,
+				D09F0979129458A600376534 /* SNSUnsubscribeRequest.h in Headers */,
+				D09F097B129458A600376534 /* SNSUnsubscribeResponse.h in Headers */,
+				D09F097C129458A600376534 /* SNSUnsubscribeResponseUnmarshaller.h in Headers */,
+				D0DDA6B612A45CC4004B18C0 /* SNSRequest.h in Headers */,
+				D0A0EA7B1344E717007721F9 /* SNSResponse.h in Headers */,
+				D04C86511371D73400F08418 /* SNSResponseUnmarshaller.h in Headers */,
+				D03F1B011377338D00891BD9 /* SNSAddPermissionRequestMarshaller.h in Headers */,
+				D03F1B021377338D00891BD9 /* SNSConfirmSubscriptionRequestMarshaller.h in Headers */,
+				D03F1B031377338D00891BD9 /* SNSCreateTopicRequestMarshaller.h in Headers */,
+				D03F1B041377338D00891BD9 /* SNSDeleteTopicRequestMarshaller.h in Headers */,
+				D03F1B051377338D00891BD9 /* SNSGetTopicAttributesRequestMarshaller.h in Headers */,
+				D03F1B061377338D00891BD9 /* SNSListSubscriptionsByTopicRequestMarshaller.h in Headers */,
+				D03F1B071377338D00891BD9 /* SNSListSubscriptionsRequestMarshaller.h in Headers */,
+				D03F1B081377338D00891BD9 /* SNSListTopicsRequestMarshaller.h in Headers */,
+				D03F1B091377338D00891BD9 /* SNSPublishRequestMarshaller.h in Headers */,
+				D03F1B0A1377338D00891BD9 /* SNSRemovePermissionRequestMarshaller.h in Headers */,
+				D03F1B0B1377338D00891BD9 /* SNSSetTopicAttributesRequestMarshaller.h in Headers */,
+				D03F1B0C1377338D00891BD9 /* SNSSubscribeRequestMarshaller.h in Headers */,
+				D03F1B0D1377338D00891BD9 /* SNSUnsubscribeRequestMarshaller.h in Headers */,
+				D02867E614BFB8D500184AC6 /* SNSGetSubscriptionAttributesRequest.h in Headers */,
+				D02867E714BFB8D500184AC6 /* SNSGetSubscriptionAttributesRequestMarshaller.h in Headers */,
+				D02867E814BFB8D500184AC6 /* SNSGetSubscriptionAttributesResponse.h in Headers */,
+				D02867E914BFB8D500184AC6 /* SNSGetSubscriptionAttributesResponseUnmarshaller.h in Headers */,
+				D02867EA14BFB8D500184AC6 /* SNSSetSubscriptionAttributesRequest.h in Headers */,
+				D02867EB14BFB8D500184AC6 /* SNSSetSubscriptionAttributesRequestMarshaller.h in Headers */,
+				D02867EC14BFB8D500184AC6 /* SNSSetSubscriptionAttributesResponse.h in Headers */,
+				D02867ED14BFB8D500184AC6 /* SNSSetSubscriptionAttributesResponseUnmarshaller.h in Headers */,
+				CE2CDC041703705C0013DE5F /* AWSSNS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXLegacyTarget section */
+		0AFD8DD7128465B4004B7863 /* Framework */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 0AFD8DDC128465EB004B7863 /* Build configuration list for PBXLegacyTarget "Framework" */;
+			buildPhases = (
+			);
+			buildToolPath = Scripts/Framework.sh;
+			dependencies = (
+			);
+			name = Framework;
+			passBuildSettingsInEnvironment = 1;
+			productName = Framework;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC07D0554694100DB518D /* SNS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "SNS" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SNS;
+			productName = s3;
+			productReference = D069663F1234D53400BFBB1E /* libSNS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+			};
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "SNS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* s3 */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2AAC07D0554694100DB518D /* SNS */,
+				0AFD8DD7128465B4004B7863 /* Framework */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D09F07FD1294585C00376534 /* AmazonSNSClient.m in Sources */,
+				D09F07FE1294585C00376534 /* SNSAddPermissionRequest.m in Sources */,
+				D09F08001294585C00376534 /* SNSAddPermissionResponse.m in Sources */,
+				D09F08011294585C00376534 /* SNSAddPermissionResponseUnmarshaller.m in Sources */,
+				D09F08021294585C00376534 /* SNSAuthorizationErrorException.m in Sources */,
+				D09F08041294585C00376534 /* SNSConfirmSubscriptionRequest.m in Sources */,
+				D09F08061294585C00376534 /* SNSConfirmSubscriptionResponse.m in Sources */,
+				D09F08071294585C00376534 /* SNSConfirmSubscriptionResponseUnmarshaller.m in Sources */,
+				D09F08081294585C00376534 /* SNSCreateTopicRequest.m in Sources */,
+				D09F080A1294585C00376534 /* SNSCreateTopicResponse.m in Sources */,
+				D09F080B1294585C00376534 /* SNSCreateTopicResponseUnmarshaller.m in Sources */,
+				D09F080C1294585C00376534 /* SNSDeleteTopicRequest.m in Sources */,
+				D09F080E1294585C00376534 /* SNSDeleteTopicResponse.m in Sources */,
+				D09F080F1294585C00376534 /* SNSDeleteTopicResponseUnmarshaller.m in Sources */,
+				D09F08101294585C00376534 /* SNSGetTopicAttributesRequest.m in Sources */,
+				D09F08121294585C00376534 /* SNSGetTopicAttributesResponse.m in Sources */,
+				D09F08131294585C00376534 /* SNSGetTopicAttributesResponseUnmarshaller.m in Sources */,
+				D09F08141294585C00376534 /* SNSInternalErrorException.m in Sources */,
+				D09F08161294585C00376534 /* SNSInvalidParameterException.m in Sources */,
+				D09F08181294585C00376534 /* SNSListSubscriptionsByTopicRequest.m in Sources */,
+				D09F081A1294585C00376534 /* SNSListSubscriptionsByTopicResponse.m in Sources */,
+				D09F081B1294585C00376534 /* SNSListSubscriptionsByTopicResponseUnmarshaller.m in Sources */,
+				D09F081C1294585C00376534 /* SNSListSubscriptionsRequest.m in Sources */,
+				D09F081E1294585C00376534 /* SNSListSubscriptionsResponse.m in Sources */,
+				D09F081F1294585C00376534 /* SNSListSubscriptionsResponseUnmarshaller.m in Sources */,
+				D09F08201294585C00376534 /* SNSListTopicsRequest.m in Sources */,
+				D09F08221294585C00376534 /* SNSListTopicsResponse.m in Sources */,
+				D09F08231294585C00376534 /* SNSListTopicsResponseUnmarshaller.m in Sources */,
+				D09F08241294585C00376534 /* SNSNotFoundException.m in Sources */,
+				D09F08261294585C00376534 /* SNSPublishRequest.m in Sources */,
+				D09F08281294585C00376534 /* SNSPublishResponse.m in Sources */,
+				D09F08291294585C00376534 /* SNSPublishResponseUnmarshaller.m in Sources */,
+				D09F082A1294585C00376534 /* SNSRemovePermissionRequest.m in Sources */,
+				D09F082C1294585C00376534 /* SNSRemovePermissionResponse.m in Sources */,
+				D09F082D1294585C00376534 /* SNSRemovePermissionResponseUnmarshaller.m in Sources */,
+				D09F082E1294585C00376534 /* SNSSetTopicAttributesRequest.m in Sources */,
+				D09F08301294585C00376534 /* SNSSetTopicAttributesResponse.m in Sources */,
+				D09F08311294585C00376534 /* SNSSetTopicAttributesResponseUnmarshaller.m in Sources */,
+				D09F08321294585C00376534 /* SNSSubscribeRequest.m in Sources */,
+				D09F08341294585C00376534 /* SNSSubscribeResponse.m in Sources */,
+				D09F08351294585C00376534 /* SNSSubscribeResponseUnmarshaller.m in Sources */,
+				D09F08361294585C00376534 /* SNSSubscription.m in Sources */,
+				D09F08371294585C00376534 /* SNSSubscriptionLimitExceededException.m in Sources */,
+				D09F08391294585C00376534 /* SNSSubscriptionUnmarshaller.m in Sources */,
+				D09F083A1294585C00376534 /* SNSTopic.m in Sources */,
+				D09F083B1294585C00376534 /* SNSTopicLimitExceededException.m in Sources */,
+				D09F083D1294585C00376534 /* SNSTopicUnmarshaller.m in Sources */,
+				D09F083E1294585C00376534 /* SNSUnsubscribeRequest.m in Sources */,
+				D09F08401294585C00376534 /* SNSUnsubscribeResponse.m in Sources */,
+				D09F08411294585C00376534 /* SNSUnsubscribeResponseUnmarshaller.m in Sources */,
+				D0DDA6B412A45CB5004B18C0 /* SNSRequest.m in Sources */,
+				D0A0EA851344E7AA007721F9 /* SNSResponse.m in Sources */,
+				D04C86451371D68E00F08418 /* SNSResponseUnmarshaller.m in Sources */,
+				D03F19451377312E00891BD9 /* SNSAddPermissionRequestMarshaller.m in Sources */,
+				D03F19461377312E00891BD9 /* SNSConfirmSubscriptionRequestMarshaller.m in Sources */,
+				D03F19471377312E00891BD9 /* SNSCreateTopicRequestMarshaller.m in Sources */,
+				D03F19481377312E00891BD9 /* SNSDeleteTopicRequestMarshaller.m in Sources */,
+				D03F19491377312E00891BD9 /* SNSGetTopicAttributesRequestMarshaller.m in Sources */,
+				D03F194A1377312E00891BD9 /* SNSListSubscriptionsByTopicRequestMarshaller.m in Sources */,
+				D03F194B1377312E00891BD9 /* SNSListSubscriptionsRequestMarshaller.m in Sources */,
+				D03F194C1377312E00891BD9 /* SNSListTopicsRequestMarshaller.m in Sources */,
+				D03F194D1377312E00891BD9 /* SNSPublishRequestMarshaller.m in Sources */,
+				D03F194E1377312E00891BD9 /* SNSRemovePermissionRequestMarshaller.m in Sources */,
+				D03F194F1377312E00891BD9 /* SNSSetTopicAttributesRequestMarshaller.m in Sources */,
+				D03F19501377312E00891BD9 /* SNSSubscribeRequestMarshaller.m in Sources */,
+				D03F19511377312E00891BD9 /* SNSUnsubscribeRequestMarshaller.m in Sources */,
+				D02867B814BFB8A100184AC6 /* SNSGetSubscriptionAttributesRequest.m in Sources */,
+				D02867B914BFB8A100184AC6 /* SNSGetSubscriptionAttributesRequestMarshaller.m in Sources */,
+				D02867BA14BFB8A100184AC6 /* SNSGetSubscriptionAttributesResponse.m in Sources */,
+				D02867BB14BFB8A100184AC6 /* SNSGetSubscriptionAttributesResponseUnmarshaller.m in Sources */,
+				D02867BC14BFB8A100184AC6 /* SNSSetSubscriptionAttributesRequest.m in Sources */,
+				D02867BD14BFB8A100184AC6 /* SNSSetSubscriptionAttributesRequestMarshaller.m in Sources */,
+				D02867BE14BFB8A100184AC6 /* SNSSetSubscriptionAttributesResponse.m in Sources */,
+				D02867BF14BFB8A100184AC6 /* SNSSetSubscriptionAttributesResponseUnmarshaller.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0AFD8DD8128465B4004B7863 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Framework;
+			};
+			name = Debug;
+		};
+		0AFD8DD9128465B4004B7863 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				PRODUCT_NAME = Framework;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"ARCHS[sdk=*]" = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DOXYGEN_PATH = /Applications/Doxygen.app/Contents/Resources/doxygen;
+				DSTROOT = /tmp/s3.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/..\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SNS_Prefix.pch;
+				GCC_THUMB_SUPPORT = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				PRODUCT_NAME = SNS;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"ARCHS[sdk=*]" = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DSTROOT = /tmp/s3.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/..\"",
+				);
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SNS_Prefix.pch;
+				GCC_THUMB_SUPPORT = NO;
+				HEADER_SEARCH_PATHS = (
+					"include/**",
+					"ThirdParty/**",
+				);
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				PRODUCT_NAME = SNS;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					ThirdParty,
+					"include/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					ThirdParty,
+					"include/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0AFD8DDC128465EB004B7863 /* Build configuration list for PBXLegacyTarget "Framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0AFD8DD8128465B4004B7863 /* Debug */,
+				0AFD8DD9128465B4004B7863 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "SNS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "SNS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}

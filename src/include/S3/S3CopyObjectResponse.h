@@ -15,7 +15,12 @@
 
 #import <Foundation/Foundation.h>
 #import "S3Response.h"
+
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonSDKUtil.h>
+#else
 #import "../AmazonSDKUtil.h"
+#endif
 
 /** Contains the response from a putObject operation.
  *

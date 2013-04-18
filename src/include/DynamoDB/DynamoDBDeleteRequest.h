@@ -13,9 +13,13 @@
  * permissions and limitations under the License.
  */
 
-#import "DynamoDBKey.h"
+#import "DynamoDBAttributeValue.h"
 
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonServiceRequestConfig.h>
+#else
 #import "../AmazonServiceRequestConfig.h"
+#endif
 
 
 
@@ -26,7 +30,7 @@
 @interface DynamoDBDeleteRequest:AmazonServiceRequestConfig
 
 {
-    DynamoDBKey *key;
+    NSMutableDictionary *key;
 }
 
 
@@ -39,9 +43,16 @@
 -(id)init;
 
 /**
- * The item's key to be delete
+ * The value of the Key property for this object.
  */
-@property (nonatomic, retain) DynamoDBKey *key;
+@property (nonatomic, retain) NSMutableDictionary *key;
+
+
+/**
+ * Set a value in the dictionary key for the specified key.
+ * This function will alloc and init key if not already done.
+ */
+-(void)setKeyValue:(DynamoDBAttributeValue *)theValue forKey:(NSString *)theKey;
 
 /**
  * Returns a string representation of this object; useful for testing and

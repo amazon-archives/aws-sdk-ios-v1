@@ -16,13 +16,28 @@
 #import <Foundation/Foundation.h>
 #import "EC2InstanceNetworkInterface.h"
 #import "EC2ResponseUnmarshaller.h"
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonValueUnmarshaller.h>
+#import <AWSRuntime/AmazonBoolValueUnmarshaller.h>
+#else
 #import "../AmazonValueUnmarshaller.h"
 #import "../AmazonBoolValueUnmarshaller.h"
+#endif
+
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonListUnmarshaller.h>
+#else
 #import "../AmazonListUnmarshaller.h"
+#endif
 #import "EC2GroupIdentifierUnmarshaller.h"
 #import "EC2InstanceNetworkInterfaceAttachmentUnmarshaller.h"
 #import "EC2InstanceNetworkInterfaceAssociationUnmarshaller.h"
+
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonListUnmarshaller.h>
+#else
 #import "../AmazonListUnmarshaller.h"
+#endif
 #import "EC2InstancePrivateIpAddressUnmarshaller.h"
 
 

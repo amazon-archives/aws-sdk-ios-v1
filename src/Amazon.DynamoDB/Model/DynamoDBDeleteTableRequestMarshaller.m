@@ -15,8 +15,9 @@
 
 
 #import "DynamoDBDeleteTableRequestMarshaller.h"
+#import "DynamoDBAttributeValue.h"
 #import "AmazonJSON.h"
-#import "../AmazonSDKUtil.h"
+#import "AmazonSDKUtil.h"
 
 @implementation DynamoDBDeleteTableRequestMarshaller
 
@@ -30,7 +31,7 @@
     [request setRequestTag:[deleteTableRequest requestTag]];
 
 
-    [request addValue:@"DynamoDB_20111205.DeleteTable" forHeader:@"X-Amz-Target"];
+    [request addValue:@"DynamoDB_20120810.DeleteTable" forHeader:@"X-Amz-Target"];
     [request addValue:@"application/x-amz-json-1.0"     forHeader:@"Content-Type"];
 
 

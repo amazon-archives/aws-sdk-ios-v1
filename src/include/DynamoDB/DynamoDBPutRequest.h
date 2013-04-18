@@ -15,7 +15,11 @@
 
 #import "DynamoDBAttributeValue.h"
 
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonServiceRequestConfig.h>
+#else
 #import "../AmazonServiceRequestConfig.h"
+#endif
 
 
 
@@ -39,7 +43,7 @@
 -(id)init;
 
 /**
- * The item to put
+ * The value of the Item property for this object.
  */
 @property (nonatomic, retain) NSMutableDictionary *item;
 

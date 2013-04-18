@@ -13,16 +13,17 @@
  * permissions and limitations under the License.
  */
 
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonServiceException.h>
+#else
 #import "../AmazonServiceException.h"
+#endif
 
 
 
 
 /**
- * <p>
- * This exception is thrown when the level of provisioned throughput
- * defined for the table is exceeded.
- * </p>
+ * AmazonDynamoDB exception
  */
 @interface DynamoDBProvisionedThroughputExceededException:AmazonServiceException
 {

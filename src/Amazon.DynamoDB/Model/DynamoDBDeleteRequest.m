@@ -24,12 +24,21 @@
 -(id)init
 {
     if (self = [super init]) {
-        key = nil;
+        key = [[NSMutableDictionary alloc] initWithCapacity:1];
     }
 
     return self;
 }
 
+
+-(void)setKeyValue:(DynamoDBAttributeValue *)theValue forKey:(NSString *)theKey
+{
+    if (key == nil) {
+        key = [[NSMutableDictionary alloc] initWithCapacity:1];
+    }
+
+    [key setValue:theValue forKey:theKey];
+}
 
 
 -(NSString *)description

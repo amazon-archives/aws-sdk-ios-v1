@@ -15,7 +15,12 @@
 
 
 #import <Foundation/Foundation.h>
+
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonServiceRequest.h>
+#else
 #import "../AmazonServiceRequest.h"
+#endif
 
 /**
  *

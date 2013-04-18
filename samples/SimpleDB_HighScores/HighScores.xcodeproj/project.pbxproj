@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE12D2F117051A2100E9313E /* AWSRuntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE12D2EF17051A2100E9313E /* AWSRuntime.framework */; };
+		CE12D2F217051A2100E9313E /* AWSSimpleDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE12D2F017051A2100E9313E /* AWSSimpleDB.framework */; };
 		CE87745B160D285300120174 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE87745A160D285300120174 /* Default-568h@2x.png */; };
 		D04EE86A143BAEB800587CF6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04EE869143BAEB800587CF6 /* UIKit.framework */; };
 		D04EE86C143BAEB800587CF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04EE86B143BAEB800587CF6 /* Foundation.framework */; };
@@ -17,7 +19,6 @@
 		D04EE880143BAEB800587CF6 /* HighScoresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D04EE87F143BAEB800587CF6 /* HighScoresViewController.m */; };
 		D04EE883143BAEB800587CF6 /* HighScoresViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D04EE881143BAEB800587CF6 /* HighScoresViewController.xib */; };
 		D04EE8A4143BB56A00587CF6 /* HighScoresTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D04EE8A2143BB56A00587CF6 /* HighScoresTableViewController.m */; };
-		D04FCC5B146B0C6400F9C434 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04FCC5A146B0C6400F9C434 /* AWSiOSSDK.framework */; };
 		D0A50D041444B3E000BDF08B /* HighScoreList.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A50D031444B3E000BDF08B /* HighScoreList.m */; };
 		D0A50D071444B57000BDF08B /* HighScore.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A50D061444B57000BDF08B /* HighScore.m */; };
 		D0A50D0F1444CEE700BDF08B /* AddScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A50D0E1444CEE700BDF08B /* AddScoreViewController.m */; };
@@ -28,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE12D2EF17051A2100E9313E /* AWSRuntime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSRuntime.framework; path = ../../AWSRuntime.framework; sourceTree = "<group>"; };
+		CE12D2F017051A2100E9313E /* AWSSimpleDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSSimpleDB.framework; path = ../../AWSSimpleDB.framework; sourceTree = "<group>"; };
 		CE87745A160D285300120174 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D04EE865143BAEB800587CF6 /* HighScores.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HighScores.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D04EE869143BAEB800587CF6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -44,7 +47,6 @@
 		D04EE882143BAEB800587CF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HighScoresViewController.xib; sourceTree = "<group>"; };
 		D04EE8A1143BB56A00587CF6 /* HighScoresTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoresTableViewController.h; sourceTree = "<group>"; };
 		D04EE8A2143BB56A00587CF6 /* HighScoresTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoresTableViewController.m; sourceTree = "<group>"; };
-		D04FCC5A146B0C6400F9C434 /* AWSiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSiOSSDK.framework; path = ../../AWSiOSSDK.framework; sourceTree = "<group>"; };
 		D0A50D021444B3E000BDF08B /* HighScoreList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreList.h; sourceTree = "<group>"; };
 		D0A50D031444B3E000BDF08B /* HighScoreList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreList.m; sourceTree = "<group>"; };
 		D0A50D051444B56F00BDF08B /* HighScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScore.h; sourceTree = "<group>"; };
@@ -67,7 +69,8 @@
 				D04EE86A143BAEB800587CF6 /* UIKit.framework in Frameworks */,
 				D04EE86C143BAEB800587CF6 /* Foundation.framework in Frameworks */,
 				D04EE86E143BAEB800587CF6 /* CoreGraphics.framework in Frameworks */,
-				D04FCC5B146B0C6400F9C434 /* AWSiOSSDK.framework in Frameworks */,
+				CE12D2F117051A2100E9313E /* AWSRuntime.framework in Frameworks */,
+				CE12D2F217051A2100E9313E /* AWSSimpleDB.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,7 +97,8 @@
 		D04EE868143BAEB800587CF6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D04FCC5A146B0C6400F9C434 /* AWSiOSSDK.framework */,
+				CE12D2EF17051A2100E9313E /* AWSRuntime.framework */,
+				CE12D2F017051A2100E9313E /* AWSSimpleDB.framework */,
 				D04EE869143BAEB800587CF6 /* UIKit.framework */,
 				D04EE86B143BAEB800587CF6 /* Foundation.framework */,
 				D04EE86D143BAEB800587CF6 /* CoreGraphics.framework */,

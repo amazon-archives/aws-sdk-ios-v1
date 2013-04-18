@@ -19,44 +19,43 @@
 @implementation DynamoDBQueryRequest
 
 @synthesize tableName;
+@synthesize indexName;
+@synthesize select;
 @synthesize attributesToGet;
 @synthesize limit;
 @synthesize consistentRead;
 @synthesize consistentReadIsSet;
-@synthesize count;
-@synthesize countIsSet;
-@synthesize hashKeyValue;
-@synthesize rangeKeyCondition;
+@synthesize keyConditions;
 @synthesize scanIndexForward;
 @synthesize scanIndexForwardIsSet;
 @synthesize exclusiveStartKey;
+@synthesize returnConsumedCapacity;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        tableName             = nil;
-        attributesToGet       = [[NSMutableArray alloc] initWithCapacity:1];
-        limit                 = nil;
-        consistentRead        = NO;
-        consistentReadIsSet   = NO;
-        count                 = NO;
-        countIsSet            = NO;
-        hashKeyValue          = nil;
-        rangeKeyCondition     = nil;
-        scanIndexForward      = NO;
-        scanIndexForwardIsSet = NO;
-        exclusiveStartKey     = nil;
+        tableName              = nil;
+        indexName              = nil;
+        select                 = nil;
+        attributesToGet        = [[NSMutableArray alloc] initWithCapacity:1];
+        limit                  = nil;
+        consistentRead         = NO;
+        consistentReadIsSet    = NO;
+        keyConditions          = [[NSMutableDictionary alloc] initWithCapacity:1];
+        scanIndexForward       = NO;
+        scanIndexForwardIsSet  = NO;
+        exclusiveStartKey      = [[NSMutableDictionary alloc] initWithCapacity:1];
+        returnConsumedCapacity = nil;
     }
 
     return self;
 }
 
--(id)initWithTableName:(NSString *)theTableName andHashKeyValue:(DynamoDBAttributeValue *)theHashKeyValue
+-(id)initWithTableName:(NSString *)theTableName
 {
     if (self = [self init]) {
-        self.tableName    = theTableName;
-        self.hashKeyValue = theHashKeyValue;
+        self.tableName = theTableName;
     }
 
     return self;
@@ -72,6 +71,24 @@
     [attributesToGet addObject:attributesToGetObject];
 }
 
+-(void)setKeyConditionsValue:(DynamoDBCondition *)theValue forKey:(NSString *)theKey
+{
+    if (keyConditions == nil) {
+        keyConditions = [[NSMutableDictionary alloc] initWithCapacity:1];
+    }
+
+    [keyConditions setValue:theValue forKey:theKey];
+}
+
+-(void)setExclusiveStartKeyValue:(DynamoDBAttributeValue *)theValue forKey:(NSString *)theKey
+{
+    if (exclusiveStartKey == nil) {
+        exclusiveStartKey = [[NSMutableDictionary alloc] initWithCapacity:1];
+    }
+
+    [exclusiveStartKey setValue:theValue forKey:theKey];
+}
+
 
 -(NSString *)description
 {
@@ -79,14 +96,15 @@
 
     [buffer appendString:@"{"];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"TableName: %@,", tableName] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"IndexName: %@,", indexName] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Select: %@,", select] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"AttributesToGet: %@,", attributesToGet] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Limit: %@,", limit] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ConsistentRead: %d,", consistentRead] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Count: %d,", count] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"HashKeyValue: %@,", hashKeyValue] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"RangeKeyCondition: %@,", rangeKeyCondition] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"KeyConditions: %@,", keyConditions] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ScanIndexForward: %d,", scanIndexForward] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ExclusiveStartKey: %@,", exclusiveStartKey] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"ReturnConsumedCapacity: %@,", returnConsumedCapacity] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -100,12 +118,6 @@
     consistentReadIsSet = YES;
 }
 
--(void)setCount:(bool)theValue
-{
-    count      = theValue;
-    countIsSet = YES;
-}
-
 -(void)setScanIndexForward:(bool)theValue
 {
     scanIndexForward      = theValue;
@@ -116,11 +128,13 @@
 -(void)dealloc
 {
     [tableName release];
+    [indexName release];
+    [select release];
     [attributesToGet release];
     [limit release];
-    [hashKeyValue release];
-    [rangeKeyCondition release];
+    [keyConditions release];
     [exclusiveStartKey release];
+    [returnConsumedCapacity release];
 
     [super dealloc];
 }

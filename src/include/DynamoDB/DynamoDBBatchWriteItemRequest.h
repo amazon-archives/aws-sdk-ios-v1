@@ -15,7 +15,11 @@
 
 #import "DynamoDBWriteRequest.h"
 
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonServiceRequestConfig.h>
+#else
 #import "../AmazonServiceRequestConfig.h"
+#endif
 
 
 
@@ -27,6 +31,8 @@
 
 {
     NSMutableDictionary *requestItems;
+    NSString            *returnConsumedCapacity;
+    NSString            *returnItemCollectionMetrics;
 }
 
 
@@ -39,13 +45,28 @@
 -(id)init;
 
 /**
- * A map of table name to list-of-write-requests. Used as input to the
- * <code>BatchWriteItem</code> API call
+ * The value of the RequestItems property for this object.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 25<br/>
  */
 @property (nonatomic, retain) NSMutableDictionary *requestItems;
+
+/**
+ * The value of the ReturnConsumedCapacity property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>TOTAL, NONE
+ */
+@property (nonatomic, retain) NSString *returnConsumedCapacity;
+
+/**
+ * The value of the ReturnItemCollectionMetrics property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>SIZE, NONE
+ */
+@property (nonatomic, retain) NSString *returnItemCollectionMetrics;
 
 
 /**
