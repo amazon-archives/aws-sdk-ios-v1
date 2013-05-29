@@ -37,7 +37,7 @@
 
 
 /**
- * The value of the TableName property for this object.
+ * The name of the table to be updated.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>3 - 255<br/>
@@ -46,7 +46,12 @@
 @property (nonatomic, retain) NSString *tableName;
 
 /**
- * The value of the ProvisionedThroughput property for this object.
+ * The provisioned throughput settings for the specified table. The
+ * settings can be modified using the <i>UpdateTable</i> operation.
+ * <p>For current minimum and maximum provisioned throughput values, see
+ * <a
+ * mazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a>
+ * in the <i>Amazon DynamoDB Developer Guide</i>.
  */
 @property (nonatomic, retain) DynamoDBProvisionedThroughput *provisionedThroughput;
 
@@ -61,8 +66,13 @@
  * Constructs a new UpdateTableRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theTableName
- * @param theProvisionedThroughput
+ * @param theTableName The name of the table to be updated.
+ * @param theProvisionedThroughput The provisioned throughput settings
+ * for the specified table. The settings can be modified using the
+ * <i>UpdateTable</i> operation. <p>For current minimum and maximum
+ * provisioned throughput values, see <a
+ * mazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a>
+ * in the <i>Amazon DynamoDB Developer Guide</i>.
  */
 -(id)initWithTableName:(NSString *)theTableName andProvisionedThroughput:(DynamoDBProvisionedThroughput *)theProvisionedThroughput;
 

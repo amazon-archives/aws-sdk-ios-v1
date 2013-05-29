@@ -14,6 +14,8 @@
  */
 #import "SecurityTokenServiceGetSessionTokenResponse.h"
 #import "SecurityTokenServiceGetSessionTokenRequest.h"
+#import "SecurityTokenServiceAssumeRoleWithWebIdentityResponse.h"
+#import "SecurityTokenServiceAssumeRoleWithWebIdentityRequest.h"
 #import "SecurityTokenServiceGetFederationTokenResponse.h"
 #import "SecurityTokenServiceGetFederationTokenRequest.h"
 #import "SecurityTokenServiceAssumeRoleResponse.h"
@@ -35,13 +37,14 @@
  * authenticate (federated users). This guide provides descriptions of the AWS Security Token Service API.
  * </p>
  * <p>
- * For more detailed information about using this service, go to <a href="http://docs.amazonwebservices.com/IAM/latest/UsingSTS/Welcome.html"> Using Temporary Security Credentials </a> .
+ * For more detailed information about using this service, go to <a href="http://docs.aws.amazon.com/IAM/latest/UsingSTS/Welcome.html"> Using Temporary Security Credentials </a> .
  * </p>
  * <p>
- * For information about setting up signatures and authorization through the API, go to <a href="http://docs.amazonwebservices.com/general/latest/gr/signing_aws_api_requests.html"> Signing AWS API
- * Requests </a> in the <i>AWS General Reference</i> . For general information about the Query API, go to <a href="http://docs.amazonwebservices.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html"> Making
- * Query Requests </a> in <i>Using IAM</i> . For information about using security tokens with other AWS products, go to <a href="http://docs.amazonwebservices.com/IAM/latest/UsingSTS/UsingTokens.html">
- * Using Temporary Security Credentials to Access AWS </a> in <i>Using Temporary Security Credentials</i> .
+ * For information about setting up signatures and authorization through the API, go to <a href="http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html"> Signing AWS API Requests
+ * </a> in the <i>AWS General Reference</i> . For general information about the Query API, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html"> Making Query Requests
+ * </a> in <i>Using IAM</i> . For information about using security tokens with other AWS products, go to <a href="http://docs.aws.amazon.com/IAM/latest/UsingSTS/UsingTokens.html"> Using Temporary
+ * Security Credentials to Access AWS </a> in <i>Using Temporary Security Credentials</i> .
+ *
  * </p>
  * <p>
  * If you're new to AWS and need additional technical information about a specific AWS product, you can find the product's technical documentation at <a href="http://aws.amazon.com/documentation/">
@@ -52,6 +55,8 @@
  * </p>
  * </summary>
  *
+ * See our blog to learn more about Managing Credentials in Mobile Applications.
+ * @see http://mobile.awsblog.com/post/Tx31X75XISXHRH8/Managing-Credentials-in-Mobile-Applications
  */
 @interface AmazonSecurityTokenServiceClient:AmazonWebServiceClient
 {
@@ -60,16 +65,26 @@
 
 /**
  * <p>
- * The GetSessionToken action returns a set of temporary credentials for an AWS account or IAM user. The credentials
- * consist of an Access Key ID, a Secret Access Key, and a security token. These credentials are valid for the specified
- * duration only. The session duration for IAM users can be between 15 minutes and 36 hours, with a default of 12 hours.
- * The session duration for AWS account owners is restricted to a maximum of one hour. Providing the AWS Multi-Factor
- * Authentication (MFA) device serial number and the token code is optional.
+ * Returns a set of temporary credentials for an AWS account or IAM user. The credentials consist of an access key ID, a
+ * secret access key, and a security token. Typically, you use GetSessionToken if you want use MFA to protect programmatic
+ * calls to specific AWS APIs like Amazon EC2 StopInstances . MFA-enabled IAM users would need to call GetSessionToken and
+ * submit an MFA code that is associated with their MFA device. Using the temporary security credentials that are returned
+ * from the call, IAM users can then make programmatic calls to APIs that require MFA authentication.
+ * </p>
+ * <p>
+ * The GetSessionToken action must be called by using the long-term AWS security credentials of the AWS account or an IAM
+ * user. Credentials that are created by IAM users are valid for the duration that you specify, between 900 seconds (15
+ * minutes) and 129600 seconds (36 hours); credentials that are created by using account credentials have a maximum
+ * duration of 3600 seconds (1 hour).
+ * </p>
+ * <p>
+ * The permissions that are granted to the federated user are the intersection of the policy that is passed with the
+ * GetSessionToken request and policies that are associated with of the entity making the GetSessionToken call.
  * </p>
  * <p>
  * For more information about using GetSessionToken to create temporary credentials, go to <a
- * href="http://docs.amazonwebservices.com/IAM/latest/UserGuide/CreatingSessionTokens.html"> Creating Temporary Credentials
- * to Enable Access for IAM Users </a> in <i>Using IAM</i> .
+ * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/CreatingSessionTokens.html"> Creating Temporary Credentials to
+ * Enable Access for IAM Users </a> in <i>Using IAM</i> .
  * </p>
  *
  * @param getSessionTokenRequest Container for the necessary parameters to execute the GetSessionToken service method on
@@ -92,19 +107,103 @@
 
 /**
  * <p>
- * The GetFederationToken action returns a set of temporary credentials for a federated user with the user name and policy
- * specified in the request. The credentials consist of an Access Key ID, a Secret Access Key, and a security token.
- * Credentials created by IAM users are valid for the specified duration, between 15 minutes and 36 hours; credentials
- * created using account credentials have a maximum duration of one hour.
+ * Returns a set of temporary security credentials for users who have been authenticated in a mobile or web application
+ * with a web identity provider, such as Login with Amazon, Facebook, or Google. AssumeRoleWithWebIdentity is an API call
+ * that does not require the use of AWS security credentials. Therefore, you can distribute an application (for example, on
+ * mobile devices) that requests temporary security credentials without including long-term AWS credentials in the
+ * application or by deploying server-based proxy services that use long-term AWS credentials. For more information, see <a
+ * href="http://aws-docs-alpha.integ.amazon.com/STS/latest/UsingSTS/STSUseCases.html#MobileApplication-KnownProvider">
+ * Creating a Mobile Application with Third-Party Sign-In </a> in <i>AWS Security Token Service</i> .
+ *
  * </p>
  * <p>
- * The federated user who holds these credentials has any permissions allowed by the intersection of the specified policy
- * and any resource or user policies that apply to the caller of the GetFederationToken API, and any resource policies that
- * apply to the federated user's Amazon Resource Name (ARN). For more information about how token permissions work, see <a
- * href="http://docs.amazonwebservices.com/IAM/latest/UserGuide/TokenPermissions.html"> Controlling Permissions in
- * Temporary Credentials </a> in <i>Using IAM</i> . For information about using GetFederationToken to create temporary
- * credentials, see <a href="http://docs.amazonwebservices.com/IAM/latest/UserGuide/CreatingFedTokens.html"> Creating
- * Temporary Credentials to Enable Access for Federated Users </a> in <i>Using IAM</i> .
+ * The temporary security credentials consist of an access key ID, a secret access key, and a security token. Applications
+ * can use these temporary security credentials to sign calls to AWS service APIs. The credentials are valid for the
+ * duration that you specified when calling AssumeRoleWithWebIdentity , which can be from 900 seconds (15 minutes) to 3600
+ * seconds (1 hour). By default, the temporary security credentials are valid for 1 hour.
+ * </p>
+ * <p>
+ * The temporary security credentials that are returned from the AssumeRoleWithWebIdentity response have the permissions
+ * that are associated with the access policy of the role being assumed. You can further restrict the permissions of the
+ * temporary security credentials by passing a policy in the request. The resulting permissions are an intersection of the
+ * role's access policy and the policy that you passed. These policies and any applicable resource-based policies are
+ * evaluated when calls to AWS service APIs are made using the temporary security credentials.
+ * </p>
+ * <p>
+ * Before your application can call AssumeRoleWithWebIdentity , you must have an identity token from a supported identity
+ * provider and create a role that the application can assume. The role that your application assumes must trust the
+ * identity provider that is associated with the identity token. In other words, the identity provider must be specified in
+ * the role's trust policy. For more information, see <a
+ * href="http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingWIF.html"> Creating Temporary Security Credentials for
+ * Mobile Apps Using Third-Party Identity Providers </a> .
+ * </p>
+ * <p>
+ * </p>
+ * <p>
+ * </p>
+ * <p>
+ * </p>
+ * <p>
+ * </p>
+ * <p>
+ * </p>
+ * <p>
+ * </p>
+ *
+ * @param assumeRoleWithWebIdentityRequest Container for the necessary parameters to execute the AssumeRoleWithWebIdentity
+ *           service method on AmazonSecurityTokenService.
+ *
+ * @return The response from the AssumeRoleWithWebIdentity service method, as returned by AmazonSecurityTokenService.
+ *
+ * @exception SecurityTokenServicePackedPolicyTooLargeException For more information see <SecurityTokenServicePackedPolicyTooLargeException>
+ * @exception SecurityTokenServiceIDPRejectedClaimException For more information see <SecurityTokenServiceIDPRejectedClaimException>
+ * @exception SecurityTokenServiceMalformedPolicyDocumentException For more information see <SecurityTokenServiceMalformedPolicyDocumentException>
+ * @exception SecurityTokenServiceInvalidIdentityTokenException For more information see <SecurityTokenServiceInvalidIdentityTokenException>
+ * @exception SecurityTokenServiceExpiredTokenException For more information see <SecurityTokenServiceExpiredTokenException>
+ * @exception SecurityTokenServiceIDPCommunicationErrorException For more information see <SecurityTokenServiceIDPCommunicationErrorException>
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonSecurityTokenService indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see SecurityTokenServiceAssumeRoleWithWebIdentityRequest
+ * @see SecurityTokenServiceAssumeRoleWithWebIdentityResponse
+ */
+-(SecurityTokenServiceAssumeRoleWithWebIdentityResponse *)assumeRoleWithWebIdentity:(SecurityTokenServiceAssumeRoleWithWebIdentityRequest *)assumeRoleWithWebIdentityRequest;
+
+
+/**
+ * <p>
+ * Returns a set of temporary security credentials (consisting of an access key ID, a secret access key, and a security
+ * token) for a federated user. A typical use is in a proxy application that is getting temporary security credentials on
+ * behalf of distributed applications inside a corporate network. Because you must call the GetFederationToken action using
+ * the long-term security credentials of an IAM user, this call is appropriate in contexts where those credentials can be
+ * safely stored, usually in a server-based application.
+ * </p>
+ * <p>
+ * <b>Note:</b> Do not use this call in mobile applications or client-based web applications that directly get temporary
+ * security credentials. For those types of applications, use AssumeRoleWithWebIdentity .
+ *
+ * </p>
+ * <p>
+ * The GetFederationToken action must be called by using the long-term AWS security credentials of the AWS account or an
+ * IAM user. Credentials that are created by IAM users are valid for the specified duration, between 900 seconds (15
+ * minutes) and 129600 seconds (36 hours); credentials that are created by using account credentials have a maximum
+ * duration of 3600 seconds (1 hour).
+ * </p>
+ * <p>
+ * The permissions that are granted to the federated user are the intersection of the policy that is passed with the
+ * GetFederationToken request and policies that are associated with of the entity making the GetFederationToken call.
+ * </p>
+ * <p>
+ * For more information about how permissions work, see <a
+ * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/TokenPermissions.html"> Controlling Permissions in Temporary
+ * Credentials </a> in <i>Using Temporary Security Credentials</i> . For information about using GetFederationToken to
+ * create temporary security credentials, see <a
+ * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/CreatingFedTokens.html"> Creating Temporary Credentials to Enable
+ * Access for Federated Users </a> in <i>Using Temporary Security Credentials</i> .
  * </p>
  *
  * @param getFederationTokenRequest Container for the necessary parameters to execute the GetFederationToken service method
@@ -129,27 +228,50 @@
 
 /**
  * <p>
- * The AssumeRole action returns a set of temporary security credentials that you can use to access resources that are
- * defined in the role's policy. The returned credentials consist of an Access Key ID, a Secret Access Key, and a security
- * token.
+ * Returns a set of temporary security credentials (consisting of an access key ID, a secret access key, and a security
+ * token) that you can use to access AWS resources that you might not normally have access to. Typically, you use
+ * AssumeRole for cross-account access or federation.
  * </p>
  * <p>
- * <b>Important:</b> Only IAM users can assume a role. If you use AWS account credentials to call AssumeRole, access is
- * denied.
- * </p>
- * <p>
- * The credentials are valid for the duration that you specified when calling AssumeRole , which can be from 15 minutes to
- * 1 hour.
- * </p>
- * <p>
- * When you assume a role, you have the privileges that are defined in the role. You can further restrict the privileges
- * by passing a policy when calling AssumeRole .
+ * For cross-account access, imagine that you own multiple accounts and need to access resources in each account. You
+ * could create long-term credentials in each account to access those resources. However, managing all those credentials
+ * and remembering which one can access which account can be time consuming. Instead, you can create one set of long-term
+ * credentials in one account and then use temporary security credentials to access all the other accounts by assuming
+ * roles in those accounts. For more information about roles, see <a
+ * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html"> Roles </a> in <i>Using IAM</i> .
  *
  * </p>
  * <p>
- * To assume a role, you must be an IAM user from a trusted entity and have permission to call AssumeRole .
- * Trusted entites are defined when the IAM role is created. Permission to call AssumeRole is defined in your or
- * your group's IAM policy.
+ * For federation, you can, for example, grant single sign-on access to the AWS Management Console. If you already have an
+ * identity and authentication system in your corporate network, you don't have to recreate user identities in AWS in order
+ * to grant those user identities access to AWS. Instead, after a user has been authenticated, you call AssumeRole (and
+ * specify the role with the appropriate permissions) to get temporary security credentials for that user. With those
+ * temporary security credentials, you construct a sign-in URL that users can use to access the console. For more
+ * information, see <a href="http://docs.aws.amazon.com/STS/latest/UsingSTS/STSUseCases.html"> Scenarios for Granting
+ * Temporary Access </a> in <i>AWS Security Token Service</i> .
+ *
+ * </p>
+ * <p>
+ * The temporary security credentials are valid for the duration that you specified when calling AssumeRole , which can be
+ * from 900 seconds (15 minutes) to 3600 seconds (1 hour). The default is 1 hour.
+ * </p>
+ * <p>
+ * The temporary security credentials that are returned from the AssumeRoleWithWebIdentity response have the permissions
+ * that are associated with the access policy of the role being assumed and any policies that are associated with the AWS
+ * resource being accessed. You can further restrict the permissions of the temporary security credentials by passing a
+ * policy in the request. The resulting permissions are an intersection of the role's access policy and the policy that you
+ * passed. These policies and any applicable resource-based policies are evaluated when calls to AWS service APIs are made
+ * using the temporary security credentials.
+ * </p>
+ * <p>
+ * To assume a role, your AWS account must be trusted by the role. The trust relationship is defined in the role's trust
+ * policy when the IAM role is created. You must also have a policy that allows you to call sts:AssumeRole .
+ *
+ * </p>
+ * <p>
+ * <b>Important:</b> You cannot call Assumerole by using AWS account credentials; access will be denied. You must use IAM
+ * user credentials to call AssumeRole .
+ *
  * </p>
  * <p>
  * </p>

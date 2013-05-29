@@ -37,7 +37,7 @@
 -(id)init;
 
 /**
- * The value of the AttributeName property for this object.
+ * A name for the attribute.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 255<br/>
@@ -45,7 +45,7 @@
 @property (nonatomic, retain) NSString *attributeName;
 
 /**
- * The value of the AttributeType property for this object.
+ * The data type for the attribute.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Allowed Values: </b>S, N, B

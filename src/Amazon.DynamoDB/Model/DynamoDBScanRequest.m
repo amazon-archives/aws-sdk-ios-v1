@@ -25,6 +25,8 @@
 @synthesize scanFilter;
 @synthesize exclusiveStartKey;
 @synthesize returnConsumedCapacity;
+@synthesize totalSegments;
+@synthesize segment;
 
 
 -(id)init
@@ -37,6 +39,8 @@
         scanFilter             = [[NSMutableDictionary alloc] initWithCapacity:1];
         exclusiveStartKey      = [[NSMutableDictionary alloc] initWithCapacity:1];
         returnConsumedCapacity = nil;
+        totalSegments          = nil;
+        segment                = nil;
     }
 
     return self;
@@ -92,6 +96,8 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ScanFilter: %@,", scanFilter] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ExclusiveStartKey: %@,", exclusiveStartKey] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ReturnConsumedCapacity: %@,", returnConsumedCapacity] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"TotalSegments: %@,", totalSegments] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Segment: %@,", segment] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -109,6 +115,8 @@
     [scanFilter release];
     [exclusiveStartKey release];
     [returnConsumedCapacity release];
+    [totalSegments release];
+    [segment release];
 
     [super dealloc];
 }

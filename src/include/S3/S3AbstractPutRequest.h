@@ -13,7 +13,6 @@
  * permissions and limitations under the License.
  */
 
-#import <Foundation/Foundation.h>
 #import "S3Request.h"
 #import "S3Constants.h"
 #import "S3CannedACL.h"
@@ -27,7 +26,6 @@
     S3AccessControlList *fullACL;
     NSString            *storageClass;
     NSString            *serverSideEncryption;
-
     NSMutableDictionary *metadata;
 }
 
@@ -50,16 +48,14 @@
  */
 @property (nonatomic, retain) NSString *serverSideEncryption;
 
+/** The metadata dictionary of key-value pairs.
+*/
+@property (nonatomic, retain) NSMutableDictionary *metadata;
+
 /** Add a key-value metadata pair to the request.
  *  These will be prefixed with x-amz-meta- and added to the request header.
  */
 -(void)addMetadataWithValue:(NSString *)value forKey:(NSString *)aKey;
-
-/** Get the metadata dictionary of key-value pairs.
- *
- *  @returns the metadata dictionary.
- */
--(NSMutableDictionary *)metadata;
 
 
 @end

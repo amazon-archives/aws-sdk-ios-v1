@@ -119,9 +119,11 @@ typedef void (^AbortMultipartUploadBlock)();
 
 - (void)initiateUpload
 {
-    self.initRequest =
-    [[[S3InitiateMultipartUploadRequest alloc] initWithKey:self.request.key
-                                                  inBucket:self.request.bucket] autorelease];
+    S3InitiateMultipartUploadRequest *initRequest = [[S3InitiateMultipartUploadRequest alloc] initWithKey:self.request.key
+                                                                                                 inBucket:self.request.bucket];
+    self.initRequest = initRequest;
+    [initRequest release];
+
     [self updateProperties:self.initRequest];
     self.initRequest.delegate = self;
 
@@ -135,7 +137,10 @@ typedef void (^AbortMultipartUploadBlock)();
 
 - (void)startUploadingParts
 {
-    self.completeRequest = [[[S3CompleteMultipartUploadRequest alloc] initWithMultipartUpload:self.multipartUpload] autorelease];
+    S3CompleteMultipartUploadRequest *completeRequest = [[S3CompleteMultipartUploadRequest alloc] initWithMultipartUpload:self.multipartUpload];
+    self.completeRequest = completeRequest;
+    [completeRequest release];
+
     [self updateProperties:self.completeRequest];
     self.completeRequest.delegate = self;
 
@@ -146,6 +151,7 @@ typedef void (^AbortMultipartUploadBlock)();
             @try {
                 S3AbortMultipartUploadRequest *abortRequest = [[S3AbortMultipartUploadRequest alloc] initWithMultipartUpload:self.multipartUpload];
                 [self.s3 abortMultipartUpload:abortRequest];
+                [abortRequest release];
             }
             @catch (NSException *exception) {
 
@@ -198,8 +204,11 @@ typedef void (^AbortMultipartUploadBlock)();
 
             for(int i = 0; i < ceil((double) self.partSize / 1024); i++)
             {
-                readLength = [self.request.stream read:buffer maxLength:1024];
-                [dataForPart appendData:[NSData dataWithBytes:buffer length:readLength]];
+                @autoreleasepool
+                {
+                    readLength = [self.request.stream read:buffer maxLength:1024];
+                    [dataForPart appendData:[NSData dataWithBytes:buffer length:readLength]];
+                }
             }
 
             self.dataForPart = dataForPart;
@@ -282,7 +291,7 @@ typedef void (^AbortMultipartUploadBlock)();
             if([self.request.delegate respondsToSelector:@selector(request:didCompleteWithResponse:)])
             {
                 [self.request.delegate request:request
-               didCompleteWithResponse:response];
+                       didCompleteWithResponse:response];
             }
 
             [self finish];
@@ -299,9 +308,9 @@ typedef void (^AbortMultipartUploadBlock)();
             if([self.request.delegate respondsToSelector:@selector(request:didSendData:totalBytesWritten:totalBytesExpectedToWrite:)])
             {
                 [self.request.delegate request:request
-                           didSendData:bytesWritten
-                     totalBytesWritten:(self.currentPartNo - 1) * self.partSize + totalBytesWritten
-             totalBytesExpectedToWrite:self.contentLength];
+                                   didSendData:bytesWritten
+                             totalBytesWritten:(self.currentPartNo - 1) * self.partSize + totalBytesWritten
+                     totalBytesExpectedToWrite:self.contentLength];
             }
         }
     }
@@ -478,10 +487,15 @@ typedef void (^AbortMultipartUploadBlock)();
             abstractPutRequest.serverSideEncryption = self.request.serverSideEncryption;
             abstractPutRequest.fullACL = self.request.fullACL;
 
+            if([self.request.metadata count] > 0)
+            {
+                abstractPutRequest.metadata = [NSMutableDictionary dictionaryWithDictionary:self.request.metadata];
+            }
+
             if([serviceRequest isKindOfClass:[S3InitiateMultipartUploadRequest class]])
             {
                 S3InitiateMultipartUploadRequest *initRequest = (S3InitiateMultipartUploadRequest *)serviceRequest;
-
+                
                 initRequest.cacheControl = self.request.cacheControl;
                 initRequest.contentDisposition = self.request.contentDisposition;
                 initRequest.contentEncoding = self.request.contentEncoding;

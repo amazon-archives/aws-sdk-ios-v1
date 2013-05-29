@@ -18,6 +18,8 @@
 #import "AmazonServiceRequest.h"
 #import "SecurityTokenServiceGetSessionTokenResponseUnmarshaller.h"
 #import "SecurityTokenServiceGetSessionTokenRequestMarshaller.h"
+#import "SecurityTokenServiceAssumeRoleWithWebIdentityResponseUnmarshaller.h"
+#import "SecurityTokenServiceAssumeRoleWithWebIdentityRequestMarshaller.h"
 #import "SecurityTokenServiceGetFederationTokenResponseUnmarshaller.h"
 #import "SecurityTokenServiceGetFederationTokenRequestMarshaller.h"
 #import "SecurityTokenServiceAssumeRoleResponseUnmarshaller.h"
@@ -50,11 +52,27 @@
     return self;
 }
 
+
+-(id)init
+{
+    if (self = [super init]) {
+        self.endpoint = AMAZON_STS_ENDPOINT_SECURE;
+    }
+    return self;
+}
+
 -(SecurityTokenServiceGetSessionTokenResponse *)getSessionToken:(SecurityTokenServiceGetSessionTokenRequest *)getSessionTokenRequest
 {
     AmazonServiceRequest *request = [SecurityTokenServiceGetSessionTokenRequestMarshaller createRequest:getSessionTokenRequest];
 
     return (SecurityTokenServiceGetSessionTokenResponse *)[self invoke:request rawRequest:getSessionTokenRequest unmarshallerDelegate:[SecurityTokenServiceGetSessionTokenResponseUnmarshaller class]];
+}
+
+-(SecurityTokenServiceAssumeRoleWithWebIdentityResponse *)assumeRoleWithWebIdentity:(SecurityTokenServiceAssumeRoleWithWebIdentityRequest *)assumeRoleWithWebIdentityRequest
+{
+    AmazonServiceRequest *request = [SecurityTokenServiceAssumeRoleWithWebIdentityRequestMarshaller createRequest:assumeRoleWithWebIdentityRequest];
+
+    return (SecurityTokenServiceAssumeRoleWithWebIdentityResponse *)[self invoke:request rawRequest:assumeRoleWithWebIdentityRequest unmarshallerDelegate:[SecurityTokenServiceAssumeRoleWithWebIdentityResponseUnmarshaller class] andSign:NO];
 }
 
 -(SecurityTokenServiceGetFederationTokenResponse *)getFederationToken:(SecurityTokenServiceGetFederationTokenRequest *)getFederationTokenRequest

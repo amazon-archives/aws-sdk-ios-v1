@@ -44,7 +44,17 @@
 -(id)init;
 
 /**
- * The value of the RequestItems property for this object.
+ * A map of one or more table names and, for each table, the
+ * corresponding primary keys for the items to retrieve. Each table name
+ * can be invoked only once. <p>Each element in the map consists of the
+ * following: <ul> <li> <p><i>Keys</i> - An array of primary key
+ * attribute values that define specific items in the table. </li> <li>
+ * <p><i>AttributesToGet</i> - One or more attributes to be retrieved
+ * from the table or index. By default, all attributes are returned. If a
+ * specified attribute is not found, it does not appear in the result.
+ * </li> <li> <p><i>ConsistentRead</i> - If <code>true</code>, a strongly
+ * consistent read is used; if <code>false</code> (the default), an
+ * eventually consistent read is used. </li> </ul>
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 100<br/>
@@ -52,7 +62,9 @@
 @property (nonatomic, retain) NSMutableDictionary *requestItems;
 
 /**
- * The value of the ReturnConsumedCapacity property for this object.
+ * If set to <code>TOTAL</code>, <i>ConsumedCapacity</i> is included in
+ * the response; if set to <code>NONE</code> (the default),
+ * <i>ConsumedCapacity</i> is not included.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Allowed Values: </b>TOTAL, NONE

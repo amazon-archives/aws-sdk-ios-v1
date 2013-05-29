@@ -46,12 +46,18 @@
 -(id)init;
 
 /**
- * The value of the Item property for this object.
+ * A map of attribute names to <i>AttributeValue</i> objects, as
+ * specified by <i>AttributesToGet</i>.
  */
 @property (nonatomic, retain) NSMutableDictionary *item;
 
 /**
- * The value of the ConsumedCapacity property for this object.
+ * The table name that consumed provisioned throughput, and the number of
+ * capacity units consumed by it. <i>ConsumedCapacity</i> is only
+ * returned if it was asked for in the request. For more information, see
+ * <a
+ * odb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned
+ * Throughput</a> in the <i>Amazon DynamoDB Developer Guide</i>.
  */
 @property (nonatomic, retain) DynamoDBConsumedCapacity *consumedCapacity;
 

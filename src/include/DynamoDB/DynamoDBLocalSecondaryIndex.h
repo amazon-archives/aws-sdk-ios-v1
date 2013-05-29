@@ -40,7 +40,8 @@
 -(id)init;
 
 /**
- * The value of the IndexName property for this object.
+ * Represents the name of the secondary index. The name must be unique
+ * among all other indexes on this table.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>3 - 255<br/>
@@ -49,7 +50,9 @@
 @property (nonatomic, retain) NSString *indexName;
 
 /**
- * The value of the KeySchema property for this object.
+ * Represents the complete index key schema, which consists of one or
+ * more pairs of attribute names and key types (<code>HASH</code> or
+ * <code>RANGE</code>).
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 2<br/>
@@ -57,7 +60,9 @@
 @property (nonatomic, retain) NSMutableArray *keySchema;
 
 /**
- * The value of the Projection property for this object.
+ * Represents attributes that are copied (projected) from the table into
+ * the index. These are in addition to the primary key attributes and
+ * index key attributes, which are automatically projected.
  */
 @property (nonatomic, retain) DynamoDBProjection *projection;
 

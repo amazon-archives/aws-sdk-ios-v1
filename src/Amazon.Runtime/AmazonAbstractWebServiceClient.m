@@ -76,6 +76,11 @@
 
 -(AmazonServiceResponse *)invoke:(AmazonServiceRequest *)generatedRequest rawRequest:(AmazonServiceRequestConfig *)originalRequest unmarshallerDelegate:(Class)unmarshallerDelegate
 {
+    return [self invoke:generatedRequest rawRequest:originalRequest unmarshallerDelegate:unmarshallerDelegate andSign:YES];
+}
+
+-(AmazonServiceResponse *)invoke:(AmazonServiceRequest *)generatedRequest rawRequest:(AmazonServiceRequestConfig *)originalRequest unmarshallerDelegate:(Class)unmarshallerDelegate andSign:(BOOL)signRequest
+{
     if (nil == generatedRequest) {
         return [self nilRequestResponse];
     }
@@ -90,7 +95,9 @@
     }
 
     NSMutableURLRequest *urlRequest = [generatedRequest configureURLRequest];
-    [generatedRequest sign];
+    if (signRequest) {
+        [generatedRequest sign];
+    }
     [urlRequest setHTTPBody:[[generatedRequest queryString] dataUsingEncoding:NSUTF8StringEncoding]];
 
     [self logTheRequest:urlRequest];

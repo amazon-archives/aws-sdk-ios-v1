@@ -196,6 +196,14 @@
         [json setValue:scanRequest.returnConsumedCapacity forKey:@"ReturnConsumedCapacity"];
     }
 
+    if (scanRequest.totalSegments != nil) {
+        [json setValue:scanRequest.totalSegments forKey:@"TotalSegments"];
+    }
+
+    if (scanRequest.segment != nil) {
+        [json setValue:scanRequest.segment forKey:@"Segment"];
+    }
+
 
 
     request.content = [AmazonJSON JSONRepresentation:json];

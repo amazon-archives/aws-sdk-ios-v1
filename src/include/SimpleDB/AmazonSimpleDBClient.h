@@ -58,6 +58,8 @@
  * </p>
  * </summary>
  *
+ * See our blog to learn more about Managing Credentials in Mobile Applications.
+ * @see http://mobile.awsblog.com/post/Tx31X75XISXHRH8/Managing-Credentials-in-Mobile-Applications
  */
 @interface AmazonSimpleDBClient:AmazonWebServiceClient
 {

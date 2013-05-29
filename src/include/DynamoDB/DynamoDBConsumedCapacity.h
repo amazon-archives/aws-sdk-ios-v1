@@ -37,7 +37,7 @@
 -(id)init;
 
 /**
- * The value of the TableName property for this object.
+ * The table that consumed the provisioned throughput.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>3 - 255<br/>
@@ -46,7 +46,7 @@
 @property (nonatomic, retain) NSString *tableName;
 
 /**
- * The value of the CapacityUnits property for this object.
+ * The total number of capacity units consumed.
  */
 @property (nonatomic, retain) NSNumber *capacityUnits;
 

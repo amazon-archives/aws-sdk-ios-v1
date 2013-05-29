@@ -37,10 +37,10 @@
 
 
 /**
- * The name of the federated user associated with the credentials. For
- * information about limitations on user names, go to <a
- * vices.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations
- * on IAM Entities</a> in <i>Using IAM</i>.
+ * The name of the federated user. The name is used as an identifier for
+ * the temporary security credentials (such as <code>Bob</code>). For
+ * example, you can reference the federated user name in a resource-based
+ * policy, such as in an Amazon S3 bucket policy.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>2 - 32<br/>
@@ -49,14 +49,14 @@
 @property (nonatomic, retain) NSString *name;
 
 /**
- * A policy specifying the permissions to associate with the credentials.
- * The caller can delegate their own permissions by specifying a policy,
- * and both policies will be checked when a service call is made. For
- * more information about how permissions work in the context of
- * temporary credentials, see <a
- * docs.amazonwebservices.com/IAM/latest/UserGuide/TokenPermissions.html"
- * target="_blank">Controlling Permissions in Temporary Credentials</a>
- * in <i>Using IAM</i>.
+ * A policy that specifies the permissions that are granted to the
+ * federated user. By default, federated users have no permissions; they
+ * do not inherit any from the IAM user. When you specify a policy, the
+ * federated user's permissions are intersection of the specified policy
+ * and the IAM user's policy. If you don't specify a policy, federated
+ * users can only access AWS resources that explicitly allow those
+ * federated users in a resource policy, such as in an Amazon S3 bucket
+ * policy.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 2048<br/>
@@ -66,11 +66,11 @@
 
 /**
  * The duration, in seconds, that the session should last. Acceptable
- * durations for federation sessions range from 900s (15 minutes) to
- * 129600s (36 hours), with 43200s (12 hours) as the default. Sessions
- * for AWS account owners are restricted to a maximum of 3600s (one
- * hour). If the duration is longer than one hour, the session for AWS
- * account owners defaults to one hour.
+ * durations for federation sessions range from 900 seconds (15 minutes)
+ * to 129600 seconds (36 hours), with 43200 seconds (12 hours) as the
+ * default. Sessions for AWS account owners are restricted to a maximum
+ * of 3600 seconds (one hour). If the duration is longer than one hour,
+ * the session for AWS account owners defaults to one hour.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Range: </b>900 - 129600<br/>
@@ -88,10 +88,11 @@
  * Constructs a new GetFederationTokenRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theName The name of the federated user associated with the
- * credentials. For information about limitations on user names, go to <a
- * vices.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations
- * on IAM Entities</a> in <i>Using IAM</i>.
+ * @param theName The name of the federated user. The name is used as an
+ * identifier for the temporary security credentials (such as
+ * <code>Bob</code>). For example, you can reference the federated user
+ * name in a resource-based policy, such as in an Amazon S3 bucket
+ * policy.
  */
 -(id)initWithName:(NSString *)theName;
 

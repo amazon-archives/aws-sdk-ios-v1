@@ -41,7 +41,7 @@
 @property (nonatomic, retain) NSString *accessKeyId;
 
 /**
- * The Secret Access Key to sign requests.
+ * The secret access key to sign requests.
  */
 @property (nonatomic, retain) NSString *secretAccessKey;
 
@@ -69,7 +69,7 @@
  *
  * @param theAccessKeyId AccessKeyId ID that identifies the temporary
  * credentials.
- * @param theSecretAccessKey The Secret Access Key to sign requests.
+ * @param theSecretAccessKey The secret access key to sign requests.
  * @param theSessionToken The security token that users must pass to the
  * service API to use the temporary credentials.
  * @param theExpiration The date on which these credentials expire.

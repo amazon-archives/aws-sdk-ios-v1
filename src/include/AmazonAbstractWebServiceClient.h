@@ -92,6 +92,8 @@
  * @return The response from the service.
  */
 -(AmazonServiceResponse *)invoke:(AmazonServiceRequest *)generatedRequest rawRequest:(AmazonServiceRequestConfig *)originalRequest unmarshallerDelegate:(Class)unmarshallerDelegate;
+-(AmazonServiceResponse *)invoke:(AmazonServiceRequest *)generatedRequest rawRequest:(AmazonServiceRequestConfig *)originalRequest unmarshallerDelegate:(Class)unmarshallerDelegate andSign:(BOOL)signRequest;
+
 
 -(void)pauseExponentially:(int)tryCount;
 -(BOOL)shouldRetry:(AmazonServiceResponse *)response;

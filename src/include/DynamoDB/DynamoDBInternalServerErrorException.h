@@ -23,7 +23,9 @@
 
 
 /**
- * AmazonDynamoDB exception
+ * <p>
+ * An error occurred on the server side.
+ * </p>
  */
 @interface DynamoDBInternalServerErrorException:AmazonServiceException
 {

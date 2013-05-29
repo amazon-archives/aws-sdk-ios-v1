@@ -43,7 +43,10 @@
 -(id)init;
 
 /**
- * The value of the ExclusiveStartTableName property for this object.
+ * The name of the table that starts the list. If you already ran a
+ * <i>ListTables</i> operation and received a
+ * <i>LastEvaluatedTableName</i> value in the response, use that value
+ * here to continue the list.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>3 - 255<br/>
@@ -52,7 +55,7 @@
 @property (nonatomic, retain) NSString *exclusiveStartTableName;
 
 /**
- * The value of the Limit property for this object.
+ * A maximum number of table names to return.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Range: </b>1 - 100<br/>

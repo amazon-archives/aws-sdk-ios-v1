@@ -51,7 +51,7 @@
  * The ARN of the temporary security credentials that are returned from
  * the AssumeRole action. For more information about ARNs and how to use
  * them in policies, see <a
- * ocs.amazonwebservices.com/IAM/latest/UserGuide/Using_Identifiers.html"
+ * ttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html"
  * target="_blank"> Identifiers for IAM Entities</a> in <i>Using IAM</i>.
  * <p>
  * <b>Constraints:</b><br/>

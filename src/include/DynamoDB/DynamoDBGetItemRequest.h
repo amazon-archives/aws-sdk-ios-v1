@@ -41,7 +41,7 @@
 
 
 /**
- * The value of the TableName property for this object.
+ * The name of the table containing the requested item.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>3 - 255<br/>
@@ -50,12 +50,16 @@
 @property (nonatomic, retain) NSString *tableName;
 
 /**
- * The value of the Key property for this object.
+ * A map of attribute names to <i>AttributeValue</i> objects,
+ * representing the primary key of the item to retrieve.
  */
 @property (nonatomic, retain) NSMutableDictionary *key;
 
 /**
- * The value of the AttributesToGet property for this object.
+ * The names of one or more attributes to retrieve. If no attribute names
+ * are specified, then all attributes will be returned. If any of the
+ * requested attributes are not found, they will not appear in the
+ * result.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - <br/>
@@ -63,14 +67,17 @@
 @property (nonatomic, retain) NSMutableArray *attributesToGet;
 
 /**
- * The value of the ConsistentRead property for this object.
+ * If set to <code>true</code>, then the operation uses strongly
+ * consistent reads; otherwise, eventually consistent reads are used.
  */
 @property (nonatomic) bool           consistentRead;
 
 @property (nonatomic, readonly) bool consistentReadIsSet;
 
 /**
- * The value of the ReturnConsumedCapacity property for this object.
+ * If set to <code>TOTAL</code>, <i>ConsumedCapacity</i> is included in
+ * the response; if set to <code>NONE</code> (the default),
+ * <i>ConsumedCapacity</i> is not included.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Allowed Values: </b>TOTAL, NONE
@@ -88,8 +95,10 @@
  * Constructs a new GetItemRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theTableName
- * @param theKey
+ * @param theTableName The name of the table containing the requested
+ * item.
+ * @param theKey A map of attribute names to <i>AttributeValue</i>
+ * objects, representing the primary key of the item to retrieve.
  */
 -(id)initWithTableName:(NSString *)theTableName andKey:(NSMutableDictionary *)theKey;
 

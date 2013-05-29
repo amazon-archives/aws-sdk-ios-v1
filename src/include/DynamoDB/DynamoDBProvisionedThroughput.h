@@ -37,7 +37,12 @@
 -(id)init;
 
 /**
- * The value of the ReadCapacityUnits property for this object.
+ * The maximum number of strongly consistent reads consumed per second
+ * before Amazon DynamoDB returns a <i>ThrottlingException</i>. For more
+ * information, see <a
+ * eloperguide/WorkingWithDDTables.html#ProvisionedThroughput">Specifying
+ * Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer
+ * Guide</i>.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Range: </b>1 - <br/>
@@ -45,7 +50,12 @@
 @property (nonatomic, retain) NSNumber *readCapacityUnits;
 
 /**
- * The value of the WriteCapacityUnits property for this object.
+ * The maximum number of writes consumed per second before Amazon
+ * DynamoDB returns a <i>ThrottlingException</i>. For more information,
+ * see <a
+ * eloperguide/WorkingWithDDTables.html#ProvisionedThroughput">Specifying
+ * Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer
+ * Guide</i>.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Range: </b>1 - <br/>

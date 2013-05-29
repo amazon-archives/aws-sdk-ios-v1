@@ -294,9 +294,10 @@
  * @see S3CopyObjectResponse
  * @see S3CopyObjectRequest
  */
+-(S3CopyObjectResponse *)objectCopy:(S3CopyObjectRequest *)copyObjectRequest;
+
 -(S3CopyObjectResponse *)copyObject:(S3CopyObjectRequest *)copyObjectRequest __attribute__((deprecated)); // Use objectCopy: instead.
 
--(S3CopyObjectResponse *)objectCopy:(S3CopyObjectRequest *)copyObjectRequest;
 
 /**
  * Gets the access control list for a given bucket or object.
@@ -816,9 +817,9 @@
  * @see S3CopyPartResponse
  * @see S3CopyPartRequest
  */
--(S3CopyPartResponse *)copyPart:(S3CopyPartRequest *)copyPartRequest __attribute__((deprecated)); // Use partCopy: instead.
-
 -(S3CopyPartResponse *)partCopy:(S3CopyPartRequest *)copyPartRequest;
+
+-(S3CopyPartResponse *)copyPart:(S3CopyPartRequest *)copyPartRequest __attribute__((deprecated)); // Use partCopy: instead.
 
 
 /** Completes a multipart upload by assembling previously uploaded parts.

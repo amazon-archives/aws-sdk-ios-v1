@@ -30,7 +30,7 @@
 
 
 /**
- * The value of the AttributeName property for this object.
+ * Represents the name of a key attribute.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 255<br/>
@@ -38,7 +38,8 @@
 @property (nonatomic, retain) NSString *attributeName;
 
 /**
- * The value of the KeyType property for this object.
+ * Represents the attribute data, consisting of the data type and the
+ * attribute value itself.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Allowed Values: </b>HASH, RANGE
@@ -56,8 +57,9 @@
  * Constructs a new KeySchemaElement object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theAttributeName
- * @param theKeyType
+ * @param theAttributeName Represents the name of a key attribute.
+ * @param theKeyType Represents the attribute data, consisting of the
+ * data type and the attribute value itself.
  */
 -(id)initWithAttributeName:(NSString *)theAttributeName andKeyType:(NSString *)theKeyType;
 

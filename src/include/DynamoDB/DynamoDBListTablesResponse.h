@@ -42,12 +42,17 @@
 -(id)init;
 
 /**
- * The value of the TableNames property for this object.
+ * The names of the tables associated with the current account at the
+ * current endpoint.
  */
 @property (nonatomic, retain) NSMutableArray *tableNames;
 
 /**
- * The value of the LastEvaluatedTableName property for this object.
+ * The name of the last table in the current list, only if some tables
+ * for the account and endpoint have not been returned. This value does
+ * not exist in a response if all table names are already returned. Use
+ * this value as the <i>ExclusiveStartTableName</i> in a new request to
+ * continue the list until all the table names are returned.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>3 - 255<br/>

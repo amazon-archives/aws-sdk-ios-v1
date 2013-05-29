@@ -18,11 +18,12 @@
 @implementation S3AbstractPutRequest
 
 @synthesize cannedACL;
+@synthesize fullACL;
 @synthesize storageClass;
 @synthesize serverSideEncryption;
-@synthesize fullACL;
+@synthesize metadata;
 
--(NSMutableURLRequest *)configureURLRequest
+- (NSMutableURLRequest *)configureURLRequest
 {
     [super configureURLRequest];
 
@@ -48,7 +49,7 @@
     return urlRequest;
 }
 
--(NSMutableDictionary *)metadata
+- (NSMutableDictionary *)metadata
 {
     if (nil == metadata) {
         metadata = [[NSMutableDictionary alloc] init];
@@ -56,18 +57,18 @@
     return metadata;
 }
 
--(void) addMetadataWithValue:(NSString *)value forKey:(NSString *)aKey
+- (void) addMetadataWithValue:(NSString *)value forKey:(NSString *)aKey
 {
     [[self metadata] setValue:value forKey:aKey];
 }
 
--(void)dealloc
+- (void)dealloc
 {
     [cannedACL release];
-    [storageClass release];
-    [metadata release];
-    [serverSideEncryption release];
     [fullACL release];
+    [storageClass release];
+    [serverSideEncryption release];
+    [metadata release];
 
     [super dealloc];
 }

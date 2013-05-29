@@ -46,19 +46,18 @@
 -(id)init;
 
 /**
- * The temporary security credentials, which includes an Access Key ID, a
- * Secret Access Key, and a security token.
+ * The temporary security credentials, which include an access key ID, a
+ * secret access key, and a security token.
  */
 @property (nonatomic, retain) SecurityTokenServiceCredentials *credentials;
 
 /**
- * The Amazon Resource Name (ARN) and the assumed role ID for the
- * temporary security credentials. The ARN and the role ID are
- * identifiers for the temporary security credentials so that you can
- * refer to the temporary credentials in a policy. For example, if you
- * want to build a policy that applies to these temporary credentials,
- * you would specify the <code>AssumedRoleUser</code> ARN or role ID in
- * that policy.
+ * The Amazon Resource Name (ARN) and the assumed role ID, which are
+ * identifiers that you can use to refer to the resulting temporary
+ * security credentials. For example, you can reference these credentials
+ * as a principal in a resource-based policy by using the ARN or assumed
+ * role ID. The ARN and ID include the <code>RoleSessionName</code> that
+ * you specified when you called <code>AssumeRole</code>.
  */
 @property (nonatomic, retain) SecurityTokenServiceAssumedRoleUser *assumedRoleUser;
 

@@ -23,7 +23,9 @@
 
 
 /**
- * AmazonDynamoDB exception
+ * <p>
+ * A condition specified in the operation could not be evaluated.
+ * </p>
  */
 @interface DynamoDBConditionalCheckFailedException:AmazonServiceException
 {

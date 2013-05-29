@@ -50,17 +50,39 @@
 -(id)init;
 
 /**
- * The value of the Attributes property for this object.
+ * The attribute values as they appeared before the <i>PutItem</i>
+ * operation, but only if <i>ReturnValues</i> is specified as
+ * <code>ALL_OLD</code> in the request. Each element consists of an
+ * attribute name and an attribute value.
  */
 @property (nonatomic, retain) NSMutableDictionary *attributes;
 
 /**
- * The value of the ConsumedCapacity property for this object.
+ * The table name that consumed provisioned throughput, and the number of
+ * capacity units consumed by it. <i>ConsumedCapacity</i> is only
+ * returned if it was asked for in the request. For more information, see
+ * <a
+ * odb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned
+ * Throughput</a> in the <i>Amazon DynamoDB Developer Guide</i>.
  */
 @property (nonatomic, retain) DynamoDBConsumedCapacity *consumedCapacity;
 
 /**
- * The value of the ItemCollectionMetrics property for this object.
+ * Information about item collections, if any, that were affected by the
+ * operation. <i>ItemCollectionMetrics</i> is only returned if it was
+ * asked for in the request. If the table does not have any secondary
+ * indexes, this information is not returned in the response. <p>Each
+ * <i>ItemCollectionMetrics</i> element consists of: <ul>
+ * <li><p><i>ItemCollectionKey</i> - The hash key value of the item
+ * collection. This is the same as the hash key of the item.</li>
+ * <li><p><i>SizeEstimateRange</i> - An estimate of item collection size,
+ * measured in gigabytes. This is a two-element array containing a lower
+ * bound and an upper bound for the estimate. The estimate includes the
+ * size of all the items in the table, plus the size of all attributes
+ * projected into all of the secondary indexes on that table. Use this
+ * estimate to measure whether a secondary index is approaching its size
+ * limit. <p>The estimate is subject to change over time; therefore, do
+ * not rely on the precision or accuracy of the estimate. </li> </ul>
  */
 @property (nonatomic, retain) DynamoDBItemCollectionMetrics *itemCollectionMetrics;
 

@@ -35,7 +35,7 @@
 
 
 /**
- * The value of the TableName property for this object.
+ * The name of the table to describe.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>3 - 255<br/>
@@ -54,7 +54,7 @@
  * Constructs a new DescribeTableRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theTableName
+ * @param theTableName The name of the table to describe.
  */
 -(id)initWithTableName:(NSString *)theTableName;
 

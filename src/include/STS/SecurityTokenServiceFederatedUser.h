@@ -43,7 +43,7 @@
  * The ARN specifying the federated user associated with the credentials.
  * For more information about ARNs and how to use them in policies, see
  * <a
- * ocs.amazonwebservices.com/IAM/latest/UserGuide/Using_Identifiers.html"
+ * ttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html"
  * target="_blank">Identifiers for IAM Entities</a> in <i>Using IAM</i>.
  * <p>
  * <b>Constraints:</b><br/>
@@ -67,7 +67,7 @@
  * @param theArn The ARN specifying the federated user associated with
  * the credentials. For more information about ARNs and how to use them
  * in policies, see <a
- * ocs.amazonwebservices.com/IAM/latest/UserGuide/Using_Identifiers.html"
+ * ttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html"
  * target="_blank">Identifiers for IAM Entities</a> in <i>Using IAM</i>.
  */
 -(id)initWithFederatedUserId:(NSString *)theFederatedUserId andArn:(NSString *)theArn;

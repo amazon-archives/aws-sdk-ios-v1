@@ -19,3 +19,5 @@
 #endif
 
 #import "AmazonSecurityTokenServiceClient.h"
+#import "AmazonWIFCredentialsProvider.h"
+#import "AmazonSTSCredentialsProvider.h"
