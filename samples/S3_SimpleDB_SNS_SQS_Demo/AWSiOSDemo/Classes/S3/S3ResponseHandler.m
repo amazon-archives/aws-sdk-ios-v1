@@ -62,7 +62,7 @@
     bytesIn.text = [NSString stringWithFormat:@"%d", total];
 }
 
--(void)request:(AmazonServiceRequest *)request didSendData:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
+-(void)request:(AmazonServiceRequest *)request didSendData:(long long)bytesWritten totalBytesWritten:(long long)totalBytesWritten totalBytesExpectedToWrite:(long long)totalBytesExpectedToWrite
 {
     NSLog(@"didSendData");
     int total = [bytesOut.text intValue];

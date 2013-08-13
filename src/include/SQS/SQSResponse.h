@@ -25,4 +25,6 @@
 @interface SQSResponse:AmazonServiceResponse {
 }
 
+-(NSDate *)getDateFromResponse;
+
 @end

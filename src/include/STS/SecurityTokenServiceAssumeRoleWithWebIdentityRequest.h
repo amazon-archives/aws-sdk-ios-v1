@@ -82,12 +82,12 @@
 @property (nonatomic, retain) NSString *webIdentityToken;
 
 /**
- * Specify this value only for OAuth access tokens. Do not specify this
- * value for OpenID Connect ID tokens, such as
- * <code>accounts.google.com</code>. This is the fully-qualified host
- * component of the domain name of the identity provider. Do not include
- * URL schemes and port numbers. Currently, <code>www.amazon.com</code>
- * and <code>graph.facebook.com</code> are supported.
+ * The fully-qualified host component of the domain name of the identity
+ * provider. Specify this value only for OAuth access tokens. Do not
+ * specify this value for OpenID Connect ID tokens, such as
+ * <code>accounts.google.com</code>. Do not include URL schemes and port
+ * numbers. Currently, <code>www.amazon.com</code> and
+ * <code>graph.facebook.com</code> are supported.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>4 - 2048<br/>

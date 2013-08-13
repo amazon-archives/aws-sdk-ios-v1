@@ -32,7 +32,7 @@
 
 
 /**
- * AccessKeyId ID that identifies the temporary credentials.
+ * The access key ID that identifies the temporary security credentials.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>16 - 32<br/>
@@ -41,18 +41,18 @@
 @property (nonatomic, retain) NSString *accessKeyId;
 
 /**
- * The secret access key to sign requests.
+ * The secret access key that can be used to sign requests.
  */
 @property (nonatomic, retain) NSString *secretAccessKey;
 
 /**
- * The security token that users must pass to the service API to use the
- * temporary credentials.
+ * The token that users must pass to the service API to use the temporary
+ * credentials.
  */
 @property (nonatomic, retain) NSString *sessionToken;
 
 /**
- * The date on which these credentials expire.
+ * The date on which the current credentials expire.
  */
 @property (nonatomic, retain) NSDate *expiration;
 
@@ -67,12 +67,13 @@
  * Constructs a new Credentials object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theAccessKeyId AccessKeyId ID that identifies the temporary
- * credentials.
- * @param theSecretAccessKey The secret access key to sign requests.
- * @param theSessionToken The security token that users must pass to the
- * service API to use the temporary credentials.
- * @param theExpiration The date on which these credentials expire.
+ * @param theAccessKeyId The access key ID that identifies the temporary
+ * security credentials.
+ * @param theSecretAccessKey The secret access key that can be used to
+ * sign requests.
+ * @param theSessionToken The token that users must pass to the service
+ * API to use the temporary credentials.
+ * @param theExpiration The date on which the current credentials expire.
  */
 -(id)initWithAccessKeyId:(NSString *)theAccessKeyId andSecretAccessKey:(NSString *)theSecretAccessKey andSessionToken:(NSString *)theSessionToken andExpiration:(NSDate *)theExpiration;
 

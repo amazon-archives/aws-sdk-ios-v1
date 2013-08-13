@@ -74,7 +74,7 @@
  * returned if it was asked for in the request. For more information, see
  * <a
  * odb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned
- * Throughput</a> in the <i>Amazon DynamoDB Developer Guide</i>.
+ * Throughput</a> of the <i>Amazon DynamoDB Developer Guide</i>.
  */
 @property (nonatomic, retain) DynamoDBConsumedCapacity *consumedCapacity;
 

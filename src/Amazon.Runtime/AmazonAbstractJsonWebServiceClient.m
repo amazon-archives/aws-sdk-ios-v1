@@ -47,15 +47,22 @@
         [self logTheRequestHeaders:urlRequest];
  
         if ([generatedRequest delegate] != nil) {
+            response.isAsyncCall = YES;
             [self startAsyncRequest:urlRequest response:response originalRequest:originalRequest];
             return nil;
         }
-                    
+        
+        response.isAsyncCall = NO;
         [self startSyncRequest:generatedRequest forRequest:urlRequest response:response originalRequest:originalRequest];
         
         AMZLogDebug(@"Response Status Code : %d", response.httpStatusCode);
+        
         if ( [self shouldRetry:response exception:((AmazonRequestDelegate *)generatedRequest.delegate).exception]) {
             AMZLog(@"Retring Request: %d", retries);
+            
+            if(response.hasClockSkewError) {
+                urlRequest = [generatedRequest configureURLRequest];
+            }
             
             [self pauseExponentially:retries];
             retries++;

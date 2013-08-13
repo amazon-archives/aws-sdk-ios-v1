@@ -30,8 +30,8 @@
 
 
 /**
- * The string identifying the federated user associated with the
- * credentials, similar to the UserId of an IAM user.
+ * The string that identifies the federated user associated with the
+ * credentials, similar to the unique ID of an IAM user.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>2 - 96<br/>
@@ -40,9 +40,9 @@
 @property (nonatomic, retain) NSString *federatedUserId;
 
 /**
- * The ARN specifying the federated user associated with the credentials.
- * For more information about ARNs and how to use them in policies, see
- * <a
+ * The ARN that specifies the federated user that is associated with the
+ * credentials. For more information about ARNs and how to use them in
+ * policies, see <a
  * ttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html"
  * target="_blank">Identifiers for IAM Entities</a> in <i>Using IAM</i>.
  * <p>
@@ -62,11 +62,12 @@
  * Constructs a new FederatedUser object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theFederatedUserId The string identifying the federated user
- * associated with the credentials, similar to the UserId of an IAM user.
- * @param theArn The ARN specifying the federated user associated with
- * the credentials. For more information about ARNs and how to use them
- * in policies, see <a
+ * @param theFederatedUserId The string that identifies the federated
+ * user associated with the credentials, similar to the unique ID of an
+ * IAM user.
+ * @param theArn The ARN that specifies the federated user that is
+ * associated with the credentials. For more information about ARNs and
+ * how to use them in policies, see <a
  * ttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html"
  * target="_blank">Identifiers for IAM Entities</a> in <i>Using IAM</i>.
  */

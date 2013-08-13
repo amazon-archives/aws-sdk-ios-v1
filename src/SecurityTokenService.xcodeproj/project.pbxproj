@@ -7,75 +7,85 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		38951BCD1728985C0044653F /* AmazonWIFCredentialsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 38951BCC1728985C0044653F /* AmazonWIFCredentialsProvider.m */; };
-		38951BCF17289BCB0044653F /* AmazonWIFCredentialsProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 38951BCE17289BCB0044653F /* AmazonWIFCredentialsProvider.h */; };
-		38EDB2791727198B006AFCBC /* AmazonSecurityTokenServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB2571727198B006AFCBC /* AmazonSecurityTokenServiceClient.m */; };
-		38EDB27A1727198B006AFCBC /* AmazonSTSCredentialsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB2581727198B006AFCBC /* AmazonSTSCredentialsProvider.m */; };
-		38EDB27B1727198B006AFCBC /* SecurityTokenServiceAssumedRoleUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB25A1727198B006AFCBC /* SecurityTokenServiceAssumedRoleUser.m */; };
-		38EDB27C1727198B006AFCBC /* SecurityTokenServiceAssumedRoleUserUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB25B1727198B006AFCBC /* SecurityTokenServiceAssumedRoleUserUnmarshaller.m */; };
-		38EDB27D1727198B006AFCBC /* SecurityTokenServiceAssumeRoleRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB25C1727198B006AFCBC /* SecurityTokenServiceAssumeRoleRequest.m */; };
-		38EDB27E1727198B006AFCBC /* SecurityTokenServiceAssumeRoleRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB25D1727198B006AFCBC /* SecurityTokenServiceAssumeRoleRequestMarshaller.m */; };
-		38EDB27F1727198B006AFCBC /* SecurityTokenServiceAssumeRoleResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB25E1727198B006AFCBC /* SecurityTokenServiceAssumeRoleResponse.m */; };
-		38EDB2801727198B006AFCBC /* SecurityTokenServiceAssumeRoleResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB25F1727198B006AFCBC /* SecurityTokenServiceAssumeRoleResponseUnmarshaller.m */; };
-		38EDB2811727198B006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB2601727198B006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityRequest.m */; };
-		38EDB2821727198B006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB2611727198B006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityRequestMarshaller.m */; };
-		38EDB2831727198B006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB2621727198B006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityResponse.m */; };
-		38EDB2841727198B006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB2631727198B006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityResponseUnmarshaller.m */; };
-		38EDB2851727198B006AFCBC /* SecurityTokenServiceCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB2641727198B006AFCBC /* SecurityTokenServiceCredentials.m */; };
-		38EDB2861727198B006AFCBC /* SecurityTokenServiceCredentialsUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB2651727198B006AFCBC /* SecurityTokenServiceCredentialsUnmarshaller.m */; };
-		38EDB2871727198B006AFCBC /* SecurityTokenServiceExpiredTokenException.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB2661727198B006AFCBC /* SecurityTokenServiceExpiredTokenException.m */; };
-		38EDB2881727198B006AFCBC /* SecurityTokenServiceFederatedUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB2671727198B006AFCBC /* SecurityTokenServiceFederatedUser.m */; };
-		38EDB2891727198B006AFCBC /* SecurityTokenServiceFederatedUserUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB2681727198B006AFCBC /* SecurityTokenServiceFederatedUserUnmarshaller.m */; };
-		38EDB28A1727198B006AFCBC /* SecurityTokenServiceGetFederationTokenRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB2691727198B006AFCBC /* SecurityTokenServiceGetFederationTokenRequest.m */; };
-		38EDB28B1727198B006AFCBC /* SecurityTokenServiceGetFederationTokenRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB26A1727198B006AFCBC /* SecurityTokenServiceGetFederationTokenRequestMarshaller.m */; };
-		38EDB28C1727198B006AFCBC /* SecurityTokenServiceGetFederationTokenResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB26B1727198B006AFCBC /* SecurityTokenServiceGetFederationTokenResponse.m */; };
-		38EDB28D1727198B006AFCBC /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB26C1727198B006AFCBC /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.m */; };
-		38EDB28E1727198B006AFCBC /* SecurityTokenServiceGetSessionTokenRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB26D1727198B006AFCBC /* SecurityTokenServiceGetSessionTokenRequest.m */; };
-		38EDB28F1727198B006AFCBC /* SecurityTokenServiceGetSessionTokenRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB26E1727198B006AFCBC /* SecurityTokenServiceGetSessionTokenRequestMarshaller.m */; };
-		38EDB2901727198B006AFCBC /* SecurityTokenServiceGetSessionTokenResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB26F1727198B006AFCBC /* SecurityTokenServiceGetSessionTokenResponse.m */; };
-		38EDB2911727198B006AFCBC /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB2701727198B006AFCBC /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.m */; };
-		38EDB2921727198B006AFCBC /* SecurityTokenServiceIDPCommunicationErrorException.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB2711727198B006AFCBC /* SecurityTokenServiceIDPCommunicationErrorException.m */; };
-		38EDB2931727198B006AFCBC /* SecurityTokenServiceIDPRejectedClaimException.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB2721727198B006AFCBC /* SecurityTokenServiceIDPRejectedClaimException.m */; };
-		38EDB2941727198B006AFCBC /* SecurityTokenServiceInvalidIdentityTokenException.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB2731727198B006AFCBC /* SecurityTokenServiceInvalidIdentityTokenException.m */; };
-		38EDB2951727198B006AFCBC /* SecurityTokenServiceMalformedPolicyDocumentException.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB2741727198B006AFCBC /* SecurityTokenServiceMalformedPolicyDocumentException.m */; };
-		38EDB2961727198B006AFCBC /* SecurityTokenServicePackedPolicyTooLargeException.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB2751727198B006AFCBC /* SecurityTokenServicePackedPolicyTooLargeException.m */; };
-		38EDB2971727198B006AFCBC /* SecurityTokenServiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB2761727198B006AFCBC /* SecurityTokenServiceRequest.m */; };
-		38EDB2981727198B006AFCBC /* SecurityTokenServiceResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB2771727198B006AFCBC /* SecurityTokenServiceResponse.m */; };
-		38EDB2991727198B006AFCBC /* SecurityTokenServiceResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EDB2781727198B006AFCBC /* SecurityTokenServiceResponseUnmarshaller.m */; };
-		38EDB2BC172719A0006AFCBC /* AmazonSecurityTokenServiceClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB29A172719A0006AFCBC /* AmazonSecurityTokenServiceClient.h */; };
-		38EDB2BD172719A0006AFCBC /* AmazonSTSCredentialsProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB29B172719A0006AFCBC /* AmazonSTSCredentialsProvider.h */; };
-		38EDB2BE172719A0006AFCBC /* AWSSecurityTokenService.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB29C172719A0006AFCBC /* AWSSecurityTokenService.h */; };
-		38EDB2BF172719A0006AFCBC /* SecurityTokenServiceAssumedRoleUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB29D172719A0006AFCBC /* SecurityTokenServiceAssumedRoleUser.h */; };
-		38EDB2C0172719A0006AFCBC /* SecurityTokenServiceAssumedRoleUserUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB29E172719A0006AFCBC /* SecurityTokenServiceAssumedRoleUserUnmarshaller.h */; };
-		38EDB2C1172719A0006AFCBC /* SecurityTokenServiceAssumeRoleRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB29F172719A0006AFCBC /* SecurityTokenServiceAssumeRoleRequest.h */; };
-		38EDB2C2172719A0006AFCBC /* SecurityTokenServiceAssumeRoleRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB2A0172719A0006AFCBC /* SecurityTokenServiceAssumeRoleRequestMarshaller.h */; };
-		38EDB2C3172719A0006AFCBC /* SecurityTokenServiceAssumeRoleResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB2A1172719A0006AFCBC /* SecurityTokenServiceAssumeRoleResponse.h */; };
-		38EDB2C4172719A0006AFCBC /* SecurityTokenServiceAssumeRoleResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB2A2172719A0006AFCBC /* SecurityTokenServiceAssumeRoleResponseUnmarshaller.h */; };
-		38EDB2C5172719A0006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB2A3172719A0006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityRequest.h */; };
-		38EDB2C6172719A0006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB2A4172719A0006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityRequestMarshaller.h */; };
-		38EDB2C7172719A0006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB2A5172719A0006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityResponse.h */; };
-		38EDB2C8172719A0006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB2A6172719A0006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityResponseUnmarshaller.h */; };
-		38EDB2C9172719A0006AFCBC /* SecurityTokenServiceCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB2A7172719A0006AFCBC /* SecurityTokenServiceCredentials.h */; };
-		38EDB2CA172719A0006AFCBC /* SecurityTokenServiceCredentialsUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB2A8172719A0006AFCBC /* SecurityTokenServiceCredentialsUnmarshaller.h */; };
-		38EDB2CB172719A0006AFCBC /* SecurityTokenServiceExpiredTokenException.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB2A9172719A0006AFCBC /* SecurityTokenServiceExpiredTokenException.h */; };
-		38EDB2CC172719A0006AFCBC /* SecurityTokenServiceFederatedUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB2AA172719A0006AFCBC /* SecurityTokenServiceFederatedUser.h */; };
-		38EDB2CD172719A0006AFCBC /* SecurityTokenServiceFederatedUserUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB2AB172719A0006AFCBC /* SecurityTokenServiceFederatedUserUnmarshaller.h */; };
-		38EDB2CE172719A0006AFCBC /* SecurityTokenServiceGetFederationTokenRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB2AC172719A0006AFCBC /* SecurityTokenServiceGetFederationTokenRequest.h */; };
-		38EDB2CF172719A0006AFCBC /* SecurityTokenServiceGetFederationTokenRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB2AD172719A0006AFCBC /* SecurityTokenServiceGetFederationTokenRequestMarshaller.h */; };
-		38EDB2D0172719A0006AFCBC /* SecurityTokenServiceGetFederationTokenResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB2AE172719A0006AFCBC /* SecurityTokenServiceGetFederationTokenResponse.h */; };
-		38EDB2D1172719A0006AFCBC /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB2AF172719A0006AFCBC /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.h */; };
-		38EDB2D2172719A0006AFCBC /* SecurityTokenServiceGetSessionTokenRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB2B0172719A0006AFCBC /* SecurityTokenServiceGetSessionTokenRequest.h */; };
-		38EDB2D3172719A0006AFCBC /* SecurityTokenServiceGetSessionTokenRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB2B1172719A0006AFCBC /* SecurityTokenServiceGetSessionTokenRequestMarshaller.h */; };
-		38EDB2D4172719A0006AFCBC /* SecurityTokenServiceGetSessionTokenResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB2B2172719A0006AFCBC /* SecurityTokenServiceGetSessionTokenResponse.h */; };
-		38EDB2D5172719A0006AFCBC /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB2B3172719A0006AFCBC /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.h */; };
-		38EDB2D6172719A0006AFCBC /* SecurityTokenServiceIDPCommunicationErrorException.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB2B4172719A0006AFCBC /* SecurityTokenServiceIDPCommunicationErrorException.h */; };
-		38EDB2D7172719A0006AFCBC /* SecurityTokenServiceIDPRejectedClaimException.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB2B5172719A0006AFCBC /* SecurityTokenServiceIDPRejectedClaimException.h */; };
-		38EDB2D8172719A0006AFCBC /* SecurityTokenServiceInvalidIdentityTokenException.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB2B6172719A0006AFCBC /* SecurityTokenServiceInvalidIdentityTokenException.h */; };
-		38EDB2D9172719A0006AFCBC /* SecurityTokenServiceMalformedPolicyDocumentException.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB2B7172719A0006AFCBC /* SecurityTokenServiceMalformedPolicyDocumentException.h */; };
-		38EDB2DA172719A0006AFCBC /* SecurityTokenServicePackedPolicyTooLargeException.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB2B8172719A0006AFCBC /* SecurityTokenServicePackedPolicyTooLargeException.h */; };
-		38EDB2DB172719A0006AFCBC /* SecurityTokenServiceRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB2B9172719A0006AFCBC /* SecurityTokenServiceRequest.h */; };
-		38EDB2DC172719A0006AFCBC /* SecurityTokenServiceResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB2BA172719A0006AFCBC /* SecurityTokenServiceResponse.h */; };
-		38EDB2DD172719A0006AFCBC /* SecurityTokenServiceResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38EDB2BB172719A0006AFCBC /* SecurityTokenServiceResponseUnmarshaller.h */; };
+		38C97C2D17B56AAA0044E640 /* AmazonSecurityTokenServiceClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C0517B56AA90044E640 /* AmazonSecurityTokenServiceClient.h */; };
+		38C97C2E17B56AAA0044E640 /* AmazonSTSCredentialsProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C0617B56AA90044E640 /* AmazonSTSCredentialsProvider.h */; };
+		38C97C2F17B56AAA0044E640 /* AmazonWIFCredentialsProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C0717B56AA90044E640 /* AmazonWIFCredentialsProvider.h */; };
+		38C97C3017B56AAA0044E640 /* AWSSecurityTokenService.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C0817B56AA90044E640 /* AWSSecurityTokenService.h */; };
+		38C97C3117B56AAA0044E640 /* SecurityTokenServiceAssumedRoleUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C0917B56AA90044E640 /* SecurityTokenServiceAssumedRoleUser.h */; };
+		38C97C3217B56AAA0044E640 /* SecurityTokenServiceAssumedRoleUserUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C0A17B56AA90044E640 /* SecurityTokenServiceAssumedRoleUserUnmarshaller.h */; };
+		38C97C3317B56AAA0044E640 /* SecurityTokenServiceAssumeRoleRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C0B17B56AA90044E640 /* SecurityTokenServiceAssumeRoleRequest.h */; };
+		38C97C3417B56AAA0044E640 /* SecurityTokenServiceAssumeRoleRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C0C17B56AA90044E640 /* SecurityTokenServiceAssumeRoleRequestMarshaller.h */; };
+		38C97C3517B56AAA0044E640 /* SecurityTokenServiceAssumeRoleResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C0D17B56AA90044E640 /* SecurityTokenServiceAssumeRoleResponse.h */; };
+		38C97C3617B56AAA0044E640 /* SecurityTokenServiceAssumeRoleResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C0E17B56AA90044E640 /* SecurityTokenServiceAssumeRoleResponseUnmarshaller.h */; };
+		38C97C3717B56AAA0044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C0F17B56AA90044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityRequest.h */; };
+		38C97C3817B56AAA0044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C1017B56AA90044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityRequestMarshaller.h */; };
+		38C97C3917B56AAA0044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C1117B56AA90044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityResponse.h */; };
+		38C97C3A17B56AAA0044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C1217B56AA90044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityResponseUnmarshaller.h */; };
+		38C97C3B17B56AAA0044E640 /* SecurityTokenServiceCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C1317B56AA90044E640 /* SecurityTokenServiceCredentials.h */; };
+		38C97C3C17B56AAA0044E640 /* SecurityTokenServiceCredentialsUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C1417B56AA90044E640 /* SecurityTokenServiceCredentialsUnmarshaller.h */; };
+		38C97C3D17B56AAA0044E640 /* SecurityTokenServiceDecodeAuthorizationMessageRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C1517B56AA90044E640 /* SecurityTokenServiceDecodeAuthorizationMessageRequest.h */; };
+		38C97C3E17B56AAA0044E640 /* SecurityTokenServiceDecodeAuthorizationMessageRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C1617B56AA90044E640 /* SecurityTokenServiceDecodeAuthorizationMessageRequestMarshaller.h */; };
+		38C97C3F17B56AAA0044E640 /* SecurityTokenServiceDecodeAuthorizationMessageResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C1717B56AA90044E640 /* SecurityTokenServiceDecodeAuthorizationMessageResponse.h */; };
+		38C97C4017B56AAA0044E640 /* SecurityTokenServiceDecodeAuthorizationMessageResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C1817B56AA90044E640 /* SecurityTokenServiceDecodeAuthorizationMessageResponseUnmarshaller.h */; };
+		38C97C4117B56AAA0044E640 /* SecurityTokenServiceExpiredTokenException.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C1917B56AA90044E640 /* SecurityTokenServiceExpiredTokenException.h */; };
+		38C97C4217B56AAA0044E640 /* SecurityTokenServiceFederatedUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C1A17B56AA90044E640 /* SecurityTokenServiceFederatedUser.h */; };
+		38C97C4317B56AAA0044E640 /* SecurityTokenServiceFederatedUserUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C1B17B56AA90044E640 /* SecurityTokenServiceFederatedUserUnmarshaller.h */; };
+		38C97C4417B56AAA0044E640 /* SecurityTokenServiceGetFederationTokenRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C1C17B56AA90044E640 /* SecurityTokenServiceGetFederationTokenRequest.h */; };
+		38C97C4517B56AAA0044E640 /* SecurityTokenServiceGetFederationTokenRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C1D17B56AA90044E640 /* SecurityTokenServiceGetFederationTokenRequestMarshaller.h */; };
+		38C97C4617B56AAA0044E640 /* SecurityTokenServiceGetFederationTokenResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C1E17B56AA90044E640 /* SecurityTokenServiceGetFederationTokenResponse.h */; };
+		38C97C4717B56AAA0044E640 /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C1F17B56AA90044E640 /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.h */; };
+		38C97C4817B56AAA0044E640 /* SecurityTokenServiceGetSessionTokenRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C2017B56AA90044E640 /* SecurityTokenServiceGetSessionTokenRequest.h */; };
+		38C97C4917B56AAA0044E640 /* SecurityTokenServiceGetSessionTokenRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C2117B56AAA0044E640 /* SecurityTokenServiceGetSessionTokenRequestMarshaller.h */; };
+		38C97C4A17B56AAA0044E640 /* SecurityTokenServiceGetSessionTokenResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C2217B56AAA0044E640 /* SecurityTokenServiceGetSessionTokenResponse.h */; };
+		38C97C4B17B56AAA0044E640 /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C2317B56AAA0044E640 /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.h */; };
+		38C97C4C17B56AAA0044E640 /* SecurityTokenServiceIDPCommunicationErrorException.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C2417B56AAA0044E640 /* SecurityTokenServiceIDPCommunicationErrorException.h */; };
+		38C97C4D17B56AAA0044E640 /* SecurityTokenServiceIDPRejectedClaimException.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C2517B56AAA0044E640 /* SecurityTokenServiceIDPRejectedClaimException.h */; };
+		38C97C4E17B56AAA0044E640 /* SecurityTokenServiceInvalidAuthorizationMessageException.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C2617B56AAA0044E640 /* SecurityTokenServiceInvalidAuthorizationMessageException.h */; };
+		38C97C4F17B56AAA0044E640 /* SecurityTokenServiceInvalidIdentityTokenException.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C2717B56AAA0044E640 /* SecurityTokenServiceInvalidIdentityTokenException.h */; };
+		38C97C5017B56AAA0044E640 /* SecurityTokenServiceMalformedPolicyDocumentException.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C2817B56AAA0044E640 /* SecurityTokenServiceMalformedPolicyDocumentException.h */; };
+		38C97C5117B56AAA0044E640 /* SecurityTokenServicePackedPolicyTooLargeException.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C2917B56AAA0044E640 /* SecurityTokenServicePackedPolicyTooLargeException.h */; };
+		38C97C5217B56AAA0044E640 /* SecurityTokenServiceRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C2A17B56AAA0044E640 /* SecurityTokenServiceRequest.h */; };
+		38C97C5317B56AAA0044E640 /* SecurityTokenServiceResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C2B17B56AAA0044E640 /* SecurityTokenServiceResponse.h */; };
+		38C97C5417B56AAA0044E640 /* SecurityTokenServiceResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C97C2C17B56AAA0044E640 /* SecurityTokenServiceResponseUnmarshaller.h */; };
+		38C97C7E17B56AB80044E640 /* AmazonSecurityTokenServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C5617B56AB80044E640 /* AmazonSecurityTokenServiceClient.m */; };
+		38C97C7F17B56AB80044E640 /* AmazonSTSCredentialsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C5717B56AB80044E640 /* AmazonSTSCredentialsProvider.m */; };
+		38C97C8017B56AB80044E640 /* AmazonWIFCredentialsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C5817B56AB80044E640 /* AmazonWIFCredentialsProvider.m */; };
+		38C97C8117B56AB80044E640 /* SecurityTokenServiceAssumedRoleUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C5A17B56AB80044E640 /* SecurityTokenServiceAssumedRoleUser.m */; };
+		38C97C8217B56AB80044E640 /* SecurityTokenServiceAssumedRoleUserUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C5B17B56AB80044E640 /* SecurityTokenServiceAssumedRoleUserUnmarshaller.m */; };
+		38C97C8317B56AB80044E640 /* SecurityTokenServiceAssumeRoleRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C5C17B56AB80044E640 /* SecurityTokenServiceAssumeRoleRequest.m */; };
+		38C97C8417B56AB80044E640 /* SecurityTokenServiceAssumeRoleRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C5D17B56AB80044E640 /* SecurityTokenServiceAssumeRoleRequestMarshaller.m */; };
+		38C97C8517B56AB80044E640 /* SecurityTokenServiceAssumeRoleResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C5E17B56AB80044E640 /* SecurityTokenServiceAssumeRoleResponse.m */; };
+		38C97C8617B56AB80044E640 /* SecurityTokenServiceAssumeRoleResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C5F17B56AB80044E640 /* SecurityTokenServiceAssumeRoleResponseUnmarshaller.m */; };
+		38C97C8717B56AB80044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C6017B56AB80044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityRequest.m */; };
+		38C97C8817B56AB80044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C6117B56AB80044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityRequestMarshaller.m */; };
+		38C97C8917B56AB80044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C6217B56AB80044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityResponse.m */; };
+		38C97C8A17B56AB80044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C6317B56AB80044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityResponseUnmarshaller.m */; };
+		38C97C8B17B56AB80044E640 /* SecurityTokenServiceCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C6417B56AB80044E640 /* SecurityTokenServiceCredentials.m */; };
+		38C97C8C17B56AB80044E640 /* SecurityTokenServiceCredentialsUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C6517B56AB80044E640 /* SecurityTokenServiceCredentialsUnmarshaller.m */; };
+		38C97C8D17B56AB80044E640 /* SecurityTokenServiceDecodeAuthorizationMessageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C6617B56AB80044E640 /* SecurityTokenServiceDecodeAuthorizationMessageRequest.m */; };
+		38C97C8E17B56AB80044E640 /* SecurityTokenServiceDecodeAuthorizationMessageRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C6717B56AB80044E640 /* SecurityTokenServiceDecodeAuthorizationMessageRequestMarshaller.m */; };
+		38C97C8F17B56AB80044E640 /* SecurityTokenServiceDecodeAuthorizationMessageResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C6817B56AB80044E640 /* SecurityTokenServiceDecodeAuthorizationMessageResponse.m */; };
+		38C97C9017B56AB80044E640 /* SecurityTokenServiceDecodeAuthorizationMessageResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C6917B56AB80044E640 /* SecurityTokenServiceDecodeAuthorizationMessageResponseUnmarshaller.m */; };
+		38C97C9117B56AB80044E640 /* SecurityTokenServiceExpiredTokenException.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C6A17B56AB80044E640 /* SecurityTokenServiceExpiredTokenException.m */; };
+		38C97C9217B56AB80044E640 /* SecurityTokenServiceFederatedUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C6B17B56AB80044E640 /* SecurityTokenServiceFederatedUser.m */; };
+		38C97C9317B56AB80044E640 /* SecurityTokenServiceFederatedUserUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C6C17B56AB80044E640 /* SecurityTokenServiceFederatedUserUnmarshaller.m */; };
+		38C97C9417B56AB80044E640 /* SecurityTokenServiceGetFederationTokenRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C6D17B56AB80044E640 /* SecurityTokenServiceGetFederationTokenRequest.m */; };
+		38C97C9517B56AB80044E640 /* SecurityTokenServiceGetFederationTokenRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C6E17B56AB80044E640 /* SecurityTokenServiceGetFederationTokenRequestMarshaller.m */; };
+		38C97C9617B56AB80044E640 /* SecurityTokenServiceGetFederationTokenResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C6F17B56AB80044E640 /* SecurityTokenServiceGetFederationTokenResponse.m */; };
+		38C97C9717B56AB80044E640 /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C7017B56AB80044E640 /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.m */; };
+		38C97C9817B56AB80044E640 /* SecurityTokenServiceGetSessionTokenRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C7117B56AB80044E640 /* SecurityTokenServiceGetSessionTokenRequest.m */; };
+		38C97C9917B56AB80044E640 /* SecurityTokenServiceGetSessionTokenRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C7217B56AB80044E640 /* SecurityTokenServiceGetSessionTokenRequestMarshaller.m */; };
+		38C97C9A17B56AB80044E640 /* SecurityTokenServiceGetSessionTokenResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C7317B56AB80044E640 /* SecurityTokenServiceGetSessionTokenResponse.m */; };
+		38C97C9B17B56AB80044E640 /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C7417B56AB80044E640 /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.m */; };
+		38C97C9C17B56AB80044E640 /* SecurityTokenServiceIDPCommunicationErrorException.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C7517B56AB80044E640 /* SecurityTokenServiceIDPCommunicationErrorException.m */; };
+		38C97C9D17B56AB80044E640 /* SecurityTokenServiceIDPRejectedClaimException.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C7617B56AB80044E640 /* SecurityTokenServiceIDPRejectedClaimException.m */; };
+		38C97C9E17B56AB80044E640 /* SecurityTokenServiceInvalidAuthorizationMessageException.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C7717B56AB80044E640 /* SecurityTokenServiceInvalidAuthorizationMessageException.m */; };
+		38C97C9F17B56AB80044E640 /* SecurityTokenServiceInvalidIdentityTokenException.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C7817B56AB80044E640 /* SecurityTokenServiceInvalidIdentityTokenException.m */; };
+		38C97CA017B56AB80044E640 /* SecurityTokenServiceMalformedPolicyDocumentException.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C7917B56AB80044E640 /* SecurityTokenServiceMalformedPolicyDocumentException.m */; };
+		38C97CA117B56AB80044E640 /* SecurityTokenServicePackedPolicyTooLargeException.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C7A17B56AB80044E640 /* SecurityTokenServicePackedPolicyTooLargeException.m */; };
+		38C97CA217B56AB80044E640 /* SecurityTokenServiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C7B17B56AB80044E640 /* SecurityTokenServiceRequest.m */; };
+		38C97CA317B56AB80044E640 /* SecurityTokenServiceResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C7C17B56AB80044E640 /* SecurityTokenServiceResponse.m */; };
+		38C97CA417B56AB80044E640 /* SecurityTokenServiceResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C97C7D17B56AB80044E640 /* SecurityTokenServiceResponseUnmarshaller.m */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		CE96C1B7158BD58A0084D3CB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE96C1A9158BC2A70084D3CB /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
@@ -83,75 +93,85 @@
 /* Begin PBXFileReference section */
 		0AFD8DC0128462A0004B7863 /* Framework.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Framework.plist; sourceTree = "<group>"; };
 		0AFD8DC312846390004B7863 /* Framework.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = Framework.sh; sourceTree = "<group>"; };
-		38951BCC1728985C0044653F /* AmazonWIFCredentialsProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonWIFCredentialsProvider.m; sourceTree = "<group>"; };
-		38951BCE17289BCB0044653F /* AmazonWIFCredentialsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmazonWIFCredentialsProvider.h; path = STS/AmazonWIFCredentialsProvider.h; sourceTree = "<group>"; };
-		38EDB2571727198B006AFCBC /* AmazonSecurityTokenServiceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonSecurityTokenServiceClient.m; sourceTree = "<group>"; };
-		38EDB2581727198B006AFCBC /* AmazonSTSCredentialsProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonSTSCredentialsProvider.m; sourceTree = "<group>"; };
-		38EDB25A1727198B006AFCBC /* SecurityTokenServiceAssumedRoleUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceAssumedRoleUser.m; sourceTree = "<group>"; };
-		38EDB25B1727198B006AFCBC /* SecurityTokenServiceAssumedRoleUserUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceAssumedRoleUserUnmarshaller.m; sourceTree = "<group>"; };
-		38EDB25C1727198B006AFCBC /* SecurityTokenServiceAssumeRoleRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceAssumeRoleRequest.m; sourceTree = "<group>"; };
-		38EDB25D1727198B006AFCBC /* SecurityTokenServiceAssumeRoleRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceAssumeRoleRequestMarshaller.m; sourceTree = "<group>"; };
-		38EDB25E1727198B006AFCBC /* SecurityTokenServiceAssumeRoleResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceAssumeRoleResponse.m; sourceTree = "<group>"; };
-		38EDB25F1727198B006AFCBC /* SecurityTokenServiceAssumeRoleResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceAssumeRoleResponseUnmarshaller.m; sourceTree = "<group>"; };
-		38EDB2601727198B006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceAssumeRoleWithWebIdentityRequest.m; sourceTree = "<group>"; };
-		38EDB2611727198B006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceAssumeRoleWithWebIdentityRequestMarshaller.m; sourceTree = "<group>"; };
-		38EDB2621727198B006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceAssumeRoleWithWebIdentityResponse.m; sourceTree = "<group>"; };
-		38EDB2631727198B006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceAssumeRoleWithWebIdentityResponseUnmarshaller.m; sourceTree = "<group>"; };
-		38EDB2641727198B006AFCBC /* SecurityTokenServiceCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceCredentials.m; sourceTree = "<group>"; };
-		38EDB2651727198B006AFCBC /* SecurityTokenServiceCredentialsUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceCredentialsUnmarshaller.m; sourceTree = "<group>"; };
-		38EDB2661727198B006AFCBC /* SecurityTokenServiceExpiredTokenException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceExpiredTokenException.m; sourceTree = "<group>"; };
-		38EDB2671727198B006AFCBC /* SecurityTokenServiceFederatedUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceFederatedUser.m; sourceTree = "<group>"; };
-		38EDB2681727198B006AFCBC /* SecurityTokenServiceFederatedUserUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceFederatedUserUnmarshaller.m; sourceTree = "<group>"; };
-		38EDB2691727198B006AFCBC /* SecurityTokenServiceGetFederationTokenRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetFederationTokenRequest.m; sourceTree = "<group>"; };
-		38EDB26A1727198B006AFCBC /* SecurityTokenServiceGetFederationTokenRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetFederationTokenRequestMarshaller.m; sourceTree = "<group>"; };
-		38EDB26B1727198B006AFCBC /* SecurityTokenServiceGetFederationTokenResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetFederationTokenResponse.m; sourceTree = "<group>"; };
-		38EDB26C1727198B006AFCBC /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetFederationTokenResponseUnmarshaller.m; sourceTree = "<group>"; };
-		38EDB26D1727198B006AFCBC /* SecurityTokenServiceGetSessionTokenRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetSessionTokenRequest.m; sourceTree = "<group>"; };
-		38EDB26E1727198B006AFCBC /* SecurityTokenServiceGetSessionTokenRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetSessionTokenRequestMarshaller.m; sourceTree = "<group>"; };
-		38EDB26F1727198B006AFCBC /* SecurityTokenServiceGetSessionTokenResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetSessionTokenResponse.m; sourceTree = "<group>"; };
-		38EDB2701727198B006AFCBC /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetSessionTokenResponseUnmarshaller.m; sourceTree = "<group>"; };
-		38EDB2711727198B006AFCBC /* SecurityTokenServiceIDPCommunicationErrorException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceIDPCommunicationErrorException.m; sourceTree = "<group>"; };
-		38EDB2721727198B006AFCBC /* SecurityTokenServiceIDPRejectedClaimException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceIDPRejectedClaimException.m; sourceTree = "<group>"; };
-		38EDB2731727198B006AFCBC /* SecurityTokenServiceInvalidIdentityTokenException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceInvalidIdentityTokenException.m; sourceTree = "<group>"; };
-		38EDB2741727198B006AFCBC /* SecurityTokenServiceMalformedPolicyDocumentException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceMalformedPolicyDocumentException.m; sourceTree = "<group>"; };
-		38EDB2751727198B006AFCBC /* SecurityTokenServicePackedPolicyTooLargeException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServicePackedPolicyTooLargeException.m; sourceTree = "<group>"; };
-		38EDB2761727198B006AFCBC /* SecurityTokenServiceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceRequest.m; sourceTree = "<group>"; };
-		38EDB2771727198B006AFCBC /* SecurityTokenServiceResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceResponse.m; sourceTree = "<group>"; };
-		38EDB2781727198B006AFCBC /* SecurityTokenServiceResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceResponseUnmarshaller.m; sourceTree = "<group>"; };
-		38EDB29A172719A0006AFCBC /* AmazonSecurityTokenServiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmazonSecurityTokenServiceClient.h; path = STS/AmazonSecurityTokenServiceClient.h; sourceTree = "<group>"; };
-		38EDB29B172719A0006AFCBC /* AmazonSTSCredentialsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmazonSTSCredentialsProvider.h; path = STS/AmazonSTSCredentialsProvider.h; sourceTree = "<group>"; };
-		38EDB29C172719A0006AFCBC /* AWSSecurityTokenService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSSecurityTokenService.h; path = STS/AWSSecurityTokenService.h; sourceTree = "<group>"; };
-		38EDB29D172719A0006AFCBC /* SecurityTokenServiceAssumedRoleUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceAssumedRoleUser.h; path = STS/SecurityTokenServiceAssumedRoleUser.h; sourceTree = "<group>"; };
-		38EDB29E172719A0006AFCBC /* SecurityTokenServiceAssumedRoleUserUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceAssumedRoleUserUnmarshaller.h; path = STS/SecurityTokenServiceAssumedRoleUserUnmarshaller.h; sourceTree = "<group>"; };
-		38EDB29F172719A0006AFCBC /* SecurityTokenServiceAssumeRoleRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceAssumeRoleRequest.h; path = STS/SecurityTokenServiceAssumeRoleRequest.h; sourceTree = "<group>"; };
-		38EDB2A0172719A0006AFCBC /* SecurityTokenServiceAssumeRoleRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceAssumeRoleRequestMarshaller.h; path = STS/SecurityTokenServiceAssumeRoleRequestMarshaller.h; sourceTree = "<group>"; };
-		38EDB2A1172719A0006AFCBC /* SecurityTokenServiceAssumeRoleResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceAssumeRoleResponse.h; path = STS/SecurityTokenServiceAssumeRoleResponse.h; sourceTree = "<group>"; };
-		38EDB2A2172719A0006AFCBC /* SecurityTokenServiceAssumeRoleResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceAssumeRoleResponseUnmarshaller.h; path = STS/SecurityTokenServiceAssumeRoleResponseUnmarshaller.h; sourceTree = "<group>"; };
-		38EDB2A3172719A0006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceAssumeRoleWithWebIdentityRequest.h; path = STS/SecurityTokenServiceAssumeRoleWithWebIdentityRequest.h; sourceTree = "<group>"; };
-		38EDB2A4172719A0006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceAssumeRoleWithWebIdentityRequestMarshaller.h; path = STS/SecurityTokenServiceAssumeRoleWithWebIdentityRequestMarshaller.h; sourceTree = "<group>"; };
-		38EDB2A5172719A0006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceAssumeRoleWithWebIdentityResponse.h; path = STS/SecurityTokenServiceAssumeRoleWithWebIdentityResponse.h; sourceTree = "<group>"; };
-		38EDB2A6172719A0006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceAssumeRoleWithWebIdentityResponseUnmarshaller.h; path = STS/SecurityTokenServiceAssumeRoleWithWebIdentityResponseUnmarshaller.h; sourceTree = "<group>"; };
-		38EDB2A7172719A0006AFCBC /* SecurityTokenServiceCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceCredentials.h; path = STS/SecurityTokenServiceCredentials.h; sourceTree = "<group>"; };
-		38EDB2A8172719A0006AFCBC /* SecurityTokenServiceCredentialsUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceCredentialsUnmarshaller.h; path = STS/SecurityTokenServiceCredentialsUnmarshaller.h; sourceTree = "<group>"; };
-		38EDB2A9172719A0006AFCBC /* SecurityTokenServiceExpiredTokenException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceExpiredTokenException.h; path = STS/SecurityTokenServiceExpiredTokenException.h; sourceTree = "<group>"; };
-		38EDB2AA172719A0006AFCBC /* SecurityTokenServiceFederatedUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceFederatedUser.h; path = STS/SecurityTokenServiceFederatedUser.h; sourceTree = "<group>"; };
-		38EDB2AB172719A0006AFCBC /* SecurityTokenServiceFederatedUserUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceFederatedUserUnmarshaller.h; path = STS/SecurityTokenServiceFederatedUserUnmarshaller.h; sourceTree = "<group>"; };
-		38EDB2AC172719A0006AFCBC /* SecurityTokenServiceGetFederationTokenRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceGetFederationTokenRequest.h; path = STS/SecurityTokenServiceGetFederationTokenRequest.h; sourceTree = "<group>"; };
-		38EDB2AD172719A0006AFCBC /* SecurityTokenServiceGetFederationTokenRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceGetFederationTokenRequestMarshaller.h; path = STS/SecurityTokenServiceGetFederationTokenRequestMarshaller.h; sourceTree = "<group>"; };
-		38EDB2AE172719A0006AFCBC /* SecurityTokenServiceGetFederationTokenResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceGetFederationTokenResponse.h; path = STS/SecurityTokenServiceGetFederationTokenResponse.h; sourceTree = "<group>"; };
-		38EDB2AF172719A0006AFCBC /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceGetFederationTokenResponseUnmarshaller.h; path = STS/SecurityTokenServiceGetFederationTokenResponseUnmarshaller.h; sourceTree = "<group>"; };
-		38EDB2B0172719A0006AFCBC /* SecurityTokenServiceGetSessionTokenRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceGetSessionTokenRequest.h; path = STS/SecurityTokenServiceGetSessionTokenRequest.h; sourceTree = "<group>"; };
-		38EDB2B1172719A0006AFCBC /* SecurityTokenServiceGetSessionTokenRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceGetSessionTokenRequestMarshaller.h; path = STS/SecurityTokenServiceGetSessionTokenRequestMarshaller.h; sourceTree = "<group>"; };
-		38EDB2B2172719A0006AFCBC /* SecurityTokenServiceGetSessionTokenResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceGetSessionTokenResponse.h; path = STS/SecurityTokenServiceGetSessionTokenResponse.h; sourceTree = "<group>"; };
-		38EDB2B3172719A0006AFCBC /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceGetSessionTokenResponseUnmarshaller.h; path = STS/SecurityTokenServiceGetSessionTokenResponseUnmarshaller.h; sourceTree = "<group>"; };
-		38EDB2B4172719A0006AFCBC /* SecurityTokenServiceIDPCommunicationErrorException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceIDPCommunicationErrorException.h; path = STS/SecurityTokenServiceIDPCommunicationErrorException.h; sourceTree = "<group>"; };
-		38EDB2B5172719A0006AFCBC /* SecurityTokenServiceIDPRejectedClaimException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceIDPRejectedClaimException.h; path = STS/SecurityTokenServiceIDPRejectedClaimException.h; sourceTree = "<group>"; };
-		38EDB2B6172719A0006AFCBC /* SecurityTokenServiceInvalidIdentityTokenException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceInvalidIdentityTokenException.h; path = STS/SecurityTokenServiceInvalidIdentityTokenException.h; sourceTree = "<group>"; };
-		38EDB2B7172719A0006AFCBC /* SecurityTokenServiceMalformedPolicyDocumentException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceMalformedPolicyDocumentException.h; path = STS/SecurityTokenServiceMalformedPolicyDocumentException.h; sourceTree = "<group>"; };
-		38EDB2B8172719A0006AFCBC /* SecurityTokenServicePackedPolicyTooLargeException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServicePackedPolicyTooLargeException.h; path = STS/SecurityTokenServicePackedPolicyTooLargeException.h; sourceTree = "<group>"; };
-		38EDB2B9172719A0006AFCBC /* SecurityTokenServiceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceRequest.h; path = STS/SecurityTokenServiceRequest.h; sourceTree = "<group>"; };
-		38EDB2BA172719A0006AFCBC /* SecurityTokenServiceResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceResponse.h; path = STS/SecurityTokenServiceResponse.h; sourceTree = "<group>"; };
-		38EDB2BB172719A0006AFCBC /* SecurityTokenServiceResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceResponseUnmarshaller.h; path = STS/SecurityTokenServiceResponseUnmarshaller.h; sourceTree = "<group>"; };
+		38C97C0517B56AA90044E640 /* AmazonSecurityTokenServiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmazonSecurityTokenServiceClient.h; path = STS/AmazonSecurityTokenServiceClient.h; sourceTree = "<group>"; };
+		38C97C0617B56AA90044E640 /* AmazonSTSCredentialsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmazonSTSCredentialsProvider.h; path = STS/AmazonSTSCredentialsProvider.h; sourceTree = "<group>"; };
+		38C97C0717B56AA90044E640 /* AmazonWIFCredentialsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmazonWIFCredentialsProvider.h; path = STS/AmazonWIFCredentialsProvider.h; sourceTree = "<group>"; };
+		38C97C0817B56AA90044E640 /* AWSSecurityTokenService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSSecurityTokenService.h; path = STS/AWSSecurityTokenService.h; sourceTree = "<group>"; };
+		38C97C0917B56AA90044E640 /* SecurityTokenServiceAssumedRoleUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceAssumedRoleUser.h; path = STS/SecurityTokenServiceAssumedRoleUser.h; sourceTree = "<group>"; };
+		38C97C0A17B56AA90044E640 /* SecurityTokenServiceAssumedRoleUserUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceAssumedRoleUserUnmarshaller.h; path = STS/SecurityTokenServiceAssumedRoleUserUnmarshaller.h; sourceTree = "<group>"; };
+		38C97C0B17B56AA90044E640 /* SecurityTokenServiceAssumeRoleRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceAssumeRoleRequest.h; path = STS/SecurityTokenServiceAssumeRoleRequest.h; sourceTree = "<group>"; };
+		38C97C0C17B56AA90044E640 /* SecurityTokenServiceAssumeRoleRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceAssumeRoleRequestMarshaller.h; path = STS/SecurityTokenServiceAssumeRoleRequestMarshaller.h; sourceTree = "<group>"; };
+		38C97C0D17B56AA90044E640 /* SecurityTokenServiceAssumeRoleResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceAssumeRoleResponse.h; path = STS/SecurityTokenServiceAssumeRoleResponse.h; sourceTree = "<group>"; };
+		38C97C0E17B56AA90044E640 /* SecurityTokenServiceAssumeRoleResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceAssumeRoleResponseUnmarshaller.h; path = STS/SecurityTokenServiceAssumeRoleResponseUnmarshaller.h; sourceTree = "<group>"; };
+		38C97C0F17B56AA90044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceAssumeRoleWithWebIdentityRequest.h; path = STS/SecurityTokenServiceAssumeRoleWithWebIdentityRequest.h; sourceTree = "<group>"; };
+		38C97C1017B56AA90044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceAssumeRoleWithWebIdentityRequestMarshaller.h; path = STS/SecurityTokenServiceAssumeRoleWithWebIdentityRequestMarshaller.h; sourceTree = "<group>"; };
+		38C97C1117B56AA90044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceAssumeRoleWithWebIdentityResponse.h; path = STS/SecurityTokenServiceAssumeRoleWithWebIdentityResponse.h; sourceTree = "<group>"; };
+		38C97C1217B56AA90044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceAssumeRoleWithWebIdentityResponseUnmarshaller.h; path = STS/SecurityTokenServiceAssumeRoleWithWebIdentityResponseUnmarshaller.h; sourceTree = "<group>"; };
+		38C97C1317B56AA90044E640 /* SecurityTokenServiceCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceCredentials.h; path = STS/SecurityTokenServiceCredentials.h; sourceTree = "<group>"; };
+		38C97C1417B56AA90044E640 /* SecurityTokenServiceCredentialsUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceCredentialsUnmarshaller.h; path = STS/SecurityTokenServiceCredentialsUnmarshaller.h; sourceTree = "<group>"; };
+		38C97C1517B56AA90044E640 /* SecurityTokenServiceDecodeAuthorizationMessageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceDecodeAuthorizationMessageRequest.h; path = STS/SecurityTokenServiceDecodeAuthorizationMessageRequest.h; sourceTree = "<group>"; };
+		38C97C1617B56AA90044E640 /* SecurityTokenServiceDecodeAuthorizationMessageRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceDecodeAuthorizationMessageRequestMarshaller.h; path = STS/SecurityTokenServiceDecodeAuthorizationMessageRequestMarshaller.h; sourceTree = "<group>"; };
+		38C97C1717B56AA90044E640 /* SecurityTokenServiceDecodeAuthorizationMessageResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceDecodeAuthorizationMessageResponse.h; path = STS/SecurityTokenServiceDecodeAuthorizationMessageResponse.h; sourceTree = "<group>"; };
+		38C97C1817B56AA90044E640 /* SecurityTokenServiceDecodeAuthorizationMessageResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceDecodeAuthorizationMessageResponseUnmarshaller.h; path = STS/SecurityTokenServiceDecodeAuthorizationMessageResponseUnmarshaller.h; sourceTree = "<group>"; };
+		38C97C1917B56AA90044E640 /* SecurityTokenServiceExpiredTokenException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceExpiredTokenException.h; path = STS/SecurityTokenServiceExpiredTokenException.h; sourceTree = "<group>"; };
+		38C97C1A17B56AA90044E640 /* SecurityTokenServiceFederatedUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceFederatedUser.h; path = STS/SecurityTokenServiceFederatedUser.h; sourceTree = "<group>"; };
+		38C97C1B17B56AA90044E640 /* SecurityTokenServiceFederatedUserUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceFederatedUserUnmarshaller.h; path = STS/SecurityTokenServiceFederatedUserUnmarshaller.h; sourceTree = "<group>"; };
+		38C97C1C17B56AA90044E640 /* SecurityTokenServiceGetFederationTokenRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceGetFederationTokenRequest.h; path = STS/SecurityTokenServiceGetFederationTokenRequest.h; sourceTree = "<group>"; };
+		38C97C1D17B56AA90044E640 /* SecurityTokenServiceGetFederationTokenRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceGetFederationTokenRequestMarshaller.h; path = STS/SecurityTokenServiceGetFederationTokenRequestMarshaller.h; sourceTree = "<group>"; };
+		38C97C1E17B56AA90044E640 /* SecurityTokenServiceGetFederationTokenResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceGetFederationTokenResponse.h; path = STS/SecurityTokenServiceGetFederationTokenResponse.h; sourceTree = "<group>"; };
+		38C97C1F17B56AA90044E640 /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceGetFederationTokenResponseUnmarshaller.h; path = STS/SecurityTokenServiceGetFederationTokenResponseUnmarshaller.h; sourceTree = "<group>"; };
+		38C97C2017B56AA90044E640 /* SecurityTokenServiceGetSessionTokenRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceGetSessionTokenRequest.h; path = STS/SecurityTokenServiceGetSessionTokenRequest.h; sourceTree = "<group>"; };
+		38C97C2117B56AAA0044E640 /* SecurityTokenServiceGetSessionTokenRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceGetSessionTokenRequestMarshaller.h; path = STS/SecurityTokenServiceGetSessionTokenRequestMarshaller.h; sourceTree = "<group>"; };
+		38C97C2217B56AAA0044E640 /* SecurityTokenServiceGetSessionTokenResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceGetSessionTokenResponse.h; path = STS/SecurityTokenServiceGetSessionTokenResponse.h; sourceTree = "<group>"; };
+		38C97C2317B56AAA0044E640 /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceGetSessionTokenResponseUnmarshaller.h; path = STS/SecurityTokenServiceGetSessionTokenResponseUnmarshaller.h; sourceTree = "<group>"; };
+		38C97C2417B56AAA0044E640 /* SecurityTokenServiceIDPCommunicationErrorException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceIDPCommunicationErrorException.h; path = STS/SecurityTokenServiceIDPCommunicationErrorException.h; sourceTree = "<group>"; };
+		38C97C2517B56AAA0044E640 /* SecurityTokenServiceIDPRejectedClaimException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceIDPRejectedClaimException.h; path = STS/SecurityTokenServiceIDPRejectedClaimException.h; sourceTree = "<group>"; };
+		38C97C2617B56AAA0044E640 /* SecurityTokenServiceInvalidAuthorizationMessageException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceInvalidAuthorizationMessageException.h; path = STS/SecurityTokenServiceInvalidAuthorizationMessageException.h; sourceTree = "<group>"; };
+		38C97C2717B56AAA0044E640 /* SecurityTokenServiceInvalidIdentityTokenException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceInvalidIdentityTokenException.h; path = STS/SecurityTokenServiceInvalidIdentityTokenException.h; sourceTree = "<group>"; };
+		38C97C2817B56AAA0044E640 /* SecurityTokenServiceMalformedPolicyDocumentException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceMalformedPolicyDocumentException.h; path = STS/SecurityTokenServiceMalformedPolicyDocumentException.h; sourceTree = "<group>"; };
+		38C97C2917B56AAA0044E640 /* SecurityTokenServicePackedPolicyTooLargeException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServicePackedPolicyTooLargeException.h; path = STS/SecurityTokenServicePackedPolicyTooLargeException.h; sourceTree = "<group>"; };
+		38C97C2A17B56AAA0044E640 /* SecurityTokenServiceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceRequest.h; path = STS/SecurityTokenServiceRequest.h; sourceTree = "<group>"; };
+		38C97C2B17B56AAA0044E640 /* SecurityTokenServiceResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceResponse.h; path = STS/SecurityTokenServiceResponse.h; sourceTree = "<group>"; };
+		38C97C2C17B56AAA0044E640 /* SecurityTokenServiceResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecurityTokenServiceResponseUnmarshaller.h; path = STS/SecurityTokenServiceResponseUnmarshaller.h; sourceTree = "<group>"; };
+		38C97C5617B56AB80044E640 /* AmazonSecurityTokenServiceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonSecurityTokenServiceClient.m; sourceTree = "<group>"; };
+		38C97C5717B56AB80044E640 /* AmazonSTSCredentialsProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonSTSCredentialsProvider.m; sourceTree = "<group>"; };
+		38C97C5817B56AB80044E640 /* AmazonWIFCredentialsProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonWIFCredentialsProvider.m; sourceTree = "<group>"; };
+		38C97C5A17B56AB80044E640 /* SecurityTokenServiceAssumedRoleUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceAssumedRoleUser.m; sourceTree = "<group>"; };
+		38C97C5B17B56AB80044E640 /* SecurityTokenServiceAssumedRoleUserUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceAssumedRoleUserUnmarshaller.m; sourceTree = "<group>"; };
+		38C97C5C17B56AB80044E640 /* SecurityTokenServiceAssumeRoleRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceAssumeRoleRequest.m; sourceTree = "<group>"; };
+		38C97C5D17B56AB80044E640 /* SecurityTokenServiceAssumeRoleRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceAssumeRoleRequestMarshaller.m; sourceTree = "<group>"; };
+		38C97C5E17B56AB80044E640 /* SecurityTokenServiceAssumeRoleResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceAssumeRoleResponse.m; sourceTree = "<group>"; };
+		38C97C5F17B56AB80044E640 /* SecurityTokenServiceAssumeRoleResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceAssumeRoleResponseUnmarshaller.m; sourceTree = "<group>"; };
+		38C97C6017B56AB80044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceAssumeRoleWithWebIdentityRequest.m; sourceTree = "<group>"; };
+		38C97C6117B56AB80044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceAssumeRoleWithWebIdentityRequestMarshaller.m; sourceTree = "<group>"; };
+		38C97C6217B56AB80044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceAssumeRoleWithWebIdentityResponse.m; sourceTree = "<group>"; };
+		38C97C6317B56AB80044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceAssumeRoleWithWebIdentityResponseUnmarshaller.m; sourceTree = "<group>"; };
+		38C97C6417B56AB80044E640 /* SecurityTokenServiceCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceCredentials.m; sourceTree = "<group>"; };
+		38C97C6517B56AB80044E640 /* SecurityTokenServiceCredentialsUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceCredentialsUnmarshaller.m; sourceTree = "<group>"; };
+		38C97C6617B56AB80044E640 /* SecurityTokenServiceDecodeAuthorizationMessageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceDecodeAuthorizationMessageRequest.m; sourceTree = "<group>"; };
+		38C97C6717B56AB80044E640 /* SecurityTokenServiceDecodeAuthorizationMessageRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceDecodeAuthorizationMessageRequestMarshaller.m; sourceTree = "<group>"; };
+		38C97C6817B56AB80044E640 /* SecurityTokenServiceDecodeAuthorizationMessageResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceDecodeAuthorizationMessageResponse.m; sourceTree = "<group>"; };
+		38C97C6917B56AB80044E640 /* SecurityTokenServiceDecodeAuthorizationMessageResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceDecodeAuthorizationMessageResponseUnmarshaller.m; sourceTree = "<group>"; };
+		38C97C6A17B56AB80044E640 /* SecurityTokenServiceExpiredTokenException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceExpiredTokenException.m; sourceTree = "<group>"; };
+		38C97C6B17B56AB80044E640 /* SecurityTokenServiceFederatedUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceFederatedUser.m; sourceTree = "<group>"; };
+		38C97C6C17B56AB80044E640 /* SecurityTokenServiceFederatedUserUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceFederatedUserUnmarshaller.m; sourceTree = "<group>"; };
+		38C97C6D17B56AB80044E640 /* SecurityTokenServiceGetFederationTokenRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetFederationTokenRequest.m; sourceTree = "<group>"; };
+		38C97C6E17B56AB80044E640 /* SecurityTokenServiceGetFederationTokenRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetFederationTokenRequestMarshaller.m; sourceTree = "<group>"; };
+		38C97C6F17B56AB80044E640 /* SecurityTokenServiceGetFederationTokenResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetFederationTokenResponse.m; sourceTree = "<group>"; };
+		38C97C7017B56AB80044E640 /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetFederationTokenResponseUnmarshaller.m; sourceTree = "<group>"; };
+		38C97C7117B56AB80044E640 /* SecurityTokenServiceGetSessionTokenRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetSessionTokenRequest.m; sourceTree = "<group>"; };
+		38C97C7217B56AB80044E640 /* SecurityTokenServiceGetSessionTokenRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetSessionTokenRequestMarshaller.m; sourceTree = "<group>"; };
+		38C97C7317B56AB80044E640 /* SecurityTokenServiceGetSessionTokenResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetSessionTokenResponse.m; sourceTree = "<group>"; };
+		38C97C7417B56AB80044E640 /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceGetSessionTokenResponseUnmarshaller.m; sourceTree = "<group>"; };
+		38C97C7517B56AB80044E640 /* SecurityTokenServiceIDPCommunicationErrorException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceIDPCommunicationErrorException.m; sourceTree = "<group>"; };
+		38C97C7617B56AB80044E640 /* SecurityTokenServiceIDPRejectedClaimException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceIDPRejectedClaimException.m; sourceTree = "<group>"; };
+		38C97C7717B56AB80044E640 /* SecurityTokenServiceInvalidAuthorizationMessageException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceInvalidAuthorizationMessageException.m; sourceTree = "<group>"; };
+		38C97C7817B56AB80044E640 /* SecurityTokenServiceInvalidIdentityTokenException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceInvalidIdentityTokenException.m; sourceTree = "<group>"; };
+		38C97C7917B56AB80044E640 /* SecurityTokenServiceMalformedPolicyDocumentException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceMalformedPolicyDocumentException.m; sourceTree = "<group>"; };
+		38C97C7A17B56AB80044E640 /* SecurityTokenServicePackedPolicyTooLargeException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServicePackedPolicyTooLargeException.m; sourceTree = "<group>"; };
+		38C97C7B17B56AB80044E640 /* SecurityTokenServiceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceRequest.m; sourceTree = "<group>"; };
+		38C97C7C17B56AB80044E640 /* SecurityTokenServiceResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceResponse.m; sourceTree = "<group>"; };
+		38C97C7D17B56AB80044E640 /* SecurityTokenServiceResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityTokenServiceResponseUnmarshaller.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* SecurityTokenService_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityTokenService_Prefix.pch; sourceTree = "<group>"; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CE96C1A9158BC2A70084D3CB /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -182,7 +202,7 @@
 		0867D691FE84028FC02AAC07 /* s3 */ = {
 			isa = PBXGroup;
 			children = (
-				38EDB2561727198B006AFCBC /* Amazon.STS */,
+				38C97C5517B56AB80044E640 /* Amazon.STS */,
 				0AFD9561128471A4004B7863 /* include */,
 				0AFD8DC212846372004B7863 /* Scripts */,
 				0AFD8DBF128462A0004B7863 /* Resources */,
@@ -220,41 +240,46 @@
 		0AFD9561128471A4004B7863 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				38951BCE17289BCB0044653F /* AmazonWIFCredentialsProvider.h */,
-				38EDB29A172719A0006AFCBC /* AmazonSecurityTokenServiceClient.h */,
-				38EDB29B172719A0006AFCBC /* AmazonSTSCredentialsProvider.h */,
-				38EDB29C172719A0006AFCBC /* AWSSecurityTokenService.h */,
-				38EDB29D172719A0006AFCBC /* SecurityTokenServiceAssumedRoleUser.h */,
-				38EDB29E172719A0006AFCBC /* SecurityTokenServiceAssumedRoleUserUnmarshaller.h */,
-				38EDB29F172719A0006AFCBC /* SecurityTokenServiceAssumeRoleRequest.h */,
-				38EDB2A0172719A0006AFCBC /* SecurityTokenServiceAssumeRoleRequestMarshaller.h */,
-				38EDB2A1172719A0006AFCBC /* SecurityTokenServiceAssumeRoleResponse.h */,
-				38EDB2A2172719A0006AFCBC /* SecurityTokenServiceAssumeRoleResponseUnmarshaller.h */,
-				38EDB2A3172719A0006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityRequest.h */,
-				38EDB2A4172719A0006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityRequestMarshaller.h */,
-				38EDB2A5172719A0006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityResponse.h */,
-				38EDB2A6172719A0006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityResponseUnmarshaller.h */,
-				38EDB2A7172719A0006AFCBC /* SecurityTokenServiceCredentials.h */,
-				38EDB2A8172719A0006AFCBC /* SecurityTokenServiceCredentialsUnmarshaller.h */,
-				38EDB2A9172719A0006AFCBC /* SecurityTokenServiceExpiredTokenException.h */,
-				38EDB2AA172719A0006AFCBC /* SecurityTokenServiceFederatedUser.h */,
-				38EDB2AB172719A0006AFCBC /* SecurityTokenServiceFederatedUserUnmarshaller.h */,
-				38EDB2AC172719A0006AFCBC /* SecurityTokenServiceGetFederationTokenRequest.h */,
-				38EDB2AD172719A0006AFCBC /* SecurityTokenServiceGetFederationTokenRequestMarshaller.h */,
-				38EDB2AE172719A0006AFCBC /* SecurityTokenServiceGetFederationTokenResponse.h */,
-				38EDB2AF172719A0006AFCBC /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.h */,
-				38EDB2B0172719A0006AFCBC /* SecurityTokenServiceGetSessionTokenRequest.h */,
-				38EDB2B1172719A0006AFCBC /* SecurityTokenServiceGetSessionTokenRequestMarshaller.h */,
-				38EDB2B2172719A0006AFCBC /* SecurityTokenServiceGetSessionTokenResponse.h */,
-				38EDB2B3172719A0006AFCBC /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.h */,
-				38EDB2B4172719A0006AFCBC /* SecurityTokenServiceIDPCommunicationErrorException.h */,
-				38EDB2B5172719A0006AFCBC /* SecurityTokenServiceIDPRejectedClaimException.h */,
-				38EDB2B6172719A0006AFCBC /* SecurityTokenServiceInvalidIdentityTokenException.h */,
-				38EDB2B7172719A0006AFCBC /* SecurityTokenServiceMalformedPolicyDocumentException.h */,
-				38EDB2B8172719A0006AFCBC /* SecurityTokenServicePackedPolicyTooLargeException.h */,
-				38EDB2B9172719A0006AFCBC /* SecurityTokenServiceRequest.h */,
-				38EDB2BA172719A0006AFCBC /* SecurityTokenServiceResponse.h */,
-				38EDB2BB172719A0006AFCBC /* SecurityTokenServiceResponseUnmarshaller.h */,
+				38C97C0517B56AA90044E640 /* AmazonSecurityTokenServiceClient.h */,
+				38C97C0617B56AA90044E640 /* AmazonSTSCredentialsProvider.h */,
+				38C97C0717B56AA90044E640 /* AmazonWIFCredentialsProvider.h */,
+				38C97C0817B56AA90044E640 /* AWSSecurityTokenService.h */,
+				38C97C0917B56AA90044E640 /* SecurityTokenServiceAssumedRoleUser.h */,
+				38C97C0A17B56AA90044E640 /* SecurityTokenServiceAssumedRoleUserUnmarshaller.h */,
+				38C97C0B17B56AA90044E640 /* SecurityTokenServiceAssumeRoleRequest.h */,
+				38C97C0C17B56AA90044E640 /* SecurityTokenServiceAssumeRoleRequestMarshaller.h */,
+				38C97C0D17B56AA90044E640 /* SecurityTokenServiceAssumeRoleResponse.h */,
+				38C97C0E17B56AA90044E640 /* SecurityTokenServiceAssumeRoleResponseUnmarshaller.h */,
+				38C97C0F17B56AA90044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityRequest.h */,
+				38C97C1017B56AA90044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityRequestMarshaller.h */,
+				38C97C1117B56AA90044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityResponse.h */,
+				38C97C1217B56AA90044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityResponseUnmarshaller.h */,
+				38C97C1317B56AA90044E640 /* SecurityTokenServiceCredentials.h */,
+				38C97C1417B56AA90044E640 /* SecurityTokenServiceCredentialsUnmarshaller.h */,
+				38C97C1517B56AA90044E640 /* SecurityTokenServiceDecodeAuthorizationMessageRequest.h */,
+				38C97C1617B56AA90044E640 /* SecurityTokenServiceDecodeAuthorizationMessageRequestMarshaller.h */,
+				38C97C1717B56AA90044E640 /* SecurityTokenServiceDecodeAuthorizationMessageResponse.h */,
+				38C97C1817B56AA90044E640 /* SecurityTokenServiceDecodeAuthorizationMessageResponseUnmarshaller.h */,
+				38C97C1917B56AA90044E640 /* SecurityTokenServiceExpiredTokenException.h */,
+				38C97C1A17B56AA90044E640 /* SecurityTokenServiceFederatedUser.h */,
+				38C97C1B17B56AA90044E640 /* SecurityTokenServiceFederatedUserUnmarshaller.h */,
+				38C97C1C17B56AA90044E640 /* SecurityTokenServiceGetFederationTokenRequest.h */,
+				38C97C1D17B56AA90044E640 /* SecurityTokenServiceGetFederationTokenRequestMarshaller.h */,
+				38C97C1E17B56AA90044E640 /* SecurityTokenServiceGetFederationTokenResponse.h */,
+				38C97C1F17B56AA90044E640 /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.h */,
+				38C97C2017B56AA90044E640 /* SecurityTokenServiceGetSessionTokenRequest.h */,
+				38C97C2117B56AAA0044E640 /* SecurityTokenServiceGetSessionTokenRequestMarshaller.h */,
+				38C97C2217B56AAA0044E640 /* SecurityTokenServiceGetSessionTokenResponse.h */,
+				38C97C2317B56AAA0044E640 /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.h */,
+				38C97C2417B56AAA0044E640 /* SecurityTokenServiceIDPCommunicationErrorException.h */,
+				38C97C2517B56AAA0044E640 /* SecurityTokenServiceIDPRejectedClaimException.h */,
+				38C97C2617B56AAA0044E640 /* SecurityTokenServiceInvalidAuthorizationMessageException.h */,
+				38C97C2717B56AAA0044E640 /* SecurityTokenServiceInvalidIdentityTokenException.h */,
+				38C97C2817B56AAA0044E640 /* SecurityTokenServiceMalformedPolicyDocumentException.h */,
+				38C97C2917B56AAA0044E640 /* SecurityTokenServicePackedPolicyTooLargeException.h */,
+				38C97C2A17B56AAA0044E640 /* SecurityTokenServiceRequest.h */,
+				38C97C2B17B56AAA0044E640 /* SecurityTokenServiceResponse.h */,
+				38C97C2C17B56AAA0044E640 /* SecurityTokenServiceResponseUnmarshaller.h */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -268,51 +293,56 @@
 			name = "Other Sources";
 			sourceTree = "<group>";
 		};
-		38EDB2561727198B006AFCBC /* Amazon.STS */ = {
+		38C97C5517B56AB80044E640 /* Amazon.STS */ = {
 			isa = PBXGroup;
 			children = (
-				38951BCC1728985C0044653F /* AmazonWIFCredentialsProvider.m */,
-				38EDB2571727198B006AFCBC /* AmazonSecurityTokenServiceClient.m */,
-				38EDB2581727198B006AFCBC /* AmazonSTSCredentialsProvider.m */,
-				38EDB2591727198B006AFCBC /* Model */,
-				38EDB2761727198B006AFCBC /* SecurityTokenServiceRequest.m */,
-				38EDB2771727198B006AFCBC /* SecurityTokenServiceResponse.m */,
-				38EDB2781727198B006AFCBC /* SecurityTokenServiceResponseUnmarshaller.m */,
+				38C97C5617B56AB80044E640 /* AmazonSecurityTokenServiceClient.m */,
+				38C97C5717B56AB80044E640 /* AmazonSTSCredentialsProvider.m */,
+				38C97C5817B56AB80044E640 /* AmazonWIFCredentialsProvider.m */,
+				38C97C5917B56AB80044E640 /* Model */,
+				38C97C7B17B56AB80044E640 /* SecurityTokenServiceRequest.m */,
+				38C97C7C17B56AB80044E640 /* SecurityTokenServiceResponse.m */,
+				38C97C7D17B56AB80044E640 /* SecurityTokenServiceResponseUnmarshaller.m */,
 			);
 			path = Amazon.STS;
 			sourceTree = "<group>";
 		};
-		38EDB2591727198B006AFCBC /* Model */ = {
+		38C97C5917B56AB80044E640 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				38EDB25A1727198B006AFCBC /* SecurityTokenServiceAssumedRoleUser.m */,
-				38EDB25B1727198B006AFCBC /* SecurityTokenServiceAssumedRoleUserUnmarshaller.m */,
-				38EDB25C1727198B006AFCBC /* SecurityTokenServiceAssumeRoleRequest.m */,
-				38EDB25D1727198B006AFCBC /* SecurityTokenServiceAssumeRoleRequestMarshaller.m */,
-				38EDB25E1727198B006AFCBC /* SecurityTokenServiceAssumeRoleResponse.m */,
-				38EDB25F1727198B006AFCBC /* SecurityTokenServiceAssumeRoleResponseUnmarshaller.m */,
-				38EDB2601727198B006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityRequest.m */,
-				38EDB2611727198B006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityRequestMarshaller.m */,
-				38EDB2621727198B006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityResponse.m */,
-				38EDB2631727198B006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityResponseUnmarshaller.m */,
-				38EDB2641727198B006AFCBC /* SecurityTokenServiceCredentials.m */,
-				38EDB2651727198B006AFCBC /* SecurityTokenServiceCredentialsUnmarshaller.m */,
-				38EDB2661727198B006AFCBC /* SecurityTokenServiceExpiredTokenException.m */,
-				38EDB2671727198B006AFCBC /* SecurityTokenServiceFederatedUser.m */,
-				38EDB2681727198B006AFCBC /* SecurityTokenServiceFederatedUserUnmarshaller.m */,
-				38EDB2691727198B006AFCBC /* SecurityTokenServiceGetFederationTokenRequest.m */,
-				38EDB26A1727198B006AFCBC /* SecurityTokenServiceGetFederationTokenRequestMarshaller.m */,
-				38EDB26B1727198B006AFCBC /* SecurityTokenServiceGetFederationTokenResponse.m */,
-				38EDB26C1727198B006AFCBC /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.m */,
-				38EDB26D1727198B006AFCBC /* SecurityTokenServiceGetSessionTokenRequest.m */,
-				38EDB26E1727198B006AFCBC /* SecurityTokenServiceGetSessionTokenRequestMarshaller.m */,
-				38EDB26F1727198B006AFCBC /* SecurityTokenServiceGetSessionTokenResponse.m */,
-				38EDB2701727198B006AFCBC /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.m */,
-				38EDB2711727198B006AFCBC /* SecurityTokenServiceIDPCommunicationErrorException.m */,
-				38EDB2721727198B006AFCBC /* SecurityTokenServiceIDPRejectedClaimException.m */,
-				38EDB2731727198B006AFCBC /* SecurityTokenServiceInvalidIdentityTokenException.m */,
-				38EDB2741727198B006AFCBC /* SecurityTokenServiceMalformedPolicyDocumentException.m */,
-				38EDB2751727198B006AFCBC /* SecurityTokenServicePackedPolicyTooLargeException.m */,
+				38C97C5A17B56AB80044E640 /* SecurityTokenServiceAssumedRoleUser.m */,
+				38C97C5B17B56AB80044E640 /* SecurityTokenServiceAssumedRoleUserUnmarshaller.m */,
+				38C97C5C17B56AB80044E640 /* SecurityTokenServiceAssumeRoleRequest.m */,
+				38C97C5D17B56AB80044E640 /* SecurityTokenServiceAssumeRoleRequestMarshaller.m */,
+				38C97C5E17B56AB80044E640 /* SecurityTokenServiceAssumeRoleResponse.m */,
+				38C97C5F17B56AB80044E640 /* SecurityTokenServiceAssumeRoleResponseUnmarshaller.m */,
+				38C97C6017B56AB80044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityRequest.m */,
+				38C97C6117B56AB80044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityRequestMarshaller.m */,
+				38C97C6217B56AB80044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityResponse.m */,
+				38C97C6317B56AB80044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityResponseUnmarshaller.m */,
+				38C97C6417B56AB80044E640 /* SecurityTokenServiceCredentials.m */,
+				38C97C6517B56AB80044E640 /* SecurityTokenServiceCredentialsUnmarshaller.m */,
+				38C97C6617B56AB80044E640 /* SecurityTokenServiceDecodeAuthorizationMessageRequest.m */,
+				38C97C6717B56AB80044E640 /* SecurityTokenServiceDecodeAuthorizationMessageRequestMarshaller.m */,
+				38C97C6817B56AB80044E640 /* SecurityTokenServiceDecodeAuthorizationMessageResponse.m */,
+				38C97C6917B56AB80044E640 /* SecurityTokenServiceDecodeAuthorizationMessageResponseUnmarshaller.m */,
+				38C97C6A17B56AB80044E640 /* SecurityTokenServiceExpiredTokenException.m */,
+				38C97C6B17B56AB80044E640 /* SecurityTokenServiceFederatedUser.m */,
+				38C97C6C17B56AB80044E640 /* SecurityTokenServiceFederatedUserUnmarshaller.m */,
+				38C97C6D17B56AB80044E640 /* SecurityTokenServiceGetFederationTokenRequest.m */,
+				38C97C6E17B56AB80044E640 /* SecurityTokenServiceGetFederationTokenRequestMarshaller.m */,
+				38C97C6F17B56AB80044E640 /* SecurityTokenServiceGetFederationTokenResponse.m */,
+				38C97C7017B56AB80044E640 /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.m */,
+				38C97C7117B56AB80044E640 /* SecurityTokenServiceGetSessionTokenRequest.m */,
+				38C97C7217B56AB80044E640 /* SecurityTokenServiceGetSessionTokenRequestMarshaller.m */,
+				38C97C7317B56AB80044E640 /* SecurityTokenServiceGetSessionTokenResponse.m */,
+				38C97C7417B56AB80044E640 /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.m */,
+				38C97C7517B56AB80044E640 /* SecurityTokenServiceIDPCommunicationErrorException.m */,
+				38C97C7617B56AB80044E640 /* SecurityTokenServiceIDPRejectedClaimException.m */,
+				38C97C7717B56AB80044E640 /* SecurityTokenServiceInvalidAuthorizationMessageException.m */,
+				38C97C7817B56AB80044E640 /* SecurityTokenServiceInvalidIdentityTokenException.m */,
+				38C97C7917B56AB80044E640 /* SecurityTokenServiceMalformedPolicyDocumentException.m */,
+				38C97C7A17B56AB80044E640 /* SecurityTokenServicePackedPolicyTooLargeException.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -324,41 +354,46 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38EDB2BC172719A0006AFCBC /* AmazonSecurityTokenServiceClient.h in Headers */,
-				38EDB2BD172719A0006AFCBC /* AmazonSTSCredentialsProvider.h in Headers */,
-				38EDB2BE172719A0006AFCBC /* AWSSecurityTokenService.h in Headers */,
-				38EDB2BF172719A0006AFCBC /* SecurityTokenServiceAssumedRoleUser.h in Headers */,
-				38EDB2C0172719A0006AFCBC /* SecurityTokenServiceAssumedRoleUserUnmarshaller.h in Headers */,
-				38EDB2C1172719A0006AFCBC /* SecurityTokenServiceAssumeRoleRequest.h in Headers */,
-				38EDB2C2172719A0006AFCBC /* SecurityTokenServiceAssumeRoleRequestMarshaller.h in Headers */,
-				38EDB2C3172719A0006AFCBC /* SecurityTokenServiceAssumeRoleResponse.h in Headers */,
-				38EDB2C4172719A0006AFCBC /* SecurityTokenServiceAssumeRoleResponseUnmarshaller.h in Headers */,
-				38EDB2C5172719A0006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityRequest.h in Headers */,
-				38EDB2C6172719A0006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityRequestMarshaller.h in Headers */,
-				38EDB2C7172719A0006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityResponse.h in Headers */,
-				38EDB2C8172719A0006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityResponseUnmarshaller.h in Headers */,
-				38EDB2C9172719A0006AFCBC /* SecurityTokenServiceCredentials.h in Headers */,
-				38EDB2CA172719A0006AFCBC /* SecurityTokenServiceCredentialsUnmarshaller.h in Headers */,
-				38EDB2CB172719A0006AFCBC /* SecurityTokenServiceExpiredTokenException.h in Headers */,
-				38EDB2CC172719A0006AFCBC /* SecurityTokenServiceFederatedUser.h in Headers */,
-				38EDB2CD172719A0006AFCBC /* SecurityTokenServiceFederatedUserUnmarshaller.h in Headers */,
-				38EDB2CE172719A0006AFCBC /* SecurityTokenServiceGetFederationTokenRequest.h in Headers */,
-				38EDB2CF172719A0006AFCBC /* SecurityTokenServiceGetFederationTokenRequestMarshaller.h in Headers */,
-				38EDB2D0172719A0006AFCBC /* SecurityTokenServiceGetFederationTokenResponse.h in Headers */,
-				38EDB2D1172719A0006AFCBC /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.h in Headers */,
-				38EDB2D2172719A0006AFCBC /* SecurityTokenServiceGetSessionTokenRequest.h in Headers */,
-				38EDB2D3172719A0006AFCBC /* SecurityTokenServiceGetSessionTokenRequestMarshaller.h in Headers */,
-				38EDB2D4172719A0006AFCBC /* SecurityTokenServiceGetSessionTokenResponse.h in Headers */,
-				38EDB2D5172719A0006AFCBC /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.h in Headers */,
-				38EDB2D6172719A0006AFCBC /* SecurityTokenServiceIDPCommunicationErrorException.h in Headers */,
-				38EDB2D7172719A0006AFCBC /* SecurityTokenServiceIDPRejectedClaimException.h in Headers */,
-				38EDB2D8172719A0006AFCBC /* SecurityTokenServiceInvalidIdentityTokenException.h in Headers */,
-				38EDB2D9172719A0006AFCBC /* SecurityTokenServiceMalformedPolicyDocumentException.h in Headers */,
-				38EDB2DA172719A0006AFCBC /* SecurityTokenServicePackedPolicyTooLargeException.h in Headers */,
-				38EDB2DB172719A0006AFCBC /* SecurityTokenServiceRequest.h in Headers */,
-				38EDB2DC172719A0006AFCBC /* SecurityTokenServiceResponse.h in Headers */,
-				38EDB2DD172719A0006AFCBC /* SecurityTokenServiceResponseUnmarshaller.h in Headers */,
-				38951BCF17289BCB0044653F /* AmazonWIFCredentialsProvider.h in Headers */,
+				38C97C2D17B56AAA0044E640 /* AmazonSecurityTokenServiceClient.h in Headers */,
+				38C97C2E17B56AAA0044E640 /* AmazonSTSCredentialsProvider.h in Headers */,
+				38C97C2F17B56AAA0044E640 /* AmazonWIFCredentialsProvider.h in Headers */,
+				38C97C3017B56AAA0044E640 /* AWSSecurityTokenService.h in Headers */,
+				38C97C3117B56AAA0044E640 /* SecurityTokenServiceAssumedRoleUser.h in Headers */,
+				38C97C3217B56AAA0044E640 /* SecurityTokenServiceAssumedRoleUserUnmarshaller.h in Headers */,
+				38C97C3317B56AAA0044E640 /* SecurityTokenServiceAssumeRoleRequest.h in Headers */,
+				38C97C3417B56AAA0044E640 /* SecurityTokenServiceAssumeRoleRequestMarshaller.h in Headers */,
+				38C97C3517B56AAA0044E640 /* SecurityTokenServiceAssumeRoleResponse.h in Headers */,
+				38C97C3617B56AAA0044E640 /* SecurityTokenServiceAssumeRoleResponseUnmarshaller.h in Headers */,
+				38C97C3717B56AAA0044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityRequest.h in Headers */,
+				38C97C3817B56AAA0044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityRequestMarshaller.h in Headers */,
+				38C97C3917B56AAA0044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityResponse.h in Headers */,
+				38C97C3A17B56AAA0044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityResponseUnmarshaller.h in Headers */,
+				38C97C3B17B56AAA0044E640 /* SecurityTokenServiceCredentials.h in Headers */,
+				38C97C3C17B56AAA0044E640 /* SecurityTokenServiceCredentialsUnmarshaller.h in Headers */,
+				38C97C3D17B56AAA0044E640 /* SecurityTokenServiceDecodeAuthorizationMessageRequest.h in Headers */,
+				38C97C3E17B56AAA0044E640 /* SecurityTokenServiceDecodeAuthorizationMessageRequestMarshaller.h in Headers */,
+				38C97C3F17B56AAA0044E640 /* SecurityTokenServiceDecodeAuthorizationMessageResponse.h in Headers */,
+				38C97C4017B56AAA0044E640 /* SecurityTokenServiceDecodeAuthorizationMessageResponseUnmarshaller.h in Headers */,
+				38C97C4117B56AAA0044E640 /* SecurityTokenServiceExpiredTokenException.h in Headers */,
+				38C97C4217B56AAA0044E640 /* SecurityTokenServiceFederatedUser.h in Headers */,
+				38C97C4317B56AAA0044E640 /* SecurityTokenServiceFederatedUserUnmarshaller.h in Headers */,
+				38C97C4417B56AAA0044E640 /* SecurityTokenServiceGetFederationTokenRequest.h in Headers */,
+				38C97C4517B56AAA0044E640 /* SecurityTokenServiceGetFederationTokenRequestMarshaller.h in Headers */,
+				38C97C4617B56AAA0044E640 /* SecurityTokenServiceGetFederationTokenResponse.h in Headers */,
+				38C97C4717B56AAA0044E640 /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.h in Headers */,
+				38C97C4817B56AAA0044E640 /* SecurityTokenServiceGetSessionTokenRequest.h in Headers */,
+				38C97C4917B56AAA0044E640 /* SecurityTokenServiceGetSessionTokenRequestMarshaller.h in Headers */,
+				38C97C4A17B56AAA0044E640 /* SecurityTokenServiceGetSessionTokenResponse.h in Headers */,
+				38C97C4B17B56AAA0044E640 /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.h in Headers */,
+				38C97C4C17B56AAA0044E640 /* SecurityTokenServiceIDPCommunicationErrorException.h in Headers */,
+				38C97C4D17B56AAA0044E640 /* SecurityTokenServiceIDPRejectedClaimException.h in Headers */,
+				38C97C4E17B56AAA0044E640 /* SecurityTokenServiceInvalidAuthorizationMessageException.h in Headers */,
+				38C97C4F17B56AAA0044E640 /* SecurityTokenServiceInvalidIdentityTokenException.h in Headers */,
+				38C97C5017B56AAA0044E640 /* SecurityTokenServiceMalformedPolicyDocumentException.h in Headers */,
+				38C97C5117B56AAA0044E640 /* SecurityTokenServicePackedPolicyTooLargeException.h in Headers */,
+				38C97C5217B56AAA0044E640 /* SecurityTokenServiceRequest.h in Headers */,
+				38C97C5317B56AAA0044E640 /* SecurityTokenServiceResponse.h in Headers */,
+				38C97C5417B56AAA0044E640 /* SecurityTokenServiceResponseUnmarshaller.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,40 +467,45 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38EDB2791727198B006AFCBC /* AmazonSecurityTokenServiceClient.m in Sources */,
-				38EDB27A1727198B006AFCBC /* AmazonSTSCredentialsProvider.m in Sources */,
-				38EDB27B1727198B006AFCBC /* SecurityTokenServiceAssumedRoleUser.m in Sources */,
-				38EDB27C1727198B006AFCBC /* SecurityTokenServiceAssumedRoleUserUnmarshaller.m in Sources */,
-				38EDB27D1727198B006AFCBC /* SecurityTokenServiceAssumeRoleRequest.m in Sources */,
-				38EDB27E1727198B006AFCBC /* SecurityTokenServiceAssumeRoleRequestMarshaller.m in Sources */,
-				38EDB27F1727198B006AFCBC /* SecurityTokenServiceAssumeRoleResponse.m in Sources */,
-				38EDB2801727198B006AFCBC /* SecurityTokenServiceAssumeRoleResponseUnmarshaller.m in Sources */,
-				38EDB2811727198B006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityRequest.m in Sources */,
-				38EDB2821727198B006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityRequestMarshaller.m in Sources */,
-				38EDB2831727198B006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityResponse.m in Sources */,
-				38EDB2841727198B006AFCBC /* SecurityTokenServiceAssumeRoleWithWebIdentityResponseUnmarshaller.m in Sources */,
-				38EDB2851727198B006AFCBC /* SecurityTokenServiceCredentials.m in Sources */,
-				38EDB2861727198B006AFCBC /* SecurityTokenServiceCredentialsUnmarshaller.m in Sources */,
-				38EDB2871727198B006AFCBC /* SecurityTokenServiceExpiredTokenException.m in Sources */,
-				38EDB2881727198B006AFCBC /* SecurityTokenServiceFederatedUser.m in Sources */,
-				38EDB2891727198B006AFCBC /* SecurityTokenServiceFederatedUserUnmarshaller.m in Sources */,
-				38EDB28A1727198B006AFCBC /* SecurityTokenServiceGetFederationTokenRequest.m in Sources */,
-				38EDB28B1727198B006AFCBC /* SecurityTokenServiceGetFederationTokenRequestMarshaller.m in Sources */,
-				38EDB28C1727198B006AFCBC /* SecurityTokenServiceGetFederationTokenResponse.m in Sources */,
-				38EDB28D1727198B006AFCBC /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.m in Sources */,
-				38EDB28E1727198B006AFCBC /* SecurityTokenServiceGetSessionTokenRequest.m in Sources */,
-				38EDB28F1727198B006AFCBC /* SecurityTokenServiceGetSessionTokenRequestMarshaller.m in Sources */,
-				38EDB2901727198B006AFCBC /* SecurityTokenServiceGetSessionTokenResponse.m in Sources */,
-				38EDB2911727198B006AFCBC /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.m in Sources */,
-				38EDB2921727198B006AFCBC /* SecurityTokenServiceIDPCommunicationErrorException.m in Sources */,
-				38EDB2931727198B006AFCBC /* SecurityTokenServiceIDPRejectedClaimException.m in Sources */,
-				38EDB2941727198B006AFCBC /* SecurityTokenServiceInvalidIdentityTokenException.m in Sources */,
-				38EDB2951727198B006AFCBC /* SecurityTokenServiceMalformedPolicyDocumentException.m in Sources */,
-				38EDB2961727198B006AFCBC /* SecurityTokenServicePackedPolicyTooLargeException.m in Sources */,
-				38EDB2971727198B006AFCBC /* SecurityTokenServiceRequest.m in Sources */,
-				38EDB2981727198B006AFCBC /* SecurityTokenServiceResponse.m in Sources */,
-				38EDB2991727198B006AFCBC /* SecurityTokenServiceResponseUnmarshaller.m in Sources */,
-				38951BCD1728985C0044653F /* AmazonWIFCredentialsProvider.m in Sources */,
+				38C97C7E17B56AB80044E640 /* AmazonSecurityTokenServiceClient.m in Sources */,
+				38C97C7F17B56AB80044E640 /* AmazonSTSCredentialsProvider.m in Sources */,
+				38C97C8017B56AB80044E640 /* AmazonWIFCredentialsProvider.m in Sources */,
+				38C97C8117B56AB80044E640 /* SecurityTokenServiceAssumedRoleUser.m in Sources */,
+				38C97C8217B56AB80044E640 /* SecurityTokenServiceAssumedRoleUserUnmarshaller.m in Sources */,
+				38C97C8317B56AB80044E640 /* SecurityTokenServiceAssumeRoleRequest.m in Sources */,
+				38C97C8417B56AB80044E640 /* SecurityTokenServiceAssumeRoleRequestMarshaller.m in Sources */,
+				38C97C8517B56AB80044E640 /* SecurityTokenServiceAssumeRoleResponse.m in Sources */,
+				38C97C8617B56AB80044E640 /* SecurityTokenServiceAssumeRoleResponseUnmarshaller.m in Sources */,
+				38C97C8717B56AB80044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityRequest.m in Sources */,
+				38C97C8817B56AB80044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityRequestMarshaller.m in Sources */,
+				38C97C8917B56AB80044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityResponse.m in Sources */,
+				38C97C8A17B56AB80044E640 /* SecurityTokenServiceAssumeRoleWithWebIdentityResponseUnmarshaller.m in Sources */,
+				38C97C8B17B56AB80044E640 /* SecurityTokenServiceCredentials.m in Sources */,
+				38C97C8C17B56AB80044E640 /* SecurityTokenServiceCredentialsUnmarshaller.m in Sources */,
+				38C97C8D17B56AB80044E640 /* SecurityTokenServiceDecodeAuthorizationMessageRequest.m in Sources */,
+				38C97C8E17B56AB80044E640 /* SecurityTokenServiceDecodeAuthorizationMessageRequestMarshaller.m in Sources */,
+				38C97C8F17B56AB80044E640 /* SecurityTokenServiceDecodeAuthorizationMessageResponse.m in Sources */,
+				38C97C9017B56AB80044E640 /* SecurityTokenServiceDecodeAuthorizationMessageResponseUnmarshaller.m in Sources */,
+				38C97C9117B56AB80044E640 /* SecurityTokenServiceExpiredTokenException.m in Sources */,
+				38C97C9217B56AB80044E640 /* SecurityTokenServiceFederatedUser.m in Sources */,
+				38C97C9317B56AB80044E640 /* SecurityTokenServiceFederatedUserUnmarshaller.m in Sources */,
+				38C97C9417B56AB80044E640 /* SecurityTokenServiceGetFederationTokenRequest.m in Sources */,
+				38C97C9517B56AB80044E640 /* SecurityTokenServiceGetFederationTokenRequestMarshaller.m in Sources */,
+				38C97C9617B56AB80044E640 /* SecurityTokenServiceGetFederationTokenResponse.m in Sources */,
+				38C97C9717B56AB80044E640 /* SecurityTokenServiceGetFederationTokenResponseUnmarshaller.m in Sources */,
+				38C97C9817B56AB80044E640 /* SecurityTokenServiceGetSessionTokenRequest.m in Sources */,
+				38C97C9917B56AB80044E640 /* SecurityTokenServiceGetSessionTokenRequestMarshaller.m in Sources */,
+				38C97C9A17B56AB80044E640 /* SecurityTokenServiceGetSessionTokenResponse.m in Sources */,
+				38C97C9B17B56AB80044E640 /* SecurityTokenServiceGetSessionTokenResponseUnmarshaller.m in Sources */,
+				38C97C9C17B56AB80044E640 /* SecurityTokenServiceIDPCommunicationErrorException.m in Sources */,
+				38C97C9D17B56AB80044E640 /* SecurityTokenServiceIDPRejectedClaimException.m in Sources */,
+				38C97C9E17B56AB80044E640 /* SecurityTokenServiceInvalidAuthorizationMessageException.m in Sources */,
+				38C97C9F17B56AB80044E640 /* SecurityTokenServiceInvalidIdentityTokenException.m in Sources */,
+				38C97CA017B56AB80044E640 /* SecurityTokenServiceMalformedPolicyDocumentException.m in Sources */,
+				38C97CA117B56AB80044E640 /* SecurityTokenServicePackedPolicyTooLargeException.m in Sources */,
+				38C97CA217B56AB80044E640 /* SecurityTokenServiceRequest.m in Sources */,
+				38C97CA317B56AB80044E640 /* SecurityTokenServiceResponse.m in Sources */,
+				38C97CA417B56AB80044E640 /* SecurityTokenServiceResponseUnmarshaller.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

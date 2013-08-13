@@ -85,9 +85,9 @@
  * <code>SPECIFIC_ATTRIBUTES</code> : Returns only the attributes listed
  * in <i>AttributesToGet</i>. This is equivalent to specifying
  * <i>AttributesToGet</i> without specifying any value for <i>Select</i>.
- * <p>If you are querying an index and request only attributes that are
- * projected into that index, the operation will read only the index and
- * not the table. If any of the requested attributes are not projected
+ * <p>If you are querying an index and only request attributes that are
+ * projected into that index, the operation will consult the index and
+ * bypass the table. If any of the requested attributes are not projected
  * into the index, Amazon DynamoDB will need to fetch each matching item
  * from the table. This extra fetching incurs additional throughput cost
  * and latency. </li> </ul> <p>When neither <i>Select</i> nor
@@ -109,9 +109,9 @@
  * The names of one or more attributes to retrieve. If no attribute names
  * are specified, then all attributes will be returned. If any of the
  * requested attributes are not found, they will not appear in the
- * result. <p>If you are querying an index and request only attributes
- * that are projected into that index, the operation will read only the
- * index and not the table. If any of the requested attributes are not
+ * result. <p>If you are querying an index and only request attributes
+ * that are projected into that index, the operation will consult the
+ * index and bypass the table. If any of the requested attributes are not
  * projected into the index, Amazon DynamoDB will need to fetch each
  * matching item from the table. This extra fetching incurs additional
  * throughput cost and latency. <p>You cannot use both
@@ -138,7 +138,7 @@
  * <i>LastEvaluatedKey</i> to apply in a subsequent operation to continue
  * the operation. For more information see <a
  * azon.com/amazondynamodb/latest/developerguide/QueryAndScan.html">Query
- * and Scan</a> in the <i>Amazon DynamoDB Developer Guide</i>.
+ * and Scan</a> of the <i>Amazon DynamoDB Developer Guide</i>.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Range: </b>1 - <br/>
@@ -166,7 +166,7 @@
  * other words, all of the conditions must be met in order for an item to
  * appear in the results results. <p>Each <i>KeyConditions</i> element
  * consists of an attribute name to compare, along with the following:
- * <ul> <li><p><i>AttributeValueList</i> - One or more values to evaluate
+ * <ul> <li><p><i>AttributeValueList</i>-One or more values to evaluate
  * against the supplied attribute. This list contains exactly one value,
  * except for a <code>BETWEEN</code> or <code>IN</code> comparison, in
  * which case the list contains two values. <note> <p>For type Number,
@@ -178,13 +178,13 @@
  * rs">http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters</a>.
  * <p>For Binary, Amazon DynamoDB treats each byte of the binary data as
  * unsigned when it compares binary values, for example when evaluating
- * query expressions. </note> </li> <li><p><i>ComparisonOperator</i> - A
+ * query expressions. </note> </li> <li><p><i>ComparisonOperator</i>-A
  * comparator for evaluating attributes. For example, equals, greater
  * than, less than, etc. <p>Valid comparison operators for Query:
  * <p><code>EQ | LE | LT | GE | GT | BEGINS_WITH | BETWEEN</code> <p>For
  * information on specifying data types in JSON, see <a
  * .amazon.com/amazondynamodb/latest/developerguide/DataFormat.html">JSON
- * Data Format</a> in the <i>Amazon DynamoDB Developer Guide</i>. <p>The
+ * Data Format</a> of the <i>Amazon DynamoDB Developer Guide</i>. <p>The
  * following are descriptions of each comparison operator. <ul> <li>
  * <p><code>EQ</code> : Equal. <p><i>AttributeValueList</i> can contain
  * only one <i>AttributeValue</i> of type String, Number, or Binary (not
@@ -266,9 +266,10 @@
 @property (nonatomic, retain) NSMutableDictionary *exclusiveStartKey;
 
 /**
- * If set to <code>TOTAL</code>, <i>ConsumedCapacity</i> is included in
- * the response; if set to <code>NONE</code> (the default),
- * <i>ConsumedCapacity</i> is not included.
+ * Determines whether to include consumed capacity information in the
+ * output. If this is set to <code>TOTAL</code>, then this information is
+ * shown in the output; otherwise, the consumed capacity information is
+ * not shown.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Allowed Values: </b>TOTAL, NONE

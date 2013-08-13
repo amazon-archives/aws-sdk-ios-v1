@@ -25,7 +25,7 @@
 {
     if ((self = [super init]) != nil) {
         [AmazonS3Client initializeResponseObjects];
-        self.endpoint = AMAZON_S3_US_EAST_1_ENDPOINT_SECURE;;
+        self.endpoint = AMAZON_S3_US_EAST_1_ENDPOINT_SECURE;
     }
 
     return self;
@@ -705,6 +705,14 @@
     [S3GetBucketTaggingResponse class];
     [S3SetBucketTaggingResponse class];
     [S3DeleteBucketTaggingResponse class];
+    [S3DeleteBucketCrossOriginResponse class];
+    [S3DeleteBucketWebsiteConfigurationResponse class];
+    [S3DeleteObjectsResponse class];
+    [S3GetBucketCrossOriginResponse class];
+    [S3GetBucketWebsiteConfigurationResponse class];
+    [S3RestoreObjectResponse class];
+    [S3SetBucketCrossOriginResponse class];
+    [S3SetBucketWebsiteConfigurationResponse class];
 }
 
 

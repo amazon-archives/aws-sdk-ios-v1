@@ -14,8 +14,22 @@
  */
 
 #import "EC2Request.h"
+#import "AmazonAuthUtils.h"
 
 @implementation EC2Request
+
+-(void)sign
+{
+    [self setParameterValue:credentials.accessKey forKey:@"AWSAccessKeyId"];
+    [self setParameterValue:@"2"                                        forKey:@"SignatureVersion"];
+    [self setParameterValue:[NSDate ISO8061FormattedCurrentTimestamp]   forKey:@"Timestamp"];
+    [self setParameterValue:@"HmacSHA256"                               forKey:@"SignatureMethod"];
+    
+    NSData   *dataToSign = [[AmazonAuthUtils getV2StringToSign:[NSURL URLWithString:self.endpoint] request:self] dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *signature  = [AmazonAuthUtils HMACSign:dataToSign withKey:credentials.secretKey usingAlgorithm:kCCHmacAlgSHA256];
+    
+    [self setParameterValue:signature forKey:@"Signature"];
+}
 
 -(void)setParameterValue:(NSString *)theValue forKey:(NSString *)theKey
 {

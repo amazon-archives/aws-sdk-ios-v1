@@ -35,6 +35,11 @@
         }
     }
     if (publishRequest != nil) {
+        if (publishRequest.targetArn != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", publishRequest.targetArn] forKey:[NSString stringWithFormat:@"%@", @"TargetArn"]];
+        }
+    }
+    if (publishRequest != nil) {
         if (publishRequest.message != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", publishRequest.message] forKey:[NSString stringWithFormat:@"%@", @"Message"]];
         }

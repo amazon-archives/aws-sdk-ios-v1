@@ -55,24 +55,26 @@
 
 /**
  * A map of tables and their respective keys that were not processed with
- * the current response. The <i>UnprocessedKeys</i> value is in the same
- * form as <i>RequestItems</i>, so the value can be provided directly to
- * a subsequent <i>BatchGetItem</i> operation. For more information, see
+ * the current response, possibly due to reaching a limit on the response
+ * size. The <i>UnprocessedKeys</i> value is in the same form as
+ * <i>RequestItems</i>, so the value can be provided directly to a
+ * subsequent <i>BatchGetItem</i> operation. For more information, see
  * <i>RequestItems</i> in the Request Parameters section. <p>Each element
- * consists of: <ul> <li> <p><i>Keys</i> - An array of primary key
- * attribute values that define specific items in the table. </li> <li>
- * <li> <p><i>AttributesToGet</i> - One or more attributes to be
- * retrieved from the table or index. By default, all attributes are
- * returned. If a specified attribute is not found, it does not appear in
- * the result. </li> <p>If you are querying an index and request only
- * attributes that are projected into that index, the operation will read
- * only the index and not the table. If any of the requested attributes
- * are not projected into the index, Amazon DynamoDB will need to fetch
- * each matching item from the table. This extra fetching incurs
- * additional throughput cost and latency. </li> <li>
- * <p><i>ConsistentRead</i> - The consistency of a read operation. If set
- * to <code>true</code>, then a strongly consistent read is used;
- * otherwise, an eventually consistent read is used. </li> </ul>
+ * consists of: <ul> <li> <p><i>Keys</i>-The primary key attribute values
+ * that define the items and the attributes associated with the items.
+ * </li> <li> <p><i>AttributesToGet</i>-One or more attributes to
+ * retrieve from the table or index. If no attribute names are specified
+ * then all attributes will be returned. If any of the specified
+ * attributes are not found, they will not appear in the result. <p>If
+ * you are querying an index and only request attributes that are
+ * projected into that index, the operation will consult the index and
+ * bypass the table. If any of the requested attributes are not projected
+ * into the index, Amazon DynamoDB will need to fetch each matching item
+ * from the table. This extra fetching incurs additional throughput cost
+ * and latency. </li> <li> <p><i>ConsistentRead</i>-The consistency of a
+ * read operation. If set to <code>true</code>, then a strongly
+ * consistent read is used; otherwise, an eventually consistent read is
+ * used. </li> </ul>
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 100<br/>
@@ -80,10 +82,10 @@
 @property (nonatomic, retain) NSMutableDictionary *unprocessedKeys;
 
 /**
- * The write capacity units consumed by the operation. <p>Each element
- * consists of: <ul> <li> <p><i>TableName</i> - The table that consumed
- * the provisioned throughput. </li> <li> <p><i>CapacityUnits</i> - The
- * total number of capacity units consumed. </li> </ul>
+ * The capacity units consumed by the operation. <p>Each element consists
+ * of: <ul> <li> <p><i>TableName</i>-The table that consumed the
+ * provisioned throughput. </li> <li> <p><i>CapacityUnits</i>-The total
+ * number of capacity units consumed. </li> </ul>
  */
 @property (nonatomic, retain) NSMutableArray *consumedCapacity;
 

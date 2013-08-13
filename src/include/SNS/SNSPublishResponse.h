@@ -17,6 +17,8 @@
 #import "SNSResponse.h"
 
 #import "SNSNotFoundException.h"
+#import "SNSPlatformApplicationDisabledException.h"
+#import "SNSEndpointDisabledException.h"
 #import "SNSAuthorizationErrorException.h"
 #import "SNSInternalErrorException.h"
 #import "SNSInvalidParameterException.h"

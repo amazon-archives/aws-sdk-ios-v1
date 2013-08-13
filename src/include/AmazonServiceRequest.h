@@ -18,6 +18,7 @@
 #import "AmazonSDKUtil.h"
 #import "AmazonURLRequest.h"
 #import "AmazonCredentials.h"
+#import "AmazonClientException.h"
 
 @protocol AmazonServiceRequestDelegate;
 @class AmazonServiceResponse;
@@ -68,12 +69,20 @@
 @property (nonatomic, retain) NSString            *hostName;
 @property (nonatomic, retain) NSString            *userAgent;
 
+/** The delegate object for the request.
+ *
+ * In the absence of a delegate, the client method that was called with the request will return the
+ * response, occasionally processing inputs on the run loop which called the client method.
+ *
+ * If a delegate is assigned, the request proceeds asynchronously and will send the delegate messages
+ * as the request progresses. The response will be send to the delegate in the request:didCompleteWithResponse
+ * delegate method.
+ */
 @property (nonatomic, assign) id<AmazonServiceRequestDelegate> delegate;
 
 /**
  * Open property that enables user to distinquish various requests.
  */
-
 @property (nonatomic, retain) NSString *requestTag;
 
 -(AmazonURLRequest *)configureURLRequest;
@@ -82,20 +91,6 @@
 -(void)sign;
 
 -(void)setParameterValue:(NSString *)theValue forKey:(NSString *)theKey;
-
-/** Sets the delegate object for the request.
- *
- * In the absence of a delegate, the client method that was called with the request will return the
- * response, occasionally processing inputs on the run loop which called the client method.
- *
- * If a delegate is assigned, the request proceeds asynchronously and will send the delegate messages
- * as the request progresses. The response will be send to the delegate in the request:didCompleteWithResponse
- * delegate method.
- *
- * @param delegate An object which implements one or more of the methods in the AmazonServiceRequestDelegate protocol.
- *
- */
--(void)setDelegate:(id<AmazonServiceRequestDelegate> )delegate;
 
 /** This method returns nil if the request object passed the validation.
  * If not, it will return an exception.
@@ -167,9 +162,7 @@
  * @param totalBytesWritten         The total number of bytes written for this connection.
  * @param totalBytesExpectedToWrite The number of bytes the connection expects to write.
  */
--(void)request:(AmazonServiceRequest *)request didSendData:(NSInteger)bytesWritten
-totalBytesWritten:(NSInteger)totalBytesWritten
-totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite;
+-(void)request:(AmazonServiceRequest *)request didSendData:(long long)bytesWritten totalBytesWritten:(long long)totalBytesWritten totalBytesExpectedToWrite:(long long)totalBytesExpectedToWrite;
 
 /** Sent when there was a basic failure with the underlying connection.
  *

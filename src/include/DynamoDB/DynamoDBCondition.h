@@ -55,7 +55,7 @@
  * BEGINS_WITH | IN | BETWEEN</code> <p>For information on specifying
  * data types in JSON, see <a
  * .amazon.com/amazondynamodb/latest/developerguide/DataFormat.html">JSON
- * Data Format</a> in the <i>Amazon DynamoDB Developer Guide</i>. <p>The
+ * Data Format</a> of the <i>Amazon DynamoDB Developer Guide</i>. <p>The
  * following are descriptions of each comparison operator. <ul> <li>
  * <p><code>EQ</code> : Equal. <p><i>AttributeValueList</i> can contain
  * only one <i>AttributeValue</i> of type String, Number, or Binary (not

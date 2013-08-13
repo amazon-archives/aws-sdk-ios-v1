@@ -94,6 +94,7 @@
  */
 @property (nonatomic, retain) NSString *filename;
 
+/** The redirect location. */
 @property (nonatomic, retain) NSString *redirectLocation;
 
 /** Initializes the request with the key and bucket name */

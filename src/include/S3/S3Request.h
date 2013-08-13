@@ -32,14 +32,6 @@
  *
  */
 @interface S3Request:AmazonServiceRequest {
-    NSString  *authorization;
-    int64_t   contentLength;
-    NSString  *contentType;
-    NSDate    *date;
-    NSString  *securityToken;
-    NSString  *bucket;
-    NSString  *key;
-    NSString  *subResource;
 }
 
 #pragma mark Properties
@@ -48,7 +40,7 @@
 @property (nonatomic, retain) NSString *authorization;
 
 /** Length of the message (without the headers) according to RFC 2616. */
-@property (nonatomic) int64_t contentLength;
+@property (nonatomic, assign) int64_t contentLength;
 
 /** The content type of the resource.
 * Example: <code>text/plain</code> */

@@ -45,8 +45,9 @@
     AmazonStaticCredentialsProvider *provider = [[AmazonStaticCredentialsProvider alloc] initWithCredentials:credentials];
     if (self = [self initWithCredentialsProvider:provider]) {
     }
-    
+
     [provider release];
+    
     return self;
 }
 
@@ -98,7 +99,6 @@
         [generatedRequest sign];
     }
     [urlRequest setHTTPBody:[[generatedRequest queryString] dataUsingEncoding:NSUTF8StringEncoding]];
-
     [self logTheRequest:urlRequest];
 
     AmazonServiceResponse *response = nil;
@@ -113,14 +113,26 @@
         [urlRequest addValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
 
         if ([generatedRequest delegate] != nil) {
+            response.isAsyncCall = YES;
             [self startAsyncRequest:urlRequest response:response originalRequest:originalRequest];
             return nil;
         }
         
+        response.isAsyncCall = NO;
         [self startSyncRequest:generatedRequest forRequest:urlRequest response:response originalRequest:originalRequest];
         AMZLogDebug(@"Response Status Code : %d", response.httpStatusCode);
-        if ( [self shouldRetry:response] ) {
+        
+        if ( [self shouldRetry:response exception:((AmazonRequestDelegate *)generatedRequest.delegate).exception] ) {
             AMZLog(@"Retring Request: %d", retries);
+            
+            // Only Clock Skew exception needs to resign
+            if(response.hasClockSkewError) {
+                urlRequest = [generatedRequest configureURLRequest];
+                [[generatedRequest parameters] removeObjectForKey:@"Signature"];
+                [generatedRequest sign];
+                [urlRequest setHTTPBody:[[generatedRequest queryString] dataUsingEncoding:NSUTF8StringEncoding]];
+                [self logTheRequest:urlRequest];
+            }
             
             [self pauseExponentially:retries];
             retries++;
@@ -145,68 +157,85 @@
 
 - (BOOL)shouldRetry:(AmazonServiceResponse *)response exception:(NSException *)exception
 {
+    // Handling request timeout and HTTP errors.
     if (response.didTimeout || response.httpStatusCode == 500 || response.httpStatusCode == 503) {
 
         return YES;
     }
-    else if([exception isKindOfClass:[AmazonServiceException class]])
-    {
-        AmazonServiceException *serviceException = (AmazonServiceException *)exception;
 
-        if (exception == nil) {
-            return NO;
-        }
-        else if([serviceException.error.domain isEqualToString:NSURLErrorDomain]
-                && serviceException.error.code == kCFURLErrorNetworkConnectionLost)
+    // Handling NSURL errors.
+    if([response.exception isKindOfClass:[AmazonClientException class]])
+    {
+        AmazonClientException *clientException = (AmazonClientException *)response.exception;
+
+        if([clientException.error.domain isEqualToString:NSURLErrorDomain]
+           && clientException.error.code == NSURLErrorNetworkConnectionLost)
         {
             // The network connection was lost.
             return YES;
         }
-        else if([serviceException.error.domain isEqualToString:NSURLErrorDomain]
-                && serviceException.error.code == kCFURLErrorTimedOut)
+
+        if([clientException.error.domain isEqualToString:NSURLErrorDomain]
+           && clientException.error.code == NSURLErrorTimedOut)
         {
             // The request timed out.
             return YES;
         }
-        else if([serviceException.error.domain isEqualToString:NSURLErrorDomain]
-                && serviceException.error.code == NSURLErrorCannotFindHost)
+
+        if([clientException.error.domain isEqualToString:NSURLErrorDomain]
+           && clientException.error.code == NSURLErrorCannotFindHost)
         {
             // S3 sometimes returns this error even when the bucket exists.
             return YES;
         }
-        else if ( [serviceException.errorCode isEqualToString:@"NoSuchUpload"])
-        {
+    }
+
+    // Handling AWS service exceptions.
+    if([exception isKindOfClass:[AmazonServiceException class]])
+    {
+        AmazonServiceException *serviceException = (AmazonServiceException *)exception;
+
+        if ( [serviceException.errorCode isEqualToString:@"BadDigest"]) {
+            // The Content-MD5 you specified did not match what S3 received.
+            return YES;
+        }
+        
+        if ( [serviceException.errorCode isEqualToString:@"NoSuchUpload"]) {
             // S3 Multipart Upload Complete request sometimes fails.
             return YES;
         }
-        else if( [serviceException.errorCode isEqualToString:@"ExpiredToken"]
-                || [serviceException.errorCode isEqualToString:@"InvalidToken"]
-                || [serviceException.errorCode isEqualToString:@"TokenRefreshRequired"] ) {
-            
+
+        if( [serviceException.errorCode isEqualToString:@"ExpiredToken"]
+           || [serviceException.errorCode isEqualToString:@"InvalidToken"]
+           || [serviceException.errorCode isEqualToString:@"TokenRefreshRequired"] ) {
+
             // If the service returned error indicating session expired,
             // force refresh on provider and retry
             [_provider refresh];
             return YES;
         }
-        else if ( [serviceException.errorCode isEqualToString:@"ProvisionedThroughputExceededException"]) {
+
+        if ( [serviceException.errorCode isEqualToString:@"ProvisionedThroughputExceededException"]) {
             return YES;
         }
-        else if (serviceException.reason != nil && [serviceException.reason rangeOfString:@"Throttling"].location != NSNotFound) {
+
+        if (serviceException.reason != nil && [serviceException.reason rangeOfString:@"Throttling"].location != NSNotFound) {
+            return YES;
+        }
+        
+        if ( [response isClockSkewError:serviceException] ) {
+            response.hasClockSkewError = YES;
+            [AmazonSDKUtil setRuntimeClockSkew:[response getSkewTimeUsingResponse]];
             return YES;
         }
     }
-    else if([exception isKindOfClass:[AmazonClientException class]])
+
+    // Handling AWS client exceptions.
+    if([exception isKindOfClass:[AmazonClientException class]])
     {
         AmazonClientException *clientException = (AmazonClientException *)exception;
 
         if ([clientException.message isEqualToString:@"CRC32 doesn't match."]) {
-            return YES;
-        }
-        else if([clientException.error.domain isEqualToString:NSURLErrorDomain]
-                && clientException.error.code == kCFURLErrorNetworkConnectionLost)
-        {
-            // The network connection was lost.
-            // * Note: AmazonClientException shouldn't involve any networking.
             return YES;
         }
     }

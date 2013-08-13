@@ -18,17 +18,6 @@
 
 @implementation S3Request
 
-#pragma mark Properties
-
-@synthesize authorization;
-@synthesize contentLength;
-@synthesize contentType;
-@synthesize date;
-@synthesize securityToken;
-@synthesize bucket;
-@synthesize key;
-@synthesize subResource;
-
 #pragma mark methods
 
 -(AmazonURLRequest *)configureURLRequest
@@ -76,26 +65,26 @@
     }
     resQuery = (self.subResource == nil ? @"" : [NSString stringWithFormat:@"?%@", self.subResource]);
 
-    return [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/%@%@", [self protocol], self.host, keyPath, resQuery]];
+    return [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/%@%@", self.protocol, self.host, keyPath, resQuery]];
 }
 
 -(NSString *)host
 {
     if (nil != self.bucket) {
         if ( [S3BucketNameUtilities isDNSBucketName:self.bucket]) {
-            return [NSString stringWithFormat:@"%@.%@", self.bucket, [super hostName]];
+            return [NSString stringWithFormat:@"%@.%@", self.bucket, self.hostName];
         }
     }
 
-    return [self hostName];
+    return self.hostName;
 }
 
 -(NSDate *)date
 {
-    if (date == nil) {
-        date = [[NSDate date] retain];
+    if (_date == nil) {
+        _date = [[NSDate date] retain];
     }
-    return date;
+    return _date;
 }
 
 -(NSString *)protocol
@@ -110,7 +99,7 @@
 
 -(NSString *)endpointHost
 {
-    return [super hostName];
+    return self.hostName;
 }
 
 
@@ -118,16 +107,13 @@
 
 -(void)dealloc
 {
-    delegate = nil;
-
-    [authorization release];
-    [contentType release];
-    [date release];
-    [securityToken release];
-    [httpMethod release];
-    [subResource release];
-    [key release];
-    [bucket release];
+    [_authorization release];
+    [_contentType release];
+    [_date release];
+    [_securityToken release];
+    [_bucket release];
+    [_key release];
+    [_subResource release];
 
     [super dealloc];
 }

@@ -27,13 +27,5 @@
 @property (nonatomic, retain) UILabel                 *bytesOut;
 
 -(bool)isFinishedOrFailed;
--(void)request:(AmazonServiceRequest *)request didReceiveResponse:(NSURLResponse *)response;
--(void)request:(AmazonServiceRequest *)request didCompleteWithResponse:(AmazonServiceResponse *)response;
--(void)request:(AmazonServiceRequest *)request didReceiveData:(NSData *)data;
--(void)request:(AmazonServiceRequest *)request didSendData:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite;
--(void)request:(AmazonServiceRequest *)request didFailWithError:(NSError *)error;
--(void)request:(AmazonServiceRequest *)request didFailWithServiceException:(NSException *)exception;
-
-
 
 @end

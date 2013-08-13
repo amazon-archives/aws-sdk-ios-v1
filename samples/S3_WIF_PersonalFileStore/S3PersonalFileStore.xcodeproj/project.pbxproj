@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3847CC171750139900015436 /* login-with-amazon-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3847CC161750118300015436 /* login-with-amazon-sdk.a */; };
+		360F18F81773867200D075AB /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 360F18F71773867200D075AB /* FacebookSDK.framework */; };
+		360F18FE1773868500D075AB /* login-with-amazon-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 360F18FD1773868500D075AB /* login-with-amazon-sdk.a */; };
 		3858E51416A8D34400DA7AD0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3858E51316A8D34400DA7AD0 /* Default-568h@2x.png */; };
 		3858E55D16A9BEAC00DA7AD0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3858E55C16A9BEAC00DA7AD0 /* SystemConfiguration.framework */; };
-		3863D33C17189DE40049D976 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3863D33B17189DE40049D976 /* FacebookSDK.framework */; };
 		3863D33E17189EE00049D976 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3863D33D17189EE00049D976 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3863D34017189F2E0049D976 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3863D33F17189F2E0049D976 /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3863D34217189F360049D976 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3863D34117189F360049D976 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -41,13 +41,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3847CC131750118300015436 /* AIAuthenticationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIAuthenticationDelegate.h; sourceTree = "<group>"; };
-		3847CC141750118300015436 /* AIError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIError.h; sourceTree = "<group>"; };
-		3847CC151750118300015436 /* AIMobileLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIMobileLib.h; sourceTree = "<group>"; };
-		3847CC161750118300015436 /* login-with-amazon-sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "login-with-amazon-sdk.a"; sourceTree = "<group>"; };
+		360F18F71773867200D075AB /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../ThirdParty/FacebookSDK.framework; sourceTree = "<group>"; };
+		360F18FA1773868500D075AB /* AIAuthenticationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAuthenticationDelegate.h; sourceTree = "<group>"; };
+		360F18FB1773868500D075AB /* AIError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIError.h; sourceTree = "<group>"; };
+		360F18FC1773868500D075AB /* AIMobileLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIMobileLib.h; sourceTree = "<group>"; };
+		360F18FD1773868500D075AB /* login-with-amazon-sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "login-with-amazon-sdk.a"; sourceTree = "<group>"; };
 		3858E51316A8D34400DA7AD0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		3858E55C16A9BEAC00DA7AD0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		3863D33B17189DE40049D976 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		3863D33D17189EE00049D976 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		3863D33F17189F2E0049D976 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		3863D34117189F360049D976 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -94,7 +94,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3847CC171750139900015436 /* login-with-amazon-sdk.a in Frameworks */,
 				3863D34217189F360049D976 /* Social.framework in Frameworks */,
 				3863D34017189F2E0049D976 /* Accounts.framework in Frameworks */,
 				3863D33E17189EE00049D976 /* AdSupport.framework in Frameworks */,
@@ -103,25 +102,27 @@
 				D02B6C5913E8783D000A4055 /* UIKit.framework in Frameworks */,
 				D02B6C5B13E8783D000A4055 /* Foundation.framework in Frameworks */,
 				D02B6C5D13E8783D000A4055 /* CoreGraphics.framework in Frameworks */,
-				3863D33C17189DE40049D976 /* FacebookSDK.framework in Frameworks */,
 				3886257E1739F82A00A038FF /* AWSRuntime.framework in Frameworks */,
 				3886257F1739F82A00A038FF /* AWSS3.framework in Frameworks */,
 				388625801739F82A00A038FF /* AWSSecurityTokenService.framework in Frameworks */,
+				360F18F81773867200D075AB /* FacebookSDK.framework in Frameworks */,
+				360F18FE1773868500D075AB /* login-with-amazon-sdk.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		38862582173AC33800A038FF /* Amazon */ = {
+		360F18F91773868500D075AB /* Amazon */ = {
 			isa = PBXGroup;
 			children = (
-				3847CC131750118300015436 /* AIAuthenticationDelegate.h */,
-				3847CC141750118300015436 /* AIError.h */,
-				3847CC151750118300015436 /* AIMobileLib.h */,
-				3847CC161750118300015436 /* login-with-amazon-sdk.a */,
+				360F18FA1773868500D075AB /* AIAuthenticationDelegate.h */,
+				360F18FB1773868500D075AB /* AIError.h */,
+				360F18FC1773868500D075AB /* AIMobileLib.h */,
+				360F18FD1773868500D075AB /* login-with-amazon-sdk.a */,
 			);
 			name = Amazon;
+			path = ../../../ThirdParty/Amazon;
 			sourceTree = "<group>";
 		};
 		D02B6C4913E8783D000A4055 = {
@@ -144,13 +145,13 @@
 		D02B6C5713E8783D000A4055 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				360F18F71773867200D075AB /* FacebookSDK.framework */,
 				3886257B1739F82A00A038FF /* AWSRuntime.framework */,
 				3886257C1739F82A00A038FF /* AWSS3.framework */,
 				3886257D1739F82A00A038FF /* AWSSecurityTokenService.framework */,
 				3863D34117189F360049D976 /* Social.framework */,
 				3863D33F17189F2E0049D976 /* Accounts.framework */,
 				3863D33D17189EE00049D976 /* AdSupport.framework */,
-				3863D33B17189DE40049D976 /* FacebookSDK.framework */,
 				3858E55C16A9BEAC00DA7AD0 /* SystemConfiguration.framework */,
 				D09583FE13E87DBF009E4171 /* Security.framework */,
 				D02B6C5813E8783D000A4055 /* UIKit.framework */,
@@ -163,7 +164,6 @@
 		D02B6C5E13E8783D000A4055 /* S3PersonalFileStore */ = {
 			isa = PBXGroup;
 			children = (
-				38862582173AC33800A038FF /* Amazon */,
 				D095836213E878CF009E4171 /* Classes */,
 				D02B6C6713E8783D000A4055 /* S3PersonalFileStoreAppDelegate.h */,
 				D02B6C6813E8783D000A4055 /* S3PersonalFileStoreAppDelegate.m */,
@@ -171,6 +171,7 @@
 				D02B6C6D13E8783D000A4055 /* S3PersonalFileStoreViewController.h */,
 				D02B6C6E13E8783D000A4055 /* S3PersonalFileStoreViewController.m */,
 				D02B6C7013E8783D000A4055 /* S3PersonalFileStoreViewController.xib */,
+				360F18F91773868500D075AB /* Amazon */,
 				D02B6C5F13E8783D000A4055 /* Supporting Files */,
 			);
 			path = S3PersonalFileStore;
@@ -449,6 +450,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../..\"",
+					"\"$(SRCROOT)/../../ThirdParty\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -458,8 +460,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/S3PersonalFileStore/Classes\"",
-					"\"$(SRCROOT)/S3PersonalFileStore\"",
+					"\"$(SRCROOT)/../../ThirdParty/Amazon\"",
 				);
 				OTHER_LDFLAGS = (
 					"-lsqlite3.0",
@@ -479,6 +480,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../..\"",
+					"\"$(SRCROOT)/../../ThirdParty\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "S3PersonalFileStore/S3PersonalFileStore-Prefix.pch";
@@ -487,8 +489,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/S3PersonalFileStore/Classes\"",
-					"\"$(SRCROOT)/S3PersonalFileStore\"",
+					"\"$(SRCROOT)/../../ThirdParty/Amazon\"",
 				);
 				OTHER_LDFLAGS = (
 					"-lsqlite3.0",

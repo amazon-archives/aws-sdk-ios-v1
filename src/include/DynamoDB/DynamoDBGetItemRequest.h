@@ -75,9 +75,10 @@
 @property (nonatomic, readonly) bool consistentReadIsSet;
 
 /**
- * If set to <code>TOTAL</code>, <i>ConsumedCapacity</i> is included in
- * the response; if set to <code>NONE</code> (the default),
- * <i>ConsumedCapacity</i> is not included.
+ * Determines whether to include consumed capacity information in the
+ * output. If this is set to <code>TOTAL</code>, then this information is
+ * shown in the output; otherwise, the consumed capacity information is
+ * not shown.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Allowed Values: </b>TOTAL, NONE

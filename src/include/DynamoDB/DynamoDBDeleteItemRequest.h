@@ -64,9 +64,9 @@
  * if the attribute value already exists; or if the attribute value
  * exists and has a particular value before changing it. <p>Each item in
  * <i>Expected</i> represents an attribute name for Amazon DynamoDB to
- * check, along with the following: <ul> <li> <p><i>Value</i> - The
+ * check, along with the following: <ul> <li> <p><i>Value</i>-the
  * attribute value for Amazon DynamoDB to check. </li> <li>
- * <p><i>Exists</i> - Causes Amazon DynamoDB to evaluate the value before
+ * <p><i>Exists</i>-causes Amazon DynamoDB to evaluate the value before
  * attempting a conditional operation: <ul> <li> <p>If <i>Exists</i> is
  * <code>true</code>, Amazon DynamoDB will check to see if that attribute
  * value already exists in the table. If it is found, then the operation
@@ -96,11 +96,11 @@
 /**
  * Use <i>ReturnValues</i> if you want to get the item attributes as they
  * appeared before they were deleted. For <i>DeleteItem</i>, the valid
- * values are: <ul> <li> <p><code>NONE</code> - If <i>ReturnValues</i> is
- * not specified, or if its value is <code>NONE</code>, then nothing is
- * returned. (This is the default for <i>ReturnValues</i>.) </li> <li>
- * <p><code>ALL_OLD</code> - The content of the old item is returned.
- * </li> </ul>
+ * values are: <ul> <li> <p><code>NONE</code>-(default) If
+ * <i>ReturnValues</i> is not specified, or if its value is
+ * <code>NONE</code>, then nothing is returned. </li> <li>
+ * <p><code>ALL_OLD</code>-The content of the old item is returned. </li>
+ * </ul>
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Allowed Values: </b>NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW
@@ -108,9 +108,10 @@
 @property (nonatomic, retain) NSString *returnValues;
 
 /**
- * If set to <code>TOTAL</code>, <i>ConsumedCapacity</i> is included in
- * the response; if set to <code>NONE</code> (the default),
- * <i>ConsumedCapacity</i> is not included.
+ * Determines whether to include consumed capacity information in the
+ * output. If this is set to <code>TOTAL</code>, then this information is
+ * shown in the output; otherwise, the consumed capacity information is
+ * not shown.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Allowed Values: </b>TOTAL, NONE
@@ -118,10 +119,11 @@
 @property (nonatomic, retain) NSString *returnConsumedCapacity;
 
 /**
- * If set to <code>SIZE</code>, statistics about item collections, if
- * any, that were modified during the operation are returned in the
- * response. If set to <code>NONE</code> (the default), no statistics are
- * returned..
+ * Indicates whether to return statistics about item collections, if any,
+ * that were modified during the operation. The default for
+ * <i>ReturnItemCollectionMetrics</i> is <code>NONE</code>, meaning that
+ * no statistics will be returned. To obtain the statistics, set
+ * <i>ReturnItemCollectionMetrics</i> to <code>SIZE</code>.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Allowed Values: </b>SIZE, NONE

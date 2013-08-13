@@ -40,6 +40,16 @@
         newException = [[SNSNotFoundException alloc] initWithMessage:@""];
     }
 
+    if ([[theException errorCode] isEqualToString:@"PlatformApplicationDisabled"]) {
+        [newException release];
+        newException = [[SNSPlatformApplicationDisabledException alloc] initWithMessage:@""];
+    }
+
+    if ([[theException errorCode] isEqualToString:@"EndpointDisabled"]) {
+        [newException release];
+        newException = [[SNSEndpointDisabledException alloc] initWithMessage:@""];
+    }
+
     if ([[theException errorCode] isEqualToString:@"AuthorizationError"]) {
         [newException release];
         newException = [[SNSAuthorizationErrorException alloc] initWithMessage:@""];

@@ -66,7 +66,7 @@
  * <i>Count</i> results indicates an inefficient <i>Scan</i> operation.
  * For more information, see <a
  * om/amazondynamodb/latest/developerguide/QueryAndScan.html#Count">Count
- * and ScannedCount</a> in the <i>Amazon DynamoDB Developer Guide</i>.
+ * and ScannedCount</a> of the <i>Amazon DynamoDB Developer Guide</i>.
  */
 @property (nonatomic, retain) NSNumber *scannedCount;
 
@@ -75,10 +75,7 @@
  * the previous result set. Use this value to start a new operation,
  * excluding this value in the new request. <p><i>LastEvaluatedKey</i> is
  * null when the entire result set is complete (in other words, when the
- * operation processed the "last page" of results). <p>If you are
- * performing a parallel scan, <i>LastEvaluatedKey</i> is null if the
- * requested <i>Segment</i> has been completely scanned. It does not
- * indicate that any other segments have been scanned.
+ * operation processed the "last page" of results).
  */
 @property (nonatomic, retain) NSMutableDictionary *lastEvaluatedKey;
 
@@ -88,7 +85,7 @@
  * returned if it was asked for in the request. For more information, see
  * <a
  * odb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned
- * Throughput</a> in the <i>Amazon DynamoDB Developer Guide</i>.
+ * Throughput</a> of the <i>Amazon DynamoDB Developer Guide</i>.
  */
 @property (nonatomic, retain) DynamoDBConsumedCapacity *consumedCapacity;
 

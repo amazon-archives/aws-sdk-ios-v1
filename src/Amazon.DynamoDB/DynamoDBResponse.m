@@ -22,6 +22,10 @@
 #define REQUEST_ID_HEADER    @"X-Amzn-Requestid"
 #define kHttpHdrAmzCrc32     @"X-Amz-Crc32"
 
+@interface DynamoDBResponse ()
+@property (nonatomic, readwrite, retain) NSDictionary *responseHeader;
+@end
+
 @implementation DynamoDBResponse
 
 @synthesize crc32;
@@ -41,7 +45,7 @@
     [super connection:connection didReceiveResponse:response];
 
     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-
+    self.responseHeader = [httpResponse allHeaderFields];
     if([[httpResponse allHeaderFields] objectForKey:kHttpHdrAmzCrc32])
     {
         self.crc32 = [[NSNumber numberWithLongLong:[[[httpResponse allHeaderFields] objectForKey:kHttpHdrAmzCrc32] longLongValue]] unsignedIntValue];

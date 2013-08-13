@@ -41,9 +41,9 @@
  * <code>PUT</code>, <code>DELETE</code>, and <code>ADD</code>. The
  * behavior depends on whether the specified primary key already exists
  * in the table. <p> <b>If an item with the specified <i>Key</i> is found
- * in the table:</b> <ul> <li> <p><code>PUT</code> - Adds the specified
+ * in the table:</b> <ul> <li> <p><code>PUT</code>-Adds the specified
  * attribute to the item. If the attribute already exists, it is replaced
- * by the new value. </li> <li> <p><code>DELETE</code> - If no value is
+ * by the new value. </li> <li> <p><code>DELETE</code>-If no value is
  * specified, the attribute and its value are removed from the item. The
  * data type of the specified value must match the existing value's data
  * type. <p>If a <i>set</i> of values is specified, then those values are
@@ -51,11 +51,11 @@
  * the set <code>[a,b,c]</code> and the <i>DELETE</i> action specified
  * <code>[a,c]</code>, then the final attribute value would be
  * <code>[b]</code>. Specifying an empty set is an error. </li> <li>
- * <p><code>ADD</code> - If the attribute does not already exist, then
- * the attribute and its values are added to the item. If the attribute
- * does exist, then the behavior of <code>ADD</code> depends on the data
- * type of the attribute: <ul> <li> <p>If the existing attribute is a
- * number, and if <i>Value</i> is also a number, then the <i>Value</i> is
+ * <p><code>ADD</code>-If the attribute does not already exist, then the
+ * attribute and its values are added to the item. If the attribute does
+ * exist, then the behavior of <code>ADD</code> depends on the data type
+ * of the attribute: <ul> <li> <p>If the existing attribute is a number,
+ * and if <i>Value</i> is also a number, then the <i>Value</i> is
  * mathematically added to the existing attribute. If <i>Value</i> is a
  * negative number, then it is subtracted from the existing attribute.
  * <note> <p> If you use <code>ADD</code> to increment or decrement a
@@ -86,12 +86,12 @@
  * for an existing attribute whose data type is number or is a set. Do
  * not use <code>ADD</code> for any other data types. </li> </ul> <p>
  * <b>If no item with the specified <i>Key</i> is found:</b> <ul> <li>
- * <p><code>PUT</code> - Amazon DynamoDB creates a new item with the
+ * <p><code>PUT</code>-Amazon DynamoDB creates a new item with the
  * specified primary key, and then adds the attribute. </li> <li>
- * <p><code>DELETE</code> - Nothing happens; there is no attribute to
- * delete. </li> <li> <p><code>ADD</code> - Amazon DynamoDB creates an
- * item with the supplied primary key and number (or set of numbers) for
- * the attribute value. The only data types allowed are number and number
+ * <p><code>DELETE</code>-Nothing happens; there is no attribute to
+ * delete. </li> <li> <p><code>ADD</code>-Amazon DynamoDB creates an item
+ * with the supplied primary key and number (or set of numbers) for the
+ * attribute value. The only data types allowed are number and number
  * set; no other data types can be specified. </li> </ul>
  * <p>
  * <b>Constraints:</b><br/>
@@ -116,9 +116,9 @@
  * <code>PUT</code>, <code>DELETE</code>, and <code>ADD</code>. The
  * behavior depends on whether the specified primary key already exists
  * in the table. <p> <b>If an item with the specified <i>Key</i> is found
- * in the table:</b> <ul> <li> <p><code>PUT</code> - Adds the specified
+ * in the table:</b> <ul> <li> <p><code>PUT</code>-Adds the specified
  * attribute to the item. If the attribute already exists, it is replaced
- * by the new value. </li> <li> <p><code>DELETE</code> - If no value is
+ * by the new value. </li> <li> <p><code>DELETE</code>-If no value is
  * specified, the attribute and its value are removed from the item. The
  * data type of the specified value must match the existing value's data
  * type. <p>If a <i>set</i> of values is specified, then those values are
@@ -126,11 +126,11 @@
  * the set <code>[a,b,c]</code> and the <i>DELETE</i> action specified
  * <code>[a,c]</code>, then the final attribute value would be
  * <code>[b]</code>. Specifying an empty set is an error. </li> <li>
- * <p><code>ADD</code> - If the attribute does not already exist, then
- * the attribute and its values are added to the item. If the attribute
- * does exist, then the behavior of <code>ADD</code> depends on the data
- * type of the attribute: <ul> <li> <p>If the existing attribute is a
- * number, and if <i>Value</i> is also a number, then the <i>Value</i> is
+ * <p><code>ADD</code>-If the attribute does not already exist, then the
+ * attribute and its values are added to the item. If the attribute does
+ * exist, then the behavior of <code>ADD</code> depends on the data type
+ * of the attribute: <ul> <li> <p>If the existing attribute is a number,
+ * and if <i>Value</i> is also a number, then the <i>Value</i> is
  * mathematically added to the existing attribute. If <i>Value</i> is a
  * negative number, then it is subtracted from the existing attribute.
  * <note> <p> If you use <code>ADD</code> to increment or decrement a
@@ -161,12 +161,12 @@
  * for an existing attribute whose data type is number or is a set. Do
  * not use <code>ADD</code> for any other data types. </li> </ul> <p>
  * <b>If no item with the specified <i>Key</i> is found:</b> <ul> <li>
- * <p><code>PUT</code> - Amazon DynamoDB creates a new item with the
+ * <p><code>PUT</code>-Amazon DynamoDB creates a new item with the
  * specified primary key, and then adds the attribute. </li> <li>
- * <p><code>DELETE</code> - Nothing happens; there is no attribute to
- * delete. </li> <li> <p><code>ADD</code> - Amazon DynamoDB creates an
- * item with the supplied primary key and number (or set of numbers) for
- * the attribute value. The only data types allowed are number and number
+ * <p><code>DELETE</code>-Nothing happens; there is no attribute to
+ * delete. </li> <li> <p><code>ADD</code>-Amazon DynamoDB creates an item
+ * with the supplied primary key and number (or set of numbers) for the
+ * attribute value. The only data types allowed are number and number
  * set; no other data types can be specified. </li> </ul>
  */
 -(id)initWithValue:(DynamoDBAttributeValue *)theValue andAction:(NSString *)theAction;

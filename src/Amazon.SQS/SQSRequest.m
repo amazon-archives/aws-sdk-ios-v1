@@ -14,8 +14,6 @@
  */
 
 #import "SQSRequest.h"
-#import "AmazonAuthUtils.h"
-
 
 @implementation SQSRequest
 
@@ -29,14 +27,5 @@
 {
     [parameters setValue:theEndpoint forKey:@"QueueUrl"];
 }
-
--(void)sign {
-    // headers to sign
-    NSMutableDictionary *headers = [NSMutableDictionary dictionary];
-    [headers setObject:self.hostName forKey:@"Host"];
-    
-    [AmazonAuthUtils signRequestV4:self headers:headers payload:[self queryString] credentials:self.credentials];
-}
-
 
 @end

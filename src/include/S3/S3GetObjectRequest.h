@@ -84,7 +84,7 @@
 /** sets the start and end of the range. */
 -(void)setRangeStart:(int64_t)start rangeEnd:(int64_t)end;
 
-/** returns the range in the form 'bytes=start:end' */
+/** returns the range in the form 'bytes=start-end' */
 -(NSString *)getRange;
 
 @end

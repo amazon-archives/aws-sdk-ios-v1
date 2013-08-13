@@ -121,8 +121,8 @@
  * The ChangeMessageVisibility action changes the visibility timeout of a specified message in a queue to a new value. The
  * maximum allowed timeout value you can set the value to is 12 hours. This means you can't extend the timeout of a message
  * in an existing queue to more than a total visibility timeout of 12 hours. (For more information visibility timeout, see
- * <a href="http://docs.amazonwebservices.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html"> Visibility
- * Timeout </a> in the Amazon SQS Developer Guide.)
+ * <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html"> Visibility Timeout
+ * </a> in the Amazon SQS Developer Guide.)
  * </p>
  * <p>
  * For example, let's say you have a message and its default message visibility timeout is 30 minutes. You could call
@@ -451,20 +451,20 @@
 /**
  * <p>
  * The AddPermission action adds a permission to a queue for a specific <a
- * href="http://docs.amazonwebservices.com/AWSSimpleQueueService/latest/APIReference/Glossary.html#d0e3892"> principal </a>
- * . This allows for sharing access to the queue.
+ * href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/Glossary.html"> principal </a> . This allows
+ * for sharing access to the queue.
  * </p>
  * <p>
  * When you create a queue, you have full control access rights for the queue. Only you (as owner of the queue) can grant
  * or deny permissions to the queue. For more information about these permissions, see <a
- * href="http://docs.amazonwebservices.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/?acp-overview.html"> Shared
- * Queues </a> in the Amazon SQS Developer Guide.
+ * href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/?acp-overview.html"> Shared Queues </a>
+ * in the Amazon SQS Developer Guide.
  * </p>
  * <p>
  * AddPermission writes an SQS-generated policy. If you want to write your own policy, use SetQueueAttributes to upload
  * your policy. For more information about writing your own policy, see <a
- * href="http://docs.amazonwebservices.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/?AccessPolicyLanguage.html">
- * Appendix: The Access Policy Language </a> in the Amazon SQS Developer Guide.
+ * href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/?AccessPolicyLanguage.html"> Appendix:
+ * The Access Policy Language </a> in the Amazon SQS Developer Guide.
  * </p>
  *
  * @param addPermissionRequest Container for the necessary parameters to execute the AddPermission service method on

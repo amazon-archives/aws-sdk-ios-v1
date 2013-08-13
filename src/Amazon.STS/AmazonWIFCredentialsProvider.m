@@ -96,7 +96,8 @@
 
 -(id)initWithRole:(NSString *)roleArn andWebIdentityToken:(NSString *)token fromProvider:(NSString *)providerId
 {
-    return [self initWithClient:[[AmazonSecurityTokenServiceClient alloc] init] andRole:roleArn andWebIdentityToken:token fromProvider:providerId];
+    AmazonSecurityTokenServiceClient *stsClient = [[AmazonSecurityTokenServiceClient new] autorelease];
+    return [self initWithClient:stsClient andRole:roleArn andWebIdentityToken:token fromProvider:providerId];
 }
 
 -(id)initWithClient:(AmazonSecurityTokenServiceClient *)theClient andRole:(NSString *)roleArn andWebIdentityToken:(NSString *)token fromProvider:(NSString *)providerId

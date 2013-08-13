@@ -28,6 +28,6 @@
 @property (nonatomic, retain) AmazonServiceResponse *response;
 @property (nonatomic, retain) NSError *error;
 @property (nonatomic, retain) NSException *exception;
-@property (nonatomic, assign) NSUInteger partSize;
+@property (nonatomic, assign) int64_t partSize;
 
 @end

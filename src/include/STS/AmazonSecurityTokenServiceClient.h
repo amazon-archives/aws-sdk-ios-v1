@@ -14,6 +14,8 @@
  */
 #import "SecurityTokenServiceGetSessionTokenResponse.h"
 #import "SecurityTokenServiceGetSessionTokenRequest.h"
+#import "SecurityTokenServiceDecodeAuthorizationMessageResponse.h"
+#import "SecurityTokenServiceDecodeAuthorizationMessageRequest.h"
 #import "SecurityTokenServiceAssumeRoleWithWebIdentityResponse.h"
 #import "SecurityTokenServiceAssumeRoleWithWebIdentityRequest.h"
 #import "SecurityTokenServiceGetFederationTokenResponse.h"
@@ -85,6 +87,7 @@
  * For more information about using GetSessionToken to create temporary credentials, go to <a
  * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/CreatingSessionTokens.html"> Creating Temporary Credentials to
  * Enable Access for IAM Users </a> in <i>Using IAM</i> .
+ *
  * </p>
  *
  * @param getSessionTokenRequest Container for the necessary parameters to execute the GetSessionToken service method on
@@ -107,13 +110,69 @@
 
 /**
  * <p>
+ * Decodes additional information about the authorization status of a request from an encoded message returned in response
+ * to an AWS request.
+ * </p>
+ * <p>
+ * For example, if a user is not authorized to perform an action that he or she has requested, the request returns a
+ * Client.UnauthorizedOperation response (an HTTP 403 response). Some AWS actions additionally return an encoded message
+ * that can provide details about this authorization failure.
+ * </p>
+ * <p>
+ * <b>NOTE:</b> Only certain AWS actions return an encoded authorization message. The documentation for an individual
+ * action indicates whether that action returns an encoded message in addition to returning an HTTP code.
+ * </p>
+ * <p>
+ * The message is encoded because the details of the authorization status can constitute privileged information that the
+ * user who requested the action should not see. To decode an authorization status message, a user must be granted
+ * permissions via an IAM policy to request the DecodeAuthorizationMessage (
+ * sts:DecodeAuthorizationMessage ) action.
+ * </p>
+ * <p>
+ * The decoded message includes the following type of information:
+ * </p>
+ *
+ * <ul>
+ * <li>Whether the request was denied due to an explicit deny or due to the absence of an explicit allow. For more
+ * information, see <a
+ * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/AccessPolicyLanguage_EvaluationLogic.html#policy-eval-denyallow">
+ * Determining Whether a Request is Allowed or Denied </a> in <i>Using IAM</i> .
+ * </li>
+ * <li>The principal who made the request.</li>
+ * <li>The requested action.</li>
+ * <li>The requested resource.</li>
+ * <li>The values of condition keys in the context of the user's request.</li>
+ *
+ * </ul>
+ *
+ * @param decodeAuthorizationMessageRequest Container for the necessary parameters to execute the
+ *           DecodeAuthorizationMessage service method on AmazonSecurityTokenService.
+ *
+ * @return The response from the DecodeAuthorizationMessage service method, as returned by AmazonSecurityTokenService.
+ *
+ * @exception SecurityTokenServiceInvalidAuthorizationMessageException For more information see <SecurityTokenServiceInvalidAuthorizationMessageException>
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonSecurityTokenService indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see SecurityTokenServiceDecodeAuthorizationMessageRequest
+ * @see SecurityTokenServiceDecodeAuthorizationMessageResponse
+ */
+-(SecurityTokenServiceDecodeAuthorizationMessageResponse *)decodeAuthorizationMessage:(SecurityTokenServiceDecodeAuthorizationMessageRequest *)decodeAuthorizationMessageRequest;
+
+
+/**
+ * <p>
  * Returns a set of temporary security credentials for users who have been authenticated in a mobile or web application
  * with a web identity provider, such as Login with Amazon, Facebook, or Google. AssumeRoleWithWebIdentity is an API call
  * that does not require the use of AWS security credentials. Therefore, you can distribute an application (for example, on
  * mobile devices) that requests temporary security credentials without including long-term AWS credentials in the
  * application or by deploying server-based proxy services that use long-term AWS credentials. For more information, see <a
- * href="http://aws-docs-alpha.integ.amazon.com/STS/latest/UsingSTS/STSUseCases.html#MobileApplication-KnownProvider">
- * Creating a Mobile Application with Third-Party Sign-In </a> in <i>AWS Security Token Service</i> .
+ * href="http://docs.aws.amazon.com/STS/latest/UsingSTS/STSUseCases.html#MobileApplication-KnownProvider"> Creating a
+ * Mobile Application with Third-Party Sign-In </a> in <i>AWS Security Token Service</i> .
  *
  * </p>
  * <p>
@@ -204,6 +263,7 @@
  * create temporary security credentials, see <a
  * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/CreatingFedTokens.html"> Creating Temporary Credentials to Enable
  * Access for Federated Users </a> in <i>Using Temporary Security Credentials</i> .
+ *
  * </p>
  *
  * @param getFederationTokenRequest Container for the necessary parameters to execute the GetFederationToken service method
@@ -270,7 +330,7 @@
  * </p>
  * <p>
  * <b>Important:</b> You cannot call Assumerole by using AWS account credentials; access will be denied. You must use IAM
- * user credentials to call AssumeRole .
+ * user credentials or temporary security credentials to call AssumeRole .
  *
  * </p>
  * <p>

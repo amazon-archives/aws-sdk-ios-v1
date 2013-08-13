@@ -30,6 +30,7 @@
 
 {
     NSString *topicArn;
+    NSString *targetArn;
     NSString *message;
     NSString *subject;
     NSString *messageStructure;
@@ -43,6 +44,11 @@
 @property (nonatomic, retain) NSString *topicArn;
 
 /**
+ * Either TopicArn or EndpointArn, but not both.
+ */
+@property (nonatomic, retain) NSString *targetArn;
+
+/**
  * The message you want to send to the topic. <p>If you want to send the
  * same message to all transport protocols, include the text of the
  * message as a String value. <p>If you want to send different messages
@@ -50,10 +56,10 @@
  * <code>MessageStructure</code> parameter to <code>json</code> and use a
  * JSON object for the <code>Message</code> parameter. See the Examples
  * section for the format of the JSON object. <p>Constraints: Messages
- * must be UTF-8 encoded strings at most 64 KB in size (65536 bytes, not
- * 65536 characters). <p>JSON-specific constraints: <ul> <li>Keys in the
- * JSON object that correspond to supported transport protocols must have
- * simple JSON string values. </li> <li>The values will be parsed
+ * must be UTF-8 encoded strings at most 256 KB in size (262144 bytes,
+ * not 262144 characters). <p>JSON-specific constraints: <ul> <li>Keys in
+ * the JSON object that correspond to supported transport protocols must
+ * have simple JSON string values. </li> <li>The values will be parsed
  * (unescaped) before they are used in outgoing messages.</li>
  * <li>Outbound notifications are JSON encoded (meaning that the
  * characters will be reescaped for sending).</li> <li>Values have a
@@ -70,13 +76,12 @@
 @property (nonatomic, retain) NSString *message;
 
 /**
- * Optional parameter to be used as the "Subject" line of when the
- * message is delivered to email endpoints. This field will also be
- * included, if present, in the standard JSON messages delivered to other
- * endpoints. <p>Constraints: Subjects must be ASCII text that begins
- * with a letter, number or punctuation mark; must not include line
- * breaks or control characters; and must be less than 100 characters
- * long.
+ * Optional parameter to be used as the "Subject" line when the message
+ * is delivered to email endpoints. This field will also be included, if
+ * present, in the standard JSON messages delivered to other endpoints.
+ * <p>Constraints: Subjects must be ASCII text that begins with a letter,
+ * number, or punctuation mark; must not include line breaks or control
+ * characters; and must be less than 100 characters long.
  */
 @property (nonatomic, retain) NSString *subject;
 
@@ -119,10 +124,10 @@
  * <code>MessageStructure</code> parameter to <code>json</code> and use a
  * JSON object for the <code>Message</code> parameter. See the Examples
  * section for the format of the JSON object. <p>Constraints: Messages
- * must be UTF-8 encoded strings at most 64 KB in size (65536 bytes, not
- * 65536 characters). <p>JSON-specific constraints: <ul> <li>Keys in the
- * JSON object that correspond to supported transport protocols must have
- * simple JSON string values. </li> <li>The values will be parsed
+ * must be UTF-8 encoded strings at most 256 KB in size (262144 bytes,
+ * not 262144 characters). <p>JSON-specific constraints: <ul> <li>Keys in
+ * the JSON object that correspond to supported transport protocols must
+ * have simple JSON string values. </li> <li>The values will be parsed
  * (unescaped) before they are used in outgoing messages.</li>
  * <li>Outbound notifications are JSON encoded (meaning that the
  * characters will be reescaped for sending).</li> <li>Values have a
@@ -150,10 +155,10 @@
  * <code>MessageStructure</code> parameter to <code>json</code> and use a
  * JSON object for the <code>Message</code> parameter. See the Examples
  * section for the format of the JSON object. <p>Constraints: Messages
- * must be UTF-8 encoded strings at most 64 KB in size (65536 bytes, not
- * 65536 characters). <p>JSON-specific constraints: <ul> <li>Keys in the
- * JSON object that correspond to supported transport protocols must have
- * simple JSON string values. </li> <li>The values will be parsed
+ * must be UTF-8 encoded strings at most 256 KB in size (262144 bytes,
+ * not 262144 characters). <p>JSON-specific constraints: <ul> <li>Keys in
+ * the JSON object that correspond to supported transport protocols must
+ * have simple JSON string values. </li> <li>The values will be parsed
  * (unescaped) before they are used in outgoing messages.</li>
  * <li>Outbound notifications are JSON encoded (meaning that the
  * characters will be reescaped for sending).</li> <li>Values have a
@@ -167,10 +172,10 @@
  * <code>Publish</code> call to return an error (no partial
  * delivery).</li> </ul>
  * @param theSubject Optional parameter to be used as the "Subject" line
- * of when the message is delivered to email endpoints. This field will
- * also be included, if present, in the standard JSON messages delivered
- * to other endpoints. <p>Constraints: Subjects must be ASCII text that
- * begins with a letter, number or punctuation mark; must not include
+ * when the message is delivered to email endpoints. This field will also
+ * be included, if present, in the standard JSON messages delivered to
+ * other endpoints. <p>Constraints: Subjects must be ASCII text that
+ * begins with a letter, number, or punctuation mark; must not include
  * line breaks or control characters; and must be less than 100
  * characters long.
  */

@@ -14,7 +14,50 @@
  */
 
 #import "SQSResponse.h"
+#import "AmazonSDKUtil.h"
 
 @implementation SQSResponse
+
+-(NSDate *)getDateFromResponse
+{
+    if ( [[self responseHeader] objectForKey:@"Date"] ) {
+        NSString *date = [[self responseHeader] valueForKey:@"Date"];
+        return [AmazonSDKUtil convertStringToDate:date usingFormat:kRFC822DateFormat];
+    }
+    
+    NSString *msgBody = [[NSString alloc] initWithData:[self body] encoding:NSUTF8StringEncoding];
+    NSString *time = nil;
+    // if local device time is behind than server time
+    if ([msgBody rangeOfString:@" + 15"].location == NSNotFound) {
+        time = [self getTimeUsingBeginTag:@" (" andEndTag:@" - 15 min.)" fromResponseBody:msgBody];
+    }
+    else {
+        time =  [self getTimeUsingBeginTag:@" (" andEndTag:@" + 15 min.)" fromResponseBody:msgBody];
+    }
+    [msgBody release];
+    
+    return [AmazonSDKUtil convertStringToDate:time usingFormat:kDateTimeFormat];
+}
+
+/**
+ * Extract server time from response message body.
+ *
+ * @return the server time in a string format.
+ */
+-(NSString *)getTimeUsingBeginTag:(NSString *)bTag andEndTag:(NSString *)eTag fromResponseBody:(NSString *)responseBody
+{
+    @try {
+        NSRange rLeft = [responseBody rangeOfString:bTag];
+        NSRange rRight = [responseBody rangeOfString:eTag];
+        NSUInteger loc = rLeft.location + rLeft.length;
+        NSUInteger len = rRight.location - rLeft.location - rLeft.length;
+        NSRange sub = NSMakeRange(loc, len);
+        NSString *date = [responseBody substringWithRange:sub];
+        return date;
+    }
+    @catch (NSException *e) {
+        return nil;
+    }
+}
 
 @end

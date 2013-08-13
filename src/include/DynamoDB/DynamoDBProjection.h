@@ -38,12 +38,12 @@
 
 /**
  * Represents the set of attributes that are projected into the index:
- * <ul> <li> <p><code>KEYS_ONLY</code> - Only the index and primary keys
- * are projected into the index. </li> <li> <p><code>INCLUDE</code> -
- * Only the specified table attributes are projected into the index. The
- * list of projected attributes are in <i>NonKeyAttributes</i>. </li>
- * <li> <p><code>ALL</code> - All of the table attributes are projected
- * into the index. </li> </ul>
+ * <ul> <li> <p><code>KEYS_ONLY</code>-Only the index and primary keys
+ * are projected into the index. </li> <li> <p><code>INCLUDE</code>-Only
+ * the specified table attributes are projected into the index. The list
+ * of projected attributes are in <i>NonKeyAttributes</i>. </li> <li>
+ * <p><code>ALL</code>-All of the table attributes are projected into the
+ * index. </li> </ul>
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Allowed Values: </b>ALL, KEYS_ONLY, INCLUDE

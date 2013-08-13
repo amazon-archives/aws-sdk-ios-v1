@@ -18,6 +18,8 @@
 #import "AmazonServiceRequest.h"
 #import "SecurityTokenServiceGetSessionTokenResponseUnmarshaller.h"
 #import "SecurityTokenServiceGetSessionTokenRequestMarshaller.h"
+#import "SecurityTokenServiceDecodeAuthorizationMessageResponseUnmarshaller.h"
+#import "SecurityTokenServiceDecodeAuthorizationMessageRequestMarshaller.h"
 #import "SecurityTokenServiceAssumeRoleWithWebIdentityResponseUnmarshaller.h"
 #import "SecurityTokenServiceAssumeRoleWithWebIdentityRequestMarshaller.h"
 #import "SecurityTokenServiceGetFederationTokenResponseUnmarshaller.h"
@@ -66,6 +68,13 @@
     AmazonServiceRequest *request = [SecurityTokenServiceGetSessionTokenRequestMarshaller createRequest:getSessionTokenRequest];
 
     return (SecurityTokenServiceGetSessionTokenResponse *)[self invoke:request rawRequest:getSessionTokenRequest unmarshallerDelegate:[SecurityTokenServiceGetSessionTokenResponseUnmarshaller class]];
+}
+
+-(SecurityTokenServiceDecodeAuthorizationMessageResponse *)decodeAuthorizationMessage:(SecurityTokenServiceDecodeAuthorizationMessageRequest *)decodeAuthorizationMessageRequest
+{
+    AmazonServiceRequest *request = [SecurityTokenServiceDecodeAuthorizationMessageRequestMarshaller createRequest:decodeAuthorizationMessageRequest];
+
+    return (SecurityTokenServiceDecodeAuthorizationMessageResponse *)[self invoke:request rawRequest:decodeAuthorizationMessageRequest unmarshallerDelegate:[SecurityTokenServiceDecodeAuthorizationMessageResponseUnmarshaller class]];
 }
 
 -(SecurityTokenServiceAssumeRoleWithWebIdentityResponse *)assumeRoleWithWebIdentity:(SecurityTokenServiceAssumeRoleWithWebIdentityRequest *)assumeRoleWithWebIdentityRequest

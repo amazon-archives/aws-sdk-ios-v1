@@ -14,30 +14,50 @@
  */
 #import "SNSConfirmSubscriptionResponse.h"
 #import "SNSConfirmSubscriptionRequest.h"
+#import "SNSCreatePlatformApplicationResponse.h"
+#import "SNSCreatePlatformApplicationRequest.h"
 #import "SNSGetTopicAttributesResponse.h"
 #import "SNSGetTopicAttributesRequest.h"
 #import "SNSSubscribeResponse.h"
 #import "SNSSubscribeRequest.h"
+#import "SNSDeleteEndpointResponse.h"
+#import "SNSDeleteEndpointRequest.h"
 #import "SNSSetTopicAttributesResponse.h"
 #import "SNSSetTopicAttributesRequest.h"
-#import "SNSDeleteTopicResponse.h"
-#import "SNSDeleteTopicRequest.h"
 #import "SNSRemovePermissionResponse.h"
 #import "SNSRemovePermissionRequest.h"
+#import "SNSGetEndpointAttributesResponse.h"
+#import "SNSGetEndpointAttributesRequest.h"
 #import "SNSListSubscriptionsResponse.h"
 #import "SNSListSubscriptionsRequest.h"
+#import "SNSCreatePlatformEndpointResponse.h"
+#import "SNSCreatePlatformEndpointRequest.h"
 #import "SNSSetSubscriptionAttributesResponse.h"
 #import "SNSSetSubscriptionAttributesRequest.h"
-#import "SNSAddPermissionResponse.h"
-#import "SNSAddPermissionRequest.h"
 #import "SNSCreateTopicResponse.h"
 #import "SNSCreateTopicRequest.h"
 #import "SNSGetSubscriptionAttributesResponse.h"
 #import "SNSGetSubscriptionAttributesRequest.h"
 #import "SNSListTopicsResponse.h"
 #import "SNSListTopicsRequest.h"
+#import "SNSDeletePlatformApplicationResponse.h"
+#import "SNSDeletePlatformApplicationRequest.h"
+#import "SNSListPlatformApplicationsResponse.h"
+#import "SNSListPlatformApplicationsRequest.h"
+#import "SNSSetEndpointAttributesResponse.h"
+#import "SNSSetEndpointAttributesRequest.h"
 #import "SNSUnsubscribeResponse.h"
 #import "SNSUnsubscribeRequest.h"
+#import "SNSDeleteTopicResponse.h"
+#import "SNSDeleteTopicRequest.h"
+#import "SNSGetPlatformApplicationAttributesResponse.h"
+#import "SNSGetPlatformApplicationAttributesRequest.h"
+#import "SNSSetPlatformApplicationAttributesResponse.h"
+#import "SNSSetPlatformApplicationAttributesRequest.h"
+#import "SNSAddPermissionResponse.h"
+#import "SNSAddPermissionRequest.h"
+#import "SNSListEndpointsByPlatformApplicationResponse.h"
+#import "SNSListEndpointsByPlatformApplicationRequest.h"
 #import "SNSListSubscriptionsByTopicResponse.h"
 #import "SNSListSubscriptionsByTopicRequest.h"
 #import "SNSPublishResponse.h"
@@ -94,6 +114,40 @@
  * @see SNSConfirmSubscriptionResponse
  */
 -(SNSConfirmSubscriptionResponse *)confirmSubscription:(SNSConfirmSubscriptionRequest *)confirmSubscriptionRequest;
+
+
+/**
+ * <p>
+ * The CreatePlatformApplication action creates a platform application object for one of the supported push notification
+ * services, such as APNS and GCM, to which devices and mobile apps may register. You must specify PlatformPrincipal and
+ * PlatformCredential attributes when using the CreatePlatformApplication action. The PlatformPrincipal is received from
+ * the notification service. For APNS/APNS_SANDBOX, PlatformPrincipal is "SSL certificate". For GCM, PlatformPrincipal is
+ * not applicable. For ADM, PlatformPrincipal is "client id". The PlatformCredential is also received from the
+ * notification service. For APNS/APNS_SANDBOX, PlatformCredential is "private key". For GCM, PlatformCredential is "API
+ * key". For ADM, PlatformCredential is "client secret". The PlatformApplicationArn that is returned when using
+ * CreatePlatformApplication is then used as an attribute for the CreatePlatformEndpoint action. For more information, see
+ * <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html"> Using Amazon SNS Mobile Push Notifications </a> .
+ * </p>
+ *
+ * @param createPlatformApplicationRequest Container for the necessary parameters to execute the CreatePlatformApplication
+ *           service method on AmazonSNS.
+ *
+ * @return The response from the CreatePlatformApplication service method, as returned by AmazonSNS.
+ *
+ * @exception SNSAuthorizationErrorException For more information see <SNSAuthorizationErrorException>
+ * @exception SNSInternalErrorException For more information see <SNSInternalErrorException>
+ * @exception SNSInvalidParameterException For more information see <SNSInvalidParameterException>
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonSNS indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see SNSCreatePlatformApplicationRequest
+ * @see SNSCreatePlatformApplicationResponse
+ */
+-(SNSCreatePlatformApplicationResponse *)createPlatformApplication:(SNSCreatePlatformApplicationRequest *)createPlatformApplicationRequest;
 
 
 /**
@@ -155,6 +209,31 @@
 
 /**
  * <p>
+ * The DeleteEndpoint action, which is idempotent, deletes the endpoint from SNS. For more information, see <a
+ * href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html"> Using Amazon SNS Mobile Push Notifications </a> .
+ * </p>
+ *
+ * @param deleteEndpointRequest Container for the necessary parameters to execute the DeleteEndpoint service method on
+ *           AmazonSNS.
+ *
+ * @exception SNSAuthorizationErrorException For more information see <SNSAuthorizationErrorException>
+ * @exception SNSInternalErrorException For more information see <SNSInternalErrorException>
+ * @exception SNSInvalidParameterException For more information see <SNSInvalidParameterException>
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonSNS indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see SNSDeleteEndpointRequest
+ * @see SNSDeleteEndpointResponse
+ */
+-(SNSDeleteEndpointResponse *)deleteEndpoint:(SNSDeleteEndpointRequest *)deleteEndpointRequest;
+
+
+/**
+ * <p>
  * The SetTopicAttributes action allows a topic owner to set an attribute of the topic to a new value.
  * </p>
  *
@@ -180,32 +259,6 @@
 
 /**
  * <p>
- * The DeleteTopic action deletes a topic and all its subscriptions. Deleting a topic might prevent some messages
- * previously sent to the topic from being delivered to subscribers. This action is idempotent, so deleting a topic that
- * does not exist does not result in an error.
- * </p>
- *
- * @param deleteTopicRequest Container for the necessary parameters to execute the DeleteTopic service method on AmazonSNS.
- *
- * @exception SNSNotFoundException For more information see <SNSNotFoundException>
- * @exception SNSAuthorizationErrorException For more information see <SNSAuthorizationErrorException>
- * @exception SNSInternalErrorException For more information see <SNSInternalErrorException>
- * @exception SNSInvalidParameterException For more information see <SNSInvalidParameterException>
- *
- * @exception AmazonClientException If any internal errors are encountered inside the client while
- * attempting to make the request or handle the response.  For example
- * if a network connection is not available.  For more information see <AmazonClientException>.
- * @exception AmazonServiceException If an error response is returned by AmazonSNS indicating
- * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
- *
- * @see SNSDeleteTopicRequest
- * @see SNSDeleteTopicResponse
- */
--(SNSDeleteTopicResponse *)deleteTopic:(SNSDeleteTopicRequest *)deleteTopicRequest;
-
-
-/**
- * <p>
  * The RemovePermission action removes a statement from a topic's access control policy.
  * </p>
  *
@@ -227,6 +280,35 @@
  * @see SNSRemovePermissionResponse
  */
 -(SNSRemovePermissionResponse *)removePermission:(SNSRemovePermissionRequest *)removePermissionRequest;
+
+
+/**
+ * <p>
+ * The GetEndpointAttributes retrieves the endpoint attributes for a device on one of the supported push notification
+ * services, such as GCM and APNS. For more information, see <a
+ * href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html"> Using Amazon SNS Mobile Push Notifications </a> .
+ * </p>
+ *
+ * @param getEndpointAttributesRequest Container for the necessary parameters to execute the GetEndpointAttributes service
+ *           method on AmazonSNS.
+ *
+ * @return The response from the GetEndpointAttributes service method, as returned by AmazonSNS.
+ *
+ * @exception SNSNotFoundException For more information see <SNSNotFoundException>
+ * @exception SNSAuthorizationErrorException For more information see <SNSAuthorizationErrorException>
+ * @exception SNSInternalErrorException For more information see <SNSInternalErrorException>
+ * @exception SNSInvalidParameterException For more information see <SNSInvalidParameterException>
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonSNS indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see SNSGetEndpointAttributesRequest
+ * @see SNSGetEndpointAttributesResponse
+ */
+-(SNSGetEndpointAttributesResponse *)getEndpointAttributes:(SNSGetEndpointAttributesRequest *)getEndpointAttributesRequest;
 
 
 /**
@@ -259,6 +341,38 @@
 
 /**
  * <p>
+ * The CreatePlatformEndpoint creates an endpoint for a device and mobile app on one of the supported push notification
+ * services, such as GCM and APNS. CreatePlatformEndpoint requires the PlatformApplicationArn that is returned from
+ * CreatePlatformApplication . The EndpointArn that is returned when using CreatePlatformEndpoint can then be used by the
+ * Publish action to send a message to a mobile app or by the Subscribe action for subscription to a topic. For more
+ * information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html"> Using Amazon SNS Mobile Push
+ * Notifications </a> .
+ * </p>
+ *
+ * @param createPlatformEndpointRequest Container for the necessary parameters to execute the CreatePlatformEndpoint
+ *           service method on AmazonSNS.
+ *
+ * @return The response from the CreatePlatformEndpoint service method, as returned by AmazonSNS.
+ *
+ * @exception SNSNotFoundException For more information see <SNSNotFoundException>
+ * @exception SNSAuthorizationErrorException For more information see <SNSAuthorizationErrorException>
+ * @exception SNSInternalErrorException For more information see <SNSInternalErrorException>
+ * @exception SNSInvalidParameterException For more information see <SNSInvalidParameterException>
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonSNS indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see SNSCreatePlatformEndpointRequest
+ * @see SNSCreatePlatformEndpointResponse
+ */
+-(SNSCreatePlatformEndpointResponse *)createPlatformEndpoint:(SNSCreatePlatformEndpointRequest *)createPlatformEndpointRequest;
+
+
+/**
+ * <p>
  * The SetSubscriptionAttributes action allows a subscription owner to set an attribute of the topic to a new value.
  * </p>
  *
@@ -280,32 +394,6 @@
  * @see SNSSetSubscriptionAttributesResponse
  */
 -(SNSSetSubscriptionAttributesResponse *)setSubscriptionAttributes:(SNSSetSubscriptionAttributesRequest *)setSubscriptionAttributesRequest;
-
-
-/**
- * <p>
- * The AddPermission action adds a statement to a topic's access control policy, granting access for the specified AWS
- * accounts to the specified actions.
- * </p>
- *
- * @param addPermissionRequest Container for the necessary parameters to execute the AddPermission service method on
- *           AmazonSNS.
- *
- * @exception SNSNotFoundException For more information see <SNSNotFoundException>
- * @exception SNSAuthorizationErrorException For more information see <SNSAuthorizationErrorException>
- * @exception SNSInternalErrorException For more information see <SNSInternalErrorException>
- * @exception SNSInvalidParameterException For more information see <SNSInvalidParameterException>
- *
- * @exception AmazonClientException If any internal errors are encountered inside the client while
- * attempting to make the request or handle the response.  For example
- * if a network connection is not available.  For more information see <AmazonClientException>.
- * @exception AmazonServiceException If an error response is returned by AmazonSNS indicating
- * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
- *
- * @see SNSAddPermissionRequest
- * @see SNSAddPermissionResponse
- */
--(SNSAddPermissionResponse *)addPermission:(SNSAddPermissionRequest *)addPermissionRequest;
 
 
 /**
@@ -393,11 +481,94 @@
 
 /**
  * <p>
+ * The DeletePlatformApplication action deletes a platform application object for one of the supported push notification
+ * services, such as APNS and GCM. For more information, see <a
+ * href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html"> Using Amazon SNS Mobile Push Notifications </a> .
+ * </p>
+ *
+ * @param deletePlatformApplicationRequest Container for the necessary parameters to execute the DeletePlatformApplication
+ *           service method on AmazonSNS.
+ *
+ * @exception SNSAuthorizationErrorException For more information see <SNSAuthorizationErrorException>
+ * @exception SNSInternalErrorException For more information see <SNSInternalErrorException>
+ * @exception SNSInvalidParameterException For more information see <SNSInvalidParameterException>
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonSNS indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see SNSDeletePlatformApplicationRequest
+ * @see SNSDeletePlatformApplicationResponse
+ */
+-(SNSDeletePlatformApplicationResponse *)deletePlatformApplication:(SNSDeletePlatformApplicationRequest *)deletePlatformApplicationRequest;
+
+
+/**
+ * <p>
+ * The ListPlatformApplications action lists the platform application objects for the supported push notification services,
+ * such as APNS and GCM. The results for ListPlatformApplications are paginated and return a limited list of applications,
+ * up to 100. If additional records are available after the first page results, then a NextToken string will be returned.
+ * To receive the next page, you call ListPlatformApplications using the NextToken string received from the previous call.
+ * When there are no more records to return, NextToken will be null. For more information, see <a
+ * href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html"> Using Amazon SNS Mobile Push Notifications </a> .
+ * </p>
+ *
+ * @param listPlatformApplicationsRequest Container for the necessary parameters to execute the ListPlatformApplications
+ *           service method on AmazonSNS.
+ *
+ * @return The response from the ListPlatformApplications service method, as returned by AmazonSNS.
+ *
+ * @exception SNSAuthorizationErrorException For more information see <SNSAuthorizationErrorException>
+ * @exception SNSInternalErrorException For more information see <SNSInternalErrorException>
+ * @exception SNSInvalidParameterException For more information see <SNSInvalidParameterException>
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonSNS indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see SNSListPlatformApplicationsRequest
+ * @see SNSListPlatformApplicationsResponse
+ */
+-(SNSListPlatformApplicationsResponse *)listPlatformApplications:(SNSListPlatformApplicationsRequest *)listPlatformApplicationsRequest;
+
+
+/**
+ * <p>
+ * The SetEndpointAttributes action sets the attributes for an endpoint for a device on one of the supported push
+ * notification services, such as GCM and APNS. For more information, see <a
+ * href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html"> Using Amazon SNS Mobile Push Notifications </a> .
+ * </p>
+ *
+ * @param setEndpointAttributesRequest Container for the necessary parameters to execute the SetEndpointAttributes service
+ *           method on AmazonSNS.
+ *
+ * @exception SNSNotFoundException For more information see <SNSNotFoundException>
+ * @exception SNSAuthorizationErrorException For more information see <SNSAuthorizationErrorException>
+ * @exception SNSInternalErrorException For more information see <SNSInternalErrorException>
+ * @exception SNSInvalidParameterException For more information see <SNSInvalidParameterException>
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonSNS indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see SNSSetEndpointAttributesRequest
+ * @see SNSSetEndpointAttributesResponse
+ */
+-(SNSSetEndpointAttributesResponse *)setEndpointAttributes:(SNSSetEndpointAttributesRequest *)setEndpointAttributesRequest;
+
+
+/**
+ * <p>
  * The Unsubscribe action deletes a subscription. If the subscription requires authentication for deletion, only the owner
- * of the subscription or the its topic's owner can unsubscribe, and an AWS signature is required. If the Unsubscribe call
- * does not require authentication and the requester is not the subscription owner, a final cancellation message is
- * delivered to the endpoint, so that the endpoint owner can easily resubscribe to the topic if the Unsubscribe request was
- * unintended.
+ * of the subscription or the topic's owner can unsubscribe, and an AWS signature is required. If the Unsubscribe call does
+ * not require authentication and the requester is not the subscription owner, a final cancellation message is delivered to
+ * the endpoint, so that the endpoint owner can easily resubscribe to the topic if the Unsubscribe request was unintended.
  * </p>
  *
  * @param unsubscribeRequest Container for the necessary parameters to execute the Unsubscribe service method on AmazonSNS.
@@ -417,6 +588,147 @@
  * @see SNSUnsubscribeResponse
  */
 -(SNSUnsubscribeResponse *)unsubscribe:(SNSUnsubscribeRequest *)unsubscribeRequest;
+
+
+/**
+ * <p>
+ * The DeleteTopic action deletes a topic and all its subscriptions. Deleting a topic might prevent some messages
+ * previously sent to the topic from being delivered to subscribers. This action is idempotent, so deleting a topic that
+ * does not exist does not result in an error.
+ * </p>
+ *
+ * @param deleteTopicRequest Container for the necessary parameters to execute the DeleteTopic service method on AmazonSNS.
+ *
+ * @exception SNSNotFoundException For more information see <SNSNotFoundException>
+ * @exception SNSAuthorizationErrorException For more information see <SNSAuthorizationErrorException>
+ * @exception SNSInternalErrorException For more information see <SNSInternalErrorException>
+ * @exception SNSInvalidParameterException For more information see <SNSInvalidParameterException>
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonSNS indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see SNSDeleteTopicRequest
+ * @see SNSDeleteTopicResponse
+ */
+-(SNSDeleteTopicResponse *)deleteTopic:(SNSDeleteTopicRequest *)deleteTopicRequest;
+
+
+/**
+ * <p>
+ * The GetPlatformApplicationAttributes action retrieves the attributes of the platform application object for the
+ * supported push notification services, such as APNS and GCM. For more information, see <a
+ * href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html"> Using Amazon SNS Mobile Push Notifications </a> .
+ * </p>
+ *
+ * @param getPlatformApplicationAttributesRequest Container for the necessary parameters to execute the
+ *           GetPlatformApplicationAttributes service method on AmazonSNS.
+ *
+ * @return The response from the GetPlatformApplicationAttributes service method, as returned by AmazonSNS.
+ *
+ * @exception SNSNotFoundException For more information see <SNSNotFoundException>
+ * @exception SNSAuthorizationErrorException For more information see <SNSAuthorizationErrorException>
+ * @exception SNSInternalErrorException For more information see <SNSInternalErrorException>
+ * @exception SNSInvalidParameterException For more information see <SNSInvalidParameterException>
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonSNS indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see SNSGetPlatformApplicationAttributesRequest
+ * @see SNSGetPlatformApplicationAttributesResponse
+ */
+-(SNSGetPlatformApplicationAttributesResponse *)getPlatformApplicationAttributes:(SNSGetPlatformApplicationAttributesRequest *)getPlatformApplicationAttributesRequest;
+
+
+/**
+ * <p>
+ * The SetPlatformApplicationAttributes action sets the attributes of the platform application object for the supported
+ * push notification services, such as APNS and GCM. For more information, see <a
+ * href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html"> Using Amazon SNS Mobile Push Notifications </a> .
+ * </p>
+ *
+ * @param setPlatformApplicationAttributesRequest Container for the necessary parameters to execute the
+ *           SetPlatformApplicationAttributes service method on AmazonSNS.
+ *
+ * @exception SNSNotFoundException For more information see <SNSNotFoundException>
+ * @exception SNSAuthorizationErrorException For more information see <SNSAuthorizationErrorException>
+ * @exception SNSInternalErrorException For more information see <SNSInternalErrorException>
+ * @exception SNSInvalidParameterException For more information see <SNSInvalidParameterException>
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonSNS indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see SNSSetPlatformApplicationAttributesRequest
+ * @see SNSSetPlatformApplicationAttributesResponse
+ */
+-(SNSSetPlatformApplicationAttributesResponse *)setPlatformApplicationAttributes:(SNSSetPlatformApplicationAttributesRequest *)setPlatformApplicationAttributesRequest;
+
+
+/**
+ * <p>
+ * The AddPermission action adds a statement to a topic's access control policy, granting access for the specified AWS
+ * accounts to the specified actions.
+ * </p>
+ *
+ * @param addPermissionRequest Container for the necessary parameters to execute the AddPermission service method on
+ *           AmazonSNS.
+ *
+ * @exception SNSNotFoundException For more information see <SNSNotFoundException>
+ * @exception SNSAuthorizationErrorException For more information see <SNSAuthorizationErrorException>
+ * @exception SNSInternalErrorException For more information see <SNSInternalErrorException>
+ * @exception SNSInvalidParameterException For more information see <SNSInvalidParameterException>
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonSNS indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see SNSAddPermissionRequest
+ * @see SNSAddPermissionResponse
+ */
+-(SNSAddPermissionResponse *)addPermission:(SNSAddPermissionRequest *)addPermissionRequest;
+
+
+/**
+ * <p>
+ * The ListEndpointsByPlatformApplication action lists the endpoints and endpoint attributes for devices in a supported
+ * push notification service, such as GCM and APNS. The results for ListEndpointsByPlatformApplication are paginated and
+ * return a limited list of endpoints, up to 100. If additional records are available after the first page results, then a
+ * NextToken string will be returned. To receive the next page, you call ListEndpointsByPlatformApplication again using the
+ * NextToken string received from the previous call. When there are no more records to return, NextToken will be null. For
+ * more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html"> Using Amazon SNS Mobile
+ * Push Notifications </a> .
+ * </p>
+ *
+ * @param listEndpointsByPlatformApplicationRequest Container for the necessary parameters to execute the
+ *           ListEndpointsByPlatformApplication service method on AmazonSNS.
+ *
+ * @return The response from the ListEndpointsByPlatformApplication service method, as returned by AmazonSNS.
+ *
+ * @exception SNSNotFoundException For more information see <SNSNotFoundException>
+ * @exception SNSAuthorizationErrorException For more information see <SNSAuthorizationErrorException>
+ * @exception SNSInternalErrorException For more information see <SNSInternalErrorException>
+ * @exception SNSInvalidParameterException For more information see <SNSInvalidParameterException>
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonSNS indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see SNSListEndpointsByPlatformApplicationRequest
+ * @see SNSListEndpointsByPlatformApplicationResponse
+ */
+-(SNSListEndpointsByPlatformApplicationResponse *)listEndpointsByPlatformApplication:(SNSListEndpointsByPlatformApplicationRequest *)listEndpointsByPlatformApplicationRequest;
 
 
 /**
@@ -454,12 +766,19 @@
  * has been saved and Amazon SNS will attempt to deliver it to the topic's subscribers shortly. The format of the outgoing
  * message to each subscribed endpoint depends on the notification protocol selected.
  * </p>
+ * <p>
+ * To use the Publish action for sending a message to a mobile endpoint, such as an app on a Kindle device or mobile phone,
+ * you must specify the EndpointArn. The EndpointArn is returned when making a call with the CreatePlatformEndpoint action.
+ * The second example below shows a request and response for publishing to a mobile endpoint.
+ * </p>
  *
  * @param publishRequest Container for the necessary parameters to execute the Publish service method on AmazonSNS.
  *
  * @return The response from the Publish service method, as returned by AmazonSNS.
  *
  * @exception SNSNotFoundException For more information see <SNSNotFoundException>
+ * @exception SNSPlatformApplicationDisabledException For more information see <SNSPlatformApplicationDisabledException>
+ * @exception SNSEndpointDisabledException For more information see <SNSEndpointDisabledException>
  * @exception SNSAuthorizationErrorException For more information see <SNSAuthorizationErrorException>
  * @exception SNSInternalErrorException For more information see <SNSInternalErrorException>
  * @exception SNSInvalidParameterException For more information see <SNSInvalidParameterException>

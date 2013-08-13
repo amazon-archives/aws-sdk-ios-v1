@@ -18,6 +18,8 @@
 
 #import "AmazonSDKUtil.h"
 #import <CommonCrypto/CommonDigest.h>
+#import "AmazonClientException.h"
+
 
 static char        base64EncodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
@@ -45,7 +47,6 @@ NSString *const AWSDefaultRunLoopMode = @"com.amazonaws.DefaultRunLoopMode";
 NSString *const AWSS3TransferManagerUserAgentPrefix = @"Transfer Manager";
 
 static NSTimeInterval _clockskew = 0.0;
-
 
 @implementation AmazonSDKUtil
 
