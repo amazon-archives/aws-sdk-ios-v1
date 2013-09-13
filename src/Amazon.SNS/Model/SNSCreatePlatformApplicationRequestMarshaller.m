@@ -45,11 +45,11 @@
             for (NSString *attributesListKey in createPlatformApplicationRequest.attributes) {
                 NSString *attributesListKeyValue = [createPlatformApplicationRequest.attributes valueForKey:attributesListKey];
                 if (attributesListKey != nil) {
-                    [request setParameterValue:[NSString stringWithFormat:@"%@", attributesListKey] forKey:[NSString stringWithFormat:@"%@.%d.%@", @"Attribute", attributesListIndex, @"Name"]];
+                    [request setParameterValue:[NSString stringWithFormat:@"%@", attributesListKey] forKey:[NSString stringWithFormat:@"%@.%d.%@", @"Attributes.entry", attributesListIndex, @"key"]];
                 }
 
                 if (attributesListKeyValue != nil) {
-                    [request setParameterValue:[NSString stringWithFormat:@"%@", attributesListKeyValue] forKey:[NSString stringWithFormat:@"%@.%d.%@", @"Attribute", attributesListIndex, @"Value"]];
+                    [request setParameterValue:[NSString stringWithFormat:@"%@", attributesListKeyValue] forKey:[NSString stringWithFormat:@"%@.%d.%@", @"Attributes.entry", attributesListIndex, @"value"]];
                 }
 
 
