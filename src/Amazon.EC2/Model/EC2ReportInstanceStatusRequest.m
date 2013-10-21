@@ -18,6 +18,8 @@
 
 @implementation EC2ReportInstanceStatusRequest
 
+@synthesize dryRun;
+@synthesize dryRunIsSet;
 @synthesize instances;
 @synthesize status;
 @synthesize startTime;
@@ -29,6 +31,8 @@
 -(id)init
 {
     if (self = [super init]) {
+        dryRun           = NO;
+        dryRunIsSet      = NO;
         instances        = [[NSMutableArray alloc] initWithCapacity:1];
         status           = nil;
         startTime        = nil;
@@ -65,6 +69,7 @@
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
 
     [buffer appendString:@"{"];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"DryRun: %d,", dryRun] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Instances: %@,", instances] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Status: %@,", status] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"StartTime: %@,", startTime] autorelease]];
@@ -77,6 +82,12 @@
     return [buffer autorelease];
 }
 
+
+-(void)setDryRun:(BOOL)theValue
+{
+    dryRun      = theValue;
+    dryRunIsSet = YES;
+}
 
 
 -(void)dealloc

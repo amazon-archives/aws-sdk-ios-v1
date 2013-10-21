@@ -29,11 +29,20 @@
 @interface EC2DescribeInstanceAttributeRequest:AmazonServiceRequestConfig
 
 {
+    BOOL     dryRun;
+    BOOL     dryRunIsSet;
     NSString *instanceId;
     NSString *attribute;
 }
 
 
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * The ID of the instance whose instance attribute is being described.

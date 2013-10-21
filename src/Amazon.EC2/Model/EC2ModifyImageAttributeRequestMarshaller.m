@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"ModifyImageAttribute"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[modifyImageAttributeRequest delegate]];
     [request setCredentials:[modifyImageAttributeRequest credentials]];
     [request setEndpoint:[modifyImageAttributeRequest requestEndpoint]];
     [request setRequestTag:[modifyImageAttributeRequest requestTag]];
 
+    if (modifyImageAttributeRequest != nil) {
+        if (modifyImageAttributeRequest.dryRunIsSet) {
+            [request setParameterValue:(modifyImageAttributeRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
     if (modifyImageAttributeRequest != nil) {
         if (modifyImageAttributeRequest.imageId != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", modifyImageAttributeRequest.imageId] forKey:[NSString stringWithFormat:@"%@", @"ImageId"]];

@@ -202,13 +202,13 @@
 }
 
 
--(void)setSourceDestCheck:(bool)theValue
+-(void)setSourceDestCheck:(BOOL)theValue
 {
     sourceDestCheck      = theValue;
     sourceDestCheckIsSet = YES;
 }
 
--(void)setEbsOptimized:(bool)theValue
+-(void)setEbsOptimized:(BOOL)theValue
 {
     ebsOptimized      = theValue;
     ebsOptimizedIsSet = YES;

@@ -18,6 +18,8 @@
 
 @implementation EC2DescribeKeyPairsRequest
 
+@synthesize dryRun;
+@synthesize dryRunIsSet;
 @synthesize keyNames;
 @synthesize filters;
 
@@ -25,8 +27,10 @@
 -(id)init
 {
     if (self = [super init]) {
-        keyNames = [[NSMutableArray alloc] initWithCapacity:1];
-        filters  = [[NSMutableArray alloc] initWithCapacity:1];
+        dryRun      = NO;
+        dryRunIsSet = NO;
+        keyNames    = [[NSMutableArray alloc] initWithCapacity:1];
+        filters     = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
     return self;
@@ -57,6 +61,7 @@
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
 
     [buffer appendString:@"{"];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"DryRun: %d,", dryRun] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"KeyNames: %@,", keyNames] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Filters: %@,", filters] autorelease]];
     [buffer appendString:[super description]];
@@ -65,6 +70,12 @@
     return [buffer autorelease];
 }
 
+
+-(void)setDryRun:(BOOL)theValue
+{
+    dryRun      = theValue;
+    dryRunIsSet = YES;
+}
 
 
 -(void)dealloc

@@ -66,13 +66,13 @@
     NSString              *clientToken;
     NSMutableArray        *tags;
     NSMutableArray        *securityGroups;
-    bool                  sourceDestCheck;
-    bool                  sourceDestCheckIsSet;
+    BOOL                  sourceDestCheck;
+    BOOL                  sourceDestCheckIsSet;
     NSString              *hypervisor;
     NSMutableArray        *networkInterfaces;
     EC2IamInstanceProfile *iamInstanceProfile;
-    bool                  ebsOptimized;
-    bool                  ebsOptimizedIsSet;
+    BOOL                  ebsOptimized;
+    BOOL                  ebsOptimizedIsSet;
 }
 
 
@@ -169,6 +169,9 @@
 
 /**
  * Platform of the instance (e.g., Windows).
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>Windows
  */
 @property (nonatomic, retain) NSString *platform;
 
@@ -205,12 +208,18 @@
 
 /**
  * The architecture of this instance.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>i386, x86_64
  */
 @property (nonatomic, retain) NSString *architecture;
 
 /**
  * The root device type used by the AMI. The AMI can use an Amazon EBS or
  * instance store root device.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>ebs, instance-store
  */
 @property (nonatomic, retain) NSString *rootDeviceType;
 
@@ -234,6 +243,9 @@
 
 /**
  *
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>spot
  */
 @property (nonatomic, retain) NSString *instanceLifecycle;
 
@@ -266,9 +278,9 @@
 /**
  * The value of the SourceDestCheck property for this object.
  */
-@property (nonatomic) bool           sourceDestCheck;
+@property (nonatomic) BOOL           sourceDestCheck;
 
-@property (nonatomic, readonly) bool sourceDestCheckIsSet;
+@property (nonatomic, readonly) BOOL sourceDestCheckIsSet;
 
 /**
  * The value of the Hypervisor property for this object.
@@ -291,9 +303,9 @@
 /**
  * The value of the EbsOptimized property for this object.
  */
-@property (nonatomic) bool           ebsOptimized;
+@property (nonatomic) BOOL           ebsOptimized;
 
-@property (nonatomic, readonly) bool ebsOptimizedIsSet;
+@property (nonatomic, readonly) BOOL ebsOptimizedIsSet;
 
 /**
  * Adds a single object to productCodes.

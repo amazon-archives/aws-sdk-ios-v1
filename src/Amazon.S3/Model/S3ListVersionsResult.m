@@ -18,43 +18,21 @@
 
 @implementation S3ListVersionsResult
 
-@synthesize versionSummaries;
-@synthesize name;
-@synthesize prefix;
-@synthesize keyMarker;
-@synthesize nextKeyMarker;
-@synthesize versionIdMarker;
-@synthesize nextVersionIdMarker;
-@synthesize delimiter;
-@synthesize maxKeys;
-@synthesize isTruncated;
-@synthesize commonPrefixes;
-
-
--(void)setVersionSummaries:(NSMutableArray *)theSummaries
-{
-    versionSummaries = theSummaries;
-}
 
 -(NSMutableArray *)versionSummaries
 {
-    if (nil == versionSummaries) {
-        versionSummaries = [[NSMutableArray alloc] init];
+    if (nil == _versionSummaries) {
+        _versionSummaries = [NSMutableArray new];
     }
-    return versionSummaries;
-}
-
--(void)setCommonPrefixes:(NSMutableArray *)prefixes
-{
-    commonPrefixes = prefixes;
+    return _versionSummaries;
 }
 
 -(NSMutableArray *)commonPrefixes
 {
-    if (nil == commonPrefixes) {
-        commonPrefixes = [[NSMutableArray alloc] init];
+    if (nil == _commonPrefixes) {
+        _commonPrefixes = [NSMutableArray new];
     }
-    return commonPrefixes;
+    return _commonPrefixes;
 }
 
 -(NSString *)description
@@ -62,17 +40,17 @@
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
 
     [buffer appendString:@"{"];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Summaries: %@,", versionSummaries] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Common Prefixes: %@,", commonPrefixes] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Name: %@,", name] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Prefix: %@,", prefix] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Key Marker: %@,", keyMarker] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Next Key Marker: %@,", nextKeyMarker] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Version Id Marker: %@,", versionIdMarker] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Next Version Id Marker: %@,", nextVersionIdMarker] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Delimiter: %@,", delimiter] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Max Keys: %d,", maxKeys] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Is Truncated: %d,", isTruncated] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Summaries: %@,", self.versionSummaries] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Common Prefixes: %@,", self.commonPrefixes] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Name: %@,", self.name] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Prefix: %@,", self.prefix] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Key Marker: %@,", self.keyMarker] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Next Key Marker: %@,", self.nextKeyMarker] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Version Id Marker: %@,", self.versionIdMarker] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Next Version Id Marker: %@,", self.nextVersionIdMarker] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Delimiter: %@,", self.delimiter] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Max Keys: %d,", self.maxKeys] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Is Truncated: %d,", self.isTruncated] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -87,15 +65,15 @@
 
 -(void)dealloc
 {
-    [versionSummaries release];
-    [name release];
-    [prefix release];
-    [keyMarker release];
-    [nextKeyMarker release];
-    [versionIdMarker release];
-    [nextVersionIdMarker release];
-    [delimiter release];
-    [commonPrefixes release];
+    [_versionSummaries release];
+    [_name release];
+    [_prefix release];
+    [_keyMarker release];
+    [_nextKeyMarker release];
+    [_versionIdMarker release];
+    [_nextVersionIdMarker release];
+    [_delimiter release];
+    [_commonPrefixes release];
 
     [super dealloc];
 }

@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribeAvailabilityZones"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[describeAvailabilityZonesRequest delegate]];
     [request setCredentials:[describeAvailabilityZonesRequest credentials]];
     [request setEndpoint:[describeAvailabilityZonesRequest requestEndpoint]];
     [request setRequestTag:[describeAvailabilityZonesRequest requestTag]];
 
+    if (describeAvailabilityZonesRequest != nil) {
+        if (describeAvailabilityZonesRequest.dryRunIsSet) {
+            [request setParameterValue:(describeAvailabilityZonesRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
 
     if (describeAvailabilityZonesRequest != nil) {
         int zoneNamesListIndex = 1;

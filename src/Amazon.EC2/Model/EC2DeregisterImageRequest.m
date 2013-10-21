@@ -18,13 +18,17 @@
 
 @implementation EC2DeregisterImageRequest
 
+@synthesize dryRun;
+@synthesize dryRunIsSet;
 @synthesize imageId;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        imageId = nil;
+        dryRun      = NO;
+        dryRunIsSet = NO;
+        imageId     = nil;
     }
 
     return self;
@@ -46,6 +50,7 @@
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
 
     [buffer appendString:@"{"];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"DryRun: %d,", dryRun] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ImageId: %@,", imageId] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
@@ -53,6 +58,12 @@
     return [buffer autorelease];
 }
 
+
+-(void)setDryRun:(BOOL)theValue
+{
+    dryRun      = theValue;
+    dryRunIsSet = YES;
+}
 
 
 -(void)dealloc

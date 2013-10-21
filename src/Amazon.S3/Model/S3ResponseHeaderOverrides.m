@@ -45,6 +45,30 @@
 @synthesize contentDisposition;
 @synthesize contentEncoding;
 
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    if ((self = [self init])) {
+        [self setContentType:[decoder decodeObjectForKey:@"ContentType"]];
+        [self setContentLanguage:[decoder decodeObjectForKey:@"ContentLanguage"]];
+        [self setExpires:[decoder decodeObjectForKey:@"Expires"]];
+        [self setCacheControl:[decoder decodeObjectForKey:@"CacheControl"]];
+        [self setContentDisposition:[decoder decodeObjectForKey:@"ContentDisposition"]];
+        [self setContentEncoding:[decoder decodeObjectForKey:@"ContentEncoding"]];
+    }
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeObject:contentType forKey:@"ContentType"];
+    [encoder encodeObject:contentLanguage forKey:@"ContentLanguage"];
+    [encoder encodeObject:expires forKey:@"Expires"];
+    [encoder encodeObject:cacheControl forKey:@"CacheControl"];
+    [encoder encodeObject:contentDisposition forKey:@"ContentDisposition"];
+    [encoder encodeObject:contentEncoding forKey:@"ContentEncoding"];
+}
+
 -(NSString *)queryString
 {
     NSMutableString *queryString = [[NSMutableString alloc] initWithString:@""];

@@ -17,16 +17,12 @@
 
 @implementation S3ListPartsRequest
 
-@synthesize uploadId;
-@synthesize maxParts;
-@synthesize partNumberMarker;
-
 -(id)init
 {
     if (self = [super init])
     {
-        maxParts         = 1000;
-        partNumberMarker = 0;
+        _maxParts = 1000;
+        _partNumberMarker = 0;
     }
     return self;
 }
@@ -45,14 +41,14 @@
 
 -(NSMutableURLRequest *)configureURLRequest
 {
-    NSMutableString *subresource = [NSMutableString stringWithFormat:@"%@=%@", kS3QueryParamUploadId, uploadId];
+    NSMutableString *subresource = [NSMutableString stringWithFormat:@"%@=%@", kS3QueryParamUploadId, self.uploadId];
 
-    if (maxParts != 1000) {
-        [subresource appendFormat:@"&%@=%d", kS3QueryParamMaxParts, maxParts];
+    if (self.maxParts != 1000) {
+        [subresource appendFormat:@"&%@=%d", kS3QueryParamMaxParts, self.maxParts];
     }
 
-    if (partNumberMarker != 0) {
-        [subresource appendFormat:@"&%@=%d", kS3QueryParamPartNumberMarker, partNumberMarker];
+    if (self.partNumberMarker != 0) {
+        [subresource appendFormat:@"&%@=%d", kS3QueryParamPartNumberMarker, self.partNumberMarker];
     }
 
     self.subResource = [NSString stringWithString:subresource];
@@ -66,7 +62,7 @@
 
 -(void)dealloc
 {
-    [uploadId release];
+    [_uploadId release];
 
     [super dealloc];
 }

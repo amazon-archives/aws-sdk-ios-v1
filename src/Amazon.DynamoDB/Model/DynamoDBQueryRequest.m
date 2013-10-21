@@ -112,13 +112,13 @@
 }
 
 
--(void)setConsistentRead:(bool)theValue
+-(void)setConsistentRead:(BOOL)theValue
 {
     consistentRead      = theValue;
     consistentReadIsSet = YES;
 }
 
--(void)setScanIndexForward:(bool)theValue
+-(void)setScanIndexForward:(BOOL)theValue
 {
     scanIndexForward      = theValue;
     scanIndexForwardIsSet = YES;

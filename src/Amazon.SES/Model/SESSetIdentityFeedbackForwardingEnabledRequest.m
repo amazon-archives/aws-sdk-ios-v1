@@ -50,7 +50,7 @@
 }
 
 
--(void)setForwardingEnabled:(bool)theValue
+-(void)setForwardingEnabled:(BOOL)theValue
 {
     forwardingEnabled      = theValue;
     forwardingEnabledIsSet = YES;

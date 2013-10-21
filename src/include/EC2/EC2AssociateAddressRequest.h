@@ -29,16 +29,25 @@
 @interface EC2AssociateAddressRequest:AmazonServiceRequestConfig
 
 {
+    BOOL     dryRun;
+    BOOL     dryRunIsSet;
     NSString *instanceId;
     NSString *publicIp;
     NSString *allocationId;
     NSString *networkInterfaceId;
     NSString *privateIpAddress;
-    bool     allowReassociation;
-    bool     allowReassociationIsSet;
+    BOOL     allowReassociation;
+    BOOL     allowReassociationIsSet;
 }
 
 
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * The instance to associate with the IP address.
@@ -69,9 +78,9 @@
 /**
  * The value of the AllowReassociation property for this object.
  */
-@property (nonatomic) bool           allowReassociation;
+@property (nonatomic) BOOL           allowReassociation;
 
-@property (nonatomic, readonly) bool allowReassociationIsSet;
+@property (nonatomic, readonly) BOOL allowReassociationIsSet;
 
 
 /**

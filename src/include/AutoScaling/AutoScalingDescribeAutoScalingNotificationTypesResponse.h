@@ -40,12 +40,31 @@
 -(id)init;
 
 /**
- * Notification types supported by Auto Scaling. They are:
- * autoscaling:EC2_INSTANCE_LAUNCH,
- * autoscaling:EC2_INSTANCE_LAUNCH_ERROR,
- * autoscaling:EC2_INSTANCE_TERMINATE,
- * autoscaling:EC2_INSTANCE_TERMINATE_ERROR,
- * autoscaling:TEST_NOTIFICATION
+ * Returns a list of all notification types supported by Auto Scaling.
+ * They are: <ul>
+ * <li><p><code>autoscaling:EC2_INSTANCE_LAUNCH</code></li>
+ * <li><p><code>autoscaling:EC2_INSTANCE_LAUNCH_ERROR</code></li>
+ * <li><p><code>autoscaling:EC2_INSTANCE_TERMINATE</code></li>
+ * <li><p><code>autoscaling:EC2_INSTANCE_TERMINATE_ERROR</code></li>
+ * <li><p><code>autoscaling:TEST_NOTIFICATION</code></li> </ul>
+ * <examples>
+ * omain;/?Version=2011-01-01&Action=DescribeAutoScalingNotificationTypes
+ * &AUTHPARAMS </queryrequest>
+ * <queryresponse><DescribeAutoScalingNotificationTypesResponse
+ * xmlns="http://autoscaling.&api-domain;/doc/2011-01-01/">
+ * <DescribeAutoScalingNotificationTypesResult>
+ * <AutoScalingNotificationTypes>
+ * <member>autoscaling:EC2_INSTANCE_LAUNCH</member>
+ * <member>autoscaling:EC2_INSTANCE_LAUNCH_ERROR</member>
+ * <member>autoscaling:EC2_INSTANCE_TERMINATE</member>
+ * <member>autoscaling:EC2_INSTANCE_TERMINATE_ERROR</member>
+ * <member>autoscaling:TEST_NOTIFICATION</member>
+ * </AutoScalingNotificationTypes>
+ * </DescribeAutoScalingNotificationTypesResult> <ResponseMetadata>
+ * <RequestId>42fc6794-bf21-11e2-a1cf-ff3dEXAMPLE</RequestId>
+ * </ResponseMetadata>
+ * </DescribeAutoScalingNotificationTypesResponse></queryresponse>
+ * </examples>
  */
 @property (nonatomic, retain) NSMutableArray *autoScalingNotificationTypes;
 

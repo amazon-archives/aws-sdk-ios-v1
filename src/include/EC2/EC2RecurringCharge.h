@@ -38,6 +38,9 @@
 
 /**
  * The frequency of the recurring charge.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>Hourly
  */
 @property (nonatomic, retain) NSString *frequency;
 

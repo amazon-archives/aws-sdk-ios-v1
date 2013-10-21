@@ -159,8 +159,12 @@
 		38EFE8F8161F54000069348B /* S3UploadPartResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE863161F53FF0069348B /* S3UploadPartResponse.m */; };
 		38EFE8F9161F54000069348B /* S3VersionSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE864161F53FF0069348B /* S3VersionSummary.m */; };
 		38EFE8FA161F54000069348B /* S3VersionSummaryUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EFE865161F53FF0069348B /* S3VersionSummaryUnmarshaller.m */; };
+		4ADCCA48179719FE00BC5872 /* S3TransferOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ADCCA47179719FE00BC5872 /* S3TransferOperation.h */; };
+		4AE164BB17A2E1F80040DF67 /* S3GetObjectOperation_Internal.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE164B917A2E1F80040DF67 /* S3GetObjectOperation_Internal.m */; };
+		4AE164BF17A2E3790040DF67 /* S3GetObjectOperation_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE164BE17A2E3790040DF67 /* S3GetObjectOperation_Internal.h */; };
+		4AEDB0B51795E94000F68F5C /* S3TransferOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEDB0B41795E94000F68F5C /* S3TransferOperation.m */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
-		CE2BF33C16CB32C2005189A8 /* S3AbortMultiplartUploadsOperation_Internal.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF33616CB32C2005189A8 /* S3AbortMultiplartUploadsOperation_Internal.m */; };
+		CE2BF33C16CB32C2005189A8 /* S3AbortMultipartUploadsOperation_Internal.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF33616CB32C2005189A8 /* S3AbortMultipartUploadsOperation_Internal.m */; };
 		CE2BF33E16CB32C2005189A8 /* S3MultipartUploadOperation_Internal.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF33816CB32C2005189A8 /* S3MultipartUploadOperation_Internal.m */; };
 		CE2BF34016CB32C2005189A8 /* S3PutObjectOperation_Internal.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF33A16CB32C2005189A8 /* S3PutObjectOperation_Internal.m */; };
 		CE2BF34216CB32CF005189A8 /* S3TransferManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2BF34116CB32CF005189A8 /* S3TransferManager.m */; };
@@ -171,7 +175,7 @@
 		CE8EF5F316F941A4007BF85E /* DeleteError.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF55516F941A3007BF85E /* DeleteError.h */; };
 		CE8EF5F416F941A4007BF85E /* S3AbortMultipartUploadRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF55616F941A3007BF85E /* S3AbortMultipartUploadRequest.h */; };
 		CE8EF5F516F941A4007BF85E /* S3AbortMultipartUploadResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF55716F941A3007BF85E /* S3AbortMultipartUploadResponse.h */; };
-		CE8EF5F616F941A4007BF85E /* S3AbortMultiplartUploadsOperation_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF55816F941A3007BF85E /* S3AbortMultiplartUploadsOperation_Internal.h */; };
+		CE8EF5F616F941A4007BF85E /* S3AbortMultipartUploadsOperation_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF55816F941A3007BF85E /* S3AbortMultipartUploadsOperation_Internal.h */; };
 		CE8EF5F716F941A4007BF85E /* S3AbstractPutRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF55916F941A3007BF85E /* S3AbstractPutRequest.h */; };
 		CE8EF5F816F941A4007BF85E /* S3AccessControlList.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF55A16F941A3007BF85E /* S3AccessControlList.h */; };
 		CE8EF5F916F941A4007BF85E /* S3AccessControlListUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8EF55B16F941A3007BF85E /* S3AccessControlListUnmarshaller.h */; };
@@ -480,9 +484,13 @@
 		38EFE865161F53FF0069348B /* S3VersionSummaryUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3VersionSummaryUnmarshaller.m; sourceTree = "<group>"; };
 		38EFF1751625DC390069348B /* S3BucketLifecycleConfigurationTransitionUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3BucketLifecycleConfigurationTransitionUnmarshaller.m; sourceTree = "<group>"; };
 		38EFF1761625DC390069348B /* S3BucketLifecycleConfigurationTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3BucketLifecycleConfigurationTransition.m; sourceTree = "<group>"; };
+		4ADCCA47179719FE00BC5872 /* S3TransferOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3TransferOperation.h; path = S3/S3TransferOperation.h; sourceTree = "<group>"; };
+		4AE164B917A2E1F80040DF67 /* S3GetObjectOperation_Internal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3GetObjectOperation_Internal.m; sourceTree = "<group>"; };
+		4AE164BE17A2E3790040DF67 /* S3GetObjectOperation_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3GetObjectOperation_Internal.h; path = S3/S3GetObjectOperation_Internal.h; sourceTree = "<group>"; };
+		4AEDB0B41795E94000F68F5C /* S3TransferOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3TransferOperation.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* S3_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3_Prefix.pch; sourceTree = "<group>"; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		CE2BF33616CB32C2005189A8 /* S3AbortMultiplartUploadsOperation_Internal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3AbortMultiplartUploadsOperation_Internal.m; sourceTree = "<group>"; };
+		CE2BF33616CB32C2005189A8 /* S3AbortMultipartUploadsOperation_Internal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3AbortMultipartUploadsOperation_Internal.m; sourceTree = "<group>"; };
 		CE2BF33816CB32C2005189A8 /* S3MultipartUploadOperation_Internal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3MultipartUploadOperation_Internal.m; sourceTree = "<group>"; };
 		CE2BF33A16CB32C2005189A8 /* S3PutObjectOperation_Internal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3PutObjectOperation_Internal.m; sourceTree = "<group>"; };
 		CE2BF34116CB32CF005189A8 /* S3TransferManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3TransferManager.m; sourceTree = "<group>"; };
@@ -493,7 +501,7 @@
 		CE8EF55516F941A3007BF85E /* DeleteError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeleteError.h; path = S3/DeleteError.h; sourceTree = "<group>"; };
 		CE8EF55616F941A3007BF85E /* S3AbortMultipartUploadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3AbortMultipartUploadRequest.h; path = S3/S3AbortMultipartUploadRequest.h; sourceTree = "<group>"; };
 		CE8EF55716F941A3007BF85E /* S3AbortMultipartUploadResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3AbortMultipartUploadResponse.h; path = S3/S3AbortMultipartUploadResponse.h; sourceTree = "<group>"; };
-		CE8EF55816F941A3007BF85E /* S3AbortMultiplartUploadsOperation_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3AbortMultiplartUploadsOperation_Internal.h; path = S3/S3AbortMultiplartUploadsOperation_Internal.h; sourceTree = "<group>"; };
+		CE8EF55816F941A3007BF85E /* S3AbortMultipartUploadsOperation_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3AbortMultipartUploadsOperation_Internal.h; path = S3/S3AbortMultipartUploadsOperation_Internal.h; sourceTree = "<group>"; };
 		CE8EF55916F941A3007BF85E /* S3AbstractPutRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3AbstractPutRequest.h; path = S3/S3AbstractPutRequest.h; sourceTree = "<group>"; };
 		CE8EF55A16F941A3007BF85E /* S3AccessControlList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3AccessControlList.h; path = S3/S3AccessControlList.h; sourceTree = "<group>"; };
 		CE8EF55B16F941A3007BF85E /* S3AccessControlListUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = S3AccessControlListUnmarshaller.h; path = S3/S3AccessControlListUnmarshaller.h; sourceTree = "<group>"; };
@@ -702,6 +710,7 @@
 		0AFD9561128471A4004B7863 /* include */ = {
 			isa = PBXGroup;
 			children = (
+				4AE164BE17A2E3790040DF67 /* S3GetObjectOperation_Internal.h */,
 				CE2CDBFD17036F640013DE5F /* AWSS3.h */,
 				CE8EF55216F941A3007BF85E /* AmazonS3Client.h */,
 				CE8EF55316F941A3007BF85E /* BucketWebsiteConfiguration.h */,
@@ -709,7 +718,7 @@
 				CE8EF55516F941A3007BF85E /* DeleteError.h */,
 				CE8EF55616F941A3007BF85E /* S3AbortMultipartUploadRequest.h */,
 				CE8EF55716F941A3007BF85E /* S3AbortMultipartUploadResponse.h */,
-				CE8EF55816F941A3007BF85E /* S3AbortMultiplartUploadsOperation_Internal.h */,
+				CE8EF55816F941A3007BF85E /* S3AbortMultipartUploadsOperation_Internal.h */,
 				CE8EF55916F941A3007BF85E /* S3AbstractPutRequest.h */,
 				CE8EF55A16F941A3007BF85E /* S3AccessControlList.h */,
 				CE8EF55B16F941A3007BF85E /* S3AccessControlListUnmarshaller.h */,
@@ -861,6 +870,7 @@
 				CE8EF5ED16F941A4007BF85E /* S3UploadPartResponse.h */,
 				CE8EF5EE16F941A4007BF85E /* S3VersionSummary.h */,
 				CE8EF5EF16F941A4007BF85E /* S3VersionSummaryUnmarshaller.h */,
+				4ADCCA47179719FE00BC5872 /* S3TransferOperation.h */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -892,7 +902,7 @@
 				38EFE7D5161F53FF0069348B /* DeleteError.m */,
 				38EFE7D6161F53FF0069348B /* S3AbortMultipartUploadRequest.m */,
 				38EFE7D7161F53FF0069348B /* S3AbortMultipartUploadResponse.m */,
-				CE2BF33616CB32C2005189A8 /* S3AbortMultiplartUploadsOperation_Internal.m */,
+				CE2BF33616CB32C2005189A8 /* S3AbortMultipartUploadsOperation_Internal.m */,
 				38EFE7D8161F53FF0069348B /* S3AbstractPutRequest.m */,
 				38EFE7D9161F53FF0069348B /* S3AccessControlList.m */,
 				38EFE7DA161F53FF0069348B /* S3AccessControlListUnmarshaller.m */,
@@ -1041,6 +1051,8 @@
 				38EFE863161F53FF0069348B /* S3UploadPartResponse.m */,
 				38EFE864161F53FF0069348B /* S3VersionSummary.m */,
 				38EFE865161F53FF0069348B /* S3VersionSummaryUnmarshaller.m */,
+				4AEDB0B41795E94000F68F5C /* S3TransferOperation.m */,
+				4AE164B917A2E1F80040DF67 /* S3GetObjectOperation_Internal.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1058,7 +1070,7 @@
 				CE8EF5F316F941A4007BF85E /* DeleteError.h in Headers */,
 				CE8EF5F416F941A4007BF85E /* S3AbortMultipartUploadRequest.h in Headers */,
 				CE8EF5F516F941A4007BF85E /* S3AbortMultipartUploadResponse.h in Headers */,
-				CE8EF5F616F941A4007BF85E /* S3AbortMultiplartUploadsOperation_Internal.h in Headers */,
+				CE8EF5F616F941A4007BF85E /* S3AbortMultipartUploadsOperation_Internal.h in Headers */,
 				CE8EF5F716F941A4007BF85E /* S3AbstractPutRequest.h in Headers */,
 				CE8EF5F816F941A4007BF85E /* S3AccessControlList.h in Headers */,
 				CE8EF5F916F941A4007BF85E /* S3AccessControlListUnmarshaller.h in Headers */,
@@ -1211,6 +1223,8 @@
 				CE8EF68C16F941A4007BF85E /* S3VersionSummary.h in Headers */,
 				CE8EF68D16F941A4007BF85E /* S3VersionSummaryUnmarshaller.h in Headers */,
 				CE2CDBFE17036F640013DE5F /* AWSS3.h in Headers */,
+				4ADCCA48179719FE00BC5872 /* S3TransferOperation.h in Headers */,
+				4AE164BF17A2E3790040DF67 /* S3GetObjectOperation_Internal.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1436,10 +1450,12 @@
 				38EFE8F8161F54000069348B /* S3UploadPartResponse.m in Sources */,
 				38EFE8F9161F54000069348B /* S3VersionSummary.m in Sources */,
 				38EFE8FA161F54000069348B /* S3VersionSummaryUnmarshaller.m in Sources */,
-				CE2BF33C16CB32C2005189A8 /* S3AbortMultiplartUploadsOperation_Internal.m in Sources */,
+				CE2BF33C16CB32C2005189A8 /* S3AbortMultipartUploadsOperation_Internal.m in Sources */,
 				CE2BF33E16CB32C2005189A8 /* S3MultipartUploadOperation_Internal.m in Sources */,
 				CE2BF34016CB32C2005189A8 /* S3PutObjectOperation_Internal.m in Sources */,
 				CE2BF34216CB32CF005189A8 /* S3TransferManager.m in Sources */,
+				4AEDB0B51795E94000F68F5C /* S3TransferOperation.m in Sources */,
+				4AE164BB17A2E1F80040DF67 /* S3GetObjectOperation_Internal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1479,7 +1495,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"ARCHS[sdk=*]" = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/s3.dst;
@@ -1508,7 +1523,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"ARCHS[sdk=*]" = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DSTROOT = /tmp/s3.dst;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -1541,7 +1555,7 @@
 					ThirdParty,
 					"include/**",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
@@ -1552,6 +1566,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -1559,12 +1574,131 @@
 					ThirdParty,
 					"include/**",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
+		};
+		CE187CF317FCF21100544F3F /* Debug64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					ThirdParty,
+					"include/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+			};
+			name = Debug64;
+		};
+		CE187CF417FCF21100544F3F /* Debug64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/s3.dst;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = S3_Prefix.pch;
+				HEADER_SEARCH_PATHS = include;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				PRODUCT_NAME = S3;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+			};
+			name = Debug64;
+		};
+		CE187CF517FCF21100544F3F /* Debug64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = "include/S3/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = Framework;
+			};
+			name = Debug64;
+		};
+		CE187CF617FCF21600544F3F /* Release64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					ThirdParty,
+					"include/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+			};
+			name = Release64;
+		};
+		CE187CF717FCF21600544F3F /* Release64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DSTROOT = /tmp/s3.dst;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = S3_Prefix.pch;
+				HEADER_SEARCH_PATHS = include;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				PRODUCT_NAME = S3;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+			};
+			name = Release64;
+		};
+		CE187CF817FCF21600544F3F /* Release64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				HEADER_SEARCH_PATHS = "include/S3/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = Framework;
+				ZERO_LINK = NO;
+			};
+			name = Release64;
 		};
 /* End XCBuildConfiguration section */
 
@@ -1573,7 +1707,9 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0AFD8DD8128465B4004B7863 /* Debug */,
+				CE187CF517FCF21100544F3F /* Debug64 */,
 				0AFD8DD9128465B4004B7863 /* Release */,
+				CE187CF817FCF21600544F3F /* Release64 */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1582,7 +1718,9 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB921F08733DC00010E9CD /* Debug */,
+				CE187CF417FCF21100544F3F /* Debug64 */,
 				1DEB922008733DC00010E9CD /* Release */,
+				CE187CF717FCF21600544F3F /* Release64 */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1591,7 +1729,9 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB922308733DC00010E9CD /* Debug */,
+				CE187CF317FCF21100544F3F /* Debug64 */,
 				1DEB922408733DC00010E9CD /* Release */,
+				CE187CF617FCF21600544F3F /* Release64 */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

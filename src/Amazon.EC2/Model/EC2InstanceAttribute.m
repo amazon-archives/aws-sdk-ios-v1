@@ -97,13 +97,13 @@
 }
 
 
--(void)setDisableApiTermination:(bool)theValue
+-(void)setDisableApiTermination:(BOOL)theValue
 {
     disableApiTermination      = theValue;
     disableApiTerminationIsSet = YES;
 }
 
--(void)setEbsOptimized:(bool)theValue
+-(void)setEbsOptimized:(BOOL)theValue
 {
     ebsOptimized      = theValue;
     ebsOptimizedIsSet = YES;

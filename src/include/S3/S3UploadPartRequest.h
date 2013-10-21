@@ -24,7 +24,7 @@
 }
 
 /** Identifies which part this is. */
-@property (nonatomic, assign) NSInteger partNumber;
+@property (nonatomic, assign) int32_t partNumber;
 
 /** The base64-encoded 128-bit MD5 digest of the part data.
  * This header can be used as a message integrity check to verify

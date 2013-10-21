@@ -29,11 +29,20 @@
 @interface EC2DisassociateAddressRequest:AmazonServiceRequestConfig
 
 {
+    BOOL     dryRun;
+    BOOL     dryRunIsSet;
     NSString *publicIp;
     NSString *associationId;
 }
 
 
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * The elastic IP address that you are disassociating from the instance.

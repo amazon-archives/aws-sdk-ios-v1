@@ -101,7 +101,7 @@
 }
 
 
--(void)setMarketplace:(bool)theValue
+-(void)setMarketplace:(BOOL)theValue
 {
     marketplace      = theValue;
     marketplaceIsSet = YES;

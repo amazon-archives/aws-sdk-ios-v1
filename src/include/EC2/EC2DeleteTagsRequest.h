@@ -30,11 +30,20 @@
 @interface EC2DeleteTagsRequest:AmazonServiceRequestConfig
 
 {
+    BOOL           dryRun;
+    BOOL           dryRunIsSet;
     NSMutableArray *resources;
     NSMutableArray *tags;
 }
 
 
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * A list of one or more resource IDs. This could be the ID of an AMI, an

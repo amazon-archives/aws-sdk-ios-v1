@@ -36,8 +36,8 @@
     NSString       *currencyCode;
     NSString       *offeringType;
     NSMutableArray *recurringCharges;
-    bool           marketplace;
-    bool           marketplaceIsSet;
+    BOOL           marketplace;
+    BOOL           marketplaceIsSet;
     NSMutableArray *pricingDetails;
 }
 
@@ -85,22 +85,34 @@
 
 /**
  * The Reserved Instances description (ex: Windows or Unix/Linux).
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>Linux/UNIX, Linux/UNIX (Amazon VPC), Windows, Windows (Amazon VPC)
  */
 @property (nonatomic, retain) NSString *productDescription;
 
 /**
  * The tenancy of the reserved instance (ex: default or dedicated).
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>default, dedicated
  */
 @property (nonatomic, retain) NSString *instanceTenancy;
 
 /**
  * The currency of the reserved instance. Specified using ISO 4217
  * standard (e.g., USD, JPY).
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>USD
  */
 @property (nonatomic, retain) NSString *currencyCode;
 
 /**
  * The Reserved Instance offering type.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>Heavy Utilization, Medium Utilization, Light Utilization
  */
 @property (nonatomic, retain) NSString *offeringType;
 
@@ -112,9 +124,9 @@
 /**
  * The value of the Marketplace property for this object.
  */
-@property (nonatomic) bool           marketplace;
+@property (nonatomic) BOOL           marketplace;
 
-@property (nonatomic, readonly) bool marketplaceIsSet;
+@property (nonatomic, readonly) BOOL marketplaceIsSet;
 
 /**
  * The value of the PricingDetails property for this object.

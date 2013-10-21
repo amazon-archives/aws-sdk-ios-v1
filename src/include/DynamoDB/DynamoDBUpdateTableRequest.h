@@ -51,7 +51,7 @@
  * <p>For current minimum and maximum provisioned throughput values, see
  * <a
  * mazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a>
- * of the <i>Amazon DynamoDB Developer Guide</i>.
+ * in the Amazon DynamoDB Developer Guide.
  */
 @property (nonatomic, retain) DynamoDBProvisionedThroughput *provisionedThroughput;
 
@@ -72,7 +72,7 @@
  * <i>UpdateTable</i> operation. <p>For current minimum and maximum
  * provisioned throughput values, see <a
  * mazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a>
- * of the <i>Amazon DynamoDB Developer Guide</i>.
+ * in the Amazon DynamoDB Developer Guide.
  */
 -(id)initWithTableName:(NSString *)theTableName andProvisionedThroughput:(DynamoDBProvisionedThroughput *)theProvisionedThroughput;
 

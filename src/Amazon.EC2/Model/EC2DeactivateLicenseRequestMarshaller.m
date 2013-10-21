@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DeactivateLicense"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[deactivateLicenseRequest delegate]];
     [request setCredentials:[deactivateLicenseRequest credentials]];
     [request setEndpoint:[deactivateLicenseRequest requestEndpoint]];
     [request setRequestTag:[deactivateLicenseRequest requestTag]];
 
+    if (deactivateLicenseRequest != nil) {
+        if (deactivateLicenseRequest.dryRunIsSet) {
+            [request setParameterValue:(deactivateLicenseRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
     if (deactivateLicenseRequest != nil) {
         if (deactivateLicenseRequest.licenseId != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", deactivateLicenseRequest.licenseId] forKey:[NSString stringWithFormat:@"%@", @"LicenseId"]];

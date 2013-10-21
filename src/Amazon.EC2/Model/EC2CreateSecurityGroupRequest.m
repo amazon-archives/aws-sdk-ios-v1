@@ -18,6 +18,8 @@
 
 @implementation EC2CreateSecurityGroupRequest
 
+@synthesize dryRun;
+@synthesize dryRunIsSet;
 @synthesize groupName;
 @synthesize descriptionValue;
 @synthesize vpcId;
@@ -26,6 +28,8 @@
 -(id)init
 {
     if (self = [super init]) {
+        dryRun           = NO;
+        dryRunIsSet      = NO;
         groupName        = nil;
         descriptionValue = nil;
         vpcId            = nil;
@@ -51,6 +55,7 @@
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
 
     [buffer appendString:@"{"];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"DryRun: %d,", dryRun] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"GroupName: %@,", groupName] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Description: %@,", descriptionValue] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"VpcId: %@,", vpcId] autorelease]];
@@ -60,6 +65,12 @@
     return [buffer autorelease];
 }
 
+
+-(void)setDryRun:(BOOL)theValue
+{
+    dryRun      = theValue;
+    dryRunIsSet = YES;
+}
 
 
 -(void)dealloc

@@ -18,6 +18,8 @@
 
 @implementation EC2CopySnapshotRequest
 
+@synthesize dryRun;
+@synthesize dryRunIsSet;
 @synthesize sourceRegion;
 @synthesize sourceSnapshotId;
 @synthesize descriptionValue;
@@ -26,6 +28,8 @@
 -(id)init
 {
     if (self = [super init]) {
+        dryRun           = NO;
+        dryRunIsSet      = NO;
         sourceRegion     = nil;
         sourceSnapshotId = nil;
         descriptionValue = nil;
@@ -41,6 +45,7 @@
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
 
     [buffer appendString:@"{"];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"DryRun: %d,", dryRun] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"SourceRegion: %@,", sourceRegion] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"SourceSnapshotId: %@,", sourceSnapshotId] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Description: %@,", descriptionValue] autorelease]];
@@ -50,6 +55,12 @@
     return [buffer autorelease];
 }
 
+
+-(void)setDryRun:(BOOL)theValue
+{
+    dryRun      = theValue;
+    dryRunIsSet = YES;
+}
 
 
 -(void)dealloc

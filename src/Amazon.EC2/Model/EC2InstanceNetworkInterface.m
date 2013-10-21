@@ -101,7 +101,7 @@
 }
 
 
--(void)setSourceDestCheck:(bool)theValue
+-(void)setSourceDestCheck:(BOOL)theValue
 {
     sourceDestCheck      = theValue;
     sourceDestCheckIsSet = YES;

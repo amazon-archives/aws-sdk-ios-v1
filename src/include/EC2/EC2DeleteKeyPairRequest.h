@@ -29,10 +29,19 @@
 @interface EC2DeleteKeyPairRequest:AmazonServiceRequestConfig
 
 {
+    BOOL     dryRun;
+    BOOL     dryRunIsSet;
     NSString *keyName;
 }
 
 
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * The name of the Amazon EC2 key pair to delete.

@@ -79,9 +79,11 @@
 
 /**
  * The time for this action to start, as in <code>--start-time
- * 2010-06-01T00:00:00Z</code>. <p>When <code>StartTime</code> and
- * <code>EndTime</code> are specified with <code>Recurrence</code>, they
- * form the boundaries of when the recurring action will start and stop.
+ * 2010-06-01T00:00:00Z</code>. <p>If you try to schedule your action in
+ * the past, Auto Scaling returns an error message. <p>When
+ * <code>StartTime</code> and <code>EndTime</code> are specified with
+ * <code>Recurrence</code>, they form the boundaries of when the
+ * recurring action will start and stop.
  */
 @property (nonatomic, retain) NSDate *startTime;
 

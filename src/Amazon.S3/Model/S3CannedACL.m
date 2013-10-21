@@ -92,5 +92,15 @@
     return stringValue;
 }
 
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeObject:stringValue forKey:@"StringValue"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    return [self initWithStringValue:[decoder decodeObjectForKey:@"StringValue"]];
+}
+
 
 @end

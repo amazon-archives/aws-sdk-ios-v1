@@ -29,11 +29,20 @@
 @interface EC2ResetInstanceAttributeRequest:AmazonServiceRequestConfig
 
 {
+    BOOL     dryRun;
+    BOOL     dryRunIsSet;
     NSString *instanceId;
     NSString *attribute;
 }
 
 
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * The ID of the Amazon EC2 instance whose attribute is being reset.

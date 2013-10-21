@@ -18,15 +18,10 @@
 
 @implementation S3Part
 
-@synthesize etag;
-@synthesize lastModified;
-@synthesize partNumber;
-@synthesize size;
-
 -(void)dealloc
 {
-    [etag release];
-    [lastModified release];
+    [_etag release];
+    [_lastModified release];
 
     [super dealloc];
 }

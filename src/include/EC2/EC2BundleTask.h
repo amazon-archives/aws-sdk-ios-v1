@@ -56,6 +56,9 @@
 
 /**
  * The state of this task.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>pending, waiting-for-shutdown, bundling, storing, cancelling, complete, failed
  */
 @property (nonatomic, retain) NSString *state;
 

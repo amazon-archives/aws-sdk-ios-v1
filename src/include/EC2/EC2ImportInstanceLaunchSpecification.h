@@ -30,8 +30,8 @@
     NSString       *userData;
     NSString       *instanceType;
     EC2Placement   *placement;
-    bool           monitoring;
-    bool           monitoringIsSet;
+    BOOL           monitoring;
+    BOOL           monitoringIsSet;
     NSString       *subnetId;
     NSString       *instanceInitiatedShutdownBehavior;
     NSString       *privateIpAddress;
@@ -48,6 +48,9 @@
 
 /**
  * The value of the Architecture property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>i386, x86_64
  */
 @property (nonatomic, retain) NSString *architecture;
 
@@ -83,9 +86,9 @@
 /**
  * The value of the Monitoring property for this object.
  */
-@property (nonatomic) bool           monitoring;
+@property (nonatomic) BOOL           monitoring;
 
-@property (nonatomic, readonly) bool monitoringIsSet;
+@property (nonatomic, readonly) BOOL monitoringIsSet;
 
 /**
  * The value of the SubnetId property for this object.
@@ -94,6 +97,9 @@
 
 /**
  * The value of the InstanceInitiatedShutdownBehavior property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>stop, terminate
  */
 @property (nonatomic, retain) NSString *instanceInitiatedShutdownBehavior;
 

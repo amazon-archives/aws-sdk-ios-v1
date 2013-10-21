@@ -29,6 +29,7 @@
     NSString       *instanceType;
     NSString       *availabilityZone;
     NSDate         *start;
+    NSDate         *end;
     NSNumber       *duration;
     NSNumber       *usagePrice;
     NSNumber       *fixedPrice;
@@ -75,6 +76,11 @@
 @property (nonatomic, retain) NSDate *start;
 
 /**
+ * The value of the End property for this object.
+ */
+@property (nonatomic, retain) NSDate *end;
+
+/**
  * The duration of the Reserved Instances, in seconds.
  */
 @property (nonatomic, retain) NSNumber *duration;
@@ -97,11 +103,17 @@
 /**
  * The Reserved Instances product description (ex: Windows or
  * Unix/Linux).
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>Linux/UNIX, Linux/UNIX (Amazon VPC), Windows, Windows (Amazon VPC)
  */
 @property (nonatomic, retain) NSString *productDescription;
 
 /**
  * The state of the Reserved Instances purchase.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>payment-pending, active, payment-failed, retired
  */
 @property (nonatomic, retain) NSString *state;
 
@@ -112,17 +124,26 @@
 
 /**
  * The tenancy of the reserved instance (ex: default or dedicated).
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>default, dedicated
  */
 @property (nonatomic, retain) NSString *instanceTenancy;
 
 /**
  * The currency of the reserved instance. Specified using ISO 4217
  * standard (e.g., USD, JPY).
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>USD
  */
 @property (nonatomic, retain) NSString *currencyCode;
 
 /**
  * The Reserved Instance offering type.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>Heavy Utilization, Medium Utilization, Light Utilization
  */
 @property (nonatomic, retain) NSString *offeringType;
 

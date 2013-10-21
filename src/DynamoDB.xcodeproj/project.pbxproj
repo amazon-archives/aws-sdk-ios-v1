@@ -39,7 +39,6 @@
 		38078E1F15262164006F384C /* DynamoDBDescribeTableRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38078DC315262164006F384C /* DynamoDBDescribeTableRequestMarshaller.h */; };
 		38078E2015262164006F384C /* DynamoDBDescribeTableResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 38078DC415262164006F384C /* DynamoDBDescribeTableResponse.h */; };
 		38078E2115262164006F384C /* DynamoDBDescribeTableResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38078DC515262164006F384C /* DynamoDBDescribeTableResponseUnmarshaller.h */; };
-		38078E2215262164006F384C /* DynamoDBExceptionUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38078DC615262164006F384C /* DynamoDBExceptionUnmarshaller.h */; };
 		38078E2315262164006F384C /* DynamoDBExpectedAttributeValue.h in Headers */ = {isa = PBXBuildFile; fileRef = 38078DC715262164006F384C /* DynamoDBExpectedAttributeValue.h */; };
 		38078E2415262164006F384C /* DynamoDBGetItemRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38078DC815262164006F384C /* DynamoDBGetItemRequest.h */; };
 		38078E2515262164006F384C /* DynamoDBGetItemRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38078DC915262164006F384C /* DynamoDBGetItemRequestMarshaller.h */; };
@@ -50,7 +49,6 @@
 		38078E2B15262164006F384C /* DynamoDBKeysAndAttributesUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38078DCF15262164006F384C /* DynamoDBKeysAndAttributesUnmarshaller.h */; };
 		38078E2D15262164006F384C /* DynamoDBKeySchemaElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 38078DD115262164006F384C /* DynamoDBKeySchemaElement.h */; };
 		38078E2E15262164006F384C /* DynamoDBKeySchemaElementUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38078DD215262164006F384C /* DynamoDBKeySchemaElementUnmarshaller.h */; };
-		38078E3015262164006F384C /* DynamoDBKeyUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38078DD415262164006F384C /* DynamoDBKeyUnmarshaller.h */; };
 		38078E3115262164006F384C /* DynamoDBLimitExceededException.h in Headers */ = {isa = PBXBuildFile; fileRef = 38078DD515262164006F384C /* DynamoDBLimitExceededException.h */; };
 		38078E3215262164006F384C /* DynamoDBListTablesRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 38078DD615262164006F384C /* DynamoDBListTablesRequest.h */; };
 		38078E3315262164006F384C /* DynamoDBListTablesRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 38078DD715262164006F384C /* DynamoDBListTablesRequestMarshaller.h */; };
@@ -138,7 +136,6 @@
 		38078EE91526217F006F384C /* DynamoDBKeysAndAttributesUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38078E8D1526217F006F384C /* DynamoDBKeysAndAttributesUnmarshaller.m */; };
 		38078EEB1526217F006F384C /* DynamoDBKeySchemaElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 38078E8F1526217F006F384C /* DynamoDBKeySchemaElement.m */; };
 		38078EEC1526217F006F384C /* DynamoDBKeySchemaElementUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38078E901526217F006F384C /* DynamoDBKeySchemaElementUnmarshaller.m */; };
-		38078EEE1526217F006F384C /* DynamoDBKeyUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38078E921526217F006F384C /* DynamoDBKeyUnmarshaller.m */; };
 		38078EEF1526217F006F384C /* DynamoDBLimitExceededException.m in Sources */ = {isa = PBXBuildFile; fileRef = 38078E931526217F006F384C /* DynamoDBLimitExceededException.m */; };
 		38078EF01526217F006F384C /* DynamoDBListTablesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38078E941526217F006F384C /* DynamoDBListTablesRequest.m */; };
 		38078EF11526217F006F384C /* DynamoDBListTablesRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38078E951526217F006F384C /* DynamoDBListTablesRequestMarshaller.m */; };
@@ -178,9 +175,8 @@
 		38078F131526217F006F384C /* DynamoDBWriteRequestUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38078EB71526217F006F384C /* DynamoDBWriteRequestUnmarshaller.m */; };
 		3846C388152D0DAA00AE6D72 /* AmazonDynamoDBClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3846C387152D0DAA00AE6D72 /* AmazonDynamoDBClient.m */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
-		CE24551E171F7AFD00272673 /* DynamoDBKey.m in Sources */ = {isa = PBXBuildFile; fileRef = CE24551D171F7AFD00272673 /* DynamoDBKey.m */; };
-		CE245520171F7B1600272673 /* DynamoDBKey.h in Headers */ = {isa = PBXBuildFile; fileRef = CE24551F171F7B1600272673 /* DynamoDBKey.h */; };
 		CE2CDBF817036AD00013DE5F /* AWSDynamoDB.h in Headers */ = {isa = PBXBuildFile; fileRef = CE2CDBF717036AD00013DE5F /* AWSDynamoDB.h */; };
+		CE3767821810ADF0005FF936 /* DynamoDBExceptionUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE3767811810ADF0005FF936 /* DynamoDBExceptionUnmarshaller.h */; };
 		CE8EF69616F945DF007BF85E /* DynamoDBAttributeDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8EF69216F945DF007BF85E /* DynamoDBAttributeDefinition.m */; };
 		CE8EF69716F945DF007BF85E /* DynamoDBAttributeDefinitionUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8EF69316F945DF007BF85E /* DynamoDBAttributeDefinitionUnmarshaller.m */; };
 		CE8EF69816F945DF007BF85E /* DynamoDBConsumedCapacity.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8EF69416F945DF007BF85E /* DynamoDBConsumedCapacity.m */; };
@@ -243,7 +239,6 @@
 		38078DC315262164006F384C /* DynamoDBDescribeTableRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamoDBDescribeTableRequestMarshaller.h; path = DynamoDB/DynamoDBDescribeTableRequestMarshaller.h; sourceTree = "<group>"; };
 		38078DC415262164006F384C /* DynamoDBDescribeTableResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamoDBDescribeTableResponse.h; path = DynamoDB/DynamoDBDescribeTableResponse.h; sourceTree = "<group>"; };
 		38078DC515262164006F384C /* DynamoDBDescribeTableResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamoDBDescribeTableResponseUnmarshaller.h; path = DynamoDB/DynamoDBDescribeTableResponseUnmarshaller.h; sourceTree = "<group>"; };
-		38078DC615262164006F384C /* DynamoDBExceptionUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamoDBExceptionUnmarshaller.h; path = DynamoDB/DynamoDBExceptionUnmarshaller.h; sourceTree = "<group>"; };
 		38078DC715262164006F384C /* DynamoDBExpectedAttributeValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamoDBExpectedAttributeValue.h; path = DynamoDB/DynamoDBExpectedAttributeValue.h; sourceTree = "<group>"; };
 		38078DC815262164006F384C /* DynamoDBGetItemRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamoDBGetItemRequest.h; path = DynamoDB/DynamoDBGetItemRequest.h; sourceTree = "<group>"; };
 		38078DC915262164006F384C /* DynamoDBGetItemRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamoDBGetItemRequestMarshaller.h; path = DynamoDB/DynamoDBGetItemRequestMarshaller.h; sourceTree = "<group>"; };
@@ -254,7 +249,6 @@
 		38078DCF15262164006F384C /* DynamoDBKeysAndAttributesUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamoDBKeysAndAttributesUnmarshaller.h; path = DynamoDB/DynamoDBKeysAndAttributesUnmarshaller.h; sourceTree = "<group>"; };
 		38078DD115262164006F384C /* DynamoDBKeySchemaElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamoDBKeySchemaElement.h; path = DynamoDB/DynamoDBKeySchemaElement.h; sourceTree = "<group>"; };
 		38078DD215262164006F384C /* DynamoDBKeySchemaElementUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamoDBKeySchemaElementUnmarshaller.h; path = DynamoDB/DynamoDBKeySchemaElementUnmarshaller.h; sourceTree = "<group>"; };
-		38078DD415262164006F384C /* DynamoDBKeyUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamoDBKeyUnmarshaller.h; path = DynamoDB/DynamoDBKeyUnmarshaller.h; sourceTree = "<group>"; };
 		38078DD515262164006F384C /* DynamoDBLimitExceededException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamoDBLimitExceededException.h; path = DynamoDB/DynamoDBLimitExceededException.h; sourceTree = "<group>"; };
 		38078DD615262164006F384C /* DynamoDBListTablesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamoDBListTablesRequest.h; path = DynamoDB/DynamoDBListTablesRequest.h; sourceTree = "<group>"; };
 		38078DD715262164006F384C /* DynamoDBListTablesRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamoDBListTablesRequestMarshaller.h; path = DynamoDB/DynamoDBListTablesRequestMarshaller.h; sourceTree = "<group>"; };
@@ -342,7 +336,6 @@
 		38078E8D1526217F006F384C /* DynamoDBKeysAndAttributesUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamoDBKeysAndAttributesUnmarshaller.m; sourceTree = "<group>"; };
 		38078E8F1526217F006F384C /* DynamoDBKeySchemaElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamoDBKeySchemaElement.m; sourceTree = "<group>"; };
 		38078E901526217F006F384C /* DynamoDBKeySchemaElementUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamoDBKeySchemaElementUnmarshaller.m; sourceTree = "<group>"; };
-		38078E921526217F006F384C /* DynamoDBKeyUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamoDBKeyUnmarshaller.m; sourceTree = "<group>"; };
 		38078E931526217F006F384C /* DynamoDBLimitExceededException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamoDBLimitExceededException.m; sourceTree = "<group>"; };
 		38078E941526217F006F384C /* DynamoDBListTablesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamoDBListTablesRequest.m; sourceTree = "<group>"; };
 		38078E951526217F006F384C /* DynamoDBListTablesRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamoDBListTablesRequestMarshaller.m; sourceTree = "<group>"; };
@@ -383,9 +376,8 @@
 		3846C387152D0DAA00AE6D72 /* AmazonDynamoDBClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonDynamoDBClient.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* DynamoDB_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamoDB_Prefix.pch; sourceTree = "<group>"; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		CE24551D171F7AFD00272673 /* DynamoDBKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamoDBKey.m; sourceTree = "<group>"; };
-		CE24551F171F7B1600272673 /* DynamoDBKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamoDBKey.h; path = DynamoDB/DynamoDBKey.h; sourceTree = "<group>"; };
 		CE2CDBF717036AD00013DE5F /* AWSDynamoDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSDynamoDB.h; path = DynamoDB/AWSDynamoDB.h; sourceTree = "<group>"; };
+		CE3767811810ADF0005FF936 /* DynamoDBExceptionUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamoDBExceptionUnmarshaller.h; path = DynamoDB/DynamoDBExceptionUnmarshaller.h; sourceTree = "<group>"; };
 		CE8EF69216F945DF007BF85E /* DynamoDBAttributeDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamoDBAttributeDefinition.m; sourceTree = "<group>"; };
 		CE8EF69316F945DF007BF85E /* DynamoDBAttributeDefinitionUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamoDBAttributeDefinitionUnmarshaller.m; sourceTree = "<group>"; };
 		CE8EF69416F945DF007BF85E /* DynamoDBConsumedCapacity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamoDBConsumedCapacity.m; sourceTree = "<group>"; };
@@ -513,7 +505,7 @@
 				38078DC315262164006F384C /* DynamoDBDescribeTableRequestMarshaller.h */,
 				38078DC415262164006F384C /* DynamoDBDescribeTableResponse.h */,
 				38078DC515262164006F384C /* DynamoDBDescribeTableResponseUnmarshaller.h */,
-				38078DC615262164006F384C /* DynamoDBExceptionUnmarshaller.h */,
+				CE3767811810ADF0005FF936 /* DynamoDBExceptionUnmarshaller.h */,
 				38078DC715262164006F384C /* DynamoDBExpectedAttributeValue.h */,
 				38078DC815262164006F384C /* DynamoDBGetItemRequest.h */,
 				38078DC915262164006F384C /* DynamoDBGetItemRequestMarshaller.h */,
@@ -523,12 +515,10 @@
 				CEFEFF811718F414005B4443 /* DynamoDBItemCollectionMetrics.h */,
 				CEFEFF821718F414005B4443 /* DynamoDBItemCollectionMetricsUnmarshaller.h */,
 				CEFEFF831718F414005B4443 /* DynamoDBItemCollectionSizeLimitExceededException.h */,
-				CE24551F171F7B1600272673 /* DynamoDBKey.h */,
 				38078DCE15262164006F384C /* DynamoDBKeysAndAttributes.h */,
 				38078DCF15262164006F384C /* DynamoDBKeysAndAttributesUnmarshaller.h */,
 				38078DD115262164006F384C /* DynamoDBKeySchemaElement.h */,
 				38078DD215262164006F384C /* DynamoDBKeySchemaElementUnmarshaller.h */,
-				38078DD415262164006F384C /* DynamoDBKeyUnmarshaller.h */,
 				38078DD515262164006F384C /* DynamoDBLimitExceededException.h */,
 				38078DD615262164006F384C /* DynamoDBListTablesRequest.h */,
 				38078DD715262164006F384C /* DynamoDBListTablesRequestMarshaller.h */,
@@ -649,12 +639,10 @@
 				CEFEFF911718F42A005B4443 /* DynamoDBItemCollectionMetrics.m */,
 				CEFEFF921718F42A005B4443 /* DynamoDBItemCollectionMetricsUnmarshaller.m */,
 				CEFEFF931718F42A005B4443 /* DynamoDBItemCollectionSizeLimitExceededException.m */,
-				CE24551D171F7AFD00272673 /* DynamoDBKey.m */,
 				38078E8C1526217F006F384C /* DynamoDBKeysAndAttributes.m */,
 				38078E8D1526217F006F384C /* DynamoDBKeysAndAttributesUnmarshaller.m */,
 				38078E8F1526217F006F384C /* DynamoDBKeySchemaElement.m */,
 				38078E901526217F006F384C /* DynamoDBKeySchemaElementUnmarshaller.m */,
-				38078E921526217F006F384C /* DynamoDBKeyUnmarshaller.m */,
 				38078E931526217F006F384C /* DynamoDBLimitExceededException.m */,
 				38078E941526217F006F384C /* DynamoDBListTablesRequest.m */,
 				38078E951526217F006F384C /* DynamoDBListTablesRequestMarshaller.m */,
@@ -723,6 +711,7 @@
 				38078E0E15262164006F384C /* DynamoDBCondition.h in Headers */,
 				38078E0F15262164006F384C /* DynamoDBConditionalCheckFailedException.h in Headers */,
 				38078E1015262164006F384C /* DynamoDBCreateTableRequest.h in Headers */,
+				CE3767821810ADF0005FF936 /* DynamoDBExceptionUnmarshaller.h in Headers */,
 				38078E1115262164006F384C /* DynamoDBCreateTableRequestMarshaller.h in Headers */,
 				38078E1215262164006F384C /* DynamoDBCreateTableResponse.h in Headers */,
 				38078E1315262164006F384C /* DynamoDBCreateTableResponseUnmarshaller.h in Headers */,
@@ -740,7 +729,6 @@
 				38078E1F15262164006F384C /* DynamoDBDescribeTableRequestMarshaller.h in Headers */,
 				38078E2015262164006F384C /* DynamoDBDescribeTableResponse.h in Headers */,
 				38078E2115262164006F384C /* DynamoDBDescribeTableResponseUnmarshaller.h in Headers */,
-				38078E2215262164006F384C /* DynamoDBExceptionUnmarshaller.h in Headers */,
 				38078E2315262164006F384C /* DynamoDBExpectedAttributeValue.h in Headers */,
 				38078E2415262164006F384C /* DynamoDBGetItemRequest.h in Headers */,
 				38078E2515262164006F384C /* DynamoDBGetItemRequestMarshaller.h in Headers */,
@@ -751,7 +739,6 @@
 				38078E2B15262164006F384C /* DynamoDBKeysAndAttributesUnmarshaller.h in Headers */,
 				38078E2D15262164006F384C /* DynamoDBKeySchemaElement.h in Headers */,
 				38078E2E15262164006F384C /* DynamoDBKeySchemaElementUnmarshaller.h in Headers */,
-				38078E3015262164006F384C /* DynamoDBKeyUnmarshaller.h in Headers */,
 				38078E3115262164006F384C /* DynamoDBLimitExceededException.h in Headers */,
 				38078E3215262164006F384C /* DynamoDBListTablesRequest.h in Headers */,
 				38078E3315262164006F384C /* DynamoDBListTablesRequestMarshaller.h in Headers */,
@@ -806,7 +793,6 @@
 				CEFEFF8E1718F414005B4443 /* DynamoDBLocalSecondaryIndexDescriptionUnmarshaller.h in Headers */,
 				CEFEFF8F1718F414005B4443 /* DynamoDBProjection.h in Headers */,
 				CEFEFF901718F414005B4443 /* DynamoDBProjectionUnmarshaller.h in Headers */,
-				CE245520171F7B1600272673 /* DynamoDBKey.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -926,7 +912,6 @@
 				38078EE91526217F006F384C /* DynamoDBKeysAndAttributesUnmarshaller.m in Sources */,
 				38078EEB1526217F006F384C /* DynamoDBKeySchemaElement.m in Sources */,
 				38078EEC1526217F006F384C /* DynamoDBKeySchemaElementUnmarshaller.m in Sources */,
-				38078EEE1526217F006F384C /* DynamoDBKeyUnmarshaller.m in Sources */,
 				38078EEF1526217F006F384C /* DynamoDBLimitExceededException.m in Sources */,
 				38078EF01526217F006F384C /* DynamoDBListTablesRequest.m in Sources */,
 				38078EF11526217F006F384C /* DynamoDBListTablesRequestMarshaller.m in Sources */,
@@ -977,7 +962,6 @@
 				CEFEFF9E1718F42A005B4443 /* DynamoDBLocalSecondaryIndexDescriptionUnmarshaller.m in Sources */,
 				CEFEFF9F1718F42A005B4443 /* DynamoDBProjection.m in Sources */,
 				CEFEFFA01718F42A005B4443 /* DynamoDBProjectionUnmarshaller.m in Sources */,
-				CE24551E171F7AFD00272673 /* DynamoDBKey.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1013,10 +997,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"ARCHS[sdk=*]" = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DOXYGEN_PATH = /Applications/Doxygen.app/Contents/Resources/doxygen;
 				DSTROOT = /tmp/s3.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1039,10 +1021,7 @@
 					"\"$(SRCROOT)/build/Release-iphoneos\"",
 					"\"$(SRCROOT)/build/Release-iphonesimulator\"",
 				);
-				OTHER_LDFLAGS = (
-					"-all_load",
-					"-ObjC",
-				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = DynamoDB;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -1055,7 +1034,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"ARCHS[sdk=*]" = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DSTROOT = /tmp/s3.dst;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1077,10 +1055,7 @@
 					"\"$(SRCROOT)/build/Release-iphoneos\"",
 					"\"$(SRCROOT)/build/Release-iphonesimulator\"",
 				);
-				OTHER_LDFLAGS = (
-					"-all_load",
-					"-ObjC",
-				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = DynamoDB;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -1100,7 +1075,7 @@
 					ThirdParty,
 					"include/**",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
@@ -1111,6 +1086,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -1118,12 +1094,145 @@
 					ThirdParty,
 					"include/**",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
+		};
+		CE187CE117FCEF6600544F3F /* Debug64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					ThirdParty,
+					"include/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+			};
+			name = Debug64;
+		};
+		CE187CE217FCEF6600544F3F /* Debug64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/s3.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/..\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = DynamoDB_Prefix.pch;
+				GCC_THUMB_SUPPORT = NO;
+				HEADER_SEARCH_PATHS = (
+					"include/DynamoDB/**",
+					include/,
+				);
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/build/Release-iphoneos\"",
+					"\"$(SRCROOT)/build/Release-iphonesimulator\"",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = DynamoDB;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug64;
+		};
+		CE187CE317FCEF6600544F3F /* Debug64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Framework;
+			};
+			name = Debug64;
+		};
+		CE187CE417FCEF6C00544F3F /* Release64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					ThirdParty,
+					"include/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+			};
+			name = Release64;
+		};
+		CE187CE517FCEF6C00544F3F /* Release64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DSTROOT = /tmp/s3.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/..\"",
+				);
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = DynamoDB_Prefix.pch;
+				GCC_THUMB_SUPPORT = NO;
+				HEADER_SEARCH_PATHS = (
+					"include/DynamoDB/**",
+					include/,
+				);
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/build/Release-iphoneos\"",
+					"\"$(SRCROOT)/build/Release-iphonesimulator\"",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = DynamoDB;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release64;
+		};
+		CE187CE617FCEF6C00544F3F /* Release64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				PRODUCT_NAME = Framework;
+				ZERO_LINK = NO;
+			};
+			name = Release64;
 		};
 /* End XCBuildConfiguration section */
 
@@ -1132,7 +1241,9 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0AFD8DD8128465B4004B7863 /* Debug */,
+				CE187CE317FCEF6600544F3F /* Debug64 */,
 				0AFD8DD9128465B4004B7863 /* Release */,
+				CE187CE617FCEF6C00544F3F /* Release64 */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1141,7 +1252,9 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB921F08733DC00010E9CD /* Debug */,
+				CE187CE217FCEF6600544F3F /* Debug64 */,
 				1DEB922008733DC00010E9CD /* Release */,
+				CE187CE517FCEF6C00544F3F /* Release64 */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1150,7 +1263,9 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB922308733DC00010E9CD /* Debug */,
+				CE187CE117FCEF6600544F3F /* Debug64 */,
 				1DEB922408733DC00010E9CD /* Release */,
+				CE187CE417FCEF6C00544F3F /* Release64 */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -134,7 +134,7 @@
 }
 
 
--(void)setPublicValue:(bool)theValue
+-(void)setPublicValue:(BOOL)theValue
 {
     publicValue      = theValue;
     publicValueIsSet = YES;

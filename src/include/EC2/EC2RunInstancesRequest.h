@@ -34,6 +34,8 @@
 @interface EC2RunInstancesRequest:AmazonServiceRequestConfig
 
 {
+    BOOL                               dryRun;
+    BOOL                               dryRunIsSet;
     NSString                           *imageId;
     NSNumber                           *minCount;
     NSNumber                           *maxCount;
@@ -46,11 +48,11 @@
     NSString                           *kernelId;
     NSString                           *ramdiskId;
     NSMutableArray                     *blockDeviceMappings;
-    bool                               monitoring;
-    bool                               monitoringIsSet;
+    BOOL                               monitoring;
+    BOOL                               monitoringIsSet;
     NSString                           *subnetId;
-    bool                               disableApiTermination;
-    bool                               disableApiTerminationIsSet;
+    BOOL                               disableApiTermination;
+    BOOL                               disableApiTerminationIsSet;
     NSString                           *instanceInitiatedShutdownBehavior;
     EC2InstanceLicenseSpecification    *license;
     NSString                           *privateIpAddress;
@@ -58,11 +60,18 @@
     NSString                           *additionalInfo;
     NSMutableArray                     *networkInterfaces;
     EC2IamInstanceProfileSpecification *iamInstanceProfile;
-    bool                               ebsOptimized;
-    bool                               ebsOptimizedIsSet;
+    BOOL                               ebsOptimized;
+    BOOL                               ebsOptimizedIsSet;
 }
 
 
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * Unique ID of a machine image, returned by a call to DescribeImages.
@@ -101,6 +110,7 @@
 
 /**
  * Specifies additional information to make available to the instance(s).
+ * This parameter must be passed as a Base64-encoded string.
  */
 @property (nonatomic, retain) NSString *userData;
 
@@ -141,9 +151,9 @@
 /**
  * Enables monitoring for the instance.
  */
-@property (nonatomic) bool           monitoring;
+@property (nonatomic) BOOL           monitoring;
 
-@property (nonatomic, readonly) bool monitoringIsSet;
+@property (nonatomic, readonly) BOOL monitoringIsSet;
 
 /**
  * Specifies the subnet ID within which to launch the instance(s) for
@@ -156,13 +166,16 @@
  * must modify this attribute before you can terminate any "locked"
  * instances from the APIs.
  */
-@property (nonatomic) bool           disableApiTermination;
+@property (nonatomic) BOOL           disableApiTermination;
 
-@property (nonatomic, readonly) bool disableApiTerminationIsSet;
+@property (nonatomic, readonly) BOOL disableApiTerminationIsSet;
 
 /**
  * Specifies whether the instance's Amazon EBS volumes are stopped or
  * terminated when the instance is shut down.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>stop, terminate
  */
 @property (nonatomic, retain) NSString *instanceInitiatedShutdownBehavior;
 
@@ -192,7 +205,7 @@
 @property (nonatomic, retain) NSString *additionalInfo;
 
 /**
- * The value of the NetworkInterfaces property for this object.
+ * List of network interfaces associated with the instance.
  */
 @property (nonatomic, retain) NSMutableArray *networkInterfaces;
 
@@ -204,9 +217,9 @@
 /**
  * The value of the EbsOptimized property for this object.
  */
-@property (nonatomic) bool           ebsOptimized;
+@property (nonatomic) BOOL           ebsOptimized;
 
-@property (nonatomic, readonly) bool ebsOptimizedIsSet;
+@property (nonatomic, readonly) BOOL ebsOptimizedIsSet;
 
 
 /**

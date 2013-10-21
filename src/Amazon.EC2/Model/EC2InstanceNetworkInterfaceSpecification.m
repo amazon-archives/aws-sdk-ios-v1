@@ -28,6 +28,8 @@
 @synthesize deleteOnTerminationIsSet;
 @synthesize privateIpAddresses;
 @synthesize secondaryPrivateIpAddressCount;
+@synthesize associatePublicIpAddress;
+@synthesize associatePublicIpAddressIsSet;
 
 
 -(id)init
@@ -43,6 +45,8 @@
         deleteOnTerminationIsSet       = NO;
         privateIpAddresses             = [[NSMutableArray alloc] initWithCapacity:1];
         secondaryPrivateIpAddressCount = nil;
+        associatePublicIpAddress       = NO;
+        associatePublicIpAddressIsSet  = NO;
     }
 
     return self;
@@ -82,6 +86,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"DeleteOnTermination: %d,", deleteOnTermination] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"PrivateIpAddresses: %@,", privateIpAddresses] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"SecondaryPrivateIpAddressCount: %@,", secondaryPrivateIpAddressCount] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"AssociatePublicIpAddress: %d,", associatePublicIpAddress] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -89,10 +94,16 @@
 }
 
 
--(void)setDeleteOnTermination:(bool)theValue
+-(void)setDeleteOnTermination:(BOOL)theValue
 {
     deleteOnTermination      = theValue;
     deleteOnTerminationIsSet = YES;
+}
+
+-(void)setAssociatePublicIpAddress:(BOOL)theValue
+{
+    associatePublicIpAddress      = theValue;
+    associatePublicIpAddressIsSet = YES;
 }
 
 

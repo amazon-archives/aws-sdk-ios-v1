@@ -15,6 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AmazonS3Client.h"
+#import "S3TransferOperation.h"
 
 #ifdef AWS_MULTI_FRAMEWORK
 #import <AWSRuntime/AmazonServiceRequest.h>
@@ -48,14 +49,14 @@
 @property (nonatomic, copy) AmazonS3Client *s3;
 
 /**
- * The minimum part size for upload parts.
+ * The minimum part size for upload parts.  Must be at least 5MB.
  */
-@property (nonatomic, assign) NSUInteger minimumUploadPartSize;
+@property (nonatomic, assign) uint32_t minimumUploadPartSize;
 
 /**
  * The size threshold in bytes for when to use multipart uploads.
  */
-@property (nonatomic, assign) NSUInteger multipartUploadThreshold;
+@property (nonatomic, assign) uint32_t multipartUploadThreshold;
 
 /**
  * Controls if the synchronous upload methods can be invoked on the main thread.
@@ -72,8 +73,59 @@
  */
 @property (nonatomic, readonly, assign) NSOperationQueue *operationQueue;
 
-#pragma mark - Synchronous upload methods
+#pragma mark - Asynchronous uploads
+
+/** Asynchronously uploads data to Amazon S3 using either put object request or multipart uploads. Set the delegate property of S3PutObjectRequest in order to overwrite the delegate for callbacks.
+ * Pause and resume will only work if you specify a filePath on the request.
+ *
+ * @param putObjectRequest A S3PutObjectRequest object that defines the parameters of the request.
+ * @see S3PutObjectRequest
+ * @see AmazonServiceRequestDelegate
+ *
+ * @return S3TransferOperation
+ */
+- (S3TransferOperation *)upload:(S3PutObjectRequest *)putObjectRequest;
+
+/** Asynchronously uploads data to Amazon S3 using either put object request or multipart uploads.
+ * Pause and resume will not work with this method.
+ *
+ * @param data A NSData object to upload.
+ * @param bucket A bucket name.
+ * @param key A key name.
+ * @see AmazonServiceRequestDelegate
+ *
+ * @return S3TransferOperation
+ */
+- (S3TransferOperation *)uploadData:(NSData *)data bucket:(NSString *)bucket key:(NSString *)key;
+
+/** Asynchronously uploads data to Amazon S3 using either put object request or multipart uploads.
+ *
+ * @param filename A filepath to a file to upload.
+ * @param bucket A bucket name.
+ * @param key A key name.
+ * @see AmazonServiceRequestDelegate
+ *
+ * @return S3TransferOperation
+ */
+- (S3TransferOperation *)uploadFile:(NSString *)filename bucket:(NSString *)bucket key:(NSString *)key;
+
+/** Asynchronously uploads data to Amazon S3 using either put object request or multipart uploads.
+ * Pause and resume will not work with this method.
+ *
+ * @param stream An NSInputStream object.
+ * @param contentLength content length of the stream.
+ * @param bucket A bucket name.
+ * @param key A key name.
+ * @see AmazonServiceRequestDelegate
+ *
+ * @return S3TransferOperation
+ */
+- (S3TransferOperation *)uploadStream:(NSInputStream *)stream contentLength:(long)contentLength bucket:(NSString *)bucket key:(NSString *)key;
+
+#pragma mark - Synchronous uploads
+
 /** Synchronously uploads data to Amazon S3 using either put object request or multipart uploads.
+ * Pause and resume will only work if you specify a filename on the putObjectRequest.
  *
  * @param putObjectRequest A S3PutObjectRequest object that defines the parameters of the request.
  * @return An AmazonServiceResponse from S3.
@@ -83,6 +135,7 @@
 - (AmazonServiceResponse *)synchronouslyUpload:(S3PutObjectRequest *)putObjectRequest;
 
 /** Synchronously uploads data to Amazon S3 using either put object request or multipart uploads.
+ * Pause and resume will not work with this method.
  *
  * @param data A NSData object to upload.
  * @param bucket A bucket name.
@@ -103,6 +156,7 @@
 - (AmazonServiceResponse *)synchronouslyUploadFile:(NSString *)filename bucket:(NSString *)bucket key:(NSString *)key;
 
 /** Synchronously uploads data to Amazon S3 using either put object request or multipart uploads.
+ * Pause and resume will not work with this method.
  *
  * @param stream An NSInputStream object.
  * @param bucket A bucket name.
@@ -112,44 +166,115 @@
  */
 - (AmazonServiceResponse *)synchronouslyUploadStream:(NSInputStream *)stream contentLength:(int64_t)contentLength bucket:(NSString *)bucket key:(NSString *)key;
 
-#pragma mark - Asynchronous upload methods
-/** Asynchronously uploads data to Amazon S3 using either put object request or multipart uploads. Set the delegate property of S3PutObjectRequest in order to overwrite the delegate for callbacks.
- *
- * @param putObjectRequest A S3PutObjectRequest object that defines the parameters of the request.
- * @see S3PutObjectRequest
- * @see AmazonServiceRequestDelegate
- */
-- (void)upload:(S3PutObjectRequest *)putObjectRequest;
+#pragma mark - Asynchronous downloads
 
-/** Asynchronously uploads data to Amazon S3 using either put object request or multipart uploads.
+/** Asynchronously downloads data from Amazon S3 using get object request
+ * Pause and resume will only work if you specify a targetFilePath on the getObjectRequest.
+ * If targetFilePath is specified, if a local file incomplete already exists, it is resumed.
+ * If the local file size matches the remote file size and the md5sum matches, didFailWithError is called.
  *
- * @param data A NSData object to upload.
+ * @param getObjectRequest A S3GetObjectRequest object that defines the parameters of the request.
+ * @see AmazonServiceRequestDelegate
+ *
+ * @return S3TransferOperation
+ */
+- (S3TransferOperation *)download:(S3GetObjectRequest *)getObjectRequest;
+
+/** Asynchronously downloads data from Amazon S3 to a local file.  If a local file incomplete already exists, it is resumed.
+ * If the local file size matches the remote file size and the md5sum matches, didFailWithError is called.
+ *
+ * @param targetFilePath A filepath for the local file to download to.
  * @param bucket A bucket name.
  * @param key A key name.
  * @see AmazonServiceRequestDelegate
- */
-- (void)uploadData:(NSData *)data bucket:(NSString *)bucket key:(NSString *)key;
-
-/** Asynchronously uploads data to Amazon S3 using either put object request or multipart uploads.
  *
- * @param filename A filepath to a file to upload.
+ * @return S3TransferOperation
+ */
+- (S3TransferOperation *)downloadFile:(NSString *)targetFilePath bucket:(NSString *)bucket key:(NSString *)key;
+
+/** Asynchronously downloads data from Amazon S3 to an output stream.
+ * Pause and resume will not work with this method.
+ *
+ * @param outputStream An NSOutputStream object.
  * @param bucket A bucket name.
  * @param key A key name.
  * @see AmazonServiceRequestDelegate
- */
-- (void)uploadFile:(NSString *)filename bucket:(NSString *)bucket key:(NSString *)key;
-
-/** Asynchronously uploads data to Amazon S3 using either put object request or multipart uploads.
  *
- * @param stream An NSInputStream object.
+ * @return S3TransferOperation
+ */
+- (S3TransferOperation *)downloadStream:(NSOutputStream *) outputStream bucket:(NSString *)bucket key:(NSString *)key;
+
+#pragma mark - Synchronous downloads
+
+/** Synchronously downloads data from Amazon S3 using get object request
+ *
+ * @param getObjectRequest A S3GetObjectRequest object that defines the parameters of the request.
+ * @return AmazonServiceResponse
+ * @throws NSException
+ */
+- (AmazonServiceResponse *)synchronouslyDownload:(S3GetObjectRequest *)getObjectRequest;
+
+/** Synchronously downloads data from Amazon S3 to a local file.
+ *
+ * @param targetFilePath A filepath for the local file to download to.
  * @param bucket A bucket name.
  * @param key A key name.
- * @see AmazonServiceRequestDelegate
+ * @return An AmazonServiceResponse from S3.
+ * @see AmazonServiceResponse
  */
-- (void)uploadStream:(NSInputStream *)stream contentLength:(long)contentLength bucket:(NSString *)bucket key:(NSString *)key;
+- (AmazonServiceResponse *)synchronouslyDownloadFile:(NSString *)targetFilePath bucket:(NSString *)bucket key:(NSString *)key;
 
-#pragma mark - Abort multipart upload methods
-/** Asynchronously aborts pending multipart uploads initiated a specified date for a specified bucket.
+/** Synchronously downloads data from Amazon S3 to an output stream.
+ * Pause and resume will not work with this method.
+ *
+ * @param outputStream An NSOutputStream object.
+ * @param bucket A bucket name.
+ * @param key A key name.
+ * @return An AmazonServiceResponse from S3.
+ * @see AmazonServiceResponse
+ */
+- (AmazonServiceResponse *)synchronouslyDownloadStream:(NSOutputStream *)outputStream bucket:(NSString *)bucket key:(NSString *)key;
+
+#pragma mark - Cancel uploads/downloads
+
+/**
+ * Cancel all outstanding operations
+ */
+- (void) cancelAllTransfers;
+
+#pragma mark - Pause uploads/downloads
+
+/**
+ * Pause all transfers.
+ */
+- (void) pauseAllTransfers;
+
+#pragma mark - Resume uploads/downloads
+
+/** Resume a specific operation. Uploads < 5 MB will be restarted from the beginning. Uploads >= 5MB will be resumed
+ * at the last 5 MB part that was successfully uploaded.  Downloads will be resumed.
+ * @param operation Operation to resume
+ * @param requestDelegate A object that adopts AmazonServiceRequestDelegate protocol. The delegates are not persisted when transfers are paused. Providing this is useful if you're tracking the progress.
+ @return if the transfer is resumed, the S3TransferOperation of the resumed transfer. Otherwise the operation passed in.
+ */
+- (S3TransferOperation *)resume:(S3TransferOperation *)operation requestDelegate:(id<AmazonServiceRequestDelegate>)requestDelegate;
+
+/** Resume all paused transfers. Uploads < 5 MB will be restarted from the beginning. Uploads >= 5MB will be resumed at the last 5 MB part that was successfully uploaded. Downloads will be resumed.
+ * @param requestDelegate A object that adopts AmazonServiceRequestDelegate protocol. The delegates are not persisted when transfers are paused. Providing this is useful if you're tracking the progress.
+ * @return All of the transfers that were resumed
+ */
+- (NSArray *)resumeAllTransfers:(id<AmazonServiceRequestDelegate>)requestDelegate;
+
+#pragma mark - Utility methods
+
+/**
+ * Clean up the temp files used for resuming
+ */
+- (void) cleanupTempFiles;
+
+#pragma mark - Abort multipart uploads
+
+/** Asynchronously aborts pending multipart uploads initiated before a specified date for a specified bucket.
  *
  * @param bucket A bucket name.
  * @param date Pending mutipart uploads initiated before this date will be aborted.

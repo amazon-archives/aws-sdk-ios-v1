@@ -29,10 +29,19 @@
 @interface EC2CancelSpotInstanceRequestsRequest:AmazonServiceRequestConfig
 
 {
+    BOOL           dryRun;
+    BOOL           dryRunIsSet;
     NSMutableArray *spotInstanceRequestIds;
 }
 
 
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * Specifies the ID of the Spot Instance request.

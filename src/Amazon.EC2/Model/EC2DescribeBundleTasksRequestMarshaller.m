@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribeBundleTasks"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[describeBundleTasksRequest delegate]];
     [request setCredentials:[describeBundleTasksRequest credentials]];
     [request setEndpoint:[describeBundleTasksRequest requestEndpoint]];
     [request setRequestTag:[describeBundleTasksRequest requestTag]];
 
+    if (describeBundleTasksRequest != nil) {
+        if (describeBundleTasksRequest.dryRunIsSet) {
+            [request setParameterValue:(describeBundleTasksRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
 
     if (describeBundleTasksRequest != nil) {
         int bundleIdsListIndex = 1;

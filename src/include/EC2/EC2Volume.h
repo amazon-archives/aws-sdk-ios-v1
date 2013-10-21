@@ -70,7 +70,7 @@
  * State of this volume (e.g., creating, available).
  * <p>
  * <b>Constraints:</b><br/>
- * <b>Allowed Values: </b>creating, available, in-use, deleting, error
+ * <b>Allowed Values: </b>creating, available, in-use, deleting, deleted, error
  */
 @property (nonatomic, retain) NSString *state;
 

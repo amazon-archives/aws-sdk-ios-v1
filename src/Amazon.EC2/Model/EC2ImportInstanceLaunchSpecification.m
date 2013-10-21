@@ -83,7 +83,7 @@
 }
 
 
--(void)setMonitoring:(bool)theValue
+-(void)setMonitoring:(BOOL)theValue
 {
     monitoring      = theValue;
     monitoringIsSet = YES;

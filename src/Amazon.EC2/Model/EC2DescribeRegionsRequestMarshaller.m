@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribeRegions"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[describeRegionsRequest delegate]];
     [request setCredentials:[describeRegionsRequest credentials]];
     [request setEndpoint:[describeRegionsRequest requestEndpoint]];
     [request setRequestTag:[describeRegionsRequest requestTag]];
 
+    if (describeRegionsRequest != nil) {
+        if (describeRegionsRequest.dryRunIsSet) {
+            [request setParameterValue:(describeRegionsRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
 
     if (describeRegionsRequest != nil) {
         int regionNamesListIndex = 1;

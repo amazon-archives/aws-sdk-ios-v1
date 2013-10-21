@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"ConfirmProductInstance"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[confirmProductInstanceRequest delegate]];
     [request setCredentials:[confirmProductInstanceRequest credentials]];
     [request setEndpoint:[confirmProductInstanceRequest requestEndpoint]];
     [request setRequestTag:[confirmProductInstanceRequest requestTag]];
 
+    if (confirmProductInstanceRequest != nil) {
+        if (confirmProductInstanceRequest.dryRunIsSet) {
+            [request setParameterValue:(confirmProductInstanceRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
     if (confirmProductInstanceRequest != nil) {
         if (confirmProductInstanceRequest.productCode != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", confirmProductInstanceRequest.productCode] forKey:[NSString stringWithFormat:@"%@", @"ProductCode"]];

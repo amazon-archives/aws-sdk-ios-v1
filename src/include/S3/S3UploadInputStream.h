@@ -23,9 +23,6 @@
  */
 __attribute__ ((deprecated))
 @interface S3UploadInputStream : NSInputStream {
-	NSInputStream *stream;
-    NSInteger packetSize;
-    double delay;
 }
 
 /**
@@ -37,13 +34,13 @@ __attribute__ ((deprecated))
  * The number of K blocks to upload in each packet.
  * This number should be between 1 and 32.
  */
-@property (atomic) NSInteger packetSize;
+@property (atomic, assign) int32_t packetSize;
 
 /**
  * Delay (in seconds) between packet uploads.
  * Recommend using a delay between 0.00 and 0.25.
  */
-@property (atomic) double delay; 
+@property (atomic, assign) double delay;
 
 +(id)inputStreamWithStream:(NSInputStream *)aStream;
 

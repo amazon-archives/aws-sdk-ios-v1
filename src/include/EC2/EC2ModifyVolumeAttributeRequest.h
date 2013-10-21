@@ -29,9 +29,11 @@
 @interface EC2ModifyVolumeAttributeRequest:AmazonServiceRequestConfig
 
 {
+    BOOL     dryRun;
+    BOOL     dryRunIsSet;
     NSString *volumeId;
-    bool     autoEnableIO;
-    bool     autoEnableIOIsSet;
+    BOOL     autoEnableIO;
+    BOOL     autoEnableIOIsSet;
 }
 
 
@@ -44,6 +46,13 @@
 -(id)init;
 
 /**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
+
+/**
  * The value of the VolumeId property for this object.
  */
 @property (nonatomic, retain) NSString *volumeId;
@@ -51,9 +60,9 @@
 /**
  * The value of the AutoEnableIO property for this object.
  */
-@property (nonatomic) bool           autoEnableIO;
+@property (nonatomic) BOOL           autoEnableIO;
 
-@property (nonatomic, readonly) bool autoEnableIOIsSet;
+@property (nonatomic, readonly) BOOL autoEnableIOIsSet;
 
 /**
  * Returns a string representation of this object; useful for testing and

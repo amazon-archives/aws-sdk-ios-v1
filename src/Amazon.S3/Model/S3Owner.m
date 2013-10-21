@@ -35,6 +35,22 @@
     return [[[S3Owner alloc] initWithID:theID withDisplayName:theDisplayName] autorelease];
 }
 
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeObject:ID forKey:@"ID"];
+    [encoder encodeObject:displayName forKey:@"DisplayName"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    if (self = [super init]) {
+        [self setID:[decoder decodeObjectForKey:@"ID"]];
+        [self setDisplayName:[decoder decodeObjectForKey:@"DisplayName"]];
+    }
+    
+    return self;
+}
+
 -(void)dealloc
 {
     [ID release];

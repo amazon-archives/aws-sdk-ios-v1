@@ -18,27 +18,22 @@
 
 @implementation S3VersionSummary
 
-@synthesize displayName;
-@synthesize isLatest;
-@synthesize versionId;
-@synthesize isDeleteMarker;
-
 
 -(NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
 
     [buffer appendString:@"{"];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Key: %@,", key] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"ETag: %@,", etag] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Size: %d,", size] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Last Modified: %@,", lastModified] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Storage Class: %@,", storageClass] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Owner: %@,", owner] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Display Name: %@,", displayName] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Is Latest: %d,", isLatest] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Is DeleteMarker: %d,", isDeleteMarker] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Version Id: %@,", versionId] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Key: %@,", self.key] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"ETag: %@,", self.etag] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Size: %d,", self.size] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Last Modified: %@,", self.lastModified] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Storage Class: %@,", self.storageClass] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Owner: %@,", self.owner] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Display Name: %@,", self.displayName] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Is Latest: %d,", self.isLatest] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Is DeleteMarker: %d,", self.isDeleteMarker] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Version Id: %@,", self.versionId] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -47,8 +42,8 @@
 
 -(void)dealloc
 {
-    [versionId release];
-    [displayName release];
+    [_versionId release];
+    [_displayName release];
 
     [super dealloc];
 }

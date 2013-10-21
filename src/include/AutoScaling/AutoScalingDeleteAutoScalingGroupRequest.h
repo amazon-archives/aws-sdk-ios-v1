@@ -30,8 +30,8 @@
 
 {
     NSString *autoScalingGroupName;
-    bool     forceDelete;
-    bool     forceDeleteIsSet;
+    BOOL     forceDelete;
+    BOOL     forceDeleteIsSet;
 }
 
 
@@ -44,7 +44,7 @@
 -(id)init;
 
 /**
- * The name of the Auto Scaling group.
+ * The name of the Auto Scaling group to delete.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 1600<br/>
@@ -57,9 +57,9 @@
  * group will be deleted along with all instances associated with the
  * group, without waiting for all instances to be terminated.
  */
-@property (nonatomic) bool           forceDelete;
+@property (nonatomic) BOOL           forceDelete;
 
-@property (nonatomic, readonly) bool forceDeleteIsSet;
+@property (nonatomic, readonly) BOOL forceDeleteIsSet;
 
 /**
  * Returns a string representation of this object; useful for testing and

@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DeregisterImage"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[deregisterImageRequest delegate]];
     [request setCredentials:[deregisterImageRequest credentials]];
     [request setEndpoint:[deregisterImageRequest requestEndpoint]];
     [request setRequestTag:[deregisterImageRequest requestTag]];
 
+    if (deregisterImageRequest != nil) {
+        if (deregisterImageRequest.dryRunIsSet) {
+            [request setParameterValue:(deregisterImageRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
     if (deregisterImageRequest != nil) {
         if (deregisterImageRequest.imageId != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", deregisterImageRequest.imageId] forKey:[NSString stringWithFormat:@"%@", @"ImageId"]];

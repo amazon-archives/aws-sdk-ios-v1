@@ -74,6 +74,8 @@
 #import "EC2CreateSnapshotRequest.h"
 #import "EC2DeleteVolumeResponse.h"
 #import "EC2DeleteVolumeRequest.h"
+#import "EC2ModifyReservedInstancesResponse.h"
+#import "EC2ModifyReservedInstancesRequest.h"
 #import "EC2DescribeVpcsResponse.h"
 #import "EC2DescribeVpcsRequest.h"
 #import "EC2CancelConversionTaskResponse.h"
@@ -108,12 +110,12 @@
 #import "EC2DescribeConversionTasksRequest.h"
 #import "EC2DescribeInstanceAttributeResponse.h"
 #import "EC2DescribeInstanceAttributeRequest.h"
+#import "EC2DescribePlacementGroupsResponse.h"
+#import "EC2DescribePlacementGroupsRequest.h"
 #import "EC2DescribeSubnetsResponse.h"
 #import "EC2DescribeSubnetsRequest.h"
 #import "EC2RunInstancesResponse.h"
 #import "EC2RunInstancesRequest.h"
-#import "EC2DescribePlacementGroupsResponse.h"
-#import "EC2DescribePlacementGroupsRequest.h"
 #import "EC2DescribeInstancesResponse.h"
 #import "EC2DescribeInstancesRequest.h"
 #import "EC2ModifyVolumeAttributeResponse.h"
@@ -150,6 +152,8 @@
 #import "EC2PurchaseReservedInstancesOfferingRequest.h"
 #import "EC2ModifySnapshotAttributeResponse.h"
 #import "EC2ModifySnapshotAttributeRequest.h"
+#import "EC2DescribeReservedInstancesModificationsResponse.h"
+#import "EC2DescribeReservedInstancesModificationsRequest.h"
 #import "EC2TerminateInstancesResponse.h"
 #import "EC2TerminateInstancesRequest.h"
 #import "EC2DeleteSpotDatafeedSubscriptionResponse.h"
@@ -989,6 +993,30 @@
 
 /**
  * <p>
+ * The ModifyReservedInstances operation modifies the Availability Zone, instance count, instance type, or network
+ * platform (EC2-Classic or EC2-VPC) of your Reserved Instances.
+ * </p>
+ *
+ * @param modifyReservedInstancesRequest Container for the necessary parameters to execute the ModifyReservedInstances
+ *           service method on AmazonEC2.
+ *
+ * @return The response from the ModifyReservedInstances service method, as returned by AmazonEC2.
+ *
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonEC2 indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see EC2ModifyReservedInstancesRequest
+ * @see EC2ModifyReservedInstancesResponse
+ */
+-(EC2ModifyReservedInstancesResponse *)modifyReservedInstances:(EC2ModifyReservedInstancesRequest *)modifyReservedInstancesRequest;
+
+
+/**
+ * <p>
  * Gives you information about your VPCs. You can filter the results to return information only about VPCs that match
  * criteria you specify.
  * </p>
@@ -1388,6 +1416,29 @@
 
 /**
  * <p>
+ * Returns information about one or more PlacementGroup instances in a user's account.
+ * </p>
+ *
+ * @param describePlacementGroupsRequest Container for the necessary parameters to execute the DescribePlacementGroups
+ *           service method on AmazonEC2.
+ *
+ * @return The response from the DescribePlacementGroups service method, as returned by AmazonEC2.
+ *
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonEC2 indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see EC2DescribePlacementGroupsRequest
+ * @see EC2DescribePlacementGroupsResponse
+ */
+-(EC2DescribePlacementGroupsResponse *)describePlacementGroups:(EC2DescribePlacementGroupsRequest *)describePlacementGroupsRequest;
+
+
+/**
+ * <p>
  * Gives you information about your subnets. You can filter the results to return information only about subnets that
  * match criteria you specify.
  * </p>
@@ -1475,29 +1526,6 @@
  * @see EC2RunInstancesResponse
  */
 -(EC2RunInstancesResponse *)runInstances:(EC2RunInstancesRequest *)runInstancesRequest;
-
-
-/**
- * <p>
- * Returns information about one or more PlacementGroup instances in a user's account.
- * </p>
- *
- * @param describePlacementGroupsRequest Container for the necessary parameters to execute the DescribePlacementGroups
- *           service method on AmazonEC2.
- *
- * @return The response from the DescribePlacementGroups service method, as returned by AmazonEC2.
- *
- *
- * @exception AmazonClientException If any internal errors are encountered inside the client while
- * attempting to make the request or handle the response.  For example
- * if a network connection is not available.  For more information see <AmazonClientException>.
- * @exception AmazonServiceException If an error response is returned by AmazonEC2 indicating
- * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
- *
- * @see EC2DescribePlacementGroupsRequest
- * @see EC2DescribePlacementGroupsResponse
- */
--(EC2DescribePlacementGroupsResponse *)describePlacementGroups:(EC2DescribePlacementGroupsRequest *)describePlacementGroupsRequest;
 
 
 /**
@@ -1988,6 +2016,30 @@
  * @see EC2ModifySnapshotAttributeResponse
  */
 -(EC2ModifySnapshotAttributeResponse *)modifySnapshotAttribute:(EC2ModifySnapshotAttributeRequest *)modifySnapshotAttributeRequest;
+
+
+/**
+ * <p>
+ * The DescribeReservedInstancesModifications operation describes modifications made to Reserved Instances in your
+ * account.
+ * </p>
+ *
+ * @param describeReservedInstancesModificationsRequest Container for the necessary parameters to execute the
+ *           DescribeReservedInstancesModifications service method on AmazonEC2.
+ *
+ * @return The response from the DescribeReservedInstancesModifications service method, as returned by AmazonEC2.
+ *
+ *
+ * @exception AmazonClientException If any internal errors are encountered inside the client while
+ * attempting to make the request or handle the response.  For example
+ * if a network connection is not available.  For more information see <AmazonClientException>.
+ * @exception AmazonServiceException If an error response is returned by AmazonEC2 indicating
+ * either a problem with the data in the request, or a server side issue.  For more information see <AmazonServiceException>.
+ *
+ * @see EC2DescribeReservedInstancesModificationsRequest
+ * @see EC2DescribeReservedInstancesModificationsResponse
+ */
+-(EC2DescribeReservedInstancesModificationsResponse *)describeReservedInstancesModifications:(EC2DescribeReservedInstancesModificationsRequest *)describeReservedInstancesModificationsRequest;
 
 
 /**

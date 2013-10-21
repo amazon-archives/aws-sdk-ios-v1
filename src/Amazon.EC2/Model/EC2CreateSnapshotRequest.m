@@ -18,6 +18,8 @@
 
 @implementation EC2CreateSnapshotRequest
 
+@synthesize dryRun;
+@synthesize dryRunIsSet;
 @synthesize volumeId;
 @synthesize descriptionValue;
 
@@ -25,6 +27,8 @@
 -(id)init
 {
     if (self = [super init]) {
+        dryRun           = NO;
+        dryRunIsSet      = NO;
         volumeId         = nil;
         descriptionValue = nil;
     }
@@ -49,6 +53,7 @@
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
 
     [buffer appendString:@"{"];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"DryRun: %d,", dryRun] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"VolumeId: %@,", volumeId] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Description: %@,", descriptionValue] autorelease]];
     [buffer appendString:[super description]];
@@ -57,6 +62,12 @@
     return [buffer autorelease];
 }
 
+
+-(void)setDryRun:(BOOL)theValue
+{
+    dryRun      = theValue;
+    dryRunIsSet = YES;
+}
 
 
 -(void)dealloc

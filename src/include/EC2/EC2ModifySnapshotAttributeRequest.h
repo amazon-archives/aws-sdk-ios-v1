@@ -30,6 +30,8 @@
 @interface EC2ModifySnapshotAttributeRequest:AmazonServiceRequestConfig
 
 {
+    BOOL                                   dryRun;
+    BOOL                                   dryRunIsSet;
     NSString                               *snapshotId;
     NSString                               *attribute;
     NSString                               *operationType;
@@ -39,6 +41,13 @@
 }
 
 
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * The ID of the EBS snapshot whose attributes are being modified.

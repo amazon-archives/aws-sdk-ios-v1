@@ -18,6 +18,8 @@
 
 @implementation EC2RequestSpotInstancesRequest
 
+@synthesize dryRun;
+@synthesize dryRunIsSet;
 @synthesize spotPrice;
 @synthesize instanceCount;
 @synthesize type;
@@ -31,6 +33,8 @@
 -(id)init
 {
     if (self = [super init]) {
+        dryRun                = NO;
+        dryRunIsSet           = NO;
         spotPrice             = nil;
         instanceCount         = nil;
         type                  = nil;
@@ -60,6 +64,7 @@
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
 
     [buffer appendString:@"{"];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"DryRun: %d,", dryRun] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"SpotPrice: %@,", spotPrice] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"InstanceCount: %@,", instanceCount] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Type: %@,", type] autorelease]];
@@ -74,6 +79,12 @@
     return [buffer autorelease];
 }
 
+
+-(void)setDryRun:(BOOL)theValue
+{
+    dryRun      = theValue;
+    dryRunIsSet = YES;
+}
 
 
 -(void)dealloc

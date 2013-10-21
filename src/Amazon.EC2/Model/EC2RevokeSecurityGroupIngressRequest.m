@@ -18,6 +18,8 @@
 
 @implementation EC2RevokeSecurityGroupIngressRequest
 
+@synthesize dryRun;
+@synthesize dryRunIsSet;
 @synthesize groupName;
 @synthesize groupId;
 @synthesize sourceSecurityGroupName;
@@ -32,6 +34,8 @@
 -(id)init
 {
     if (self = [super init]) {
+        dryRun                     = NO;
+        dryRunIsSet                = NO;
         groupName                  = nil;
         groupId                    = nil;
         sourceSecurityGroupName    = nil;
@@ -72,6 +76,7 @@
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
 
     [buffer appendString:@"{"];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"DryRun: %d,", dryRun] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"GroupName: %@,", groupName] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"GroupId: %@,", groupId] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"SourceSecurityGroupName: %@,", sourceSecurityGroupName] autorelease]];
@@ -87,6 +92,12 @@
     return [buffer autorelease];
 }
 
+
+-(void)setDryRun:(BOOL)theValue
+{
+    dryRun      = theValue;
+    dryRunIsSet = YES;
+}
 
 
 -(void)dealloc

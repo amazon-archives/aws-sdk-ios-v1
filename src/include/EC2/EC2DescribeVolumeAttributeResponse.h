@@ -27,8 +27,8 @@
 
 {
     NSString       *volumeId;
-    bool           autoEnableIO;
-    bool           autoEnableIOIsSet;
+    BOOL           autoEnableIO;
+    BOOL           autoEnableIOIsSet;
     NSMutableArray *productCodes;
 }
 
@@ -51,9 +51,9 @@
 /**
  * Boolean value
  */
-@property (nonatomic) bool           autoEnableIO;
+@property (nonatomic) BOOL           autoEnableIO;
 
-@property (nonatomic, readonly) bool autoEnableIOIsSet;
+@property (nonatomic, readonly) BOOL autoEnableIOIsSet;
 
 /**
  * The value of the ProductCodes property for this object.

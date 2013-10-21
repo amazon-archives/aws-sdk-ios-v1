@@ -17,10 +17,10 @@
 #import "ElasticLoadBalancingResponse.h"
 
 #import "ElasticLoadBalancingPolicyTypeNotFoundException.h"
-#import "ElasticLoadBalancingTooManyPoliciesException.h"
-#import "ElasticLoadBalancingDuplicatePolicyNameException.h"
-#import "ElasticLoadBalancingLoadBalancerNotFoundException.h"
 #import "ElasticLoadBalancingInvalidConfigurationRequestException.h"
+#import "ElasticLoadBalancingDuplicatePolicyNameException.h"
+#import "ElasticLoadBalancingTooManyPoliciesException.h"
+#import "ElasticLoadBalancingLoadBalancerNotFoundException.h"
 
 
 /**

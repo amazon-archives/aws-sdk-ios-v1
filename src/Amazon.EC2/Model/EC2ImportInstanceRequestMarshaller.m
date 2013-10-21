@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"ImportInstance"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[importInstanceRequest delegate]];
     [request setCredentials:[importInstanceRequest credentials]];
     [request setEndpoint:[importInstanceRequest requestEndpoint]];
     [request setRequestTag:[importInstanceRequest requestTag]];
 
+    if (importInstanceRequest != nil) {
+        if (importInstanceRequest.dryRunIsSet) {
+            [request setParameterValue:(importInstanceRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
     if (importInstanceRequest != nil) {
         if (importInstanceRequest.descriptionValue != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", importInstanceRequest.descriptionValue] forKey:[NSString stringWithFormat:@"%@", @"Description"]];

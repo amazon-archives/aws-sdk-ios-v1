@@ -31,8 +31,8 @@
     NSString       *imageLocation;
     NSString       *state;
     NSString       *ownerId;
-    bool           publicValue;
-    bool           publicValueIsSet;
+    BOOL           publicValue;
+    BOOL           publicValueIsSet;
     NSMutableArray *productCodes;
     NSString       *architecture;
     NSString       *imageType;
@@ -90,9 +90,9 @@
  * True if this image has public launch permissions. False if it only has
  * implicit and explicit launch permissions.
  */
-@property (nonatomic) bool           publicValue;
+@property (nonatomic) BOOL           publicValue;
 
-@property (nonatomic, readonly) bool publicValueIsSet;
+@property (nonatomic, readonly) BOOL publicValueIsSet;
 
 /**
  * Product codes of the AMI.
@@ -101,11 +101,17 @@
 
 /**
  * The architecture of the image.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>i386, x86_64
  */
 @property (nonatomic, retain) NSString *architecture;
 
 /**
  * The type of image (machine, kernel, or ramdisk).
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>machine, kernel, ramdisk
  */
 @property (nonatomic, retain) NSString *imageType;
 
@@ -123,6 +129,9 @@
 
 /**
  * The operating platform of the AMI.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>Windows
  */
 @property (nonatomic, retain) NSString *platform;
 
@@ -150,6 +159,9 @@
 /**
  * The root device type used by the AMI. The AMI can use an Amazon EBS or
  * instance store root device.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>ebs, instance-store
  */
 @property (nonatomic, retain) NSString *rootDeviceType;
 

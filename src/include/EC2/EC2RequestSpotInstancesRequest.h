@@ -30,6 +30,8 @@
 @interface EC2RequestSpotInstancesRequest:AmazonServiceRequestConfig
 
 {
+    BOOL                   dryRun;
+    BOOL                   dryRunIsSet;
     NSString               *spotPrice;
     NSNumber               *instanceCount;
     NSString               *type;
@@ -41,6 +43,13 @@
 }
 
 
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * Specifies the maximum hourly price for any Spot Instance launched to

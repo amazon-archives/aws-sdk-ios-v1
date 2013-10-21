@@ -20,17 +20,13 @@
  * a time, either expressed in an age, or an explicit date.
  */
 @interface S3BucketLifecycleConfigurationTransition:NSObject {
-    NSString *storageClass;
-    NSString *transitionDays;
-    NSDate   *transitionDate;
-    
 }
 
 /** The storage class for this transition. Currently only 'GLACIER' is supported. **/
 @property (nonatomic, retain) NSString *storageClass;
 
 /** The time for this transition in days **/
-@property (nonatomic, assign) NSInteger transitionDays;
+@property (nonatomic, assign) int32_t transitionDays;
 
 /** 
  * The date for this transition as an absolute date.

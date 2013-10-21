@@ -32,8 +32,8 @@
 {
     NSString       *alarmName;
     NSString       *alarmDescription;
-    bool           actionsEnabled;
-    bool           actionsEnabledIsSet;
+    BOOL           actionsEnabled;
+    BOOL           actionsEnabledIsSet;
     NSMutableArray *oKActions;
     NSMutableArray *alarmActions;
     NSMutableArray *insufficientDataActions;
@@ -78,9 +78,9 @@
  * Indicates whether or not actions should be executed during any changes
  * to the alarm's state.
  */
-@property (nonatomic) bool           actionsEnabled;
+@property (nonatomic) BOOL           actionsEnabled;
 
-@property (nonatomic, readonly) bool actionsEnabledIsSet;
+@property (nonatomic, readonly) BOOL actionsEnabledIsSet;
 
 /**
  * The list of actions to execute when this alarm transitions into an

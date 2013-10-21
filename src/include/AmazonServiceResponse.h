@@ -30,13 +30,13 @@
 extern NSString *const AWSClockSkewError;
 
 @interface AmazonServiceResponse:NSObject {
-    NSInteger            httpStatusCode;
+    int32_t            httpStatusCode;
     NSString             *requestId;
     NSMutableData        *body;
     NSDictionary         *responseHeader;
     NSException          *exception;
-    bool                 isFinishedLoading;
-    bool                 didTimeout;
+    BOOL                 isFinishedLoading;
+    BOOL                 didTimeout;
     BOOL                 isAsyncCall;
     Class                unmarshallerDelegate;
     NSError *error;
@@ -53,13 +53,13 @@ extern NSString *const AWSClockSkewError;
 @property (nonatomic, readonly) NSDictionary *responseHeader;
 
 /** The HTTP status code of the response from the service. */
-@property (nonatomic) NSInteger httpStatusCode;
+@property (nonatomic) int32_t httpStatusCode;
 
 /** Whether the response is finished loading. */
-@property (nonatomic, readonly) bool isFinishedLoading;
+@property (nonatomic, readonly) BOOL isFinishedLoading;
 
 /** Whether the original request was timed out. */
-@property (nonatomic, readonly) bool didTimeout;
+@property (nonatomic, readonly) BOOL didTimeout;
 
 /** Check if it is async call, this is necessary for checking if we need to set clock skew */
 @property (nonatomic, assign) BOOL isAsyncCall;

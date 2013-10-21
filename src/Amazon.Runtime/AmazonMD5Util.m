@@ -26,10 +26,15 @@
 
 +(NSString *)base64md5FromData:(NSData *)data
 {
+    if([data length] > UINT32_MAX)
+    {
+        @throw [AmazonClientException exceptionWithMessage:@"The NSData size is too large. The maximum allowable size is UINT32_MAX."];
+    }
+
     const void    *cStr = [data bytes];
     unsigned char result[CC_MD5_DIGEST_LENGTH];
 
-    CC_MD5(cStr, [data length], result);
+    CC_MD5(cStr, (uint32_t)[data length], result);
 
     NSData *md5 = [[[NSData alloc] initWithBytes:result length:CC_MD5_DIGEST_LENGTH] autorelease];
     return [md5 base64EncodedString];
@@ -61,6 +66,25 @@
     }
 
     return nil;
+}
+
++ (NSString *)hexEncodeMD5:(NSData *)data
+{
+    if([data length] > UINT32_MAX)
+    {
+        @throw [AmazonClientException exceptionWithMessage:@"The NSData size is too large. The maximum allowable size is UINT32_MAX."];
+    }
+
+    const void    *cStr = [data bytes];
+    unsigned char result[CC_MD5_DIGEST_LENGTH];
+    
+    CC_MD5(cStr, (uint32_t)[data length], result);
+    
+    NSData *md5 = [[[NSData alloc] initWithBytes:result length:CC_MD5_DIGEST_LENGTH] autorelease];
+    
+    NSString *string = [[[NSString alloc] initWithData:md5 encoding:NSASCIIStringEncoding] autorelease];
+    
+    return [AmazonSDKUtil hexEncode:string];
 }
 
 @end

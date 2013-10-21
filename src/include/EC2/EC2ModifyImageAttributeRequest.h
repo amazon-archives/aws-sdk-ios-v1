@@ -30,6 +30,8 @@
 @interface EC2ModifyImageAttributeRequest:AmazonServiceRequestConfig
 
 {
+    BOOL                             dryRun;
+    BOOL                             dryRunIsSet;
     NSString                         *imageId;
     NSString                         *attribute;
     NSString                         *operationType;
@@ -42,6 +44,13 @@
 }
 
 
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * The ID of the AMI whose attribute you want to modify.

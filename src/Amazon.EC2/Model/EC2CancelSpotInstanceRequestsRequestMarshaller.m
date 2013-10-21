@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"CancelSpotInstanceRequests"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[cancelSpotInstanceRequestsRequest delegate]];
     [request setCredentials:[cancelSpotInstanceRequestsRequest credentials]];
     [request setEndpoint:[cancelSpotInstanceRequestsRequest requestEndpoint]];
     [request setRequestTag:[cancelSpotInstanceRequestsRequest requestTag]];
 
+    if (cancelSpotInstanceRequestsRequest != nil) {
+        if (cancelSpotInstanceRequestsRequest.dryRunIsSet) {
+            [request setParameterValue:(cancelSpotInstanceRequestsRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
 
     if (cancelSpotInstanceRequestsRequest != nil) {
         int spotInstanceRequestIdsListIndex = 1;

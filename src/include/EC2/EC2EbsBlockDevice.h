@@ -25,8 +25,8 @@
 {
     NSString *snapshotId;
     NSNumber *volumeSize;
-    bool     deleteOnTermination;
-    bool     deleteOnTerminationIsSet;
+    BOOL     deleteOnTermination;
+    BOOL     deleteOnTerminationIsSet;
     NSString *volumeType;
     NSNumber *iops;
 }
@@ -54,9 +54,9 @@
  * Specifies whether the Amazon EBS volume is deleted on instance
  * termination.
  */
-@property (nonatomic) bool           deleteOnTermination;
+@property (nonatomic) BOOL           deleteOnTermination;
 
-@property (nonatomic, readonly) bool deleteOnTerminationIsSet;
+@property (nonatomic, readonly) BOOL deleteOnTerminationIsSet;
 
 /**
  * The value of the VolumeType property for this object.

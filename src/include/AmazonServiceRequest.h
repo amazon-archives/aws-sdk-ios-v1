@@ -24,7 +24,7 @@
 @class AmazonServiceResponse;
 @class AmazonServiceException;
 
-@interface AmazonServiceRequest:NSObject {
+@interface AmazonServiceRequest:NSObject <NSCoding> {
     NSString                         *httpMethod;
     NSMutableDictionary              *parameters;
     NSString                         *endpoint;

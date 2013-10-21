@@ -29,6 +29,8 @@
 @interface EC2CancelConversionTaskRequest:AmazonServiceRequestConfig
 
 {
+    BOOL     dryRun;
+    BOOL     dryRunIsSet;
     NSString *conversionTaskId;
     NSString *reasonMessage;
 }
@@ -41,6 +43,13 @@
  * property methods to initialize this object after creating it.
  */
 -(id)init;
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * The value of the ConversionTaskId property for this object.

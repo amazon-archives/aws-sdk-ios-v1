@@ -49,6 +49,9 @@
  * dedicated means all instances launched into the VPC will be launched
  * as dedicated tenancy regardless of the tenancy assigned to the
  * instance at launch.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>default, dedicated
  */
 @property (nonatomic, retain) NSString *tenancy;
 

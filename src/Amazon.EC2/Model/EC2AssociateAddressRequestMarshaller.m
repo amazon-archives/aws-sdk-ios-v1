@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"AssociateAddress"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[associateAddressRequest delegate]];
     [request setCredentials:[associateAddressRequest credentials]];
     [request setEndpoint:[associateAddressRequest requestEndpoint]];
     [request setRequestTag:[associateAddressRequest requestTag]];
 
+    if (associateAddressRequest != nil) {
+        if (associateAddressRequest.dryRunIsSet) {
+            [request setParameterValue:(associateAddressRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
     if (associateAddressRequest != nil) {
         if (associateAddressRequest.instanceId != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", associateAddressRequest.instanceId] forKey:[NSString stringWithFormat:@"%@", @"InstanceId"]];

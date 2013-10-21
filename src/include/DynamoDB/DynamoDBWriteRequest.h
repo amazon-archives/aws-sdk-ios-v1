@@ -45,12 +45,12 @@
 -(id)init;
 
 /**
- * Represents a request to perform a <i>DeleteItem</i> operation.
+ * Represents a request to perform a <i>PutItem</i> operation.
  */
 @property (nonatomic, retain) DynamoDBPutRequest *putRequest;
 
 /**
- * Represents a request to perform a <i>PutItem</i> operation.
+ * Represents a request to perform a <i>DeleteItem</i> operation.
  */
 @property (nonatomic, retain) DynamoDBDeleteRequest *deleteRequest;
 

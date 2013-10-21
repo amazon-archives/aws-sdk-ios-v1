@@ -50,7 +50,7 @@
 }
 
 
--(void)setForceDelete:(bool)theValue
+-(void)setForceDelete:(BOOL)theValue
 {
     forceDelete      = theValue;
     forceDeleteIsSet = YES;

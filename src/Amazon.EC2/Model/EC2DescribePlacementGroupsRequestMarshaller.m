@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribePlacementGroups"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[describePlacementGroupsRequest delegate]];
     [request setCredentials:[describePlacementGroupsRequest credentials]];
     [request setEndpoint:[describePlacementGroupsRequest requestEndpoint]];
     [request setRequestTag:[describePlacementGroupsRequest requestTag]];
 
+    if (describePlacementGroupsRequest != nil) {
+        if (describePlacementGroupsRequest.dryRunIsSet) {
+            [request setParameterValue:(describePlacementGroupsRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
 
     if (describePlacementGroupsRequest != nil) {
         int groupNamesListIndex = 1;

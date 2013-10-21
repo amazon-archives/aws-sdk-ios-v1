@@ -39,7 +39,7 @@
  * the bucket owner.
  *
  */
-@interface S3AccessControlList:NSObject {
+@interface S3AccessControlList:NSObject <NSCoding> {
     S3Owner        *owner;
     NSMutableArray *grantList;
 }

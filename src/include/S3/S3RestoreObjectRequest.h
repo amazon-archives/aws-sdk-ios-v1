@@ -30,11 +30,11 @@
 @interface S3RestoreObjectRequest:S3Request {
 }
 
--(id)initWithKey:(NSString *)aKey withBucket:(NSString *)aBucket withDays:(NSInteger)theDays;
+-(id)initWithKey:(NSString *)aKey withBucket:(NSString *)aBucket withDays:(int32_t)theDays;
 
 -(NSString *) toXml;
 
 /** The number of days the restored object should remain active for **/
-@property (nonatomic, assign) NSInteger days;
+@property (nonatomic, assign) int32_t days;
 
 @end

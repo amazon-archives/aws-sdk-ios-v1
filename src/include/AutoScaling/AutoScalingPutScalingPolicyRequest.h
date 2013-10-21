@@ -77,7 +77,10 @@
  * Specifies whether the <code>ScalingAdjustment</code> is an absolute
  * number or a percentage of the current capacity. Valid values are
  * <code>ChangeInCapacity</code>, <code>ExactCapacity</code>, and
- * <code>PercentChangeInCapacity</code>.
+ * <code>PercentChangeInCapacity</code>. <p>For more information about
+ * the adjustment types supported by Auto Scaling, see <a
+ * AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html">Scale
+ * Based on Demand</a>.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 255<br/>
@@ -86,8 +89,11 @@
 @property (nonatomic, retain) NSString *adjustmentType;
 
 /**
- * The amount of time, in seconds, after a scaling activity completes
- * before any further trigger-related scaling activities can start.
+ * The amount of time, in seconds, after a scaling activity completes and
+ * before the next scaling activity can start. <p>For more information,
+ * see <a
+ * /AutoScaling/latest/DeveloperGuide/AS_Concepts.html#Cooldown">Cooldown
+ * Period</a>
  */
 @property (nonatomic, retain) NSNumber *cooldown;
 

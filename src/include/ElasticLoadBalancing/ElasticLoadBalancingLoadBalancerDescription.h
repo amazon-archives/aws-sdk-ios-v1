@@ -44,6 +44,7 @@
     ElasticLoadBalancingSourceSecurityGroup *sourceSecurityGroup;
     NSMutableArray                          *securityGroups;
     NSDate                                  *createdTime;
+    NSString                                *scheme;
 }
 
 
@@ -139,6 +140,16 @@
  * Provides the date and time the LoadBalancer was created.
  */
 @property (nonatomic, retain) NSDate *createdTime;
+
+/**
+ * Specifies the type of a load balancer. If it is
+ * <i>internet-facing</i>, the load balancer has a publicly resolvable
+ * DNS name that resolves to public IP addresses. If it is
+ * <i>internal</i>, the load balancer has a publicly resolvable DNS name
+ * that resolves to private IP addresses. This option is only available
+ * for load balancers attached to a VPC.
+ */
+@property (nonatomic, retain) NSString *scheme;
 
 
 /**

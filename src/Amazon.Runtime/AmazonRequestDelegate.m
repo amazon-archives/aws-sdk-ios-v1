@@ -76,6 +76,11 @@
     exception = [theException retain];
 }
 
+- (void)request:(AmazonServiceRequest *)request didReceiveData:(NSData *)data totalBytesWritten:(long long)totalBytesWritten expectedTotalBytes:(long long)expectedTotalBytes
+{
+    AMZLogDebug(@"didReceiveData:totalBytesWritten:expectedTotalBytes");
+}
+
 -(void)dealloc
 {
     [error release];

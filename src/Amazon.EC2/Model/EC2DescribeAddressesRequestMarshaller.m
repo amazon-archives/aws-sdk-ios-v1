@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribeAddresses"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[describeAddressesRequest delegate]];
     [request setCredentials:[describeAddressesRequest credentials]];
     [request setEndpoint:[describeAddressesRequest requestEndpoint]];
     [request setRequestTag:[describeAddressesRequest requestTag]];
 
+    if (describeAddressesRequest != nil) {
+        if (describeAddressesRequest.dryRunIsSet) {
+            [request setParameterValue:(describeAddressesRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
 
     if (describeAddressesRequest != nil) {
         int publicIpsListIndex = 1;

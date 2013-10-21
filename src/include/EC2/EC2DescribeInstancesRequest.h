@@ -30,6 +30,8 @@
 @interface EC2DescribeInstancesRequest:AmazonServiceRequestConfig
 
 {
+    BOOL           dryRun;
+    BOOL           dryRunIsSet;
     NSMutableArray *instanceIds;
     NSMutableArray *filters;
 }
@@ -42,6 +44,13 @@
  * property methods to initialize this object after creating it.
  */
 -(id)init;
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * An optional list of the instances to describe.

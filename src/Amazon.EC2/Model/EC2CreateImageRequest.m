@@ -18,6 +18,8 @@
 
 @implementation EC2CreateImageRequest
 
+@synthesize dryRun;
+@synthesize dryRunIsSet;
 @synthesize instanceId;
 @synthesize name;
 @synthesize descriptionValue;
@@ -29,6 +31,8 @@
 -(id)init
 {
     if (self = [super init]) {
+        dryRun              = NO;
+        dryRunIsSet         = NO;
         instanceId          = nil;
         name                = nil;
         descriptionValue    = nil;
@@ -66,6 +70,7 @@
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
 
     [buffer appendString:@"{"];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"DryRun: %d,", dryRun] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"InstanceId: %@,", instanceId] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Name: %@,", name] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Description: %@,", descriptionValue] autorelease]];
@@ -78,7 +83,13 @@
 }
 
 
--(void)setNoReboot:(bool)theValue
+-(void)setDryRun:(BOOL)theValue
+{
+    dryRun      = theValue;
+    dryRunIsSet = YES;
+}
+
+-(void)setNoReboot:(BOOL)theValue
 {
     noReboot      = theValue;
     noRebootIsSet = YES;

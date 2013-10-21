@@ -35,7 +35,7 @@
 {
     AmazonServiceException *newException = nil;
 
-    if ([[theException errorCode] isEqualToString:@"AWS.SimpleQueueService.QueueNameExists"]) {
+    if ([[theException errorCode] isEqualToString:@"QueueAlreadyExists"]) {
         [newException release];
         newException = [[SQSQueueNameExistsException alloc] initWithMessage:@""];
     }

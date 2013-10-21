@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DeleteTags"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[deleteTagsRequest delegate]];
     [request setCredentials:[deleteTagsRequest credentials]];
     [request setEndpoint:[deleteTagsRequest requestEndpoint]];
     [request setRequestTag:[deleteTagsRequest requestTag]];
 
+    if (deleteTagsRequest != nil) {
+        if (deleteTagsRequest.dryRunIsSet) {
+            [request setParameterValue:(deleteTagsRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
 
     if (deleteTagsRequest != nil) {
         int resourcesListIndex = 1;

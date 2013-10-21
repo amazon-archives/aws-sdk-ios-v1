@@ -29,11 +29,20 @@
 @interface EC2ResetImageAttributeRequest:AmazonServiceRequestConfig
 
 {
+    BOOL     dryRun;
+    BOOL     dryRunIsSet;
     NSString *imageId;
     NSString *attribute;
 }
 
 
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * The ID of the AMI whose attribute is being reset.
@@ -43,6 +52,9 @@
 /**
  * The name of the attribute being reset. <p> Available attribute names:
  * <code>launchPermission</code>
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>launchPermission
  */
 @property (nonatomic, retain) NSString *attribute;
 

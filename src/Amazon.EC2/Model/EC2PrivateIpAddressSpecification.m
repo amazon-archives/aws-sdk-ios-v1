@@ -50,7 +50,7 @@
 }
 
 
--(void)setPrimary:(bool)theValue
+-(void)setPrimary:(BOOL)theValue
 {
     primary      = theValue;
     primaryIsSet = YES;

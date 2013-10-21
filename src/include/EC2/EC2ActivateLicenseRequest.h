@@ -29,11 +29,20 @@
 @interface EC2ActivateLicenseRequest:AmazonServiceRequestConfig
 
 {
+    BOOL     dryRun;
+    BOOL     dryRunIsSet;
     NSString *licenseId;
     NSNumber *capacity;
 }
 
 
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * Specifies the ID for the specific license to activate against.

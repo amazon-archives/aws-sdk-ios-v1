@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"GetConsoleOutput"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[getConsoleOutputRequest delegate]];
     [request setCredentials:[getConsoleOutputRequest credentials]];
     [request setEndpoint:[getConsoleOutputRequest requestEndpoint]];
     [request setRequestTag:[getConsoleOutputRequest requestTag]];
 
+    if (getConsoleOutputRequest != nil) {
+        if (getConsoleOutputRequest.dryRunIsSet) {
+            [request setParameterValue:(getConsoleOutputRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
     if (getConsoleOutputRequest != nil) {
         if (getConsoleOutputRequest.instanceId != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", getConsoleOutputRequest.instanceId] forKey:[NSString stringWithFormat:@"%@", @"InstanceId"]];

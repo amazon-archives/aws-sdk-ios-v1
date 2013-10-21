@@ -18,6 +18,8 @@
 
 @implementation EC2ImportInstanceRequest
 
+@synthesize dryRun;
+@synthesize dryRunIsSet;
 @synthesize descriptionValue;
 @synthesize launchSpecification;
 @synthesize diskImages;
@@ -27,6 +29,8 @@
 -(id)init
 {
     if (self = [super init]) {
+        dryRun              = NO;
+        dryRunIsSet         = NO;
         descriptionValue    = nil;
         launchSpecification = nil;
         diskImages          = [[NSMutableArray alloc] initWithCapacity:1];
@@ -52,6 +56,7 @@
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
 
     [buffer appendString:@"{"];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"DryRun: %d,", dryRun] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Description: %@,", descriptionValue] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"LaunchSpecification: %@,", launchSpecification] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"DiskImages: %@,", diskImages] autorelease]];
@@ -62,6 +67,12 @@
     return [buffer autorelease];
 }
 
+
+-(void)setDryRun:(BOOL)theValue
+{
+    dryRun      = theValue;
+    dryRunIsSet = YES;
+}
 
 
 -(void)dealloc

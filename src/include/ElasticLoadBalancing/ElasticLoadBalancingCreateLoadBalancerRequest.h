@@ -35,6 +35,7 @@
     NSMutableArray *availabilityZones;
     NSMutableArray *subnets;
     NSMutableArray *securityGroups;
+    NSString       *scheme;
 }
 
 
@@ -69,6 +70,16 @@
  * The security groups assigned to your LoadBalancer within your VPC.
  */
 @property (nonatomic, retain) NSMutableArray *securityGroups;
+
+/**
+ * The type of a LoadBalancer. This option is only available for
+ * LoadBalancers attached to a Amazon VPC. By default, Elastic Load
+ * Balancer creates an internet-facing load balancer with publicly
+ * resolvable DNS name that resolves to public IP addresses. Specify the
+ * value <i>internal</i> for this option to create an internal load
+ * balancer with a DNS name that resolves to private IP addresses.
+ */
+@property (nonatomic, retain) NSString *scheme;
 
 
 /**

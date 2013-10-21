@@ -42,7 +42,7 @@
  * The value of the DiskImageFormat property for this object.
  * <p>
  * <b>Constraints:</b><br/>
- * <b>Allowed Values: </b>vmdk, vhd
+ * <b>Allowed Values: </b>VMDK, RAW, VHD
  */
 @property (nonatomic, retain) NSString *diskImageFormat;
 

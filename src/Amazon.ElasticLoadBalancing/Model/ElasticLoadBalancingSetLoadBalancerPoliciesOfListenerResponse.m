@@ -33,14 +33,14 @@
 {
     AmazonServiceException *newException = nil;
 
-    if ([[theException errorCode] isEqualToString:@"ListenerNotFound"]) {
-        [newException release];
-        newException = [[ElasticLoadBalancingListenerNotFoundException alloc] initWithMessage:@""];
-    }
-
     if ([[theException errorCode] isEqualToString:@"PolicyNotFound"]) {
         [newException release];
         newException = [[ElasticLoadBalancingPolicyNotFoundException alloc] initWithMessage:@""];
+    }
+
+    if ([[theException errorCode] isEqualToString:@"InvalidConfigurationRequest"]) {
+        [newException release];
+        newException = [[ElasticLoadBalancingInvalidConfigurationRequestException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"LoadBalancerNotFound"]) {
@@ -48,9 +48,9 @@
         newException = [[ElasticLoadBalancingLoadBalancerNotFoundException alloc] initWithMessage:@""];
     }
 
-    if ([[theException errorCode] isEqualToString:@"InvalidConfigurationRequest"]) {
+    if ([[theException errorCode] isEqualToString:@"ListenerNotFound"]) {
         [newException release];
-        newException = [[ElasticLoadBalancingInvalidConfigurationRequestException alloc] initWithMessage:@""];
+        newException = [[ElasticLoadBalancingListenerNotFoundException alloc] initWithMessage:@""];
     }
 
     if (newException != nil) {

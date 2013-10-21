@@ -30,12 +30,21 @@
 @interface EC2PurchaseReservedInstancesOfferingRequest:AmazonServiceRequestConfig
 
 {
+    BOOL                          dryRun;
+    BOOL                          dryRunIsSet;
     NSString                      *reservedInstancesOfferingId;
     NSNumber                      *instanceCount;
     EC2ReservedInstanceLimitPrice *limitPrice;
 }
 
 
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * The unique ID of the Reserved Instances offering being purchased.

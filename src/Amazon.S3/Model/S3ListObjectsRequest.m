@@ -17,11 +17,6 @@
 
 @implementation S3ListObjectsRequest
 
-@synthesize prefix;
-@synthesize marker;
-@synthesize delimiter;
-@synthesize maxKeys;
-
 
 -(NSMutableURLRequest *)configureURLRequest
 {
@@ -74,9 +69,9 @@
 
 -(void)dealloc
 {
-    [prefix release];
-    [marker release];
-    [delimiter release];
+    [_prefix release];
+    [_marker release];
+    [_delimiter release];
 
     [super dealloc];
 }

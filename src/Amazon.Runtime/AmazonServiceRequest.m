@@ -56,6 +56,36 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    if (self = [self init]) {
+        [self setHttpMethod:[decoder decodeObjectForKey:@"HttpMethod"]];
+        [self setParameters:[decoder decodeObjectForKey:@"Parameters"]];
+        [self setEndpoint:[decoder decodeObjectForKey:@"Endpoint"]];
+        [self setUserAgent:[decoder decodeObjectForKey:@"UserAgent"]];
+        [self setResponseTimer:[decoder decodeObjectForKey:@"ResponseTime"]];
+        [self setRequestTag:[decoder decodeObjectForKey:@"RequestTag"]];
+        [self setServiceName:[decoder decodeObjectForKey:@"ServiceName"]];
+        [self setRegionName:[decoder decodeObjectForKey:@"RegionName"]];
+        [self setHostName:[decoder decodeObjectForKey:@"HostName"]];
+    }
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeObject:httpMethod forKey:@"HttpMethod"];
+    [encoder encodeObject:parameters forKey:@"Parameters"];
+    [encoder encodeObject:endpoint forKey:@"Endpoint"];
+    [encoder encodeObject:userAgent forKey:@"UserAgent"];
+    [encoder encodeObject:responseTimer forKey:@"ResponseTimer"];
+    [encoder encodeObject:requestTag forKey:@"RequestTag"];
+    [encoder encodeObject:serviceName forKey:@"ServiceName"];
+    [encoder encodeObject:regionName forKey:@"RegionName"];
+    [encoder encodeObject:hostName forKey:@"HostName"];
+}
+
 -(void)sign
 {
     // headers to sign

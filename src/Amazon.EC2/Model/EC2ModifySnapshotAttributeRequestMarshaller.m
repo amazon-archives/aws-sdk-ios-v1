@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"ModifySnapshotAttribute"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[modifySnapshotAttributeRequest delegate]];
     [request setCredentials:[modifySnapshotAttributeRequest credentials]];
     [request setEndpoint:[modifySnapshotAttributeRequest requestEndpoint]];
     [request setRequestTag:[modifySnapshotAttributeRequest requestTag]];
 
+    if (modifySnapshotAttributeRequest != nil) {
+        if (modifySnapshotAttributeRequest.dryRunIsSet) {
+            [request setParameterValue:(modifySnapshotAttributeRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
     if (modifySnapshotAttributeRequest != nil) {
         if (modifySnapshotAttributeRequest.snapshotId != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", modifySnapshotAttributeRequest.snapshotId] forKey:[NSString stringWithFormat:@"%@", @"SnapshotId"]];

@@ -29,11 +29,20 @@
 @interface EC2DescribeImageAttributeRequest:AmazonServiceRequestConfig
 
 {
+    BOOL     dryRun;
+    BOOL     dryRunIsSet;
     NSString *imageId;
     NSString *attribute;
 }
 
 
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * The ID of the AMI whose attribute is to be described.
@@ -44,6 +53,9 @@
  * The name of the attribute to describe. <p> Available attribute names:
  * <code>productCodes</code>, <code>kernel</code>, <code>ramdisk</code>,
  * <code>launchPermisson</code>, <code>blockDeviceMapping</code>
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>description, kernel, ramdisk, launchPermission, productCodes, blockDeviceMapping
  */
 @property (nonatomic, retain) NSString *attribute;
 

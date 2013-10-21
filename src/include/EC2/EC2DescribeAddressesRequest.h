@@ -30,6 +30,8 @@
 @interface EC2DescribeAddressesRequest:AmazonServiceRequestConfig
 
 {
+    BOOL           dryRun;
+    BOOL           dryRunIsSet;
     NSMutableArray *publicIps;
     NSMutableArray *filters;
     NSMutableArray *allocationIds;
@@ -43,6 +45,13 @@
  * property methods to initialize this object after creating it.
  */
 -(id)init;
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * The optional list of Elastic IP addresses to describe.

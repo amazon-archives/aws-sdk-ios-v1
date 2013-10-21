@@ -18,6 +18,8 @@
 
 @implementation EC2StopInstancesRequest
 
+@synthesize dryRun;
+@synthesize dryRunIsSet;
 @synthesize instanceIds;
 @synthesize force;
 @synthesize forceIsSet;
@@ -26,6 +28,8 @@
 -(id)init
 {
     if (self = [super init]) {
+        dryRun      = NO;
+        dryRunIsSet = NO;
         instanceIds = [[NSMutableArray alloc] initWithCapacity:1];
         force       = NO;
         forceIsSet  = NO;
@@ -59,6 +63,7 @@
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
 
     [buffer appendString:@"{"];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"DryRun: %d,", dryRun] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"InstanceIds: %@,", instanceIds] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Force: %d,", force] autorelease]];
     [buffer appendString:[super description]];
@@ -68,7 +73,13 @@
 }
 
 
--(void)setForce:(bool)theValue
+-(void)setDryRun:(BOOL)theValue
+{
+    dryRun      = theValue;
+    dryRunIsSet = YES;
+}
+
+-(void)setForce:(BOOL)theValue
 {
     force      = theValue;
     forceIsSet = YES;

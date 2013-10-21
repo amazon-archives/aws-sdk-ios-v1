@@ -39,11 +39,17 @@
 
 /**
  * The value of the Name property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>reachability
  */
 @property (nonatomic, retain) NSString *name;
 
 /**
  * The value of the Status property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>passed, failed, insufficient-data
  */
 @property (nonatomic, retain) NSString *status;
 

@@ -17,9 +17,9 @@
 #import "ElasticLoadBalancingResponse.h"
 
 #import "ElasticLoadBalancingInvalidSubnetException.h"
-#import "ElasticLoadBalancingSubnetNotFoundException.h"
-#import "ElasticLoadBalancingLoadBalancerNotFoundException.h"
 #import "ElasticLoadBalancingInvalidConfigurationRequestException.h"
+#import "ElasticLoadBalancingLoadBalancerNotFoundException.h"
+#import "ElasticLoadBalancingSubnetNotFoundException.h"
 
 
 /**

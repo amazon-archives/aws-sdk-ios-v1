@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DeleteSpotDatafeedSubscription"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[deleteSpotDatafeedSubscriptionRequest delegate]];
     [request setCredentials:[deleteSpotDatafeedSubscriptionRequest credentials]];
     [request setEndpoint:[deleteSpotDatafeedSubscriptionRequest requestEndpoint]];
     [request setRequestTag:[deleteSpotDatafeedSubscriptionRequest requestTag]];
 
+    if (deleteSpotDatafeedSubscriptionRequest != nil) {
+        if (deleteSpotDatafeedSubscriptionRequest.dryRunIsSet) {
+            [request setParameterValue:(deleteSpotDatafeedSubscriptionRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
 
 
     return [request autorelease];

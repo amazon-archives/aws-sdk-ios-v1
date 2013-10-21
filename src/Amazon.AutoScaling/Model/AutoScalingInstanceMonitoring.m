@@ -47,7 +47,7 @@
 }
 
 
--(void)setEnabled:(bool)theValue
+-(void)setEnabled:(BOOL)theValue
 {
     enabled      = theValue;
     enabledIsSet = YES;

@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"CreateSecurityGroup"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[createSecurityGroupRequest delegate]];
     [request setCredentials:[createSecurityGroupRequest credentials]];
     [request setEndpoint:[createSecurityGroupRequest requestEndpoint]];
     [request setRequestTag:[createSecurityGroupRequest requestTag]];
 
+    if (createSecurityGroupRequest != nil) {
+        if (createSecurityGroupRequest.dryRunIsSet) {
+            [request setParameterValue:(createSecurityGroupRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
     if (createSecurityGroupRequest != nil) {
         if (createSecurityGroupRequest.groupName != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", createSecurityGroupRequest.groupName] forKey:[NSString stringWithFormat:@"%@", @"GroupName"]];

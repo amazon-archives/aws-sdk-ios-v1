@@ -18,6 +18,8 @@
 
 @implementation EC2DescribeSecurityGroupsRequest
 
+@synthesize dryRun;
+@synthesize dryRunIsSet;
 @synthesize groupNames;
 @synthesize groupIds;
 @synthesize filters;
@@ -26,9 +28,11 @@
 -(id)init
 {
     if (self = [super init]) {
-        groupNames = [[NSMutableArray alloc] initWithCapacity:1];
-        groupIds   = [[NSMutableArray alloc] initWithCapacity:1];
-        filters    = [[NSMutableArray alloc] initWithCapacity:1];
+        dryRun      = NO;
+        dryRunIsSet = NO;
+        groupNames  = [[NSMutableArray alloc] initWithCapacity:1];
+        groupIds    = [[NSMutableArray alloc] initWithCapacity:1];
+        filters     = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
     return self;
@@ -68,6 +72,7 @@
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
 
     [buffer appendString:@"{"];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"DryRun: %d,", dryRun] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"GroupNames: %@,", groupNames] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"GroupIds: %@,", groupIds] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Filters: %@,", filters] autorelease]];
@@ -77,6 +82,12 @@
     return [buffer autorelease];
 }
 
+
+-(void)setDryRun:(BOOL)theValue
+{
+    dryRun      = theValue;
+    dryRunIsSet = YES;
+}
 
 
 -(void)dealloc

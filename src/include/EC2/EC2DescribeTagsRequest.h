@@ -30,10 +30,19 @@
 @interface EC2DescribeTagsRequest:AmazonServiceRequestConfig
 
 {
+    BOOL           dryRun;
+    BOOL           dryRunIsSet;
     NSMutableArray *filters;
 }
 
 
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * A list of filters used to match properties for tags.

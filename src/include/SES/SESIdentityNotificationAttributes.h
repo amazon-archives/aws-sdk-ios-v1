@@ -25,8 +25,8 @@
 {
     NSString *bounceTopic;
     NSString *complaintTopic;
-    bool     forwardingEnabled;
-    bool     forwardingEnabledIsSet;
+    BOOL     forwardingEnabled;
+    BOOL     forwardingEnabledIsSet;
 }
 
 
@@ -58,9 +58,9 @@
  * email, while <code>false</code> indicates that feedback will be
  * published only to the specified Bounce and Complaint topics.
  */
-@property (nonatomic) bool           forwardingEnabled;
+@property (nonatomic) BOOL           forwardingEnabled;
 
-@property (nonatomic, readonly) bool forwardingEnabledIsSet;
+@property (nonatomic, readonly) BOOL forwardingEnabledIsSet;
 
 /**
  * Returns a string representation of this object; useful for testing and

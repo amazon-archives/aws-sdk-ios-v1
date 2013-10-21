@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"ReleaseAddress"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[releaseAddressRequest delegate]];
     [request setCredentials:[releaseAddressRequest credentials]];
     [request setEndpoint:[releaseAddressRequest requestEndpoint]];
     [request setRequestTag:[releaseAddressRequest requestTag]];
 
+    if (releaseAddressRequest != nil) {
+        if (releaseAddressRequest.dryRunIsSet) {
+            [request setParameterValue:(releaseAddressRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
     if (releaseAddressRequest != nil) {
         if (releaseAddressRequest.publicIp != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", releaseAddressRequest.publicIp] forKey:[NSString stringWithFormat:@"%@", @"PublicIp"]];

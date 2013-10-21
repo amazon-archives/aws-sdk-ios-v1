@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribeReservedInstancesOfferings"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[describeReservedInstancesOfferingsRequest delegate]];
     [request setCredentials:[describeReservedInstancesOfferingsRequest credentials]];
     [request setEndpoint:[describeReservedInstancesOfferingsRequest requestEndpoint]];
     [request setRequestTag:[describeReservedInstancesOfferingsRequest requestTag]];
 
+    if (describeReservedInstancesOfferingsRequest != nil) {
+        if (describeReservedInstancesOfferingsRequest.dryRunIsSet) {
+            [request setParameterValue:(describeReservedInstancesOfferingsRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
 
     if (describeReservedInstancesOfferingsRequest != nil) {
         int reservedInstancesOfferingIdsListIndex = 1;
@@ -97,6 +102,26 @@
     if (describeReservedInstancesOfferingsRequest != nil) {
         if (describeReservedInstancesOfferingsRequest.maxResults != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", describeReservedInstancesOfferingsRequest.maxResults] forKey:[NSString stringWithFormat:@"%@", @"MaxResults"]];
+        }
+    }
+    if (describeReservedInstancesOfferingsRequest != nil) {
+        if (describeReservedInstancesOfferingsRequest.includeMarketplaceIsSet) {
+            [request setParameterValue:(describeReservedInstancesOfferingsRequest.includeMarketplace ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"IncludeMarketplace"]];
+        }
+    }
+    if (describeReservedInstancesOfferingsRequest != nil) {
+        if (describeReservedInstancesOfferingsRequest.minDuration != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", describeReservedInstancesOfferingsRequest.minDuration] forKey:[NSString stringWithFormat:@"%@", @"MinDuration"]];
+        }
+    }
+    if (describeReservedInstancesOfferingsRequest != nil) {
+        if (describeReservedInstancesOfferingsRequest.maxDuration != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", describeReservedInstancesOfferingsRequest.maxDuration] forKey:[NSString stringWithFormat:@"%@", @"MaxDuration"]];
+        }
+    }
+    if (describeReservedInstancesOfferingsRequest != nil) {
+        if (describeReservedInstancesOfferingsRequest.maxInstanceCount != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", describeReservedInstancesOfferingsRequest.maxInstanceCount] forKey:[NSString stringWithFormat:@"%@", @"MaxInstanceCount"]];
         }
     }
 

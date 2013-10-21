@@ -50,10 +50,10 @@
 -(id)init;
 
 /**
- * A map of attribute values as they appeard before the <i>UpdateItem</i>
- * operation, but only if <i>ReturnValues</i> was specified as something
- * other than <code>NONE</code> in the request. Each element represents
- * one attribute.
+ * A map of attribute values as they appeared before the
+ * <i>UpdateItem</i> operation, but only if <i>ReturnValues</i> was
+ * specified as something other than <code>NONE</code> in the request.
+ * Each element represents one attribute.
  */
 @property (nonatomic, retain) NSMutableDictionary *attributes;
 
@@ -63,7 +63,7 @@
  * returned if it was asked for in the request. For more information, see
  * <a
  * odb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned
- * Throughput</a> of the <i>Amazon DynamoDB Developer Guide</i>.
+ * Throughput</a> in the Amazon DynamoDB Developer Guide.
  */
 @property (nonatomic, retain) DynamoDBConsumedCapacity *consumedCapacity;
 

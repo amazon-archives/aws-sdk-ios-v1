@@ -38,6 +38,9 @@
 
 /**
  * The value of the State property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>available, sold, cancelled, pending
  */
 @property (nonatomic, retain) NSString *state;
 

@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[ElasticLoadBalancingRequest alloc] init];
 
     [request setParameterValue:@"ConfigureHealthCheck"           forKey:@"Action"];
-    [request setParameterValue:@"2011-11-15"   forKey:@"Version"];
+    [request setParameterValue:@"2012-06-01"   forKey:@"Version"];
 
     [request setDelegate:[configureHealthCheckRequest delegate]];
     [request setCredentials:[configureHealthCheckRequest credentials]];

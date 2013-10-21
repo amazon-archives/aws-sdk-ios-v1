@@ -130,13 +130,13 @@
 }
 
 
--(void)setMonitoringEnabled:(bool)theValue
+-(void)setMonitoringEnabled:(BOOL)theValue
 {
     monitoringEnabled      = theValue;
     monitoringEnabledIsSet = YES;
 }
 
--(void)setEbsOptimized:(bool)theValue
+-(void)setEbsOptimized:(BOOL)theValue
 {
     ebsOptimized      = theValue;
     ebsOptimizedIsSet = YES;

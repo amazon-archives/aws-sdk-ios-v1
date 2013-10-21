@@ -14,6 +14,7 @@
  */
 
 #import "S3PutObjectOperation_Internal.h"
+#import "AmazonServiceRequest.h"
 
 @interface S3PutObjectOperation_Internal ()
 {
@@ -28,12 +29,7 @@
 
 @implementation S3PutObjectOperation_Internal
 
-@synthesize s3 = _s3;
-@synthesize request = _request;
-@synthesize response = _response;
-
-@synthesize retryCount = _retryCount;
-@synthesize delegate = _delegate;
+@synthesize transferRequestType = _transferRequestType;
 
 #pragma mark - Class Lifecycle
 
@@ -45,6 +41,7 @@
         _isFinished = NO;
 
         _retryCount = 0;
+        _transferRequestType = S3TRANSFER_UPLOAD;
     }
 
     return self;
@@ -52,8 +49,6 @@
 
 - (void)dealloc
 {
-    [_s3 release];
-    [_request release];
     [_response release];
     
     [_error release];
@@ -62,10 +57,17 @@
     [super dealloc];
 }
 
-#pragma mark - Overwriding NSOperation Methods
+#pragma mark - Overriding NSOperation Methods
 
 - (void)start
 {
+    // if cancel has been called on operation then we do not want to start the operation
+    if (self.isCancelled) {
+        [self cleanup];
+        [self finish];
+        return;
+    }
+    
     // Makes sure that start method always runs on the main thread.
     if (![NSThread isMainThread])
     {
@@ -80,10 +82,16 @@
     _isExecuting = YES;
     [self didChangeValueForKey:@"isExecuting"];
 
-    self.delegate = self.request.delegate;
-    self.request.delegate = self;
+    self.delegate = self.putRequest.delegate;
+    self.putRequest.delegate = self;
     
-    [self.s3 putObject:self.request];
+    if (self.isCancelled) {
+        [self cleanup];
+        [self finish];
+        return;
+    }
+    
+    [self.s3 putObject:self.putRequest];
 }
 
 - (BOOL)isConcurrent
@@ -112,12 +120,28 @@
         [self.delegate request:request
        didCompleteWithResponse:response];
     }
-
+    
+    [self cleanup];
     [self finish];
 }
 
 - (void)request:(AmazonServiceRequest *)request didSendData:(long long)bytesWritten totalBytesWritten:(long long)totalBytesWritten totalBytesExpectedToWrite:(long long)totalBytesExpectedToWrite
 {
+    if (self.isCancelled) {
+        [self.putRequest cancel];
+        if([self.delegate respondsToSelector:@selector(request:didSendData:totalBytesWritten:totalBytesExpectedToWrite:)])
+        {
+            [self.delegate request:request
+                       didSendData:bytesWritten
+                 totalBytesWritten:totalBytesWritten
+         totalBytesExpectedToWrite:totalBytesExpectedToWrite];
+        }
+        
+        [self cleanup];
+        [self finish];
+        return;
+    }
+    
     if([self.delegate respondsToSelector:@selector(request:didSendData:totalBytesWritten:totalBytesExpectedToWrite:)])
     {
         [self.delegate request:request
@@ -130,6 +154,17 @@
 - (void)request:(AmazonServiceRequest *)request didFailWithError:(NSError *)error
 {
     AMZLogDebug(@"%@", error);
+    
+    if (self.isCancelled) {
+        [self.putRequest cancel];
+        if([self.delegate respondsToSelector:@selector(request:didFailWithError:)])
+        {
+            [self.delegate request:request didFailWithError:error];
+        }
+        [self cleanup];
+        [self finish];
+        return;
+    }
 
     self.error = error;
 
@@ -138,7 +173,7 @@
     if(self.s3.maxRetries > self.retryCount
        && [self.s3 shouldRetry:nil exception:self.exception])
     {
-        [self.s3 putObject:self.request];
+        [self.s3 putObject:self.putRequest];
         self.retryCount++;
 
         return;
@@ -149,19 +184,31 @@
         [self.delegate request:request didFailWithError:error];
     }
 
+    [self cleanup];
     [self finish];
 }
 
 - (void)request:(AmazonServiceRequest *)request didFailWithServiceException:(NSException *)exception
 {
     AMZLogDebug(@"%@", exception);
+    
+    if (self.isCancelled) {
+        [self.putRequest cancel];
+        if([self.delegate respondsToSelector:@selector(request:didFailWithServiceException:)])
+        {
+            [self.delegate request:request didFailWithServiceException:exception];
+        }
+        [self cleanup];
+        [self finish];
+        return;
+    }
 
     self.exception = exception;
 
     if(self.s3.maxRetries > self.retryCount
        && [self.s3 shouldRetry:nil exception:self.exception])
     {        
-        [self.s3 putObject:self.request];
+        [self.s3 putObject:self.putRequest];
         self.retryCount++;
         
         return;
@@ -172,6 +219,7 @@
         [self.delegate request:request didFailWithServiceException:exception];
     }
 
+    [self cleanup];
     [self finish];
 }
 

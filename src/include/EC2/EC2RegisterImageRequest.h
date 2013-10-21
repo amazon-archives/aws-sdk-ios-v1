@@ -30,6 +30,8 @@
 @interface EC2RegisterImageRequest:AmazonServiceRequestConfig
 
 {
+    BOOL           dryRun;
+    BOOL           dryRunIsSet;
     NSString       *imageLocation;
     NSString       *name;
     NSString       *descriptionValue;
@@ -41,6 +43,13 @@
 }
 
 
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * The full path to your AMI manifest in Amazon S3 storage.
@@ -63,6 +72,9 @@
 /**
  * The architecture of the image. <p> Valid Values: <code>i386</code>,
  * <code>x86_64</code>
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>i386, x86_64
  */
 @property (nonatomic, retain) NSString *architecture;
 

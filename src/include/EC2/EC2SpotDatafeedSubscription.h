@@ -58,6 +58,9 @@
 
 /**
  * Specifies the state of the Spot Instance request.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>Active, Inactive
  */
 @property (nonatomic, retain) NSString *state;
 

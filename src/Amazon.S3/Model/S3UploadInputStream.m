@@ -20,16 +20,14 @@
 
 @implementation S3UploadInputStream
 
-@synthesize stream, packetSize, delay;
-
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
 -(id)init 
 {
     if ((self = [super init]) != nil) {
-        delay = 0.0;
-        packetSize = 32;
-        stream = nil;
+        _delay = 0.0;
+        _packetSize = 32;
+        _stream = nil;
     }
     
     return self;    
@@ -61,15 +59,15 @@
 
 -(NSInteger)read:(uint8_t *)buffer maxLength:(NSUInteger)len
 {
-	NSInteger nBytesRead = [stream read:buffer maxLength:(kS3UploadInputStreamChunkSize * packetSize)];
-	AMZLogDebug(@"S3UploadInputStream: read %d bytes (%d max)", nBytesRead, len);
-	[NSThread sleepForTimeInterval:delay];
+	NSInteger nBytesRead = [self.stream read:buffer maxLength:(kS3UploadInputStreamChunkSize * self.packetSize)];
+	AMZLogDebug(@"S3UploadInputStream: read %ld bytes (%lu max)", (long)nBytesRead, (unsigned long)len);
+	[NSThread sleepForTimeInterval:self.delay];
 	return nBytesRead;
 }
 
 -(BOOL)hasBytesAvailable
 {
-	return [stream hasBytesAvailable];
+	return [self.stream hasBytesAvailable];
 }
 
 - (BOOL)getBuffer:(uint8_t **)buffer length:(NSUInteger *)len
@@ -84,67 +82,67 @@
  */
 - (void)open
 {
-	[stream open];
+	[self.stream open];
 }
 
 - (void)close
 {
-	[stream close];
+	[self.stream close];
 }
 
 - (id)delegate
 {
-	return [stream delegate];
+	return [self.stream delegate];
 }
 
 - (void)setDelegate:(id)delegate
 {
-	[stream setDelegate:delegate];
+	[self.stream setDelegate:delegate];
 }
 
 - (void)scheduleInRunLoop:(NSRunLoop *)aRunLoop forMode:(NSString *)mode
 {
-	[stream scheduleInRunLoop:aRunLoop forMode:mode];
+	[self.stream scheduleInRunLoop:aRunLoop forMode:mode];
 }
 
 - (void)removeFromRunLoop:(NSRunLoop *)aRunLoop forMode:(NSString *)mode
 {
-	[stream removeFromRunLoop:aRunLoop forMode:mode];
+	[self.stream removeFromRunLoop:aRunLoop forMode:mode];
 }
 
 - (id)propertyForKey:(NSString *)key
 {
-	return [stream propertyForKey:key];
+	return [self.stream propertyForKey:key];
 }
 
 - (BOOL)setProperty:(id)property forKey:(NSString *)key
 {
-	return [stream setProperty:property forKey:key];
+	return [self.stream setProperty:property forKey:key];
 }
 
 - (NSStreamStatus)streamStatus
 {
-	return [stream streamStatus];
+	return [self.stream streamStatus];
 }
 
 - (NSError *)streamError
 {
-	return [stream streamError];
+	return [self.stream streamError];
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
 {
-	return [stream methodSignatureForSelector:aSelector];
+	return [self.stream methodSignatureForSelector:aSelector];
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation
 {
-	[anInvocation invokeWithTarget:stream];
+	[anInvocation invokeWithTarget:self.stream];
 }
 
 -(void)dealloc
 {
-	[stream release];
+	[_stream release];
 	
 	[super dealloc];
 }

@@ -30,25 +30,34 @@
 @interface EC2ModifyInstanceAttributeRequest:AmazonServiceRequestConfig
 
 {
+    BOOL           dryRun;
+    BOOL           dryRunIsSet;
     NSString       *instanceId;
     NSString       *attribute;
     NSString       *value;
     NSMutableArray *blockDeviceMappings;
-    bool           sourceDestCheck;
-    bool           sourceDestCheckIsSet;
-    bool           disableApiTermination;
-    bool           disableApiTerminationIsSet;
+    BOOL           sourceDestCheck;
+    BOOL           sourceDestCheckIsSet;
+    BOOL           disableApiTermination;
+    BOOL           disableApiTerminationIsSet;
     NSString       *instanceType;
     NSString       *kernel;
     NSString       *ramdisk;
     NSString       *userData;
     NSString       *instanceInitiatedShutdownBehavior;
     NSMutableArray *groups;
-    bool           ebsOptimized;
-    bool           ebsOptimizedIsSet;
+    BOOL           ebsOptimized;
+    BOOL           ebsOptimizedIsSet;
 }
 
 
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * The ID of the instance whose attribute is being modified.
@@ -87,16 +96,16 @@
 /**
  * Boolean value
  */
-@property (nonatomic) bool           sourceDestCheck;
+@property (nonatomic) BOOL           sourceDestCheck;
 
-@property (nonatomic, readonly) bool sourceDestCheckIsSet;
+@property (nonatomic, readonly) BOOL sourceDestCheckIsSet;
 
 /**
  * Boolean value
  */
-@property (nonatomic) bool           disableApiTermination;
+@property (nonatomic) BOOL           disableApiTermination;
 
-@property (nonatomic, readonly) bool disableApiTerminationIsSet;
+@property (nonatomic, readonly) BOOL disableApiTerminationIsSet;
 
 /**
  * String value
@@ -131,9 +140,9 @@
 /**
  * Boolean value
  */
-@property (nonatomic) bool           ebsOptimized;
+@property (nonatomic) BOOL           ebsOptimized;
 
-@property (nonatomic, readonly) bool ebsOptimizedIsSet;
+@property (nonatomic, readonly) BOOL ebsOptimizedIsSet;
 
 
 /**

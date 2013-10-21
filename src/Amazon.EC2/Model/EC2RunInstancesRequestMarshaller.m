@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"RunInstances"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[runInstancesRequest delegate]];
     [request setCredentials:[runInstancesRequest credentials]];
     [request setEndpoint:[runInstancesRequest requestEndpoint]];
     [request setRequestTag:[runInstancesRequest requestTag]];
 
+    if (runInstancesRequest != nil) {
+        if (runInstancesRequest.dryRunIsSet) {
+            [request setParameterValue:(runInstancesRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
     if (runInstancesRequest != nil) {
         if (runInstancesRequest.imageId != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", runInstancesRequest.imageId] forKey:[NSString stringWithFormat:@"%@", @"ImageId"]];
@@ -269,6 +274,11 @@
             if (networkInterfacesListValue != nil) {
                 if (networkInterfacesListValue.secondaryPrivateIpAddressCount != nil) {
                     [request setParameterValue:[NSString stringWithFormat:@"%@", networkInterfacesListValue.secondaryPrivateIpAddressCount] forKey:[NSString stringWithFormat:@"%@.%d.%@", @"NetworkInterface", networkInterfacesListIndex, @"SecondaryPrivateIpAddressCount"]];
+                }
+            }
+            if (networkInterfacesListValue != nil) {
+                if (networkInterfacesListValue.associatePublicIpAddressIsSet) {
+                    [request setParameterValue:(networkInterfacesListValue.associatePublicIpAddress ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@.%d.%@", @"NetworkInterface", networkInterfacesListIndex, @"AssociatePublicIpAddress"]];
                 }
             }
 

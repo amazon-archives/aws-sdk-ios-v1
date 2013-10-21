@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DisassociateAddress"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[disassociateAddressRequest delegate]];
     [request setCredentials:[disassociateAddressRequest credentials]];
     [request setEndpoint:[disassociateAddressRequest requestEndpoint]];
     [request setRequestTag:[disassociateAddressRequest requestTag]];
 
+    if (disassociateAddressRequest != nil) {
+        if (disassociateAddressRequest.dryRunIsSet) {
+            [request setParameterValue:(disassociateAddressRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
     if (disassociateAddressRequest != nil) {
         if (disassociateAddressRequest.publicIp != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", disassociateAddressRequest.publicIp] forKey:[NSString stringWithFormat:@"%@", @"PublicIp"]];

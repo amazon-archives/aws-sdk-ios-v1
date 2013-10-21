@@ -29,11 +29,20 @@
 @interface EC2DeleteSecurityGroupRequest:AmazonServiceRequestConfig
 
 {
+    BOOL     dryRun;
+    BOOL     dryRunIsSet;
     NSString *groupName;
     NSString *groupId;
 }
 
 
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * The name of the Amazon EC2 security group to delete.

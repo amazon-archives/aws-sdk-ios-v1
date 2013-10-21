@@ -19,13 +19,6 @@
 
 @implementation S3BucketLifecycleConfigurationRule
 
-@synthesize ruleId=_ruleId;
-@synthesize status=_status;
-@synthesize prefix=_prefix;
-@synthesize expirationInDays;
-@synthesize expirationDate=_expirationDate;
-@synthesize transitions=_transitions;
-
 -(NSString *)toXml 
 {
     NSMutableString *xml = [[NSMutableString alloc] init];
@@ -87,16 +80,18 @@
 
 -(BOOL)isEnabled
 {
-    return [status isEqualToString:S3_BUCKET_LIFECYCLE_RULE_ENABLED];
+    return [self.status isEqualToString:S3_BUCKET_LIFECYCLE_RULE_ENABLED];
 }
 
 
 -(void)dealloc
 {
-    self.ruleId = nil;
-    self.status = nil;
-    self.prefix = nil;
-    self.expirationDate = nil;
+    [_ruleId release];
+    [_status release];
+    [_prefix release];
+    [_expirationDate release];
+    [_transitions release];
+
     [super dealloc];
 }
 

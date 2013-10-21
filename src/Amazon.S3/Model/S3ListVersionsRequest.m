@@ -17,13 +17,6 @@
 
 @implementation S3ListVersionsRequest
 
-@synthesize prefix;
-@synthesize keyMarker;
-@synthesize versionIdMarker;
-@synthesize delimiter;
-@synthesize maxKeys;
-
-
 -(NSMutableURLRequest *)configureURLRequest
 {
     NSMutableString *endQueryString = [NSMutableString stringWithCapacity:512];
@@ -67,10 +60,11 @@
 
 -(void)dealloc
 {
-    [prefix release];
-    [keyMarker release];
-    [versionIdMarker release];
-    [delimiter release];
+    [_prefix release];
+    [_keyMarker release];
+    [_versionIdMarker release];
+    [_delimiter release];
+
     [super dealloc];
 }
 

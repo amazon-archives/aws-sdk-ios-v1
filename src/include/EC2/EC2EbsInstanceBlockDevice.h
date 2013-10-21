@@ -26,8 +26,8 @@
     NSString *volumeId;
     NSString *status;
     NSDate   *attachTime;
-    bool     deleteOnTermination;
-    bool     deleteOnTerminationIsSet;
+    BOOL     deleteOnTermination;
+    BOOL     deleteOnTerminationIsSet;
 }
 
 
@@ -46,6 +46,9 @@
 
 /**
  * The status of the EBS volume.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>attaching, attached, detaching, detached
  */
 @property (nonatomic, retain) NSString *status;
 
@@ -59,9 +62,9 @@
  * Specifies whether the Amazon EBS volume is deleted on instance
  * termination.
  */
-@property (nonatomic) bool           deleteOnTermination;
+@property (nonatomic) BOOL           deleteOnTermination;
 
-@property (nonatomic, readonly) bool deleteOnTerminationIsSet;
+@property (nonatomic, readonly) BOOL deleteOnTerminationIsSet;
 
 /**
  * Returns a string representation of this object; useful for testing and

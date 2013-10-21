@@ -149,6 +149,25 @@
     return dict;
 }
 
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeObject:self.owner forKey:@"Owner"];
+    [encoder encodeObject:self.grantList forKey:@"GrantList"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    if (self = [super init]) {
+        [self setOwner:[decoder decodeObjectForKey:@"Owner"]];
+        NSArray *list = [decoder decodeObjectForKey:@"GrantList"];
+        for (S3Grant *grant in list) {
+            [self addGrant:grant];
+        }
+    }
+    
+    return self;
+}
+
 -(void)dealloc
 {
     [owner release];

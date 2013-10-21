@@ -53,7 +53,7 @@
 }
 
 
--(void)setShouldRespectGracePeriod:(bool)theValue
+-(void)setShouldRespectGracePeriod:(BOOL)theValue
 {
     shouldRespectGracePeriod      = theValue;
     shouldRespectGracePeriodIsSet = YES;

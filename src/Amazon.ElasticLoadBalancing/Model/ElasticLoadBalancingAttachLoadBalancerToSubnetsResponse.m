@@ -40,9 +40,9 @@
         newException = [[ElasticLoadBalancingInvalidSubnetException alloc] initWithMessage:@""];
     }
 
-    if ([[theException errorCode] isEqualToString:@"SubnetNotFound"]) {
+    if ([[theException errorCode] isEqualToString:@"InvalidConfigurationRequest"]) {
         [newException release];
-        newException = [[ElasticLoadBalancingSubnetNotFoundException alloc] initWithMessage:@""];
+        newException = [[ElasticLoadBalancingInvalidConfigurationRequestException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"LoadBalancerNotFound"]) {
@@ -50,9 +50,9 @@
         newException = [[ElasticLoadBalancingLoadBalancerNotFoundException alloc] initWithMessage:@""];
     }
 
-    if ([[theException errorCode] isEqualToString:@"InvalidConfigurationRequest"]) {
+    if ([[theException errorCode] isEqualToString:@"SubnetNotFound"]) {
         [newException release];
-        newException = [[ElasticLoadBalancingInvalidConfigurationRequestException alloc] initWithMessage:@""];
+        newException = [[ElasticLoadBalancingSubnetNotFoundException alloc] initWithMessage:@""];
     }
 
     if (newException != nil) {

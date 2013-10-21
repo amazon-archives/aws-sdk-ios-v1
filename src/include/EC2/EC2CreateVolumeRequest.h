@@ -29,6 +29,8 @@
 @interface EC2CreateVolumeRequest:AmazonServiceRequestConfig
 
 {
+    BOOL     dryRun;
+    BOOL     dryRunIsSet;
     NSNumber *size;
     NSString *snapshotId;
     NSString *availabilityZone;
@@ -37,6 +39,13 @@
 }
 
 
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * The size of the volume, in gigabytes. Required if you are not creating

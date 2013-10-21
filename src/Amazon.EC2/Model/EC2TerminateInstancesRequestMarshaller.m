@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"TerminateInstances"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[terminateInstancesRequest delegate]];
     [request setCredentials:[terminateInstancesRequest credentials]];
     [request setEndpoint:[terminateInstancesRequest requestEndpoint]];
     [request setRequestTag:[terminateInstancesRequest requestTag]];
 
+    if (terminateInstancesRequest != nil) {
+        if (terminateInstancesRequest.dryRunIsSet) {
+            [request setParameterValue:(terminateInstancesRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
 
     if (terminateInstancesRequest != nil) {
         int instanceIdsListIndex = 1;

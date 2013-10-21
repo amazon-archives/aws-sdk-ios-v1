@@ -18,15 +18,14 @@
 
 @implementation S3SetBucketCrossOriginRequest
 
-@synthesize configuration;
-
 -(id)initWithBucketName:(NSString *)theBucketName withConfiguration:(S3BucketCrossOriginConfiguration *)theConfiguration
 {
     self = [super init];
     if (self)
     {
         self.bucket = theBucketName;
-        self.configuration = theConfiguration;
+
+        _configuration = [theConfiguration retain];
     }
     
     return self;
@@ -61,7 +60,7 @@
     NSString *contentMD5 = [AmazonMD5Util base64md5FromData:data];
     [self.urlRequest setValue:contentMD5 forHTTPHeaderField:kHttpHdrContentMD5];
     
-    [self.urlRequest setValue:[NSString stringWithFormat:@"%d", [data length]] forHTTPHeaderField:kHttpHdrContentLength];
+    [self.urlRequest setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[data length]] forHTTPHeaderField:kHttpHdrContentLength];
     [self.urlRequest setValue:@"text/xml" forHTTPHeaderField:kHttpHdrContentType];
     [self.urlRequest setHTTPBody:data];
     
@@ -70,7 +69,7 @@
 
 -(void)dealloc
 {
-    [configuration release];
+    [_configuration release];
     
     [super dealloc];
 }

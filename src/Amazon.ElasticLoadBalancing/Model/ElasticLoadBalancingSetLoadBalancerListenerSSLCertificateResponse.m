@@ -32,9 +32,9 @@
 {
     AmazonServiceException *newException = nil;
 
-    if ([[theException errorCode] isEqualToString:@"ListenerNotFound"]) {
+    if ([[theException errorCode] isEqualToString:@"InvalidConfigurationRequest"]) {
         [newException release];
-        newException = [[ElasticLoadBalancingListenerNotFoundException alloc] initWithMessage:@""];
+        newException = [[ElasticLoadBalancingInvalidConfigurationRequestException alloc] initWithMessage:@""];
     }
 
     if ([[theException errorCode] isEqualToString:@"CertificateNotFound"]) {
@@ -47,9 +47,9 @@
         newException = [[ElasticLoadBalancingLoadBalancerNotFoundException alloc] initWithMessage:@""];
     }
 
-    if ([[theException errorCode] isEqualToString:@"InvalidConfigurationRequest"]) {
+    if ([[theException errorCode] isEqualToString:@"ListenerNotFound"]) {
         [newException release];
-        newException = [[ElasticLoadBalancingInvalidConfigurationRequestException alloc] initWithMessage:@""];
+        newException = [[ElasticLoadBalancingListenerNotFoundException alloc] initWithMessage:@""];
     }
 
     if (newException != nil) {

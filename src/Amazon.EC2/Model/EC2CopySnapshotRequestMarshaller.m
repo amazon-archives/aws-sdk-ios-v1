@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"CopySnapshot"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[copySnapshotRequest delegate]];
     [request setCredentials:[copySnapshotRequest credentials]];
     [request setEndpoint:[copySnapshotRequest requestEndpoint]];
     [request setRequestTag:[copySnapshotRequest requestTag]];
 
+    if (copySnapshotRequest != nil) {
+        if (copySnapshotRequest.dryRunIsSet) {
+            [request setParameterValue:(copySnapshotRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
     if (copySnapshotRequest != nil) {
         if (copySnapshotRequest.sourceRegion != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", copySnapshotRequest.sourceRegion] forKey:[NSString stringWithFormat:@"%@", @"SourceRegion"]];

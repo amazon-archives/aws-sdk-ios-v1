@@ -124,6 +124,11 @@
         return;
     }
 
+    if ([elementName isEqualToString:@"AssociatePublicIpAddress"]) {
+        self.response.associatePublicIpAddress = [self.currentText boolValue];
+        return;
+    }
+
     if ([elementName isEqualToString:@"LaunchConfiguration"]) {
         if (caller != nil) {
             [parser setDelegate:caller];

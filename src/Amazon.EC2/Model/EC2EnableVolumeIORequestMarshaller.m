@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"EnableVolumeIO"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[enableVolumeIORequest delegate]];
     [request setCredentials:[enableVolumeIORequest credentials]];
     [request setEndpoint:[enableVolumeIORequest requestEndpoint]];
     [request setRequestTag:[enableVolumeIORequest requestTag]];
 
+    if (enableVolumeIORequest != nil) {
+        if (enableVolumeIORequest.dryRunIsSet) {
+            [request setParameterValue:(enableVolumeIORequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
     if (enableVolumeIORequest != nil) {
         if (enableVolumeIORequest.volumeId != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", enableVolumeIORequest.volumeId] forKey:[NSString stringWithFormat:@"%@", @"VolumeId"]];

@@ -41,6 +41,9 @@
 /**
  * The associated code of the event. Valid values: instance-reboot,
  * system-reboot, instance-retirement
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>instance-reboot, system-reboot, system-maintenance, instance-retirement, instance-stop
  */
 @property (nonatomic, retain) NSString *code;
 

@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DeletePlacementGroup"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[deletePlacementGroupRequest delegate]];
     [request setCredentials:[deletePlacementGroupRequest credentials]];
     [request setEndpoint:[deletePlacementGroupRequest requestEndpoint]];
     [request setRequestTag:[deletePlacementGroupRequest requestTag]];
 
+    if (deletePlacementGroupRequest != nil) {
+        if (deletePlacementGroupRequest.dryRunIsSet) {
+            [request setParameterValue:(deletePlacementGroupRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
     if (deletePlacementGroupRequest != nil) {
         if (deletePlacementGroupRequest.groupName != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", deletePlacementGroupRequest.groupName] forKey:[NSString stringWithFormat:@"%@", @"GroupName"]];

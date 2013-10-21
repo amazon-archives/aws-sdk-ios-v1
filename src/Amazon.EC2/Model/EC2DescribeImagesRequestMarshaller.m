@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribeImages"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[describeImagesRequest delegate]];
     [request setCredentials:[describeImagesRequest credentials]];
     [request setEndpoint:[describeImagesRequest requestEndpoint]];
     [request setRequestTag:[describeImagesRequest requestTag]];
 
+    if (describeImagesRequest != nil) {
+        if (describeImagesRequest.dryRunIsSet) {
+            [request setParameterValue:(describeImagesRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
 
     if (describeImagesRequest != nil) {
         int imageIdsListIndex = 1;

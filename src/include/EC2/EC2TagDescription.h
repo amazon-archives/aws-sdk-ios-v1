@@ -48,7 +48,7 @@
  * instance, AMI, EBS volume, etc).
  * <p>
  * <b>Constraints:</b><br/>
- * <b>Allowed Values: </b>customer-gateway, dhcp-options, image, instance, snapshot, spot-instances-request, subnet, volume, vpc, vpn-connection, vpn-gateway
+ * <b>Allowed Values: </b>customer-gateway, dhcp-options, image, instance, internet-gateway, network-acl, network-interface, reserved-instances, route-table, snapshot, spot-instances-request, subnet, security-group, volume, vpc, vpn-connection, vpn-gateway
  */
 @property (nonatomic, retain) NSString *resourceType;
 

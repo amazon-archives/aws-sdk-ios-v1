@@ -18,6 +18,8 @@
 
 @implementation EC2CreateSpotDatafeedSubscriptionRequest
 
+@synthesize dryRun;
+@synthesize dryRunIsSet;
 @synthesize bucket;
 @synthesize prefix;
 
@@ -25,8 +27,10 @@
 -(id)init
 {
     if (self = [super init]) {
-        bucket = nil;
-        prefix = nil;
+        dryRun      = NO;
+        dryRunIsSet = NO;
+        bucket      = nil;
+        prefix      = nil;
     }
 
     return self;
@@ -48,6 +52,7 @@
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
 
     [buffer appendString:@"{"];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"DryRun: %d,", dryRun] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Bucket: %@,", bucket] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Prefix: %@,", prefix] autorelease]];
     [buffer appendString:[super description]];
@@ -56,6 +61,12 @@
     return [buffer autorelease];
 }
 
+
+-(void)setDryRun:(BOOL)theValue
+{
+    dryRun      = theValue;
+    dryRunIsSet = YES;
+}
 
 
 -(void)dealloc

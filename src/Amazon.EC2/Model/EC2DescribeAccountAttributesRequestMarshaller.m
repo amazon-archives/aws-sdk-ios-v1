@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribeAccountAttributes"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[describeAccountAttributesRequest delegate]];
     [request setCredentials:[describeAccountAttributesRequest credentials]];
     [request setEndpoint:[describeAccountAttributesRequest requestEndpoint]];
     [request setRequestTag:[describeAccountAttributesRequest requestTag]];
 
+    if (describeAccountAttributesRequest != nil) {
+        if (describeAccountAttributesRequest.dryRunIsSet) {
+            [request setParameterValue:(describeAccountAttributesRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
 
     if (describeAccountAttributesRequest != nil) {
         int attributeNamesListIndex = 1;

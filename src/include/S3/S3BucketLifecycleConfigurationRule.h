@@ -24,12 +24,6 @@
  *
  */
 @interface S3BucketLifecycleConfigurationRule:NSObject {
-    NSString  *ruleId;
-    NSString  *status;
-    NSString  *prefix;
-    NSInteger expirationInDays;
-    NSDate    *expirationDate;
-    NSArray   *transitions;
 }
 
 /** The id for this rule **/
@@ -42,7 +36,7 @@
 @property (nonatomic, retain) NSString *prefix;
 
 /** The expiration time for this rule in days **/
-@property (nonatomic, assign) NSInteger expirationInDays;
+@property (nonatomic, assign) int32_t expirationInDays;
 
 /** 
  * The expiration date for this rule as an absolute date.

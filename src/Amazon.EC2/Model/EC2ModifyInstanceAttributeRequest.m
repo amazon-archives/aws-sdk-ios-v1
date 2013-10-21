@@ -18,6 +18,8 @@
 
 @implementation EC2ModifyInstanceAttributeRequest
 
+@synthesize dryRun;
+@synthesize dryRunIsSet;
 @synthesize instanceId;
 @synthesize attribute;
 @synthesize value;
@@ -39,6 +41,8 @@
 -(id)init
 {
     if (self = [super init]) {
+        dryRun                            = NO;
+        dryRunIsSet                       = NO;
         instanceId                        = nil;
         attribute                         = nil;
         value                             = nil;
@@ -95,6 +99,7 @@
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
 
     [buffer appendString:@"{"];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"DryRun: %d,", dryRun] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"InstanceId: %@,", instanceId] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Attribute: %@,", attribute] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Value: %@,", value] autorelease]];
@@ -115,19 +120,25 @@
 }
 
 
--(void)setSourceDestCheck:(bool)theValue
+-(void)setDryRun:(BOOL)theValue
+{
+    dryRun      = theValue;
+    dryRunIsSet = YES;
+}
+
+-(void)setSourceDestCheck:(BOOL)theValue
 {
     sourceDestCheck      = theValue;
     sourceDestCheckIsSet = YES;
 }
 
--(void)setDisableApiTermination:(bool)theValue
+-(void)setDisableApiTermination:(BOOL)theValue
 {
     disableApiTermination      = theValue;
     disableApiTerminationIsSet = YES;
 }
 
--(void)setEbsOptimized:(bool)theValue
+-(void)setEbsOptimized:(BOOL)theValue
 {
     ebsOptimized      = theValue;
     ebsOptimizedIsSet = YES;

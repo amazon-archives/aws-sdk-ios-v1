@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[ElasticLoadBalancingRequest alloc] init];
 
     [request setParameterValue:@"CreateLoadBalancer"           forKey:@"Action"];
-    [request setParameterValue:@"2011-11-15"   forKey:@"Version"];
+    [request setParameterValue:@"2012-06-01"   forKey:@"Version"];
 
     [request setDelegate:[createLoadBalancerRequest delegate]];
     [request setCredentials:[createLoadBalancerRequest credentials]];
@@ -98,6 +98,11 @@
             }
 
             securityGroupsListIndex++;
+        }
+    }
+    if (createLoadBalancerRequest != nil) {
+        if (createLoadBalancerRequest.scheme != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", createLoadBalancerRequest.scheme] forKey:[NSString stringWithFormat:@"%@", @"Scheme"]];
         }
     }
 

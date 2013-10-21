@@ -29,12 +29,21 @@
 @interface EC2CreateSecurityGroupRequest:AmazonServiceRequestConfig
 
 {
+    BOOL     dryRun;
+    BOOL     dryRunIsSet;
     NSString *groupName;
     NSString *descriptionValue;
     NSString *vpcId;
 }
 
 
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * Name of the security group.

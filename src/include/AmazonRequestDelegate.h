@@ -35,6 +35,7 @@
 -(void)request:(AmazonServiceRequest *)request didSendData:(long long)bytesWritten totalBytesWritten:(long long)totalBytesWritten totalBytesExpectedToWrite:(long long)totalBytesExpectedToWrite;
 -(void)request:(AmazonServiceRequest *)request didFailWithError:(NSError *)error;
 -(void)request:(AmazonServiceRequest *)request didFailWithServiceException:(NSException *)exception;
+- (void)request:(AmazonServiceRequest *)request didReceiveData:(NSData *)data totalBytesWritten:(long long)totalBytesWritten expectedTotalBytes:(long long)expectedTotalBytes;
 
 
 

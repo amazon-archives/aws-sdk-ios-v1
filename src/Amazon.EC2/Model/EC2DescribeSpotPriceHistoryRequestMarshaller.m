@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribeSpotPriceHistory"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[describeSpotPriceHistoryRequest delegate]];
     [request setCredentials:[describeSpotPriceHistoryRequest credentials]];
     [request setEndpoint:[describeSpotPriceHistoryRequest requestEndpoint]];
     [request setRequestTag:[describeSpotPriceHistoryRequest requestTag]];
 
+    if (describeSpotPriceHistoryRequest != nil) {
+        if (describeSpotPriceHistoryRequest.dryRunIsSet) {
+            [request setParameterValue:(describeSpotPriceHistoryRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
     if (describeSpotPriceHistoryRequest != nil) {
         if (describeSpotPriceHistoryRequest.startTime != nil) {
             [request setParameterValue:[describeSpotPriceHistoryRequest.startTime stringWithISO8061Format] forKey:[NSString stringWithFormat:@"%@", @"StartTime"]];

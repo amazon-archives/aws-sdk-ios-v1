@@ -51,6 +51,9 @@
 
 /**
  * The value of the Platform property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>Windows
  */
 @property (nonatomic, retain) NSString *platform;
 

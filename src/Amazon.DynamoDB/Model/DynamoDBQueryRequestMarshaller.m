@@ -13,7 +13,6 @@
  * permissions and limitations under the License.
  */
 
-
 #import "DynamoDBQueryRequestMarshaller.h"
 #import "DynamoDBAttributeValue.h"
 #import "AmazonJSON.h"
@@ -211,7 +210,7 @@
 
 
     request.content = [AmazonJSON JSONRepresentation:json];
-    [request addValue:[NSString stringWithFormat:@"%d", [[request.content dataUsingEncoding:NSUTF8StringEncoding] length]]    forHeader:@"Content-Length"];
+    [request addValue:[NSString stringWithFormat:@"%lu", (unsigned long)[[request.content dataUsingEncoding:NSUTF8StringEncoding] length]]    forHeader:@"Content-Length"];
 
     return [request autorelease];
 }

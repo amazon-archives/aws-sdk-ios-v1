@@ -49,6 +49,9 @@
 
 /**
  * The value of the ProductDescription property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>Linux/UNIX, Linux/UNIX (Amazon VPC), Windows, Windows (Amazon VPC)
  */
 @property (nonatomic, retain) NSString *productDescription;
 

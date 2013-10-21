@@ -33,8 +33,8 @@
     NSString            *tableName;
     NSMutableDictionary *key;
     NSMutableArray      *attributesToGet;
-    bool                consistentRead;
-    bool                consistentReadIsSet;
+    BOOL                consistentRead;
+    BOOL                consistentReadIsSet;
     NSString            *returnConsumedCapacity;
 }
 
@@ -70,15 +70,14 @@
  * If set to <code>true</code>, then the operation uses strongly
  * consistent reads; otherwise, eventually consistent reads are used.
  */
-@property (nonatomic) bool           consistentRead;
+@property (nonatomic) BOOL           consistentRead;
 
-@property (nonatomic, readonly) bool consistentReadIsSet;
+@property (nonatomic, readonly) BOOL consistentReadIsSet;
 
 /**
- * Determines whether to include consumed capacity information in the
- * output. If this is set to <code>TOTAL</code>, then this information is
- * shown in the output; otherwise, the consumed capacity information is
- * not shown.
+ * If set to <code>TOTAL</code>, <i>ConsumedCapacity</i> is included in
+ * the response; if set to <code>NONE</code> (the default),
+ * <i>ConsumedCapacity</i> is not included.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Allowed Values: </b>TOTAL, NONE

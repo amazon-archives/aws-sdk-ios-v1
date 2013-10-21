@@ -29,6 +29,8 @@
 @interface EC2AllocateAddressRequest:AmazonServiceRequestConfig
 
 {
+    BOOL     dryRun;
+    BOOL     dryRunIsSet;
     NSString *domain;
 }
 
@@ -40,6 +42,13 @@
  * property methods to initialize this object after creating it.
  */
 -(id)init;
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * Set to <code>vpc</code> to allocate the address to your VPC. By

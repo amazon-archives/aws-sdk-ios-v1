@@ -56,7 +56,7 @@
  * this UTC calendar day. For current maximums on provisioned throughput
  * decreases, see <a
  * mazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a>
- * of the <i>Amazon DynamoDB Developer Guide</i>.
+ * in the Amazon DynamoDB Developer Guide.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Range: </b>1 - <br/>

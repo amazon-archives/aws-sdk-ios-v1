@@ -15,25 +15,22 @@
 
 #import "S3InitiateMultipartUploadRequest.h"
 
-@implementation S3InitiateMultipartUploadRequest
+@interface S3InitiateMultipartUploadRequest () {
+}
 
-@synthesize cacheControl;
-@synthesize contentDisposition;
-@synthesize contentEncoding;
-@synthesize redirectLocation;
-@synthesize expires;
+@property (nonatomic, assign) BOOL expiresSet;
+
+@end
+
+
+@implementation S3InitiateMultipartUploadRequest
 
 -(id)init
 {
     if (self = [super init])
     {
-        cacheControl = nil;
-        contentDisposition = nil;
-        contentEncoding = nil;
-        redirectLocation = nil;
-        expires = 0;
-        
-        expiresSet = NO;
+        _expires = 0;
+        _expiresSet = NO;
     }
     
     return self;
@@ -50,10 +47,10 @@
     return self;
 }
 
--(void)setExpires:(NSInteger)exp
+-(void)setExpires:(int32_t)exp
 {
-    expires    = exp;
-    expiresSet = YES;
+    _expires    = exp;
+    _expiresSet = YES;
 }
 
 -(NSMutableURLRequest *)configureURLRequest
@@ -81,7 +78,7 @@
                forHTTPHeaderField:kHttpHdrAmzWebsiteRedirectLocation];
     }
 
-    if (expiresSet) {
+    if (self.expiresSet) {
         [self.urlRequest setValue:[NSString stringWithFormat:@"%d", self.expires]
                forHTTPHeaderField:kHttpHdrExpires];
     }
@@ -91,10 +88,10 @@
 
 -(void)dealloc
 {
-    [cacheControl release];
-    [contentEncoding release];
-    [contentDisposition release];
-    [redirectLocation release];
+    [_cacheControl release];
+    [_contentDisposition release];
+    [_contentEncoding release];
+    [_redirectLocation release];
 
     [super dealloc];
 }

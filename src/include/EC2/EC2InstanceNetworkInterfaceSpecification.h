@@ -30,10 +30,12 @@
     NSString       *descriptionValue;
     NSString       *privateIpAddress;
     NSMutableArray *groups;
-    bool           deleteOnTermination;
-    bool           deleteOnTerminationIsSet;
+    BOOL           deleteOnTermination;
+    BOOL           deleteOnTerminationIsSet;
     NSMutableArray *privateIpAddresses;
     NSNumber       *secondaryPrivateIpAddressCount;
+    BOOL           associatePublicIpAddress;
+    BOOL           associatePublicIpAddressIsSet;
 }
 
 
@@ -46,27 +48,32 @@
 -(id)init;
 
 /**
- * The value of the NetworkInterfaceId property for this object.
+ * An existing interface to attach to a single instance. Requires n=1
+ * instances.
  */
 @property (nonatomic, retain) NSString *networkInterfaceId;
 
 /**
- * The value of the DeviceIndex property for this object.
+ * The device index. Applies to both attaching an existing network
+ * interface and when creating a network interface. <p>Condition: If you
+ * are specifying a network interface in the request, you must provide
+ * the device index.
  */
 @property (nonatomic, retain) NSNumber *deviceIndex;
 
 /**
- * The value of the SubnetId property for this object.
+ * The subnet ID. Applies only when creating a network interface.
  */
 @property (nonatomic, retain) NSString *subnetId;
 
 /**
- * The value of the Description property for this object.
+ * A description. Applies only when creating a network interface.
  */
 @property (nonatomic, retain) NSString *descriptionValue;
 
 /**
- * The value of the PrivateIpAddress property for this object.
+ * The primary private IP address. Applies only when creating a network
+ * interface. Requires n=1 network interfaces in launch. <p>
  */
 @property (nonatomic, retain) NSString *privateIpAddress;
 
@@ -78,9 +85,9 @@
 /**
  * The value of the DeleteOnTermination property for this object.
  */
-@property (nonatomic) bool           deleteOnTermination;
+@property (nonatomic) BOOL           deleteOnTermination;
 
-@property (nonatomic, readonly) bool deleteOnTerminationIsSet;
+@property (nonatomic, readonly) BOOL deleteOnTerminationIsSet;
 
 /**
  * The value of the PrivateIpAddresses property for this object.
@@ -91,6 +98,23 @@
  * The value of the SecondaryPrivateIpAddressCount property for this object.
  */
 @property (nonatomic, retain) NSNumber *secondaryPrivateIpAddressCount;
+
+/**
+ * Indicates whether to assign a public IP address to an instance in a
+ * VPC. The public IP address is associated with a specific network
+ * interface. If set to <code>true</code>, the following rules apply:
+ * <ol> <li> <p>Can only be associated with a single network interface
+ * with the device index of 0. You can't associate a public IP address
+ * with a second network interface, and you can't associate a public IP
+ * address if you are launching more than one network interface. </li>
+ * <li> <p>Can only be associated with a new network interface, not an
+ * existing one. </li> </ol> <p> Default: If launching into a default
+ * subnet, the default value is <code>true</code>. If launching into a
+ * nondefault subnet, the default value is <code>false</code>.
+ */
+@property (nonatomic) BOOL           associatePublicIpAddress;
+
+@property (nonatomic, readonly) BOOL associatePublicIpAddressIsSet;
 
 /**
  * Adds a single object to groups.

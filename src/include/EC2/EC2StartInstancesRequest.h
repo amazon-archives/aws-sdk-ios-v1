@@ -31,6 +31,8 @@
 {
     NSMutableArray *instanceIds;
     NSString       *additionalInfo;
+    BOOL           dryRun;
+    BOOL           dryRunIsSet;
 }
 
 
@@ -44,6 +46,13 @@
  * The value of the AdditionalInfo property for this object.
  */
 @property (nonatomic, retain) NSString *additionalInfo;
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 
 /**

@@ -23,17 +23,6 @@
  *
  */
 @interface S3ListVersionsResult:NSObject {
-    NSMutableArray *versionSummaries;
-    NSString       *name;
-    NSString       *prefix;
-    NSString       *keyMarker;
-    NSString       *nextKeyMarker;
-    NSString       *versionIdMarker;
-    NSString       *nextVersionIdMarker;
-    NSInteger      maxKeys;
-    NSString       *delimiter;
-    bool           isTruncated;
-    NSMutableArray *commonPrefixes;
 }
 
 /** A list of summary information describing the versions stored in the bucket */
@@ -64,7 +53,7 @@
 @property (nonatomic, retain) NSString *nextVersionIdMarker;
 
 /** The maxKeys parameter originally specified by the caller. */
-@property (nonatomic) NSInteger maxKeys;
+@property (nonatomic) int32_t maxKeys;
 
 /** The delimiter parameter originally specified by the caller. */
 @property (nonatomic, retain) NSString *delimiter;
@@ -72,7 +61,7 @@
 /** Indicates if this is  a complete listing or if caller needs
  * to make additional requests.
  */
-@property (nonatomic) bool isTruncated;
+@property (nonatomic, assign) BOOL isTruncated;
 
 /** A list of common prefixes.  Will only be specified for requests
  * that include a delimiter.

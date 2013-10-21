@@ -41,8 +41,8 @@
  * before Amazon DynamoDB returns a <i>ThrottlingException</i>. For more
  * information, see <a
  * eloperguide/WorkingWithDDTables.html#ProvisionedThroughput">Specifying
- * Read and Write Requirements</a> of the <i>Amazon DynamoDB Developer
- * Guide</i>.
+ * Read and Write Requirements</a> in the Amazon DynamoDB Developer
+ * Guide.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Range: </b>1 - <br/>
@@ -54,8 +54,8 @@
  * DynamoDB returns a <i>ThrottlingException</i>. For more information,
  * see <a
  * eloperguide/WorkingWithDDTables.html#ProvisionedThroughput">Specifying
- * Read and Write Requirements</a> of the <i>Amazon DynamoDB Developer
- * Guide</i>.
+ * Read and Write Requirements</a> in the Amazon DynamoDB Developer
+ * Guide.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Range: </b>1 - <br/>

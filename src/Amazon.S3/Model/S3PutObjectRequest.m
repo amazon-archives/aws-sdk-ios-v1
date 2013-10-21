@@ -42,7 +42,41 @@
     return self;
 }
 
--(void)setExpires:(NSInteger)exp
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    self = [super initWithCoder:decoder];
+    
+    [self setCacheControl:[decoder decodeObjectForKey:@"CacheControl"]];
+    [self setContentDisposition:[decoder decodeObjectForKey:@"ContentDisposition"]];
+    [self setContentEncoding:[decoder decodeObjectForKey:@"ContentEncoding"]];
+    [self setContentMD5:[decoder decodeObjectForKey:@"ContentMD5"]];
+    self.generateMD5 = [decoder decodeBoolForKey:@"GenerateMD5"];
+    [self setExpect:[decoder decodeObjectForKey:@"Expect"]];
+    self.expires = [decoder decodeIntegerForKey:@"Expires"];
+    [self setData:[decoder decodeObjectForKey:@"Data"]];
+    [self setFilename:[decoder decodeObjectForKey:@"Filename"]];
+    [self setRedirectLocation:[decoder decodeObjectForKey:@"RedirectionLocation"]];
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [super encodeWithCoder:encoder];
+    
+    [encoder encodeObject:self.cacheControl forKey:@"CacheControl"];
+    [encoder encodeObject:self.contentDisposition forKey:@"ContentDisposition"];
+    [encoder encodeObject:self.contentEncoding forKey:@"ContentEncoding"];
+    [encoder encodeObject:self.contentMD5 forKey:@"ContentMD5"];
+    [encoder encodeBool:self.generateMD5 forKey:@"GenerateMD5"];
+    [encoder encodeObject:self.expect forKey:@"Expect"];
+    [encoder encodeInteger:self.expires forKey:@"Expires"];
+    [encoder encodeInteger:self.data forKey:@"Data"];
+    [encoder encodeObject:self.filename forKey:@"Filename"];
+    [encoder encodeObject:self.redirectLocation forKey:@"RedirectionLocation"];
+}
+
+-(void)setExpires:(int32_t)exp
 {
     _expires    = exp;
     expiresSet = YES;
@@ -107,7 +141,7 @@
     else {
         [self.urlRequest setHTTPBody:self.data];
         if (self.contentLength < 1) {
-            [self.urlRequest setValue:[NSString stringWithFormat:@"%d", [self.data length]]
+            [self.urlRequest setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[self.data length]]
                    forHTTPHeaderField:kHttpHdrContentLength];
         }
     }
@@ -165,6 +199,9 @@
     [_contentMD5 release];
     [_expect release];
     [_data release];
+    if(_stream.streamStatus == NSStreamStatusOpen){
+        [_stream close];
+    }
     [_stream release];
     [_filename release];
     [_redirectLocation release];

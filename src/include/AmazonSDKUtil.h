@@ -16,7 +16,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#define AWS_SDK_VERSION              @"1.6.1"
+#define AWS_SDK_VERSION              @"1.7.0"
 #define AWS_SDK_USER_AGENT_FORMAT    @"aws-sdk-iOS/%@ %@/%@ %@"
 #define kISO8061DateFormat           @"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 #define kISO8601DateFormat           @"yyyy-MM-dd'T'HH:mm:ss'Z'"

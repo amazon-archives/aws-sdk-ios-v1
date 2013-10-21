@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribeSubnets"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[describeSubnetsRequest delegate]];
     [request setCredentials:[describeSubnetsRequest credentials]];
     [request setEndpoint:[describeSubnetsRequest requestEndpoint]];
     [request setRequestTag:[describeSubnetsRequest requestTag]];
 
+    if (describeSubnetsRequest != nil) {
+        if (describeSubnetsRequest.dryRunIsSet) {
+            [request setParameterValue:(describeSubnetsRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
 
     if (describeSubnetsRequest != nil) {
         int subnetIdsListIndex = 1;

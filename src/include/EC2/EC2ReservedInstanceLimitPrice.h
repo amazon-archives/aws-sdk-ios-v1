@@ -43,6 +43,9 @@
 
 /**
  * The value of the CurrencyCode property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>USD
  */
 @property (nonatomic, retain) NSString *currencyCode;
 

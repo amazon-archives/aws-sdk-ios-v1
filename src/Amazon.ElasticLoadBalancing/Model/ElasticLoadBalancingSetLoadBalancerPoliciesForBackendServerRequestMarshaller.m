@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[ElasticLoadBalancingRequest alloc] init];
 
     [request setParameterValue:@"SetLoadBalancerPoliciesForBackendServer"           forKey:@"Action"];
-    [request setParameterValue:@"2011-11-15"   forKey:@"Version"];
+    [request setParameterValue:@"2012-06-01"   forKey:@"Version"];
 
     [request setDelegate:[setLoadBalancerPoliciesForBackendServerRequest delegate]];
     [request setCredentials:[setLoadBalancerPoliciesForBackendServerRequest credentials]];

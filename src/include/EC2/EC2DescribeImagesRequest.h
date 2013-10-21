@@ -30,6 +30,8 @@
 @interface EC2DescribeImagesRequest:AmazonServiceRequestConfig
 
 {
+    BOOL           dryRun;
+    BOOL           dryRunIsSet;
     NSMutableArray *imageIds;
     NSMutableArray *owners;
     NSMutableArray *executableUsers;
@@ -46,24 +48,38 @@
 -(id)init;
 
 /**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
+
+/**
  * An optional list of the AMI IDs to describe. If not specified, all
  * AMIs will be described.
  */
 @property (nonatomic, retain) NSMutableArray *imageIds;
 
 /**
- * The optional list of owners for the described AMIs. The IDs amazon,
- * self, and explicit can be used to include AMIs owned by Amazon, AMIs
- * owned by the user, and AMIs for which the user has explicit launch
- * permissions, respectively.
+ * An optional list of owners by which to scope the described AMIs. Valid
+ * values are: <ul> <li> <code>self</code> : AMIs owned by you </li> <li>
+ * <i>AWS account ID</i> : AMIs owned by this account ID </li> <li>
+ * <code>aws-marketplace</code> : AMIs owned by the AWS Marketplace </li>
+ * <li> <code>amazon</code> : AMIs owned by Amazon </li> <li>
+ * <code>all</code> : Do not scope the AMIs returned by owner </li> </ul>
+ * <p> The values <code>self</code>, <code>aws-marketplace</code>,
+ * <code>amazon</code>, and <code>all</code> are literals.
  */
 @property (nonatomic, retain) NSMutableArray *owners;
 
 /**
- * The optional list of users with explicit launch permissions for the
- * described AMIs. The user ID can be a user's account ID, 'self' to
- * return AMIs for which the sender of the request has explicit launch
- * permissions, or 'all' to return AMIs with public launch permissions.
+ * An optional list of users whose launch permissions will be used to
+ * scope the described AMIs. Valid values are: <ul> <li>
+ * <code>self</code> : AMIs for which you have explicit launch
+ * permissions </li> <li> <code>AWS account ID</code> : AMIs for which
+ * this account ID has launch permissions </li> <li> <code>all</code> :
+ * AMIs that have public launch permissions </li> </ul> <p> The values
+ * <code>self</code> and <code>all</code> are literals.
  */
 @property (nonatomic, retain) NSMutableArray *executableUsers;
 

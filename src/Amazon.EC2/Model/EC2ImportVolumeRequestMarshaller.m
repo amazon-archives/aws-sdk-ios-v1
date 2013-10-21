@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"ImportVolume"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[importVolumeRequest delegate]];
     [request setCredentials:[importVolumeRequest credentials]];
     [request setEndpoint:[importVolumeRequest requestEndpoint]];
     [request setRequestTag:[importVolumeRequest requestTag]];
 
+    if (importVolumeRequest != nil) {
+        if (importVolumeRequest.dryRunIsSet) {
+            [request setParameterValue:(importVolumeRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
     if (importVolumeRequest != nil) {
         if (importVolumeRequest.availabilityZone != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", importVolumeRequest.availabilityZone] forKey:[NSString stringWithFormat:@"%@", @"AvailabilityZone"]];

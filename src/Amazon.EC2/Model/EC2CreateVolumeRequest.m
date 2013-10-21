@@ -18,6 +18,8 @@
 
 @implementation EC2CreateVolumeRequest
 
+@synthesize dryRun;
+@synthesize dryRunIsSet;
 @synthesize size;
 @synthesize snapshotId;
 @synthesize availabilityZone;
@@ -28,6 +30,8 @@
 -(id)init
 {
     if (self = [super init]) {
+        dryRun           = NO;
+        dryRunIsSet      = NO;
         size             = nil;
         snapshotId       = nil;
         availabilityZone = nil;
@@ -65,6 +69,7 @@
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
 
     [buffer appendString:@"{"];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"DryRun: %d,", dryRun] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Size: %@,", size] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"SnapshotId: %@,", snapshotId] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"AvailabilityZone: %@,", availabilityZone] autorelease]];
@@ -76,6 +81,12 @@
     return [buffer autorelease];
 }
 
+
+-(void)setDryRun:(BOOL)theValue
+{
+    dryRun      = theValue;
+    dryRunIsSet = YES;
+}
 
 
 -(void)dealloc

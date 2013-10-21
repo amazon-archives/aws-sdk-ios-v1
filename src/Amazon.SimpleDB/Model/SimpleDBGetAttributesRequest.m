@@ -75,7 +75,7 @@
 }
 
 
--(void)setConsistentRead:(bool)theValue
+-(void)setConsistentRead:(BOOL)theValue
 {
     consistentRead      = theValue;
     consistentReadIsSet = YES;

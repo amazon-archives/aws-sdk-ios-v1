@@ -61,7 +61,7 @@
     NSString *contentMD5 = [AmazonMD5Util base64md5FromData:data];
     [self.urlRequest setValue:contentMD5 forHTTPHeaderField:kHttpHdrContentMD5];
     
-    [self.urlRequest setValue:[NSString stringWithFormat:@"%d", [data length]] forHTTPHeaderField:kHttpHdrContentLength];
+    [self.urlRequest setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[data length]] forHTTPHeaderField:kHttpHdrContentLength];
     [self.urlRequest setValue:@"text/xml" forHTTPHeaderField:kHttpHdrContentType];
     [self.urlRequest setHTTPBody:data];
     

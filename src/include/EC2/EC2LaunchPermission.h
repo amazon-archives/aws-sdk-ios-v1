@@ -44,6 +44,9 @@
 /**
  * The AWS group of the user involved in this launch permission. <p>
  * Available groups: <code>all</code>
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>all
  */
 @property (nonatomic, retain) NSString *group;
 

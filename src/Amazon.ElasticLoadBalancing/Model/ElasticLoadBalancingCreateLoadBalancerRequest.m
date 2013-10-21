@@ -23,6 +23,7 @@
 @synthesize availabilityZones;
 @synthesize subnets;
 @synthesize securityGroups;
+@synthesize scheme;
 
 
 -(id)init
@@ -33,6 +34,7 @@
         availabilityZones = [[NSMutableArray alloc] initWithCapacity:1];
         subnets           = [[NSMutableArray alloc] initWithCapacity:1];
         securityGroups    = [[NSMutableArray alloc] initWithCapacity:1];
+        scheme            = nil;
     }
 
     return self;
@@ -106,6 +108,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"AvailabilityZones: %@,", availabilityZones] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Subnets: %@,", subnets] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"SecurityGroups: %@,", securityGroups] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Scheme: %@,", scheme] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -121,6 +124,7 @@
     [availabilityZones release];
     [subnets release];
     [securityGroups release];
+    [scheme release];
 
     [super dealloc];
 }

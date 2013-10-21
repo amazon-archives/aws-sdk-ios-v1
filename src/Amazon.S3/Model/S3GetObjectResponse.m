@@ -13,42 +13,32 @@
  * permissions and limitations under the License.
  */
 
+
 #import "S3GetObjectResponse.h"
+
+@interface S3GetObjectResponse ()
+{
+}
+
+@property (nonatomic, retain) NSMutableDictionary *metadata;
+
+@end
 
 @implementation S3GetObjectResponse
 
-@synthesize lastModified;
-@synthesize contentType;
-@synthesize redirectLocation;
-
-
-- (id)init
-{
-    if(self = [super init])
-    {
-        metadata = nil;
-        outputStream = nil;
-
-        lastModified = nil;
-        contentType = nil;
-        redirectLocation = nil;
-    }
-
-    return self;
-}
 
 // This method overrides the S3Response version, processing x-aws-meta-
 // headers, passing all others to the superclass.
--(void)setValue:(id)value forHTTPHeaderField:(NSString *)header
+- (void)setValue:(id)value forHTTPHeaderField:(NSString *)header
 {
     NSString *tmp = [header lowercaseString];
 
     if ([tmp hasPrefix:@"x-amz-meta-"]) {
         NSString *keyName = [tmp stringByReplacingOccurrencesOfString:@"x-amz-meta-" withString:@""];
-        if (nil == metadata) {
-            metadata = [[NSMutableDictionary alloc] init];
+        if (nil == self.metadata) {
+            self.metadata = [[NSMutableDictionary alloc] init];
         }
-        [metadata setValue:value forKey:keyName];
+        [self.metadata setValue:value forKey:keyName];
         //AMZLog( @"Setting metadata value [%@] for key [%@] from header [%@]", [value description], keyName, header );
     }
     else if ([tmp isEqualToString:kHttpHdrAmzWebsiteRedirectLocation]) {
@@ -59,28 +49,23 @@
     }
 }
 
--(NSString *)getMetadataForKey:(NSString *)aKey
+- (NSString *)getMetadataForKey:(NSString *)aKey
 {
-    if (nil == metadata) {
+    if (nil == self.metadata) {
         return nil;
     }
 
-    return [[metadata objectForKey:aKey] description];
+    return [[self.metadata objectForKey:aKey] description];
 }
 
--(void)setOutputStream:(NSOutputStream *)stream
-{
-    outputStream = stream;
-}
-
--(NSString *)description
+- (NSString *)description
 {
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
 
     [buffer appendString:@"{"];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Metadata: %@,", metadata] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Last-Modified: %@,", lastModified] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Content-Type: %@,", contentType] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Metadata: %@,", self.metadata] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Last-Modified: %@,", self.lastModified] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Content-Type: %@,", self.contentType] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -89,15 +74,15 @@
 
 #pragma mark NSURLConnection delegate methods
 
--(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    if (outputStream) {
+    if (self.outputStream) {
         
         //[super connection:connection didReceiveData:data];
-        [outputStream write:(uint8_t *)[data bytes] maxLength:[data length]];
+        [self.outputStream write:(uint8_t *)[data bytes] maxLength:[data length]];
         
         // skip super's data handling, go directly to delegate
-        if ([(NSObject *)self.request.delegate respondsToSelector:@selector(request:didReceiveData:)]) {
+        if ([self.request.delegate respondsToSelector:@selector(request:didReceiveData:)]) {
             [self.request.delegate request:self.request didReceiveData:data];
         }
     }
@@ -106,12 +91,14 @@
     }
 }
 
--(void)dealloc
+- (void)dealloc
 {
-    [metadata release];
-    [lastModified release];
-    [contentType release];
-    [redirectLocation release];
+    [_metadata release];
+    [_outputStream release];
+
+    [_lastModified release];
+    [_contentType release];
+    [_redirectLocation release];
 
     [super dealloc];
 }

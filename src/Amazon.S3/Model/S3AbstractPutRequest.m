@@ -62,6 +62,30 @@
     [[self metadata] setValue:value forKey:aKey];
 }
 
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [super encodeWithCoder:encoder];
+    
+    [encoder encodeObject:self.cannedACL forKey:@"CannedACL"];
+    [encoder encodeObject:self.fullACL forKey:@"FullACL"];
+    [encoder encodeObject:self.storageClass forKey:@"StorageClass"];
+    [encoder encodeObject:self.serverSideEncryption forKey:@"ServerSideEncryption"];
+    [encoder encodeObject:self.metadata forKey:@"Metadata"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    self = [super initWithCoder:decoder];
+    
+    [self setCannedACL:[decoder decodeObjectForKey:@"CannedACL"]];
+    [self setFullACL:[decoder decodeObjectForKey:@"FullACL"]];
+    [self setStorageClass:[decoder decodeObjectForKey:@"StorageClass"]];
+    [self setServerSideEncryption:[decoder decodeObjectForKey:@"ServerSideEncryption"]];
+    [self setMetadata:[decoder decodeObjectForKey:@"Metadata"]];
+    
+    return self;
+}
+
 - (void)dealloc
 {
     [cannedACL release];

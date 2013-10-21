@@ -38,14 +38,14 @@
         newException = [[ElasticLoadBalancingPolicyNotFoundException alloc] initWithMessage:@""];
     }
 
-    if ([[theException errorCode] isEqualToString:@"LoadBalancerNotFound"]) {
-        [newException release];
-        newException = [[ElasticLoadBalancingLoadBalancerNotFoundException alloc] initWithMessage:@""];
-    }
-
     if ([[theException errorCode] isEqualToString:@"InvalidConfigurationRequest"]) {
         [newException release];
         newException = [[ElasticLoadBalancingInvalidConfigurationRequestException alloc] initWithMessage:@""];
+    }
+
+    if ([[theException errorCode] isEqualToString:@"LoadBalancerNotFound"]) {
+        [newException release];
+        newException = [[ElasticLoadBalancingLoadBalancerNotFoundException alloc] initWithMessage:@""];
     }
 
     if (newException != nil) {

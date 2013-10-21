@@ -443,7 +443,7 @@
     AMZLogDebug(@"Begin Request: %@", NSStringFromClass([request class]));
 
     S3Response *response = nil;
-    NSInteger  retries   = 0;
+    int32_t  retries   = 0;
     while (retries < self.maxRetries) {
         if (retries > 0) {
             request.date = [NSDate date];

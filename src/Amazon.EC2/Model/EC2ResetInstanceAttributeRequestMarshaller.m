@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"ResetInstanceAttribute"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[resetInstanceAttributeRequest delegate]];
     [request setCredentials:[resetInstanceAttributeRequest credentials]];
     [request setEndpoint:[resetInstanceAttributeRequest requestEndpoint]];
     [request setRequestTag:[resetInstanceAttributeRequest requestTag]];
 
+    if (resetInstanceAttributeRequest != nil) {
+        if (resetInstanceAttributeRequest.dryRunIsSet) {
+            [request setParameterValue:(resetInstanceAttributeRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
     if (resetInstanceAttributeRequest != nil) {
         if (resetInstanceAttributeRequest.instanceId != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", resetInstanceAttributeRequest.instanceId] forKey:[NSString stringWithFormat:@"%@", @"InstanceId"]];

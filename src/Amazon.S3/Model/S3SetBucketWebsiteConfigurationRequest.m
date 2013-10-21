@@ -17,7 +17,6 @@
 
 @implementation S3SetBucketWebsiteConfigurationRequest
 
-@synthesize configuration;
 
 -(id)initWithBucketName:(NSString *)theBucketName withConfiguration:(BucketWebsiteConfiguration *)theConfiguration
 {
@@ -25,7 +24,8 @@
     if (self)
     {
         self.bucket        = theBucketName;
-        self.configuration = theConfiguration;
+
+        _configuration = [theConfiguration retain];
     }
 
     return self;
@@ -56,7 +56,7 @@
 
     NSData *data = [[self.configuration toXml] dataUsingEncoding:NSUTF8StringEncoding];
 
-    [self.urlRequest setValue:[NSString stringWithFormat:@"%d", [data length]] forHTTPHeaderField:kHttpHdrContentLength];
+    [self.urlRequest setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[data length]] forHTTPHeaderField:kHttpHdrContentLength];
     [self.urlRequest setValue:@"text/xml" forHTTPHeaderField:kHttpHdrContentType];
     [self.urlRequest setHTTPBody:data];
 
@@ -65,7 +65,7 @@
 
 -(void)dealloc
 {
-    [configuration release];
+    [_configuration release];
 
     [super dealloc];
 }

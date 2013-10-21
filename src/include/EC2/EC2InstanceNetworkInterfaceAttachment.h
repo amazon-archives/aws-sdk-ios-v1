@@ -27,8 +27,8 @@
     NSNumber *deviceIndex;
     NSString *status;
     NSDate   *attachTime;
-    bool     deleteOnTermination;
-    bool     deleteOnTerminationIsSet;
+    BOOL     deleteOnTermination;
+    BOOL     deleteOnTerminationIsSet;
 }
 
 
@@ -52,6 +52,9 @@
 
 /**
  * The value of the Status property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>attaching, attached, detaching, detached
  */
 @property (nonatomic, retain) NSString *status;
 
@@ -63,9 +66,9 @@
 /**
  * The value of the DeleteOnTermination property for this object.
  */
-@property (nonatomic) bool           deleteOnTermination;
+@property (nonatomic) BOOL           deleteOnTermination;
 
-@property (nonatomic, readonly) bool deleteOnTerminationIsSet;
+@property (nonatomic, readonly) BOOL deleteOnTerminationIsSet;
 
 /**
  * Returns a string representation of this object; useful for testing and

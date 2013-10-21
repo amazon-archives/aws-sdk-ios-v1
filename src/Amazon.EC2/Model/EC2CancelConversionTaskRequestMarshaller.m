@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"CancelConversionTask"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[cancelConversionTaskRequest delegate]];
     [request setCredentials:[cancelConversionTaskRequest credentials]];
     [request setEndpoint:[cancelConversionTaskRequest requestEndpoint]];
     [request setRequestTag:[cancelConversionTaskRequest requestTag]];
 
+    if (cancelConversionTaskRequest != nil) {
+        if (cancelConversionTaskRequest.dryRunIsSet) {
+            [request setParameterValue:(cancelConversionTaskRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
     if (cancelConversionTaskRequest != nil) {
         if (cancelConversionTaskRequest.conversionTaskId != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", cancelConversionTaskRequest.conversionTaskId] forKey:[NSString stringWithFormat:@"%@", @"ConversionTaskId"]];

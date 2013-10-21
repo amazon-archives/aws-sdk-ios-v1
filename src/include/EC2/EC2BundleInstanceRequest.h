@@ -30,11 +30,20 @@
 @interface EC2BundleInstanceRequest:AmazonServiceRequestConfig
 
 {
+    BOOL       dryRun;
+    BOOL       dryRunIsSet;
     NSString   *instanceId;
     EC2Storage *storage;
 }
 
 
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * The ID of the instance to bundle.

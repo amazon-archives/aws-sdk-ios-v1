@@ -20,15 +20,10 @@
 
 @implementation S3BucketLifecycleConfigurationTransition
 
-
-@synthesize storageClass=_storageClass;
-@synthesize transitionDays=_transitionDays;
-@synthesize transitionDate=_transitionDate;
-
--(NSString *)toXml 
+-(NSString *)toXml
 {
     NSMutableString *xml = [[NSMutableString alloc] init];
-    
+
     [xml appendString:@"<Transition>"];
     [xml appendFormat:@"<StorageClass>%@</StorageClass>", self.storageClass];
     if (self.transitionDays > 0) {
@@ -38,11 +33,11 @@
         [xml appendFormat:@"<Date>%@</Date>", [self.transitionDate stringWithISO8061Format]];
     }
     [xml appendString:@"</Transition>"];
-    
-    
+
+
     NSString *retval = [NSString stringWithString:xml];
     [xml release];
-    
+
     return retval;
 
 }
@@ -77,14 +72,13 @@
 {
     return [self initWithStorageClass:@"GLACIER" andDate:theDate];
 }
-    
 
 -(void)dealloc
 {
-    self.storageClass = nil;
-    self.transitionDate = nil;
+    [_storageClass release];
+    [_transitionDate release];
+
     [super dealloc];
 }
-
 
 @end

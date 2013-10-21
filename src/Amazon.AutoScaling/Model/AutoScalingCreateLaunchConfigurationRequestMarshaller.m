@@ -129,6 +129,11 @@
             [request setParameterValue:(createLaunchConfigurationRequest.ebsOptimized ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"EbsOptimized"]];
         }
     }
+    if (createLaunchConfigurationRequest != nil) {
+        if (createLaunchConfigurationRequest.associatePublicIpAddressIsSet) {
+            [request setParameterValue:(createLaunchConfigurationRequest.associatePublicIpAddress ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"AssociatePublicIpAddress"]];
+        }
+    }
 
 
     return [request autorelease];

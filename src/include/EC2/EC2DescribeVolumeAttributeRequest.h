@@ -29,6 +29,8 @@
 @interface EC2DescribeVolumeAttributeRequest:AmazonServiceRequestConfig
 
 {
+    BOOL     dryRun;
+    BOOL     dryRunIsSet;
     NSString *volumeId;
     NSString *attribute;
 }
@@ -41,6 +43,13 @@
  * property methods to initialize this object after creating it.
  */
 -(id)init;
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * The value of the VolumeId property for this object.

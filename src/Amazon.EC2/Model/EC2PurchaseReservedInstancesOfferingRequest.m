@@ -18,6 +18,8 @@
 
 @implementation EC2PurchaseReservedInstancesOfferingRequest
 
+@synthesize dryRun;
+@synthesize dryRunIsSet;
 @synthesize reservedInstancesOfferingId;
 @synthesize instanceCount;
 @synthesize limitPrice;
@@ -26,6 +28,8 @@
 -(id)init
 {
     if (self = [super init]) {
+        dryRun                      = NO;
+        dryRunIsSet                 = NO;
         reservedInstancesOfferingId = nil;
         instanceCount               = nil;
         limitPrice                  = nil;
@@ -51,6 +55,7 @@
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
 
     [buffer appendString:@"{"];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"DryRun: %d,", dryRun] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ReservedInstancesOfferingId: %@,", reservedInstancesOfferingId] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"InstanceCount: %@,", instanceCount] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"LimitPrice: %@,", limitPrice] autorelease]];
@@ -60,6 +65,12 @@
     return [buffer autorelease];
 }
 
+
+-(void)setDryRun:(BOOL)theValue
+{
+    dryRun      = theValue;
+    dryRunIsSet = YES;
+}
 
 
 -(void)dealloc

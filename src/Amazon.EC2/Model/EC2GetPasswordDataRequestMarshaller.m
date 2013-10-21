@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"GetPasswordData"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[getPasswordDataRequest delegate]];
     [request setCredentials:[getPasswordDataRequest credentials]];
     [request setEndpoint:[getPasswordDataRequest requestEndpoint]];
     [request setRequestTag:[getPasswordDataRequest requestTag]];
 
+    if (getPasswordDataRequest != nil) {
+        if (getPasswordDataRequest.dryRunIsSet) {
+            [request setParameterValue:(getPasswordDataRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
     if (getPasswordDataRequest != nil) {
         if (getPasswordDataRequest.instanceId != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", getPasswordDataRequest.instanceId] forKey:[NSString stringWithFormat:@"%@", @"InstanceId"]];

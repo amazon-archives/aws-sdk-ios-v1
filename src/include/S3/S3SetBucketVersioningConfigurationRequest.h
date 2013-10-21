@@ -24,8 +24,6 @@
  *
  */
 @interface S3SetBucketVersioningConfigurationRequest:S3Request {
-    S3BucketVersioningConfiguration *versioningConfiguration;
-    S3MultiFactorAuthentication     *mfa;
 }
 
 @property (nonatomic, retain) S3BucketVersioningConfiguration *versioningConfiguration;

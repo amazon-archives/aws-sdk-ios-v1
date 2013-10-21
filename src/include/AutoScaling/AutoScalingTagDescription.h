@@ -27,8 +27,8 @@
     NSString *resourceType;
     NSString *key;
     NSString *value;
-    bool     propagateAtLaunch;
-    bool     propagateAtLaunchIsSet;
+    BOOL     propagateAtLaunch;
+    BOOL     propagateAtLaunchIsSet;
 }
 
 
@@ -81,9 +81,9 @@
  * change a tag, the changed tag will be applied to all instances
  * launched after you made the change.
  */
-@property (nonatomic) bool           propagateAtLaunch;
+@property (nonatomic) BOOL           propagateAtLaunch;
 
-@property (nonatomic, readonly) bool propagateAtLaunchIsSet;
+@property (nonatomic, readonly) BOOL propagateAtLaunchIsSet;
 
 /**
  * Returns a string representation of this object; useful for testing and

@@ -29,12 +29,21 @@
 @interface EC2AttachVolumeRequest:AmazonServiceRequestConfig
 
 {
+    BOOL     dryRun;
+    BOOL     dryRunIsSet;
     NSString *volumeId;
     NSString *instanceId;
     NSString *device;
 }
 
 
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * The ID of the Amazon EBS volume. The volume and instance must be

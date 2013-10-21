@@ -28,8 +28,8 @@
     NSString *device;
     NSString *state;
     NSDate   *attachTime;
-    bool     deleteOnTermination;
-    bool     deleteOnTerminationIsSet;
+    BOOL     deleteOnTermination;
+    BOOL     deleteOnTerminationIsSet;
 }
 
 
@@ -74,9 +74,9 @@
  * ` <p> Whether this volume will be deleted or not when the associated
  * instance is terminated.
  */
-@property (nonatomic) bool           deleteOnTermination;
+@property (nonatomic) BOOL           deleteOnTermination;
 
-@property (nonatomic, readonly) bool deleteOnTerminationIsSet;
+@property (nonatomic, readonly) BOOL deleteOnTerminationIsSet;
 
 /**
  * Returns a string representation of this object; useful for testing and

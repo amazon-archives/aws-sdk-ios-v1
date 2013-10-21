@@ -50,7 +50,7 @@
 }
 
 
--(void)setDeleteOnTermination:(bool)theValue
+-(void)setDeleteOnTermination:(BOOL)theValue
 {
     deleteOnTermination      = theValue;
     deleteOnTerminationIsSet = YES;

@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DeleteKeyPair"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[deleteKeyPairRequest delegate]];
     [request setCredentials:[deleteKeyPairRequest credentials]];
     [request setEndpoint:[deleteKeyPairRequest requestEndpoint]];
     [request setRequestTag:[deleteKeyPairRequest requestTag]];
 
+    if (deleteKeyPairRequest != nil) {
+        if (deleteKeyPairRequest.dryRunIsSet) {
+            [request setParameterValue:(deleteKeyPairRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
     if (deleteKeyPairRequest != nil) {
         if (deleteKeyPairRequest.keyName != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", deleteKeyPairRequest.keyName] forKey:[NSString stringWithFormat:@"%@", @"KeyName"]];

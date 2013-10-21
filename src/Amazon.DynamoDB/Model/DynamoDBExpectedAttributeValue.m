@@ -43,7 +43,7 @@
     return self;
 }
 
--(id)initWithExists:(bool)theExists
+-(id)initWithExists:(BOOL)theExists
 {
     if (self = [self init]) {
         self.exists = theExists;
@@ -68,7 +68,7 @@
 }
 
 
--(void)setExists:(bool)theValue
+-(void)setExists:(BOOL)theValue
 {
     exists      = theValue;
     existsIsSet = YES;

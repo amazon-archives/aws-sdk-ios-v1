@@ -34,14 +34,14 @@
 +(void)signRequestV4:(AmazonServiceRequest *)serviceRequest headers:(NSMutableDictionary *)headers payload:(NSString *)payload credentials:(AmazonCredentials *)credentials
 {
     NSDate *date = [NSDate date];
-    
+
     NSString *dateStamp = [date dateStamp];
     NSString *dateTime  = [date dateTime];
-    
+
     // add date header (done here for consistency in timestamp)
     [headers setObject:dateTime forKey:@"X-Amz-Date"];
     [serviceRequest.urlRequest setValue:dateTime forHTTPHeaderField:@"X-Amz-Date"];
-    
+
     NSString *path = serviceRequest.urlRequest.URL.path;
     if (path.length == 0) {
         path = [NSString stringWithFormat:@"/"];
@@ -50,28 +50,28 @@
     if (query == nil) {
         query = [NSString stringWithFormat:@""];
     }
-    
+
     NSString *canonicalRequest = [AmazonAuthUtils getCanonicalizedRequest:serviceRequest.urlRequest.HTTPMethod
                                                                      path:path
                                                                     query:query
                                                                   headers:headers
                                                                   payload:payload];
-    
+
     AMZLogDebug(@"AWS4 Canonical Request: [%@]", canonicalRequest);
-    
+
     NSString *scope              = [NSString stringWithFormat:@"%@/%@/%@/%@", dateStamp, serviceRequest.regionName, serviceRequest.serviceName, SIGV4_TERMINATOR];
     NSString *signingCredentials = [NSString stringWithFormat:@"%@/%@", credentials.accessKey, scope];
     NSString *stringToSign       = [NSString stringWithFormat:@"%@\n%@\n%@\n%@", SIGV4_ALGORITHM, dateTime, scope, [AmazonSDKUtil hexEncode:[AmazonAuthUtils hashString:canonicalRequest]]];
-    
+
     AMZLogDebug(@"AWS4 String to Sign: [%@]", stringToSign);
-    
+
     NSData *kSigning  = [AmazonAuthUtils getV4DerivedKey:credentials.secretKey date:dateStamp region:serviceRequest.regionName service:serviceRequest.serviceName];
     NSData *signature = [AmazonAuthUtils sha256HMacWithData:[stringToSign dataUsingEncoding:NSUTF8StringEncoding] withKey:kSigning];
-    
+
     NSString *credentialsAuthorizationHeader   = [NSString stringWithFormat:@"Credential=%@", signingCredentials];
     NSString *signedHeadersAuthorizationHeader = [NSString stringWithFormat:@"SignedHeaders=%@", [AmazonAuthUtils getSignedHeadersString:headers]];
     NSString *signatureAuthorizationHeader     = [NSString stringWithFormat:@"Signature=%@", [AmazonSDKUtil hexEncode:[[[NSString alloc] initWithData:signature encoding:NSASCIIStringEncoding] autorelease]]];
-    
+
     NSString *authorization = [NSString stringWithFormat:@"%@ %@, %@, %@", SIGV4_ALGORITHM, credentialsAuthorizationHeader, signedHeadersAuthorizationHeader, signatureAuthorizationHeader];
     [serviceRequest.urlRequest setValue:authorization     forHTTPHeaderField:@"Authorization"];
 }
@@ -123,25 +123,25 @@
     NSInteger           digestLength;
 
     switch (algorithm) {
-    case kCCHmacAlgSHA1:
-        digestLength = CC_SHA1_DIGEST_LENGTH;
-        break;
+        case kCCHmacAlgSHA1:
+            digestLength = CC_SHA1_DIGEST_LENGTH;
+            break;
 
-    case kCCHmacAlgSHA256:
-        digestLength = CC_SHA256_DIGEST_LENGTH;
-        break;
+        case kCCHmacAlgSHA256:
+            digestLength = CC_SHA256_DIGEST_LENGTH;
+            break;
 
-    default:
-        digestLength = -1;
-        break;
+        default:
+            digestLength = -1;
+            break;
     }
 
     if (digestLength < 0)
     {
         // Fatal error. This should not happen.
         @throw [AmazonSignatureException exceptionWithName : kError_Invalid_Hash_Alg
-                reason : kReason_Invalid_Hash_Alg
-                userInfo : nil];
+                                                    reason : kReason_Invalid_Hash_Alg
+                                                  userInfo : nil];
     }
 
     CCHmacFinal(&context, digestRaw);
@@ -189,10 +189,15 @@
 
 +(NSData *)hash:(NSData *)dataToHash
 {
+    if([dataToHash length] > UINT32_MAX)
+    {
+        @throw [AmazonClientException exceptionWithMessage:@"The NSData size is too large. The maximum allowable size is UINT32_MAX."];
+    }
+
     const void    *cStr = [dataToHash bytes];
     unsigned char result[CC_SHA256_DIGEST_LENGTH];
 
-    CC_SHA256(cStr, [dataToHash length], result);
+    CC_SHA256(cStr, (uint32_t)[dataToHash length], result);
 
     return [[[NSData alloc] initWithBytes:result length:CC_SHA256_DIGEST_LENGTH] autorelease];
 }
@@ -205,8 +210,8 @@
     NSData   *kRegion   = [AmazonAuthUtils sha256HMacWithData:[regionName dataUsingEncoding:NSASCIIStringEncoding] withKey:kDate];
     NSData   *kService  = [AmazonAuthUtils sha256HMacWithData:[serviceName dataUsingEncoding:NSUTF8StringEncoding] withKey:kRegion];
     NSData   *kSigning  = [AmazonAuthUtils sha256HMacWithData:[SIGV4_TERMINATOR dataUsingEncoding:NSUTF8StringEncoding] withKey:kService];
-    
-    
+
+
     //TODO: cache this derived key?
     return kSigning;
 }
@@ -218,22 +223,22 @@
     [canonicalRequest appendString:@"\n"];
     [canonicalRequest appendString:path]; // Canonicalized resource path
     [canonicalRequest appendString:@"\n"];
-    
+
     [canonicalRequest appendString:query]; // Canonicalized Query String
     [canonicalRequest appendString:@"\n"];
-    
+
     [canonicalRequest appendString:[AmazonAuthUtils getCanonicalizedHeaderString:headers]];
     [canonicalRequest appendString:@"\n"];
-    
+
     [canonicalRequest appendString:[AmazonAuthUtils getSignedHeadersString:headers]];
     [canonicalRequest appendString:@"\n"];
-    
+
     AMZLogDebug(@"AWS4 Content to Hash: [%@]", payload);
-    
+
     NSString* hashString = [AmazonSDKUtil hexEncode:[AmazonAuthUtils hashString:payload]];
-    
+
     [canonicalRequest appendString:[NSString stringWithFormat:@"%@", hashString]];
-    
+
     return canonicalRequest;
 }
 
@@ -241,9 +246,9 @@
 +(NSString *)getCanonicalizedHeaderString:(NSMutableDictionary *)theHeaders
 {
     NSMutableArray *sortedHeaders = [[[NSMutableArray alloc] initWithArray:[theHeaders allKeys]] autorelease];
-    
+
     [sortedHeaders sortUsingSelector:@selector(caseInsensitiveCompare:)];
-    
+
     NSMutableString *headerString = [[[NSMutableString alloc] init] autorelease];
     for (NSString *header in sortedHeaders) {
         [headerString appendString:[header lowercaseString]];
@@ -251,11 +256,11 @@
         [headerString appendString:[theHeaders valueForKey:header]];
         [headerString appendString:@"\n"];
     }
-    
+
     // SigV4 expects all whitespace in headers and values to be collapsed to a single space
     NSCharacterSet *whitespaceChars = [NSCharacterSet whitespaceCharacterSet];
     NSPredicate *noEmptyStrings = [NSPredicate predicateWithFormat:@"SELF != ''"];
-    
+
     NSArray *parts = [headerString componentsSeparatedByCharactersInSet:whitespaceChars];
     NSArray *nonWhitespace = [parts filteredArrayUsingPredicate:noEmptyStrings];
     return [nonWhitespace componentsJoinedByString:@" "];
@@ -264,9 +269,9 @@
 +(NSString *)getSignedHeadersString:(NSMutableDictionary *)theHeaders
 {
     NSMutableArray *sortedHeaders = [[[NSMutableArray alloc] initWithArray:[theHeaders allKeys]] autorelease];
-    
+
     [sortedHeaders sortUsingSelector:@selector(caseInsensitiveCompare:)];
-    
+
     NSMutableString *headerString = [[[NSMutableString alloc] init] autorelease];
     for (NSString *header in sortedHeaders) {
         if ( [headerString length] > 0) {

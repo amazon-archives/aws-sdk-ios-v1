@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribeVpcs"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[describeVpcsRequest delegate]];
     [request setCredentials:[describeVpcsRequest credentials]];
     [request setEndpoint:[describeVpcsRequest requestEndpoint]];
     [request setRequestTag:[describeVpcsRequest requestTag]];
 
+    if (describeVpcsRequest != nil) {
+        if (describeVpcsRequest.dryRunIsSet) {
+            [request setParameterValue:(describeVpcsRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
 
     if (describeVpcsRequest != nil) {
         int vpcIdsListIndex = 1;

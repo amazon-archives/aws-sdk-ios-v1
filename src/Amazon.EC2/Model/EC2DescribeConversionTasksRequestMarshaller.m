@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribeConversionTasks"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[describeConversionTasksRequest delegate]];
     [request setCredentials:[describeConversionTasksRequest credentials]];
     [request setEndpoint:[describeConversionTasksRequest requestEndpoint]];
     [request setRequestTag:[describeConversionTasksRequest requestTag]];
 
+    if (describeConversionTasksRequest != nil) {
+        if (describeConversionTasksRequest.dryRunIsSet) {
+            [request setParameterValue:(describeConversionTasksRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
 
     if (describeConversionTasksRequest != nil) {
         int filtersListIndex = 1;

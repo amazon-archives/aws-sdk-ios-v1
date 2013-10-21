@@ -75,6 +75,9 @@
 /** Specify one or more overrides to headers in the response to this request */
 @property (nonatomic, retain) S3ResponseHeaderOverrides *responseHeaderOverrides;
 
+/** File path where the downloaded data will be stored */
+@property (nonatomic, retain) NSString *targetFilePath;
+
 /** Initialize the request setting the key and bucketName properties. */
 -(S3GetObjectRequest *)initWithKey:(NSString *)key withBucket:(NSString *)bucket;
 

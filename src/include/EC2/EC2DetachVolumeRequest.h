@@ -29,14 +29,23 @@
 @interface EC2DetachVolumeRequest:AmazonServiceRequestConfig
 
 {
+    BOOL     dryRun;
+    BOOL     dryRunIsSet;
     NSString *volumeId;
     NSString *instanceId;
     NSString *device;
-    bool     force;
-    bool     forceIsSet;
+    BOOL     force;
+    BOOL     forceIsSet;
 }
 
 
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * The ID of the volume to detach.
@@ -64,9 +73,9 @@
  * you use this option, you must perform file system check and repair
  * procedures.
  */
-@property (nonatomic) bool           force;
+@property (nonatomic) BOOL           force;
 
-@property (nonatomic, readonly) bool forceIsSet;
+@property (nonatomic, readonly) BOOL forceIsSet;
 
 
 /**

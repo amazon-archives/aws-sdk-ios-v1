@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"AllocateAddress"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[allocateAddressRequest delegate]];
     [request setCredentials:[allocateAddressRequest credentials]];
     [request setEndpoint:[allocateAddressRequest requestEndpoint]];
     [request setRequestTag:[allocateAddressRequest requestTag]];
 
+    if (allocateAddressRequest != nil) {
+        if (allocateAddressRequest.dryRunIsSet) {
+            [request setParameterValue:(allocateAddressRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
     if (allocateAddressRequest != nil) {
         if (allocateAddressRequest.domain != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", allocateAddressRequest.domain] forKey:[NSString stringWithFormat:@"%@", @"Domain"]];

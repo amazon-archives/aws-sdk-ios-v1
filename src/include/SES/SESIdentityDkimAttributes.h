@@ -23,8 +23,8 @@
 @interface SESIdentityDkimAttributes:NSObject
 
 {
-    bool           dkimEnabled;
-    bool           dkimEnabledIsSet;
+    BOOL           dkimEnabled;
+    BOOL           dkimEnabledIsSet;
     NSString       *dkimVerificationStatus;
     NSMutableArray *dkimTokens;
 }
@@ -42,9 +42,9 @@
  * True if DKIM signing is enabled for email sent from the identity;
  * false otherwise.
  */
-@property (nonatomic) bool           dkimEnabled;
+@property (nonatomic) BOOL           dkimEnabled;
 
-@property (nonatomic, readonly) bool dkimEnabledIsSet;
+@property (nonatomic, readonly) BOOL dkimEnabledIsSet;
 
 /**
  * Describes whether Amazon SES has successfully verified the DKIM DNS

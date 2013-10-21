@@ -35,8 +35,8 @@
     NSString                               *status;
     NSString                               *privateIpAddress;
     NSString                               *privateDnsName;
-    bool                                   sourceDestCheck;
-    bool                                   sourceDestCheckIsSet;
+    BOOL                                   sourceDestCheck;
+    BOOL                                   sourceDestCheckIsSet;
     NSMutableArray                         *groups;
     EC2InstanceNetworkInterfaceAttachment  *attachment;
     EC2InstanceNetworkInterfaceAssociation *association;
@@ -79,6 +79,9 @@
 
 /**
  * The value of the Status property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>available, attaching, in-use, detaching
  */
 @property (nonatomic, retain) NSString *status;
 
@@ -95,9 +98,9 @@
 /**
  * The value of the SourceDestCheck property for this object.
  */
-@property (nonatomic) bool           sourceDestCheck;
+@property (nonatomic) BOOL           sourceDestCheck;
 
-@property (nonatomic, readonly) bool sourceDestCheckIsSet;
+@property (nonatomic, readonly) BOOL sourceDestCheckIsSet;
 
 /**
  * The value of the Groups property for this object.

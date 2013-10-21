@@ -30,14 +30,14 @@
     NSString       *kernelId;
     NSString       *ramdiskId;
     NSString       *userData;
-    bool           disableApiTermination;
-    bool           disableApiTerminationIsSet;
+    BOOL           disableApiTermination;
+    BOOL           disableApiTerminationIsSet;
     NSString       *instanceInitiatedShutdownBehavior;
     NSString       *rootDeviceName;
     NSMutableArray *blockDeviceMappings;
     NSMutableArray *productCodes;
-    bool           ebsOptimized;
-    bool           ebsOptimizedIsSet;
+    BOOL           ebsOptimized;
+    BOOL           ebsOptimizedIsSet;
 }
 
 
@@ -79,9 +79,9 @@
  * Whether this instance can be terminated. You must modify this
  * attribute before you can terminate any "locked" instances.
  */
-@property (nonatomic) bool           disableApiTermination;
+@property (nonatomic) BOOL           disableApiTermination;
 
-@property (nonatomic, readonly) bool disableApiTerminationIsSet;
+@property (nonatomic, readonly) BOOL disableApiTerminationIsSet;
 
 /**
  * Whether this instance's Amazon EBS volumes are deleted when the
@@ -108,9 +108,9 @@
 /**
  * Boolean value
  */
-@property (nonatomic) bool           ebsOptimized;
+@property (nonatomic) BOOL           ebsOptimized;
 
-@property (nonatomic, readonly) bool ebsOptimizedIsSet;
+@property (nonatomic, readonly) BOOL ebsOptimizedIsSet;
 
 /**
  * Adds a single object to blockDeviceMappings.

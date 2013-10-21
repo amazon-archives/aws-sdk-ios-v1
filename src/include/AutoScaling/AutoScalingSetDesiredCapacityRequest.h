@@ -31,8 +31,8 @@
 {
     NSString *autoScalingGroupName;
     NSNumber *desiredCapacity;
-    bool     honorCooldown;
-    bool     honorCooldownIsSet;
+    BOOL     honorCooldown;
+    BOOL     honorCooldownIsSet;
 }
 
 
@@ -60,12 +60,15 @@
 
 /**
  * By default, <code>SetDesiredCapacity</code> overrides any cooldown
- * period. Set to <code>True</code> if you want Auto Scaling to reject
- * this request when the Auto Scaling group is in cooldown.
+ * period associated with the Auto Scaling group. Set to
+ * <code>True</code> if you want Auto Scaling to wait for the cooldown
+ * period associated with the Auto Scaling group to complete before
+ * initiating a scaling activity to set your Auto Scaling group to the
+ * new capacity setting.
  */
-@property (nonatomic) bool           honorCooldown;
+@property (nonatomic) BOOL           honorCooldown;
 
-@property (nonatomic, readonly) bool honorCooldownIsSet;
+@property (nonatomic, readonly) BOOL honorCooldownIsSet;
 
 /**
  * Returns a string representation of this object; useful for testing and

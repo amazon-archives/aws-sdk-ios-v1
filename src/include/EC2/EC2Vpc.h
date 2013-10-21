@@ -30,8 +30,8 @@
     NSString       *dhcpOptionsId;
     NSMutableArray *tags;
     NSString       *instanceTenancy;
-    bool           isDefault;
-    bool           isDefaultIsSet;
+    BOOL           isDefault;
+    BOOL           isDefaultIsSet;
 }
 
 
@@ -51,6 +51,9 @@
 /**
  * Describes the current state of the VPC. The state of the subnet may be
  * either <code>pending</code> or <code>available</code>.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>pending, available
  */
 @property (nonatomic, retain) NSString *state;
 
@@ -73,15 +76,18 @@
 
 /**
  * The allowed tenancy of instances launched into the VPC.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>default, dedicated
  */
 @property (nonatomic, retain) NSString *instanceTenancy;
 
 /**
  *
  */
-@property (nonatomic) bool           isDefault;
+@property (nonatomic) BOOL           isDefault;
 
-@property (nonatomic, readonly) bool isDefaultIsSet;
+@property (nonatomic, readonly) BOOL isDefaultIsSet;
 
 /**
  * Adds a single object to tags.

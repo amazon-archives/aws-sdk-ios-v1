@@ -39,13 +39,13 @@
     NSString                           *kernelId;
     NSString                           *ramdiskId;
     NSMutableArray                     *blockDeviceMappings;
-    bool                               monitoringEnabled;
-    bool                               monitoringEnabledIsSet;
+    BOOL                               monitoringEnabled;
+    BOOL                               monitoringEnabledIsSet;
     NSString                           *subnetId;
     NSMutableArray                     *networkInterfaces;
     EC2IamInstanceProfileSpecification *iamInstanceProfile;
-    bool                               ebsOptimized;
-    bool                               ebsOptimizedIsSet;
+    BOOL                               ebsOptimized;
+    BOOL                               ebsOptimizedIsSet;
 }
 
 
@@ -125,9 +125,9 @@
 /**
  * Enables monitoring for the instance.
  */
-@property (nonatomic) bool           monitoringEnabled;
+@property (nonatomic) BOOL           monitoringEnabled;
 
-@property (nonatomic, readonly) bool monitoringEnabledIsSet;
+@property (nonatomic, readonly) BOOL monitoringEnabledIsSet;
 
 /**
  * Specifies the Amazon VPC subnet ID within which to launch the
@@ -148,9 +148,9 @@
 /**
  * The value of the EbsOptimized property for this object.
  */
-@property (nonatomic) bool           ebsOptimized;
+@property (nonatomic) BOOL           ebsOptimized;
 
-@property (nonatomic, readonly) bool ebsOptimizedIsSet;
+@property (nonatomic, readonly) BOOL ebsOptimizedIsSet;
 
 /**
  * Adds a single object to allSecurityGroups.

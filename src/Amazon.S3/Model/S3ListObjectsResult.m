@@ -15,43 +15,22 @@
 
 #import "S3ListObjectsResult.h"
 
-
 @implementation S3ListObjectsResult
-
-@synthesize objectSummaries;
-@synthesize bucketName;
-@synthesize prefix;
-@synthesize marker;
-@synthesize delimiter;
-@synthesize maxKeys;
-@synthesize isTruncated;
-@synthesize commonPrefixes;
-
-
--(void)setObjectSummaries:(NSMutableArray *)theSummaries
-{
-    objectSummaries = theSummaries;
-}
 
 -(NSMutableArray *)objectSummaries
 {
-    if (nil == objectSummaries) {
-        objectSummaries = [[NSMutableArray alloc] init];
+    if (nil == _objectSummaries) {
+        _objectSummaries = [NSMutableArray new];
     }
-    return objectSummaries;
-}
-
--(void)setCommonPrefixes:(NSMutableArray *)prefixes
-{
-    commonPrefixes = prefixes;
+    return _objectSummaries;
 }
 
 -(NSMutableArray *)commonPrefixes
 {
-    if (nil == commonPrefixes) {
-        commonPrefixes = [[NSMutableArray alloc] init];
+    if (nil == _commonPrefixes) {
+        _commonPrefixes = [NSMutableArray new];
     }
-    return commonPrefixes;
+    return _commonPrefixes;
 }
 
 -(NSString *)description
@@ -59,14 +38,14 @@
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
 
     [buffer appendString:@"{"];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Summaries: %@,", objectSummaries] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Common Prefixes: %@,", commonPrefixes] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Name: %@,", bucketName] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Prefix: %@,", prefix] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Marker: %@,", marker] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Delimiter: %@,", delimiter] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Max Keys: %d,", maxKeys] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"Is Truncated: %d,", isTruncated] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Summaries: %@,", self.objectSummaries] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Common Prefixes: %@,", self.commonPrefixes] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Name: %@,", self.bucketName] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Prefix: %@,", self.prefix] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Marker: %@,", self.marker] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Delimiter: %@,", self.delimiter] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Max Keys: %d,", self.maxKeys] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Is Truncated: %d,", self.isTruncated] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -75,12 +54,12 @@
 
 -(void)dealloc
 {
-    [objectSummaries release];
-    [bucketName release];
-    [prefix release];
-    [marker release];
-    [delimiter release];
-    [commonPrefixes release];
+    [_objectSummaries release];
+    [_bucketName release];
+    [_prefix release];
+    [_marker release];
+    [_delimiter release];
+    [_commonPrefixes release];
 
     [super dealloc];
 }

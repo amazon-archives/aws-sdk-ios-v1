@@ -31,8 +31,8 @@
 {
     NSString *autoScalingGroupName;
     NSString *policyName;
-    bool     honorCooldown;
-    bool     honorCooldownIsSet;
+    BOOL     honorCooldown;
+    BOOL     honorCooldownIsSet;
 }
 
 
@@ -45,7 +45,7 @@
 -(id)init;
 
 /**
- * The name or ARN of the Auto Scaling group.
+ * The name or the Amazon Resource Name (ARN) of the Auto Scaling group.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 1600<br/>
@@ -54,7 +54,7 @@
 @property (nonatomic, retain) NSString *autoScalingGroupName;
 
 /**
- * The name or PolicyARN of the policy you want to run.
+ * The name or ARN of the policy you want to run.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 1600<br/>
@@ -63,12 +63,18 @@
 @property (nonatomic, retain) NSString *policyName;
 
 /**
- * Set to <code>True</code> if you want Auto Scaling to reject this
- * request when the Auto Scaling group is in cooldown.
+ * Set to <code>True</code> if you want Auto Scaling to wait for the
+ * cooldown period associated with the Auto Scaling group to complete
+ * before executing the policy. <p>Set to <code>False</code> if you want
+ * Auto Scaling to circumvent the cooldown period associated with the
+ * Auto Scaling group and execute the policy before the cooldown period
+ * ends. <p>For information about cooldown period, see <a
+ * /AutoScaling/latest/DeveloperGuide/AS_Concepts.html#Cooldown">Cooldown
+ * Period</a> in the <i>Auto Scaling Developer Guide</i>.
  */
-@property (nonatomic) bool           honorCooldown;
+@property (nonatomic) BOOL           honorCooldown;
 
-@property (nonatomic, readonly) bool honorCooldownIsSet;
+@property (nonatomic, readonly) BOOL honorCooldownIsSet;
 
 /**
  * Returns a string representation of this object; useful for testing and

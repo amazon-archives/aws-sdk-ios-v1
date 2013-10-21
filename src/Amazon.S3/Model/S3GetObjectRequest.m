@@ -26,6 +26,7 @@
 @synthesize rangeEnd;
 @synthesize versionId;
 @synthesize responseHeaderOverrides;
+@synthesize targetFilePath;
 
 -(id)initWithKey:(NSString *)aKey withBucket:(NSString *)aBucket
 {
@@ -48,6 +49,39 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    if ((self = [super initWithCoder:decoder])) {
+        [self setIfModifiedSince:[decoder decodeObjectForKey:@"IfModifiedSince"]];
+        [self setIfUnmodifiedSince:[decoder decodeObjectForKey:@"IfUnmodifiedSince"]];
+        [self setIfMatch:[decoder decodeObjectForKey:@"IfMatch"]];
+        [self setIfNoneMatch:[decoder decodeObjectForKey:@"IfNoneMatch"]];
+        [self setRangeStart:[decoder decodeInt64ForKey:@"RangeStart"] rangeEnd:[decoder decodeInt64ForKey:@"RangeEnd"]];
+        rangeSet = [decoder decodeBoolForKey:@"RangeSet"];
+        [self setVersionId:[decoder decodeObjectForKey:@"VersionId"]];
+        [self setResponseHeaderOverrides:[decoder decodeObjectForKey:@"ResponseHeaderOverrides"]];
+        [self setTargetFilePath:[decoder decodeObjectForKey:@"TargetFilePath"]];
+    }
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [super encodeWithCoder:encoder];
+    
+    [encoder encodeObject:ifModifiedSince forKey:@"IfModifiedSince"];
+    [encoder encodeObject:ifUnmodifiedSince forKey:@"IfUnmodifiedSince"];
+    [encoder encodeObject:ifMatch forKey:@"IfMatch"];
+    [encoder encodeObject:ifNoneMatch forKey:@"IfNoneMatch"];
+    [encoder encodeInt64:rangeStart forKey:@"RangeStart"];
+    [encoder encodeInt64:rangeEnd forKey:@"RangeEnd"];
+    [encoder encodeBool:rangeSet forKey:@"RangeSet"];
+    [encoder encodeObject:versionId forKey:@"VersionId"];
+    [encoder encodeObject:responseHeaderOverrides forKey:@"ResponseHeaderOverrides"];
+    [encoder encodeObject:self.targetFilePath forKey:@"TargetFilePath"];
+    
+}
 
 -(NSMutableURLRequest *)configureURLRequest
 {

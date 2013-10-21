@@ -102,8 +102,37 @@
     return self.hostName;
 }
 
-
 #pragma mark memory management
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    self = [super initWithCoder:decoder];
+    
+    [self setAuthorization:[decoder decodeObjectForKey:@"Authorization"]];
+    self.contentLength = [decoder decodeInt64ForKey:@"ContentLength"];
+    [self setContentType:[decoder decodeObjectForKey:@"ContentType"]];
+    [self setDate:[decoder decodeObjectForKey:@"Date"]];
+    [self setSecurityToken:[decoder decodeObjectForKey:@"SecurityToken"]];
+    [self setBucket:[decoder decodeObjectForKey:@"Bucket"]];
+    [self setKey:[decoder decodeObjectForKey:@"Key"]];
+    [self setSubResource:[decoder decodeObjectForKey:@"SubResource"]];
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [super encodeWithCoder:encoder];
+    
+    [encoder encodeObject:self.authorization forKey:@"Authorization"];
+    [encoder encodeInt64:self.contentLength forKey:@"ContentLength"];
+    [encoder encodeObject:self.contentType forKey:@"ContentType"];
+    [encoder encodeObject:self.date forKey:@"Date"];
+    [encoder encodeObject:self.securityToken forKey:@"SecurityToken"];
+    [encoder encodeObject:self.bucket forKey:@"Bucket"];
+    [encoder encodeObject:self.key forKey:@"Key"];
+    [encoder encodeObject:self.subResource forKey:@"SubResource"];
+}
 
 -(void)dealloc
 {

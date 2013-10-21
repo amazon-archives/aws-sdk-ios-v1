@@ -22,10 +22,6 @@
  *
  */
 @interface S3ListObjectsRequest:S3Request {
-    NSString  *prefix;
-    NSString  *marker;
-    NSString  *delimiter;
-    NSInteger maxKeys;
 }
 
 /** Limits the response to keys that begin with the specified prefix.
@@ -47,7 +43,7 @@
 /** Sets the maximum number of keys returned in the response body. The
  *  response might contain fewer keys but will never contain more.
  */
-@property (nonatomic) NSInteger maxKeys;
+@property (nonatomic) int32_t maxKeys;
 
 
 -(id)initWithName:(NSString *)theBucketName;

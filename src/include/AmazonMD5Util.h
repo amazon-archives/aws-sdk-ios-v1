@@ -35,4 +35,11 @@
  **/
 +(NSString *)base64md5FromStream:(NSInputStream *)inputStream;
 
+/**
+ * Returns hex encoded md5 of the given data
+ *
+ * This is used when performing integrity check on downloaded objects using etag
+ **/
++ (NSString *)hexEncodeMD5:(NSData *)data;
+
 @end

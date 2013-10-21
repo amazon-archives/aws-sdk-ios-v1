@@ -31,7 +31,7 @@
 @property (nonatomic, retain) NSArray *allowedOrigins;
 
 /** Maximum age for this rule */
-@property (nonatomic, assign) NSInteger maxAgeSeconds;
+@property (nonatomic, assign) int32_t maxAgeSeconds;
 
 /** The list of exposed headers */
 @property (nonatomic, retain) NSArray *exposeHeaders;

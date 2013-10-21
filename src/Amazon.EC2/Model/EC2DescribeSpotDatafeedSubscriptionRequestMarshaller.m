@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribeSpotDatafeedSubscription"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[describeSpotDatafeedSubscriptionRequest delegate]];
     [request setCredentials:[describeSpotDatafeedSubscriptionRequest credentials]];
     [request setEndpoint:[describeSpotDatafeedSubscriptionRequest requestEndpoint]];
     [request setRequestTag:[describeSpotDatafeedSubscriptionRequest requestTag]];
 
+    if (describeSpotDatafeedSubscriptionRequest != nil) {
+        if (describeSpotDatafeedSubscriptionRequest.dryRunIsSet) {
+            [request setParameterValue:(describeSpotDatafeedSubscriptionRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
 
 
     return [request autorelease];

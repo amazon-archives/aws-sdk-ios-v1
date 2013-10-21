@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"UnmonitorInstances"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[unmonitorInstancesRequest delegate]];
     [request setCredentials:[unmonitorInstancesRequest credentials]];
     [request setEndpoint:[unmonitorInstancesRequest requestEndpoint]];
     [request setRequestTag:[unmonitorInstancesRequest requestTag]];
 
+    if (unmonitorInstancesRequest != nil) {
+        if (unmonitorInstancesRequest.dryRunIsSet) {
+            [request setParameterValue:(unmonitorInstancesRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
 
     if (unmonitorInstancesRequest != nil) {
         int instanceIdsListIndex = 1;

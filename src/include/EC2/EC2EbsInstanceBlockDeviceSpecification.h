@@ -24,8 +24,8 @@
 
 {
     NSString *volumeId;
-    bool     deleteOnTermination;
-    bool     deleteOnTerminationIsSet;
+    BOOL     deleteOnTermination;
+    BOOL     deleteOnTerminationIsSet;
 }
 
 
@@ -47,9 +47,9 @@
  * Specifies whether the Amazon EBS volume is deleted on instance
  * termination.
  */
-@property (nonatomic) bool           deleteOnTermination;
+@property (nonatomic) BOOL           deleteOnTermination;
 
-@property (nonatomic, readonly) bool deleteOnTerminationIsSet;
+@property (nonatomic, readonly) BOOL deleteOnTerminationIsSet;
 
 /**
  * Returns a string representation of this object; useful for testing and

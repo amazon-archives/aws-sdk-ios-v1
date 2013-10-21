@@ -20,13 +20,6 @@
  *
  */
 @interface S3ObjectSummary:NSObject {
-    NSString  *key;
-    NSString  *etag;
-    NSInteger size;
-    NSString  *storageClass;
-    NSString  *lastModified;
-
-    S3Owner   *owner;
 }
 
 
@@ -37,7 +30,7 @@
 @property (nonatomic, retain) NSString *etag;
 
 /** The size of the Amazon S3 object, in bytes. */
-@property (nonatomic) NSInteger size;
+@property (nonatomic, assign) int32_t size;
 
 /** The date this object was last modified. */
 @property (nonatomic, retain) NSString *lastModified;

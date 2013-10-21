@@ -23,8 +23,8 @@
 @interface AutoScalingInstanceMonitoring:NSObject
 
 {
-    bool enabled;
-    bool enabledIsSet;
+    BOOL enabled;
+    BOOL enabledIsSet;
 }
 
 
@@ -39,9 +39,9 @@
 /**
  * If <code>True</code>, instance monitoring is enabled.
  */
-@property (nonatomic) bool           enabled;
+@property (nonatomic) BOOL           enabled;
 
-@property (nonatomic, readonly) bool enabledIsSet;
+@property (nonatomic, readonly) BOOL enabledIsSet;
 
 /**
  * Returns a string representation of this object; useful for testing and

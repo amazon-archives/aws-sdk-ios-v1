@@ -21,9 +21,7 @@
  * Contains the parameters used for the setBucketWebsiteConfiguration operation.
  *
  */
-@interface S3SetBucketWebsiteConfigurationRequest:S3Request
-{
-    BucketWebsiteConfiguration *configuration;
+@interface S3SetBucketWebsiteConfigurationRequest:S3Request {
 }
 
 -(id)initWithBucketName:(NSString *)theBucketName withConfiguration:(BucketWebsiteConfiguration *)theConfiguration;

@@ -58,7 +58,9 @@
 @property (nonatomic, retain) NSString *availabilityZone;
 
 /**
- * Contains a description of the current <i>lifecycle</i> state.
+ * Contains a description of the current <i>lifecycle</i> state. <note>
+ * <p>The <code>Quarantined</code> lifecycle state is currently not used.
+ * </note>
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Allowed Values: </b>Pending, Quarantined, InService, Terminating, Terminated

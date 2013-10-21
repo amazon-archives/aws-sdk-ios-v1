@@ -38,6 +38,9 @@
 
 /**
  * The value of the Name property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>io-enabled, io-performance
  */
 @property (nonatomic, retain) NSString *name;
 

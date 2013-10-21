@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"MonitorInstances"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[monitorInstancesRequest delegate]];
     [request setCredentials:[monitorInstancesRequest credentials]];
     [request setEndpoint:[monitorInstancesRequest requestEndpoint]];
     [request setRequestTag:[monitorInstancesRequest requestTag]];
 
+    if (monitorInstancesRequest != nil) {
+        if (monitorInstancesRequest.dryRunIsSet) {
+            [request setParameterValue:(monitorInstancesRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
 
     if (monitorInstancesRequest != nil) {
         int instanceIdsListIndex = 1;

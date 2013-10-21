@@ -30,8 +30,8 @@
 
 {
     NSString *instanceId;
-    bool     shouldDecrementDesiredCapacity;
-    bool     shouldDecrementDesiredCapacityIsSet;
+    BOOL     shouldDecrementDesiredCapacity;
+    BOOL     shouldDecrementDesiredCapacityIsSet;
 }
 
 
@@ -57,9 +57,9 @@
  * instance should also decrement the size of the
  * <a>AutoScalingGroup</a>.
  */
-@property (nonatomic) bool           shouldDecrementDesiredCapacity;
+@property (nonatomic) BOOL           shouldDecrementDesiredCapacity;
 
-@property (nonatomic, readonly) bool shouldDecrementDesiredCapacityIsSet;
+@property (nonatomic, readonly) BOOL shouldDecrementDesiredCapacityIsSet;
 
 /**
  * Returns a string representation of this object; useful for testing and

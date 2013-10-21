@@ -15,38 +15,28 @@
 
 #import "S3ListPartsResult.h"
 
-
 @implementation S3ListPartsResult
 
-@synthesize bucket;
-@synthesize key;
-@synthesize uploadId;
-@synthesize storageClass;
-@synthesize owner;
-@synthesize initiator;
-@synthesize partNumberMarker;
-@synthesize nextPartNumberMarker;
-@synthesize maxParts;
-@synthesize isTruncated;
+@synthesize parts = _parts;
 
 -(NSMutableArray *)parts
 {
-    if (parts == nil)
+    if (_parts == nil)
     {
-        parts = [[NSMutableArray alloc] init];
+        _parts = [[NSMutableArray alloc] init];
     }
-    return parts;
+    return _parts;
 }
 
 -(void)dealloc
 {
-    [bucket release];
-    [key release];
-    [uploadId release];
-    [storageClass release];
-    [owner release];
-    [initiator release];
-    [parts release];
+    [_bucket release];
+    [_key release];
+    [_uploadId release];
+    [_storageClass release];
+    [_owner release];
+    [_initiator release];
+    [_parts release];
 
     [super dealloc];
 }

@@ -29,6 +29,8 @@
 @interface EC2DeleteSpotDatafeedSubscriptionRequest:AmazonServiceRequestConfig
 
 {
+    BOOL dryRun;
+    BOOL dryRunIsSet;
 }
 
 
@@ -39,6 +41,13 @@
  * property methods to initialize this object after creating it.
  */
 -(id)init;
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * Returns a string representation of this object; useful for testing and

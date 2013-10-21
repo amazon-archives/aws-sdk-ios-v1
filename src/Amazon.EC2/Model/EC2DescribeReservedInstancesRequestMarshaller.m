@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribeReservedInstances"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[describeReservedInstancesRequest delegate]];
     [request setCredentials:[describeReservedInstancesRequest credentials]];
     [request setEndpoint:[describeReservedInstancesRequest requestEndpoint]];
     [request setRequestTag:[describeReservedInstancesRequest requestTag]];
 
+    if (describeReservedInstancesRequest != nil) {
+        if (describeReservedInstancesRequest.dryRunIsSet) {
+            [request setParameterValue:(describeReservedInstancesRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
 
     if (describeReservedInstancesRequest != nil) {
         int reservedInstancesIdsListIndex = 1;

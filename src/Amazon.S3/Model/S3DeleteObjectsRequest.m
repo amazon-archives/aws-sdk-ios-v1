@@ -18,15 +18,13 @@
 
 @implementation S3DeleteObjectsRequest
 
-@synthesize mfaAuth, objects, quiet;
-
 -(id)init
 {
     self = [super init];
     if (self)
     {
-        quiet        = NO;
-        self.objects = [NSMutableArray array];
+        _quiet        = NO;
+        _objects = [[NSMutableArray array] retain];
     }
 
     return self;
@@ -48,7 +46,7 @@
     NSData *data = [[self toXml] dataUsingEncoding:NSUTF8StringEncoding];
 
     [self.urlRequest setValue:[AmazonMD5Util base64md5FromData:data] forHTTPHeaderField:kHttpHdrContentMD5];
-    [self.urlRequest setValue:[NSString stringWithFormat:@"%d", [data length]] forHTTPHeaderField:kHttpHdrContentLength];
+    [self.urlRequest setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[data length]] forHTTPHeaderField:kHttpHdrContentLength];
     [self.urlRequest setValue:@"text/xml" forHTTPHeaderField:kHttpHdrContentType];
 
     [self.urlRequest setHTTPBody:data];
@@ -74,8 +72,8 @@
 
 -(void)dealloc
 {
-    [mfaAuth release];
-    [objects release];
+    [_mfaAuth release];
+    [_objects release];
 
     [super dealloc];
 }

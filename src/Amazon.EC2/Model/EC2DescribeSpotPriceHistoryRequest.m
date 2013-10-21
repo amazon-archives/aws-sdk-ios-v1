@@ -18,6 +18,8 @@
 
 @implementation EC2DescribeSpotPriceHistoryRequest
 
+@synthesize dryRun;
+@synthesize dryRunIsSet;
 @synthesize startTime;
 @synthesize endTime;
 @synthesize instanceTypes;
@@ -31,6 +33,8 @@
 -(id)init
 {
     if (self = [super init]) {
+        dryRun              = NO;
+        dryRunIsSet         = NO;
         startTime           = nil;
         endTime             = nil;
         instanceTypes       = [[NSMutableArray alloc] initWithCapacity:1];
@@ -78,6 +82,7 @@
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
 
     [buffer appendString:@"{"];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"DryRun: %d,", dryRun] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"StartTime: %@,", startTime] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"EndTime: %@,", endTime] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"InstanceTypes: %@,", instanceTypes] autorelease]];
@@ -92,6 +97,12 @@
     return [buffer autorelease];
 }
 
+
+-(void)setDryRun:(BOOL)theValue
+{
+    dryRun      = theValue;
+    dryRunIsSet = YES;
+}
 
 
 -(void)dealloc

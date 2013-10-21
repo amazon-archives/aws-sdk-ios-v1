@@ -15,6 +15,7 @@
 
 #import "S3MultipartUploadOperation_Internal.h"
 #import "AmazonErrorHandler.h"
+#import "AmazonServiceRequest.h"
 
 typedef void (^AbortMultipartUploadBlock)();
 
@@ -30,9 +31,9 @@ typedef struct _AWSRange {
 }
 
 @property (nonatomic, assign) int64_t contentLength;
-@property (nonatomic, assign) NSInteger currentPartNo;
-@property (nonatomic, assign) NSInteger numberOfParts;
-@property (nonatomic, assign) NSInteger retryCount;
+@property (nonatomic, assign) int32_t currentPartNo;
+@property (nonatomic, assign) int32_t numberOfParts;
+@property (nonatomic, assign) int32_t retryCount;
 @property (nonatomic, copy) AbortMultipartUploadBlock abortMultipartUpload;
 @property (nonatomic, retain) S3InitiateMultipartUploadRequest *initRequest;
 @property (nonatomic, retain) S3InitiateMultipartUploadResponse *initResponse;
@@ -44,18 +45,7 @@ typedef struct _AWSRange {
 
 @implementation S3MultipartUploadOperation_Internal
 
-@synthesize s3 = _s3;
-
-@synthesize contentLength = _contentLength;
-@synthesize currentPartNo = _currentPartNo;
-@synthesize numberOfParts = _numberOfParts;
-@synthesize retryCount = _retryCount;
-@synthesize abortMultipartUpload = _abortMultipartUpload;
-@synthesize initRequest = _initRequest;
-@synthesize initResponse = _initResponse;
-@synthesize multipartUpload = _multipartUpload;
-@synthesize completeRequest = _completeRequest;
-@synthesize dataForPart = _dataForPart;
+@synthesize transferRequestType = _transferRequestType;
 
 #pragma mark - Class Lifecycle
 
@@ -70,15 +60,33 @@ typedef struct _AWSRange {
         _currentPartNo = 0;
         _numberOfParts = 0;
         _retryCount = 0;
+        
+        _transferRequestType = S3TRANSFER_UPLOAD;
     }
 
     return self;
 }
 
+- (id)initWithCurrentPartNo:(uint32_t)theCurrentPartNo
+{
+    if (self = [super init])
+    {
+        _isExecuting = NO;
+        _isFinished = NO;
+        
+        _contentLength = 0;
+        _currentPartNo = theCurrentPartNo;
+        _numberOfParts = 0;
+        _retryCount = 0;
+        
+        _transferRequestType = S3TRANSFER_UPLOAD;
+    }
+    
+    return self;
+}
+
 - (void)dealloc
 {
-    [_s3 release];
-    [_request release];
     [_response release];
 
     [_error release];
@@ -98,11 +106,56 @@ typedef struct _AWSRange {
 
 - (void)start
 {
+    // if cancel has been called on operation then we do not want to start the operation
+    if ([self isCancelled]) {
+        [self finish];
+        return;
+    }
+    
     [self willChangeValueForKey:@"isExecuting"];
     _isExecuting = YES;
     [self didChangeValueForKey:@"isExecuting"];
+    
+    S3MultipartUpload *multipartUpload = nil;
+    
+    // Check if the upload was already started
+    S3ListMultipartUploadsRequest *listMPU = [[[S3ListMultipartUploadsRequest alloc] init] autorelease];
+    listMPU.bucket = self.putRequest.bucket;
+    S3ListMultipartUploadsResponse *listReponse = [self.s3 listMultipartUploads:listMPU];
+    for (S3MultipartUpload *upload in listReponse.listMultipartUploadsResult.uploads) {
+        if ([upload.key isEqualToString:self.putRequest.key]) {
+            multipartUpload = upload;
+            break;
+        }
+    }
+    
+    if (nil != multipartUpload) {
+        // set this value manually because it was nil
+        multipartUpload.bucket = self.putRequest.bucket;
+        
+        // Get all the uploaded parts from S3
+        S3ListPartsRequest *listPartsReq = [[[S3ListPartsRequest alloc] initWithMultipartUpload:multipartUpload] autorelease];
+        S3ListPartsResponse *listPartsResult = [self.s3 listParts:listPartsReq];
+        
+        // set the current part number to start uploading from
+        self.currentPartNo = ((S3Part *)[listPartsResult.listPartsResult.parts lastObject]).partNumber + 1;
+        
+        self.multipartUpload = multipartUpload;
+        
+        // Add uploaded parts' partnumber and etag into a dictionary to later set the S3CompleteMultipartUploadRequest
+        self.completeRequest = [[[S3CompleteMultipartUploadRequest alloc] initWithMultipartUpload:self.multipartUpload] autorelease];
+        for (S3Part *part in listPartsResult.listPartsResult.parts) {
+            [self.completeRequest addPartWithPartNumber:part.partNumber withETag:part.etag];
+        }
+    }
+    
 
-    [self initiateUpload];
+    if (nil == self.completeRequest) {
+        [self initiateUpload];
+    } else {
+        [self.putRequest.stream open];
+        [self startUploadingParts];
+    }
 }
 
 - (BOOL)isConcurrent
@@ -124,8 +177,14 @@ typedef struct _AWSRange {
 
 - (void)initiateUpload
 {
-    S3InitiateMultipartUploadRequest *initRequest = [[S3InitiateMultipartUploadRequest alloc] initWithKey:self.request.key
-                                                                                                 inBucket:self.request.bucket];
+    if ([self isCancelled]) {
+        [self cleanup];
+        [self finish];
+        return;
+    }
+    
+    S3InitiateMultipartUploadRequest *initRequest = [[S3InitiateMultipartUploadRequest alloc] initWithKey:self.putRequest.key
+                                                                                                 inBucket:self.putRequest.bucket];
     self.initRequest = initRequest;
     [initRequest release];
 
@@ -134,6 +193,12 @@ typedef struct _AWSRange {
 
     self.retryCount = 0;
     self.response = nil;
+    
+    if ([self isCancelled]) {
+        [self cleanup];
+        [self finish];
+        return;
+    }
 
     dispatch_sync(dispatch_get_main_queue(), ^{
         [self.s3 initiateMultipartUpload:self.initRequest];
@@ -142,9 +207,31 @@ typedef struct _AWSRange {
 
 - (void)startUploadingParts
 {
-    S3CompleteMultipartUploadRequest *completeRequest = [[S3CompleteMultipartUploadRequest alloc] initWithMultipartUpload:self.multipartUpload];
-    self.completeRequest = completeRequest;
-    [completeRequest release];
+    if (nil == self.completeRequest) {
+        S3CompleteMultipartUploadRequest *completeRequest = [[S3CompleteMultipartUploadRequest alloc] initWithMultipartUpload:self.multipartUpload];
+        self.completeRequest = completeRequest;
+        [completeRequest release];
+    }
+    else if (nil == self.putRequest.data ) {
+        // Read the stream up to the point where we left off before pausing
+        uint8_t buffer[1024];
+        long long bytesWrittenSoFar = (self.currentPartNo - 1) * self.partSize;
+        long long totalStreamReadSoFar = 0;
+        NSUInteger readLength = 0;
+        
+        for(int i = 0; i < ceil((double) bytesWrittenSoFar / 1024); i++)
+        {
+            @autoreleasepool
+            {
+                readLength = [self.putRequest.stream read:buffer maxLength:1024];
+                totalStreamReadSoFar += readLength;
+                
+                if (totalStreamReadSoFar >= bytesWrittenSoFar) {
+                    break;
+                }
+            }
+        }
+    }
 
     [self updateProperties:self.completeRequest];
     self.completeRequest.delegate = self;
@@ -165,11 +252,20 @@ typedef struct _AWSRange {
 
     };
 
-    self.contentLength = [self contentLengthForRequest:self.request];
+    self.contentLength = [self contentLengthForRequest:self.putRequest];
     self.numberOfParts = [self numberOfParts:self.contentLength];
-    self.currentPartNo = 1;
+    self.currentPartNo = self.currentPartNo != 0 ? self.currentPartNo : 1;
 
     self.retryCount = 0;
+    
+    if ([self isCancelled]) {
+        [self cleanup];
+        [self finish];
+        [self executeAbort];
+        
+        return;
+    }
+    
     [self uploadPart:self.currentPartNo];
 }
 
@@ -191,19 +287,19 @@ typedef struct _AWSRange {
 
     if(self.dataForPart == nil)
     {
-        if(self.request.data != nil)
+        if(self.putRequest.data != nil)
         {
             NSRange range;
             range.location = dataRange.location;
             range.length = dataRange.length;
             
-            self.dataForPart = [self.request.data subdataWithRange:range];
+            self.dataForPart = [self.putRequest.data subdataWithRange:range];
         }
         else
         {
-            if(self.request.stream.streamStatus == NSStreamStatusNotOpen)
+            if(self.putRequest.stream.streamStatus == NSStreamStatusNotOpen)
             {
-                [self.request.stream open];
+                [self.putRequest.stream open];
             }
 
             NSMutableData *dataForPart = [NSMutableData new];
@@ -215,7 +311,7 @@ typedef struct _AWSRange {
             {
                 @autoreleasepool
                 {
-                    readLength = [self.request.stream read:buffer maxLength:1024];
+                    readLength = [self.putRequest.stream read:buffer maxLength:1024];
                     [dataForPart appendData:[NSData dataWithBytes:buffer length:readLength]];
                 }
             }
@@ -232,6 +328,13 @@ typedef struct _AWSRange {
 
     self.response = nil;
 
+    if ([self isCancelled]) {
+        [self cleanup:uploadRequest];
+        [self finish];
+        [uploadRequest release];
+        return;
+    }
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.s3 uploadPart:uploadRequest];
     });
@@ -243,14 +346,31 @@ typedef struct _AWSRange {
 
 - (void)request:(AmazonServiceRequest *)request didCompleteWithResponse:(AmazonServiceResponse *)response
 {
-    if(!self.isFinished && self.isExecuting)
+    if ([self isCancelled]) {
+        if([response isKindOfClass:[S3CompleteMultipartUploadResponse class]])
+        {
+            if([self.putRequest.delegate respondsToSelector:@selector(request:didCompleteWithResponse:)])
+            {
+                [self.putRequest.delegate request:request
+                          didCompleteWithResponse:response];
+            }
+        }else {
+            [request cancel];
+            [self executeAbort];
+        }
+        [self cleanup];
+        [self finish];
+        return;
+    }
+    
+    if(!self.isFinished && self.isExecuting && !self.isCancelled)
     {
         self.response = response;
 
         if([response isKindOfClass:[S3InitiateMultipartUploadResponse class]])
         {
             self.initResponse = (S3InitiateMultipartUploadResponse *)self.response;
-            self.multipartUpload = self.initResponse.multipartUpload;
+            self.multipartUpload = self.multipartUpload ? self.multipartUpload : self.initResponse.multipartUpload;
 
             dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
             dispatch_async(queue, ^{
@@ -286,37 +406,53 @@ typedef struct _AWSRange {
                 }
                 else
                 {
-                    if(self.request.stream)
-                    {
-                        [self.request.stream close];
-                    }
-
                     [self.s3 completeMultipartUpload:self.completeRequest];
                 }
             }
         }
         else if([response isKindOfClass:[S3CompleteMultipartUploadResponse class]])
         {
-            if([self.request.delegate respondsToSelector:@selector(request:didCompleteWithResponse:)])
+            if([self.putRequest.delegate respondsToSelector:@selector(request:didCompleteWithResponse:)])
             {
-                [self.request.delegate request:request
+                [self.putRequest.delegate request:request
                        didCompleteWithResponse:response];
             }
-
+            
+            [self cleanup];
             [self finish];
         }
+        
     }
 }
 
 - (void)request:(AmazonServiceRequest *)request didSendData:(long long)bytesWritten totalBytesWritten:(long long)totalBytesWritten totalBytesExpectedToWrite:(long long)totalBytesExpectedToWrite
 {
-    if(!self.isFinished && self.isExecuting)
+    if ([self isCancelled]) {
+        [request cancel];
+        if([request isKindOfClass:[S3UploadPartRequest class]])
+        {
+            if([self.putRequest.delegate respondsToSelector:@selector(request:didSendData:totalBytesWritten:totalBytesExpectedToWrite:)])
+            {
+                [self.putRequest.delegate request:request
+                                      didSendData:bytesWritten
+                                totalBytesWritten:(long long)(((long long) self.currentPartNo - 1) * self.partSize + totalBytesWritten)
+                        totalBytesExpectedToWrite:(long long)self.contentLength];
+            }
+        }
+        
+        [self executeAbort];
+        [self cleanup];
+        [self finish];
+        return;
+    }
+    
+    if(!self.isFinished && self.isExecuting && !self.isCancelled)
     {
         if([request isKindOfClass:[S3UploadPartRequest class]])
         {
-            if([self.request.delegate respondsToSelector:@selector(request:didSendData:totalBytesWritten:totalBytesExpectedToWrite:)])
+            if([self.putRequest.delegate respondsToSelector:@selector(request:didSendData:totalBytesWritten:totalBytesExpectedToWrite:)])
             {
-                [self.request.delegate request:request
+                [self.putRequest.delegate request:request
                                    didSendData:bytesWritten
                              totalBytesWritten:(long long)(((long long) self.currentPartNo - 1) * self.partSize + totalBytesWritten)
                      totalBytesExpectedToWrite:(long long)self.contentLength];
@@ -327,7 +463,19 @@ typedef struct _AWSRange {
 
 - (void)request:(AmazonServiceRequest *)request didFailWithError:(NSError *)error
 {
-    if(!self.isFinished && self.isExecuting)
+    if ([self isCancelled]) {
+        [request cancel];
+        if([self.putRequest.delegate respondsToSelector:@selector(request:didFailWithError:)])
+        {
+            [self.putRequest.delegate request:request didFailWithError:error];
+        }
+        [self executeAbort];
+        [self cleanup];
+        [self finish];
+        return;
+    }
+    
+    if(!self.isFinished && self.isExecuting && !self.isCancelled)
     {
         AMZLogDebug(@"Error: %@", error);
 
@@ -363,15 +511,11 @@ typedef struct _AWSRange {
             return;
         }
 
-        if(self.abortMultipartUpload)
-        {
-            dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-            dispatch_async(queue, self.abortMultipartUpload);
-        }
+        [self executeAbort];
 
-        if([self.request.delegate respondsToSelector:@selector(request:didFailWithError:)])
+        if([self.putRequest.delegate respondsToSelector:@selector(request:didFailWithError:)])
         {
-            [self.request.delegate request:request didFailWithError:error];
+            [self.putRequest.delegate request:request didFailWithError:error];
         }
 
         [self finish];
@@ -380,7 +524,19 @@ typedef struct _AWSRange {
 
 - (void)request:(AmazonServiceRequest *)request didFailWithServiceException:(NSException *)exception
 {
-    if(!self.isFinished && self.isExecuting)
+    if ([self isCancelled]) {
+        [request cancel];
+        if([self.putRequest.delegate respondsToSelector:@selector(request:didFailWithServiceException:)])
+        {
+            [self.putRequest.delegate request:request didFailWithServiceException:exception];
+        }
+        [self executeAbort];
+        [self cleanup];
+        [self finish];
+        return;
+    }
+    
+    if(!self.isFinished && self.isExecuting && !self.isCancelled)
     {
         AMZLogDebug(@"Exception: %@", exception);
 
@@ -415,15 +571,11 @@ typedef struct _AWSRange {
             return;
         }
 
-        if(self.abortMultipartUpload)
-        {
-            dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-            dispatch_async(queue, self.abortMultipartUpload);
-        }
+        [self executeAbort];
 
-        if([self.request.delegate respondsToSelector:@selector(request:didFailWithServiceException:)])
+        if([self.putRequest.delegate respondsToSelector:@selector(request:didFailWithServiceException:)])
         {
-            [self.request.delegate request:request didFailWithServiceException:exception];
+            [self.putRequest.delegate request:request didFailWithServiceException:exception];
         }
 
         [self finish];
@@ -462,7 +614,7 @@ typedef struct _AWSRange {
 {
     if(request.data != nil)
     {
-        return (int64_t) self.request.data.length;
+        return self.putRequest.data.length;
     }
     else
     {
@@ -477,38 +629,38 @@ typedef struct _AWSRange {
 
 - (void)updateProperties:(AmazonServiceRequest *)serviceRequest
 {
-    serviceRequest.requestTag = self.request.requestTag;
+    serviceRequest.requestTag = self.putRequest.requestTag;
 
     if([serviceRequest isKindOfClass:[S3Request class]])
     {
         S3Request *s3Request = (S3Request *)serviceRequest;
-        s3Request.authorization = self.request.authorization;
-        s3Request.contentType = self.request.contentType;
-        s3Request.securityToken = self.request.securityToken;
-        s3Request.subResource = self.request.subResource;
+        s3Request.authorization = self.putRequest.authorization;
+        s3Request.contentType = self.putRequest.contentType;
+        s3Request.securityToken = self.putRequest.securityToken;
+        s3Request.subResource = self.putRequest.subResource;
 
         if([serviceRequest isKindOfClass:[S3AbstractPutRequest class]])
         {
             S3AbstractPutRequest *abstractPutRequest = (S3AbstractPutRequest *)serviceRequest;
 
-            abstractPutRequest.cannedACL = self.request.cannedACL;
-            abstractPutRequest.storageClass = self.request.storageClass;
-            abstractPutRequest.serverSideEncryption = self.request.serverSideEncryption;
-            abstractPutRequest.fullACL = self.request.fullACL;
+            abstractPutRequest.cannedACL = self.putRequest.cannedACL;
+            abstractPutRequest.storageClass = self.putRequest.storageClass;
+            abstractPutRequest.serverSideEncryption = self.putRequest.serverSideEncryption;
+            abstractPutRequest.fullACL = self.putRequest.fullACL;
 
-            if([self.request.metadata count] > 0)
+            if([self.putRequest.metadata count] > 0)
             {
-                abstractPutRequest.metadata = [NSMutableDictionary dictionaryWithDictionary:self.request.metadata];
+                abstractPutRequest.metadata = [NSMutableDictionary dictionaryWithDictionary:self.putRequest.metadata];
             }
 
             if([serviceRequest isKindOfClass:[S3InitiateMultipartUploadRequest class]])
             {
                 S3InitiateMultipartUploadRequest *initRequest = (S3InitiateMultipartUploadRequest *)serviceRequest;
                 
-                initRequest.cacheControl = self.request.cacheControl;
-                initRequest.contentDisposition = self.request.contentDisposition;
-                initRequest.contentEncoding = self.request.contentEncoding;
-                initRequest.redirectLocation = self.request.redirectLocation;
+                initRequest.cacheControl = self.putRequest.cacheControl;
+                initRequest.contentDisposition = self.putRequest.contentDisposition;
+                initRequest.contentEncoding = self.putRequest.contentEncoding;
+                initRequest.redirectLocation = self.putRequest.redirectLocation;
             }
         }
         else if([serviceRequest isKindOfClass:[S3UploadPartRequest class]])
@@ -519,6 +671,36 @@ typedef struct _AWSRange {
         {
             // No property to update.
         }
+    }
+}
+
+- (void)setS3CompleteMultipartUploadRequest:(S3MultipartUpload *)theMultipartUpload withParts:(NSMutableDictionary *)partEtags
+{
+    self.completeRequest = [[[S3CompleteMultipartUploadRequest alloc] initWithMultipartUpload:theMultipartUpload] autorelease];
+    for (NSString *key in partEtags) {
+        [self.completeRequest addPartWithPartNumber:(int32_t)[key integerValue] withETag:[partEtags objectForKey:key]];
+    }
+}
+
+- (void)setS3MultipartUploadObject:(S3MultipartUpload *)theMultipartUpload
+{
+    [self setMultipartUpload:theMultipartUpload];
+}
+
+- (void)cleanup:(AmazonServiceRequest *)request
+{
+    [request cancel];
+    [self executeAbort];
+    [self cleanup];
+}
+
+- (void)executeAbort
+{
+    // We only want to cleanup S3 when request is cancelled
+    if(self.abortMultipartUpload && !self.isPaused)
+    {
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_async(queue, self.abortMultipartUpload);
     }
 }
 

@@ -59,7 +59,7 @@
  * The value of the TargetEnvironment property for this object.
  * <p>
  * <b>Constraints:</b><br/>
- * <b>Allowed Values: </b>citrix, vmware
+ * <b>Allowed Values: </b>citrix, vmware, microsoft
  */
 @property (nonatomic, retain) NSString *targetEnvironment;
 

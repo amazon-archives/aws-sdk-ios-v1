@@ -18,6 +18,8 @@
 
 @implementation EC2RunInstancesRequest
 
+@synthesize dryRun;
+@synthesize dryRunIsSet;
 @synthesize imageId;
 @synthesize minCount;
 @synthesize maxCount;
@@ -49,6 +51,8 @@
 -(id)init
 {
     if (self = [super init]) {
+        dryRun                            = NO;
+        dryRunIsSet                       = NO;
         imageId                           = nil;
         minCount                          = nil;
         maxCount                          = nil;
@@ -134,6 +138,7 @@
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
 
     [buffer appendString:@"{"];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"DryRun: %d,", dryRun] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ImageId: %@,", imageId] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"MinCount: %@,", minCount] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"MaxCount: %@,", maxCount] autorelease]];
@@ -164,19 +169,25 @@
 }
 
 
--(void)setMonitoring:(bool)theValue
+-(void)setDryRun:(BOOL)theValue
+{
+    dryRun      = theValue;
+    dryRunIsSet = YES;
+}
+
+-(void)setMonitoring:(BOOL)theValue
 {
     monitoring      = theValue;
     monitoringIsSet = YES;
 }
 
--(void)setDisableApiTermination:(bool)theValue
+-(void)setDisableApiTermination:(BOOL)theValue
 {
     disableApiTermination      = theValue;
     disableApiTerminationIsSet = YES;
 }
 
--(void)setEbsOptimized:(bool)theValue
+-(void)setEbsOptimized:(BOOL)theValue
 {
     ebsOptimized      = theValue;
     ebsOptimizedIsSet = YES;

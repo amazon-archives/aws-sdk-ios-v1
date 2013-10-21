@@ -26,8 +26,8 @@
     NSNumber *term;
     NSNumber *price;
     NSString *currencyCode;
-    bool     active;
-    bool     activeIsSet;
+    BOOL     active;
+    BOOL     activeIsSet;
 }
 
 
@@ -51,15 +51,18 @@
 
 /**
  * The value of the CurrencyCode property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>USD
  */
 @property (nonatomic, retain) NSString *currencyCode;
 
 /**
  * The value of the Active property for this object.
  */
-@property (nonatomic) bool           active;
+@property (nonatomic) BOOL           active;
 
-@property (nonatomic, readonly) bool activeIsSet;
+@property (nonatomic, readonly) BOOL activeIsSet;
 
 /**
  * Returns a string representation of this object; useful for testing and

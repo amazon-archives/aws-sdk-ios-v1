@@ -17,8 +17,8 @@
 
 #import "ElasticLoadBalancingResponse.h"
 
-#import "ElasticLoadBalancingInvalidInstanceException.h"
 #import "ElasticLoadBalancingLoadBalancerNotFoundException.h"
+#import "ElasticLoadBalancingInvalidInstanceException.h"
 
 
 /**

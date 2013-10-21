@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DeleteSnapshot"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[deleteSnapshotRequest delegate]];
     [request setCredentials:[deleteSnapshotRequest credentials]];
     [request setEndpoint:[deleteSnapshotRequest requestEndpoint]];
     [request setRequestTag:[deleteSnapshotRequest requestTag]];
 
+    if (deleteSnapshotRequest != nil) {
+        if (deleteSnapshotRequest.dryRunIsSet) {
+            [request setParameterValue:(deleteSnapshotRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
     if (deleteSnapshotRequest != nil) {
         if (deleteSnapshotRequest.snapshotId != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", deleteSnapshotRequest.snapshotId] forKey:[NSString stringWithFormat:@"%@", @"SnapshotId"]];

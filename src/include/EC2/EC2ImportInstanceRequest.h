@@ -31,6 +31,8 @@
 @interface EC2ImportInstanceRequest:AmazonServiceRequestConfig
 
 {
+    BOOL                                 dryRun;
+    BOOL                                 dryRunIsSet;
     NSString                             *descriptionValue;
     EC2ImportInstanceLaunchSpecification *launchSpecification;
     NSMutableArray                       *diskImages;
@@ -45,6 +47,13 @@
  * property methods to initialize this object after creating it.
  */
 -(id)init;
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * The value of the Description property for this object.
@@ -63,6 +72,9 @@
 
 /**
  * The value of the Platform property for this object.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>Windows
  */
 @property (nonatomic, retain) NSString *platform;
 

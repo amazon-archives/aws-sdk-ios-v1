@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"CopyImage"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[copyImageRequest delegate]];
     [request setCredentials:[copyImageRequest credentials]];
     [request setEndpoint:[copyImageRequest requestEndpoint]];
     [request setRequestTag:[copyImageRequest requestTag]];
 
+    if (copyImageRequest != nil) {
+        if (copyImageRequest.dryRunIsSet) {
+            [request setParameterValue:(copyImageRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
     if (copyImageRequest != nil) {
         if (copyImageRequest.sourceRegion != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", copyImageRequest.sourceRegion] forKey:[NSString stringWithFormat:@"%@", @"SourceRegion"]];

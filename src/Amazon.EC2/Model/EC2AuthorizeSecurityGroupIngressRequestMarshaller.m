@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"AuthorizeSecurityGroupIngress"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[authorizeSecurityGroupIngressRequest delegate]];
     [request setCredentials:[authorizeSecurityGroupIngressRequest credentials]];
     [request setEndpoint:[authorizeSecurityGroupIngressRequest requestEndpoint]];
     [request setRequestTag:[authorizeSecurityGroupIngressRequest requestTag]];
 
+    if (authorizeSecurityGroupIngressRequest != nil) {
+        if (authorizeSecurityGroupIngressRequest.dryRunIsSet) {
+            [request setParameterValue:(authorizeSecurityGroupIngressRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
     if (authorizeSecurityGroupIngressRequest != nil) {
         if (authorizeSecurityGroupIngressRequest.groupName != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", authorizeSecurityGroupIngressRequest.groupName] forKey:[NSString stringWithFormat:@"%@", @"GroupName"]];

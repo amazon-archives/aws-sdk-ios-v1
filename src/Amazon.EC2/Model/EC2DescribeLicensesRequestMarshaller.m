@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribeLicenses"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[describeLicensesRequest delegate]];
     [request setCredentials:[describeLicensesRequest credentials]];
     [request setEndpoint:[describeLicensesRequest requestEndpoint]];
     [request setRequestTag:[describeLicensesRequest requestTag]];
 
+    if (describeLicensesRequest != nil) {
+        if (describeLicensesRequest.dryRunIsSet) {
+            [request setParameterValue:(describeLicensesRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
 
     if (describeLicensesRequest != nil) {
         int licenseIdsListIndex = 1;

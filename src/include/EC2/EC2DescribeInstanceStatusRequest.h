@@ -30,12 +30,14 @@
 @interface EC2DescribeInstanceStatusRequest:AmazonServiceRequestConfig
 
 {
+    BOOL           dryRun;
+    BOOL           dryRunIsSet;
     NSMutableArray *instanceIds;
     NSMutableArray *filters;
     NSString       *nextToken;
     NSNumber       *maxResults;
-    bool           includeAllInstances;
-    bool           includeAllInstancesIsSet;
+    BOOL           includeAllInstances;
+    BOOL           includeAllInstancesIsSet;
 }
 
 
@@ -46,6 +48,13 @@
  * property methods to initialize this object after creating it.
  */
 -(id)init;
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * The list of instance IDs. If not specified, all instances are
@@ -71,9 +80,9 @@
 /**
  * The value of the IncludeAllInstances property for this object.
  */
-@property (nonatomic) bool           includeAllInstances;
+@property (nonatomic) BOOL           includeAllInstances;
 
-@property (nonatomic, readonly) bool includeAllInstancesIsSet;
+@property (nonatomic, readonly) BOOL includeAllInstancesIsSet;
 
 /**
  * Adds a single object to instanceIds.

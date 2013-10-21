@@ -418,7 +418,6 @@
 		389F3CDA164D9E9100272BA2 /* EC2PurchaseReservedInstancesOfferingRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 389F3ACE164D9E9100272BA2 /* EC2PurchaseReservedInstancesOfferingRequestMarshaller.m */; };
 		389F3CDB164D9E9100272BA2 /* EC2PurchaseReservedInstancesOfferingResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 389F3ACF164D9E9100272BA2 /* EC2PurchaseReservedInstancesOfferingResponse.m */; };
 		389F3CDC164D9E9100272BA2 /* EC2PurchaseReservedInstancesOfferingResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 389F3AD0164D9E9100272BA2 /* EC2PurchaseReservedInstancesOfferingResponseUnmarshaller.m */; };
-		389F3CDD164D9E9100272BA2 /* EC2ReasonCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 389F3AD1164D9E9100272BA2 /* EC2ReasonCode.m */; };
 		389F3CDE164D9E9100272BA2 /* EC2RebootInstancesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 389F3AD2164D9E9100272BA2 /* EC2RebootInstancesRequest.m */; };
 		389F3CDF164D9E9100272BA2 /* EC2RebootInstancesRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 389F3AD3164D9E9100272BA2 /* EC2RebootInstancesRequestMarshaller.m */; };
 		389F3CE0164D9E9100272BA2 /* EC2RebootInstancesResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 389F3AD4164D9E9100272BA2 /* EC2RebootInstancesResponse.m */; };
@@ -939,7 +938,6 @@
 		389F40F0164D9EA000272BA2 /* EC2PurchaseReservedInstancesOfferingRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 389F3EE4164D9E9F00272BA2 /* EC2PurchaseReservedInstancesOfferingRequestMarshaller.h */; };
 		389F40F1164D9EA000272BA2 /* EC2PurchaseReservedInstancesOfferingResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 389F3EE5164D9E9F00272BA2 /* EC2PurchaseReservedInstancesOfferingResponse.h */; };
 		389F40F2164D9EA000272BA2 /* EC2PurchaseReservedInstancesOfferingResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 389F3EE6164D9E9F00272BA2 /* EC2PurchaseReservedInstancesOfferingResponseUnmarshaller.h */; };
-		389F40F3164D9EA000272BA2 /* EC2ReasonCode.h in Headers */ = {isa = PBXBuildFile; fileRef = 389F3EE7164D9E9F00272BA2 /* EC2ReasonCode.h */; };
 		389F40F4164D9EA000272BA2 /* EC2RebootInstancesRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 389F3EE8164D9E9F00272BA2 /* EC2RebootInstancesRequest.h */; };
 		389F40F5164D9EA000272BA2 /* EC2RebootInstancesRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 389F3EE9164D9E9F00272BA2 /* EC2RebootInstancesRequestMarshaller.h */; };
 		389F40F6164D9EA000272BA2 /* EC2RebootInstancesResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 389F3EEA164D9E9F00272BA2 /* EC2RebootInstancesResponse.h */; };
@@ -1117,7 +1115,39 @@
 		CE24F7BF16E98419001E3E1A /* EC2InstancePrivateIpAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = CE24F7B116E98419001E3E1A /* EC2InstancePrivateIpAddress.h */; };
 		CE24F7C016E98419001E3E1A /* EC2InstancePrivateIpAddressUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE24F7B216E98419001E3E1A /* EC2InstancePrivateIpAddressUnmarshaller.h */; };
 		CE2CDBFA17036B1A0013DE5F /* AWSEC2.h in Headers */ = {isa = PBXBuildFile; fileRef = CE2CDBF917036B1A0013DE5F /* AWSEC2.h */; };
+		CE37675A1810ABFB005FF936 /* EC2DescribeReservedInstancesModificationsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CE37674D1810ABFA005FF936 /* EC2DescribeReservedInstancesModificationsRequest.m */; };
+		CE37675B1810ABFB005FF936 /* EC2DescribeReservedInstancesModificationsRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = CE37674E1810ABFA005FF936 /* EC2DescribeReservedInstancesModificationsRequestMarshaller.m */; };
+		CE37675C1810ABFB005FF936 /* EC2DescribeReservedInstancesModificationsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = CE37674F1810ABFB005FF936 /* EC2DescribeReservedInstancesModificationsResponse.m */; };
+		CE37675D1810ABFB005FF936 /* EC2DescribeReservedInstancesModificationsResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3767501810ABFB005FF936 /* EC2DescribeReservedInstancesModificationsResponseUnmarshaller.m */; };
+		CE37675E1810ABFB005FF936 /* EC2ModifyReservedInstancesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3767511810ABFB005FF936 /* EC2ModifyReservedInstancesRequest.m */; };
+		CE37675F1810ABFB005FF936 /* EC2ModifyReservedInstancesRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3767521810ABFB005FF936 /* EC2ModifyReservedInstancesRequestMarshaller.m */; };
+		CE3767601810ABFB005FF936 /* EC2ModifyReservedInstancesResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3767531810ABFB005FF936 /* EC2ModifyReservedInstancesResponse.m */; };
+		CE3767611810ABFB005FF936 /* EC2ModifyReservedInstancesResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3767541810ABFB005FF936 /* EC2ModifyReservedInstancesResponseUnmarshaller.m */; };
+		CE3767621810ABFB005FF936 /* EC2ReservedInstancesConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3767551810ABFB005FF936 /* EC2ReservedInstancesConfiguration.m */; };
+		CE3767631810ABFB005FF936 /* EC2ReservedInstancesId.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3767561810ABFB005FF936 /* EC2ReservedInstancesId.m */; };
+		CE3767641810ABFB005FF936 /* EC2ReservedInstancesIdUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3767571810ABFB005FF936 /* EC2ReservedInstancesIdUnmarshaller.m */; };
+		CE3767651810ABFB005FF936 /* EC2ReservedInstancesModification.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3767581810ABFB005FF936 /* EC2ReservedInstancesModification.m */; };
+		CE3767661810ABFB005FF936 /* EC2ReservedInstancesModificationUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3767591810ABFB005FF936 /* EC2ReservedInstancesModificationUnmarshaller.m */; };
+		CE3767741810AC50005FF936 /* EC2DescribeReservedInstancesModificationsRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE3767671810AC4F005FF936 /* EC2DescribeReservedInstancesModificationsRequest.h */; };
+		CE3767751810AC50005FF936 /* EC2DescribeReservedInstancesModificationsRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE3767681810AC4F005FF936 /* EC2DescribeReservedInstancesModificationsRequestMarshaller.h */; };
+		CE3767761810AC50005FF936 /* EC2DescribeReservedInstancesModificationsResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE3767691810AC4F005FF936 /* EC2DescribeReservedInstancesModificationsResponse.h */; };
+		CE3767771810AC50005FF936 /* EC2DescribeReservedInstancesModificationsResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE37676A1810AC4F005FF936 /* EC2DescribeReservedInstancesModificationsResponseUnmarshaller.h */; };
+		CE3767781810AC50005FF936 /* EC2ModifyReservedInstancesRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CE37676B1810AC4F005FF936 /* EC2ModifyReservedInstancesRequest.h */; };
+		CE3767791810AC50005FF936 /* EC2ModifyReservedInstancesRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE37676C1810AC4F005FF936 /* EC2ModifyReservedInstancesRequestMarshaller.h */; };
+		CE37677A1810AC50005FF936 /* EC2ModifyReservedInstancesResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CE37676D1810AC4F005FF936 /* EC2ModifyReservedInstancesResponse.h */; };
+		CE37677B1810AC50005FF936 /* EC2ModifyReservedInstancesResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE37676E1810AC4F005FF936 /* EC2ModifyReservedInstancesResponseUnmarshaller.h */; };
+		CE37677C1810AC50005FF936 /* EC2ReservedInstancesConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = CE37676F1810AC4F005FF936 /* EC2ReservedInstancesConfiguration.h */; };
+		CE37677D1810AC50005FF936 /* EC2ReservedInstancesId.h in Headers */ = {isa = PBXBuildFile; fileRef = CE3767701810AC4F005FF936 /* EC2ReservedInstancesId.h */; };
+		CE37677E1810AC50005FF936 /* EC2ReservedInstancesIdUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE3767711810AC4F005FF936 /* EC2ReservedInstancesIdUnmarshaller.h */; };
+		CE37677F1810AC50005FF936 /* EC2ReservedInstancesModification.h in Headers */ = {isa = PBXBuildFile; fileRef = CE3767721810AC4F005FF936 /* EC2ReservedInstancesModification.h */; };
+		CE3767801810AC50005FF936 /* EC2ReservedInstancesModificationUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE3767731810AC4F005FF936 /* EC2ReservedInstancesModificationUnmarshaller.h */; };
 		CE96C1B7158BD58A0084D3CB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE96C1A9158BC2A70084D3CB /* MobileCoreServices.framework */; };
+		CEB7C9F51812062500662849 /* EC2ReservedInstancesConfigurationUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB7C9F21812062500662849 /* EC2ReservedInstancesConfigurationUnmarshaller.m */; };
+		CEB7C9F61812062500662849 /* EC2ReservedInstancesModificationResult.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB7C9F31812062500662849 /* EC2ReservedInstancesModificationResult.m */; };
+		CEB7C9F71812062500662849 /* EC2ReservedInstancesModificationResultUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB7C9F41812062500662849 /* EC2ReservedInstancesModificationResultUnmarshaller.m */; };
+		CEB7C9FB1812063600662849 /* EC2ReservedInstancesConfigurationUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CEB7C9F81812063600662849 /* EC2ReservedInstancesConfigurationUnmarshaller.h */; };
+		CEB7C9FC1812063600662849 /* EC2ReservedInstancesModificationResult.h in Headers */ = {isa = PBXBuildFile; fileRef = CEB7C9F91812063600662849 /* EC2ReservedInstancesModificationResult.h */; };
+		CEB7C9FD1812063600662849 /* EC2ReservedInstancesModificationResultUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CEB7C9FA1812063600662849 /* EC2ReservedInstancesModificationResultUnmarshaller.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1534,7 +1564,6 @@
 		389F3ACE164D9E9100272BA2 /* EC2PurchaseReservedInstancesOfferingRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2PurchaseReservedInstancesOfferingRequestMarshaller.m; sourceTree = "<group>"; };
 		389F3ACF164D9E9100272BA2 /* EC2PurchaseReservedInstancesOfferingResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2PurchaseReservedInstancesOfferingResponse.m; sourceTree = "<group>"; };
 		389F3AD0164D9E9100272BA2 /* EC2PurchaseReservedInstancesOfferingResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2PurchaseReservedInstancesOfferingResponseUnmarshaller.m; sourceTree = "<group>"; };
-		389F3AD1164D9E9100272BA2 /* EC2ReasonCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2ReasonCode.m; sourceTree = "<group>"; };
 		389F3AD2164D9E9100272BA2 /* EC2RebootInstancesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2RebootInstancesRequest.m; sourceTree = "<group>"; };
 		389F3AD3164D9E9100272BA2 /* EC2RebootInstancesRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2RebootInstancesRequestMarshaller.m; sourceTree = "<group>"; };
 		389F3AD4164D9E9100272BA2 /* EC2RebootInstancesResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2RebootInstancesResponse.m; sourceTree = "<group>"; };
@@ -2055,7 +2084,6 @@
 		389F3EE4164D9E9F00272BA2 /* EC2PurchaseReservedInstancesOfferingRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EC2PurchaseReservedInstancesOfferingRequestMarshaller.h; path = EC2/EC2PurchaseReservedInstancesOfferingRequestMarshaller.h; sourceTree = "<group>"; };
 		389F3EE5164D9E9F00272BA2 /* EC2PurchaseReservedInstancesOfferingResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EC2PurchaseReservedInstancesOfferingResponse.h; path = EC2/EC2PurchaseReservedInstancesOfferingResponse.h; sourceTree = "<group>"; };
 		389F3EE6164D9E9F00272BA2 /* EC2PurchaseReservedInstancesOfferingResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EC2PurchaseReservedInstancesOfferingResponseUnmarshaller.h; path = EC2/EC2PurchaseReservedInstancesOfferingResponseUnmarshaller.h; sourceTree = "<group>"; };
-		389F3EE7164D9E9F00272BA2 /* EC2ReasonCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EC2ReasonCode.h; path = EC2/EC2ReasonCode.h; sourceTree = "<group>"; };
 		389F3EE8164D9E9F00272BA2 /* EC2RebootInstancesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EC2RebootInstancesRequest.h; path = EC2/EC2RebootInstancesRequest.h; sourceTree = "<group>"; };
 		389F3EE9164D9E9F00272BA2 /* EC2RebootInstancesRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EC2RebootInstancesRequestMarshaller.h; path = EC2/EC2RebootInstancesRequestMarshaller.h; sourceTree = "<group>"; };
 		389F3EEA164D9E9F00272BA2 /* EC2RebootInstancesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EC2RebootInstancesResponse.h; path = EC2/EC2RebootInstancesResponse.h; sourceTree = "<group>"; };
@@ -2234,7 +2262,39 @@
 		CE24F7B116E98419001E3E1A /* EC2InstancePrivateIpAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EC2InstancePrivateIpAddress.h; path = EC2/EC2InstancePrivateIpAddress.h; sourceTree = "<group>"; };
 		CE24F7B216E98419001E3E1A /* EC2InstancePrivateIpAddressUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EC2InstancePrivateIpAddressUnmarshaller.h; path = EC2/EC2InstancePrivateIpAddressUnmarshaller.h; sourceTree = "<group>"; };
 		CE2CDBF917036B1A0013DE5F /* AWSEC2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSEC2.h; path = EC2/AWSEC2.h; sourceTree = "<group>"; };
+		CE37674D1810ABFA005FF936 /* EC2DescribeReservedInstancesModificationsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2DescribeReservedInstancesModificationsRequest.m; sourceTree = "<group>"; };
+		CE37674E1810ABFA005FF936 /* EC2DescribeReservedInstancesModificationsRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2DescribeReservedInstancesModificationsRequestMarshaller.m; sourceTree = "<group>"; };
+		CE37674F1810ABFB005FF936 /* EC2DescribeReservedInstancesModificationsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2DescribeReservedInstancesModificationsResponse.m; sourceTree = "<group>"; };
+		CE3767501810ABFB005FF936 /* EC2DescribeReservedInstancesModificationsResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2DescribeReservedInstancesModificationsResponseUnmarshaller.m; sourceTree = "<group>"; };
+		CE3767511810ABFB005FF936 /* EC2ModifyReservedInstancesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2ModifyReservedInstancesRequest.m; sourceTree = "<group>"; };
+		CE3767521810ABFB005FF936 /* EC2ModifyReservedInstancesRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2ModifyReservedInstancesRequestMarshaller.m; sourceTree = "<group>"; };
+		CE3767531810ABFB005FF936 /* EC2ModifyReservedInstancesResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2ModifyReservedInstancesResponse.m; sourceTree = "<group>"; };
+		CE3767541810ABFB005FF936 /* EC2ModifyReservedInstancesResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2ModifyReservedInstancesResponseUnmarshaller.m; sourceTree = "<group>"; };
+		CE3767551810ABFB005FF936 /* EC2ReservedInstancesConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2ReservedInstancesConfiguration.m; sourceTree = "<group>"; };
+		CE3767561810ABFB005FF936 /* EC2ReservedInstancesId.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2ReservedInstancesId.m; sourceTree = "<group>"; };
+		CE3767571810ABFB005FF936 /* EC2ReservedInstancesIdUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2ReservedInstancesIdUnmarshaller.m; sourceTree = "<group>"; };
+		CE3767581810ABFB005FF936 /* EC2ReservedInstancesModification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2ReservedInstancesModification.m; sourceTree = "<group>"; };
+		CE3767591810ABFB005FF936 /* EC2ReservedInstancesModificationUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2ReservedInstancesModificationUnmarshaller.m; sourceTree = "<group>"; };
+		CE3767671810AC4F005FF936 /* EC2DescribeReservedInstancesModificationsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EC2DescribeReservedInstancesModificationsRequest.h; path = EC2/EC2DescribeReservedInstancesModificationsRequest.h; sourceTree = "<group>"; };
+		CE3767681810AC4F005FF936 /* EC2DescribeReservedInstancesModificationsRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EC2DescribeReservedInstancesModificationsRequestMarshaller.h; path = EC2/EC2DescribeReservedInstancesModificationsRequestMarshaller.h; sourceTree = "<group>"; };
+		CE3767691810AC4F005FF936 /* EC2DescribeReservedInstancesModificationsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EC2DescribeReservedInstancesModificationsResponse.h; path = EC2/EC2DescribeReservedInstancesModificationsResponse.h; sourceTree = "<group>"; };
+		CE37676A1810AC4F005FF936 /* EC2DescribeReservedInstancesModificationsResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EC2DescribeReservedInstancesModificationsResponseUnmarshaller.h; path = EC2/EC2DescribeReservedInstancesModificationsResponseUnmarshaller.h; sourceTree = "<group>"; };
+		CE37676B1810AC4F005FF936 /* EC2ModifyReservedInstancesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EC2ModifyReservedInstancesRequest.h; path = EC2/EC2ModifyReservedInstancesRequest.h; sourceTree = "<group>"; };
+		CE37676C1810AC4F005FF936 /* EC2ModifyReservedInstancesRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EC2ModifyReservedInstancesRequestMarshaller.h; path = EC2/EC2ModifyReservedInstancesRequestMarshaller.h; sourceTree = "<group>"; };
+		CE37676D1810AC4F005FF936 /* EC2ModifyReservedInstancesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EC2ModifyReservedInstancesResponse.h; path = EC2/EC2ModifyReservedInstancesResponse.h; sourceTree = "<group>"; };
+		CE37676E1810AC4F005FF936 /* EC2ModifyReservedInstancesResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EC2ModifyReservedInstancesResponseUnmarshaller.h; path = EC2/EC2ModifyReservedInstancesResponseUnmarshaller.h; sourceTree = "<group>"; };
+		CE37676F1810AC4F005FF936 /* EC2ReservedInstancesConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EC2ReservedInstancesConfiguration.h; path = EC2/EC2ReservedInstancesConfiguration.h; sourceTree = "<group>"; };
+		CE3767701810AC4F005FF936 /* EC2ReservedInstancesId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EC2ReservedInstancesId.h; path = EC2/EC2ReservedInstancesId.h; sourceTree = "<group>"; };
+		CE3767711810AC4F005FF936 /* EC2ReservedInstancesIdUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EC2ReservedInstancesIdUnmarshaller.h; path = EC2/EC2ReservedInstancesIdUnmarshaller.h; sourceTree = "<group>"; };
+		CE3767721810AC4F005FF936 /* EC2ReservedInstancesModification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EC2ReservedInstancesModification.h; path = EC2/EC2ReservedInstancesModification.h; sourceTree = "<group>"; };
+		CE3767731810AC4F005FF936 /* EC2ReservedInstancesModificationUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EC2ReservedInstancesModificationUnmarshaller.h; path = EC2/EC2ReservedInstancesModificationUnmarshaller.h; sourceTree = "<group>"; };
 		CE96C1A9158BC2A70084D3CB /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		CEB7C9F21812062500662849 /* EC2ReservedInstancesConfigurationUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2ReservedInstancesConfigurationUnmarshaller.m; sourceTree = "<group>"; };
+		CEB7C9F31812062500662849 /* EC2ReservedInstancesModificationResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2ReservedInstancesModificationResult.m; sourceTree = "<group>"; };
+		CEB7C9F41812062500662849 /* EC2ReservedInstancesModificationResultUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EC2ReservedInstancesModificationResultUnmarshaller.m; sourceTree = "<group>"; };
+		CEB7C9F81812063600662849 /* EC2ReservedInstancesConfigurationUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EC2ReservedInstancesConfigurationUnmarshaller.h; path = EC2/EC2ReservedInstancesConfigurationUnmarshaller.h; sourceTree = "<group>"; };
+		CEB7C9F91812063600662849 /* EC2ReservedInstancesModificationResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EC2ReservedInstancesModificationResult.h; path = EC2/EC2ReservedInstancesModificationResult.h; sourceTree = "<group>"; };
+		CEB7C9FA1812063600662849 /* EC2ReservedInstancesModificationResultUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EC2ReservedInstancesModificationResultUnmarshaller.h; path = EC2/EC2ReservedInstancesModificationResultUnmarshaller.h; sourceTree = "<group>"; };
 		D069663F1234D53400BFBB1E /* libEC2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEC2.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -2300,8 +2360,8 @@
 		0AFD9561128471A4004B7863 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				CE2CDBF917036B1A0013DE5F /* AWSEC2.h */,
 				389F3D4F164D9E9F00272BA2 /* AmazonEC2Client.h */,
+				CE2CDBF917036B1A0013DE5F /* AWSEC2.h */,
 				CE24F7A516E98419001E3E1A /* EC2AccountAttribute.h */,
 				CE24F7A616E98419001E3E1A /* EC2AccountAttributeUnmarshaller.h */,
 				CE24F7A716E98419001E3E1A /* EC2AccountAttributeValue.h */,
@@ -2521,6 +2581,10 @@
 				389F3E18164D9E9F00272BA2 /* EC2DescribeReservedInstancesListingsRequestMarshaller.h */,
 				389F3E19164D9E9F00272BA2 /* EC2DescribeReservedInstancesListingsResponse.h */,
 				389F3E1A164D9E9F00272BA2 /* EC2DescribeReservedInstancesListingsResponseUnmarshaller.h */,
+				CE3767671810AC4F005FF936 /* EC2DescribeReservedInstancesModificationsRequest.h */,
+				CE3767681810AC4F005FF936 /* EC2DescribeReservedInstancesModificationsRequestMarshaller.h */,
+				CE3767691810AC4F005FF936 /* EC2DescribeReservedInstancesModificationsResponse.h */,
+				CE37676A1810AC4F005FF936 /* EC2DescribeReservedInstancesModificationsResponseUnmarshaller.h */,
 				389F3E1B164D9E9F00272BA2 /* EC2DescribeReservedInstancesOfferingsRequest.h */,
 				389F3E1C164D9E9F00272BA2 /* EC2DescribeReservedInstancesOfferingsRequestMarshaller.h */,
 				389F3E1D164D9E9F00272BA2 /* EC2DescribeReservedInstancesOfferingsResponse.h */,
@@ -2704,6 +2768,10 @@
 				389F3EC5164D9E9F00272BA2 /* EC2ModifyInstanceAttributeRequestMarshaller.h */,
 				389F3EC6164D9E9F00272BA2 /* EC2ModifyInstanceAttributeResponse.h */,
 				389F3EC7164D9E9F00272BA2 /* EC2ModifyInstanceAttributeResponseUnmarshaller.h */,
+				CE37676B1810AC4F005FF936 /* EC2ModifyReservedInstancesRequest.h */,
+				CE37676C1810AC4F005FF936 /* EC2ModifyReservedInstancesRequestMarshaller.h */,
+				CE37676D1810AC4F005FF936 /* EC2ModifyReservedInstancesResponse.h */,
+				CE37676E1810AC4F005FF936 /* EC2ModifyReservedInstancesResponseUnmarshaller.h */,
 				389F3EC8164D9E9F00272BA2 /* EC2ModifySnapshotAttributeRequest.h */,
 				389F3EC9164D9E9F00272BA2 /* EC2ModifySnapshotAttributeRequestMarshaller.h */,
 				389F3ECA164D9E9F00272BA2 /* EC2ModifySnapshotAttributeResponse.h */,
@@ -2735,7 +2803,6 @@
 				389F3EE4164D9E9F00272BA2 /* EC2PurchaseReservedInstancesOfferingRequestMarshaller.h */,
 				389F3EE5164D9E9F00272BA2 /* EC2PurchaseReservedInstancesOfferingResponse.h */,
 				389F3EE6164D9E9F00272BA2 /* EC2PurchaseReservedInstancesOfferingResponseUnmarshaller.h */,
-				389F3EE7164D9E9F00272BA2 /* EC2ReasonCode.h */,
 				389F3EE8164D9E9F00272BA2 /* EC2RebootInstancesRequest.h */,
 				389F3EE9164D9E9F00272BA2 /* EC2RebootInstancesRequestMarshaller.h */,
 				389F3EEA164D9E9F00272BA2 /* EC2RebootInstancesResponse.h */,
@@ -2765,8 +2832,16 @@
 				389F3F02164D9EA000272BA2 /* EC2ReservationUnmarshaller.h */,
 				389F3F03164D9EA000272BA2 /* EC2ReservedInstanceLimitPrice.h */,
 				389F3F04164D9EA000272BA2 /* EC2ReservedInstances.h */,
+				CE37676F1810AC4F005FF936 /* EC2ReservedInstancesConfiguration.h */,
+				CEB7C9F81812063600662849 /* EC2ReservedInstancesConfigurationUnmarshaller.h */,
+				CE3767701810AC4F005FF936 /* EC2ReservedInstancesId.h */,
+				CE3767711810AC4F005FF936 /* EC2ReservedInstancesIdUnmarshaller.h */,
 				389F3F05164D9EA000272BA2 /* EC2ReservedInstancesListing.h */,
 				389F3F06164D9EA000272BA2 /* EC2ReservedInstancesListingUnmarshaller.h */,
+				CE3767721810AC4F005FF936 /* EC2ReservedInstancesModification.h */,
+				CEB7C9F91812063600662849 /* EC2ReservedInstancesModificationResult.h */,
+				CEB7C9FA1812063600662849 /* EC2ReservedInstancesModificationResultUnmarshaller.h */,
+				CE3767731810AC4F005FF936 /* EC2ReservedInstancesModificationUnmarshaller.h */,
 				389F3F07164D9EA000272BA2 /* EC2ReservedInstancesOffering.h */,
 				389F3F08164D9EA000272BA2 /* EC2ReservedInstancesOfferingUnmarshaller.h */,
 				389F3F09164D9EA000272BA2 /* EC2ReservedInstancesUnmarshaller.h */,
@@ -3102,6 +3177,10 @@
 				389F3A02164D9E9100272BA2 /* EC2DescribeReservedInstancesListingsRequestMarshaller.m */,
 				389F3A03164D9E9100272BA2 /* EC2DescribeReservedInstancesListingsResponse.m */,
 				389F3A04164D9E9100272BA2 /* EC2DescribeReservedInstancesListingsResponseUnmarshaller.m */,
+				CE37674D1810ABFA005FF936 /* EC2DescribeReservedInstancesModificationsRequest.m */,
+				CE37674E1810ABFA005FF936 /* EC2DescribeReservedInstancesModificationsRequestMarshaller.m */,
+				CE37674F1810ABFB005FF936 /* EC2DescribeReservedInstancesModificationsResponse.m */,
+				CE3767501810ABFB005FF936 /* EC2DescribeReservedInstancesModificationsResponseUnmarshaller.m */,
 				389F3A05164D9E9100272BA2 /* EC2DescribeReservedInstancesOfferingsRequest.m */,
 				389F3A06164D9E9100272BA2 /* EC2DescribeReservedInstancesOfferingsRequestMarshaller.m */,
 				389F3A07164D9E9100272BA2 /* EC2DescribeReservedInstancesOfferingsResponse.m */,
@@ -3285,6 +3364,10 @@
 				389F3AAF164D9E9100272BA2 /* EC2ModifyInstanceAttributeRequestMarshaller.m */,
 				389F3AB0164D9E9100272BA2 /* EC2ModifyInstanceAttributeResponse.m */,
 				389F3AB1164D9E9100272BA2 /* EC2ModifyInstanceAttributeResponseUnmarshaller.m */,
+				CE3767511810ABFB005FF936 /* EC2ModifyReservedInstancesRequest.m */,
+				CE3767521810ABFB005FF936 /* EC2ModifyReservedInstancesRequestMarshaller.m */,
+				CE3767531810ABFB005FF936 /* EC2ModifyReservedInstancesResponse.m */,
+				CE3767541810ABFB005FF936 /* EC2ModifyReservedInstancesResponseUnmarshaller.m */,
 				389F3AB2164D9E9100272BA2 /* EC2ModifySnapshotAttributeRequest.m */,
 				389F3AB3164D9E9100272BA2 /* EC2ModifySnapshotAttributeRequestMarshaller.m */,
 				389F3AB4164D9E9100272BA2 /* EC2ModifySnapshotAttributeResponse.m */,
@@ -3316,7 +3399,6 @@
 				389F3ACE164D9E9100272BA2 /* EC2PurchaseReservedInstancesOfferingRequestMarshaller.m */,
 				389F3ACF164D9E9100272BA2 /* EC2PurchaseReservedInstancesOfferingResponse.m */,
 				389F3AD0164D9E9100272BA2 /* EC2PurchaseReservedInstancesOfferingResponseUnmarshaller.m */,
-				389F3AD1164D9E9100272BA2 /* EC2ReasonCode.m */,
 				389F3AD2164D9E9100272BA2 /* EC2RebootInstancesRequest.m */,
 				389F3AD3164D9E9100272BA2 /* EC2RebootInstancesRequestMarshaller.m */,
 				389F3AD4164D9E9100272BA2 /* EC2RebootInstancesResponse.m */,
@@ -3345,8 +3427,16 @@
 				389F3AEB164D9E9100272BA2 /* EC2ReservationUnmarshaller.m */,
 				389F3AEC164D9E9100272BA2 /* EC2ReservedInstanceLimitPrice.m */,
 				389F3AED164D9E9100272BA2 /* EC2ReservedInstances.m */,
+				CE3767551810ABFB005FF936 /* EC2ReservedInstancesConfiguration.m */,
+				CEB7C9F21812062500662849 /* EC2ReservedInstancesConfigurationUnmarshaller.m */,
+				CE3767561810ABFB005FF936 /* EC2ReservedInstancesId.m */,
+				CE3767571810ABFB005FF936 /* EC2ReservedInstancesIdUnmarshaller.m */,
 				389F3AEE164D9E9100272BA2 /* EC2ReservedInstancesListing.m */,
 				389F3AEF164D9E9100272BA2 /* EC2ReservedInstancesListingUnmarshaller.m */,
+				CE3767581810ABFB005FF936 /* EC2ReservedInstancesModification.m */,
+				CEB7C9F31812062500662849 /* EC2ReservedInstancesModificationResult.m */,
+				CEB7C9F41812062500662849 /* EC2ReservedInstancesModificationResultUnmarshaller.m */,
+				CE3767591810ABFB005FF936 /* EC2ReservedInstancesModificationUnmarshaller.m */,
 				389F3AF0164D9E9100272BA2 /* EC2ReservedInstancesOffering.m */,
 				389F3AF1164D9E9100272BA2 /* EC2ReservedInstancesOfferingUnmarshaller.m */,
 				389F3AF2164D9E9100272BA2 /* EC2ReservedInstancesUnmarshaller.m */,
@@ -3447,6 +3537,7 @@
 				389F3F5B164D9EA000272BA2 /* AmazonEC2Client.h in Headers */,
 				389F3F5C164D9EA000272BA2 /* EC2ActivateLicenseRequest.h in Headers */,
 				389F3F5D164D9EA000272BA2 /* EC2ActivateLicenseRequestMarshaller.h in Headers */,
+				CE37677C1810AC50005FF936 /* EC2ReservedInstancesConfiguration.h in Headers */,
 				389F3F5E164D9EA000272BA2 /* EC2ActivateLicenseResponse.h in Headers */,
 				389F3F5F164D9EA000272BA2 /* EC2ActivateLicenseResponseUnmarshaller.h in Headers */,
 				389F3F60164D9EA000272BA2 /* EC2Address.h in Headers */,
@@ -3488,6 +3579,7 @@
 				389F3F84164D9EA000272BA2 /* EC2CancelConversionTaskRequest.h in Headers */,
 				389F3F85164D9EA000272BA2 /* EC2CancelConversionTaskRequestMarshaller.h in Headers */,
 				389F3F86164D9EA000272BA2 /* EC2CancelConversionTaskResponse.h in Headers */,
+				CE37677E1810AC50005FF936 /* EC2ReservedInstancesIdUnmarshaller.h in Headers */,
 				389F3F87164D9EA000272BA2 /* EC2CancelConversionTaskResponseUnmarshaller.h in Headers */,
 				389F3F88164D9EA000272BA2 /* EC2CancelExportTaskRequest.h in Headers */,
 				389F3F89164D9EA000272BA2 /* EC2CancelExportTaskRequestMarshaller.h in Headers */,
@@ -3545,6 +3637,7 @@
 				389F3FBD164D9EA000272BA2 /* EC2CreateTagsRequestMarshaller.h in Headers */,
 				389F3FBE164D9EA000272BA2 /* EC2CreateTagsResponse.h in Headers */,
 				389F3FBF164D9EA000272BA2 /* EC2CreateTagsResponseUnmarshaller.h in Headers */,
+				CE3767741810AC50005FF936 /* EC2DescribeReservedInstancesModificationsRequest.h in Headers */,
 				389F3FC0164D9EA000272BA2 /* EC2CreateVolumePermission.h in Headers */,
 				389F3FC1164D9EA000272BA2 /* EC2CreateVolumePermissionModifications.h in Headers */,
 				389F3FC2164D9EA000272BA2 /* EC2CreateVolumePermissionUnmarshaller.h in Headers */,
@@ -3567,6 +3660,7 @@
 				389F3FD3164D9EA000272BA2 /* EC2DeleteSecurityGroupRequest.h in Headers */,
 				389F3FD4164D9EA000272BA2 /* EC2DeleteSecurityGroupRequestMarshaller.h in Headers */,
 				389F3FD5164D9EA000272BA2 /* EC2DeleteSecurityGroupResponse.h in Headers */,
+				CE3767781810AC50005FF936 /* EC2ModifyReservedInstancesRequest.h in Headers */,
 				389F3FD6164D9EA000272BA2 /* EC2DeleteSecurityGroupResponseUnmarshaller.h in Headers */,
 				389F3FD7164D9EA000272BA2 /* EC2DeleteSnapshotRequest.h in Headers */,
 				389F3FD8164D9EA000272BA2 /* EC2DeleteSnapshotRequestMarshaller.h in Headers */,
@@ -3578,6 +3672,7 @@
 				389F3FDE164D9EA000272BA2 /* EC2DeleteSpotDatafeedSubscriptionResponseUnmarshaller.h in Headers */,
 				389F3FDF164D9EA000272BA2 /* EC2DeleteTagsRequest.h in Headers */,
 				389F3FE0164D9EA000272BA2 /* EC2DeleteTagsRequestMarshaller.h in Headers */,
+				CE3767801810AC50005FF936 /* EC2ReservedInstancesModificationUnmarshaller.h in Headers */,
 				389F3FE1164D9EA000272BA2 /* EC2DeleteTagsResponse.h in Headers */,
 				389F3FE2164D9EA000272BA2 /* EC2DeleteTagsResponseUnmarshaller.h in Headers */,
 				389F3FE3164D9EA000272BA2 /* EC2DeleteVolumeRequest.h in Headers */,
@@ -3610,6 +3705,7 @@
 				389F3FFE164D9EA000272BA2 /* EC2DescribeExportTasksResponseUnmarshaller.h in Headers */,
 				389F3FFF164D9EA000272BA2 /* EC2DescribeImageAttributeRequest.h in Headers */,
 				389F4000164D9EA000272BA2 /* EC2DescribeImageAttributeRequestMarshaller.h in Headers */,
+				CE37677F1810AC50005FF936 /* EC2ReservedInstancesModification.h in Headers */,
 				389F4001164D9EA000272BA2 /* EC2DescribeImageAttributeResponse.h in Headers */,
 				389F4002164D9EA000272BA2 /* EC2DescribeImageAttributeResponseUnmarshaller.h in Headers */,
 				389F4003164D9EA000272BA2 /* EC2DescribeImagesRequest.h in Headers */,
@@ -3618,6 +3714,7 @@
 				389F4006164D9EA000272BA2 /* EC2DescribeImagesResponseUnmarshaller.h in Headers */,
 				389F4007164D9EA000272BA2 /* EC2DescribeInstanceAttributeRequest.h in Headers */,
 				389F4008164D9EA000272BA2 /* EC2DescribeInstanceAttributeRequestMarshaller.h in Headers */,
+				CE3767791810AC50005FF936 /* EC2ModifyReservedInstancesRequestMarshaller.h in Headers */,
 				389F4009164D9EA000272BA2 /* EC2DescribeInstanceAttributeResponse.h in Headers */,
 				389F400A164D9EA000272BA2 /* EC2DescribeInstanceAttributeResponseUnmarshaller.h in Headers */,
 				389F400B164D9EA000272BA2 /* EC2DescribeInstancesRequest.h in Headers */,
@@ -3636,6 +3733,7 @@
 				389F4018164D9EA000272BA2 /* EC2DescribeLicensesRequestMarshaller.h in Headers */,
 				389F4019164D9EA000272BA2 /* EC2DescribeLicensesResponse.h in Headers */,
 				389F401A164D9EA000272BA2 /* EC2DescribeLicensesResponseUnmarshaller.h in Headers */,
+				CEB7C9FD1812063600662849 /* EC2ReservedInstancesModificationResultUnmarshaller.h in Headers */,
 				389F401B164D9EA000272BA2 /* EC2DescribePlacementGroupsRequest.h in Headers */,
 				389F401C164D9EA000272BA2 /* EC2DescribePlacementGroupsRequestMarshaller.h in Headers */,
 				389F401D164D9EA000272BA2 /* EC2DescribePlacementGroupsResponse.h in Headers */,
@@ -3655,6 +3753,7 @@
 				389F402B164D9EA000272BA2 /* EC2DescribeReservedInstancesRequest.h in Headers */,
 				389F402C164D9EA000272BA2 /* EC2DescribeReservedInstancesRequestMarshaller.h in Headers */,
 				389F402D164D9EA000272BA2 /* EC2DescribeReservedInstancesResponse.h in Headers */,
+				CE3767761810AC50005FF936 /* EC2DescribeReservedInstancesModificationsResponse.h in Headers */,
 				389F402E164D9EA000272BA2 /* EC2DescribeReservedInstancesResponseUnmarshaller.h in Headers */,
 				389F402F164D9EA000272BA2 /* EC2DescribeSecurityGroupsRequest.h in Headers */,
 				389F4030164D9EA000272BA2 /* EC2DescribeSecurityGroupsRequestMarshaller.h in Headers */,
@@ -3695,6 +3794,7 @@
 				389F4053164D9EA000272BA2 /* EC2DescribeVolumeStatusRequest.h in Headers */,
 				389F4054164D9EA000272BA2 /* EC2DescribeVolumeStatusRequestMarshaller.h in Headers */,
 				389F4055164D9EA000272BA2 /* EC2DescribeVolumeStatusResponse.h in Headers */,
+				CE37677D1810AC50005FF936 /* EC2ReservedInstancesId.h in Headers */,
 				389F4056164D9EA000272BA2 /* EC2DescribeVolumeStatusResponseUnmarshaller.h in Headers */,
 				389F4057164D9EA000272BA2 /* EC2DetachVolumeRequest.h in Headers */,
 				389F4058164D9EA000272BA2 /* EC2DetachVolumeRequestMarshaller.h in Headers */,
@@ -3733,6 +3833,7 @@
 				389F4079164D9EA000272BA2 /* EC2GetPasswordDataRequestMarshaller.h in Headers */,
 				389F407A164D9EA000272BA2 /* EC2GetPasswordDataResponse.h in Headers */,
 				389F407B164D9EA000272BA2 /* EC2GetPasswordDataResponseUnmarshaller.h in Headers */,
+				CE37677A1810AC50005FF936 /* EC2ModifyReservedInstancesResponse.h in Headers */,
 				389F407C164D9EA000272BA2 /* EC2GroupIdentifier.h in Headers */,
 				389F407D164D9EA000272BA2 /* EC2GroupIdentifierUnmarshaller.h in Headers */,
 				389F407E164D9EA000272BA2 /* EC2IamInstanceProfile.h in Headers */,
@@ -3815,6 +3916,7 @@
 				389F40CB164D9EA000272BA2 /* EC2LicenseUnmarshaller.h in Headers */,
 				389F40CC164D9EA000272BA2 /* EC2ModifyImageAttributeRequest.h in Headers */,
 				389F40CD164D9EA000272BA2 /* EC2ModifyImageAttributeRequestMarshaller.h in Headers */,
+				CE3767771810AC50005FF936 /* EC2DescribeReservedInstancesModificationsResponseUnmarshaller.h in Headers */,
 				389F40CE164D9EA000272BA2 /* EC2ModifyImageAttributeResponse.h in Headers */,
 				389F40CF164D9EA000272BA2 /* EC2ModifyImageAttributeResponseUnmarshaller.h in Headers */,
 				389F40D0164D9EA000272BA2 /* EC2ModifyInstanceAttributeRequest.h in Headers */,
@@ -3852,9 +3954,9 @@
 				389F40F0164D9EA000272BA2 /* EC2PurchaseReservedInstancesOfferingRequestMarshaller.h in Headers */,
 				389F40F1164D9EA000272BA2 /* EC2PurchaseReservedInstancesOfferingResponse.h in Headers */,
 				389F40F2164D9EA000272BA2 /* EC2PurchaseReservedInstancesOfferingResponseUnmarshaller.h in Headers */,
-				389F40F3164D9EA000272BA2 /* EC2ReasonCode.h in Headers */,
 				389F40F4164D9EA000272BA2 /* EC2RebootInstancesRequest.h in Headers */,
 				389F40F5164D9EA000272BA2 /* EC2RebootInstancesRequestMarshaller.h in Headers */,
+				CEB7C9FB1812063600662849 /* EC2ReservedInstancesConfigurationUnmarshaller.h in Headers */,
 				389F40F6164D9EA000272BA2 /* EC2RebootInstancesResponse.h in Headers */,
 				389F40F7164D9EA000272BA2 /* EC2RebootInstancesResponseUnmarshaller.h in Headers */,
 				389F40F8164D9EA000272BA2 /* EC2RecurringCharge.h in Headers */,
@@ -3876,6 +3978,7 @@
 				389F4108164D9EA000272BA2 /* EC2Request.h in Headers */,
 				389F4109164D9EA000272BA2 /* EC2RequestSpotInstancesRequest.h in Headers */,
 				389F410A164D9EA000272BA2 /* EC2RequestSpotInstancesRequestMarshaller.h in Headers */,
+				CE37677B1810AC50005FF936 /* EC2ModifyReservedInstancesResponseUnmarshaller.h in Headers */,
 				389F410B164D9EA000272BA2 /* EC2RequestSpotInstancesResponse.h in Headers */,
 				389F410C164D9EA000272BA2 /* EC2RequestSpotInstancesResponseUnmarshaller.h in Headers */,
 				389F410D164D9EA000272BA2 /* EC2Reservation.h in Headers */,
@@ -3925,6 +4028,7 @@
 				389F4139164D9EA000272BA2 /* EC2SpotInstanceStatusUnmarshaller.h in Headers */,
 				389F413A164D9EA000272BA2 /* EC2SpotPlacement.h in Headers */,
 				389F413B164D9EA000272BA2 /* EC2SpotPlacementUnmarshaller.h in Headers */,
+				CEB7C9FC1812063600662849 /* EC2ReservedInstancesModificationResult.h in Headers */,
 				389F413C164D9EA000272BA2 /* EC2SpotPrice.h in Headers */,
 				389F413D164D9EA000272BA2 /* EC2SpotPriceUnmarshaller.h in Headers */,
 				389F413E164D9EA000272BA2 /* EC2StartInstancesRequest.h in Headers */,
@@ -3944,6 +4048,7 @@
 				389F414C164D9EA000272BA2 /* EC2TagDescriptionUnmarshaller.h in Headers */,
 				389F414D164D9EA000272BA2 /* EC2TagUnmarshaller.h in Headers */,
 				389F414E164D9EA000272BA2 /* EC2TerminateInstancesRequest.h in Headers */,
+				CE3767751810AC50005FF936 /* EC2DescribeReservedInstancesModificationsRequestMarshaller.h in Headers */,
 				389F414F164D9EA000272BA2 /* EC2TerminateInstancesRequestMarshaller.h in Headers */,
 				389F4150164D9EA000272BA2 /* EC2TerminateInstancesResponse.h in Headers */,
 				389F4151164D9EA000272BA2 /* EC2TerminateInstancesResponseUnmarshaller.h in Headers */,
@@ -4080,6 +4185,7 @@
 				389F3B47164D9E9100272BA2 /* EC2ActivateLicenseRequestMarshaller.m in Sources */,
 				389F3B48164D9E9100272BA2 /* EC2ActivateLicenseResponse.m in Sources */,
 				389F3B49164D9E9100272BA2 /* EC2ActivateLicenseResponseUnmarshaller.m in Sources */,
+				CE3767661810ABFB005FF936 /* EC2ReservedInstancesModificationUnmarshaller.m in Sources */,
 				389F3B4A164D9E9100272BA2 /* EC2Address.m in Sources */,
 				389F3B4B164D9E9100272BA2 /* EC2AddressUnmarshaller.m in Sources */,
 				389F3B4C164D9E9100272BA2 /* EC2AllocateAddressRequest.m in Sources */,
@@ -4088,6 +4194,7 @@
 				389F3B4F164D9E9100272BA2 /* EC2AllocateAddressResponseUnmarshaller.m in Sources */,
 				389F3B50164D9E9100272BA2 /* EC2AssociateAddressRequest.m in Sources */,
 				389F3B51164D9E9100272BA2 /* EC2AssociateAddressRequestMarshaller.m in Sources */,
+				CE3767611810ABFB005FF936 /* EC2ModifyReservedInstancesResponseUnmarshaller.m in Sources */,
 				389F3B52164D9E9100272BA2 /* EC2AssociateAddressResponse.m in Sources */,
 				389F3B53164D9E9100272BA2 /* EC2AssociateAddressResponseUnmarshaller.m in Sources */,
 				389F3B54164D9E9100272BA2 /* EC2AttachVolumeRequest.m in Sources */,
@@ -4105,6 +4212,7 @@
 				389F3B60164D9E9100272BA2 /* EC2BlockDeviceMapping.m in Sources */,
 				389F3B61164D9E9100272BA2 /* EC2BlockDeviceMappingUnmarshaller.m in Sources */,
 				389F3B62164D9E9100272BA2 /* EC2BundleInstanceRequest.m in Sources */,
+				CE3767631810ABFB005FF936 /* EC2ReservedInstancesId.m in Sources */,
 				389F3B63164D9E9100272BA2 /* EC2BundleInstanceRequestMarshaller.m in Sources */,
 				389F3B64164D9E9100272BA2 /* EC2BundleInstanceResponse.m in Sources */,
 				389F3B65164D9E9100272BA2 /* EC2BundleInstanceResponseUnmarshaller.m in Sources */,
@@ -4155,6 +4263,7 @@
 				389F3B92164D9E9100272BA2 /* EC2CreatePlacementGroupRequest.m in Sources */,
 				389F3B93164D9E9100272BA2 /* EC2CreatePlacementGroupRequestMarshaller.m in Sources */,
 				389F3B94164D9E9100272BA2 /* EC2CreatePlacementGroupResponse.m in Sources */,
+				CE3767601810ABFB005FF936 /* EC2ModifyReservedInstancesResponse.m in Sources */,
 				389F3B95164D9E9100272BA2 /* EC2CreatePlacementGroupResponseUnmarshaller.m in Sources */,
 				389F3B96164D9E9100272BA2 /* EC2CreateReservedInstancesListingRequest.m in Sources */,
 				389F3B97164D9E9100272BA2 /* EC2CreateReservedInstancesListingRequestMarshaller.m in Sources */,
@@ -4182,6 +4291,7 @@
 				389F3BAD164D9E9100272BA2 /* EC2CreateVolumeRequest.m in Sources */,
 				389F3BAE164D9E9100272BA2 /* EC2CreateVolumeRequestMarshaller.m in Sources */,
 				389F3BAF164D9E9100272BA2 /* EC2CreateVolumeResponse.m in Sources */,
+				CEB7C9F61812062500662849 /* EC2ReservedInstancesModificationResult.m in Sources */,
 				389F3BB0164D9E9100272BA2 /* EC2CreateVolumeResponseUnmarshaller.m in Sources */,
 				389F3BB1164D9E9100272BA2 /* EC2DeactivateLicenseRequest.m in Sources */,
 				389F3BB2164D9E9100272BA2 /* EC2DeactivateLicenseRequestMarshaller.m in Sources */,
@@ -4210,9 +4320,11 @@
 				389F3BC9164D9E9100272BA2 /* EC2DeleteTagsRequest.m in Sources */,
 				389F3BCA164D9E9100272BA2 /* EC2DeleteTagsRequestMarshaller.m in Sources */,
 				389F3BCB164D9E9100272BA2 /* EC2DeleteTagsResponse.m in Sources */,
+				CEB7C9F71812062500662849 /* EC2ReservedInstancesModificationResultUnmarshaller.m in Sources */,
 				389F3BCC164D9E9100272BA2 /* EC2DeleteTagsResponseUnmarshaller.m in Sources */,
 				389F3BCD164D9E9100272BA2 /* EC2DeleteVolumeRequest.m in Sources */,
 				389F3BCE164D9E9100272BA2 /* EC2DeleteVolumeRequestMarshaller.m in Sources */,
+				CE37675D1810ABFB005FF936 /* EC2DescribeReservedInstancesModificationsResponseUnmarshaller.m in Sources */,
 				389F3BCF164D9E9100272BA2 /* EC2DeleteVolumeResponse.m in Sources */,
 				389F3BD0164D9E9100272BA2 /* EC2DeleteVolumeResponseUnmarshaller.m in Sources */,
 				389F3BD1164D9E9100272BA2 /* EC2DeregisterImageRequest.m in Sources */,
@@ -4227,6 +4339,8 @@
 				389F3BDA164D9E9100272BA2 /* EC2DescribeAvailabilityZonesRequestMarshaller.m in Sources */,
 				389F3BDB164D9E9100272BA2 /* EC2DescribeAvailabilityZonesResponse.m in Sources */,
 				389F3BDC164D9E9100272BA2 /* EC2DescribeAvailabilityZonesResponseUnmarshaller.m in Sources */,
+				CE37675B1810ABFB005FF936 /* EC2DescribeReservedInstancesModificationsRequestMarshaller.m in Sources */,
+				CEB7C9F51812062500662849 /* EC2ReservedInstancesConfigurationUnmarshaller.m in Sources */,
 				389F3BDD164D9E9100272BA2 /* EC2DescribeBundleTasksRequest.m in Sources */,
 				389F3BDE164D9E9100272BA2 /* EC2DescribeBundleTasksRequestMarshaller.m in Sources */,
 				389F3BDF164D9E9100272BA2 /* EC2DescribeBundleTasksResponse.m in Sources */,
@@ -4257,6 +4371,7 @@
 				389F3BF8164D9E9100272BA2 /* EC2DescribeInstancesResponseUnmarshaller.m in Sources */,
 				389F3BF9164D9E9100272BA2 /* EC2DescribeInstanceStatusRequest.m in Sources */,
 				389F3BFA164D9E9100272BA2 /* EC2DescribeInstanceStatusRequestMarshaller.m in Sources */,
+				CE37675C1810ABFB005FF936 /* EC2DescribeReservedInstancesModificationsResponse.m in Sources */,
 				389F3BFB164D9E9100272BA2 /* EC2DescribeInstanceStatusResponse.m in Sources */,
 				389F3BFC164D9E9100272BA2 /* EC2DescribeInstanceStatusResponseUnmarshaller.m in Sources */,
 				389F3BFD164D9E9100272BA2 /* EC2DescribeKeyPairsRequest.m in Sources */,
@@ -4345,6 +4460,7 @@
 				389F3C50164D9E9100272BA2 /* EC2EbsBlockDeviceUnmarshaller.m in Sources */,
 				389F3C51164D9E9100272BA2 /* EC2EbsInstanceBlockDevice.m in Sources */,
 				389F3C52164D9E9100272BA2 /* EC2EbsInstanceBlockDeviceSpecification.m in Sources */,
+				CE3767651810ABFB005FF936 /* EC2ReservedInstancesModification.m in Sources */,
 				389F3C53164D9E9100272BA2 /* EC2EbsInstanceBlockDeviceUnmarshaller.m in Sources */,
 				389F3C54164D9E9100272BA2 /* EC2EnableVolumeIORequest.m in Sources */,
 				389F3C55164D9E9100272BA2 /* EC2EnableVolumeIORequestMarshaller.m in Sources */,
@@ -4386,6 +4502,7 @@
 				389F3C79164D9E9100272BA2 /* EC2ImportKeyPairRequest.m in Sources */,
 				389F3C7A164D9E9100272BA2 /* EC2ImportKeyPairRequestMarshaller.m in Sources */,
 				389F3C7B164D9E9100272BA2 /* EC2ImportKeyPairResponse.m in Sources */,
+				CE37675A1810ABFB005FF936 /* EC2DescribeReservedInstancesModificationsRequest.m in Sources */,
 				389F3C7C164D9E9100272BA2 /* EC2ImportKeyPairResponseUnmarshaller.m in Sources */,
 				389F3C7D164D9E9100272BA2 /* EC2ImportVolumeRequest.m in Sources */,
 				389F3C7E164D9E9100272BA2 /* EC2ImportVolumeRequestMarshaller.m in Sources */,
@@ -4442,6 +4559,7 @@
 				389F3CB1164D9E9100272BA2 /* EC2LaunchSpecificationUnmarshaller.m in Sources */,
 				389F3CB2164D9E9100272BA2 /* EC2License.m in Sources */,
 				389F3CB3164D9E9100272BA2 /* EC2LicenseCapacity.m in Sources */,
+				CE3767641810ABFB005FF936 /* EC2ReservedInstancesIdUnmarshaller.m in Sources */,
 				389F3CB4164D9E9100272BA2 /* EC2LicenseCapacityUnmarshaller.m in Sources */,
 				389F3CB5164D9E9100272BA2 /* EC2LicenseUnmarshaller.m in Sources */,
 				389F3CB6164D9E9100272BA2 /* EC2ModifyImageAttributeRequest.m in Sources */,
@@ -4483,13 +4601,13 @@
 				389F3CDA164D9E9100272BA2 /* EC2PurchaseReservedInstancesOfferingRequestMarshaller.m in Sources */,
 				389F3CDB164D9E9100272BA2 /* EC2PurchaseReservedInstancesOfferingResponse.m in Sources */,
 				389F3CDC164D9E9100272BA2 /* EC2PurchaseReservedInstancesOfferingResponseUnmarshaller.m in Sources */,
-				389F3CDD164D9E9100272BA2 /* EC2ReasonCode.m in Sources */,
 				389F3CDE164D9E9100272BA2 /* EC2RebootInstancesRequest.m in Sources */,
 				389F3CDF164D9E9100272BA2 /* EC2RebootInstancesRequestMarshaller.m in Sources */,
 				389F3CE0164D9E9100272BA2 /* EC2RebootInstancesResponse.m in Sources */,
 				389F3CE1164D9E9100272BA2 /* EC2RebootInstancesResponseUnmarshaller.m in Sources */,
 				389F3CE2164D9E9100272BA2 /* EC2RecurringCharge.m in Sources */,
 				389F3CE3164D9E9100272BA2 /* EC2RecurringChargeUnmarshaller.m in Sources */,
+				CE37675F1810ABFB005FF936 /* EC2ModifyReservedInstancesRequestMarshaller.m in Sources */,
 				389F3CE4164D9E9100272BA2 /* EC2Region.m in Sources */,
 				389F3CE5164D9E9100272BA2 /* EC2RegionUnmarshaller.m in Sources */,
 				389F3CE6164D9E9100272BA2 /* EC2RegisterImageRequest.m in Sources */,
@@ -4509,6 +4627,7 @@
 				389F3CF4164D9E9100272BA2 /* EC2RequestSpotInstancesResponse.m in Sources */,
 				389F3CF5164D9E9100272BA2 /* EC2RequestSpotInstancesResponseUnmarshaller.m in Sources */,
 				389F3CF6164D9E9100272BA2 /* EC2Reservation.m in Sources */,
+				CE3767621810ABFB005FF936 /* EC2ReservedInstancesConfiguration.m in Sources */,
 				389F3CF7164D9E9100272BA2 /* EC2ReservationUnmarshaller.m in Sources */,
 				389F3CF8164D9E9100272BA2 /* EC2ReservedInstanceLimitPrice.m in Sources */,
 				389F3CF9164D9E9100272BA2 /* EC2ReservedInstances.m in Sources */,
@@ -4574,6 +4693,7 @@
 				389F3D35164D9E9100272BA2 /* EC2TerminateInstancesRequest.m in Sources */,
 				389F3D36164D9E9100272BA2 /* EC2TerminateInstancesRequestMarshaller.m in Sources */,
 				389F3D37164D9E9100272BA2 /* EC2TerminateInstancesResponse.m in Sources */,
+				CE37675E1810ABFB005FF936 /* EC2ModifyReservedInstancesRequest.m in Sources */,
 				389F3D38164D9E9100272BA2 /* EC2TerminateInstancesResponseUnmarshaller.m in Sources */,
 				389F3D39164D9E9100272BA2 /* EC2UnmonitorInstancesRequest.m in Sources */,
 				389F3D3A164D9E9100272BA2 /* EC2UnmonitorInstancesRequestMarshaller.m in Sources */,
@@ -4661,10 +4781,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"ARCHS[sdk=*]" = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DOXYGEN_PATH = /Applications/Doxygen.app/Contents/Resources/doxygen;
 				DSTROOT = /tmp/s3.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4678,10 +4796,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				INSTALL_PATH = /usr/local/lib;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				OTHER_LDFLAGS = (
-					"-all_load",
-					"-ObjC",
-				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = EC2;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -4694,7 +4809,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"ARCHS[sdk=*]" = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DSTROOT = /tmp/s3.dst;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4711,10 +4825,7 @@
 				);
 				INSTALL_PATH = /usr/local/lib;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				OTHER_LDFLAGS = (
-					"-all_load",
-					"-ObjC",
-				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = EC2;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -4734,7 +4845,7 @@
 					ThirdParty,
 					"include/**",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
@@ -4745,6 +4856,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -4752,12 +4864,131 @@
 					ThirdParty,
 					"include/**",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
+		};
+		CE187CE717FCEFD900544F3F /* Debug64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					ThirdParty,
+					"include/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+			};
+			name = Debug64;
+		};
+		CE187CE817FCEFD900544F3F /* Debug64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/s3.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/..\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = EC2_Prefix.pch;
+				GCC_THUMB_SUPPORT = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = EC2;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug64;
+		};
+		CE187CE917FCEFD900544F3F /* Debug64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Framework;
+			};
+			name = Debug64;
+		};
+		CE187CEA17FCEFE000544F3F /* Release64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					ThirdParty,
+					"include/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+			};
+			name = Release64;
+		};
+		CE187CEB17FCEFE000544F3F /* Release64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DSTROOT = /tmp/s3.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/..\"",
+				);
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = EC2_Prefix.pch;
+				GCC_THUMB_SUPPORT = NO;
+				HEADER_SEARCH_PATHS = (
+					"include/**",
+					"ThirdParty/**",
+				);
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = EC2;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release64;
+		};
+		CE187CEC17FCEFE000544F3F /* Release64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				PRODUCT_NAME = Framework;
+				ZERO_LINK = NO;
+			};
+			name = Release64;
 		};
 /* End XCBuildConfiguration section */
 
@@ -4766,7 +4997,9 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0AFD8DD8128465B4004B7863 /* Debug */,
+				CE187CE917FCEFD900544F3F /* Debug64 */,
 				0AFD8DD9128465B4004B7863 /* Release */,
+				CE187CEC17FCEFE000544F3F /* Release64 */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -4775,7 +5008,9 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB921F08733DC00010E9CD /* Debug */,
+				CE187CE817FCEFD900544F3F /* Debug64 */,
 				1DEB922008733DC00010E9CD /* Release */,
+				CE187CEB17FCEFE000544F3F /* Release64 */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -4784,7 +5019,9 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB922308733DC00010E9CD /* Debug */,
+				CE187CE717FCEFD900544F3F /* Debug64 */,
 				1DEB922408733DC00010E9CD /* Release */,
+				CE187CEA17FCEFE000544F3F /* Release64 */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

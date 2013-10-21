@@ -30,15 +30,24 @@
 @interface EC2CreateImageRequest:AmazonServiceRequestConfig
 
 {
+    BOOL           dryRun;
+    BOOL           dryRunIsSet;
     NSString       *instanceId;
     NSString       *name;
     NSString       *descriptionValue;
-    bool           noReboot;
-    bool           noRebootIsSet;
+    BOOL           noReboot;
+    BOOL           noRebootIsSet;
     NSMutableArray *blockDeviceMappings;
 }
 
 
+
+/**
+ * The value of the DryRun property for this object.
+ */
+@property (nonatomic) BOOL           dryRun;
+
+@property (nonatomic, readonly) BOOL dryRunIsSet;
 
 /**
  * The ID of the instance from which to create the new image.
@@ -63,9 +72,9 @@
  * this option is used, file system integrity on the created image cannot
  * be guaranteed.
  */
-@property (nonatomic) bool           noReboot;
+@property (nonatomic) BOOL           noReboot;
 
-@property (nonatomic, readonly) bool noRebootIsSet;
+@property (nonatomic, readonly) BOOL noRebootIsSet;
 
 /**
  * The value of the BlockDeviceMappings property for this object.

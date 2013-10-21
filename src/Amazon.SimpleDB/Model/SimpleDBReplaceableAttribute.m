@@ -36,7 +36,7 @@
     return self;
 }
 
--(id)initWithName:(NSString *)theName andValue:(NSString *)theValue andReplace:(bool)theReplace
+-(id)initWithName:(NSString *)theName andValue:(NSString *)theValue andReplace:(BOOL)theReplace
 {
     if (self = [self init]) {
         self.name    = theName;
@@ -64,7 +64,7 @@
 }
 
 
--(void)setReplace:(bool)theValue
+-(void)setReplace:(BOOL)theValue
 {
     replace      = theValue;
     replaceIsSet = YES;

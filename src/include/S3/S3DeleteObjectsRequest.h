@@ -22,11 +22,7 @@
 /** Request object for DeleteObjects.
  *
  */
-@interface S3DeleteObjectsRequest:S3Request
-{
-    NSString       *mfaAuth;
-    NSMutableArray *objects;
-    BOOL           quiet;
+@interface S3DeleteObjectsRequest:S3Request {
 }
 
 /** The concatenation of the multi-factor authentication device's serial number,

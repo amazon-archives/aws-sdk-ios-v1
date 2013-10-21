@@ -18,13 +18,17 @@
 
 @implementation EC2DescribeTagsRequest
 
+@synthesize dryRun;
+@synthesize dryRunIsSet;
 @synthesize filters;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        filters = [[NSMutableArray alloc] initWithCapacity:1];
+        dryRun      = NO;
+        dryRunIsSet = NO;
+        filters     = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
     return self;
@@ -55,6 +59,7 @@
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
 
     [buffer appendString:@"{"];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"DryRun: %d,", dryRun] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Filters: %@,", filters] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
@@ -62,6 +67,12 @@
     return [buffer autorelease];
 }
 
+
+-(void)setDryRun:(BOOL)theValue
+{
+    dryRun      = theValue;
+    dryRunIsSet = YES;
+}
 
 
 -(void)dealloc

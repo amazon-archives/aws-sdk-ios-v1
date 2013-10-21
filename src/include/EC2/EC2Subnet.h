@@ -30,10 +30,10 @@
     NSString       *cidrBlock;
     NSNumber       *availableIpAddressCount;
     NSString       *availabilityZone;
-    bool           defaultForAz;
-    bool           defaultForAzIsSet;
-    bool           mapPublicIpOnLaunch;
-    bool           mapPublicIpOnLaunchIsSet;
+    BOOL           defaultForAz;
+    BOOL           defaultForAzIsSet;
+    BOOL           mapPublicIpOnLaunch;
+    BOOL           mapPublicIpOnLaunchIsSet;
     NSMutableArray *tags;
 }
 
@@ -54,6 +54,9 @@
 /**
  * Describes the current state of the subnet. The state of the subnet may
  * be either <code>pending</code> or <code>available</code>.
+ * <p>
+ * <b>Constraints:</b><br/>
+ * <b>Allowed Values: </b>pending, available
  */
 @property (nonatomic, retain) NSString *state;
 
@@ -82,16 +85,16 @@
 /**
  * The value of the DefaultForAz property for this object.
  */
-@property (nonatomic) bool           defaultForAz;
+@property (nonatomic) BOOL           defaultForAz;
 
-@property (nonatomic, readonly) bool defaultForAzIsSet;
+@property (nonatomic, readonly) BOOL defaultForAzIsSet;
 
 /**
  * The value of the MapPublicIpOnLaunch property for this object.
  */
-@property (nonatomic) bool           mapPublicIpOnLaunch;
+@property (nonatomic) BOOL           mapPublicIpOnLaunch;
 
-@property (nonatomic, readonly) bool mapPublicIpOnLaunchIsSet;
+@property (nonatomic, readonly) BOOL mapPublicIpOnLaunchIsSet;
 
 /**
  * A list of tags for the Subnet.

@@ -78,6 +78,8 @@
 #import "EC2CreateSnapshotRequestMarshaller.h"
 #import "EC2DeleteVolumeResponseUnmarshaller.h"
 #import "EC2DeleteVolumeRequestMarshaller.h"
+#import "EC2ModifyReservedInstancesResponseUnmarshaller.h"
+#import "EC2ModifyReservedInstancesRequestMarshaller.h"
 #import "EC2DescribeVpcsResponseUnmarshaller.h"
 #import "EC2DescribeVpcsRequestMarshaller.h"
 #import "EC2CancelConversionTaskResponseUnmarshaller.h"
@@ -112,12 +114,12 @@
 #import "EC2DescribeConversionTasksRequestMarshaller.h"
 #import "EC2DescribeInstanceAttributeResponseUnmarshaller.h"
 #import "EC2DescribeInstanceAttributeRequestMarshaller.h"
+#import "EC2DescribePlacementGroupsResponseUnmarshaller.h"
+#import "EC2DescribePlacementGroupsRequestMarshaller.h"
 #import "EC2DescribeSubnetsResponseUnmarshaller.h"
 #import "EC2DescribeSubnetsRequestMarshaller.h"
 #import "EC2RunInstancesResponseUnmarshaller.h"
 #import "EC2RunInstancesRequestMarshaller.h"
-#import "EC2DescribePlacementGroupsResponseUnmarshaller.h"
-#import "EC2DescribePlacementGroupsRequestMarshaller.h"
 #import "EC2DescribeInstancesResponseUnmarshaller.h"
 #import "EC2DescribeInstancesRequestMarshaller.h"
 #import "EC2ModifyVolumeAttributeResponseUnmarshaller.h"
@@ -154,6 +156,8 @@
 #import "EC2PurchaseReservedInstancesOfferingRequestMarshaller.h"
 #import "EC2ModifySnapshotAttributeResponseUnmarshaller.h"
 #import "EC2ModifySnapshotAttributeRequestMarshaller.h"
+#import "EC2DescribeReservedInstancesModificationsResponseUnmarshaller.h"
+#import "EC2DescribeReservedInstancesModificationsRequestMarshaller.h"
 #import "EC2TerminateInstancesResponseUnmarshaller.h"
 #import "EC2TerminateInstancesRequestMarshaller.h"
 #import "EC2DeleteSpotDatafeedSubscriptionResponseUnmarshaller.h"
@@ -443,6 +447,13 @@
     return (EC2DeleteVolumeResponse *)[self invoke:request rawRequest:deleteVolumeRequest unmarshallerDelegate:[EC2DeleteVolumeResponseUnmarshaller class]];
 }
 
+-(EC2ModifyReservedInstancesResponse *)modifyReservedInstances:(EC2ModifyReservedInstancesRequest *)modifyReservedInstancesRequest
+{
+    AmazonServiceRequest *request = [EC2ModifyReservedInstancesRequestMarshaller createRequest:modifyReservedInstancesRequest];
+
+    return (EC2ModifyReservedInstancesResponse *)[self invoke:request rawRequest:modifyReservedInstancesRequest unmarshallerDelegate:[EC2ModifyReservedInstancesResponseUnmarshaller class]];
+}
+
 -(EC2DescribeVpcsResponse *)describeVpcs:(EC2DescribeVpcsRequest *)describeVpcsRequest
 {
     AmazonServiceRequest *request = [EC2DescribeVpcsRequestMarshaller createRequest:describeVpcsRequest];
@@ -562,6 +573,13 @@
     return (EC2DescribeInstanceAttributeResponse *)[self invoke:request rawRequest:describeInstanceAttributeRequest unmarshallerDelegate:[EC2DescribeInstanceAttributeResponseUnmarshaller class]];
 }
 
+-(EC2DescribePlacementGroupsResponse *)describePlacementGroups:(EC2DescribePlacementGroupsRequest *)describePlacementGroupsRequest
+{
+    AmazonServiceRequest *request = [EC2DescribePlacementGroupsRequestMarshaller createRequest:describePlacementGroupsRequest];
+
+    return (EC2DescribePlacementGroupsResponse *)[self invoke:request rawRequest:describePlacementGroupsRequest unmarshallerDelegate:[EC2DescribePlacementGroupsResponseUnmarshaller class]];
+}
+
 -(EC2DescribeSubnetsResponse *)describeSubnets:(EC2DescribeSubnetsRequest *)describeSubnetsRequest
 {
     AmazonServiceRequest *request = [EC2DescribeSubnetsRequestMarshaller createRequest:describeSubnetsRequest];
@@ -574,13 +592,6 @@
     AmazonServiceRequest *request = [EC2RunInstancesRequestMarshaller createRequest:runInstancesRequest];
 
     return (EC2RunInstancesResponse *)[self invoke:request rawRequest:runInstancesRequest unmarshallerDelegate:[EC2RunInstancesResponseUnmarshaller class]];
-}
-
--(EC2DescribePlacementGroupsResponse *)describePlacementGroups:(EC2DescribePlacementGroupsRequest *)describePlacementGroupsRequest
-{
-    AmazonServiceRequest *request = [EC2DescribePlacementGroupsRequestMarshaller createRequest:describePlacementGroupsRequest];
-
-    return (EC2DescribePlacementGroupsResponse *)[self invoke:request rawRequest:describePlacementGroupsRequest unmarshallerDelegate:[EC2DescribePlacementGroupsResponseUnmarshaller class]];
 }
 
 -(EC2DescribeInstancesResponse *)describeInstances:(EC2DescribeInstancesRequest *)describeInstancesRequest
@@ -707,6 +718,13 @@
     AmazonServiceRequest *request = [EC2ModifySnapshotAttributeRequestMarshaller createRequest:modifySnapshotAttributeRequest];
 
     return (EC2ModifySnapshotAttributeResponse *)[self invoke:request rawRequest:modifySnapshotAttributeRequest unmarshallerDelegate:[EC2ModifySnapshotAttributeResponseUnmarshaller class]];
+}
+
+-(EC2DescribeReservedInstancesModificationsResponse *)describeReservedInstancesModifications:(EC2DescribeReservedInstancesModificationsRequest *)describeReservedInstancesModificationsRequest
+{
+    AmazonServiceRequest *request = [EC2DescribeReservedInstancesModificationsRequestMarshaller createRequest:describeReservedInstancesModificationsRequest];
+
+    return (EC2DescribeReservedInstancesModificationsResponse *)[self invoke:request rawRequest:describeReservedInstancesModificationsRequest unmarshallerDelegate:[EC2DescribeReservedInstancesModificationsResponseUnmarshaller class]];
 }
 
 -(EC2TerminateInstancesResponse *)terminateInstances:(EC2TerminateInstancesRequest *)terminateInstancesRequest

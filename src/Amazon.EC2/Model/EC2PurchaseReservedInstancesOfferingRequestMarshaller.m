@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"PurchaseReservedInstancesOffering"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[purchaseReservedInstancesOfferingRequest delegate]];
     [request setCredentials:[purchaseReservedInstancesOfferingRequest credentials]];
     [request setEndpoint:[purchaseReservedInstancesOfferingRequest requestEndpoint]];
     [request setRequestTag:[purchaseReservedInstancesOfferingRequest requestTag]];
 
+    if (purchaseReservedInstancesOfferingRequest != nil) {
+        if (purchaseReservedInstancesOfferingRequest.dryRunIsSet) {
+            [request setParameterValue:(purchaseReservedInstancesOfferingRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
     if (purchaseReservedInstancesOfferingRequest != nil) {
         if (purchaseReservedInstancesOfferingRequest.reservedInstancesOfferingId != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", purchaseReservedInstancesOfferingRequest.reservedInstancesOfferingId] forKey:[NSString stringWithFormat:@"%@", @"ReservedInstancesOfferingId"]];

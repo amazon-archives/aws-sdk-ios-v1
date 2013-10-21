@@ -21,8 +21,6 @@
  * the client. Service exceptions are indicated by throwing AWSServiceException.
  */
 @interface AmazonClientException : NSException {
-    NSString *message;
-    NSError  *error;
 }
 
 /** Description of the exception */
@@ -36,14 +34,6 @@
  * @param message The message.
  */
 -(id)initWithMessage:(NSString *)message;
-
-/** Initialize the exception with a name, reason and userInfo.
- *
- * @param name The name.
- * @param reason The reason.
- * @param userInfo The userInfo.
- */
-- (id)initWithName:(NSString *)name reason:(NSString *)reason userInfo:(NSDictionary *)userInfo;
 
 /** Return an exception with the given message
  *

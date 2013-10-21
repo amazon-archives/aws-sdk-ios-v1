@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"ImportKeyPair"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[importKeyPairRequest delegate]];
     [request setCredentials:[importKeyPairRequest credentials]];
     [request setEndpoint:[importKeyPairRequest requestEndpoint]];
     [request setRequestTag:[importKeyPairRequest requestTag]];
 
+    if (importKeyPairRequest != nil) {
+        if (importKeyPairRequest.dryRunIsSet) {
+            [request setParameterValue:(importKeyPairRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
     if (importKeyPairRequest != nil) {
         if (importKeyPairRequest.keyName != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", importKeyPairRequest.keyName] forKey:[NSString stringWithFormat:@"%@", @"KeyName"]];

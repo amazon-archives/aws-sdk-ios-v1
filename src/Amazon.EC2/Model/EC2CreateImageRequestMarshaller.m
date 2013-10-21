@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"CreateImage"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[createImageRequest delegate]];
     [request setCredentials:[createImageRequest credentials]];
     [request setEndpoint:[createImageRequest requestEndpoint]];
     [request setRequestTag:[createImageRequest requestTag]];
 
+    if (createImageRequest != nil) {
+        if (createImageRequest.dryRunIsSet) {
+            [request setParameterValue:(createImageRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
     if (createImageRequest != nil) {
         if (createImageRequest.instanceId != nil) {
             [request setParameterValue:[NSString stringWithFormat:@"%@", createImageRequest.instanceId] forKey:[NSString stringWithFormat:@"%@", @"InstanceId"]];

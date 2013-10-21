@@ -18,6 +18,8 @@
 
 @implementation EC2DescribeImagesRequest
 
+@synthesize dryRun;
+@synthesize dryRunIsSet;
 @synthesize imageIds;
 @synthesize owners;
 @synthesize executableUsers;
@@ -27,6 +29,8 @@
 -(id)init
 {
     if (self = [super init]) {
+        dryRun          = NO;
+        dryRunIsSet     = NO;
         imageIds        = [[NSMutableArray alloc] initWithCapacity:1];
         owners          = [[NSMutableArray alloc] initWithCapacity:1];
         executableUsers = [[NSMutableArray alloc] initWithCapacity:1];
@@ -79,6 +83,7 @@
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
 
     [buffer appendString:@"{"];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"DryRun: %d,", dryRun] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ImageIds: %@,", imageIds] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Owners: %@,", owners] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ExecutableUsers: %@,", executableUsers] autorelease]];
@@ -89,6 +94,12 @@
     return [buffer autorelease];
 }
 
+
+-(void)setDryRun:(BOOL)theValue
+{
+    dryRun      = theValue;
+    dryRunIsSet = YES;
+}
 
 
 -(void)dealloc

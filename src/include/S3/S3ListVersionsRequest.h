@@ -29,11 +29,6 @@
  *
  */
 @interface S3ListVersionsRequest:S3Request {
-    NSString  *prefix;
-    NSString  *keyMarker;
-    NSString  *versionIdMarker;
-    NSString  *delimiter;
-    NSInteger maxKeys;
 }
 
 /**
@@ -81,7 +76,7 @@
  * more. Even if maxKeys is not specified, Amazon S3 will limit the number
  * of results in the response.
  */
-@property (nonatomic) NSInteger maxKeys;
+@property (nonatomic, assign) int32_t maxKeys;
 
 
 @end

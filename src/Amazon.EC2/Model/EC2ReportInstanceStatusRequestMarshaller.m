@@ -22,13 +22,18 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"ReportInstanceStatus"           forKey:@"Action"];
-    [request setParameterValue:@"2013-02-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
 
     [request setDelegate:[reportInstanceStatusRequest delegate]];
     [request setCredentials:[reportInstanceStatusRequest credentials]];
     [request setEndpoint:[reportInstanceStatusRequest requestEndpoint]];
     [request setRequestTag:[reportInstanceStatusRequest requestTag]];
 
+    if (reportInstanceStatusRequest != nil) {
+        if (reportInstanceStatusRequest.dryRunIsSet) {
+            [request setParameterValue:(reportInstanceStatusRequest.dryRun ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"DryRun"]];
+        }
+    }
 
     if (reportInstanceStatusRequest != nil) {
         int instancesListIndex = 1;
