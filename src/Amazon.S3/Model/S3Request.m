@@ -28,6 +28,8 @@
     [self.urlRequest setValue:[NSString stringWithFormat:@"%lld", self.contentLength] forHTTPHeaderField:kHttpHdrContentLength];
 
     [self.urlRequest setValue:self.host forHTTPHeaderField:kHttpHdrHost];
+    
+    self.date = [NSDate date];
     [self.urlRequest setValue:[self.date stringWithRFC822Format] forHTTPHeaderField:kHttpHdrDate];
 
     if (nil != self.httpMethod) {
