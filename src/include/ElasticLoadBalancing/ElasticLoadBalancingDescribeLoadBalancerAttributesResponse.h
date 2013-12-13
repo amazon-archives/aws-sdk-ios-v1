@@ -13,22 +13,27 @@
  * permissions and limitations under the License.
  */
 
+#import "ElasticLoadBalancingLoadBalancerAttributes.h"
 
+#import "ElasticLoadBalancingResponse.h"
+
+#import "ElasticLoadBalancingLoadBalancerAttributeNotFoundException.h"
+#import "ElasticLoadBalancingLoadBalancerNotFoundException.h"
 
 
 /**
- * Reason Code
- *
- * \ingroup EC2
+ * Describe Load Balancer Attributes Result
  */
 
-@interface EC2ReasonCode:NSObject
+@interface ElasticLoadBalancingDescribeLoadBalancerAttributesResponse:ElasticLoadBalancingResponse
 
 {
-    NSString *reasonCode;
+    ElasticLoadBalancingLoadBalancerAttributes *loadBalancerAttributes;
 }
 
 
+
+-(void)setException:(AmazonServiceException *)theException;
 
 
 /**
@@ -38,9 +43,9 @@
 -(id)init;
 
 /**
- * The value of the ReasonCode property for this object.
+ * The load balancer attributes structure.
  */
-@property (nonatomic, retain) NSString *reasonCode;
+@property (nonatomic, retain) ElasticLoadBalancingLoadBalancerAttributes *loadBalancerAttributes;
 
 /**
  * Returns a string representation of this object; useful for testing and

@@ -28,6 +28,8 @@
 @synthesize ramdiskId;
 @synthesize rootDeviceName;
 @synthesize blockDeviceMappings;
+@synthesize virtualizationType;
+@synthesize sriovNetSupport;
 
 
 -(id)init
@@ -43,6 +45,8 @@
         ramdiskId           = nil;
         rootDeviceName      = nil;
         blockDeviceMappings = [[NSMutableArray alloc] initWithCapacity:1];
+        virtualizationType  = nil;
+        sriovNetSupport     = nil;
     }
 
     return self;
@@ -82,6 +86,8 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"RamdiskId: %@,", ramdiskId] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"RootDeviceName: %@,", rootDeviceName] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"BlockDeviceMappings: %@,", blockDeviceMappings] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"VirtualizationType: %@,", virtualizationType] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"SriovNetSupport: %@,", sriovNetSupport] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -106,6 +112,8 @@
     [ramdiskId release];
     [rootDeviceName release];
     [blockDeviceMappings release];
+    [virtualizationType release];
+    [sriovNetSupport release];
 
     [super dealloc];
 }

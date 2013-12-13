@@ -89,9 +89,6 @@ typedef struct _AWSRange {
 {
     [_response release];
 
-    [_error release];
-    [_exception release];
-
     [_abortMultipartUpload release];
     [_initRequest release];
     [_initResponse release];
@@ -118,11 +115,43 @@ typedef struct _AWSRange {
     
     S3MultipartUpload *multipartUpload = nil;
     
+    self.error = nil;
+    self.exception = nil;
+    
     // Check if the upload was already started
     S3ListMultipartUploadsRequest *listMPU = [[[S3ListMultipartUploadsRequest alloc] init] autorelease];
     listMPU.bucket = self.putRequest.bucket;
-    S3ListMultipartUploadsResponse *listReponse = [self.s3 listMultipartUploads:listMPU];
-    for (S3MultipartUpload *upload in listReponse.listMultipartUploadsResult.uploads) {
+    S3ListMultipartUploadsResponse *listResponse = nil;
+    @try {
+        listResponse = [self.s3 listMultipartUploads:listMPU];
+        if (listResponse.error != nil) {
+            self.error = listResponse.error;
+            self.exception = [AmazonServiceException exceptionWithMessage:[self.error description] andError:self.error];
+        }
+    }
+    @catch (NSException *exception) {
+        self.exception = exception;
+        self.error = [AmazonErrorHandler errorFromException:exception];
+    }
+    
+    // If the list multipart upload fails, report back
+    if (self.error != nil) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if([self.putRequest.delegate respondsToSelector:@selector(request:didFailWithError:)])
+            {
+                [self.putRequest.delegate request:listMPU didFailWithError:self.error];
+            }
+            dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+            dispatch_async(queue, ^{
+                [self cleanup];
+                [self finish];
+            });
+        });
+        return;
+    }
+    
+    
+    for (S3MultipartUpload *upload in listResponse.listMultipartUploadsResult.uploads) {
         if ([upload.key isEqualToString:self.putRequest.key]) {
             multipartUpload = upload;
             break;

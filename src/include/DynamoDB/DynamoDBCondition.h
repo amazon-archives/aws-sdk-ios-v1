@@ -31,14 +31,14 @@
 
 
 /**
- * Represents one or more values to evaluate against the supplied
- * attribute. This list contains exactly one value, except for a
- * <code>BETWEEN</code> or <code>IN</code> comparison, in which case the
- * list contains two values. <note> <p>For type Number, value comparisons
- * are numeric. <p>String value comparisons for greater than, equals, or
- * less than are based on ASCII character code values. For example,
- * <code>a</code> is greater than <code>A</code>, and <code>aa</code> is
- * greater than <code>B</code>. For a list of code values, see <a
+ * One or more values to evaluate against the supplied attribute. This
+ * list contains exactly one value, except for a <code>BETWEEN</code> or
+ * <code>IN</code> comparison, in which case the list contains two
+ * values. <note> <p>For type Number, value comparisons are numeric.
+ * <p>String value comparisons for greater than, equals, or less than are
+ * based on ASCII character code values. For example, <code>a</code> is
+ * greater than <code>A</code>, and <code>aa</code> is greater than
+ * <code>B</code>. For a list of code values, see <a
  * rs">http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters</a>.
  * <p>For Binary, Amazon DynamoDB treats each byte of the binary data as
  * unsigned when it compares binary values, for example when evaluating
@@ -47,13 +47,13 @@
 @property (nonatomic, retain) NSMutableArray *attributeValueList;
 
 /**
- * Represents a comparator for evaluating attributes. For example,
- * equals, greater than, less than, etc. <p>Valid comparison operators
- * for Query: <p><code>EQ | LE | LT | GE | GT | BEGINS_WITH |
- * BETWEEN</code> <p>Valid comparison operators for Scan: <p><code>EQ |
- * NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS |
- * BEGINS_WITH | IN | BETWEEN</code> <p>For information on specifying
- * data types in JSON, see <a
+ * A comparator for evaluating attributes. For example, equals, greater
+ * than, less than, etc. <p>Valid comparison operators for Query:
+ * <p><code>EQ | LE | LT | GE | GT | BEGINS_WITH | BETWEEN</code>
+ * <p>Valid comparison operators for Scan: <p><code>EQ | NE | LE | LT |
+ * GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN
+ * | BETWEEN</code> <p>For information on specifying data types in JSON,
+ * see <a
  * .amazon.com/amazondynamodb/latest/developerguide/DataFormat.html">JSON
  * Data Format</a> in the Amazon DynamoDB Developer Guide. <p>The
  * following are descriptions of each comparison operator. <ul> <li>

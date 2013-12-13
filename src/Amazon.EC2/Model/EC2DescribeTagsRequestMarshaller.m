@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribeTags"           forKey:@"Action"];
-    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-15"   forKey:@"Version"];
 
     [request setDelegate:[describeTagsRequest delegate]];
     [request setCredentials:[describeTagsRequest credentials]];
@@ -56,6 +56,16 @@
             }
 
             filtersListIndex++;
+        }
+    }
+    if (describeTagsRequest != nil) {
+        if (describeTagsRequest.maxResults != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", describeTagsRequest.maxResults] forKey:[NSString stringWithFormat:@"%@", @"MaxResults"]];
+        }
+    }
+    if (describeTagsRequest != nil) {
+        if (describeTagsRequest.nextToken != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", describeTagsRequest.nextToken] forKey:[NSString stringWithFormat:@"%@", @"NextToken"]];
         }
     }
 

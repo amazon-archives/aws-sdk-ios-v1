@@ -13,39 +13,18 @@
  * permissions and limitations under the License.
  */
 
-#import "DynamoDBKey.h"
+#import "ElasticLoadBalancingDescribeLoadBalancerAttributesRequest.h"
 
 
-@implementation DynamoDBKey
+@implementation ElasticLoadBalancingDescribeLoadBalancerAttributesRequest
 
-@synthesize hashKeyElement;
-@synthesize rangeKeyElement;
+@synthesize loadBalancerName;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        hashKeyElement  = nil;
-        rangeKeyElement = nil;
-    }
-
-    return self;
-}
-
--(id)initWithHashKeyElement:(DynamoDBAttributeValue *)theHashKeyElement
-{
-    if (self = [self init]) {
-        self.hashKeyElement = theHashKeyElement;
-    }
-
-    return self;
-}
-
--(id)initWithHashKeyElement:(DynamoDBAttributeValue *)theHashKeyElement andRangeKeyElement:(DynamoDBAttributeValue *)theRangeKeyElement
-{
-    if (self = [self init]) {
-        self.hashKeyElement  = theHashKeyElement;
-        self.rangeKeyElement = theRangeKeyElement;
+        loadBalancerName = nil;
     }
 
     return self;
@@ -58,8 +37,7 @@
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
 
     [buffer appendString:@"{"];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"HashKeyElement: %@,", hashKeyElement] autorelease]];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"RangeKeyElement: %@,", rangeKeyElement] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"LoadBalancerName: %@,", loadBalancerName] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -70,8 +48,7 @@
 
 -(void)dealloc
 {
-    [hashKeyElement release];
-    [rangeKeyElement release];
+    [loadBalancerName release];
 
     [super dealloc];
 }

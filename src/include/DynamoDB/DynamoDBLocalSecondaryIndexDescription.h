@@ -42,7 +42,7 @@
 -(id)init;
 
 /**
- * Represents the name of the secondary index.
+ * Represents the name of the local secondary index.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>3 - 255<br/>
@@ -51,8 +51,8 @@
 @property (nonatomic, retain) NSString *indexName;
 
 /**
- * Represents the complete index key schema, which consists of one or
- * more pairs of attribute names and key types (<code>HASH</code> or
+ * The complete index key schema, which consists of one or more pairs of
+ * attribute names and key types (<code>HASH</code> or
  * <code>RANGE</code>).
  * <p>
  * <b>Constraints:</b><br/>
@@ -62,20 +62,20 @@
 
 /**
  * Represents attributes that are copied (projected) from the table into
- * the index. These are in addition to the primary key attributes and
+ * an index. These are in addition to the primary key attributes and
  * index key attributes, which are automatically projected.
  */
 @property (nonatomic, retain) DynamoDBProjection *projection;
 
 /**
- * Represents the total size of the index, in bytes. Amazon DynamoDB
+ * The total size of the specified index, in bytes. Amazon DynamoDB
  * updates this value approximately every six hours. Recent changes might
  * not be reflected in this value.
  */
 @property (nonatomic, retain) NSNumber *indexSizeBytes;
 
 /**
- * Represents the number of items in the index. Amazon DynamoDB updates
+ * The number of items in the specified index. Amazon DynamoDB updates
  * this value approximately every six hours. Recent changes might not be
  * reflected in this value.
  */

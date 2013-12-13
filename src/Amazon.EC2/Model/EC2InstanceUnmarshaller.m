@@ -257,6 +257,11 @@
         return;
     }
 
+    if ([elementName isEqualToString:@"sriovNetSupport"]) {
+        self.response.sriovNetSupport = self.currentText;
+        return;
+    }
+
     if ([elementName isEqualToString:@"instance"]) {
         if (caller != nil) {
             [parser setDelegate:caller];

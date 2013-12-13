@@ -70,10 +70,38 @@
         listMultipartUploadsRequest.keyMarker = nextKeyMarker;
         listMultipartUploadsRequest.uploadIdMarker = nextUploadIdMarker;
 
-        S3ListMultipartUploadsResponse *listMultipartUploadsResponse = [self.s3 listMultipartUploads:listMultipartUploadsRequest];
+        S3ListMultipartUploadsResponse *listMultipartUploadsResponse;
+        @try {
+            listMultipartUploadsResponse = [self.s3 listMultipartUploads:listMultipartUploadsRequest];
+            if (listMultipartUploadsResponse.error != nil) {
+                self.error = listMultipartUploadsResponse.error;
+                self.exception = [AmazonServiceException exceptionWithMessage:[self.error description] andError:self.error];
+            }
+        }
+        @catch (NSException *exception) {
+            self.exception = exception;
+            self.error = [AmazonErrorHandler errorFromException:exception];
+        }
+        
+        // If the list multipart upload fails, report back
+        if (self.error != nil) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if([self.delegate respondsToSelector:@selector(request:didFailWithError:)])
+                {
+                    [self.delegate request:listMultipartUploadsRequest didFailWithError:self.error];
+                }
+                dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+                dispatch_async(queue, ^{
+                    [self cleanup];
+                    [self finish];
+                });
+            });
+            return;
+        }
+
         [listMultipartUploadsRequest release];
         S3ListMultipartUploadsResult *listMultipartUploadsResult = listMultipartUploadsResponse.listMultipartUploadsResult;
-
+        
         isTruncated = listMultipartUploadsResult.isTruncated;
         nextKeyMarker = listMultipartUploadsResult.nextKeyMarker;
         nextUploadIdMarker = listMultipartUploadsResult.nextUploadIdMarker;

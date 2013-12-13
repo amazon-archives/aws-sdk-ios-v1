@@ -22,6 +22,16 @@
 #import "ElasticLoadBalancingConfigureHealthCheckRequestMarshaller.h"
 #import "ElasticLoadBalancingDetachLoadBalancerFromSubnetsResponseUnmarshaller.h"
 #import "ElasticLoadBalancingDetachLoadBalancerFromSubnetsRequestMarshaller.h"
+#import "ElasticLoadBalancingModifyLoadBalancerAttributesResponseUnmarshaller.h"
+#import "ElasticLoadBalancingModifyLoadBalancerAttributesRequestMarshaller.h"
+#import "ElasticLoadBalancingCreateLoadBalancerListenersResponseUnmarshaller.h"
+#import "ElasticLoadBalancingCreateLoadBalancerListenersRequestMarshaller.h"
+#import "ElasticLoadBalancingDeleteLoadBalancerListenersResponseUnmarshaller.h"
+#import "ElasticLoadBalancingDeleteLoadBalancerListenersRequestMarshaller.h"
+#import "ElasticLoadBalancingCreateAppCookieStickinessPolicyResponseUnmarshaller.h"
+#import "ElasticLoadBalancingCreateAppCookieStickinessPolicyRequestMarshaller.h"
+#import "ElasticLoadBalancingApplySecurityGroupsToLoadBalancerResponseUnmarshaller.h"
+#import "ElasticLoadBalancingApplySecurityGroupsToLoadBalancerRequestMarshaller.h"
 #import "ElasticLoadBalancingDescribeLoadBalancerPoliciesResponseUnmarshaller.h"
 #import "ElasticLoadBalancingDescribeLoadBalancerPoliciesRequestMarshaller.h"
 #import "ElasticLoadBalancingSetLoadBalancerPoliciesOfListenerResponseUnmarshaller.h"
@@ -36,30 +46,24 @@
 #import "ElasticLoadBalancingCreateLoadBalancerPolicyRequestMarshaller.h"
 #import "ElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerResponseUnmarshaller.h"
 #import "ElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerRequestMarshaller.h"
-#import "ElasticLoadBalancingCreateLoadBalancerListenersResponseUnmarshaller.h"
-#import "ElasticLoadBalancingCreateLoadBalancerListenersRequestMarshaller.h"
-#import "ElasticLoadBalancingCreateLoadBalancerResponseUnmarshaller.h"
-#import "ElasticLoadBalancingCreateLoadBalancerRequestMarshaller.h"
 #import "ElasticLoadBalancingDeleteLoadBalancerResponseUnmarshaller.h"
 #import "ElasticLoadBalancingDeleteLoadBalancerRequestMarshaller.h"
+#import "ElasticLoadBalancingCreateLoadBalancerResponseUnmarshaller.h"
+#import "ElasticLoadBalancingCreateLoadBalancerRequestMarshaller.h"
 #import "ElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerResponseUnmarshaller.h"
 #import "ElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerRequestMarshaller.h"
-#import "ElasticLoadBalancingDeleteLoadBalancerListenersResponseUnmarshaller.h"
-#import "ElasticLoadBalancingDeleteLoadBalancerListenersRequestMarshaller.h"
 #import "ElasticLoadBalancingDeregisterInstancesFromLoadBalancerResponseUnmarshaller.h"
 #import "ElasticLoadBalancingDeregisterInstancesFromLoadBalancerRequestMarshaller.h"
 #import "ElasticLoadBalancingSetLoadBalancerListenerSSLCertificateResponseUnmarshaller.h"
 #import "ElasticLoadBalancingSetLoadBalancerListenerSSLCertificateRequestMarshaller.h"
+#import "ElasticLoadBalancingDescribeLoadBalancerAttributesResponseUnmarshaller.h"
+#import "ElasticLoadBalancingDescribeLoadBalancerAttributesRequestMarshaller.h"
 #import "ElasticLoadBalancingCreateLBCookieStickinessPolicyResponseUnmarshaller.h"
 #import "ElasticLoadBalancingCreateLBCookieStickinessPolicyRequestMarshaller.h"
 #import "ElasticLoadBalancingAttachLoadBalancerToSubnetsResponseUnmarshaller.h"
 #import "ElasticLoadBalancingAttachLoadBalancerToSubnetsRequestMarshaller.h"
-#import "ElasticLoadBalancingCreateAppCookieStickinessPolicyResponseUnmarshaller.h"
-#import "ElasticLoadBalancingCreateAppCookieStickinessPolicyRequestMarshaller.h"
 #import "ElasticLoadBalancingRegisterInstancesWithLoadBalancerResponseUnmarshaller.h"
 #import "ElasticLoadBalancingRegisterInstancesWithLoadBalancerRequestMarshaller.h"
-#import "ElasticLoadBalancingApplySecurityGroupsToLoadBalancerResponseUnmarshaller.h"
-#import "ElasticLoadBalancingApplySecurityGroupsToLoadBalancerRequestMarshaller.h"
 #import "ElasticLoadBalancingDescribeLoadBalancersResponseUnmarshaller.h"
 #import "ElasticLoadBalancingDescribeLoadBalancersRequestMarshaller.h"
 
@@ -111,6 +115,41 @@
     return (ElasticLoadBalancingDetachLoadBalancerFromSubnetsResponse *)[self invoke:request rawRequest:detachLoadBalancerFromSubnetsRequest unmarshallerDelegate:[ElasticLoadBalancingDetachLoadBalancerFromSubnetsResponseUnmarshaller class]];
 }
 
+-(ElasticLoadBalancingModifyLoadBalancerAttributesResponse *)modifyLoadBalancerAttributes:(ElasticLoadBalancingModifyLoadBalancerAttributesRequest *)modifyLoadBalancerAttributesRequest
+{
+    AmazonServiceRequest *request = [ElasticLoadBalancingModifyLoadBalancerAttributesRequestMarshaller createRequest:modifyLoadBalancerAttributesRequest];
+
+    return (ElasticLoadBalancingModifyLoadBalancerAttributesResponse *)[self invoke:request rawRequest:modifyLoadBalancerAttributesRequest unmarshallerDelegate:[ElasticLoadBalancingModifyLoadBalancerAttributesResponseUnmarshaller class]];
+}
+
+-(ElasticLoadBalancingCreateLoadBalancerListenersResponse *)createLoadBalancerListeners:(ElasticLoadBalancingCreateLoadBalancerListenersRequest *)createLoadBalancerListenersRequest
+{
+    AmazonServiceRequest *request = [ElasticLoadBalancingCreateLoadBalancerListenersRequestMarshaller createRequest:createLoadBalancerListenersRequest];
+
+    return (ElasticLoadBalancingCreateLoadBalancerListenersResponse *)[self invoke:request rawRequest:createLoadBalancerListenersRequest unmarshallerDelegate:[ElasticLoadBalancingCreateLoadBalancerListenersResponseUnmarshaller class]];
+}
+
+-(ElasticLoadBalancingDeleteLoadBalancerListenersResponse *)deleteLoadBalancerListeners:(ElasticLoadBalancingDeleteLoadBalancerListenersRequest *)deleteLoadBalancerListenersRequest
+{
+    AmazonServiceRequest *request = [ElasticLoadBalancingDeleteLoadBalancerListenersRequestMarshaller createRequest:deleteLoadBalancerListenersRequest];
+
+    return (ElasticLoadBalancingDeleteLoadBalancerListenersResponse *)[self invoke:request rawRequest:deleteLoadBalancerListenersRequest unmarshallerDelegate:[ElasticLoadBalancingDeleteLoadBalancerListenersResponseUnmarshaller class]];
+}
+
+-(ElasticLoadBalancingCreateAppCookieStickinessPolicyResponse *)createAppCookieStickinessPolicy:(ElasticLoadBalancingCreateAppCookieStickinessPolicyRequest *)createAppCookieStickinessPolicyRequest
+{
+    AmazonServiceRequest *request = [ElasticLoadBalancingCreateAppCookieStickinessPolicyRequestMarshaller createRequest:createAppCookieStickinessPolicyRequest];
+
+    return (ElasticLoadBalancingCreateAppCookieStickinessPolicyResponse *)[self invoke:request rawRequest:createAppCookieStickinessPolicyRequest unmarshallerDelegate:[ElasticLoadBalancingCreateAppCookieStickinessPolicyResponseUnmarshaller class]];
+}
+
+-(ElasticLoadBalancingApplySecurityGroupsToLoadBalancerResponse *)applySecurityGroupsToLoadBalancer:(ElasticLoadBalancingApplySecurityGroupsToLoadBalancerRequest *)applySecurityGroupsToLoadBalancerRequest
+{
+    AmazonServiceRequest *request = [ElasticLoadBalancingApplySecurityGroupsToLoadBalancerRequestMarshaller createRequest:applySecurityGroupsToLoadBalancerRequest];
+
+    return (ElasticLoadBalancingApplySecurityGroupsToLoadBalancerResponse *)[self invoke:request rawRequest:applySecurityGroupsToLoadBalancerRequest unmarshallerDelegate:[ElasticLoadBalancingApplySecurityGroupsToLoadBalancerResponseUnmarshaller class]];
+}
+
 -(ElasticLoadBalancingDescribeLoadBalancerPoliciesResponse *)describeLoadBalancerPolicies:(ElasticLoadBalancingDescribeLoadBalancerPoliciesRequest *)describeLoadBalancerPoliciesRequest
 {
     AmazonServiceRequest *request = [ElasticLoadBalancingDescribeLoadBalancerPoliciesRequestMarshaller createRequest:describeLoadBalancerPoliciesRequest];
@@ -160,11 +199,11 @@
     return (ElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerResponse *)[self invoke:request rawRequest:enableAvailabilityZonesForLoadBalancerRequest unmarshallerDelegate:[ElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerResponseUnmarshaller class]];
 }
 
--(ElasticLoadBalancingCreateLoadBalancerListenersResponse *)createLoadBalancerListeners:(ElasticLoadBalancingCreateLoadBalancerListenersRequest *)createLoadBalancerListenersRequest
+-(ElasticLoadBalancingDeleteLoadBalancerResponse *)deleteLoadBalancer:(ElasticLoadBalancingDeleteLoadBalancerRequest *)deleteLoadBalancerRequest
 {
-    AmazonServiceRequest *request = [ElasticLoadBalancingCreateLoadBalancerListenersRequestMarshaller createRequest:createLoadBalancerListenersRequest];
+    AmazonServiceRequest *request = [ElasticLoadBalancingDeleteLoadBalancerRequestMarshaller createRequest:deleteLoadBalancerRequest];
 
-    return (ElasticLoadBalancingCreateLoadBalancerListenersResponse *)[self invoke:request rawRequest:createLoadBalancerListenersRequest unmarshallerDelegate:[ElasticLoadBalancingCreateLoadBalancerListenersResponseUnmarshaller class]];
+    return (ElasticLoadBalancingDeleteLoadBalancerResponse *)[self invoke:request rawRequest:deleteLoadBalancerRequest unmarshallerDelegate:[ElasticLoadBalancingDeleteLoadBalancerResponseUnmarshaller class]];
 }
 
 -(ElasticLoadBalancingCreateLoadBalancerResponse *)createLoadBalancer:(ElasticLoadBalancingCreateLoadBalancerRequest *)createLoadBalancerRequest
@@ -174,25 +213,11 @@
     return (ElasticLoadBalancingCreateLoadBalancerResponse *)[self invoke:request rawRequest:createLoadBalancerRequest unmarshallerDelegate:[ElasticLoadBalancingCreateLoadBalancerResponseUnmarshaller class]];
 }
 
--(ElasticLoadBalancingDeleteLoadBalancerResponse *)deleteLoadBalancer:(ElasticLoadBalancingDeleteLoadBalancerRequest *)deleteLoadBalancerRequest
-{
-    AmazonServiceRequest *request = [ElasticLoadBalancingDeleteLoadBalancerRequestMarshaller createRequest:deleteLoadBalancerRequest];
-
-    return (ElasticLoadBalancingDeleteLoadBalancerResponse *)[self invoke:request rawRequest:deleteLoadBalancerRequest unmarshallerDelegate:[ElasticLoadBalancingDeleteLoadBalancerResponseUnmarshaller class]];
-}
-
 -(ElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerResponse *)setLoadBalancerPoliciesForBackendServer:(ElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerRequest *)setLoadBalancerPoliciesForBackendServerRequest
 {
     AmazonServiceRequest *request = [ElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerRequestMarshaller createRequest:setLoadBalancerPoliciesForBackendServerRequest];
 
     return (ElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerResponse *)[self invoke:request rawRequest:setLoadBalancerPoliciesForBackendServerRequest unmarshallerDelegate:[ElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerResponseUnmarshaller class]];
-}
-
--(ElasticLoadBalancingDeleteLoadBalancerListenersResponse *)deleteLoadBalancerListeners:(ElasticLoadBalancingDeleteLoadBalancerListenersRequest *)deleteLoadBalancerListenersRequest
-{
-    AmazonServiceRequest *request = [ElasticLoadBalancingDeleteLoadBalancerListenersRequestMarshaller createRequest:deleteLoadBalancerListenersRequest];
-
-    return (ElasticLoadBalancingDeleteLoadBalancerListenersResponse *)[self invoke:request rawRequest:deleteLoadBalancerListenersRequest unmarshallerDelegate:[ElasticLoadBalancingDeleteLoadBalancerListenersResponseUnmarshaller class]];
 }
 
 -(ElasticLoadBalancingDeregisterInstancesFromLoadBalancerResponse *)deregisterInstancesFromLoadBalancer:(ElasticLoadBalancingDeregisterInstancesFromLoadBalancerRequest *)deregisterInstancesFromLoadBalancerRequest
@@ -209,6 +234,13 @@
     return (ElasticLoadBalancingSetLoadBalancerListenerSSLCertificateResponse *)[self invoke:request rawRequest:setLoadBalancerListenerSSLCertificateRequest unmarshallerDelegate:[ElasticLoadBalancingSetLoadBalancerListenerSSLCertificateResponseUnmarshaller class]];
 }
 
+-(ElasticLoadBalancingDescribeLoadBalancerAttributesResponse *)describeLoadBalancerAttributes:(ElasticLoadBalancingDescribeLoadBalancerAttributesRequest *)describeLoadBalancerAttributesRequest
+{
+    AmazonServiceRequest *request = [ElasticLoadBalancingDescribeLoadBalancerAttributesRequestMarshaller createRequest:describeLoadBalancerAttributesRequest];
+
+    return (ElasticLoadBalancingDescribeLoadBalancerAttributesResponse *)[self invoke:request rawRequest:describeLoadBalancerAttributesRequest unmarshallerDelegate:[ElasticLoadBalancingDescribeLoadBalancerAttributesResponseUnmarshaller class]];
+}
+
 -(ElasticLoadBalancingCreateLBCookieStickinessPolicyResponse *)createLBCookieStickinessPolicy:(ElasticLoadBalancingCreateLBCookieStickinessPolicyRequest *)createLBCookieStickinessPolicyRequest
 {
     AmazonServiceRequest *request = [ElasticLoadBalancingCreateLBCookieStickinessPolicyRequestMarshaller createRequest:createLBCookieStickinessPolicyRequest];
@@ -223,25 +255,11 @@
     return (ElasticLoadBalancingAttachLoadBalancerToSubnetsResponse *)[self invoke:request rawRequest:attachLoadBalancerToSubnetsRequest unmarshallerDelegate:[ElasticLoadBalancingAttachLoadBalancerToSubnetsResponseUnmarshaller class]];
 }
 
--(ElasticLoadBalancingCreateAppCookieStickinessPolicyResponse *)createAppCookieStickinessPolicy:(ElasticLoadBalancingCreateAppCookieStickinessPolicyRequest *)createAppCookieStickinessPolicyRequest
-{
-    AmazonServiceRequest *request = [ElasticLoadBalancingCreateAppCookieStickinessPolicyRequestMarshaller createRequest:createAppCookieStickinessPolicyRequest];
-
-    return (ElasticLoadBalancingCreateAppCookieStickinessPolicyResponse *)[self invoke:request rawRequest:createAppCookieStickinessPolicyRequest unmarshallerDelegate:[ElasticLoadBalancingCreateAppCookieStickinessPolicyResponseUnmarshaller class]];
-}
-
 -(ElasticLoadBalancingRegisterInstancesWithLoadBalancerResponse *)registerInstancesWithLoadBalancer:(ElasticLoadBalancingRegisterInstancesWithLoadBalancerRequest *)registerInstancesWithLoadBalancerRequest
 {
     AmazonServiceRequest *request = [ElasticLoadBalancingRegisterInstancesWithLoadBalancerRequestMarshaller createRequest:registerInstancesWithLoadBalancerRequest];
 
     return (ElasticLoadBalancingRegisterInstancesWithLoadBalancerResponse *)[self invoke:request rawRequest:registerInstancesWithLoadBalancerRequest unmarshallerDelegate:[ElasticLoadBalancingRegisterInstancesWithLoadBalancerResponseUnmarshaller class]];
-}
-
--(ElasticLoadBalancingApplySecurityGroupsToLoadBalancerResponse *)applySecurityGroupsToLoadBalancer:(ElasticLoadBalancingApplySecurityGroupsToLoadBalancerRequest *)applySecurityGroupsToLoadBalancerRequest
-{
-    AmazonServiceRequest *request = [ElasticLoadBalancingApplySecurityGroupsToLoadBalancerRequestMarshaller createRequest:applySecurityGroupsToLoadBalancerRequest];
-
-    return (ElasticLoadBalancingApplySecurityGroupsToLoadBalancerResponse *)[self invoke:request rawRequest:applySecurityGroupsToLoadBalancerRequest unmarshallerDelegate:[ElasticLoadBalancingApplySecurityGroupsToLoadBalancerResponseUnmarshaller class]];
 }
 
 -(ElasticLoadBalancingDescribeLoadBalancersResponse *)describeLoadBalancers:(ElasticLoadBalancingDescribeLoadBalancersRequest *)describeLoadBalancersRequest

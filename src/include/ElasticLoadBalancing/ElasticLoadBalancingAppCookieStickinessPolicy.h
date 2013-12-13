@@ -31,7 +31,7 @@
 
 /**
  * The mnemonic name for the policy being created. The name must be
- * unique within a set of policies for this LoadBalancer.
+ * unique within a set of policies for this load balancer.
  */
 @property (nonatomic, retain) NSString *policyName;
 
@@ -52,8 +52,8 @@
  * Callers should use properties to initialize any additional object members.
  *
  * @param thePolicyName The mnemonic name for the policy being created.
- * The name must be unique within a set of policies for this
- * LoadBalancer.
+ * The name must be unique within a set of policies for this load
+ * balancer.
  * @param theCookieName The name of the application cookie used for
  * stickiness.
  */

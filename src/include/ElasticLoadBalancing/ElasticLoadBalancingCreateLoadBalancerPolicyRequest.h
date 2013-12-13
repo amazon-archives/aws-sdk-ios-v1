@@ -47,13 +47,13 @@
 
 /**
  * The name associated with the LoadBalancer for which the policy is
- * being created. This name must be unique within the client AWS account.
+ * being created.
  */
 @property (nonatomic, retain) NSString *loadBalancerName;
 
 /**
- * The name of the LoadBalancer policy being created. The name must be
- * unique within the set of policies for this LoadBalancer.
+ * The name of the load balancer policy being created. The name must be
+ * unique within the set of policies for this load balancer.
  */
 @property (nonatomic, retain) NSString *policyName;
 

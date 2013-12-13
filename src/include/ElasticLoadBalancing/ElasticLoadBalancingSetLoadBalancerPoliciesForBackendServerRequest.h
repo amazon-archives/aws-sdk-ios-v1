@@ -44,8 +44,8 @@
 -(id)init;
 
 /**
- * The mnemonic name associated with the LoadBalancer. This name must be
- * unique within the client AWS account.
+ * The mnemonic name associated with the load balancer. This name must be
+ * unique within the set of your load balancers.
  */
 @property (nonatomic, retain) NSString *loadBalancerName;
 

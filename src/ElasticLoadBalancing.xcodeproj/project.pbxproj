@@ -8,6 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		BDA6CF51185A50230080E74D /* ElasticLoadBalancingCrossZoneLoadBalancing.h in Headers */ = {isa = PBXBuildFile; fileRef = BDA6CF44185A50230080E74D /* ElasticLoadBalancingCrossZoneLoadBalancing.h */; };
+		BDA6CF52185A50230080E74D /* ElasticLoadBalancingCrossZoneLoadBalancingUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = BDA6CF45185A50230080E74D /* ElasticLoadBalancingCrossZoneLoadBalancingUnmarshaller.h */; };
+		BDA6CF53185A50230080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = BDA6CF46185A50230080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesRequest.h */; };
+		BDA6CF54185A50230080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = BDA6CF47185A50230080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesRequestMarshaller.h */; };
+		BDA6CF55185A50230080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = BDA6CF48185A50230080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesResponse.h */; };
+		BDA6CF56185A50230080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = BDA6CF49185A50230080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesResponseUnmarshaller.h */; };
+		BDA6CF57185A50230080E74D /* ElasticLoadBalancingLoadBalancerAttributeNotFoundException.h in Headers */ = {isa = PBXBuildFile; fileRef = BDA6CF4A185A50230080E74D /* ElasticLoadBalancingLoadBalancerAttributeNotFoundException.h */; };
+		BDA6CF58185A50230080E74D /* ElasticLoadBalancingLoadBalancerAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = BDA6CF4B185A50230080E74D /* ElasticLoadBalancingLoadBalancerAttributes.h */; };
+		BDA6CF59185A50230080E74D /* ElasticLoadBalancingLoadBalancerAttributesUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = BDA6CF4C185A50230080E74D /* ElasticLoadBalancingLoadBalancerAttributesUnmarshaller.h */; };
+		BDA6CF5A185A50230080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = BDA6CF4D185A50230080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesRequest.h */; };
+		BDA6CF5B185A50230080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesRequestMarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = BDA6CF4E185A50230080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesRequestMarshaller.h */; };
+		BDA6CF5C185A50230080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = BDA6CF4F185A50230080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesResponse.h */; };
+		BDA6CF5D185A50230080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesResponseUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = BDA6CF50185A50230080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesResponseUnmarshaller.h */; };
+		BDA6CF6B185A503A0080E74D /* ElasticLoadBalancingCrossZoneLoadBalancing.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA6CF5E185A503A0080E74D /* ElasticLoadBalancingCrossZoneLoadBalancing.m */; };
+		BDA6CF6C185A503A0080E74D /* ElasticLoadBalancingCrossZoneLoadBalancingUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA6CF5F185A503A0080E74D /* ElasticLoadBalancingCrossZoneLoadBalancingUnmarshaller.m */; };
+		BDA6CF6D185A503A0080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA6CF60185A503A0080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesRequest.m */; };
+		BDA6CF6E185A503A0080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA6CF61185A503A0080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesRequestMarshaller.m */; };
+		BDA6CF6F185A503A0080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA6CF62185A503A0080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesResponse.m */; };
+		BDA6CF70185A503A0080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA6CF63185A503A0080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesResponseUnmarshaller.m */; };
+		BDA6CF71185A503A0080E74D /* ElasticLoadBalancingLoadBalancerAttributeNotFoundException.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA6CF64185A503A0080E74D /* ElasticLoadBalancingLoadBalancerAttributeNotFoundException.m */; };
+		BDA6CF72185A503A0080E74D /* ElasticLoadBalancingLoadBalancerAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA6CF65185A503A0080E74D /* ElasticLoadBalancingLoadBalancerAttributes.m */; };
+		BDA6CF73185A503A0080E74D /* ElasticLoadBalancingLoadBalancerAttributesUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA6CF66185A503A0080E74D /* ElasticLoadBalancingLoadBalancerAttributesUnmarshaller.m */; };
+		BDA6CF74185A503A0080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA6CF67185A503A0080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesRequest.m */; };
+		BDA6CF75185A503A0080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesRequestMarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA6CF68185A503A0080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesRequestMarshaller.m */; };
+		BDA6CF76185A503A0080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA6CF69185A503A0080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesResponse.m */; };
+		BDA6CF77185A503A0080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesResponseUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA6CF6A185A503A0080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesResponseUnmarshaller.m */; };
 		CE2CDBFC17036EFF0013DE5F /* AWSElasticLoadBalancing.h in Headers */ = {isa = PBXBuildFile; fileRef = CE2CDBFB17036EFF0013DE5F /* AWSElasticLoadBalancing.h */; };
 		CE96C1B7158BD58A0084D3CB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE96C1A9158BC2A70084D3CB /* MobileCoreServices.framework */; };
 		CEB7C9FF1812100600662849 /* ElasticLoadBalancingInvalidSchemeException.h in Headers */ = {isa = PBXBuildFile; fileRef = CEB7C9FE1812100600662849 /* ElasticLoadBalancingInvalidSchemeException.h */; };
@@ -303,6 +329,32 @@
 		0AFD8DC312846390004B7863 /* Framework.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = Framework.sh; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* ElasticLoadBalancing_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElasticLoadBalancing_Prefix.pch; sourceTree = "<group>"; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BDA6CF44185A50230080E74D /* ElasticLoadBalancingCrossZoneLoadBalancing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ElasticLoadBalancingCrossZoneLoadBalancing.h; path = ElasticLoadBalancing/ElasticLoadBalancingCrossZoneLoadBalancing.h; sourceTree = "<group>"; };
+		BDA6CF45185A50230080E74D /* ElasticLoadBalancingCrossZoneLoadBalancingUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ElasticLoadBalancingCrossZoneLoadBalancingUnmarshaller.h; path = ElasticLoadBalancing/ElasticLoadBalancingCrossZoneLoadBalancingUnmarshaller.h; sourceTree = "<group>"; };
+		BDA6CF46185A50230080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ElasticLoadBalancingDescribeLoadBalancerAttributesRequest.h; path = ElasticLoadBalancing/ElasticLoadBalancingDescribeLoadBalancerAttributesRequest.h; sourceTree = "<group>"; };
+		BDA6CF47185A50230080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ElasticLoadBalancingDescribeLoadBalancerAttributesRequestMarshaller.h; path = ElasticLoadBalancing/ElasticLoadBalancingDescribeLoadBalancerAttributesRequestMarshaller.h; sourceTree = "<group>"; };
+		BDA6CF48185A50230080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ElasticLoadBalancingDescribeLoadBalancerAttributesResponse.h; path = ElasticLoadBalancing/ElasticLoadBalancingDescribeLoadBalancerAttributesResponse.h; sourceTree = "<group>"; };
+		BDA6CF49185A50230080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ElasticLoadBalancingDescribeLoadBalancerAttributesResponseUnmarshaller.h; path = ElasticLoadBalancing/ElasticLoadBalancingDescribeLoadBalancerAttributesResponseUnmarshaller.h; sourceTree = "<group>"; };
+		BDA6CF4A185A50230080E74D /* ElasticLoadBalancingLoadBalancerAttributeNotFoundException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ElasticLoadBalancingLoadBalancerAttributeNotFoundException.h; path = ElasticLoadBalancing/ElasticLoadBalancingLoadBalancerAttributeNotFoundException.h; sourceTree = "<group>"; };
+		BDA6CF4B185A50230080E74D /* ElasticLoadBalancingLoadBalancerAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ElasticLoadBalancingLoadBalancerAttributes.h; path = ElasticLoadBalancing/ElasticLoadBalancingLoadBalancerAttributes.h; sourceTree = "<group>"; };
+		BDA6CF4C185A50230080E74D /* ElasticLoadBalancingLoadBalancerAttributesUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ElasticLoadBalancingLoadBalancerAttributesUnmarshaller.h; path = ElasticLoadBalancing/ElasticLoadBalancingLoadBalancerAttributesUnmarshaller.h; sourceTree = "<group>"; };
+		BDA6CF4D185A50230080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ElasticLoadBalancingModifyLoadBalancerAttributesRequest.h; path = ElasticLoadBalancing/ElasticLoadBalancingModifyLoadBalancerAttributesRequest.h; sourceTree = "<group>"; };
+		BDA6CF4E185A50230080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesRequestMarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ElasticLoadBalancingModifyLoadBalancerAttributesRequestMarshaller.h; path = ElasticLoadBalancing/ElasticLoadBalancingModifyLoadBalancerAttributesRequestMarshaller.h; sourceTree = "<group>"; };
+		BDA6CF4F185A50230080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ElasticLoadBalancingModifyLoadBalancerAttributesResponse.h; path = ElasticLoadBalancing/ElasticLoadBalancingModifyLoadBalancerAttributesResponse.h; sourceTree = "<group>"; };
+		BDA6CF50185A50230080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesResponseUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ElasticLoadBalancingModifyLoadBalancerAttributesResponseUnmarshaller.h; path = ElasticLoadBalancing/ElasticLoadBalancingModifyLoadBalancerAttributesResponseUnmarshaller.h; sourceTree = "<group>"; };
+		BDA6CF5E185A503A0080E74D /* ElasticLoadBalancingCrossZoneLoadBalancing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElasticLoadBalancingCrossZoneLoadBalancing.m; sourceTree = "<group>"; };
+		BDA6CF5F185A503A0080E74D /* ElasticLoadBalancingCrossZoneLoadBalancingUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElasticLoadBalancingCrossZoneLoadBalancingUnmarshaller.m; sourceTree = "<group>"; };
+		BDA6CF60185A503A0080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElasticLoadBalancingDescribeLoadBalancerAttributesRequest.m; sourceTree = "<group>"; };
+		BDA6CF61185A503A0080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElasticLoadBalancingDescribeLoadBalancerAttributesRequestMarshaller.m; sourceTree = "<group>"; };
+		BDA6CF62185A503A0080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElasticLoadBalancingDescribeLoadBalancerAttributesResponse.m; sourceTree = "<group>"; };
+		BDA6CF63185A503A0080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElasticLoadBalancingDescribeLoadBalancerAttributesResponseUnmarshaller.m; sourceTree = "<group>"; };
+		BDA6CF64185A503A0080E74D /* ElasticLoadBalancingLoadBalancerAttributeNotFoundException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElasticLoadBalancingLoadBalancerAttributeNotFoundException.m; sourceTree = "<group>"; };
+		BDA6CF65185A503A0080E74D /* ElasticLoadBalancingLoadBalancerAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElasticLoadBalancingLoadBalancerAttributes.m; sourceTree = "<group>"; };
+		BDA6CF66185A503A0080E74D /* ElasticLoadBalancingLoadBalancerAttributesUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElasticLoadBalancingLoadBalancerAttributesUnmarshaller.m; sourceTree = "<group>"; };
+		BDA6CF67185A503A0080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElasticLoadBalancingModifyLoadBalancerAttributesRequest.m; sourceTree = "<group>"; };
+		BDA6CF68185A503A0080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesRequestMarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElasticLoadBalancingModifyLoadBalancerAttributesRequestMarshaller.m; sourceTree = "<group>"; };
+		BDA6CF69185A503A0080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElasticLoadBalancingModifyLoadBalancerAttributesResponse.m; sourceTree = "<group>"; };
+		BDA6CF6A185A503A0080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesResponseUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElasticLoadBalancingModifyLoadBalancerAttributesResponseUnmarshaller.m; sourceTree = "<group>"; };
 		CE2CDBFB17036EFF0013DE5F /* AWSElasticLoadBalancing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSElasticLoadBalancing.h; path = ElasticLoadBalancing/AWSElasticLoadBalancing.h; sourceTree = "<group>"; };
 		CE96C1A9158BC2A70084D3CB /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		CEB7C9FE1812100600662849 /* ElasticLoadBalancingInvalidSchemeException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ElasticLoadBalancingInvalidSchemeException.h; path = ElasticLoadBalancing/ElasticLoadBalancingInvalidSchemeException.h; sourceTree = "<group>"; };
@@ -657,6 +709,19 @@
 			isa = PBXGroup;
 			children = (
 				D018B73F1358B65C002D7716 /* AmazonElasticLoadBalancingClient.h */,
+				BDA6CF44185A50230080E74D /* ElasticLoadBalancingCrossZoneLoadBalancing.h */,
+				BDA6CF45185A50230080E74D /* ElasticLoadBalancingCrossZoneLoadBalancingUnmarshaller.h */,
+				BDA6CF46185A50230080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesRequest.h */,
+				BDA6CF47185A50230080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesRequestMarshaller.h */,
+				BDA6CF48185A50230080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesResponse.h */,
+				BDA6CF49185A50230080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesResponseUnmarshaller.h */,
+				BDA6CF4A185A50230080E74D /* ElasticLoadBalancingLoadBalancerAttributeNotFoundException.h */,
+				BDA6CF4B185A50230080E74D /* ElasticLoadBalancingLoadBalancerAttributes.h */,
+				BDA6CF4C185A50230080E74D /* ElasticLoadBalancingLoadBalancerAttributesUnmarshaller.h */,
+				BDA6CF4D185A50230080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesRequest.h */,
+				BDA6CF4E185A50230080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesRequestMarshaller.h */,
+				BDA6CF4F185A50230080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesResponse.h */,
+				BDA6CF50185A50230080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesResponseUnmarshaller.h */,
 				CE2CDBFB17036EFF0013DE5F /* AWSElasticLoadBalancing.h */,
 				D018B7401358B65C002D7716 /* ElasticLoadBalancingAppCookieStickinessPolicy.h */,
 				D018B7411358B65C002D7716 /* ElasticLoadBalancingAppCookieStickinessPolicyUnmarshaller.h */,
@@ -829,6 +894,19 @@
 			isa = PBXGroup;
 			children = (
 				D018B5621358B634002D7716 /* ElasticLoadBalancingAppCookieStickinessPolicy.m */,
+				BDA6CF5E185A503A0080E74D /* ElasticLoadBalancingCrossZoneLoadBalancing.m */,
+				BDA6CF5F185A503A0080E74D /* ElasticLoadBalancingCrossZoneLoadBalancingUnmarshaller.m */,
+				BDA6CF60185A503A0080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesRequest.m */,
+				BDA6CF61185A503A0080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesRequestMarshaller.m */,
+				BDA6CF62185A503A0080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesResponse.m */,
+				BDA6CF63185A503A0080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesResponseUnmarshaller.m */,
+				BDA6CF64185A503A0080E74D /* ElasticLoadBalancingLoadBalancerAttributeNotFoundException.m */,
+				BDA6CF65185A503A0080E74D /* ElasticLoadBalancingLoadBalancerAttributes.m */,
+				BDA6CF66185A503A0080E74D /* ElasticLoadBalancingLoadBalancerAttributesUnmarshaller.m */,
+				BDA6CF67185A503A0080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesRequest.m */,
+				BDA6CF68185A503A0080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesRequestMarshaller.m */,
+				BDA6CF69185A503A0080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesResponse.m */,
+				BDA6CF6A185A503A0080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesResponseUnmarshaller.m */,
 				D018B5631358B634002D7716 /* ElasticLoadBalancingAppCookieStickinessPolicyUnmarshaller.m */,
 				D028679214BFB87400184AC6 /* ElasticLoadBalancingApplySecurityGroupsToLoadBalancerRequest.m */,
 				D028679314BFB87400184AC6 /* ElasticLoadBalancingApplySecurityGroupsToLoadBalancerRequestMarshaller.m */,
@@ -1007,6 +1085,8 @@
 				D018B84F1358B665002D7716 /* ElasticLoadBalancingDeleteLoadBalancerResponse.h in Headers */,
 				D018B8501358B665002D7716 /* ElasticLoadBalancingDeleteLoadBalancerResponseUnmarshaller.h in Headers */,
 				D018B8511358B665002D7716 /* ElasticLoadBalancingDeregisterInstancesFromLoadBalancerRequest.h in Headers */,
+				BDA6CF52185A50230080E74D /* ElasticLoadBalancingCrossZoneLoadBalancingUnmarshaller.h in Headers */,
+				BDA6CF5C185A50230080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesResponse.h in Headers */,
 				D018B8531358B665002D7716 /* ElasticLoadBalancingDeregisterInstancesFromLoadBalancerResponse.h in Headers */,
 				D018B8541358B665002D7716 /* ElasticLoadBalancingDeregisterInstancesFromLoadBalancerResponseUnmarshaller.h in Headers */,
 				D018B8551358B665002D7716 /* ElasticLoadBalancingDescribeInstanceHealthRequest.h in Headers */,
@@ -1022,11 +1102,15 @@
 				D018B8621358B665002D7716 /* ElasticLoadBalancingDuplicateLoadBalancerNameException.h in Headers */,
 				D018B8631358B665002D7716 /* ElasticLoadBalancingDuplicatePolicyNameException.h in Headers */,
 				D018B8641358B665002D7716 /* ElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerRequest.h in Headers */,
+				BDA6CF58185A50230080E74D /* ElasticLoadBalancingLoadBalancerAttributes.h in Headers */,
 				D018B8661358B665002D7716 /* ElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerResponse.h in Headers */,
 				D018B8671358B665002D7716 /* ElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerResponseUnmarshaller.h in Headers */,
 				D018B8681358B665002D7716 /* ElasticLoadBalancingHealthCheck.h in Headers */,
+				BDA6CF51185A50230080E74D /* ElasticLoadBalancingCrossZoneLoadBalancing.h in Headers */,
 				D018B8691358B665002D7716 /* ElasticLoadBalancingHealthCheckUnmarshaller.h in Headers */,
 				D018B86A1358B665002D7716 /* ElasticLoadBalancingInstance.h in Headers */,
+				BDA6CF56185A50230080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesResponseUnmarshaller.h in Headers */,
+				BDA6CF5B185A50230080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesRequestMarshaller.h in Headers */,
 				D018B86B1358B665002D7716 /* ElasticLoadBalancingInstanceState.h in Headers */,
 				D018B86C1358B665002D7716 /* ElasticLoadBalancingInstanceStateUnmarshaller.h in Headers */,
 				D018B86D1358B665002D7716 /* ElasticLoadBalancingInstanceUnmarshaller.h in Headers */,
@@ -1040,6 +1124,7 @@
 				D018B8751358B665002D7716 /* ElasticLoadBalancingListenerNotFoundException.h in Headers */,
 				D018B8761358B665002D7716 /* ElasticLoadBalancingListenerUnmarshaller.h in Headers */,
 				D018B8771358B665002D7716 /* ElasticLoadBalancingLoadBalancerDescription.h in Headers */,
+				BDA6CF53185A50230080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesRequest.h in Headers */,
 				D018B8781358B665002D7716 /* ElasticLoadBalancingLoadBalancerDescriptionUnmarshaller.h in Headers */,
 				D018B8791358B665002D7716 /* ElasticLoadBalancingLoadBalancerNotFoundException.h in Headers */,
 				D018B87A1358B665002D7716 /* ElasticLoadBalancingPolicies.h in Headers */,
@@ -1052,6 +1137,7 @@
 				D018B8831358B665002D7716 /* ElasticLoadBalancingSetLoadBalancerListenerSSLCertificateResponse.h in Headers */,
 				D018B8841358B665002D7716 /* ElasticLoadBalancingSetLoadBalancerListenerSSLCertificateResponseUnmarshaller.h in Headers */,
 				D018B8851358B665002D7716 /* ElasticLoadBalancingSetLoadBalancerPoliciesOfListenerRequest.h in Headers */,
+				BDA6CF55185A50230080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesResponse.h in Headers */,
 				D018B8871358B665002D7716 /* ElasticLoadBalancingSetLoadBalancerPoliciesOfListenerResponse.h in Headers */,
 				D018B8881358B665002D7716 /* ElasticLoadBalancingSetLoadBalancerPoliciesOfListenerResponseUnmarshaller.h in Headers */,
 				D018B8891358B665002D7716 /* ElasticLoadBalancingTooManyLoadBalancersException.h in Headers */,
@@ -1069,6 +1155,7 @@
 				D03F1A3D137732E000891BD9 /* ElasticLoadBalancingDeleteLoadBalancerRequestMarshaller.h in Headers */,
 				D03F1A3E137732E000891BD9 /* ElasticLoadBalancingDeregisterInstancesFromLoadBalancerRequestMarshaller.h in Headers */,
 				D03F1A3F137732E000891BD9 /* ElasticLoadBalancingDescribeInstanceHealthRequestMarshaller.h in Headers */,
+				BDA6CF5A185A50230080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesRequest.h in Headers */,
 				D03F1A40137732E000891BD9 /* ElasticLoadBalancingDescribeLoadBalancersRequestMarshaller.h in Headers */,
 				D03F1A41137732E000891BD9 /* ElasticLoadBalancingDisableAvailabilityZonesForLoadBalancerRequestMarshaller.h in Headers */,
 				D03F1A42137732E000891BD9 /* ElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerRequestMarshaller.h in Headers */,
@@ -1080,8 +1167,10 @@
 				D04933BE140C18A5003EEADD /* ElasticLoadBalancingBackendServerDescription.h in Headers */,
 				D04933BF140C18A5003EEADD /* ElasticLoadBalancingBackendServerDescriptionUnmarshaller.h in Headers */,
 				D04933C0140C18A5003EEADD /* ElasticLoadBalancingCreateLoadBalancerPolicyRequest.h in Headers */,
+				BDA6CF59185A50230080E74D /* ElasticLoadBalancingLoadBalancerAttributesUnmarshaller.h in Headers */,
 				D04933C1140C18A5003EEADD /* ElasticLoadBalancingCreateLoadBalancerPolicyRequestMarshaller.h in Headers */,
 				D04933C2140C18A5003EEADD /* ElasticLoadBalancingCreateLoadBalancerPolicyResponse.h in Headers */,
+				BDA6CF57185A50230080E74D /* ElasticLoadBalancingLoadBalancerAttributeNotFoundException.h in Headers */,
 				D04933C3140C18A5003EEADD /* ElasticLoadBalancingCreateLoadBalancerPolicyResponseUnmarshaller.h in Headers */,
 				D04933C4140C18A5003EEADD /* ElasticLoadBalancingDescribeLoadBalancerPoliciesRequest.h in Headers */,
 				D04933C5140C18A5003EEADD /* ElasticLoadBalancingDescribeLoadBalancerPoliciesRequestMarshaller.h in Headers */,
@@ -1090,6 +1179,7 @@
 				D04933C8140C18A5003EEADD /* ElasticLoadBalancingDescribeLoadBalancerPolicyTypesRequest.h in Headers */,
 				D04933C9140C18A5003EEADD /* ElasticLoadBalancingDescribeLoadBalancerPolicyTypesRequestMarshaller.h in Headers */,
 				D04933CA140C18A5003EEADD /* ElasticLoadBalancingDescribeLoadBalancerPolicyTypesResponse.h in Headers */,
+				BDA6CF54185A50230080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesRequestMarshaller.h in Headers */,
 				D04933CB140C18A5003EEADD /* ElasticLoadBalancingDescribeLoadBalancerPolicyTypesResponseUnmarshaller.h in Headers */,
 				D04933CC140C18A5003EEADD /* ElasticLoadBalancingPolicyAttribute.h in Headers */,
 				D04933CD140C18A5003EEADD /* ElasticLoadBalancingPolicyAttributeDescription.h in Headers */,
@@ -1107,6 +1197,7 @@
 				D04933D9140C18A5003EEADD /* ElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerResponseUnmarshaller.h in Headers */,
 				D02867CF14BFB8BE00184AC6 /* ElasticLoadBalancingApplySecurityGroupsToLoadBalancerRequest.h in Headers */,
 				D02867D014BFB8BE00184AC6 /* ElasticLoadBalancingApplySecurityGroupsToLoadBalancerRequestMarshaller.h in Headers */,
+				BDA6CF5D185A50230080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesResponseUnmarshaller.h in Headers */,
 				CEB7C9FF1812100600662849 /* ElasticLoadBalancingInvalidSchemeException.h in Headers */,
 				D02867D114BFB8BE00184AC6 /* ElasticLoadBalancingApplySecurityGroupsToLoadBalancerResponse.h in Headers */,
 				D02867D214BFB8BE00184AC6 /* ElasticLoadBalancingApplySecurityGroupsToLoadBalancerResponseUnmarshaller.h in Headers */,
@@ -1197,8 +1288,10 @@
 			files = (
 				D018B64F1358B639002D7716 /* AmazonElasticLoadBalancingClient.m in Sources */,
 				D018B6501358B639002D7716 /* ElasticLoadBalancingAppCookieStickinessPolicy.m in Sources */,
+				BDA6CF70185A503A0080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesResponseUnmarshaller.m in Sources */,
 				D018B6511358B639002D7716 /* ElasticLoadBalancingAppCookieStickinessPolicyUnmarshaller.m in Sources */,
 				D018B6521358B639002D7716 /* ElasticLoadBalancingCertificateNotFoundException.m in Sources */,
+				BDA6CF72185A503A0080E74D /* ElasticLoadBalancingLoadBalancerAttributes.m in Sources */,
 				D018B6531358B639002D7716 /* ElasticLoadBalancingConfigureHealthCheckRequest.m in Sources */,
 				D018B6551358B639002D7716 /* ElasticLoadBalancingConfigureHealthCheckResponse.m in Sources */,
 				D018B6561358B639002D7716 /* ElasticLoadBalancingConfigureHealthCheckResponseUnmarshaller.m in Sources */,
@@ -1210,6 +1303,7 @@
 				D018B65E1358B639002D7716 /* ElasticLoadBalancingCreateLBCookieStickinessPolicyResponseUnmarshaller.m in Sources */,
 				D018B65F1358B639002D7716 /* ElasticLoadBalancingCreateLoadBalancerListenersRequest.m in Sources */,
 				D018B6611358B639002D7716 /* ElasticLoadBalancingCreateLoadBalancerListenersResponse.m in Sources */,
+				BDA6CF76185A503A0080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesResponse.m in Sources */,
 				D018B6621358B639002D7716 /* ElasticLoadBalancingCreateLoadBalancerListenersResponseUnmarshaller.m in Sources */,
 				D018B6631358B639002D7716 /* ElasticLoadBalancingCreateLoadBalancerRequest.m in Sources */,
 				D018B6651358B639002D7716 /* ElasticLoadBalancingCreateLoadBalancerResponse.m in Sources */,
@@ -1227,9 +1321,11 @@
 				D018B6751358B639002D7716 /* ElasticLoadBalancingDeregisterInstancesFromLoadBalancerResponse.m in Sources */,
 				D018B6761358B639002D7716 /* ElasticLoadBalancingDeregisterInstancesFromLoadBalancerResponseUnmarshaller.m in Sources */,
 				D018B6771358B639002D7716 /* ElasticLoadBalancingDescribeInstanceHealthRequest.m in Sources */,
+				BDA6CF6B185A503A0080E74D /* ElasticLoadBalancingCrossZoneLoadBalancing.m in Sources */,
 				D018B6791358B639002D7716 /* ElasticLoadBalancingDescribeInstanceHealthResponse.m in Sources */,
 				D018B67A1358B639002D7716 /* ElasticLoadBalancingDescribeInstanceHealthResponseUnmarshaller.m in Sources */,
 				D018B67B1358B639002D7716 /* ElasticLoadBalancingDescribeLoadBalancersRequest.m in Sources */,
+				BDA6CF6E185A503A0080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesRequestMarshaller.m in Sources */,
 				D018B67D1358B639002D7716 /* ElasticLoadBalancingDescribeLoadBalancersResponse.m in Sources */,
 				D018B67E1358B639002D7716 /* ElasticLoadBalancingDescribeLoadBalancersResponseUnmarshaller.m in Sources */,
 				D018B67F1358B639002D7716 /* ElasticLoadBalancingDisableAvailabilityZonesForLoadBalancerRequest.m in Sources */,
@@ -1247,6 +1343,7 @@
 				D018B68D1358B639002D7716 /* ElasticLoadBalancingInstanceState.m in Sources */,
 				D018B68E1358B639002D7716 /* ElasticLoadBalancingInstanceStateUnmarshaller.m in Sources */,
 				D018B68F1358B639002D7716 /* ElasticLoadBalancingInstanceUnmarshaller.m in Sources */,
+				BDA6CF71185A503A0080E74D /* ElasticLoadBalancingLoadBalancerAttributeNotFoundException.m in Sources */,
 				D018B6901358B639002D7716 /* ElasticLoadBalancingInvalidConfigurationRequestException.m in Sources */,
 				D018B6911358B639002D7716 /* ElasticLoadBalancingInvalidInstanceException.m in Sources */,
 				D018B6921358B639002D7716 /* ElasticLoadBalancingLBCookieStickinessPolicy.m in Sources */,
@@ -1267,6 +1364,7 @@
 				D018B6A21358B639002D7716 /* ElasticLoadBalancingRegisterInstancesWithLoadBalancerResponseUnmarshaller.m in Sources */,
 				D018B6A31358B639002D7716 /* ElasticLoadBalancingSetLoadBalancerListenerSSLCertificateRequest.m in Sources */,
 				D018B6A51358B639002D7716 /* ElasticLoadBalancingSetLoadBalancerListenerSSLCertificateResponse.m in Sources */,
+				BDA6CF6F185A503A0080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesResponse.m in Sources */,
 				D018B6A61358B639002D7716 /* ElasticLoadBalancingSetLoadBalancerListenerSSLCertificateResponseUnmarshaller.m in Sources */,
 				D018B6A71358B639002D7716 /* ElasticLoadBalancingSetLoadBalancerPoliciesOfListenerRequest.m in Sources */,
 				D018B6A91358B639002D7716 /* ElasticLoadBalancingSetLoadBalancerPoliciesOfListenerResponse.m in Sources */,
@@ -1274,6 +1372,7 @@
 				D018B6AA1358B639002D7716 /* ElasticLoadBalancingSetLoadBalancerPoliciesOfListenerResponseUnmarshaller.m in Sources */,
 				D018B6AB1358B639002D7716 /* ElasticLoadBalancingTooManyLoadBalancersException.m in Sources */,
 				D018B6AC1358B639002D7716 /* ElasticLoadBalancingTooManyPoliciesException.m in Sources */,
+				BDA6CF74185A503A0080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesRequest.m in Sources */,
 				D018B8A01358B78F002D7716 /* ElasticLoadBalancingRequest.m in Sources */,
 				D018B8A11358B78F002D7716 /* ElasticLoadBalancingResponse.m in Sources */,
 				D04C863B1371D62700F08418 /* ElasticLoadBalancingResponseUnmarshaller.m in Sources */,
@@ -1288,7 +1387,9 @@
 				D03F190E137730C200891BD9 /* ElasticLoadBalancingDeregisterInstancesFromLoadBalancerRequestMarshaller.m in Sources */,
 				D03F190F137730C200891BD9 /* ElasticLoadBalancingDescribeInstanceHealthRequestMarshaller.m in Sources */,
 				D03F1910137730C200891BD9 /* ElasticLoadBalancingDescribeLoadBalancersRequestMarshaller.m in Sources */,
+				BDA6CF77185A503A0080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesResponseUnmarshaller.m in Sources */,
 				D03F1911137730C200891BD9 /* ElasticLoadBalancingDisableAvailabilityZonesForLoadBalancerRequestMarshaller.m in Sources */,
+				BDA6CF6D185A503A0080E74D /* ElasticLoadBalancingDescribeLoadBalancerAttributesRequest.m in Sources */,
 				D03F1912137730C200891BD9 /* ElasticLoadBalancingEnableAvailabilityZonesForLoadBalancerRequestMarshaller.m in Sources */,
 				D03F1913137730C200891BD9 /* ElasticLoadBalancingRegisterInstancesWithLoadBalancerRequestMarshaller.m in Sources */,
 				D03F1914137730C200891BD9 /* ElasticLoadBalancingSetLoadBalancerListenerSSLCertificateRequestMarshaller.m in Sources */,
@@ -1310,15 +1411,18 @@
 				D0493403140C18C9003EEADD /* ElasticLoadBalancingDescribeLoadBalancerPolicyTypesResponse.m in Sources */,
 				D0493404140C18C9003EEADD /* ElasticLoadBalancingDescribeLoadBalancerPolicyTypesResponseUnmarshaller.m in Sources */,
 				D0493405140C18C9003EEADD /* ElasticLoadBalancingPolicyAttribute.m in Sources */,
+				BDA6CF75185A503A0080E74D /* ElasticLoadBalancingModifyLoadBalancerAttributesRequestMarshaller.m in Sources */,
 				D0493406140C18C9003EEADD /* ElasticLoadBalancingPolicyAttributeDescription.m in Sources */,
 				D0493407140C18C9003EEADD /* ElasticLoadBalancingPolicyAttributeDescriptionUnmarshaller.m in Sources */,
 				D0493408140C18C9003EEADD /* ElasticLoadBalancingPolicyAttributeTypeDescription.m in Sources */,
 				D0493409140C18C9003EEADD /* ElasticLoadBalancingPolicyAttributeTypeDescriptionUnmarshaller.m in Sources */,
 				D049340A140C18C9003EEADD /* ElasticLoadBalancingPolicyDescription.m in Sources */,
+				BDA6CF6C185A503A0080E74D /* ElasticLoadBalancingCrossZoneLoadBalancingUnmarshaller.m in Sources */,
 				D049340B140C18C9003EEADD /* ElasticLoadBalancingPolicyDescriptionUnmarshaller.m in Sources */,
 				D049340C140C18C9003EEADD /* ElasticLoadBalancingPolicyTypeDescription.m in Sources */,
 				D049340D140C18C9003EEADD /* ElasticLoadBalancingPolicyTypeDescriptionUnmarshaller.m in Sources */,
 				D049340E140C18C9003EEADD /* ElasticLoadBalancingPolicyTypeNotFoundException.m in Sources */,
+				BDA6CF73185A503A0080E74D /* ElasticLoadBalancingLoadBalancerAttributesUnmarshaller.m in Sources */,
 				D049340F140C18C9003EEADD /* ElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerRequest.m in Sources */,
 				D0493410140C18C9003EEADD /* ElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerRequestMarshaller.m in Sources */,
 				D0493411140C18C9003EEADD /* ElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerResponse.m in Sources */,

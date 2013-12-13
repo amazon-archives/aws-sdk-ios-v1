@@ -37,8 +37,7 @@
 
 
 /**
- * The name associated with the LoadBalancer. The name must be unique
- * within the client AWS account.
+ * The name associated with the load balancer.
  */
 @property (nonatomic, retain) NSString *loadBalancerName;
 
@@ -59,8 +58,7 @@
  * Constructs a new DeregisterInstancesFromLoadBalancerRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theLoadBalancerName The name associated with the LoadBalancer.
- * The name must be unique within the client AWS account.
+ * @param theLoadBalancerName The name associated with the load balancer.
  * @param theInstances A list of EC2 instance IDs consisting of all
  * instances to be deregistered.
  */

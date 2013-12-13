@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"DescribeSpotPriceHistory"           forKey:@"Action"];
-    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-15"   forKey:@"Version"];
 
     [request setDelegate:[describeSpotPriceHistoryRequest delegate]];
     [request setCredentials:[describeSpotPriceHistoryRequest credentials]];

@@ -57,6 +57,47 @@
     }
 
 
+    if (updateTableRequest.globalSecondaryIndexUpdates != nil) {
+        NSArray *globalSecondaryIndexUpdatesList = updateTableRequest.globalSecondaryIndexUpdates;
+        if (globalSecondaryIndexUpdatesList != nil && [globalSecondaryIndexUpdatesList count] > 0) {
+            NSMutableArray *globalSecondaryIndexUpdatesArray = [[[NSMutableArray alloc] init] autorelease];
+            [json setValue:globalSecondaryIndexUpdatesArray forKey:@"GlobalSecondaryIndexUpdates"];
+            for (DynamoDBGlobalSecondaryIndexUpdate *globalSecondaryIndexUpdatesListValue in globalSecondaryIndexUpdatesList) {
+                NSMutableDictionary *globalSecondaryIndexUpdatesArrayObject = [[[NSMutableDictionary alloc] init] autorelease];
+                [globalSecondaryIndexUpdatesArray addObject:globalSecondaryIndexUpdatesArrayObject];
+                if (globalSecondaryIndexUpdatesListValue != nil) {
+                    DynamoDBUpdateGlobalSecondaryIndexAction *update = globalSecondaryIndexUpdatesListValue.update;
+                    if (update != nil) {
+                        NSMutableDictionary *updateJson = [[[NSMutableDictionary alloc] init] autorelease];
+                        [globalSecondaryIndexUpdatesArrayObject setValue:updateJson forKey:@"Update"];
+
+
+                        if (update.indexName != nil) {
+                            [updateJson setValue:update.indexName forKey:@"IndexName"];
+                        }
+                        if (update != nil) {
+                            DynamoDBProvisionedThroughput *provisionedThroughput = update.provisionedThroughput;
+                            if (provisionedThroughput != nil) {
+                                NSMutableDictionary *provisionedThroughputJson = [[[NSMutableDictionary alloc] init] autorelease];
+                                [updateJson setValue:provisionedThroughputJson forKey:@"ProvisionedThroughput"];
+
+
+                                if (provisionedThroughput.readCapacityUnits != nil) {
+                                    [provisionedThroughputJson setValue:provisionedThroughput.readCapacityUnits forKey:@"ReadCapacityUnits"];
+                                }
+
+                                if (provisionedThroughput.writeCapacityUnits != nil) {
+                                    [provisionedThroughputJson setValue:provisionedThroughput.writeCapacityUnits forKey:@"WriteCapacityUnits"];
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
 
     request.content = [AmazonJSON JSONRepresentation:json];
     [request addValue:[NSString stringWithFormat:@"%lu", (unsigned long)[[request.content dataUsingEncoding:NSUTF8StringEncoding] length]]    forHeader:@"Content-Length"];

@@ -13,18 +13,25 @@
  * permissions and limitations under the License.
  */
 
-#import <Foundation/Foundation.h>
-#import "DynamoDBResponseUnmarshaller.h"
-#import "DynamoDBKey.h"
+#ifdef AWS_MULTI_FRAMEWORK
+#import <AWSRuntime/AmazonServiceRequest.h>
+#else
+#import "../AmazonServiceRequest.h"
+#endif
+
+#import "ElasticLoadBalancingRequest.h"
+#import "ElasticLoadBalancingDescribeLoadBalancerAttributesRequest.h"
 
 
 /**
- * Key Unmarshaller
+ * Describe Load Balancer Attributes Request Marshaller
  */
-@interface DynamoDBKeyUnmarshaller:DynamoDBResponseUnmarshaller {
-    DynamoDBKey *response;
+@interface ElasticLoadBalancingDescribeLoadBalancerAttributesRequestMarshaller:NSObject {
 }
 
-+(DynamoDBKey *)unmarshall:(NSDictionary *)jsonObject;
+
++(AmazonServiceRequest *)createRequest:(ElasticLoadBalancingDescribeLoadBalancerAttributesRequest *)describeLoadBalancerAttributesRequest;
+
 
 @end
+

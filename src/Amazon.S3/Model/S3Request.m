@@ -30,6 +30,7 @@
     [self.urlRequest setValue:self.host forHTTPHeaderField:kHttpHdrHost];
     
     self.date = [NSDate date];
+    
     [self.urlRequest setValue:[self.date stringWithRFC822Format] forHTTPHeaderField:kHttpHdrDate];
 
     if (nil != self.httpMethod) {
@@ -113,7 +114,6 @@
     [self setAuthorization:[decoder decodeObjectForKey:@"Authorization"]];
     self.contentLength = [decoder decodeInt64ForKey:@"ContentLength"];
     [self setContentType:[decoder decodeObjectForKey:@"ContentType"]];
-    [self setDate:[decoder decodeObjectForKey:@"Date"]];
     [self setSecurityToken:[decoder decodeObjectForKey:@"SecurityToken"]];
     [self setBucket:[decoder decodeObjectForKey:@"Bucket"]];
     [self setKey:[decoder decodeObjectForKey:@"Key"]];
@@ -129,7 +129,6 @@
     [encoder encodeObject:self.authorization forKey:@"Authorization"];
     [encoder encodeInt64:self.contentLength forKey:@"ContentLength"];
     [encoder encodeObject:self.contentType forKey:@"ContentType"];
-    [encoder encodeObject:self.date forKey:@"Date"];
     [encoder encodeObject:self.securityToken forKey:@"SecurityToken"];
     [encoder encodeObject:self.bucket forKey:@"Bucket"];
     [encoder encodeObject:self.key forKey:@"Key"];

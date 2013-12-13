@@ -24,7 +24,7 @@
 
 /**
  * <p>
- * The specified LoadBalancer could not be found.
+ * The specified load balancer could not be found.
  * </p>
  */
 @interface ElasticLoadBalancingLoadBalancerNotFoundException:AmazonServiceException

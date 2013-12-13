@@ -41,8 +41,8 @@
 
 
 /**
- * The name associated with the LoadBalancer. The name must be unique
- * within your set of LoadBalancers.
+ * The name associated with the load balancer. The name must be unique
+ * within your set of load balancers.
  */
 @property (nonatomic, retain) NSString *loadBalancerName;
 
@@ -55,29 +55,35 @@
 /**
  * A list of Availability Zones. <p> At least one Availability Zone must
  * be specified. Specified Availability Zones must be in the same EC2
- * Region as the LoadBalancer. Traffic will be equally distributed across
- * all zones. <p> This list can be modified after the creation of the
- * LoadBalancer.
+ * Region as the load balancer. Traffic will be equally distributed
+ * across all zones. <p> You can later add more Availability Zones after
+ * the creation of the load balancer by calling
+ * <a>EnableAvailabilityZonesForLoadBalancer</a> action.
  */
 @property (nonatomic, retain) NSMutableArray *availabilityZones;
 
 /**
- * A list of subnet IDs in your VPC to attach to your LoadBalancer.
+ * A list of subnet IDs in your VPC to attach to your load balancer.
+ * Specify one subnet per Availability Zone.
  */
 @property (nonatomic, retain) NSMutableArray *subnets;
 
 /**
- * The security groups assigned to your LoadBalancer within your VPC.
+ * The security groups to assign to your load balancer within your VPC.
  */
 @property (nonatomic, retain) NSMutableArray *securityGroups;
 
 /**
- * The type of a LoadBalancer. This option is only available for
- * LoadBalancers attached to a Amazon VPC. By default, Elastic Load
- * Balancer creates an internet-facing load balancer with publicly
- * resolvable DNS name that resolves to public IP addresses. Specify the
- * value <i>internal</i> for this option to create an internal load
- * balancer with a DNS name that resolves to private IP addresses.
+ * The type of a load balancer. <p>By default, Elastic Load Balancing
+ * creates an Internet-facing load balancer with a publicly resolvable
+ * DNS name, which resolves to public IP addresses. For more
+ * informationabout Internet-facing and Internal load balancers, see <a
+ * ing/latest/DeveloperGuide/vpc-loadbalancer-types.html">Internet-facing
+ * and Internal Load Balancers</a>. <p>Specify the value
+ * <code>internal</code> for this option to create an internal load
+ * balancer with a DNS name that resolves to private IP addresses. <note>
+ * <p>This option is only available for load balancers created within
+ * EC2-VPC. </note>
  */
 @property (nonatomic, retain) NSString *scheme;
 
@@ -92,8 +98,8 @@
  * Constructs a new CreateLoadBalancerRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theLoadBalancerName The name associated with the LoadBalancer.
- * The name must be unique within your set of LoadBalancers.
+ * @param theLoadBalancerName The name associated with the load balancer.
+ * The name must be unique within your set of load balancers.
  */
 -(id)initWithLoadBalancerName:(NSString *)theLoadBalancerName;
 
@@ -101,15 +107,16 @@
  * Constructs a new CreateLoadBalancerRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theLoadBalancerName The name associated with the LoadBalancer.
- * The name must be unique within your set of LoadBalancers.
+ * @param theLoadBalancerName The name associated with the load balancer.
+ * The name must be unique within your set of load balancers.
  * @param theListeners A list of the following tuples: LoadBalancerPort,
  * InstancePort, and Protocol.
  * @param theAvailabilityZones A list of Availability Zones. <p> At least
  * one Availability Zone must be specified. Specified Availability Zones
- * must be in the same EC2 Region as the LoadBalancer. Traffic will be
- * equally distributed across all zones. <p> This list can be modified
- * after the creation of the LoadBalancer.
+ * must be in the same EC2 Region as the load balancer. Traffic will be
+ * equally distributed across all zones. <p> You can later add more
+ * Availability Zones after the creation of the load balancer by calling
+ * <a>EnableAvailabilityZonesForLoadBalancer</a> action.
  */
 -(id)initWithLoadBalancerName:(NSString *)theLoadBalancerName andListeners:(NSMutableArray *)theListeners andAvailabilityZones:(NSMutableArray *)theAvailabilityZones;
 

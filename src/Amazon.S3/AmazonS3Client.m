@@ -115,10 +115,8 @@
 
 -(NSArray *)listObjectsInBucket:(NSString *)bucketName
 {
-    S3ListObjectsRequest  *req = [[S3ListObjectsRequest alloc] initWithName:bucketName];
+    S3ListObjectsRequest  *req = [[[S3ListObjectsRequest alloc] initWithName:bucketName] autorelease];
     S3ListObjectsResponse *res = [self listObjects:req];
-
-    [req release];
 
     if (res.listObjectsResult != nil && res.listObjectsResult.objectSummaries != nil) {
         return [NSArray arrayWithArray:res.listObjectsResult.objectSummaries];

@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"ModifyInstanceAttribute"           forKey:@"Action"];
-    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-15"   forKey:@"Version"];
 
     [request setDelegate:[modifyInstanceAttributeRequest delegate]];
     [request setCredentials:[modifyInstanceAttributeRequest credentials]];
@@ -134,6 +134,11 @@
     if (modifyInstanceAttributeRequest != nil) {
         if (modifyInstanceAttributeRequest.ebsOptimizedIsSet) {
             [request setParameterValue:(modifyInstanceAttributeRequest.ebsOptimized ? @"true":@"false") forKey:[NSString stringWithFormat:@"%@", @"EbsOptimized.Value"]];
+        }
+    }
+    if (modifyInstanceAttributeRequest != nil) {
+        if (modifyInstanceAttributeRequest.sriovNetSupport != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", modifyInstanceAttributeRequest.sriovNetSupport] forKey:[NSString stringWithFormat:@"%@", @"SriovNetSupport.Value"]];
         }
     }
 

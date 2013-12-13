@@ -55,6 +55,11 @@
         }
     }
 
+    if ([elementName isEqualToString:@"nextToken"]) {
+        self.response.nextToken = self.currentText;
+        return;
+    }
+
     if ([elementName isEqualToString:@"DescribeInstancesResponse"]) {
         if (caller != nil) {
             [parser setDelegate:caller];

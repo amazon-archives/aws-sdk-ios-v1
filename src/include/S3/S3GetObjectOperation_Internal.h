@@ -21,8 +21,6 @@
 @interface S3GetObjectOperation_Internal : S3TransferOperation
 
 @property (nonatomic, retain) AmazonServiceResponse *response;
-@property (nonatomic, retain) NSError *error;
-@property (nonatomic, retain) NSException *exception;
 
 /** Total number of bytes that have been downloaded to the file
  *

@@ -35,8 +35,7 @@
 
 
 /**
- * The name associated with the LoadBalancer. The name must be unique
- * within the client AWS account.
+ * The name associated with the load balancer.
  */
 @property (nonatomic, retain) NSString *loadBalancerName;
 
@@ -51,8 +50,7 @@
  * Constructs a new DeleteLoadBalancerRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theLoadBalancerName The name associated with the LoadBalancer.
- * The name must be unique within the client AWS account.
+ * @param theLoadBalancerName The name associated with the load balancer.
  */
 -(id)initWithLoadBalancerName:(NSString *)theLoadBalancerName;
 

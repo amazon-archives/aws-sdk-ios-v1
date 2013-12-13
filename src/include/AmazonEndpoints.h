@@ -177,8 +177,8 @@ typedef enum
 
 #define AMAZON_SES_US_EAST_1_ENDPOINT_SECURE         @"https://email.us-east-1.amazonaws.com"
 //#define AMAZON_SES_US_WEST_1_ENDPOINT_SECURE		 @"https://"
-//#define AMAZON_SES_US_WEST_2_ENDPOINT_SECURE		 @"https://"
-//#define AMAZON_SES_EU_WEST_1_ENDPOINT_SECURE		 @"https://"
+#define AMAZON_SES_US_WEST_2_ENDPOINT_SECURE		 @"https://email.us-west-2.amazonaws.com"
+#define AMAZON_SES_EU_WEST_1_ENDPOINT_SECURE		 @"https://email.eu-west-1.amazonaws.com"
 //#define AMAZON_SES_AP_SOUTHEAST_1_ENDPOINT_SECURE	 @"https://"
 //#define AMAZON_SES_AP_NORTHEAST_1_ENDPOINT_SECURE	 @"https://"
 //#define AMAZON_SES_SA_EAST_1_ENDPOINT_SECURE       @"https://"

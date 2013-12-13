@@ -36,6 +36,7 @@
 @synthesize groups;
 @synthesize ebsOptimized;
 @synthesize ebsOptimizedIsSet;
+@synthesize sriovNetSupport;
 
 
 -(id)init
@@ -59,6 +60,7 @@
         groups                            = [[NSMutableArray alloc] initWithCapacity:1];
         ebsOptimized                      = NO;
         ebsOptimizedIsSet                 = NO;
+        sriovNetSupport                   = nil;
     }
 
     return self;
@@ -113,6 +115,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"InstanceInitiatedShutdownBehavior: %@,", instanceInitiatedShutdownBehavior] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Groups: %@,", groups] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"EbsOptimized: %d,", ebsOptimized] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"SriovNetSupport: %@,", sriovNetSupport] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -157,6 +160,7 @@
     [userData release];
     [instanceInitiatedShutdownBehavior release];
     [groups release];
+    [sriovNetSupport release];
 
     [super dealloc];
 }

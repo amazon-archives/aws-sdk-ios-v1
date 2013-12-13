@@ -23,6 +23,8 @@
     [_putRequest release];
     [_getRequest release];
     [_requestMetadataFile release];
+    [_error release];
+    [_exception release];
 
     [super dealloc];
 }

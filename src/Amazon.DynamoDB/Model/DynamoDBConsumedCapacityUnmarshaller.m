@@ -17,6 +17,11 @@
 #import "DynamoDBExceptionUnmarshaller.h"
 
 #import "AmazonSDKUtil.h"
+#import "DynamoDBCapacityUnmarshaller.h"
+#import "DynamoDBCapacityUnmarshaller.h"
+#import "DynamoDBCapacityUnmarshaller.h"
+#import "DynamoDBCapacityUnmarshaller.h"
+#import "DynamoDBCapacityUnmarshaller.h"
 
 
 @implementation DynamoDBConsumedCapacityUnmarshaller
@@ -35,6 +40,25 @@
 
     if ([jsonObject valueForKey:@"CapacityUnits"] != nil) {
         consumedCapacity.capacityUnits = [jsonObject valueForKey:@"CapacityUnits"];
+    }
+
+
+    if ([jsonObject valueForKey:@"Table"] != nil) {
+        consumedCapacity.table = [DynamoDBCapacityUnmarshaller unmarshall:[jsonObject valueForKey:@"Table"]];
+    }
+
+
+    NSDictionary *localSecondaryIndexesObject = [jsonObject valueForKey:@"LocalSecondaryIndexes"];
+    for (NSString *key in [localSecondaryIndexesObject allKeys]) {
+        NSDictionary *value = [localSecondaryIndexesObject valueForKey:key];
+        [consumedCapacity.localSecondaryIndexes setValue:[DynamoDBCapacityUnmarshaller unmarshall:value] forKey:key];
+    }
+
+
+    NSDictionary *globalSecondaryIndexesObject = [jsonObject valueForKey:@"GlobalSecondaryIndexes"];
+    for (NSString *key in [globalSecondaryIndexesObject allKeys]) {
+        NSDictionary *value = [globalSecondaryIndexesObject valueForKey:key];
+        [consumedCapacity.globalSecondaryIndexes setValue:[DynamoDBCapacityUnmarshaller unmarshall:value] forKey:key];
     }
 
     return consumedCapacity;

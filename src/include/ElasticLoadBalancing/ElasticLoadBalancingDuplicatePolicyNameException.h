@@ -24,8 +24,8 @@
 
 /**
  * <p>
- * Policy with the same name exists for this LoadBalancer. Please choose
- * another name.
+ * Policy with the same name exists for this load balancer. Please
+ * choose another name.
  * </p>
  */
 @interface ElasticLoadBalancingDuplicatePolicyNameException:AmazonServiceException

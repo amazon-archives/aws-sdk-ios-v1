@@ -57,7 +57,8 @@
 @property (nonatomic, retain) NSString *tableName;
 
 /**
- * The name of an index on the table to query.
+ * The name of an index to query. This can be any local secondary index
+ * or global secondary index on the table.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>3 - 255<br/>
@@ -90,7 +91,7 @@
  * not the table. If any of the requested attributes are not projected
  * into the index, Amazon DynamoDB will need to fetch each matching item
  * from the table. This extra fetching incurs additional throughput cost
- * and latency. </li> </ul> <p>When neither <i>Select</i> nor
+ * and latency. </li> </ul> <p>If neither <i>Select</i> nor
  * <i>AttributesToGet</i> are specified, Amazon DynamoDB defaults to
  * <code>ALL_ATTRIBUTES</code> when accessing a table, and
  * <code>ALL_PROJECTED_ATTRIBUTES</code> when accessing an index. You
@@ -148,6 +149,10 @@
 /**
  * If set to <code>true</code>, then the operation uses strongly
  * consistent reads; otherwise, eventually consistent reads are used.
+ * <p>Strongly consistent reads are not supported on global secondary
+ * indexes. If you query a global secondary index with
+ * <i>ConsistentRead</i> set to <code>true</code>, you will receive an
+ * error message.
  */
 @property (nonatomic) BOOL           consistentRead;
 
@@ -158,23 +163,22 @@
  * can only have conditions on the table primary key attributes. You must
  * specify the hash key attribute name and value as an <code>EQ</code>
  * condition. You can optionally specify a second condition, referring to
- * the range key attribute. <p>For a query on a secondary index, you can
- * only have conditions on the index key attributes. You must specify the
- * index hash attribute name and value as an EQ condition. You can
- * optionally specify a second condition, referring to the index key
- * range attribute. <p>Multiple conditions are evaluated using "AND"; in
- * other words, all of the conditions must be met in order for an item to
+ * the range key attribute. <p>For a query on an index, you can only have
+ * conditions on the index key attributes. You must specify the index
+ * hash attribute name and value as an EQ condition. You can optionally
+ * specify a second condition, referring to the index key range
+ * attribute. <p>Multiple conditions are evaluated using "AND"; in other
+ * words, all of the conditions must be met in order for an item to
  * appear in the results results. <p>Each <i>KeyConditions</i> element
  * consists of an attribute name to compare, along with the following:
  * <ul> <li><p><i>AttributeValueList</i> - One or more values to evaluate
  * against the supplied attribute. This list contains exactly one value,
- * except for a <code>BETWEEN</code> or <code>IN</code> comparison, in
- * which case the list contains two values. <note> <p>For type Number,
- * value comparisons are numeric. <p>String value comparisons for greater
- * than, equals, or less than are based on ASCII character code values.
- * For example, <code>a</code> is greater than <code>A</code>, and
- * <code>aa</code> is greater than <code>B</code>. For a list of code
- * values, see <a
+ * except for a <code>BETWEEN</code> comparison, in which case the list
+ * contains two values. <note> <p>For type Number, value comparisons are
+ * numeric. <p>String value comparisons for greater than, equals, or less
+ * than are based on ASCII character code values. For example,
+ * <code>a</code> is greater than <code>A</code>, and <code>aa</code> is
+ * greater than <code>B</code>. For a list of code values, see <a
  * rs">http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters</a>.
  * <p>For Binary, Amazon DynamoDB treats each byte of the binary data as
  * unsigned when it compares binary values, for example when evaluating
@@ -254,7 +258,7 @@
 @property (nonatomic, readonly) BOOL scanIndexForwardIsSet;
 
 /**
- * The primary key of the first item that this operation will evaluate.
+ * The primary key of the first item that this operation will evalute.
  * Use the value that was returned for <i>LastEvaluatedKey</i> in the
  * previous operation. <p>The data type for <i>ExclusiveStartKey</i> must
  * be String, Number or Binary. No set data types are allowed.
@@ -262,12 +266,14 @@
 @property (nonatomic, retain) NSMutableDictionary *exclusiveStartKey;
 
 /**
- * If set to <code>TOTAL</code>, <i>ConsumedCapacity</i> is included in
- * the response; if set to <code>NONE</code> (the default),
- * <i>ConsumedCapacity</i> is not included.
+ * If set to <code>TOTAL</code>, the response includes
+ * <i>ConsumedCapacity</i> data for tables and indexes. If set to
+ * <code>INDEXES</code>, the repsonse includes <i>ConsumedCapacity</i>
+ * for indexes. If set to <code>NONE</code> (the default),
+ * <i>ConsumedCapacity</i> is not included in the response.
  * <p>
  * <b>Constraints:</b><br/>
- * <b>Allowed Values: </b>TOTAL, NONE
+ * <b>Allowed Values: </b>INDEXES, TOTAL, NONE
  */
 @property (nonatomic, retain) NSString *returnConsumedCapacity;
 

@@ -43,8 +43,8 @@
 -(id)init;
 
 /**
- * An updated list of remaining instances registered with the
- * LoadBalancer.
+ * An updated list of remaining instances registered with the load
+ * balancer.
  */
 @property (nonatomic, retain) NSMutableArray *instances;
 

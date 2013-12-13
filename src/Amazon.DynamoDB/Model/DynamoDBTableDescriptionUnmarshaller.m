@@ -23,6 +23,10 @@
 #import "DynamoDBLocalSecondaryIndexDescriptionUnmarshaller.h"
 #import "DynamoDBKeySchemaElementUnmarshaller.h"
 #import "DynamoDBProjectionUnmarshaller.h"
+#import "DynamoDBGlobalSecondaryIndexDescriptionUnmarshaller.h"
+#import "DynamoDBKeySchemaElementUnmarshaller.h"
+#import "DynamoDBProjectionUnmarshaller.h"
+#import "DynamoDBProvisionedThroughputDescriptionUnmarshaller.h"
 
 
 @implementation DynamoDBTableDescriptionUnmarshaller
@@ -79,6 +83,12 @@
     NSArray *localSecondaryIndexesArray = [jsonObject valueForKey:@"LocalSecondaryIndexes"];
     for (NSDictionary *memberObject in localSecondaryIndexesArray) {
         [tableDescription.localSecondaryIndexes addObject:[DynamoDBLocalSecondaryIndexDescriptionUnmarshaller unmarshall:memberObject]];
+    }
+
+
+    NSArray *globalSecondaryIndexesArray = [jsonObject valueForKey:@"GlobalSecondaryIndexes"];
+    for (NSDictionary *memberObject in globalSecondaryIndexesArray) {
+        [tableDescription.globalSecondaryIndexes addObject:[DynamoDBGlobalSecondaryIndexDescriptionUnmarshaller unmarshall:memberObject]];
     }
 
     return tableDescription;

@@ -13,18 +13,18 @@
  * permissions and limitations under the License.
  */
 
-#import "EC2ReasonCode.h"
+#import "DynamoDBGlobalSecondaryIndexUpdate.h"
 
 
-@implementation EC2ReasonCode
+@implementation DynamoDBGlobalSecondaryIndexUpdate
 
-@synthesize reasonCode;
+@synthesize update;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        reasonCode = nil;
+        update = nil;
     }
 
     return self;
@@ -37,7 +37,7 @@
     NSMutableString *buffer = [[NSMutableString alloc] initWithCapacity:256];
 
     [buffer appendString:@"{"];
-    [buffer appendString:[[[NSString alloc] initWithFormat:@"ReasonCode: %@,", reasonCode] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Update: %@,", update] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -48,7 +48,7 @@
 
 -(void)dealloc
 {
-    [reasonCode release];
+    [update release];
 
     [super dealloc];
 }

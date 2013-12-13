@@ -51,9 +51,6 @@
 {
     [_response release];
     
-    [_error release];
-    [_exception release];
-
     [super dealloc];
 }
 

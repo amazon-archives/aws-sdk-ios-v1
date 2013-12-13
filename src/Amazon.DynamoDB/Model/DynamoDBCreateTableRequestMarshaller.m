@@ -143,6 +143,84 @@
             }
         }
     }
+
+
+    if (createTableRequest.globalSecondaryIndexes != nil) {
+        NSArray *globalSecondaryIndexesList = createTableRequest.globalSecondaryIndexes;
+        if (globalSecondaryIndexesList != nil && [globalSecondaryIndexesList count] > 0) {
+            NSMutableArray *globalSecondaryIndexesArray = [[[NSMutableArray alloc] init] autorelease];
+            [json setValue:globalSecondaryIndexesArray forKey:@"GlobalSecondaryIndexes"];
+            for (DynamoDBGlobalSecondaryIndex *globalSecondaryIndexesListValue in globalSecondaryIndexesList) {
+                NSMutableDictionary *globalSecondaryIndexesArrayObject = [[[NSMutableDictionary alloc] init] autorelease];
+                [globalSecondaryIndexesArray addObject:globalSecondaryIndexesArrayObject];
+
+                if (globalSecondaryIndexesListValue.indexName != nil) {
+                    [globalSecondaryIndexesArrayObject setValue:globalSecondaryIndexesListValue.indexName forKey:@"IndexName"];
+                }
+
+
+                if (globalSecondaryIndexesListValue.keySchema != nil) {
+                    NSArray *keySchemaList = globalSecondaryIndexesListValue.keySchema;
+                    if (keySchemaList != nil && [keySchemaList count] > 0) {
+                        NSMutableArray *keySchemaArray = [[[NSMutableArray alloc] init] autorelease];
+                        [globalSecondaryIndexesArrayObject setValue:keySchemaArray forKey:@"KeySchema"];
+                        for (DynamoDBKeySchemaElement *keySchemaListValue in keySchemaList) {
+                            NSMutableDictionary *keySchemaArrayObject = [[[NSMutableDictionary alloc] init] autorelease];
+                            [keySchemaArray addObject:keySchemaArrayObject];
+
+                            if (keySchemaListValue.attributeName != nil) {
+                                [keySchemaArrayObject setValue:keySchemaListValue.attributeName forKey:@"AttributeName"];
+                            }
+
+                            if (keySchemaListValue.keyType != nil) {
+                                [keySchemaArrayObject setValue:keySchemaListValue.keyType forKey:@"KeyType"];
+                            }
+                        }
+                    }
+                }
+                if (globalSecondaryIndexesListValue != nil) {
+                    DynamoDBProjection *projection = globalSecondaryIndexesListValue.projection;
+                    if (projection != nil) {
+                        NSMutableDictionary *projectionJson = [[[NSMutableDictionary alloc] init] autorelease];
+                        [globalSecondaryIndexesArrayObject setValue:projectionJson forKey:@"Projection"];
+
+
+                        if (projection.projectionType != nil) {
+                            [projectionJson setValue:projection.projectionType forKey:@"ProjectionType"];
+                        }
+                        if (projection != nil) {
+                            NSArray *nonKeyAttributesList = projection.nonKeyAttributes;
+                            if (nonKeyAttributesList != nil && [nonKeyAttributesList count] > 0) {
+                                NSMutableArray *nonKeyAttributesArray = [[[NSMutableArray alloc] init] autorelease];
+                                [projectionJson setValue:nonKeyAttributesArray forKey:@"NonKeyAttributes"];
+                                for (NSString *nonKeyAttributesListValue in nonKeyAttributesList) {
+                                    if (nonKeyAttributesListValue != nil) {
+                                        [nonKeyAttributesArray addObject:nonKeyAttributesListValue];
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                if (globalSecondaryIndexesListValue != nil) {
+                    DynamoDBProvisionedThroughput *provisionedThroughput = globalSecondaryIndexesListValue.provisionedThroughput;
+                    if (provisionedThroughput != nil) {
+                        NSMutableDictionary *provisionedThroughputJson = [[[NSMutableDictionary alloc] init] autorelease];
+                        [globalSecondaryIndexesArrayObject setValue:provisionedThroughputJson forKey:@"ProvisionedThroughput"];
+
+
+                        if (provisionedThroughput.readCapacityUnits != nil) {
+                            [provisionedThroughputJson setValue:provisionedThroughput.readCapacityUnits forKey:@"ReadCapacityUnits"];
+                        }
+
+                        if (provisionedThroughput.writeCapacityUnits != nil) {
+                            [provisionedThroughputJson setValue:provisionedThroughput.writeCapacityUnits forKey:@"WriteCapacityUnits"];
+                        }
+                    }
+                }
+            }
+        }
+    }
     if (createTableRequest != nil) {
         DynamoDBProvisionedThroughput *provisionedThroughput = createTableRequest.provisionedThroughput;
         if (provisionedThroughput != nil) {

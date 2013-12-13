@@ -89,21 +89,6 @@
     return sts;
 }
 
-+(NSString *)getV3StringToSign:(NSString *)rfc822Date nonce:(NSString *)theNonce
-{
-    return [NSString stringWithFormat:@"%@%@", rfc822Date, theNonce];
-}
-
-+(NSString *)nonce
-{
-    CFUUIDRef uuid   = CFUUIDCreate(kCFAllocatorDefault);
-    NSString  *nonce = [(NSString *)CFUUIDCreateString(kCFAllocatorDefault, uuid) autorelease];
-
-    CFRelease(uuid);
-
-    return nonce;
-}
-
 +(NSString *)amznAuthorization:(NSString *)accessKey algorithm:(NSString *)theAlgorithm signature:(NSString *)theSignature
 {
     return [NSString stringWithFormat:@"AWS3-HTTPS AWSAccessKeyId=%@,Algorithm=%@,Signature=%@", accessKey, theAlgorithm, theSignature];

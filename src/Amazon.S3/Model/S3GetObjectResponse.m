@@ -36,7 +36,7 @@
     if ([tmp hasPrefix:@"x-amz-meta-"]) {
         NSString *keyName = [tmp stringByReplacingOccurrencesOfString:@"x-amz-meta-" withString:@""];
         if (nil == self.metadata) {
-            self.metadata = [[NSMutableDictionary alloc] init];
+            self.metadata = [[NSMutableDictionary new] autorelease];
         }
         [self.metadata setValue:value forKey:keyName];
         //AMZLog( @"Setting metadata value [%@] for key [%@] from header [%@]", [value description], keyName, header );

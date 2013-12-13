@@ -39,6 +39,7 @@
     NSString       *kernelId;
     NSString       *ramdiskId;
     NSString       *platform;
+    NSString       *sriovNetSupport;
     EC2StateReason *stateReason;
     NSString       *imageOwnerAlias;
     NSString       *name;
@@ -134,6 +135,11 @@
  * <b>Allowed Values: </b>Windows
  */
 @property (nonatomic, retain) NSString *platform;
+
+/**
+ * The value of the SriovNetSupport property for this object.
+ */
+@property (nonatomic, retain) NSString *sriovNetSupport;
 
 /**
  * The reason for the state change.

@@ -31,6 +31,7 @@
 @synthesize productCodes;
 @synthesize ebsOptimized;
 @synthesize ebsOptimizedIsSet;
+@synthesize sriovNetSupport;
 
 
 -(id)init
@@ -49,6 +50,7 @@
         productCodes                      = [[NSMutableArray alloc] initWithCapacity:1];
         ebsOptimized                      = NO;
         ebsOptimizedIsSet                 = NO;
+        sriovNetSupport                   = nil;
     }
 
     return self;
@@ -90,6 +92,7 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"BlockDeviceMappings: %@,", blockDeviceMappings] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ProductCodes: %@,", productCodes] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"EbsOptimized: %d,", ebsOptimized] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"SriovNetSupport: %@,", sriovNetSupport] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -121,6 +124,7 @@
     [rootDeviceName release];
     [blockDeviceMappings release];
     [productCodes release];
+    [sriovNetSupport release];
 
     [super dealloc];
 }

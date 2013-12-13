@@ -33,22 +33,22 @@
 
 
 /**
- * Specifies the LoadBalancer transport protocol to use for routing -
+ * Specifies the load balancer transport protocol to use for routing -
  * HTTP, HTTPS, TCP or SSL. This property cannot be modified for the life
- * of the LoadBalancer.
+ * of the load balancer.
  */
 @property (nonatomic, retain) NSString *protocol;
 
 /**
- * Specifies the external LoadBalancer port number. This property cannot
- * be modified for the life of the LoadBalancer.
+ * Specifies the external load balancer port number. This property cannot
+ * be modified for the life of the load balancer.
  */
 @property (nonatomic, retain) NSNumber *loadBalancerPort;
 
 /**
  * Specifies the protocol to use for routing traffic to back-end
  * instances - HTTP, HTTPS, TCP, or SSL. This property cannot be modified
- * for the life of the LoadBalancer. <note> If the front-end protocol is
+ * for the life of the load balancer. <note> If the front-end protocol is
  * HTTP or HTTPS, <code>InstanceProtocol</code> has to be at the same
  * protocol layer, i.e., HTTP or HTTPS. Likewise, if the front-end
  * protocol is TCP or SSL, InstanceProtocol has to be TCP or SSL. </note>
@@ -64,7 +64,7 @@
 
 /**
  * Specifies the TCP port on which the instance server is listening. This
- * property cannot be modified for the life of the LoadBalancer.
+ * property cannot be modified for the life of the load balancer.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Range: </b>1 - 65535<br/>
@@ -90,15 +90,15 @@
  * Constructs a new Listener object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theProtocol Specifies the LoadBalancer transport protocol to
+ * @param theProtocol Specifies the load balancer transport protocol to
  * use for routing - HTTP, HTTPS, TCP or SSL. This property cannot be
- * modified for the life of the LoadBalancer.
- * @param theLoadBalancerPort Specifies the external LoadBalancer port
- * number. This property cannot be modified for the life of the
- * LoadBalancer.
+ * modified for the life of the load balancer.
+ * @param theLoadBalancerPort Specifies the external load balancer port
+ * number. This property cannot be modified for the life of the load
+ * balancer.
  * @param theInstancePort Specifies the TCP port on which the instance
  * server is listening. This property cannot be modified for the life of
- * the LoadBalancer.
+ * the load balancer.
  */
 -(id)initWithProtocol:(NSString *)theProtocol andLoadBalancerPort:(NSNumber *)theLoadBalancerPort andInstancePort:(NSNumber *)theInstancePort;
 

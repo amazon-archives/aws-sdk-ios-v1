@@ -24,7 +24,7 @@
 
 /**
  * <p>
- * LoadBalancer name already exists for this account. Please choose
+ * Load balancer name already exists for this account. Please choose
  * another name.
  * </p>
  */

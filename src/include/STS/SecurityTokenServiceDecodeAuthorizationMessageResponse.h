@@ -41,7 +41,8 @@
 -(id)init;
 
 /**
- * An XML document that contains the decoded message.
+ * An XML document that contains the decoded message. For more
+ * information, see <code>DecodeAuthorizationMessage</code>.
  */
 @property (nonatomic, retain) NSString *decodedMessage;
 

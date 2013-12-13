@@ -40,8 +40,8 @@
 -(id)init;
 
 /**
- * Represents the name of the secondary index. The name must be unique
- * among all other indexes on this table.
+ * The name of the local secondary index. The name must be unique among
+ * all other indexes on this table.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>3 - 255<br/>
@@ -50,9 +50,9 @@
 @property (nonatomic, retain) NSString *indexName;
 
 /**
- * Represents the complete index key schema, which consists of one or
- * more pairs of attribute names and key types (<code>HASH</code> or
- * <code>RANGE</code>).
+ * The complete key schema for the local secondary index, consisting of
+ * one or more pairs of attribute names and key types (<code>HASH</code>
+ * or <code>RANGE</code>).
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 2<br/>
@@ -61,7 +61,7 @@
 
 /**
  * Represents attributes that are copied (projected) from the table into
- * the index. These are in addition to the primary key attributes and
+ * an index. These are in addition to the primary key attributes and
  * index key attributes, which are automatically projected.
  */
 @property (nonatomic, retain) DynamoDBProjection *projection;

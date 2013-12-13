@@ -54,6 +54,16 @@ typedef enum {
 @property (nonatomic, retain) NSString *requestMetadataFile;
 
 /**
+ * The error (if any) generated during this operation
+ */
+@property (nonatomic, retain) NSError *error;
+
+/**
+ * The exception (if any) generated during this operation
+ */
+@property (nonatomic, retain) NSException *exception;
+
+/**
  * This method will close any open input or output streams
  */
 - (void)cleanup;

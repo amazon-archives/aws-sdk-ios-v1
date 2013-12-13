@@ -20,18 +20,42 @@
 
 @synthesize tableName;
 @synthesize capacityUnits;
+@synthesize table;
+@synthesize localSecondaryIndexes;
+@synthesize globalSecondaryIndexes;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        tableName     = nil;
-        capacityUnits = nil;
+        tableName              = nil;
+        capacityUnits          = nil;
+        table                  = nil;
+        localSecondaryIndexes  = [[NSMutableDictionary alloc] initWithCapacity:1];
+        globalSecondaryIndexes = [[NSMutableDictionary alloc] initWithCapacity:1];
     }
 
     return self;
 }
 
+
+-(void)setLocalSecondaryIndexesValue:(DynamoDBCapacity *)theValue forKey:(NSString *)theKey
+{
+    if (localSecondaryIndexes == nil) {
+        localSecondaryIndexes = [[NSMutableDictionary alloc] initWithCapacity:1];
+    }
+
+    [localSecondaryIndexes setValue:theValue forKey:theKey];
+}
+
+-(void)setGlobalSecondaryIndexesValue:(DynamoDBCapacity *)theValue forKey:(NSString *)theKey
+{
+    if (globalSecondaryIndexes == nil) {
+        globalSecondaryIndexes = [[NSMutableDictionary alloc] initWithCapacity:1];
+    }
+
+    [globalSecondaryIndexes setValue:theValue forKey:theKey];
+}
 
 
 -(NSString *)description
@@ -41,6 +65,9 @@
     [buffer appendString:@"{"];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"TableName: %@,", tableName] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"CapacityUnits: %@,", capacityUnits] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"Table: %@,", table] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"LocalSecondaryIndexes: %@,", localSecondaryIndexes] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"GlobalSecondaryIndexes: %@,", globalSecondaryIndexes] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -53,6 +80,9 @@
 {
     [tableName release];
     [capacityUnits release];
+    [table release];
+    [localSecondaryIndexes release];
+    [globalSecondaryIndexes release];
 
     [super dealloc];
 }

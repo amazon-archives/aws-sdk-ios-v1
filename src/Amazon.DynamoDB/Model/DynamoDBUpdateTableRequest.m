@@ -20,13 +20,15 @@
 
 @synthesize tableName;
 @synthesize provisionedThroughput;
+@synthesize globalSecondaryIndexUpdates;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        tableName             = nil;
-        provisionedThroughput = nil;
+        tableName                   = nil;
+        provisionedThroughput       = nil;
+        globalSecondaryIndexUpdates = [[NSMutableArray alloc] initWithCapacity:1];
     }
 
     return self;
@@ -43,6 +45,15 @@
 }
 
 
+-(void)addGlobalSecondaryIndexUpdate:(DynamoDBGlobalSecondaryIndexUpdate *)globalSecondaryIndexUpdateObject
+{
+    if (globalSecondaryIndexUpdates == nil) {
+        globalSecondaryIndexUpdates = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+
+    [globalSecondaryIndexUpdates addObject:globalSecondaryIndexUpdateObject];
+}
+
 
 -(NSString *)description
 {
@@ -51,6 +62,7 @@
     [buffer appendString:@"{"];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"TableName: %@,", tableName] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"ProvisionedThroughput: %@,", provisionedThroughput] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"GlobalSecondaryIndexUpdates: %@,", globalSecondaryIndexUpdates] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -63,6 +75,7 @@
 {
     [tableName release];
     [provisionedThroughput release];
+    [globalSecondaryIndexUpdates release];
 
     [super dealloc];
 }

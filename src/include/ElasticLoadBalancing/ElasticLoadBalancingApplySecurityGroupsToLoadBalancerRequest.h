@@ -43,13 +43,13 @@
 -(id)init;
 
 /**
- * The name associated with the LoadBalancer. The name must be unique
- * within the client AWS account.
+ * The name associated with the load balancer. The name must be unique
+ * within the set of load balancers associated with your AWS account.
  */
 @property (nonatomic, retain) NSString *loadBalancerName;
 
 /**
- * A list of security group IDs to associate with your LoadBalancer in
+ * A list of security group IDs to associate with your load balancer in
  * VPC. The security group IDs must be provided as the ID and not the
  * security group name (For example, sg-1234).
  */

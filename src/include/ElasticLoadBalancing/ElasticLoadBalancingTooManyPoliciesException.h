@@ -24,7 +24,7 @@
 
 /**
  * <p>
- * Quota for number of policies for this LoadBalancer has already been
+ * Quota for number of policies for this load balancer has already been
  * reached.
  * </p>
  */

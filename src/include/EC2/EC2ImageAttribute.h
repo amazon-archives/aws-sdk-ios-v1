@@ -32,6 +32,7 @@
     NSString       *kernelId;
     NSString       *ramdiskId;
     NSString       *descriptionValue;
+    NSString       *sriovNetSupport;
     NSMutableArray *blockDeviceMappings;
 }
 
@@ -73,6 +74,11 @@
  * User-created description of the associated AMI.
  */
 @property (nonatomic, retain) NSString *descriptionValue;
+
+/**
+ * String value
+ */
+@property (nonatomic, retain) NSString *sriovNetSupport;
 
 /**
  * Block device mappings for the associated AMI.

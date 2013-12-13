@@ -22,6 +22,8 @@
 @synthesize dryRunIsSet;
 @synthesize instanceIds;
 @synthesize filters;
+@synthesize nextToken;
+@synthesize maxResults;
 
 
 -(id)init
@@ -31,6 +33,8 @@
         dryRunIsSet = NO;
         instanceIds = [[NSMutableArray alloc] initWithCapacity:1];
         filters     = [[NSMutableArray alloc] initWithCapacity:1];
+        nextToken   = nil;
+        maxResults  = nil;
     }
 
     return self;
@@ -64,6 +68,8 @@
     [buffer appendString:[[[NSString alloc] initWithFormat:@"DryRun: %d,", dryRun] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"InstanceIds: %@,", instanceIds] autorelease]];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Filters: %@,", filters] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"NextToken: %@,", nextToken] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"MaxResults: %@,", maxResults] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -82,6 +88,8 @@
 {
     [instanceIds release];
     [filters release];
+    [nextToken release];
+    [maxResults release];
 
     [super dealloc];
 }

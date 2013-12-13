@@ -27,6 +27,7 @@
 
 {
     NSMutableArray *reservations;
+    NSString       *nextToken;
 }
 
 
@@ -44,6 +45,11 @@
  * The list of reservations containing the describes instances.
  */
 @property (nonatomic, retain) NSMutableArray *reservations;
+
+/**
+ * The value of the NextToken property for this object.
+ */
+@property (nonatomic, retain) NSString *nextToken;
 
 
 

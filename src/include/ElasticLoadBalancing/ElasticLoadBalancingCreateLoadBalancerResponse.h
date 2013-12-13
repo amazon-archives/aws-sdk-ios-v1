@@ -48,7 +48,7 @@
 -(id)init;
 
 /**
- * The DNS name for the LoadBalancer.
+ * The DNS name for the load balancer.
  */
 @property (nonatomic, retain) NSString *dNSName;
 

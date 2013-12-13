@@ -60,7 +60,7 @@
 
 /**
  * The Amazon Resource Name (ARN) of the Amazon Simple Notification
- * Service (Amazon SNS) topic. If the parameter is ommited from the
+ * Service (Amazon SNS) topic. If the parameter is omitted from the
  * request or a null value is passed, the topic is cleared and publishing
  * is disabled.
  */

@@ -61,6 +61,16 @@
 -(id)initWithQueueUrl:(NSString *)theQueueUrl;
 
 /**
+ * Constructs a new GetQueueAttributesRequest object.
+ * Callers should use properties to initialize any additional object members.
+ *
+ * @param theQueueUrl The URL of the SQS queue to take action on.
+ * @param theAttributeNames A list of attributes to retrieve information
+ * for.
+ */
+-(id)initWithQueueUrl:(NSString *)theQueueUrl andAttributeNames:(NSMutableArray *)theAttributeNames;
+
+/**
  * Adds a single object to attributeNames.
  * This function will alloc and init attributeNames if not already done.
  */

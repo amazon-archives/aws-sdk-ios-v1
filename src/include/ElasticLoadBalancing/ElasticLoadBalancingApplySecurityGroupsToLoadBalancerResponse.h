@@ -43,7 +43,7 @@
 -(id)init;
 
 /**
- * A list of security group IDs associated with your LoadBalancer.
+ * A list of security group IDs associated with your load balancer.
  */
 @property (nonatomic, retain) NSMutableArray *securityGroups;
 

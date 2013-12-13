@@ -33,6 +33,8 @@
     BOOL           dryRun;
     BOOL           dryRunIsSet;
     NSMutableArray *filters;
+    NSNumber       *maxResults;
+    NSString       *nextToken;
 }
 
 
@@ -48,6 +50,16 @@
  * A list of filters used to match properties for tags.
  */
 @property (nonatomic, retain) NSMutableArray *filters;
+
+/**
+ * The value of the MaxResults property for this object.
+ */
+@property (nonatomic, retain) NSNumber *maxResults;
+
+/**
+ * The value of the NextToken property for this object.
+ */
+@property (nonatomic, retain) NSString *nextToken;
 
 
 /**

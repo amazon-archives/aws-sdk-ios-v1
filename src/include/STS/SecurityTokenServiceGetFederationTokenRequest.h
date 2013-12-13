@@ -49,14 +49,13 @@
 @property (nonatomic, retain) NSString *name;
 
 /**
- * A policy that specifies the permissions that are granted to the
- * federated user. By default, federated users have no permissions; they
- * do not inherit any from the IAM user. When you specify a policy, the
- * federated user's permissions are intersection of the specified policy
- * and the IAM user's policy. If you don't specify a policy, federated
- * users can only access AWS resources that explicitly allow those
- * federated users in a resource policy, such as in an Amazon S3 bucket
- * policy.
+ * An AWS IAM policy in JSON format. <p>By default, federated users have
+ * no permissions; they do not inherit any from the IAM user. When you
+ * specify a policy, the federated user's permissions are based on the
+ * specified policy and the IAM user's policy. If you don't specify a
+ * policy, federated users can only access AWS resources that explicitly
+ * allow those federated users in a resource policy, such as in an Amazon
+ * S3 bucket policy.
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Length: </b>1 - 2048<br/>

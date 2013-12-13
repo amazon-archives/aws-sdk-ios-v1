@@ -44,7 +44,7 @@
 -(id)init;
 
 /**
- * Contains the properties of a table.
+ * Represents the properties of a table.
  */
 @property (nonatomic, retain) DynamoDBTableDescription *tableDescription;
 

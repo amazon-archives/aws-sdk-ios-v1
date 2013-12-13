@@ -84,6 +84,13 @@
         [parser setDelegate:unmarshaller];
     }
 
+    if ([elementName isEqualToString:@"sriovNetSupport"]) {
+        AmazonValueUnmarshaller *unmarshaller = [[[AmazonValueUnmarshaller alloc] initWithCaller:self withParentObject:self.response withSetter:@selector(setSriovNetSupport:)] autorelease];
+        unmarshaller.endElementTagName   = @"sriovNetSupport";
+        unmarshaller.internalElementName = @"value";
+        [parser setDelegate:unmarshaller];
+    }
+
     if ([elementName isEqualToString:@"blockDeviceMapping"]) {
         AmazonListUnmarshaller *listUnmarshaller = [[[AmazonListUnmarshaller alloc] initWithCaller:self withParentObject:self.response.blockDeviceMappings withSetter:@selector(addObjectsFromArray:)] autorelease];
         listUnmarshaller.endListElementName = @"blockDeviceMapping";

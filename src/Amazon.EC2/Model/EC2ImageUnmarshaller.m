@@ -129,6 +129,11 @@
         return;
     }
 
+    if ([elementName isEqualToString:@"sriovNetSupport"]) {
+        self.response.sriovNetSupport = self.currentText;
+        return;
+    }
+
     if ([elementName isEqualToString:@"imageOwnerAlias"]) {
         self.response.imageOwnerAlias = self.currentText;
         return;

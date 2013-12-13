@@ -43,13 +43,14 @@
 -(id)init;
 
 /**
- * The name associated with the LoadBalancer. The name must be unique
- * within the client AWS account.
+ * The name associated with the load balancer. The name must be unique
+ * within the set of load balancers associated with your AWS account.
  */
 @property (nonatomic, retain) NSString *loadBalancerName;
 
 /**
- * A list of subnet IDs to add for the LoadBalancer.
+ * A list of subnet IDs to add for the load balancer. You can add only
+ * one subnet per Availability Zone.
  */
 @property (nonatomic, retain) NSMutableArray *subnets;
 

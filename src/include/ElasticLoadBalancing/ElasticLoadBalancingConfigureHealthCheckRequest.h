@@ -37,8 +37,9 @@
 
 
 /**
- * The mnemonic name associated with the LoadBalancer. This name must be
- * unique within the client AWS account.
+ * The mnemonic name associated with the load balancer. The name must be
+ * unique within the set of load balancers associated with your AWS
+ * account.
  */
 @property (nonatomic, retain) NSString *loadBalancerName;
 
@@ -59,8 +60,9 @@
  * Constructs a new ConfigureHealthCheckRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theLoadBalancerName The mnemonic name associated with the
- * LoadBalancer. This name must be unique within the client AWS account.
+ * @param theLoadBalancerName The mnemonic name associated with the load
+ * balancer. The name must be unique within the set of load balancers
+ * associated with your AWS account.
  * @param theHealthCheck A structure containing the configuration
  * information for the new healthcheck.
  */

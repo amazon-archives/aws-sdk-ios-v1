@@ -40,6 +40,8 @@
     NSString       *ramdiskId;
     NSString       *rootDeviceName;
     NSMutableArray *blockDeviceMappings;
+    NSString       *virtualizationType;
+    NSString       *sriovNetSupport;
 }
 
 
@@ -102,6 +104,16 @@
  * on instances launched from the new image.
  */
 @property (nonatomic, retain) NSMutableArray *blockDeviceMappings;
+
+/**
+ * The value of the VirtualizationType property for this object.
+ */
+@property (nonatomic, retain) NSString *virtualizationType;
+
+/**
+ * The value of the SriovNetSupport property for this object.
+ */
+@property (nonatomic, retain) NSString *sriovNetSupport;
 
 
 /**

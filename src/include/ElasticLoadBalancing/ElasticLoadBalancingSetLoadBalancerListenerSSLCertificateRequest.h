@@ -37,7 +37,7 @@
 
 
 /**
- * The name of the the LoadBalancer.
+ * The name of the load balancer.
  */
 @property (nonatomic, retain) NSString *loadBalancerName;
 
@@ -47,11 +47,11 @@
 @property (nonatomic, retain) NSNumber *loadBalancerPort;
 
 /**
- * The ID of the SSL certificate chain to use. For more information on
- * SSL certificates, see <a
- * .amazonwebservices.com/IAM/latest/UserGuide/ManagingServerCerts.html">
- * Managing Server Certificates </a> in the AWS Identity and Access
- * Management documentation.
+ * The Amazon Resource Number (ARN) of the SSL certificate chain to use.
+ * For more information on SSL certificates, see <a
+ * ://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html">
+ * Managing Server Certificates</a> in the <i>AWS Identity and Access
+ * Management User Guide</i>.
  */
 @property (nonatomic, retain) NSString *sSLCertificateId;
 
@@ -66,14 +66,15 @@
  * Constructs a new SetLoadBalancerListenerSSLCertificateRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theLoadBalancerName The name of the the LoadBalancer.
+ * @param theLoadBalancerName The name of the load balancer.
  * @param theLoadBalancerPort The port that uses the specified SSL
  * certificate.
- * @param theSSLCertificateId The ID of the SSL certificate chain to use.
- * For more information on SSL certificates, see <a
- * .amazonwebservices.com/IAM/latest/UserGuide/ManagingServerCerts.html">
- * Managing Server Certificates </a> in the AWS Identity and Access
- * Management documentation.
+ * @param theSSLCertificateId The Amazon Resource Number (ARN) of the SSL
+ * certificate chain to use. For more information on SSL certificates,
+ * see <a
+ * ://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html">
+ * Managing Server Certificates</a> in the <i>AWS Identity and Access
+ * Management User Guide</i>.
  */
 -(id)initWithLoadBalancerName:(NSString *)theLoadBalancerName andLoadBalancerPort:(NSNumber *)theLoadBalancerPort andSSLCertificateId:(NSString *)theSSLCertificateId;
 

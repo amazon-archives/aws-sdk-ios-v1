@@ -59,8 +59,6 @@ const int32_t kNotStarted = -1;
 {
     [_response release];
     
-    [_error release];
-    [_exception release];
     [_outputStream release];
     [super dealloc];
 }
@@ -109,7 +107,9 @@ const int32_t kNotStarted = -1;
     if (self.getRequest.targetFilePath != nil && [[NSFileManager defaultManager] fileExistsAtPath:self.getRequest.targetFilePath]) {
         
         // If file exists on disk, get the s3 filesize and etag for comparison
-        [self getFileMetaData];
+        if (![self getFileMetaData]) {
+            return;
+        }
 
         //calculate md5 of file so far
         uint8_t buffer[kBufferSize];
@@ -484,7 +484,7 @@ const int32_t kNotStarted = -1;
     return [fileAttributes fileSize];
 }
 
-- (void)getFileMetaData
+- (BOOL)getFileMetaData
 {
     // Get the size of the file that is being downloaded
     S3GetObjectMetadataRequest *metadataRequest = nil;
@@ -499,10 +499,41 @@ const int32_t kNotStarted = -1;
                            withBucket:self.getRequest.bucket
                            withVersionId:self.getRequest.versionId];
     }
-    S3GetObjectMetadataResponse *metadata = [self.s3 getObjectMetadata:metadataRequest];
+    S3GetObjectMetadataResponse *metadata;
+    
+    @try {
+        metadata = [self.s3 getObjectMetadata:metadataRequest];
+        if (metadata.error != nil) {
+            self.error = metadata.error;
+            self.exception = [AmazonServiceException exceptionWithMessage:[self.error description] andError:self.error];
+        }
+    }
+    @catch (NSException *exception) {
+        self.exception = exception;
+        self.error = [AmazonErrorHandler errorFromException:exception];
+    }
+    
+    // If the metadata call fails, report back
+    if (self.error != nil) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if([self.delegate respondsToSelector:@selector(request:didFailWithError:)])
+            {
+                [self.delegate request:metadataRequest didFailWithError:self.error];
+            }
+            dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+            dispatch_async(queue, ^{
+                [self cleanup];
+                [self finish];
+            });
+        });
+        return NO;
+    }
+    
     self.s3FileSize = [metadata contentLength];
     self.etag =[metadata etag];
     [metadataRequest release];
+    
+    return YES;
 }
 
 /**

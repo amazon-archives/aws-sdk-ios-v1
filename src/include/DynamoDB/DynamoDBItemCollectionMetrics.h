@@ -47,11 +47,11 @@
  * An estimate of item collection size, measured in gigabytes. This is a
  * two-element array containing a lower bound and an upper bound for the
  * estimate. The estimate includes the size of all the items in the
- * table, plus the size of all attributes projected into all of the
+ * table, plus the size of all attributes projected into all of the local
  * secondary indexes on that table. Use this estimate to measure whether
- * a secondary index is approaching its size limit. <p>The estimate is
- * subject to change over time; therefore, do not rely on the precision
- * or accuracy of the estimate.
+ * a local secondary index is approaching its size limit. <p>The estimate
+ * is subject to change over time; therefore, do not rely on the
+ * precision or accuracy of the estimate.
  */
 @property (nonatomic, retain) NSMutableArray *sizeEstimateRangeGB;
 

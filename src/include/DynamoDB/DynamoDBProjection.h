@@ -37,13 +37,13 @@
 -(id)init;
 
 /**
- * Represents the set of attributes that are projected into the index:
- * <ul> <li> <p><code>KEYS_ONLY</code> - Only the index and primary keys
- * are projected into the index. </li> <li> <p><code>INCLUDE</code> -
- * Only the specified table attributes are projected into the index. The
- * list of projected attributes are in <i>NonKeyAttributes</i>. </li>
- * <li> <p><code>ALL</code> - All of the table attributes are projected
- * into the index. </li> </ul>
+ * The set of attributes that are projected into the index: <ul> <li>
+ * <p><code>KEYS_ONLY</code> - Only the index and primary keys are
+ * projected into the index. </li> <li> <p><code>INCLUDE</code> - Only
+ * the specified table attributes are projected into the index. The list
+ * of projected attributes are in <i>NonKeyAttributes</i>. </li> <li>
+ * <p><code>ALL</code> - All of the table attributes are projected into
+ * the index. </li> </ul>
  * <p>
  * <b>Constraints:</b><br/>
  * <b>Allowed Values: </b>ALL, KEYS_ONLY, INCLUDE
@@ -52,8 +52,8 @@
 
 /**
  * Represents the non-key attribute names which will be projected into
- * the index. <p>The total count of attributes specified in
- * <i>NonKeyAttributes</i>, summed across all of the local secondary
+ * the index. <p>For local secondary indexes, the total count of
+ * <i>NonKeyAttributes</i> summed across all of the local secondary
  * indexes, must not exceed 20. If you project the same attribute into
  * two different indexes, this counts as two distinct attributes when
  * determining the total.

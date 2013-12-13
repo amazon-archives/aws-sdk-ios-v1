@@ -48,6 +48,7 @@
     NSMutableArray *groups;
     BOOL           ebsOptimized;
     BOOL           ebsOptimizedIsSet;
+    NSString       *sriovNetSupport;
 }
 
 
@@ -143,6 +144,11 @@
 @property (nonatomic) BOOL           ebsOptimized;
 
 @property (nonatomic, readonly) BOOL ebsOptimizedIsSet;
+
+/**
+ * String value
+ */
+@property (nonatomic, retain) NSString *sriovNetSupport;
 
 
 /**

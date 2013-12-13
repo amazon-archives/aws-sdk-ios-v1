@@ -37,21 +37,14 @@
 
 
 /**
- * The name associated with the LoadBalancer. The name must be unique
- * within the client AWS account.
+ * The name associated with the load balancer. The name must be unique
+ * within your set of load balancers.
  */
 @property (nonatomic, retain) NSString *loadBalancerName;
 
 /**
- * A list of instance IDs that should be registered with the
- * LoadBalancer. <note>When the instance is stopped and then restarted,
- * the IP addresses associated with your instance changes. Elastic Load
- * Balancing cannot recognize the new IP address, which prevents it from
- * routing traffic to your instances. We recommend that you de-register
- * your Amazon EC2 instances from your load balancer after you stop your
- * instance, and then register the load balancer with your instance after
- * you've restarted. To de-register your instances from load balancer,
- * use <a>DeregisterInstancesFromLoadBalancer</a> action.</note>
+ * A list of instance IDs that should be registered with the load
+ * balancer.
  */
 @property (nonatomic, retain) NSMutableArray *instances;
 
@@ -66,18 +59,10 @@
  * Constructs a new RegisterInstancesWithLoadBalancerRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theLoadBalancerName The name associated with the LoadBalancer.
- * The name must be unique within the client AWS account.
+ * @param theLoadBalancerName The name associated with the load balancer.
+ * The name must be unique within your set of load balancers.
  * @param theInstances A list of instance IDs that should be registered
- * with the LoadBalancer. <note>When the instance is stopped and then
- * restarted, the IP addresses associated with your instance changes.
- * Elastic Load Balancing cannot recognize the new IP address, which
- * prevents it from routing traffic to your instances. We recommend that
- * you de-register your Amazon EC2 instances from your load balancer
- * after you stop your instance, and then register the load balancer with
- * your instance after you've restarted. To de-register your instances
- * from load balancer, use <a>DeregisterInstancesFromLoadBalancer</a>
- * action.</note>
+ * with the load balancer.
  */
 -(id)initWithLoadBalancerName:(NSString *)theLoadBalancerName andInstances:(NSMutableArray *)theInstances;
 

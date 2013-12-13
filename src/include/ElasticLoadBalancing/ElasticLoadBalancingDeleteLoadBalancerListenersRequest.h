@@ -36,12 +36,12 @@
 
 
 /**
- * The mnemonic name associated with the LoadBalancer.
+ * The mnemonic name associated with the load balancer.
  */
 @property (nonatomic, retain) NSString *loadBalancerName;
 
 /**
- * The client port number(s) of the LoadBalancerListener(s) to be
+ * The client port number(s) of the load balancer listener(s) to be
  * removed.
  */
 @property (nonatomic, retain) NSMutableArray *loadBalancerPorts;
@@ -57,10 +57,10 @@
  * Constructs a new DeleteLoadBalancerListenersRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theLoadBalancerName The mnemonic name associated with the
- * LoadBalancer.
- * @param theLoadBalancerPorts The client port number(s) of the
- * LoadBalancerListener(s) to be removed.
+ * @param theLoadBalancerName The mnemonic name associated with the load
+ * balancer.
+ * @param theLoadBalancerPorts The client port number(s) of the load
+ * balancer listener(s) to be removed.
  */
 -(id)initWithLoadBalancerName:(NSString *)theLoadBalancerName andLoadBalancerPorts:(NSMutableArray *)theLoadBalancerPorts;
 

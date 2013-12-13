@@ -43,14 +43,13 @@
 -(id)init;
 
 /**
- * The name associated with the LoadBalancer to be detached. The name
- * must be unique within the client AWS account.
+ * The name associated with the load balancer to be detached.
  */
 @property (nonatomic, retain) NSString *loadBalancerName;
 
 /**
  * A list of subnet IDs to remove from the set of configured subnets for
- * the LoadBalancer.
+ * the load balancer.
  */
 @property (nonatomic, retain) NSMutableArray *subnets;
 

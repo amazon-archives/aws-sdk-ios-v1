@@ -75,12 +75,14 @@
 @property (nonatomic, readonly) BOOL consistentReadIsSet;
 
 /**
- * If set to <code>TOTAL</code>, <i>ConsumedCapacity</i> is included in
- * the response; if set to <code>NONE</code> (the default),
- * <i>ConsumedCapacity</i> is not included.
+ * If set to <code>TOTAL</code>, the response includes
+ * <i>ConsumedCapacity</i> data for tables and indexes. If set to
+ * <code>INDEXES</code>, the repsonse includes <i>ConsumedCapacity</i>
+ * for indexes. If set to <code>NONE</code> (the default),
+ * <i>ConsumedCapacity</i> is not included in the response.
  * <p>
  * <b>Constraints:</b><br/>
- * <b>Allowed Values: </b>TOTAL, NONE
+ * <b>Allowed Values: </b>INDEXES, TOTAL, NONE
  */
 @property (nonatomic, retain) NSString *returnConsumedCapacity;
 

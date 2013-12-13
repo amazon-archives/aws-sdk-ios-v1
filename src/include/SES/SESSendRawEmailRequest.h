@@ -45,11 +45,16 @@
 -(id)init;
 
 /**
- * The identity's email address. <note>If you specify the
- * <code>Source</code> parameter, then bounce notifications and
- * complaints will be sent to this email address. This takes precedence
- * over any <i>Return-Path</i> header that you might include in the raw
- * text of the message. </note>
+ * The identity's email address. <p> By default, the string must be 7-bit
+ * ASCII. If the text must contain any other characters, then you must
+ * use MIME encoded-word syntax (RFC 2047) instead of a literal string.
+ * MIME encoded-word syntax uses the following form:
+ * <code>=?charset?encoding?encoded-text?=</code>. For more information,
+ * see <a href="http://tools.ietf.org/html/rfc2047">RFC 2047</a>.
+ * <note>If you specify the <code>Source</code> parameter, then bounce
+ * notifications and complaints will be sent to this email address. This
+ * takes precedence over any <i>Return-Path</i> header that you might
+ * include in the raw text of the message. </note>
  */
 @property (nonatomic, retain) NSString *source;
 
@@ -64,10 +69,10 @@
  * separated by a blank line.</li> <li>All required header fields must be
  * present.</li> <li>Each part of a multipart MIME message must be
  * formatted properly.</li> <li>MIME content types must be among those
- * supported by Amazon SES. Refer to the <a
- * f="http://docs.amazonwebservices.com/ses/latest/DeveloperGuide">Amazon
- * SES Developer Guide</a> for more details. </li> <li>Content must be
- * base64-encoded, if MIME requires it.</li> </ul>
+ * supported by Amazon SES. For more information, go to the <a
+ * /docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html">Amazon
+ * SES Developer Guide</a>. </li> <li>Content must be base64-encoded, if
+ * MIME requires it.</li> </ul>
  */
 @property (nonatomic, retain) SESRawMessage *rawMessage;
 

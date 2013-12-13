@@ -24,8 +24,6 @@
 }
 
 @property (nonatomic, retain) AmazonServiceResponse *response;
-@property (nonatomic, retain) NSError *error;
-@property (nonatomic, retain) NSException *exception;
 @property (nonatomic, assign) int64_t partSize;
 
 - (id)initWithCurrentPartNo:(uint32_t)theCurrentPartNo;

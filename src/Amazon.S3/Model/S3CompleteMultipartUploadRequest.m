@@ -55,7 +55,7 @@
 -(void)addPartWithPartNumber:(int)partNumber withETag:(NSString *)etag
 {
     if (nil == self.parts) {
-        self.parts = [NSMutableDictionary new];
+        self.parts = [[NSMutableDictionary new] autorelease];
     }
 
     [self.parts setObject:etag forKey:[NSNumber numberWithInt:partNumber]];

@@ -40,32 +40,32 @@
 
 
 /**
- * Represents a String data type
+ * A String data type
  */
 @property (nonatomic, retain) NSString *s;
 
 /**
- * Represents a Number data type
+ * A Number data type
  */
 @property (nonatomic, retain) NSString *n;
 
 /**
- * Represents a Binary data type
+ * A Binary data type
  */
 @property (nonatomic, retain) NSData *b;
 
 /**
- * Represents a String set data type
+ * A String set data type
  */
 @property (nonatomic, retain) NSMutableArray *sS;
 
 /**
- * Represents a Number set data type
+ * Number set data type
  */
 @property (nonatomic, retain) NSMutableArray *nS;
 
 /**
- * Represents a Binary set data type
+ * A Binary set data type
  */
 @property (nonatomic, retain) NSMutableArray *bS;
 
@@ -80,7 +80,7 @@
  * Constructs a new AttributeValue object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theS Represents a String data type
+ * @param theS A String data type
  */
 -(id)initWithS:(NSString *)theS;
 
@@ -88,7 +88,7 @@
  * Constructs a new AttributeValue object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theSS Represents a String set data type
+ * @param theSS A String set data type
  */
 -(id)initWithSS:(NSMutableArray *)theSS;
 
@@ -96,7 +96,7 @@
  * Constructs a new AttributeValue object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theN Represents a Number data type
+ * @param theN A Number data type
  */
 -(id)initWithN:(NSString *)theN;
 
@@ -104,7 +104,7 @@
  * Constructs a new AttributeValue object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theNS Represents a Number set data type
+ * @param theNS Number set data type
  */
 -(id)initWithNS:(NSMutableArray *)theNS;
 
@@ -112,7 +112,7 @@
  * Constructs a new AttributeValue object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theB Represents a Binary data type
+ * @param theB A Binary data type
  */
 -(id)initWithB:(NSData *)theB;
 
@@ -120,7 +120,7 @@
  * Constructs a new AttributeValue object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theBS Represents a Binary set data type
+ * @param theBS A Binary set data type
  */
 -(id)initWithBS:(NSMutableArray *)theBS;
 

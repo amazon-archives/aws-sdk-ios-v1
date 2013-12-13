@@ -22,7 +22,7 @@
     AmazonServiceRequest *request = [[EC2Request alloc] init];
 
     [request setParameterValue:@"RegisterImage"           forKey:@"Action"];
-    [request setParameterValue:@"2013-10-01"   forKey:@"Version"];
+    [request setParameterValue:@"2013-10-15"   forKey:@"Version"];
 
     [request setDelegate:[registerImageRequest delegate]];
     [request setCredentials:[registerImageRequest credentials]];
@@ -118,6 +118,16 @@
             }
 
             blockDeviceMappingsListIndex++;
+        }
+    }
+    if (registerImageRequest != nil) {
+        if (registerImageRequest.virtualizationType != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", registerImageRequest.virtualizationType] forKey:[NSString stringWithFormat:@"%@", @"VirtualizationType"]];
+        }
+    }
+    if (registerImageRequest != nil) {
+        if (registerImageRequest.sriovNetSupport != nil) {
+            [request setParameterValue:[NSString stringWithFormat:@"%@", registerImageRequest.sriovNetSupport] forKey:[NSString stringWithFormat:@"%@", @"SriovNetSupport"]];
         }
     }
 

@@ -36,7 +36,7 @@
 
 
 /**
- * A list of names associated with the LoadBalancers at creation time.
+ * A list of load balancer names associated with the account.
  */
 @property (nonatomic, retain) NSMutableArray *loadBalancerNames;
 
@@ -56,8 +56,8 @@
  * Constructs a new DescribeLoadBalancersRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theLoadBalancerNames A list of names associated with the
- * LoadBalancers at creation time.
+ * @param theLoadBalancerNames A list of load balancer names associated
+ * with the account.
  */
 -(id)initWithLoadBalancerNames:(NSMutableArray *)theLoadBalancerNames;
 

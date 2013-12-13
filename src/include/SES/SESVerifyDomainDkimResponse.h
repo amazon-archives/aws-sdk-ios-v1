@@ -40,10 +40,17 @@
 -(id)init;
 
 /**
- * A set of DNS records (tokens) that must be published in the domain
- * name's DNS for DKIM verification to complete, and which must remain
- * published in order for DKIM signing to succeed. The tokens are CNAME
- * DNS records pointing to DKIM public keys hosted by Amazon SES.
+ * A set of character strings that represent the domain's identity. If
+ * the identity is an email address, the tokens represent the domain of
+ * that address. <p>Using these tokens, you will need to create DNS CNAME
+ * records that point to DKIM public keys hosted by Amazon SES. Amazon
+ * Web Services will eventually detect that you have updated your DNS
+ * records; this detection process may take up to 72 hours. Upon
+ * successful detection, Amazon SES will be able to DKIM-sign emails
+ * originating from that domain. <p>For more information about creating
+ * DNS records using DKIM tokens, go to the <a
+ * mazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html">Amazon
+ * SES Developer Guide</a>.
  */
 @property (nonatomic, retain) NSMutableArray *dkimTokens;
 

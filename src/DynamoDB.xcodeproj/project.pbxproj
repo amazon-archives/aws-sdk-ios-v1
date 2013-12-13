@@ -175,6 +175,20 @@
 		38078F131526217F006F384C /* DynamoDBWriteRequestUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 38078EB71526217F006F384C /* DynamoDBWriteRequestUnmarshaller.m */; };
 		3846C388152D0DAA00AE6D72 /* AmazonDynamoDBClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3846C387152D0DAA00AE6D72 /* AmazonDynamoDBClient.m */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		BDA6CF2F185A4FE90080E74D /* DynamoDBCapacity.h in Headers */ = {isa = PBXBuildFile; fileRef = BDA6CF28185A4FE90080E74D /* DynamoDBCapacity.h */; };
+		BDA6CF30185A4FE90080E74D /* DynamoDBCapacityUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = BDA6CF29185A4FE90080E74D /* DynamoDBCapacityUnmarshaller.h */; };
+		BDA6CF31185A4FE90080E74D /* DynamoDBGlobalSecondaryIndex.h in Headers */ = {isa = PBXBuildFile; fileRef = BDA6CF2A185A4FE90080E74D /* DynamoDBGlobalSecondaryIndex.h */; };
+		BDA6CF32185A4FE90080E74D /* DynamoDBGlobalSecondaryIndexDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = BDA6CF2B185A4FE90080E74D /* DynamoDBGlobalSecondaryIndexDescription.h */; };
+		BDA6CF33185A4FE90080E74D /* DynamoDBGlobalSecondaryIndexDescriptionUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = BDA6CF2C185A4FE90080E74D /* DynamoDBGlobalSecondaryIndexDescriptionUnmarshaller.h */; };
+		BDA6CF34185A4FE90080E74D /* DynamoDBGlobalSecondaryIndexUpdate.h in Headers */ = {isa = PBXBuildFile; fileRef = BDA6CF2D185A4FE90080E74D /* DynamoDBGlobalSecondaryIndexUpdate.h */; };
+		BDA6CF35185A4FE90080E74D /* DynamoDBUpdateGlobalSecondaryIndexAction.h in Headers */ = {isa = PBXBuildFile; fileRef = BDA6CF2E185A4FE90080E74D /* DynamoDBUpdateGlobalSecondaryIndexAction.h */; };
+		BDA6CF3D185A4FFC0080E74D /* DynamoDBCapacity.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA6CF36185A4FFC0080E74D /* DynamoDBCapacity.m */; };
+		BDA6CF3E185A4FFC0080E74D /* DynamoDBCapacityUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA6CF37185A4FFC0080E74D /* DynamoDBCapacityUnmarshaller.m */; };
+		BDA6CF3F185A4FFC0080E74D /* DynamoDBGlobalSecondaryIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA6CF38185A4FFC0080E74D /* DynamoDBGlobalSecondaryIndex.m */; };
+		BDA6CF40185A4FFC0080E74D /* DynamoDBGlobalSecondaryIndexDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA6CF39185A4FFC0080E74D /* DynamoDBGlobalSecondaryIndexDescription.m */; };
+		BDA6CF41185A4FFC0080E74D /* DynamoDBGlobalSecondaryIndexDescriptionUnmarshaller.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA6CF3A185A4FFC0080E74D /* DynamoDBGlobalSecondaryIndexDescriptionUnmarshaller.m */; };
+		BDA6CF42185A4FFC0080E74D /* DynamoDBGlobalSecondaryIndexUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA6CF3B185A4FFC0080E74D /* DynamoDBGlobalSecondaryIndexUpdate.m */; };
+		BDA6CF43185A4FFC0080E74D /* DynamoDBUpdateGlobalSecondaryIndexAction.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA6CF3C185A4FFC0080E74D /* DynamoDBUpdateGlobalSecondaryIndexAction.m */; };
 		CE2CDBF817036AD00013DE5F /* AWSDynamoDB.h in Headers */ = {isa = PBXBuildFile; fileRef = CE2CDBF717036AD00013DE5F /* AWSDynamoDB.h */; };
 		CE3767821810ADF0005FF936 /* DynamoDBExceptionUnmarshaller.h in Headers */ = {isa = PBXBuildFile; fileRef = CE3767811810ADF0005FF936 /* DynamoDBExceptionUnmarshaller.h */; };
 		CE8EF69616F945DF007BF85E /* DynamoDBAttributeDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8EF69216F945DF007BF85E /* DynamoDBAttributeDefinition.m */; };
@@ -376,6 +390,20 @@
 		3846C387152D0DAA00AE6D72 /* AmazonDynamoDBClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonDynamoDBClient.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* DynamoDB_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamoDB_Prefix.pch; sourceTree = "<group>"; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BDA6CF28185A4FE90080E74D /* DynamoDBCapacity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamoDBCapacity.h; path = DynamoDB/DynamoDBCapacity.h; sourceTree = "<group>"; };
+		BDA6CF29185A4FE90080E74D /* DynamoDBCapacityUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamoDBCapacityUnmarshaller.h; path = DynamoDB/DynamoDBCapacityUnmarshaller.h; sourceTree = "<group>"; };
+		BDA6CF2A185A4FE90080E74D /* DynamoDBGlobalSecondaryIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamoDBGlobalSecondaryIndex.h; path = DynamoDB/DynamoDBGlobalSecondaryIndex.h; sourceTree = "<group>"; };
+		BDA6CF2B185A4FE90080E74D /* DynamoDBGlobalSecondaryIndexDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamoDBGlobalSecondaryIndexDescription.h; path = DynamoDB/DynamoDBGlobalSecondaryIndexDescription.h; sourceTree = "<group>"; };
+		BDA6CF2C185A4FE90080E74D /* DynamoDBGlobalSecondaryIndexDescriptionUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamoDBGlobalSecondaryIndexDescriptionUnmarshaller.h; path = DynamoDB/DynamoDBGlobalSecondaryIndexDescriptionUnmarshaller.h; sourceTree = "<group>"; };
+		BDA6CF2D185A4FE90080E74D /* DynamoDBGlobalSecondaryIndexUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamoDBGlobalSecondaryIndexUpdate.h; path = DynamoDB/DynamoDBGlobalSecondaryIndexUpdate.h; sourceTree = "<group>"; };
+		BDA6CF2E185A4FE90080E74D /* DynamoDBUpdateGlobalSecondaryIndexAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamoDBUpdateGlobalSecondaryIndexAction.h; path = DynamoDB/DynamoDBUpdateGlobalSecondaryIndexAction.h; sourceTree = "<group>"; };
+		BDA6CF36185A4FFC0080E74D /* DynamoDBCapacity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamoDBCapacity.m; sourceTree = "<group>"; };
+		BDA6CF37185A4FFC0080E74D /* DynamoDBCapacityUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamoDBCapacityUnmarshaller.m; sourceTree = "<group>"; };
+		BDA6CF38185A4FFC0080E74D /* DynamoDBGlobalSecondaryIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamoDBGlobalSecondaryIndex.m; sourceTree = "<group>"; };
+		BDA6CF39185A4FFC0080E74D /* DynamoDBGlobalSecondaryIndexDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamoDBGlobalSecondaryIndexDescription.m; sourceTree = "<group>"; };
+		BDA6CF3A185A4FFC0080E74D /* DynamoDBGlobalSecondaryIndexDescriptionUnmarshaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamoDBGlobalSecondaryIndexDescriptionUnmarshaller.m; sourceTree = "<group>"; };
+		BDA6CF3B185A4FFC0080E74D /* DynamoDBGlobalSecondaryIndexUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamoDBGlobalSecondaryIndexUpdate.m; sourceTree = "<group>"; };
+		BDA6CF3C185A4FFC0080E74D /* DynamoDBUpdateGlobalSecondaryIndexAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamoDBUpdateGlobalSecondaryIndexAction.m; sourceTree = "<group>"; };
 		CE2CDBF717036AD00013DE5F /* AWSDynamoDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSDynamoDB.h; path = DynamoDB/AWSDynamoDB.h; sourceTree = "<group>"; };
 		CE3767811810ADF0005FF936 /* DynamoDBExceptionUnmarshaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamoDBExceptionUnmarshaller.h; path = DynamoDB/DynamoDBExceptionUnmarshaller.h; sourceTree = "<group>"; };
 		CE8EF69216F945DF007BF85E /* DynamoDBAttributeDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamoDBAttributeDefinition.m; sourceTree = "<group>"; };
@@ -469,6 +497,13 @@
 			isa = PBXGroup;
 			children = (
 				38078DA215262164006F384C /* AmazonDynamoDBClient.h */,
+				BDA6CF28185A4FE90080E74D /* DynamoDBCapacity.h */,
+				BDA6CF29185A4FE90080E74D /* DynamoDBCapacityUnmarshaller.h */,
+				BDA6CF2A185A4FE90080E74D /* DynamoDBGlobalSecondaryIndex.h */,
+				BDA6CF2B185A4FE90080E74D /* DynamoDBGlobalSecondaryIndexDescription.h */,
+				BDA6CF2C185A4FE90080E74D /* DynamoDBGlobalSecondaryIndexDescriptionUnmarshaller.h */,
+				BDA6CF2D185A4FE90080E74D /* DynamoDBGlobalSecondaryIndexUpdate.h */,
+				BDA6CF2E185A4FE90080E74D /* DynamoDBUpdateGlobalSecondaryIndexAction.h */,
 				CE2CDBF717036AD00013DE5F /* AWSDynamoDB.h */,
 				CE8EF69A16F9463E007BF85E /* DynamoDBAttributeDefinition.h */,
 				CE8EF69B16F9463E007BF85E /* DynamoDBAttributeDefinitionUnmarshaller.h */,
@@ -596,6 +631,13 @@
 			isa = PBXGroup;
 			children = (
 				CE8EF69216F945DF007BF85E /* DynamoDBAttributeDefinition.m */,
+				BDA6CF36185A4FFC0080E74D /* DynamoDBCapacity.m */,
+				BDA6CF37185A4FFC0080E74D /* DynamoDBCapacityUnmarshaller.m */,
+				BDA6CF38185A4FFC0080E74D /* DynamoDBGlobalSecondaryIndex.m */,
+				BDA6CF39185A4FFC0080E74D /* DynamoDBGlobalSecondaryIndexDescription.m */,
+				BDA6CF3A185A4FFC0080E74D /* DynamoDBGlobalSecondaryIndexDescriptionUnmarshaller.m */,
+				BDA6CF3B185A4FFC0080E74D /* DynamoDBGlobalSecondaryIndexUpdate.m */,
+				BDA6CF3C185A4FFC0080E74D /* DynamoDBUpdateGlobalSecondaryIndexAction.m */,
 				CE8EF69316F945DF007BF85E /* DynamoDBAttributeDefinitionUnmarshaller.m */,
 				38078E621526217F006F384C /* DynamoDBAttributeValue.m */,
 				38078E631526217F006F384C /* DynamoDBAttributeValueUnmarshaller.m */,
@@ -728,6 +770,7 @@
 				38078E1E15262164006F384C /* DynamoDBDescribeTableRequest.h in Headers */,
 				38078E1F15262164006F384C /* DynamoDBDescribeTableRequestMarshaller.h in Headers */,
 				38078E2015262164006F384C /* DynamoDBDescribeTableResponse.h in Headers */,
+				BDA6CF35185A4FE90080E74D /* DynamoDBUpdateGlobalSecondaryIndexAction.h in Headers */,
 				38078E2115262164006F384C /* DynamoDBDescribeTableResponseUnmarshaller.h in Headers */,
 				38078E2315262164006F384C /* DynamoDBExpectedAttributeValue.h in Headers */,
 				38078E2415262164006F384C /* DynamoDBGetItemRequest.h in Headers */,
@@ -735,6 +778,7 @@
 				38078E2615262164006F384C /* DynamoDBGetItemResponse.h in Headers */,
 				38078E2715262164006F384C /* DynamoDBGetItemResponseUnmarshaller.h in Headers */,
 				38078E2815262164006F384C /* DynamoDBInternalServerErrorException.h in Headers */,
+				BDA6CF34185A4FE90080E74D /* DynamoDBGlobalSecondaryIndexUpdate.h in Headers */,
 				38078E2A15262164006F384C /* DynamoDBKeysAndAttributes.h in Headers */,
 				38078E2B15262164006F384C /* DynamoDBKeysAndAttributesUnmarshaller.h in Headers */,
 				38078E2D15262164006F384C /* DynamoDBKeySchemaElement.h in Headers */,
@@ -753,13 +797,17 @@
 				38078E3C15262164006F384C /* DynamoDBPutItemResponse.h in Headers */,
 				38078E3D15262164006F384C /* DynamoDBPutItemResponseUnmarshaller.h in Headers */,
 				38078E3E15262164006F384C /* DynamoDBPutRequest.h in Headers */,
+				BDA6CF30185A4FE90080E74D /* DynamoDBCapacityUnmarshaller.h in Headers */,
+				BDA6CF32185A4FE90080E74D /* DynamoDBGlobalSecondaryIndexDescription.h in Headers */,
 				38078E3F15262164006F384C /* DynamoDBPutRequestUnmarshaller.h in Headers */,
 				38078E4015262164006F384C /* DynamoDBQueryRequest.h in Headers */,
 				38078E4115262164006F384C /* DynamoDBQueryRequestMarshaller.h in Headers */,
 				38078E4215262164006F384C /* DynamoDBQueryResponse.h in Headers */,
 				38078E4315262164006F384C /* DynamoDBQueryResponseUnmarshaller.h in Headers */,
+				BDA6CF31185A4FE90080E74D /* DynamoDBGlobalSecondaryIndex.h in Headers */,
 				38078E4415262164006F384C /* DynamoDBRequest.h in Headers */,
 				38078E4515262164006F384C /* DynamoDBResourceInUseException.h in Headers */,
+				BDA6CF2F185A4FE90080E74D /* DynamoDBCapacity.h in Headers */,
 				38078E4615262164006F384C /* DynamoDBResourceNotFoundException.h in Headers */,
 				38078E4715262164006F384C /* DynamoDBResponse.h in Headers */,
 				38078E4815262164006F384C /* DynamoDBResponseUnmarshaller.h in Headers */,
@@ -774,6 +822,7 @@
 				38078E5115262164006F384C /* DynamoDBUpdateItemResponse.h in Headers */,
 				38078E5215262164006F384C /* DynamoDBUpdateItemResponseUnmarshaller.h in Headers */,
 				38078E5315262164006F384C /* DynamoDBUpdateTableRequest.h in Headers */,
+				BDA6CF33185A4FE90080E74D /* DynamoDBGlobalSecondaryIndexDescriptionUnmarshaller.h in Headers */,
 				38078E5415262164006F384C /* DynamoDBUpdateTableRequestMarshaller.h in Headers */,
 				38078E5515262164006F384C /* DynamoDBUpdateTableResponse.h in Headers */,
 				38078E5615262164006F384C /* DynamoDBUpdateTableResponseUnmarshaller.h in Headers */,
@@ -881,6 +930,7 @@
 				38078EC71526217F006F384C /* DynamoDBBatchWriteItemRequest.m in Sources */,
 				38078EC81526217F006F384C /* DynamoDBBatchWriteItemRequestMarshaller.m in Sources */,
 				38078EC91526217F006F384C /* DynamoDBBatchWriteItemResponse.m in Sources */,
+				BDA6CF42185A4FFC0080E74D /* DynamoDBGlobalSecondaryIndexUpdate.m in Sources */,
 				38078ECA1526217F006F384C /* DynamoDBBatchWriteItemResponseUnmarshaller.m in Sources */,
 				38078ECD1526217F006F384C /* DynamoDBCondition.m in Sources */,
 				38078ECE1526217F006F384C /* DynamoDBConditionalCheckFailedException.m in Sources */,
@@ -891,6 +941,7 @@
 				38078ED31526217F006F384C /* DynamoDBDeleteItemRequest.m in Sources */,
 				38078ED41526217F006F384C /* DynamoDBDeleteItemRequestMarshaller.m in Sources */,
 				38078ED51526217F006F384C /* DynamoDBDeleteItemResponse.m in Sources */,
+				BDA6CF3E185A4FFC0080E74D /* DynamoDBCapacityUnmarshaller.m in Sources */,
 				38078ED61526217F006F384C /* DynamoDBDeleteItemResponseUnmarshaller.m in Sources */,
 				38078ED71526217F006F384C /* DynamoDBDeleteRequest.m in Sources */,
 				38078ED81526217F006F384C /* DynamoDBDeleteRequestUnmarshaller.m in Sources */,
@@ -907,6 +958,7 @@
 				38078EE31526217F006F384C /* DynamoDBGetItemRequestMarshaller.m in Sources */,
 				38078EE41526217F006F384C /* DynamoDBGetItemResponse.m in Sources */,
 				38078EE51526217F006F384C /* DynamoDBGetItemResponseUnmarshaller.m in Sources */,
+				BDA6CF43185A4FFC0080E74D /* DynamoDBUpdateGlobalSecondaryIndexAction.m in Sources */,
 				38078EE61526217F006F384C /* DynamoDBInternalServerErrorException.m in Sources */,
 				38078EE81526217F006F384C /* DynamoDBKeysAndAttributes.m in Sources */,
 				38078EE91526217F006F384C /* DynamoDBKeysAndAttributesUnmarshaller.m in Sources */,
@@ -923,6 +975,7 @@
 				38078EF71526217F006F384C /* DynamoDBProvisionedThroughputExceededException.m in Sources */,
 				38078EF81526217F006F384C /* DynamoDBPutItemRequest.m in Sources */,
 				38078EF91526217F006F384C /* DynamoDBPutItemRequestMarshaller.m in Sources */,
+				BDA6CF41185A4FFC0080E74D /* DynamoDBGlobalSecondaryIndexDescriptionUnmarshaller.m in Sources */,
 				38078EFA1526217F006F384C /* DynamoDBPutItemResponse.m in Sources */,
 				38078EFB1526217F006F384C /* DynamoDBPutItemResponseUnmarshaller.m in Sources */,
 				38078EFC1526217F006F384C /* DynamoDBPutRequest.m in Sources */,
@@ -936,15 +989,18 @@
 				38078F041526217F006F384C /* DynamoDBScanRequest.m in Sources */,
 				38078F051526217F006F384C /* DynamoDBScanRequestMarshaller.m in Sources */,
 				38078F061526217F006F384C /* DynamoDBScanResponse.m in Sources */,
+				BDA6CF40185A4FFC0080E74D /* DynamoDBGlobalSecondaryIndexDescription.m in Sources */,
 				38078F071526217F006F384C /* DynamoDBScanResponseUnmarshaller.m in Sources */,
 				38078F081526217F006F384C /* DynamoDBTableDescription.m in Sources */,
 				38078F091526217F006F384C /* DynamoDBTableDescriptionUnmarshaller.m in Sources */,
 				38078F0A1526217F006F384C /* DynamoDBUpdateItemRequest.m in Sources */,
 				38078F0B1526217F006F384C /* DynamoDBUpdateItemRequestMarshaller.m in Sources */,
 				38078F0C1526217F006F384C /* DynamoDBUpdateItemResponse.m in Sources */,
+				BDA6CF3F185A4FFC0080E74D /* DynamoDBGlobalSecondaryIndex.m in Sources */,
 				38078F0D1526217F006F384C /* DynamoDBUpdateItemResponseUnmarshaller.m in Sources */,
 				38078F0E1526217F006F384C /* DynamoDBUpdateTableRequest.m in Sources */,
 				38078F0F1526217F006F384C /* DynamoDBUpdateTableRequestMarshaller.m in Sources */,
+				BDA6CF3D185A4FFC0080E74D /* DynamoDBCapacity.m in Sources */,
 				38078F101526217F006F384C /* DynamoDBUpdateTableResponse.m in Sources */,
 				38078F111526217F006F384C /* DynamoDBUpdateTableResponseUnmarshaller.m in Sources */,
 				38078F121526217F006F384C /* DynamoDBWriteRequest.m in Sources */,

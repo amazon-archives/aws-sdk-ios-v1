@@ -44,7 +44,7 @@
 -(id)init;
 
 /**
- * A list of subnet IDs added for the LoadBalancer.
+ * A list of subnet IDs attached to the load balancer.
  */
 @property (nonatomic, retain) NSMutableArray *subnets;
 

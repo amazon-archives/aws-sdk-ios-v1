@@ -42,7 +42,7 @@
 -(id)init;
 
 /**
- * A list of updated Availability Zones for the LoadBalancer.
+ * A list of updated Availability Zones for the load balancer.
  */
 @property (nonatomic, retain) NSMutableArray *availabilityZones;
 

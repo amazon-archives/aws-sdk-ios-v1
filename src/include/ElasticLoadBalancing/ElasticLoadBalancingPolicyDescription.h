@@ -39,12 +39,12 @@
 -(id)init;
 
 /**
- * The name mof the policy associated with the LoadBalancer.
+ * The name of the policy associated with the load balancer.
  */
 @property (nonatomic, retain) NSString *policyName;
 
 /**
- * The name of the policy type associated with the LoadBalancer.
+ * The name of the policy type associated with the load balancer.
  */
 @property (nonatomic, retain) NSString *policyTypeName;
 

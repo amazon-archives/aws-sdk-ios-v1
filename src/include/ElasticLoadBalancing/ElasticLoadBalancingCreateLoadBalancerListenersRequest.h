@@ -37,8 +37,7 @@
 
 
 /**
- * The name of the new LoadBalancer. The name must be unique within your
- * AWS account.
+ * The name of the load balancer.
  */
 @property (nonatomic, retain) NSString *loadBalancerName;
 
@@ -59,8 +58,7 @@
  * Constructs a new CreateLoadBalancerListenersRequest object.
  * Callers should use properties to initialize any additional object members.
  *
- * @param theLoadBalancerName The name of the new LoadBalancer. The name
- * must be unique within your AWS account.
+ * @param theLoadBalancerName The name of the load balancer.
  * @param theListeners A list of <code>LoadBalancerPort</code>,
  * <code>InstancePort</code>, <code>Protocol</code>, and
  * <code>SSLCertificateId</code> items.

@@ -31,7 +31,7 @@
 
 /**
  * The name for the policy being created. The name must be unique within
- * the set of policies for this LoadBalancer.
+ * the set of policies for this load balancer.
  */
 @property (nonatomic, retain) NSString *policyName;
 
@@ -54,7 +54,7 @@
  * Callers should use properties to initialize any additional object members.
  *
  * @param thePolicyName The name for the policy being created. The name
- * must be unique within the set of policies for this LoadBalancer.
+ * must be unique within the set of policies for this load balancer.
  * @param theCookieExpirationPeriod The time period in seconds after
  * which the cookie should be considered stale. Not specifying this
  * parameter indicates that the stickiness session will last for the

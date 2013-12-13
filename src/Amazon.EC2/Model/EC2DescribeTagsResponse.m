@@ -19,12 +19,14 @@
 @implementation EC2DescribeTagsResponse
 
 @synthesize tags;
+@synthesize nextToken;
 
 
 -(id)init
 {
     if (self = [super init]) {
-        tags = [[NSMutableArray alloc] initWithCapacity:1];
+        tags      = [[NSMutableArray alloc] initWithCapacity:1];
+        nextToken = nil;
     }
 
     return self;
@@ -60,6 +62,7 @@
 
     [buffer appendString:@"{"];
     [buffer appendString:[[[NSString alloc] initWithFormat:@"Tags: %@,", tags] autorelease]];
+    [buffer appendString:[[[NSString alloc] initWithFormat:@"NextToken: %@,", nextToken] autorelease]];
     [buffer appendString:[super description]];
     [buffer appendString:@"}"];
 
@@ -71,6 +74,7 @@
 -(void)dealloc
 {
     [tags release];
+    [nextToken release];
 
     [super dealloc];
 }
