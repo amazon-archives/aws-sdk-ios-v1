@@ -50,10 +50,7 @@
 /**
  * The AWS account IDs of the users (principals) who will be given access
  * to the specified actions. The users must have AWS accounts, but do not
- * need to be signed up for this service. <!--For information about
- * locating the AWS account identification, see <a
- * eService/latest/SQSDeveloperGuide/index.html?AWSCredentials.html">Your
- * AWS Identifiers</aulink> in the &service; Developer Guide.-->
+ * need to be signed up for this service.
  */
 @property (nonatomic, retain) NSMutableArray *aWSAccountIds;
 
@@ -80,10 +77,6 @@
  * @param theAWSAccountIds The AWS account IDs of the users (principals)
  * who will be given access to the specified actions. The users must have
  * AWS accounts, but do not need to be signed up for this service.
- * <!--For information about locating the AWS account identification, see
- * <a
- * eService/latest/SQSDeveloperGuide/index.html?AWSCredentials.html">Your
- * AWS Identifiers</aulink> in the &service; Developer Guide.-->
  * @param theActionNames The action you want to allow for the specified
  * principal(s). <p>Valid values: any Amazon SNS action name.
  */

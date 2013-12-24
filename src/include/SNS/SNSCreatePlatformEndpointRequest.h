@@ -45,7 +45,8 @@
 -(id)init;
 
 /**
- *
+ * PlatformApplicationArn returned from CreatePlatformApplication is used
+ * to create a an endpoint.
  */
 @property (nonatomic, retain) NSString *platformApplicationArn;
 

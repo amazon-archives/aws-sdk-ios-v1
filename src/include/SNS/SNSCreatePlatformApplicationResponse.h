@@ -43,7 +43,7 @@
 -(id)init;
 
 /**
- *
+ * PlatformApplicationArn is returned.
  */
 @property (nonatomic, retain) NSString *platformApplicationArn;
 

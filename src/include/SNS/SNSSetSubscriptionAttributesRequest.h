@@ -44,7 +44,7 @@
 /**
  * The name of the attribute you want to set. Only a subset of the
  * subscriptions attributes are mutable. <p>Valid values:
- * <code>DeliveryPolicy</code>
+ * <code>DeliveryPolicy</code> | <code>RawMessageDelivery</code>
  */
 @property (nonatomic, retain) NSString *attributeName;
 
@@ -67,7 +67,7 @@
  * @param theSubscriptionArn The ARN of the subscription to modify.
  * @param theAttributeName The name of the attribute you want to set.
  * Only a subset of the subscriptions attributes are mutable. <p>Valid
- * values: <code>DeliveryPolicy</code>
+ * values: <code>DeliveryPolicy</code> | <code>RawMessageDelivery</code>
  * @param theAttributeValue The new value for the attribute in JSON
  * format.
  */

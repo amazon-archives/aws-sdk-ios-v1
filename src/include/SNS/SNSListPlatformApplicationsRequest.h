@@ -42,7 +42,9 @@
 -(id)init;
 
 /**
- *
+ * NextToken string is used when calling ListPlatformApplications action
+ * to retrieve additional records that are available after the first page
+ * results.
  */
 @property (nonatomic, retain) NSString *nextToken;
 

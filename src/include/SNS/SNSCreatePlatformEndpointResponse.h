@@ -44,7 +44,7 @@
 -(id)init;
 
 /**
- *
+ * EndpointArn returned from CreateEndpoint action.
  */
 @property (nonatomic, retain) NSString *endpointArn;
 

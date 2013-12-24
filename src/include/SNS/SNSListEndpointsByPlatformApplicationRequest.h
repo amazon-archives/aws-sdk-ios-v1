@@ -43,12 +43,15 @@
 -(id)init;
 
 /**
- *
+ * PlatformApplicationArn for ListEndpointsByPlatformApplicationInput
+ * action.
  */
 @property (nonatomic, retain) NSString *platformApplicationArn;
 
 /**
- *
+ * NextToken string is used when calling
+ * ListEndpointsByPlatformApplication action to retrieve additional
+ * records that are available after the first page results.
  */
 @property (nonatomic, retain) NSString *nextToken;
 

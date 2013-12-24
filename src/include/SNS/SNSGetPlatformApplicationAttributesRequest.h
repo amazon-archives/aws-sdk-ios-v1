@@ -42,7 +42,7 @@
 -(id)init;
 
 /**
- *
+ * PlatformApplicationArn for GetPlatformApplicationAttributesInput.
  */
 @property (nonatomic, retain) NSString *platformApplicationArn;
 

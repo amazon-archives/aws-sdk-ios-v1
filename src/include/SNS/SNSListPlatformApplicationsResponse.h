@@ -45,12 +45,15 @@
 -(id)init;
 
 /**
- *
+ * Platform applications returned when calling ListPlatformApplications
+ * action.
  */
 @property (nonatomic, retain) NSMutableArray *platformApplications;
 
 /**
- *
+ * NextToken string is returned when calling ListPlatformApplications
+ * action if additional records are available after the first page
+ * results.
  */
 @property (nonatomic, retain) NSString *nextToken;
 

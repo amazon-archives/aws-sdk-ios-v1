@@ -42,7 +42,7 @@
 -(id)init;
 
 /**
- *
+ * PlatformApplicationArn of platform application object to delete.
  */
 @property (nonatomic, retain) NSString *platformApplicationArn;
 

@@ -44,28 +44,17 @@
 -(id)init;
 
 /**
- * Attributes include the following: <ul> <!-- AllowEndpointPolicies,
- * EventDeliveryAttemptFailure, and Policy are not yet supported. Will
- * remove comments once it is available --> <!--
- * <li><code>AllowEndpointPolicies</code> true or false (default false) -
- * If true, then policies on endpoints will be evaluated to determine if
- * the topic or user has the rights to send messages to it. If false, the
- * endpoint policy will be ignored and only the mobile app policy will be
- * considered.</li> --> <li><code>EventEndpointCreated</code> -- Topic
- * ARN to which EndpointCreated event notifications should be sent.</li>
+ * Attributes include the following: <ul>
+ * <li><code>EventEndpointCreated</code> -- Topic ARN to which
+ * EndpointCreated event notifications should be sent.</li>
  * <li><code>EventEndpointDeleted</code> -- Topic ARN to which
  * EndpointDeleted event notifications should be sent.</li>
  * <li><code>EventEndpointUpdated</code> -- Topic ARN to which
- * EndpointUpdate event notifications should be sent.</li> <!--
- * <li><code>EventDeliveryAttemptFailure</code> Topic ARN to which
- * DeliveryAttemptFailure event notifications should be sent upon Direct
- * Publish delivery attempt failures to one of the application's
- * endpoints.</li> --> <li><code>EventDeliveryFailure</code> -- Topic ARN
- * to which DeliveryFailure event notifications should be sent upon
- * Direct Publish delivery failure (permanent) to one of the
- * application's endpoints.</li> <!-- <li><code>Policy</code> Access
- * policy controlling who can send messages to endpoints under this
- * mobile app.</li> --> </ul>
+ * EndpointUpdate event notifications should be sent.</li>
+ * <li><code>EventDeliveryFailure</code> -- Topic ARN to which
+ * DeliveryFailure event notifications should be sent upon Direct Publish
+ * delivery failure (permanent) to one of the application's
+ * endpoints.</li> </ul>
  */
 @property (nonatomic, retain) NSMutableDictionary *attributes;
 

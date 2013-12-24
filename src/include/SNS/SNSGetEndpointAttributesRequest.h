@@ -42,7 +42,7 @@
 -(id)init;
 
 /**
- *
+ * EndpointArn for GetEndpointAttributes input.
  */
 @property (nonatomic, retain) NSString *endpointArn;
 

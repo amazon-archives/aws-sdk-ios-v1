@@ -46,12 +46,14 @@
 -(id)init;
 
 /**
- *
+ * Endpoints returned for ListEndpointsByPlatformApplication action.
  */
 @property (nonatomic, retain) NSMutableArray *endpoints;
 
 /**
- *
+ * NextToken string is returned when calling
+ * ListEndpointsByPlatformApplication action if additional records are
+ * available after the first page results.
  */
 @property (nonatomic, retain) NSString *nextToken;
 

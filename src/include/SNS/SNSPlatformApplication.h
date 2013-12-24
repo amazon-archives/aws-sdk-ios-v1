@@ -37,12 +37,12 @@
 -(id)init;
 
 /**
- *
+ * PlatformApplicationArn for platform application object.
  */
 @property (nonatomic, retain) NSString *platformApplicationArn;
 
 /**
- *
+ * Attributes for platform application object.
  */
 @property (nonatomic, retain) NSMutableDictionary *attributes;
 

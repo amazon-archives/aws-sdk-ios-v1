@@ -37,12 +37,12 @@
 -(id)init;
 
 /**
- *
+ * EndpointArn for mobile app and device.
  */
 @property (nonatomic, retain) NSString *endpointArn;
 
 /**
- *
+ * Attributes for endpoint.
  */
 @property (nonatomic, retain) NSMutableDictionary *attributes;
 

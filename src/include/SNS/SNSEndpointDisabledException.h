@@ -23,7 +23,9 @@
 
 
 /**
- *
+ * <p>
+ * Exception error indicating endpoint disabled.
+ * </p>
  */
 @interface SNSEndpointDisabledException:AmazonServiceException
 {

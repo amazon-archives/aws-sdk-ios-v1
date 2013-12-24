@@ -23,7 +23,9 @@
 
 
 /**
- *
+ * <p>
+ * Exception error indicating platform application disabled.
+ * </p>
  */
 @interface SNSPlatformApplicationDisabledException:AmazonServiceException
 {

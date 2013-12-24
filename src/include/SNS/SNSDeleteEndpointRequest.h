@@ -42,7 +42,7 @@
 -(id)init;
 
 /**
- *
+ * EndpointArn of endpoint to delete.
  */
 @property (nonatomic, retain) NSString *endpointArn;
 
