@@ -169,28 +169,9 @@
         AmazonClientException *clientException = (AmazonClientException *)exceptionHolder;
 
         // Handling NSURL errors.
-        if(clientException.error != nil)
+        if([clientException.error.domain isEqualToString:NSURLErrorDomain])
         {
-            if([clientException.error.domain isEqualToString:NSURLErrorDomain]
-               && clientException.error.code == NSURLErrorNetworkConnectionLost)
-            {
-                // The network connection was lost.
-                return YES;
-            }
-
-            if([clientException.error.domain isEqualToString:NSURLErrorDomain]
-               && clientException.error.code == NSURLErrorTimedOut)
-            {
-                // The request timed out.
-                return YES;
-            }
-
-            if([clientException.error.domain isEqualToString:NSURLErrorDomain]
-               && clientException.error.code == NSURLErrorCannotFindHost)
-            {
-                // S3 sometimes returns this error even when the bucket exists.
-                return YES;
-            }
+            return YES;
         }
         // Handling AWS client exceptions.
         else
